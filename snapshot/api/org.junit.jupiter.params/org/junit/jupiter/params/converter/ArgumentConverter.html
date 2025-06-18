@@ -94,8 +94,12 @@ loadScripts(document, 'script');</script>
 
  <p>Such an <code>ArgumentConverter</code> is applied to the method parameter
  of a <a href="../ParameterizedTest.html" title="annotation interface in org.junit.jupiter.params"><code>@ParameterizedTest</code></a>
- method with the help of a
- <a href="ConvertWith.html" title="annotation interface in org.junit.jupiter.params.converter"><code>@ConvertWith</code></a> annotation.
+ or a constructor parameter or
+ <a href="../Parameter.html" title="annotation interface in org.junit.jupiter.params"><code>@Parameter</code></a>-annotated field of a
+ <a href="../ParameterizedClass.html" title="annotation interface in org.junit.jupiter.params"><code>@ParameterizedClass</code></a> with
+ the help of a
+ <a href="ConvertWith.html" title="annotation interface in org.junit.jupiter.params.converter"><code>@ConvertWith</code></a>
+ annotation.
 
  <p>Implementations must provide a no-args constructor or a single unambiguous
  constructor to use <a href="../../../../../../org.junit.jupiter.api/org/junit/jupiter/api/extension/ParameterResolver.html" title="interface in org.junit.jupiter.api.extension">parameter resolution</a>. They
