@@ -761,12 +761,12 @@ the overall parsing behavior remains consistent, this may affect custom error ha
 that relies on specific exception types or messages.</p>
 </li>
 <li>
-<p>The <code>CsvFileSource.lineSeparator()</code> parameter has been removed. The line separator is
-now automatically detected, meaning that any of <code>\r</code>, <code>\n</code>, or <code>\r\n</code> is treated as a
+<p>The <code>lineSeparator</code> attribute in <code>@CsvFileSource</code> has been removed. The line separator
+is now automatically detected, meaning that any of <code>\r</code>, <code>\n</code>, or <code>\r\n</code> is treated as a
 line separator.</p>
 </li>
 <li>
-<p>Parameters such as <code>ignoreLeadingAndTrailingWhitespace()</code>, <code>nullValues()</code>, and others in
+<p>Attributes such as <code>ignoreLeadingAndTrailingWhitespace</code>, <code>nullValues</code>, and others in
 <code>@CsvSource</code> and <code>@CsvFileSource</code> now apply to header fields as well as to regular
 fields.</p>
 </li>
@@ -806,11 +806,11 @@ nullable and non-nullable types:</p>
 <code>@FunctionalInterface</code>.</p>
 </li>
 <li>
-<p>The implementation of <code>@CsvSource</code> and <code>@CsvFileSource</code> was migrated from the no longer
-maintained <a href="https://github.com/uniVocity/univocity-parsers">univocity-parsers</a> to
-<a href="https://fastcsv.org/">FastCSV</a>.
-This improves the consistency of CSV input handling, including for malformed entries,
-and provides better error reporting and overall performance.</p>
+<p>The implementation of <code>@CsvSource</code> and <code>@CsvFileSource</code> has been migrated from the no
+longer maintained <a href="https://github.com/uniVocity/univocity-parsers">univocity-parsers</a> to
+<a href="https://fastcsv.org/">FastCSV</a>. This improves the consistency of CSV input handling,
+including for malformed entries, and provides better error reporting and overall
+performance.</p>
 </li>
 </ul>
 </div>
