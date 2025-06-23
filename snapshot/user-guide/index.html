@@ -1137,8 +1137,8 @@ corresponding sections of this User Guide, organized by topic.</p>
 <h4 id="overview-getting-started-example-projects"><a class="anchor" href="#overview-getting-started-example-projects"></a>1.4.3. Example Projects</h4>
 <div class="paragraph">
 <p>To see complete, working examples of projects that you can copy and experiment with, the
-<a href="https://github.com/junit-team/junit5-samples"><code>junit5-samples</code></a> repository is a good place to start. The
-<code>junit5-samples</code> repository hosts a collection of sample projects based on JUnit Jupiter,
+<a href="https://github.com/junit-team/junit-examples"><code>junit-examples</code></a> repository is a good place to start. The
+<code>junit-examples</code> repository hosts a collection of example projects based on JUnit Jupiter,
 JUnit Vintage, and other testing frameworks. You&#8217;ll find appropriate build scripts (e.g.,
 <code>build.gradle</code>, <code>pom.xml</code>, etc.) in the example projects. The links below highlight some
 of the combinations you can choose from.</p>
@@ -1146,19 +1146,19 @@ of the combinations you can choose from.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>For Gradle and Java, check out the <code><a href="https://github.com/junit-team/junit5-samples/tree/HEAD/junit5-jupiter-starter-gradle">junit5-jupiter-starter-gradle</a></code> project.</p>
+<p>For Gradle and Java, check out the <code><a href="https://github.com/junit-team/junit-examples/tree/HEAD/junit-jupiter-starter-gradle">junit-jupiter-starter-gradle</a></code> project.</p>
 </li>
 <li>
-<p>For Gradle and Kotlin, check out the <code><a href="https://github.com/junit-team/junit5-samples/tree/HEAD/junit5-jupiter-starter-gradle-kotlin">junit5-jupiter-starter-gradle-kotlin</a></code> project.</p>
+<p>For Gradle and Kotlin, check out the <code><a href="https://github.com/junit-team/junit-examples/tree/HEAD/junit-jupiter-starter-gradle-kotlin">junit-jupiter-starter-gradle-kotlin</a></code> project.</p>
 </li>
 <li>
-<p>For Gradle and Groovy, check out the <code><a href="https://github.com/junit-team/junit5-samples/tree/HEAD/junit5-jupiter-starter-gradle-groovy">junit5-jupiter-starter-gradle-groovy</a></code> project.</p>
+<p>For Gradle and Groovy, check out the <code><a href="https://github.com/junit-team/junit-examples/tree/HEAD/junit-jupiter-starter-gradle-groovy">junit-jupiter-starter-gradle-groovy</a></code> project.</p>
 </li>
 <li>
-<p>For Maven, check out the <code><a href="https://github.com/junit-team/junit5-samples/tree/HEAD/junit5-jupiter-starter-maven">junit5-jupiter-starter-maven</a></code> project.</p>
+<p>For Maven, check out the <code><a href="https://github.com/junit-team/junit-examples/tree/HEAD/junit-jupiter-starter-maven">junit-jupiter-starter-maven</a></code> project.</p>
 </li>
 <li>
-<p>For Ant, check out the <code><a href="https://github.com/junit-team/junit5-samples/tree/HEAD/junit5-jupiter-starter-ant">junit5-jupiter-starter-ant</a></code> project.</p>
+<p>For Ant, check out the <code><a href="https://github.com/junit-team/junit-examples/tree/HEAD/junit-jupiter-starter-ant">junit-jupiter-starter-ant</a></code> project.</p>
 </li>
 </ul>
 </div>
@@ -4058,7 +4058,7 @@ Other parameter resolvers must be explicitly enabled by registering appropriate
 </table>
 </div>
 <div class="paragraph">
-<p>Check out the <code><a href="https://github.com/junit-team/junit5-samples/tree/HEAD/junit5-jupiter-extensions/src/main/java/com/example/random/RandomParametersExtension.java">RandomParametersExtension</a></code> for an example of a custom
+<p>Check out the <code><a href="https://github.com/junit-team/junit-examples/tree/HEAD/junit-jupiter-extensions/src/main/java/com/example/random/RandomParametersExtension.java">RandomParametersExtension</a></code> for an example of a custom
 <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/ParameterResolver.html">ParameterResolver</a></code>. While not intended to be production-ready, it demonstrates the
 simplicity and expressiveness of both the extension model and the parameter resolution
 process. <code>MyRandomParametersTest</code> demonstrates how to inject random values into <code>@Test</code>
@@ -8588,7 +8588,7 @@ case JUnit 3 and JUnit 4 tests will automatically be picked up by the JUnit Plat
 launcher.</p>
 </div>
 <div class="paragraph">
-<p>See the example projects in the <a href="https://github.com/junit-team/junit5-samples"><code>junit5-samples</code></a> repository to
+<p>See the example projects in the <a href="https://github.com/junit-team/junit-examples"><code>junit-examples</code></a> repository to
 find out how this is done with Gradle and Maven.</p>
 </div>
 <div class="sect3">
@@ -9528,7 +9528,7 @@ dependency to the test runtime classpath.</p>
 <p>Maven Surefire and Maven Failsafe provide
 <a href="https://maven.apache.org/surefire/maven-surefire-plugin/examples/junit-platform.html">native support</a>
 for executing tests on the JUnit Platform. The <code>pom.xml</code> file in the
-<code><a href="https://github.com/junit-team/junit5-samples/tree/HEAD/junit5-jupiter-starter-maven">junit5-jupiter-starter-maven</a></code> project demonstrates how to use the Maven Surefire plugin
+<code>{junit5-jupiter-starter-maven}</code> project demonstrates how to use the Maven Surefire plugin
 and can serve as a starting point for configuring your Maven build.</p>
 </div>
 <div class="admonitionblock warning">
@@ -9813,7 +9813,7 @@ the task a consistent and natural feel when compared to many other core Ant task
 <a href="https://ant.apache.org/manual/Tasks/junitlauncher.html#fork">forking the tests in a separate JVM</a>.</p>
 </div>
 <div class="paragraph">
-<p>The <code>build.xml</code> file in the <code><a href="https://github.com/junit-team/junit5-samples/tree/HEAD/junit5-jupiter-starter-ant">junit5-jupiter-starter-ant</a></code> project demonstrates how to use
+<p>The <code>build.xml</code> file in the <code>{junit5-jupiter-starter-ant}</code> project demonstrates how to use
 the task and can serve as a starting point.</p>
 </div>
 <div class="sect4">
