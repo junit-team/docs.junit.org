@@ -247,7 +247,8 @@ loadScripts(document, 'script');</script>
  <p>Each value corresponds to a record in a CSV file and will be split using
  the specified <a href="#delimiter()"><code>delimiter()</code></a> or <a href="#delimiterString()"><code>delimiterString()</code></a>. Note that
  the first value may optionally be used to supply CSV headers (see
- <a href="#useHeadersInDisplayName()"><code>useHeadersInDisplayName()</code></a>).
+ <a href="#useHeadersInDisplayName()"><code>useHeadersInDisplayName()</code></a>). Moreover, each specified value must
+ not be blank.
 
  <p>If <em>text block</em> syntax is supported by your programming language,
  you may find it more convenient to declare your CSV content via the
