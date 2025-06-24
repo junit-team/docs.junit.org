@@ -916,6 +916,11 @@ repository on GitHub.</p>
 <p>Stop reporting discovery issues for <em>abstract</em> inner classes that contain test methods
 but are not annotated with <code>@Nested</code>.</p>
 </li>
+<li>
+<p>Stop reporting discovery issues for <em>abstract</em> test methods. While they won&#8217;t be
+executed, it&#8217;s a valid pattern to annotate them with <code>@Test</code> for documentation purposes
+and override them in subclasses while re-declaring the <code>@Test</code> annotation.</p>
+</li>
 </ul>
 </div>
 </div>
