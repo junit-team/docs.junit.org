@@ -13779,13 +13779,17 @@ JUnit Platform such as hierarchical test structures, display names, tags, etc.</
 </div>
 <div class="paragraph">
 <p>The listener is auto-registered and can be configured via the following
-<a href="#running-tests-config-params">configuration parameter</a>:</p>
+<a href="#running-tests-config-params">configuration parameters</a>:</p>
 </div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><code>junit.platform.reporting.open.xml.enabled=true|false</code></dt>
 <dd>
-<p>Enable/disable writing the report.</p>
+<p>Enable/disable writing the report; defaults to <code>false</code>.</p>
+</dd>
+<dt class="hdlist1"><code>junit.platform.reporting.open.xml.git.enabled=true|false</code></dt>
+<dd>
+<p>Enable/disable including information about the Git repository (see <a href="https://github.com/ota4j-team/open-test-reporting#git">Git extension schema</a> of open-test-reporting); defaults to <code>false</code>.</p>
 </dd>
 </dl>
 </div>
