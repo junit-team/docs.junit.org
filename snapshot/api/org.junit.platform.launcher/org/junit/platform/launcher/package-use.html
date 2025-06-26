@@ -64,19 +64,19 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Package</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><a href="#org.junit.platform.jfr">org.junit.platform.jfr</a></div>
+<div class="col-first even-row-color"><a href="#org.junit.platform.launcher">org.junit.platform.launcher</a></div>
 <div class="col-last even-row-color">
-<div class="block">Java Flight Recorder support package.</div>
-</div>
-<div class="col-first odd-row-color"><a href="#org.junit.platform.launcher">org.junit.platform.launcher</a></div>
-<div class="col-last odd-row-color">
 <div class="block">Public API for configuring and launching test plans.</div>
 </div>
-<div class="col-first even-row-color"><a href="#org.junit.platform.launcher.core">org.junit.platform.launcher.core</a></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><a href="#org.junit.platform.launcher.core">org.junit.platform.launcher.core</a></div>
+<div class="col-last odd-row-color">
 <div class="block">Core support classes for the <a href="Launcher.html" title="interface in org.junit.platform.launcher"><code>Launcher</code></a>
  including the <a href="core/LauncherFactory.html" title="class in org.junit.platform.launcher.core"><code>LauncherFactory</code></a>
  and the <a href="core/LauncherDiscoveryRequestBuilder.html" title="class in org.junit.platform.launcher.core"><code>LauncherDiscoveryRequestBuilder</code></a>.</div>
+</div>
+<div class="col-first even-row-color"><a href="#org.junit.platform.launcher.jfr">org.junit.platform.launcher.jfr</a></div>
+<div class="col-last even-row-color">
+<div class="block">Java Flight Recorder (JFR) support package.</div>
 </div>
 <div class="col-first odd-row-color"><a href="#org.junit.platform.launcher.listeners">org.junit.platform.launcher.listeners</a></div>
 <div class="col-last odd-row-color">
@@ -119,46 +119,6 @@ loadScripts(document, 'script');</script>
 </div>
 <section class="package-uses">
 <ul class="block-list">
-<li>
-<section class="detail" id="org.junit.platform.jfr">
-<div class="caption"><span>Classes in <a href="package-summary.html">org.junit.platform.launcher</a> used by <a href="../../../../../org.junit.platform.jfr/org/junit/platform/jfr/package-summary.html">org.junit.platform.jfr</a></span></div>
-<div class="summary-table two-column-summary">
-<div class="table-header col-first">Class</div>
-<div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><a href="class-use/EngineDiscoveryResult.html#org.junit.platform.jfr">EngineDiscoveryResult</a></div>
-<div class="col-last even-row-color">
-<div class="block"><code>EngineDiscoveryResult</code> encapsulates the result of test discovery by a
- <a href="../../../../../org.junit.platform.engine/org/junit/platform/engine/TestEngine.html" title="interface in org.junit.platform.engine"><code>TestEngine</code></a>.</div>
-</div>
-<div class="col-first odd-row-color"><a href="class-use/LauncherDiscoveryListener.html#org.junit.platform.jfr">LauncherDiscoveryListener</a></div>
-<div class="col-last odd-row-color">
-<div class="block">Register a concrete implementation of this interface with a
- <a href="core/LauncherDiscoveryRequestBuilder.html" title="class in org.junit.platform.launcher.core"><code>LauncherDiscoveryRequestBuilder</code></a> or
- <a href="Launcher.html" title="interface in org.junit.platform.launcher"><code>Launcher</code></a> to be notified of events that occur during test discovery.</div>
-</div>
-<div class="col-first even-row-color"><a href="class-use/LauncherDiscoveryRequest.html#org.junit.platform.jfr">LauncherDiscoveryRequest</a></div>
-<div class="col-last even-row-color">
-<div class="block"><code>LauncherDiscoveryRequest</code> extends the <a href="../../../../../org.junit.platform.engine/org/junit/platform/engine/EngineDiscoveryRequest.html" title="interface in org.junit.platform.engine"><code>EngineDiscoveryRequest</code></a> API
- with additional filters that are applied by the <a href="Launcher.html" title="interface in org.junit.platform.launcher"><code>Launcher</code></a> itself.</div>
-</div>
-<div class="col-first odd-row-color"><a href="class-use/TestExecutionListener.html#org.junit.platform.jfr">TestExecutionListener</a></div>
-<div class="col-last odd-row-color">
-<div class="block">Register a concrete implementation of this interface with a <a href="Launcher.html" title="interface in org.junit.platform.launcher"><code>Launcher</code></a>
- to be notified of events that occur during test execution.</div>
-</div>
-<div class="col-first even-row-color"><a href="class-use/TestIdentifier.html#org.junit.platform.jfr">TestIdentifier</a></div>
-<div class="col-last even-row-color">
-<div class="block">Immutable data transfer object that represents a test or container which is
- usually part of a <a href="TestPlan.html" title="class in org.junit.platform.launcher"><code>TestPlan</code></a>.</div>
-</div>
-<div class="col-first odd-row-color"><a href="class-use/TestPlan.html#org.junit.platform.jfr">TestPlan</a></div>
-<div class="col-last odd-row-color">
-<div class="block"><code>TestPlan</code> describes the tree of tests and containers as discovered
- by a <a href="Launcher.html" title="interface in org.junit.platform.launcher"><code>Launcher</code></a>.</div>
-</div>
-</div>
-</section>
-</li>
 <li>
 <section class="detail" id="org.junit.platform.launcher">
 <div class="caption"><span>Classes in <a href="package-summary.html">org.junit.platform.launcher</a> used by <a href="package-summary.html">org.junit.platform.launcher</a></span></div>
@@ -287,6 +247,21 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color">
 <div class="block">Register a concrete implementation of this interface with a <a href="Launcher.html" title="interface in org.junit.platform.launcher"><code>Launcher</code></a>
  to be notified of events that occur during test execution.</div>
+</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="org.junit.platform.launcher.jfr">
+<div class="caption"><span>Classes in <a href="package-summary.html">org.junit.platform.launcher</a> used by <a href="jfr/package-summary.html">org.junit.platform.launcher.jfr</a></span></div>
+<div class="summary-table two-column-summary">
+<div class="table-header col-first">Class</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><a href="class-use/Launcher.html#org.junit.platform.launcher.jfr">Launcher</a></div>
+<div class="col-last even-row-color">
+<div class="block">The <code>Launcher</code> API is the main entry point for client code that
+ wishes to <em>discover</em> and <em>execute</em> tests using one or more
+ <a href="../../../../../org.junit.platform.engine/org/junit/platform/engine/TestEngine.html" title="interface in org.junit.platform.engine">test engines</a>.</div>
 </div>
 </div>
 </section>

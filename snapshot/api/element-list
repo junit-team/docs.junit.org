@@ -50,11 +50,10 @@ org.junit.platform.engine.support.descriptor
 org.junit.platform.engine.support.discovery
 org.junit.platform.engine.support.hierarchical
 org.junit.platform.engine.support.store
-module:org.junit.platform.jfr
-org.junit.platform.jfr
 module:org.junit.platform.launcher
 org.junit.platform.launcher
 org.junit.platform.launcher.core
+org.junit.platform.launcher.jfr
 org.junit.platform.launcher.listeners
 org.junit.platform.launcher.listeners.discovery
 org.junit.platform.launcher.listeners.session

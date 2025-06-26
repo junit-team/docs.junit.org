@@ -11060,10 +11060,6 @@ to a problem.
 <p>Ensure that you are using either Java 8 Update 262 or higher or Java 11 or later.</p>
 </li>
 <li>
-<p>Provide the <code>org.junit.platform.jfr</code> module (<code>junit-platform-jfr-6.0.0-SNAPSHOT.jar</code>)
-on the class-path or module-path at test runtime.</p>
-</li>
-<li>
 <p>Start flight recording when launching a test run. Flight Recorder can be started via
 java command line option:</p>
 <div class="literalblock">
@@ -17252,12 +17248,6 @@ directory. See <a href="#running-tests-console-launcher">Console Launcher</a> fo
 <dt class="hdlist1"><code>junit-platform-engine</code></dt>
 <dd>
 <p>Public API for test engines. See <a href="#launcher-api-engines-custom">Registering a TestEngine</a> for details.</p>
-</dd>
-<dt class="hdlist1"><code>junit-platform-jfr</code></dt>
-<dd>
-<p>   Provides a <code>LauncherDiscoveryListener</code> and <code>TestExecutionListener</code> for Java Flight
-Recorder events on the JUnit Platform. See <a href="#running-tests-listeners-flight-recorder">Flight Recorder Support</a>
-for details.</p>
 </dd>
 <dt class="hdlist1"><code>junit-platform-launcher</code></dt>
 <dd>
