@@ -529,10 +529,38 @@ authors as well as build tool and IDE vendors.</p>
 <h2 id="release-notes-6.0.0-M1"><a class="anchor" href="#release-notes-6.0.0-M1"></a>6.0.0-M1</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>Date of Release:</strong> ❓</p>
+<p><strong>Date of Release:</strong> June 27, 2025</p>
 </div>
 <div class="paragraph">
-<p><strong>Scope:</strong> ❓</p>
+<p><strong>Scope:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Require Java 17 and Kotlin 2.2</p>
+</li>
+<li>
+<p>Single version number for Platform, Jupiter, and Vintage</p>
+</li>
+<li>
+<p>Use JSpecify&#8217;s annotations to document nullability</p>
+</li>
+<li>
+<p>Remove various deprecated behaviors and APIs</p>
+</li>
+<li>
+<p>Integrate JFR functionality into junit-platform-launcher</p>
+</li>
+<li>
+<p>Discontinue junit-platform-runner and junit-platform-jfr</p>
+</li>
+<li>
+<p>Switch to FastCSV library for <code>@Csv{File}Source</code></p>
+</li>
+<li>
+<p>Add support for using Kotlin <code>suspend</code> functions as test methods</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>For a complete list of all <em>closed</em> issues and pull requests for this release, consult the
@@ -541,16 +569,6 @@ repository on GitHub.</p>
 </div>
 <div class="sect2">
 <h3 id="release-notes-6.0.0-M1-overall-improvements"><a class="anchor" href="#release-notes-6.0.0-M1-overall-improvements"></a>Overall Improvements</h3>
-<div class="sect3">
-<h4 id="release-notes-6.0.0-M1-overall-bug-fixes"><a class="anchor" href="#release-notes-6.0.0-M1-overall-bug-fixes"></a>Bug Fixes</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>❓</p>
-</li>
-</ul>
-</div>
-</div>
 <div class="sect3">
 <h4 id="release-notes-6.0.0-M1-overall-deprecations-and-breaking-changes"><a class="anchor" href="#release-notes-6.0.0-M1-overall-deprecations-and-breaking-changes"></a>Deprecations and Breaking Changes</h4>
 <div class="ulist">
@@ -581,16 +599,6 @@ indicate which method parameters, return types, etc. can be <code>null</code>.</
 </div>
 <div class="sect2">
 <h3 id="release-notes-6.0.0-M1-junit-platform"><a class="anchor" href="#release-notes-6.0.0-M1-junit-platform"></a>JUnit Platform</h3>
-<div class="sect3">
-<h4 id="release-notes-6.0.0-M1-junit-platform-bug-fixes"><a class="anchor" href="#release-notes-6.0.0-M1-junit-platform-bug-fixes"></a>Bug Fixes</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>❓</p>
-</li>
-</ul>
-</div>
-</div>
 <div class="sect3">
 <h4 id="release-notes-6.0.0-M1-junit-platform-deprecations-and-breaking-changes"><a class="anchor" href="#release-notes-6.0.0-M1-junit-platform-deprecations-and-breaking-changes"></a>Deprecations and Breaking Changes</h4>
 <div class="ulist">
@@ -704,29 +712,9 @@ nullable and non-nullable types:</p>
 </ul>
 </div>
 </div>
-<div class="sect3">
-<h4 id="release-notes-6.0.0-M1-junit-platform-new-features-and-improvements"><a class="anchor" href="#release-notes-6.0.0-M1-junit-platform-new-features-and-improvements"></a>New Features and Improvements</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>❓</p>
-</li>
-</ul>
-</div>
-</div>
 </div>
 <div class="sect2">
 <h3 id="release-notes-6.0.0-M1-junit-jupiter"><a class="anchor" href="#release-notes-6.0.0-M1-junit-jupiter"></a>JUnit Jupiter</h3>
-<div class="sect3">
-<h4 id="release-notes-6.0.0-M1-junit-jupiter-bug-fixes"><a class="anchor" href="#release-notes-6.0.0-M1-junit-jupiter-bug-fixes"></a>Bug Fixes</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>❓</p>
-</li>
-</ul>
-</div>
-</div>
 <div class="sect3">
 <h4 id="release-notes-6.0.0-M1-junit-jupiter-deprecations-and-breaking-changes"><a class="anchor" href="#release-notes-6.0.0-M1-junit-jupiter-deprecations-and-breaking-changes"></a>Deprecations and Breaking Changes</h4>
 <div class="ulist">
@@ -832,16 +820,6 @@ performance.</p>
 <div class="sect2">
 <h3 id="release-notes-6.0.0-M1-junit-vintage"><a class="anchor" href="#release-notes-6.0.0-M1-junit-vintage"></a>JUnit Vintage</h3>
 <div class="sect3">
-<h4 id="release-notes-6.0.0-M1-junit-vintage-bug-fixes"><a class="anchor" href="#release-notes-6.0.0-M1-junit-vintage-bug-fixes"></a>Bug Fixes</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>❓</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
 <h4 id="release-notes-6.0.0-M1-junit-vintage-deprecations-and-breaking-changes"><a class="anchor" href="#release-notes-6.0.0-M1-junit-vintage-deprecations-and-breaking-changes"></a>Deprecations and Breaking Changes</h4>
 <div class="ulist">
 <ul>
@@ -851,16 +829,6 @@ when it finds at least one JUnit 4 test class. For now, the intent of the deprec
 not to signal removal in the next major version but to clarify the intended purpose of
 the engine. It should only be used temporarily while migrating tests to JUnit Jupiter or
 another testing framework with native JUnit Platform support.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="release-notes-6.0.0-M1-junit-vintage-new-features-and-improvements"><a class="anchor" href="#release-notes-6.0.0-M1-junit-vintage-new-features-and-improvements"></a>New Features and Improvements</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>❓</p>
 </li>
 </ul>
 </div>
