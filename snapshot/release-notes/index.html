@@ -895,6 +895,12 @@ line separator.</p>
 fields.</p>
 </li>
 <li>
+<p>Extra characters after a closing quote are no longer allowed in <code>@CsvSource</code> and
+<code>@CsvFileSource</code>. For example, if a single quote is used as the quote character,
+the following CSV value <code>'foo&#8217;INVALID,'bar'</code> will now cause an exception to be thrown.
+This helps ensure that malformed input is not silently accepted or misinterpreted.</p>
+</li>
+<li>
 <p>The <code>junit-jupiter-migrationsupport</code> artifact and its contained classes are now
 deprecated and will be removed in the next major version.</p>
 </li>
