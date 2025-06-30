@@ -108,9 +108,9 @@ loadScripts(document, 'script');</script>
  <h2 id="syntax-rules-for-tags-heading">Syntax Rules for Tags</h2>
  <ul>
  <li>A tag must not be blank.</li>
- <li>A trimmed tag must not contain whitespace.</li>
- <li>A trimmed tag must not contain ISO control characters.</li>
- <li>A trimmed tag must not contain <em>reserved characters</em>.</li>
+ <li>A stripped tag must not contain whitespace.</li>
+ <li>A stripped tag must not contain ISO control characters.</li>
+ <li>A stripped tag must not contain <em>reserved characters</em>.</li>
  </ul>
 
  <p><em>Reserved characters</em> that are not permissible as part of a tag name.
@@ -171,7 +171,7 @@ loadScripts(document, 'script');</script>
 <div class="member-signature"><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>[]</span>&nbsp;<span class="element-name">value</span></div>
 <div class="block">One or more tags to exclude.
 
- <p>Note: each tag will be <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html#trim()" title="class or interface in java.lang" class="external-link">trimmed</a> and
+ <p>Note: each tag will be <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html#strip()" title="class or interface in java.lang" class="external-link">stripped</a> and
  validated according to the <em>Syntax Rules for Tags</em> (see
  <a href="ExcludeTags.html" title="annotation interface in org.junit.platform.suite.api">class-level Javadoc</a> for details).</div>
 </div>

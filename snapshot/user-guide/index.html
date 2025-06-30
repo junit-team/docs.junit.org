@@ -5054,7 +5054,7 @@ achieve this for strings.</p>
 <span class="nd">@EmptySource</span>
 <span class="nd">@ValueSource</span><span class="o">(</span><span class="n">strings</span> <span class="o">=</span> <span class="o">{</span> <span class="s">" "</span><span class="o">,</span> <span class="s">"   "</span><span class="o">,</span> <span class="s">"\t"</span><span class="o">,</span> <span class="s">"\n"</span> <span class="o">})</span>
 <span class="kt">void</span> <span class="nf">nullEmptyAndBlankStrings</span><span class="o">(</span><span class="nc">String</span> <span class="n">text</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">assertTrue</span><span class="o">(</span><span class="n">text</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">text</span><span class="o">.</span><span class="na">trim</span><span class="o">().</span><span class="na">isEmpty</span><span class="o">());</span>
+    <span class="n">assertTrue</span><span class="o">(</span><span class="n">text</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">text</span><span class="o">.</span><span class="na">isBlank</span><span class="o">());</span>
 <span class="o">}</span></code></pre>
 </div>
 </div>
@@ -5068,7 +5068,7 @@ follows.</p>
 <span class="nd">@NullAndEmptySource</span>
 <span class="nd">@ValueSource</span><span class="o">(</span><span class="n">strings</span> <span class="o">=</span> <span class="o">{</span> <span class="s">" "</span><span class="o">,</span> <span class="s">"   "</span><span class="o">,</span> <span class="s">"\t"</span><span class="o">,</span> <span class="s">"\n"</span> <span class="o">})</span>
 <span class="kt">void</span> <span class="nf">nullEmptyAndBlankStrings</span><span class="o">(</span><span class="nc">String</span> <span class="n">text</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">assertTrue</span><span class="o">(</span><span class="n">text</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">text</span><span class="o">.</span><span class="na">trim</span><span class="o">().</span><span class="na">isEmpty</span><span class="o">());</span>
+    <span class="n">assertTrue</span><span class="o">(</span><span class="n">text</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">text</span><span class="o">.</span><span class="na">isBlank</span><span class="o">());</span>
 <span class="o">}</span></code></pre>
 </div>
 </div>
@@ -10766,13 +10766,13 @@ own annotation or other means for users to specify tags.</p>
 <p>A tag must not be <code>null</code> or <em>blank</em>.</p>
 </li>
 <li>
-<p>A <em>trimmed</em> tag must not contain whitespace.</p>
+<p>A <em>stripped</em> tag must not contain whitespace.</p>
 </li>
 <li>
-<p>A <em>trimmed</em> tag must not contain ISO control characters.</p>
+<p>A <em>stripped</em> tag must not contain ISO control characters.</p>
 </li>
 <li>
-<p>A <em>trimmed</em> tag must not contain any of the following <em>reserved characters</em>.</p>
+<p>A <em>stripped</em> tag must not contain any of the following <em>reserved characters</em>.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -10805,8 +10805,8 @@ own annotation or other means for users to specify tags.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-In the above context, "trimmed" means that leading and trailing whitespace
-characters have been removed.
+In the above context, "stripped" means that leading and trailing whitespace
+characters have been removed using <code>java.lang.String.strip()</code>.
 </td>
 </tr>
 </table>

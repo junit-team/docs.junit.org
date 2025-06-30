@@ -230,9 +230,9 @@ implements <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base
  <ul>
  <li>A tag must not be <code>null</code>.</li>
  <li>A tag must not be blank.</li>
- <li>A trimmed tag must not contain whitespace.</li>
- <li>A trimmed tag must not contain ISO control characters.</li>
- <li>A trimmed tag must not contain <a href="#RESERVED_CHARACTERS">reserved characters</a>.</li>
+ <li>A stripped tag must not contain whitespace.</li>
+ <li>A stripped tag must not contain ISO control characters.</li>
+ <li>A stripped tag must not contain <a href="#RESERVED_CHARACTERS">reserved characters</a>.</li>
  </ul>
 
  <p>If this method returns <code>true</code> for a given name, it is then a
@@ -248,7 +248,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base
 <dd>
 <ul class="tag-list-long">
 <li><a href="../../../../../org.junit.platform.commons/org/junit/platform/commons/util/StringUtils.html#isNotBlank(java.lang.String)"><code>StringUtils.isNotBlank(String)</code></a></li>
-<li><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html#trim()" title="class or interface in java.lang" class="external-link"><code>String.trim()</code></a></li>
+<li><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html#strip()" title="class or interface in java.lang" class="external-link"><code>String.strip()</code></a></li>
 <li><a href="../../../../../org.junit.platform.commons/org/junit/platform/commons/util/StringUtils.html#doesNotContainWhitespace(java.lang.String)"><code>StringUtils.doesNotContainWhitespace(String)</code></a></li>
 <li><a href="../../../../../org.junit.platform.commons/org/junit/platform/commons/util/StringUtils.html#doesNotContainIsoControlCharacter(java.lang.String)"><code>StringUtils.doesNotContainIsoControlCharacter(String)</code></a></li>
 <li><a href="#RESERVED_CHARACTERS"><code>RESERVED_CHARACTERS</code></a></li>
@@ -271,7 +271,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base
  is <a href="#isValid(java.lang.String)">valid</a> before attempting to create a
  <code>TestTag</code> using this factory method.
 
- <p>Note: the supplied <code>name</code> will be <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html#trim()" title="class or interface in java.lang" class="external-link">trimmed</a>.</div>
+ <p>Note: the supplied <code>name</code> will be <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html#strip()" title="class or interface in java.lang" class="external-link">stripped</a>.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>name</code> - the name of the tag; must be syntactically <em>valid</em></dd>
