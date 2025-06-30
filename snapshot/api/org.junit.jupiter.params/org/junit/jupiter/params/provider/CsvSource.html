@@ -550,6 +550,9 @@ loadScripts(document, 'script');</script>
 <div class="block">Controls whether leading and trailing whitespace characters of unquoted
  CSV columns should be ignored.
 
+ <p>Whitespace refers to characters with Unicode code points less than
+ or equal to <code>U+0020</code>, as defined by <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html#trim()" title="class or interface in java.lang" class="external-link"><code>String.trim()</code></a>.
+
  <p>Defaults to <code>true</code>.</div>
 <dl class="notes">
 <dt>Since:</dt>
