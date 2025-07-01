@@ -1108,13 +1108,13 @@ repository on GitHub.</p>
 <li>
 <p>If Git information is included in the Open Test Reporting XML format (see below), any
 credentials that may be configured as part the <code>remote.origin.url</code> setting in Git were
-written to the <code>originUrl</code> attribute of <code>&lt;git:repository&gt;</code> elements. For example, when
-cloning a GitHub repository using a URL like
-<code><a href="https://username:password@github.com/organization/repository.git" class="bare">https://username:password@github.com/organization/repository.git</a></code> both username and
-password were included in the XML report. Since this report may be shared, published, or
-archived (for example, on a CI server) while including this information, this was
-reported as a potential security vulnerability (CVE-2025-53103). Any credentials are now
-being replaced with <code>***</code> before writing them to the XML report.</p>
+previously written to the <code>originUrl</code> attribute of <code>&lt;git:repository&gt;</code> elements. For
+example, when cloning a GitHub repository using a URL like
+<code><a href="https://username:password@github.com/organization/repository.git" class="bare">https://username:password@github.com/organization/repository.git</a></code>, both username and
+password were included in the XML report. Since a report which includes this information
+may be shared, published, or archived (for example, on a CI server), this was reported
+as a potential security vulnerability (CVE-2025-53103). Any credentials are now replaced
+with <code>***</code> before writing them to the XML report.</p>
 </li>
 </ul>
 </div>
