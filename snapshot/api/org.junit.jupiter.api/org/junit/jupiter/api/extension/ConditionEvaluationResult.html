@@ -169,9 +169,17 @@ loadScripts(document, 'script');</script>
 <div class="block">Factory for creating <em>enabled</em> results.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>reason</code> - the reason why the container or test should be enabled</dd>
+<dd><code>reason</code> - the reason why the container or test should be enabled; may
+ be <code>null</code> or <em>blank</em> if the reason is unknown</dd>
 <dt>Returns:</dt>
-<dd>an enabled <code>ConditionEvaluationResult</code> with the given reason</dd>
+<dd>an enabled <code>ConditionEvaluationResult</code> with the given reason
+ or an <em>empty</em> reason if the reason is unknown</dd>
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../../../org.junit.platform.commons/org/junit/platform/commons/util/StringUtils.html#isBlank(java.lang.String)"><code>StringUtils.isBlank(String)</code></a></li>
+</ul>
+</dd>
 </dl>
 </div>
 </section>
@@ -184,9 +192,17 @@ loadScripts(document, 'script');</script>
 <div class="block">Factory for creating <em>disabled</em> results.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>reason</code> - the reason why the container or test should be disabled</dd>
+<dd><code>reason</code> - the reason why the container or test should be disabled; may
+ be <code>null</code> or <em>blank</em> if the reason is unknown</dd>
 <dt>Returns:</dt>
-<dd>a disabled <code>ConditionEvaluationResult</code> with the given reason</dd>
+<dd>a disabled <code>ConditionEvaluationResult</code> with the given reason
+ or an <em>empty</em> reason if the reason is unknown</dd>
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../../../org.junit.platform.commons/org/junit/platform/commons/util/StringUtils.html#isBlank(java.lang.String)"><code>StringUtils.isBlank(String)</code></a></li>
+</ul>
+</dd>
 </dl>
 </div>
 </section>
@@ -200,15 +216,27 @@ loadScripts(document, 'script');</script>
 </span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ConditionEvaluationResult.html" title="class in org.junit.jupiter.api.extension">ConditionEvaluationResult</a></span>&nbsp;<span class="element-name">disabled</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;reason,
  <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;customReason)</span></div>
 <div class="block">Factory for creating <em>disabled</em> results with custom reasons
- added by the user.</div>
+ added by the user.
+
+ <p>If non-blank default and custom reasons are provided, they will be
+ concatenated using the format: <code>"reason&nbsp;==&gt;&nbsp;customReason"</code>.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>reason</code> - the default reason why the container or test should be disabled</dd>
-<dd><code>customReason</code> - the custom reason why the container or test should be disabled</dd>
+<dd><code>reason</code> - the default reason why the container or test should be disabled;
+ may be <code>null</code> or <em>blank</em> if the default reason is unknown</dd>
+<dd><code>customReason</code> - the custom reason why the container or test should be
+ disabled; may be <code>null</code> or <em>blank</em> if the custom reason is unknown</dd>
 <dt>Returns:</dt>
-<dd>a disabled <code>ConditionEvaluationResult</code> with the given reasons</dd>
+<dd>a disabled <code>ConditionEvaluationResult</code> with the given reason(s)
+ or an <em>empty</em> reason if the reasons are unknown</dd>
 <dt>Since:</dt>
 <dd>5.7</dd>
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../../../org.junit.platform.commons/org/junit/platform/commons/util/StringUtils.html#isBlank(java.lang.String)"><code>StringUtils.isBlank(String)</code></a></li>
+</ul>
+</dd>
 </dl>
 </div>
 </section>
