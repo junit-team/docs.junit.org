@@ -559,6 +559,10 @@ repository on GitHub.</p>
 <div class="ulist">
 <ul>
 <li>
+<p>Fix regression that caused top-level and static member classes annotated with <code>@Nested</code>
+to no longer be executed because they caused a discovery issue to be reported.</p>
+</li>
+<li>
 <p>Stop reporting discovery issues for composed annotation classes that are meta-annotated
 with <code>@Nested</code>.</p>
 </li>
