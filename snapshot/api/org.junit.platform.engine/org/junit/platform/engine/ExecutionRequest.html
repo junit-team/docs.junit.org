@@ -75,12 +75,13 @@ loadScripts(document, 'script');</script>
 <li><a href="#method-detail" tabindex="0">Method Details</a>
 <ol class="toc-list">
 <li><a href="#create(org.junit.platform.engine.TestDescriptor,org.junit.platform.engine.EngineExecutionListener,org.junit.platform.engine.ConfigurationParameters)" tabindex="0">create(TestDescriptor, EngineExecutionListener, ConfigurationParameters)</a></li>
-<li><a href="#create(org.junit.platform.engine.TestDescriptor,org.junit.platform.engine.EngineExecutionListener,org.junit.platform.engine.ConfigurationParameters,org.junit.platform.engine.reporting.OutputDirectoryProvider,org.junit.platform.engine.support.store.NamespacedHierarchicalStore)" tabindex="0">create(TestDescriptor, EngineExecutionListener, ConfigurationParameters, OutputDirectoryProvider, NamespacedHierarchicalStore)</a></li>
+<li><a href="#create(org.junit.platform.engine.TestDescriptor,org.junit.platform.engine.EngineExecutionListener,org.junit.platform.engine.ConfigurationParameters,org.junit.platform.engine.reporting.OutputDirectoryProvider,org.junit.platform.engine.support.store.NamespacedHierarchicalStore,org.junit.platform.engine.CancellationToken)" tabindex="0">create(TestDescriptor, EngineExecutionListener, ConfigurationParameters, OutputDirectoryProvider, NamespacedHierarchicalStore, CancellationToken)</a></li>
 <li><a href="#getRootTestDescriptor()" tabindex="0">getRootTestDescriptor()</a></li>
 <li><a href="#getEngineExecutionListener()" tabindex="0">getEngineExecutionListener()</a></li>
 <li><a href="#getConfigurationParameters()" tabindex="0">getConfigurationParameters()</a></li>
 <li><a href="#getOutputDirectoryProvider()" tabindex="0">getOutputDirectoryProvider()</a></li>
 <li><a href="#getStore()" tabindex="0">getStore()</a></li>
+<li><a href="#getCancellationToken()" tabindex="0">getCancellationToken()</a></li>
 </ol>
 </li>
 </ol>
@@ -160,41 +161,48 @@ loadScripts(document, 'script');</script>
 </div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="ExecutionRequest.html" title="class in org.junit.platform.engine">ExecutionRequest</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#create(org.junit.platform.engine.TestDescriptor,org.junit.platform.engine.EngineExecutionListener,org.junit.platform.engine.ConfigurationParameters,org.junit.platform.engine.reporting.OutputDirectoryProvider,org.junit.platform.engine.support.store.NamespacedHierarchicalStore)" class="member-name-link">create</a><wbr>(<a href="TestDescriptor.html" title="interface in org.junit.platform.engine">TestDescriptor</a>&nbsp;rootTestDescriptor,
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#create(org.junit.platform.engine.TestDescriptor,org.junit.platform.engine.EngineExecutionListener,org.junit.platform.engine.ConfigurationParameters,org.junit.platform.engine.reporting.OutputDirectoryProvider,org.junit.platform.engine.support.store.NamespacedHierarchicalStore,org.junit.platform.engine.CancellationToken)" class="member-name-link">create</a><wbr>(<a href="TestDescriptor.html" title="interface in org.junit.platform.engine">TestDescriptor</a>&nbsp;rootTestDescriptor,
  <a href="EngineExecutionListener.html" title="interface in org.junit.platform.engine">EngineExecutionListener</a>&nbsp;engineExecutionListener,
  <a href="ConfigurationParameters.html" title="interface in org.junit.platform.engine">ConfigurationParameters</a>&nbsp;configurationParameters,
  <a href="reporting/OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting">OutputDirectoryProvider</a>&nbsp;outputDirectoryProvider,
- <a href="support/store/NamespacedHierarchicalStore.html" title="class in org.junit.platform.engine.support.store">NamespacedHierarchicalStore</a>&lt;<a href="support/store/Namespace.html" title="class in org.junit.platform.engine.support.store">Namespace</a>&gt;&nbsp;requestLevelStore)</code></div>
+ <a href="support/store/NamespacedHierarchicalStore.html" title="class in org.junit.platform.engine.support.store">NamespacedHierarchicalStore</a>&lt;<a href="support/store/Namespace.html" title="class in org.junit.platform.engine.support.store">Namespace</a>&gt;&nbsp;requestLevelStore,
+ <a href="CancellationToken.html" title="interface in org.junit.platform.engine">CancellationToken</a>&nbsp;cancellationToken)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Factory for creating an execution request.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ConfigurationParameters.html" title="interface in org.junit.platform.engine">ConfigurationParameters</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getConfigurationParameters()" class="member-name-link">getConfigurationParameters</a>()</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="CancellationToken.html" title="interface in org.junit.platform.engine">CancellationToken</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getCancellationToken()" class="member-name-link">getCancellationToken</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns the <a href="CancellationToken.html" title="interface in org.junit.platform.engine"><code>CancellationToken</code></a> for this request for engines to
+ check whether they should cancel execution.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ConfigurationParameters.html" title="interface in org.junit.platform.engine">ConfigurationParameters</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getConfigurationParameters()" class="member-name-link">getConfigurationParameters</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns the <a href="ConfigurationParameters.html" title="interface in org.junit.platform.engine"><code>ConfigurationParameters</code></a> that the engine may use to
  influence test execution.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="EngineExecutionListener.html" title="interface in org.junit.platform.engine">EngineExecutionListener</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getEngineExecutionListener()" class="member-name-link">getEngineExecutionListener</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="EngineExecutionListener.html" title="interface in org.junit.platform.engine">EngineExecutionListener</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getEngineExecutionListener()" class="member-name-link">getEngineExecutionListener</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns the <a href="EngineExecutionListener.html" title="interface in org.junit.platform.engine"><code>EngineExecutionListener</code></a> to be notified of test execution
  events.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="reporting/OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting">OutputDirectoryProvider</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getOutputDirectoryProvider()" class="member-name-link">getOutputDirectoryProvider</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="reporting/OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting">OutputDirectoryProvider</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getOutputDirectoryProvider()" class="member-name-link">getOutputDirectoryProvider</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns the <a href="reporting/OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting"><code>OutputDirectoryProvider</code></a> for this request for writing
  reports and other output files.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="TestDescriptor.html" title="interface in org.junit.platform.engine">TestDescriptor</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRootTestDescriptor()" class="member-name-link">getRootTestDescriptor</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="TestDescriptor.html" title="interface in org.junit.platform.engine">TestDescriptor</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRootTestDescriptor()" class="member-name-link">getRootTestDescriptor</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns the root <a href="TestDescriptor.html" title="interface in org.junit.platform.engine"><code>TestDescriptor</code></a> of the engine that processes this
  request.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="support/store/NamespacedHierarchicalStore.html" title="class in org.junit.platform.engine.support.store">NamespacedHierarchicalStore</a><wbr>&lt;<a href="support/store/Namespace.html" title="class in org.junit.platform.engine.support.store">Namespace</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getStore()" class="member-name-link">getStore</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="support/store/NamespacedHierarchicalStore.html" title="class in org.junit.platform.engine.support.store">NamespacedHierarchicalStore</a><wbr>&lt;<a href="support/store/Namespace.html" title="class in org.junit.platform.engine.support.store">Namespace</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getStore()" class="member-name-link">getStore</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns the <a href="support/store/NamespacedHierarchicalStore.html" title="class in org.junit.platform.engine.support.store"><code>NamespacedHierarchicalStore</code></a> for this request for
  storing request-scoped data.</div>
 </div>
@@ -267,16 +275,17 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="create(org.junit.platform.engine.TestDescriptor,org.junit.platform.engine.EngineExecutionListener,org.junit.platform.engine.ConfigurationParameters,org.junit.platform.engine.reporting.OutputDirectoryProvider,org.junit.platform.engine.support.store.NamespacedHierarchicalStore)">
+<section class="detail" id="create(org.junit.platform.engine.TestDescriptor,org.junit.platform.engine.EngineExecutionListener,org.junit.platform.engine.ConfigurationParameters,org.junit.platform.engine.reporting.OutputDirectoryProvider,org.junit.platform.engine.support.store.NamespacedHierarchicalStore,org.junit.platform.engine.CancellationToken)">
 <h3>create</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#INTERNAL" title="class or interface in org.apiguardian.api" class="external-link">INTERNAL</a>,
-     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="1.13")
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.0")
 </span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ExecutionRequest.html" title="class in org.junit.platform.engine">ExecutionRequest</a></span>&nbsp;<span class="element-name">create</span><wbr><span class="parameters">(<a href="TestDescriptor.html" title="interface in org.junit.platform.engine">TestDescriptor</a>&nbsp;rootTestDescriptor,
  <a href="EngineExecutionListener.html" title="interface in org.junit.platform.engine">EngineExecutionListener</a>&nbsp;engineExecutionListener,
  <a href="ConfigurationParameters.html" title="interface in org.junit.platform.engine">ConfigurationParameters</a>&nbsp;configurationParameters,
  <a href="reporting/OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting">OutputDirectoryProvider</a>&nbsp;outputDirectoryProvider,
- <a href="support/store/NamespacedHierarchicalStore.html" title="class in org.junit.platform.engine.support.store">NamespacedHierarchicalStore</a>&lt;<a href="support/store/Namespace.html" title="class in org.junit.platform.engine.support.store">Namespace</a>&gt;&nbsp;requestLevelStore)</span></div>
+ <a href="support/store/NamespacedHierarchicalStore.html" title="class in org.junit.platform.engine.support.store">NamespacedHierarchicalStore</a>&lt;<a href="support/store/Namespace.html" title="class in org.junit.platform.engine.support.store">Namespace</a>&gt;&nbsp;requestLevelStore,
+ <a href="CancellationToken.html" title="interface in org.junit.platform.engine">CancellationToken</a>&nbsp;cancellationToken)</span></div>
 <div class="block">Factory for creating an execution request.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -293,7 +302,7 @@ loadScripts(document, 'script');</script>
 <dt>Returns:</dt>
 <dd>a new <code>ExecutionRequest</code>; never <code>null</code></dd>
 <dt>Since:</dt>
-<dd>1.13</dd>
+<dd>6.0</dd>
 </dl>
 </div>
 </section>
@@ -392,6 +401,31 @@ loadScripts(document, 'script');</script>
 <dd>
 <ul class="tag-list">
 <li><a href="support/store/NamespacedHierarchicalStore.html" title="class in org.junit.platform.engine.support.store"><code>NamespacedHierarchicalStore</code></a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getCancellationToken()">
+<h3>getCancellationToken</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#EXPERIMENTAL" title="class or interface in org.apiguardian.api" class="external-link">EXPERIMENTAL</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.0")
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="CancellationToken.html" title="interface in org.junit.platform.engine">CancellationToken</a></span>&nbsp;<span class="element-name">getCancellationToken</span>()</div>
+<div class="block">Returns the <a href="CancellationToken.html" title="interface in org.junit.platform.engine"><code>CancellationToken</code></a> for this request for engines to
+ check whether they should cancel execution.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the <a href="CancellationToken.html" title="interface in org.junit.platform.engine"><code>CancellationToken</code></a> for this request for engines to
+ check whether they should cancel execution</dd>
+<dt>Since:</dt>
+<dd>6.0</dd>
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list-long">
+<li><a href="CancellationToken.html#isCancellationRequested()"><code>CancellationToken.isCancellationRequested()</code></a></li>
 </ul>
 </dd>
 </dl>

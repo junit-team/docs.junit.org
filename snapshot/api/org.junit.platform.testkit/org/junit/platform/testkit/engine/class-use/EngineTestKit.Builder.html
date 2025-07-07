@@ -83,46 +83,51 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code><a href="../EngineTestKit.Builder.html" title="class in org.junit.platform.testkit.engine">EngineTestKit.Builder</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">EngineTestKit.Builder.</span><code><a href="../EngineTestKit.Builder.html#configurationParameter(java.lang.String,java.lang.String)" class="member-name-link">configurationParameter</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;key,
- <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;value)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">EngineTestKit.Builder.</span><code><a href="../EngineTestKit.Builder.html#cancellationToken(org.junit.platform.engine.CancellationToken)" class="member-name-link">cancellationToken</a><wbr>(<a href="../../../../../../../org.junit.platform.engine/org/junit/platform/engine/CancellationToken.html" title="interface in org.junit.platform.engine">CancellationToken</a>&nbsp;cancellationToken)</code></div>
 <div class="col-last even-row-color">
-<div class="block">Add the supplied <em>configuration parameter</em>.</div>
+<div class="block">Set the <a href="../../../../../../../org.junit.platform.engine/org/junit/platform/engine/CancellationToken.html" title="interface in org.junit.platform.engine"><code>CancellationToken</code></a> to use for execution.</div>
 </div>
 <div class="col-first odd-row-color"><code><a href="../EngineTestKit.Builder.html" title="class in org.junit.platform.testkit.engine">EngineTestKit.Builder</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">EngineTestKit.Builder.</span><code><a href="../EngineTestKit.Builder.html#configurationParameters(java.util.Map)" class="member-name-link">configurationParameters</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;configurationParameters)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">EngineTestKit.Builder.</span><code><a href="../EngineTestKit.Builder.html#configurationParameter(java.lang.String,java.lang.String)" class="member-name-link">configurationParameter</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;key,
+ <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;value)</code></div>
 <div class="col-last odd-row-color">
-<div class="block">Add all of the supplied <em>configuration parameters</em>.</div>
+<div class="block">Add the supplied <em>configuration parameter</em>.</div>
 </div>
 <div class="col-first even-row-color"><code><a href="../EngineTestKit.Builder.html" title="class in org.junit.platform.testkit.engine">EngineTestKit.Builder</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">EngineTestKit.Builder.</span><code><a href="../EngineTestKit.Builder.html#enableImplicitConfigurationParameters(boolean)" class="member-name-link">enableImplicitConfigurationParameters</a><wbr>(boolean&nbsp;enabled)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">EngineTestKit.Builder.</span><code><a href="../EngineTestKit.Builder.html#configurationParameters(java.util.Map)" class="member-name-link">configurationParameters</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;configurationParameters)</code></div>
 <div class="col-last even-row-color">
+<div class="block">Add all of the supplied <em>configuration parameters</em>.</div>
+</div>
+<div class="col-first odd-row-color"><code><a href="../EngineTestKit.Builder.html" title="class in org.junit.platform.testkit.engine">EngineTestKit.Builder</a></code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">EngineTestKit.Builder.</span><code><a href="../EngineTestKit.Builder.html#enableImplicitConfigurationParameters(boolean)" class="member-name-link">enableImplicitConfigurationParameters</a><wbr>(boolean&nbsp;enabled)</code></div>
+<div class="col-last odd-row-color">
 <div class="block">Configure whether implicit configuration parameters should be
  considered.</div>
 </div>
-<div class="col-first odd-row-color"><code>static <a href="../EngineTestKit.Builder.html" title="class in org.junit.platform.testkit.engine">EngineTestKit.Builder</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">EngineTestKit.</span><code><a href="../EngineTestKit.html#engine(java.lang.String)" class="member-name-link">engine</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;engineId)</code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code>static <a href="../EngineTestKit.Builder.html" title="class in org.junit.platform.testkit.engine">EngineTestKit.Builder</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">EngineTestKit.</span><code><a href="../EngineTestKit.html#engine(java.lang.String)" class="member-name-link">engine</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;engineId)</code></div>
+<div class="col-last even-row-color">
 <div class="block">Create an execution <a href="../EngineTestKit.Builder.html" title="class in org.junit.platform.testkit.engine"><code>EngineTestKit.Builder</code></a> for the <a href="../../../../../../../org.junit.platform.engine/org/junit/platform/engine/TestEngine.html" title="interface in org.junit.platform.engine"><code>TestEngine</code></a> with the
  supplied ID.</div>
 </div>
-<div class="col-first even-row-color"><code>static <a href="../EngineTestKit.Builder.html" title="class in org.junit.platform.testkit.engine">EngineTestKit.Builder</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">EngineTestKit.</span><code><a href="../EngineTestKit.html#engine(org.junit.platform.engine.TestEngine)" class="member-name-link">engine</a><wbr>(<a href="../../../../../../../org.junit.platform.engine/org/junit/platform/engine/TestEngine.html" title="interface in org.junit.platform.engine">TestEngine</a>&nbsp;testEngine)</code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code>static <a href="../EngineTestKit.Builder.html" title="class in org.junit.platform.testkit.engine">EngineTestKit.Builder</a></code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">EngineTestKit.</span><code><a href="../EngineTestKit.html#engine(org.junit.platform.engine.TestEngine)" class="member-name-link">engine</a><wbr>(<a href="../../../../../../../org.junit.platform.engine/org/junit/platform/engine/TestEngine.html" title="interface in org.junit.platform.engine">TestEngine</a>&nbsp;testEngine)</code></div>
+<div class="col-last odd-row-color">
 <div class="block">Create an execution <a href="../EngineTestKit.Builder.html" title="class in org.junit.platform.testkit.engine"><code>EngineTestKit.Builder</code></a> for the supplied <a href="../../../../../../../org.junit.platform.engine/org/junit/platform/engine/TestEngine.html" title="interface in org.junit.platform.engine"><code>TestEngine</code></a>.</div>
 </div>
-<div class="col-first odd-row-color"><code><a href="../EngineTestKit.Builder.html" title="class in org.junit.platform.testkit.engine">EngineTestKit.Builder</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">EngineTestKit.Builder.</span><code><a href="../EngineTestKit.Builder.html#filters(org.junit.platform.engine.Filter...)" class="member-name-link">filters</a><wbr>(<a href="../../../../../../../org.junit.platform.engine/org/junit/platform/engine/Filter.html" title="interface in org.junit.platform.engine">Filter</a>&lt;?&gt;...&nbsp;filters)</code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code><a href="../EngineTestKit.Builder.html" title="class in org.junit.platform.testkit.engine">EngineTestKit.Builder</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">EngineTestKit.Builder.</span><code><a href="../EngineTestKit.Builder.html#filters(org.junit.platform.engine.Filter...)" class="member-name-link">filters</a><wbr>(<a href="../../../../../../../org.junit.platform.engine/org/junit/platform/engine/Filter.html" title="interface in org.junit.platform.engine">Filter</a>&lt;?&gt;...&nbsp;filters)</code></div>
+<div class="col-last even-row-color">
 <div class="block">Add all of the supplied <a href="../../../../../../../org.junit.platform.engine/org/junit/platform/engine/Filter.html" title="interface in org.junit.platform.engine">filters</a>.</div>
 </div>
-<div class="col-first even-row-color"><code><a href="../EngineTestKit.Builder.html" title="class in org.junit.platform.testkit.engine">EngineTestKit.Builder</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">EngineTestKit.Builder.</span><code><a href="../EngineTestKit.Builder.html#outputDirectoryProvider(org.junit.platform.engine.reporting.OutputDirectoryProvider)" class="member-name-link">outputDirectoryProvider</a><wbr>(<a href="../../../../../../../org.junit.platform.engine/org/junit/platform/engine/reporting/OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting">OutputDirectoryProvider</a>&nbsp;outputDirectoryProvider)</code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code><a href="../EngineTestKit.Builder.html" title="class in org.junit.platform.testkit.engine">EngineTestKit.Builder</a></code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">EngineTestKit.Builder.</span><code><a href="../EngineTestKit.Builder.html#outputDirectoryProvider(org.junit.platform.engine.reporting.OutputDirectoryProvider)" class="member-name-link">outputDirectoryProvider</a><wbr>(<a href="../../../../../../../org.junit.platform.engine/org/junit/platform/engine/reporting/OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting">OutputDirectoryProvider</a>&nbsp;outputDirectoryProvider)</code></div>
+<div class="col-last odd-row-color">
 <div class="block">Set the <a href="../../../../../../../org.junit.platform.engine/org/junit/platform/engine/reporting/OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting"><code>OutputDirectoryProvider</code></a> to use.</div>
 </div>
-<div class="col-first odd-row-color"><code><a href="../EngineTestKit.Builder.html" title="class in org.junit.platform.testkit.engine">EngineTestKit.Builder</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">EngineTestKit.Builder.</span><code><a href="../EngineTestKit.Builder.html#selectors(org.junit.platform.engine.DiscoverySelector...)" class="member-name-link">selectors</a><wbr>(<a href="../../../../../../../org.junit.platform.engine/org/junit/platform/engine/DiscoverySelector.html" title="interface in org.junit.platform.engine">DiscoverySelector</a>...&nbsp;selectors)</code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code><a href="../EngineTestKit.Builder.html" title="class in org.junit.platform.testkit.engine">EngineTestKit.Builder</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">EngineTestKit.Builder.</span><code><a href="../EngineTestKit.Builder.html#selectors(org.junit.platform.engine.DiscoverySelector...)" class="member-name-link">selectors</a><wbr>(<a href="../../../../../../../org.junit.platform.engine/org/junit/platform/engine/DiscoverySelector.html" title="interface in org.junit.platform.engine">DiscoverySelector</a>...&nbsp;selectors)</code></div>
+<div class="col-last even-row-color">
 <div class="block">Add all of the supplied <a href="../../../../../../../org.junit.platform.engine/org/junit/platform/engine/DiscoverySelector.html" title="interface in org.junit.platform.engine">discovery selectors</a>.</div>
 </div>
 </div>

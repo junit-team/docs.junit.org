@@ -580,14 +580,21 @@ repository on GitHub.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Introduce new <code>Launcher.execute(LauncherExecutionRequest)</code> API with corresponding
+<p>Introduce new <code>Launcher.execute(<a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/LauncherExecutionRequest.html">LauncherExecutionRequest</a>)</code> API with corresponding
 <code>LauncherExecutionRequestBuilder</code> to enable the addition of parameters to test
 executions without additional overloads of <code>execute</code>.</p>
 </li>
 <li>
 <p>Introduce <code>LauncherDiscoveryRequestBuilder.forExecution()</code> method as a convenience
-method for constructing a <code>LauncherExecutionRequest</code> that contains a
-<code>LauncherDiscoveryRequest</code>.</p>
+method for constructing a <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/LauncherExecutionRequest.html">LauncherExecutionRequest</a></code> that contains a
+<code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/LauncherDiscoveryRequest.html">LauncherDiscoveryRequest</a></code>.</p>
+</li>
+<li>
+<p>Introduce support for cancelling a running test execution via a <code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/CancellationToken.html">CancellationToken</a></code>
+passed to the <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/Launcher.html">Launcher</a></code> as part of a <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/LauncherExecutionRequest.html">LauncherExecutionRequest</a></code> and from there to
+all registered test engines. Please refer to the
+<a href="../user-guide/index.html#launcher-api-launcher-cancellation">User Guide</a> for details
+and a usage example.</p>
 </li>
 <li>
 <p>Introduce <code>TestTask.getTestDescriptor()</code> method for use in

@@ -74,6 +74,23 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="../org.junit.vintage.engine/org/junit/vintage/engine/descriptor/VintageTestDescriptor.html#canBeRemovedFromHierarchy()" class="member-name-link">canBeRemovedFromHierarchy()</a> - Method in class org.junit.vintage.engine.descriptor.<a href="../org.junit.vintage.engine/org/junit/vintage/engine/descriptor/VintageTestDescriptor.html" title="class in org.junit.vintage.engine.descriptor">VintageTestDescriptor</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="../org.junit.platform.engine/org/junit/platform/engine/CancellationToken.html#cancel()" class="member-name-link">cancel()</a> - Method in interface org.junit.platform.engine.<a href="../org.junit.platform.engine/org/junit/platform/engine/CancellationToken.html" title="interface in org.junit.platform.engine">CancellationToken</a></dt>
+<dd>
+<div class="block">Request cancellation.</div>
+</dd>
+<dt><a href="../org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherExecutionRequestBuilder.html#cancellationToken(org.junit.platform.engine.CancellationToken)" class="member-name-link">cancellationToken(CancellationToken)</a> - Method in class org.junit.platform.launcher.core.<a href="../org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherExecutionRequestBuilder.html" title="class in org.junit.platform.launcher.core">LauncherExecutionRequestBuilder</a></dt>
+<dd>
+<div class="block">Set the cancellation token for the request.</div>
+</dd>
+<dt><a href="../org.junit.platform.testkit/org/junit/platform/testkit/engine/EngineTestKit.Builder.html#cancellationToken(org.junit.platform.engine.CancellationToken)" class="member-name-link">cancellationToken(CancellationToken)</a> - Method in class org.junit.platform.testkit.engine.<a href="../org.junit.platform.testkit/org/junit/platform/testkit/engine/EngineTestKit.Builder.html" title="class in org.junit.platform.testkit.engine">EngineTestKit.Builder</a></dt>
+<dd>
+<div class="block">Set the <a href="../org.junit.platform.engine/org/junit/platform/engine/CancellationToken.html" title="interface in org.junit.platform.engine"><code>CancellationToken</code></a> to use for execution.</div>
+</dd>
+<dt><a href="../org.junit.platform.engine/org/junit/platform/engine/CancellationToken.html" class="type-name-link" title="interface in org.junit.platform.engine">CancellationToken</a> - Interface in <a href="../org.junit.platform.engine/org/junit/platform/engine/package-summary.html">org.junit.platform.engine</a></dt>
+<dd>
+<div class="block">Token that should be checked to determine whether an operation was requested
+ to be cancelled.</div>
+</dd>
 <dt><a href="../org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html#CAPTURE_MAX_BUFFER_DEFAULT" class="member-name-link">CAPTURE_MAX_BUFFER_DEFAULT</a> - Static variable in class org.junit.platform.launcher.<a href="../org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html" title="class in org.junit.platform.launcher">LauncherConstants</a></dt>
 <dd>
 <div class="block">Default maximum number of bytes for buffering to use per thread and
@@ -855,6 +872,10 @@ loadScripts(document, 'script');</script>
 <div class="block">Count all <a href="../org.junit.platform.launcher/org/junit/platform/launcher/TestIdentifier.html" title="class in org.junit.platform.launcher"><code>TestIdentifiers</code></a> that satisfy the
  given <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">predicate</a>.</div>
 </dd>
+<dt><a href="../org.junit.platform.engine/org/junit/platform/engine/CancellationToken.html#create()" class="member-name-link">create()</a> - Static method in interface org.junit.platform.engine.<a href="../org.junit.platform.engine/org/junit/platform/engine/CancellationToken.html" title="interface in org.junit.platform.engine">CancellationToken</a></dt>
+<dd>
+<div class="block">Create a new, uncancelled cancellation token.</div>
+</dd>
 <dt><a href="../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/ThrowableCollector.Factory.html#create()" class="member-name-link">create()</a> - Method in interface org.junit.platform.engine.support.hierarchical.<a href="../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/ThrowableCollector.Factory.html" title="interface in org.junit.platform.engine.support.hierarchical">ThrowableCollector.Factory</a></dt>
 <dd>
 <div class="block">Create a new instance of a <code>ThrowableCollector</code>.</div>
@@ -917,7 +938,7 @@ loadScripts(document, 'script');</script>
 <div class="deprecation-comment">without replacement</div>
 </div>
 </dd>
-<dt><a href="../org.junit.platform.engine/org/junit/platform/engine/ExecutionRequest.html#create(org.junit.platform.engine.TestDescriptor,org.junit.platform.engine.EngineExecutionListener,org.junit.platform.engine.ConfigurationParameters,org.junit.platform.engine.reporting.OutputDirectoryProvider,org.junit.platform.engine.support.store.NamespacedHierarchicalStore)" class="member-name-link">create(TestDescriptor, EngineExecutionListener, ConfigurationParameters, OutputDirectoryProvider, NamespacedHierarchicalStore&lt;Namespace&gt;)</a> - Static method in class org.junit.platform.engine.<a href="../org.junit.platform.engine/org/junit/platform/engine/ExecutionRequest.html" title="class in org.junit.platform.engine">ExecutionRequest</a></dt>
+<dt><a href="../org.junit.platform.engine/org/junit/platform/engine/ExecutionRequest.html#create(org.junit.platform.engine.TestDescriptor,org.junit.platform.engine.EngineExecutionListener,org.junit.platform.engine.ConfigurationParameters,org.junit.platform.engine.reporting.OutputDirectoryProvider,org.junit.platform.engine.support.store.NamespacedHierarchicalStore,org.junit.platform.engine.CancellationToken)" class="member-name-link">create(TestDescriptor, EngineExecutionListener, ConfigurationParameters, OutputDirectoryProvider, NamespacedHierarchicalStore&lt;Namespace&gt;, CancellationToken)</a> - Static method in class org.junit.platform.engine.<a href="../org.junit.platform.engine/org/junit/platform/engine/ExecutionRequest.html" title="class in org.junit.platform.engine">ExecutionRequest</a></dt>
 <dd>
 <div class="block">Factory for creating an execution request.</div>
 </dd>

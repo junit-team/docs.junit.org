@@ -987,6 +987,7 @@ pre.rouge .gs {
 <li><a href="#launcher-api-launcher-config">6.4.11. Configuring the Launcher</a></li>
 <li><a href="#launcher-api-dry-run-mode">6.4.12. Dry-Run Mode</a></li>
 <li><a href="#launcher-api-managing-state-across-test-engines">6.4.13. Managing State Across Test Engines</a></li>
+<li><a href="#launcher-api-launcher-cancellation">6.4.14. Cancelling a Running Test Execution</a></li>
 </ul>
 </li>
 <li><a href="#test-engines">6.5. Test Engines</a>
@@ -14646,27 +14647,11 @@ test methods in previous versions of JUnit.</p>
 <span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">junit</span><span class="o">.</span><span class="na">platform</span><span class="o">.</span><span class="na">engine</span><span class="o">.</span><span class="na">discovery</span><span class="o">.</span><span class="na">DiscoverySelectors</span><span class="o">.</span><span class="na">selectClass</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">junit</span><span class="o">.</span><span class="na">platform</span><span class="o">.</span><span class="na">engine</span><span class="o">.</span><span class="na">discovery</span><span class="o">.</span><span class="na">DiscoverySelectors</span><span class="o">.</span><span class="na">selectPackage</span><span class="o">;</span>
 
-<span class="kn">import</span> <span class="nn">java.io.PrintWriter</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.nio.file.Path</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">org.junit.platform.engine.FilterResult</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.junit.platform.engine.TestDescriptor</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.junit.platform.launcher.Launcher</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.junit.platform.launcher.LauncherDiscoveryListener</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.junit.platform.launcher.LauncherDiscoveryRequest</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.junit.platform.launcher.LauncherExecutionRequest</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.junit.platform.launcher.LauncherSession</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.junit.platform.launcher.LauncherSessionListener</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.junit.platform.launcher.PostDiscoveryFilter</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.junit.platform.launcher.TestExecutionListener</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.junit.platform.launcher.TestPlan</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.junit.platform.launcher.core.LauncherConfig</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.junit.platform.launcher.core.LauncherDiscoveryRequestBuilder</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.junit.platform.launcher.core.LauncherExecutionRequestBuilder</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.junit.platform.launcher.core.LauncherFactory</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.junit.platform.launcher.listeners.SummaryGeneratingListener</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.junit.platform.launcher.listeners.TestExecutionSummary</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.junit.platform.reporting.legacy.xml.LegacyXmlReportGeneratingListener</span><span class="o">;</span></code></pre>
+<span class="kn">import</span> <span class="nn">org.junit.platform.launcher.core.LauncherFactory</span><span class="o">;</span></code></pre>
 </div>
 </div>
 <div class="listingblock">
@@ -15437,6 +15422,84 @@ between them.</p>
 <a href="#launcher-api-launcher-session-listeners-custom">registering a <code>LauncherSessionListener</code></a>.</p>
 </div>
 </div>
+<div class="sect3">
+<h4 id="launcher-api-launcher-cancellation"><a class="anchor" href="#launcher-api-launcher-cancellation"></a>6.4.14. Cancelling a Running Test Execution</h4>
+<div class="paragraph">
+<p>The launcher API provides the ability to cancel a running test execution mid-flight while
+allowing engines to clean up resources. To request an execution to be cancelled, you need
+to call <code>cancel()</code> on the <code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/CancellationToken.html">CancellationToken</a></code> that is passed to <code>Launcher.execute</code> as
+part of the <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/LauncherExecutionRequest.html">LauncherExecutionRequest</a></code>.</p>
+</div>
+<div class="paragraph">
+<p>For example, implementing a listener that cancels test execution after the first test
+failed can be achieved as follows.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="java"><span class="nc">CancellationToken</span> <span class="n">cancellationToken</span> <span class="o">=</span> <span class="nc">CancellationToken</span><span class="o">.</span><span class="na">create</span><span class="o">();</span> <i class="conum" data-value="1"></i><b>(1)</b>
+
+<span class="nc">TestExecutionListener</span> <span class="n">failFastListener</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TestExecutionListener</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">executionFinished</span><span class="o">(</span><span class="nc">TestIdentifier</span> <span class="n">identifier</span><span class="o">,</span> <span class="nc">TestExecutionResult</span> <span class="n">result</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">result</span><span class="o">.</span><span class="na">getStatus</span><span class="o">()</span> <span class="o">==</span> <span class="no">FAILED</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">cancellationToken</span><span class="o">.</span><span class="na">cancel</span><span class="o">();</span> <i class="conum" data-value="2"></i><b>(2)</b>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">};</span>
+
+<span class="nc">LauncherExecutionRequest</span> <span class="n">executionRequest</span> <span class="o">=</span> <span class="nc">LauncherDiscoveryRequestBuilder</span><span class="o">.</span><span class="na">request</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">selectors</span><span class="o">(</span><span class="n">selectClass</span><span class="o">(</span><span class="nc">MyTestClass</span><span class="o">.</span><span class="na">class</span><span class="o">))</span>
+        <span class="o">.</span><span class="na">forExecution</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">cancellationToken</span><span class="o">(</span><span class="n">cancellationToken</span><span class="o">)</span> <i class="conum" data-value="3"></i><b>(3)</b>
+        <span class="o">.</span><span class="na">listeners</span><span class="o">(</span><span class="n">failFastListener</span><span class="o">)</span> <i class="conum" data-value="4"></i><b>(4)</b>
+        <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+
+<span class="k">try</span> <span class="o">(</span><span class="nc">LauncherSession</span> <span class="n">session</span> <span class="o">=</span> <span class="nc">LauncherFactory</span><span class="o">.</span><span class="na">openSession</span><span class="o">())</span> <span class="o">{</span>
+    <span class="n">session</span><span class="o">.</span><span class="na">getLauncher</span><span class="o">().</span><span class="na">execute</span><span class="o">(</span><span class="n">executionRequest</span><span class="o">);</span> <i class="conum" data-value="5"></i><b>(5)</b>
+<span class="o">}</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Create a <code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/CancellationToken.html">CancellationToken</a></code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Implement a <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/TestExecutionListener.html">TestExecutionListener</a></code> that calls <code>cancel()</code> when a test fails</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Register the cancellation token</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Register the listener</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Pass the <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/LauncherExecutionRequest.html">LauncherExecutionRequest</a></code> to <code>Launcher.execute</code></td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Cancelling tests relies on <a href="#test-engines">Test Engines</a> checking and responding to the
+<code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/CancellationToken.html">CancellationToken</a></code> appropriately (see
+<a href="#test-engines-requirements-cancellation">Test Engine Requirements</a> for details). The
+<code>Launcher</code> will also check the token and cancel test execution when multiple test engines
+are present at runtime.
+</td>
+</tr>
+</table>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="test-engines"><a class="anchor" href="#test-engines"></a>6.5. Test Engines</h3>
@@ -15630,6 +15693,15 @@ siblings or other nodes that are required for the execution of the selected test
 <li>
 <p><code>TestEngines</code> <em>should</em> support <a href="#running-tests-tags">tagging</a> tests and containers so
 that tag filters can be applied when discovering tests.</p>
+</li>
+<li>
+<p><a id="test-engines-requirements-cancellation"></a> A <code>TestEngine</code> <em>should</em> cancel its execution
+when the <code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/CancellationToken.html">CancellationToken</a></code> it is passed as part of the <code>ExecutionRequest</code> indicates
+that cancellation has been requested. In this case, it <em>should</em> report any remaining
+<code>TestDescriptors</code> as skipped but not report any events for their descendants. It <em>may</em>
+report already started <code>TestDescriptors</code> as aborted in case they have not been executed
+completely. If a <code>TestEngine</code> supports cancellation, it should clean up any resources
+that it has created just like if execution had finished regularly.</p>
 </li>
 </ul>
 </div>
@@ -15990,11 +16062,19 @@ value of lower stability.</p>
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CancellationToken</code> <em>(interface)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.0</code></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>DiscoveryIssue</code> <em>(interface)</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.0</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>EngineDiscoveryListener.&ZeroWidthSpace;issueEncountered(UniqueId, DiscoveryIssue)</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.0</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ExecutionRequest.&ZeroWidthSpace;getCancellationToken()</code> <em>(method)</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.0</code></p></td>
 </tr>
 <tr>
@@ -16124,6 +16204,10 @@ value of lower stability.</p>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>EngineDiscoveryResults</code> <em>(class)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.0</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>EngineTestKit.&ZeroWidthSpace;Builder.&ZeroWidthSpace;cancellationToken(CancellationToken)</code> <em>(method)</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.0</code></p></td>
 </tr>
 <tr>

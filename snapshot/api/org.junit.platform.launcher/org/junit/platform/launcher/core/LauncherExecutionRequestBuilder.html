@@ -71,6 +71,7 @@ loadScripts(document, 'script');</script>
 <li><a href="#request(org.junit.platform.launcher.LauncherDiscoveryRequest)" tabindex="0">request(LauncherDiscoveryRequest)</a></li>
 <li><a href="#request(org.junit.platform.launcher.TestPlan)" tabindex="0">request(TestPlan)</a></li>
 <li><a href="#listeners(org.junit.platform.launcher.TestExecutionListener...)" tabindex="0">listeners(TestExecutionListener...)</a></li>
+<li><a href="#cancellationToken(org.junit.platform.engine.CancellationToken)" tabindex="0">cancellationToken(CancellationToken)</a></li>
 <li><a href="#build()" tabindex="0">build()</a></li>
 </ol>
 </li>
@@ -125,19 +126,24 @@ loadScripts(document, 'script');</script>
  this builder.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="LauncherExecutionRequestBuilder.html" title="class in org.junit.platform.launcher.core">LauncherExecutionRequestBuilder</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#listeners(org.junit.platform.launcher.TestExecutionListener...)" class="member-name-link">listeners</a><wbr>(<a href="../TestExecutionListener.html" title="interface in org.junit.platform.launcher">TestExecutionListener</a>...&nbsp;listeners)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#cancellationToken(org.junit.platform.engine.CancellationToken)" class="member-name-link">cancellationToken</a><wbr>(<a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/CancellationToken.html" title="interface in org.junit.platform.engine">CancellationToken</a>&nbsp;cancellationToken)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Set the cancellation token for the request.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="LauncherExecutionRequestBuilder.html" title="class in org.junit.platform.launcher.core">LauncherExecutionRequestBuilder</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#listeners(org.junit.platform.launcher.TestExecutionListener...)" class="member-name-link">listeners</a><wbr>(<a href="../TestExecutionListener.html" title="interface in org.junit.platform.launcher">TestExecutionListener</a>...&nbsp;listeners)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Add all supplied execution listeners to the request.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="LauncherExecutionRequestBuilder.html" title="class in org.junit.platform.launcher.core">LauncherExecutionRequestBuilder</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#request(org.junit.platform.launcher.LauncherDiscoveryRequest)" class="member-name-link">request</a><wbr>(<a href="../LauncherDiscoveryRequest.html" title="interface in org.junit.platform.launcher">LauncherDiscoveryRequest</a>&nbsp;discoveryRequest)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="LauncherExecutionRequestBuilder.html" title="class in org.junit.platform.launcher.core">LauncherExecutionRequestBuilder</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#request(org.junit.platform.launcher.LauncherDiscoveryRequest)" class="member-name-link">request</a><wbr>(<a href="../LauncherDiscoveryRequest.html" title="interface in org.junit.platform.launcher">LauncherDiscoveryRequest</a>&nbsp;discoveryRequest)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Create a new <code>LauncherExecutionRequestBuilder</code> from the supplied
  <a href="../LauncherDiscoveryRequest.html" title="interface in org.junit.platform.launcher"><code>LauncherDiscoveryRequest</code></a>.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="LauncherExecutionRequestBuilder.html" title="class in org.junit.platform.launcher.core">LauncherExecutionRequestBuilder</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#request(org.junit.platform.launcher.TestPlan)" class="member-name-link">request</a><wbr>(<a href="../TestPlan.html" title="class in org.junit.platform.launcher">TestPlan</a>&nbsp;testPlan)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="LauncherExecutionRequestBuilder.html" title="class in org.junit.platform.launcher.core">LauncherExecutionRequestBuilder</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#request(org.junit.platform.launcher.TestPlan)" class="member-name-link">request</a><wbr>(<a href="../TestPlan.html" title="class in org.junit.platform.launcher">TestPlan</a>&nbsp;testPlan)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Create a new <code>LauncherExecutionRequestBuilder</code> from the supplied
  <a href="../TestPlan.html" title="class in org.junit.platform.launcher"><code>TestPlan</code></a>.</div>
 </div>
@@ -202,6 +208,28 @@ loadScripts(document, 'script');</script>
 <dd>
 <ul class="tag-list">
 <li><a href="../TestExecutionListener.html" title="interface in org.junit.platform.launcher"><code>TestExecutionListener</code></a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="cancellationToken(org.junit.platform.engine.CancellationToken)">
+<h3>cancellationToken</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="LauncherExecutionRequestBuilder.html" title="class in org.junit.platform.launcher.core">LauncherExecutionRequestBuilder</a></span>&nbsp;<span class="element-name">cancellationToken</span><wbr><span class="parameters">(<a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/CancellationToken.html" title="interface in org.junit.platform.engine">CancellationToken</a>&nbsp;cancellationToken)</span></div>
+<div class="block">Set the cancellation token for the request.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>cancellationToken</code> - the <code>CancellationToken</code> to use; never
+ <code>null</code>.</dd>
+<dt>Returns:</dt>
+<dd>this builder for method chaining</dd>
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/CancellationToken.html" title="interface in org.junit.platform.engine"><code>CancellationToken</code></a></li>
 </ul>
 </dd>
 </dl>

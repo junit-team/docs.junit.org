@@ -71,6 +71,7 @@ loadScripts(document, 'script');</script>
 <li><a href="#getTestPlan()" tabindex="0">getTestPlan()</a></li>
 <li><a href="#getDiscoveryRequest()" tabindex="0">getDiscoveryRequest()</a></li>
 <li><a href="#getAdditionalTestExecutionListeners()" tabindex="0">getAdditionalTestExecutionListeners()</a></li>
+<li><a href="#getCancellationToken()" tabindex="0">getCancellationToken()</a></li>
 </ol>
 </li>
 </ol>
@@ -133,14 +134,19 @@ loadScripts(document, 'script');</script>
 <div class="block">Returns the collection of additional test execution listeners that
  should be notified about events pertaining to this execution request.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a><wbr>&lt;<a href="LauncherDiscoveryRequest.html" title="interface in org.junit.platform.launcher">LauncherDiscoveryRequest</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getDiscoveryRequest()" class="member-name-link">getDiscoveryRequest</a>()</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="../../../../../org.junit.platform.engine/org/junit/platform/engine/CancellationToken.html" title="interface in org.junit.platform.engine">CancellationToken</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getCancellationToken()" class="member-name-link">getCancellationToken</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="block">Returns the cancellation token for this execution request.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a><wbr>&lt;<a href="LauncherDiscoveryRequest.html" title="interface in org.junit.platform.launcher">LauncherDiscoveryRequest</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getDiscoveryRequest()" class="member-name-link">getDiscoveryRequest</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Returns the discovery request for this execution request.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a><wbr>&lt;<a href="TestPlan.html" title="class in org.junit.platform.launcher">TestPlan</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getTestPlan()" class="member-name-link">getTestPlan</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a><wbr>&lt;<a href="TestPlan.html" title="class in org.junit.platform.launcher">TestPlan</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getTestPlan()" class="member-name-link">getTestPlan</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Returns the test plan for this execution request.</div>
 </div>
 </div>
@@ -198,6 +204,19 @@ loadScripts(document, 'script');</script>
 <dt>Returns:</dt>
 <dd>the collection of additional test execution listeners that
  should be notified about events pertaining to this execution request</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getCancellationToken()">
+<h3>getCancellationToken</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type"><a href="../../../../../org.junit.platform.engine/org/junit/platform/engine/CancellationToken.html" title="interface in org.junit.platform.engine">CancellationToken</a></span>&nbsp;<span class="element-name">getCancellationToken</span>()</div>
+<div class="block">Returns the cancellation token for this execution request.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the cancellation token for this execution request</dd>
 </dl>
 </div>
 </section>
