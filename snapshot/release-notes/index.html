@@ -567,6 +567,11 @@ repository on GitHub.</p>
 <p>Discontinue <code>junit-platform-suite-commons</code> which is now integrated into
 <code>junit-platform-suite</code>.</p>
 </li>
+<li>
+<p>Deprecate <code>Launcher.execute(TestPlan, TestExecutionListener[])</code> and
+<code>Launcher.execute(LauncherDiscoveryRequest, TestExecutionListener[])</code> in favor of
+<code>Launcher.execute(LauncherExecutionRequest)</code></p>
+</li>
 </ul>
 </div>
 </div>
@@ -574,6 +579,16 @@ repository on GitHub.</p>
 <h4 id="release-notes-6.0.0-M2-junit-platform-new-features-and-improvements"><a class="anchor" href="#release-notes-6.0.0-M2-junit-platform-new-features-and-improvements"></a>New Features and Improvements</h4>
 <div class="ulist">
 <ul>
+<li>
+<p>Introduce new <code>Launcher.execute(LauncherExecutionRequest)</code> API with corresponding
+<code>LauncherExecutionRequestBuilder</code> to enable the addition of parameters to test
+executions without additional overloads of <code>execute</code>.</p>
+</li>
+<li>
+<p>Introduce <code>LauncherDiscoveryRequestBuilder.forExecution()</code> method as a convenience
+method for constructing a <code>LauncherExecutionRequest</code> that contains a
+<code>LauncherDiscoveryRequest</code>.</p>
+</li>
 <li>
 <p>Introduce <code>TestTask.getTestDescriptor()</code> method for use in
 <code>HierarchicalTestExecutorService</code> implementations.</p>

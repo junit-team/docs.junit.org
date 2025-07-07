@@ -14654,6 +14654,7 @@ test methods in previous versions of JUnit.</p>
 <span class="kn">import</span> <span class="nn">org.junit.platform.launcher.Launcher</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.junit.platform.launcher.LauncherDiscoveryListener</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.junit.platform.launcher.LauncherDiscoveryRequest</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.platform.launcher.LauncherExecutionRequest</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.junit.platform.launcher.LauncherSession</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.junit.platform.launcher.LauncherSessionListener</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.junit.platform.launcher.PostDiscoveryFilter</span><span class="o">;</span>
@@ -14661,6 +14662,7 @@ test methods in previous versions of JUnit.</p>
 <span class="kn">import</span> <span class="nn">org.junit.platform.launcher.TestPlan</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.junit.platform.launcher.core.LauncherConfig</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.junit.platform.launcher.core.LauncherDiscoveryRequestBuilder</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.platform.launcher.core.LauncherExecutionRequestBuilder</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.junit.platform.launcher.core.LauncherFactory</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.junit.platform.launcher.listeners.SummaryGeneratingListener</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.junit.platform.launcher.listeners.TestExecutionSummary</span><span class="o">;</span>
@@ -14718,7 +14720,7 @@ following example.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="java"><span class="nc">LauncherDiscoveryRequest</span> <span class="n">request</span> <span class="o">=</span> <span class="nc">LauncherDiscoveryRequestBuilder</span><span class="o">.</span><span class="na">request</span><span class="o">()</span>
+<pre class="rouge highlight"><code data-lang="java"><span class="nc">LauncherDiscoveryRequest</span> <span class="n">discoveryRequest</span> <span class="o">=</span> <span class="nc">LauncherDiscoveryRequestBuilder</span><span class="o">.</span><span class="na">request</span><span class="o">()</span>
     <span class="o">.</span><span class="na">selectors</span><span class="o">(</span>
         <span class="n">selectPackage</span><span class="o">(</span><span class="s">"com.example.mytests"</span><span class="o">),</span>
         <span class="n">selectClass</span><span class="o">(</span><span class="nc">MyTestClass</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
@@ -14735,11 +14737,11 @@ following example.</p>
     <span class="c1">// Register a listener of your choice</span>
     <span class="n">launcher</span><span class="o">.</span><span class="na">registerTestExecutionListeners</span><span class="o">(</span><span class="n">listener</span><span class="o">);</span>
     <span class="c1">// Discover tests and build a test plan</span>
-    <span class="nc">TestPlan</span> <span class="n">testPlan</span> <span class="o">=</span> <span class="n">launcher</span><span class="o">.</span><span class="na">discover</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+    <span class="nc">TestPlan</span> <span class="n">testPlan</span> <span class="o">=</span> <span class="n">launcher</span><span class="o">.</span><span class="na">discover</span><span class="o">(</span><span class="n">discoveryRequest</span><span class="o">);</span>
     <span class="c1">// Execute test plan</span>
-    <span class="n">launcher</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">testPlan</span><span class="o">);</span>
-    <span class="c1">// Alternatively, execute the request directly</span>
-    <span class="n">launcher</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+    <span class="n">launcher</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="nc">LauncherExecutionRequestBuilder</span><span class="o">.</span><span class="na">request</span><span class="o">(</span><span class="n">testPlan</span><span class="o">).</span><span class="na">build</span><span class="o">());</span>
+    <span class="c1">// Alternatively, execute the discoveryRequest request directly</span>
+    <span class="n">launcher</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="nc">LauncherExecutionRequestBuilder</span><span class="o">.</span><span class="na">request</span><span class="o">(</span><span class="n">discoveryRequest</span><span class="o">).</span><span class="na">build</span><span class="o">());</span>
 <span class="o">}</span>
 
 <span class="nc">TestExecutionSummary</span> <span class="n">summary</span> <span class="o">=</span> <span class="n">listener</span><span class="o">.</span><span class="na">getSummary</span><span class="o">();</span>
@@ -15234,8 +15236,9 @@ built-in fluent <em>builder</em> API, as demonstrated in the following example.<
     <span class="o">.</span><span class="na">addTestExecutionListeners</span><span class="o">(</span><span class="k">new</span> <span class="nc">CustomTestExecutionListener</span><span class="o">())</span>
     <span class="o">.</span><span class="na">build</span><span class="o">();</span>
 
-<span class="nc">LauncherDiscoveryRequest</span> <span class="n">request</span> <span class="o">=</span> <span class="nc">LauncherDiscoveryRequestBuilder</span><span class="o">.</span><span class="na">request</span><span class="o">()</span>
+<span class="nc">LauncherExecutionRequest</span> <span class="n">request</span> <span class="o">=</span> <span class="nc">LauncherDiscoveryRequestBuilder</span><span class="o">.</span><span class="na">request</span><span class="o">()</span>
     <span class="o">.</span><span class="na">selectors</span><span class="o">(</span><span class="n">selectPackage</span><span class="o">(</span><span class="s">"com.example.mytests"</span><span class="o">))</span>
+    <span class="o">.</span><span class="na">forExecution</span><span class="o">()</span>
     <span class="o">.</span><span class="na">build</span><span class="o">();</span>
 
 <span class="k">try</span> <span class="o">(</span><span class="nc">LauncherSession</span> <span class="n">session</span> <span class="o">=</span> <span class="nc">LauncherFactory</span><span class="o">.</span><span class="na">openSession</span><span class="o">(</span><span class="n">launcherConfig</span><span class="o">))</span> <span class="o">{</span>
@@ -15417,7 +15420,7 @@ resource is closed properly when the test run is finished.
             <span class="o">.</span><span class="na">enableTestEngineAutoRegistration</span><span class="o">(</span><span class="kc">false</span><span class="o">)</span>
             <span class="o">.</span><span class="na">build</span><span class="o">());</span>
 
-    <span class="n">launcher</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">().</span><span class="na">build</span><span class="o">());</span>
+    <span class="n">launcher</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">().</span><span class="na">forExecution</span><span class="o">().</span><span class="na">build</span><span class="o">());</span>
 
     <span class="n">assertSame</span><span class="o">(</span><span class="n">firstCustomEngine</span><span class="o">.</span><span class="na">socket</span><span class="o">,</span> <span class="n">secondCustomEngine</span><span class="o">.</span><span class="na">socket</span><span class="o">);</span>
     <span class="n">assertTrue</span><span class="o">(</span><span class="n">firstCustomEngine</span><span class="o">.</span><span class="na">socket</span><span class="o">.</span><span class="na">isClosed</span><span class="o">(),</span> <span class="s">"socket should be closed"</span><span class="o">);</span>
@@ -16099,6 +16102,10 @@ value of lower stability.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>DiscoveryIssueException</code> <em>(class)</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.0</code></p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>LauncherDiscoveryRequestBuilder.&ZeroWidthSpace;forExecution()</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.0</code></p></td>
+</tr>
 </tbody>
 </table>
 <h4 id="module-org-junit-platform-testkit" class="discrete">Module org.junit.platform.testkit</h4>
@@ -16375,6 +16382,14 @@ since such APIs will likely be removed in an upcoming release.</p>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Launcher.&ZeroWidthSpace;execute(LauncherDiscoveryRequest, TestExecutionListener[])</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.0</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Launcher.&ZeroWidthSpace;execute(TestPlan, TestExecutionListener[])</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.0</code></p></td>
+</tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>TestPlan.&ZeroWidthSpace;getTestIdentifier(String)</code> <em>(method)</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.10</code></p></td>

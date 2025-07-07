@@ -96,28 +96,38 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="org.junit.platform.launcher">
 <h2>Uses of <a href="../TestExecutionListener.html" title="interface in org.junit.platform.launcher">TestExecutionListener</a> in <a href="../package-summary.html">org.junit.platform.launcher</a></h2>
+<div class="caption"><span>Methods in <a href="../package-summary.html">org.junit.platform.launcher</a> that return types with arguments of type <a href="../TestExecutionListener.html" title="interface in org.junit.platform.launcher">TestExecutionListener</a></span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a><wbr>&lt;? extends <a href="../TestExecutionListener.html" title="interface in org.junit.platform.launcher">TestExecutionListener</a>&gt;</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">LauncherExecutionRequest.</span><code><a href="../LauncherExecutionRequest.html#getAdditionalTestExecutionListeners()" class="member-name-link">getAdditionalTestExecutionListeners</a>()</code></div>
+<div class="col-last even-row-color">
+<div class="block">Returns the collection of additional test execution listeners that
+ should be notified about events pertaining to this execution request.</div>
+</div>
+</div>
 <div class="caption"><span>Methods in <a href="../package-summary.html">org.junit.platform.launcher</a> with parameters of type <a href="../TestExecutionListener.html" title="interface in org.junit.platform.launcher">TestExecutionListener</a></span></div>
 <div class="summary-table three-column-summary">
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code>void</code></div>
+<div class="col-first even-row-color"><code>default void</code></div>
 <div class="col-second even-row-color"><span class="type-name-label">Launcher.</span><code><a href="../Launcher.html#execute(org.junit.platform.launcher.LauncherDiscoveryRequest,org.junit.platform.launcher.TestExecutionListener...)" class="member-name-link">execute</a><wbr>(<a href="../LauncherDiscoveryRequest.html" title="interface in org.junit.platform.launcher">LauncherDiscoveryRequest</a>&nbsp;launcherDiscoveryRequest,
  <a href="../TestExecutionListener.html" title="interface in org.junit.platform.launcher">TestExecutionListener</a>...&nbsp;listeners)</code></div>
 <div class="col-last even-row-color">
-<div class="block">Execute a <a href="../TestPlan.html" title="class in org.junit.platform.launcher"><code>TestPlan</code></a> which is built according to the supplied
- <a href="../LauncherDiscoveryRequest.html" title="interface in org.junit.platform.launcher"><code>LauncherDiscoveryRequest</code></a> by querying all registered engines and
- collecting their results, and notify
- <a href="../Launcher.html#registerTestExecutionListeners(org.junit.platform.launcher.TestExecutionListener...)">registered listeners</a> about
- the progress and results of the execution.</div>
+<div class="block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">Please use <a href="../Launcher.html#execute(org.junit.platform.launcher.LauncherExecutionRequest)"><code>Launcher.execute(LauncherExecutionRequest)</code></a> instead.</div>
 </div>
-<div class="col-first odd-row-color"><code>void</code></div>
+</div>
+<div class="col-first odd-row-color"><code>default void</code></div>
 <div class="col-second odd-row-color"><span class="type-name-label">Launcher.</span><code><a href="../Launcher.html#execute(org.junit.platform.launcher.TestPlan,org.junit.platform.launcher.TestExecutionListener...)" class="member-name-link">execute</a><wbr>(<a href="../TestPlan.html" title="class in org.junit.platform.launcher">TestPlan</a>&nbsp;testPlan,
  <a href="../TestExecutionListener.html" title="interface in org.junit.platform.launcher">TestExecutionListener</a>...&nbsp;listeners)</code></div>
 <div class="col-last odd-row-color">
-<div class="block">Execute the supplied <a href="../TestPlan.html" title="class in org.junit.platform.launcher"><code>TestPlan</code></a> and notify
- <a href="../Launcher.html#registerTestExecutionListeners(org.junit.platform.launcher.TestExecutionListener...)">registered listeners</a> about
- the progress and results of the execution.</div>
+<div class="block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">Please use <a href="../Launcher.html#execute(org.junit.platform.launcher.LauncherExecutionRequest)"><code>Launcher.execute(LauncherExecutionRequest)</code></a> instead.</div>
+</div>
 </div>
 <div class="col-first even-row-color"><code>void</code></div>
 <div class="col-second even-row-color"><span class="type-name-label">Launcher.</span><code><a href="../Launcher.html#registerTestExecutionListeners(org.junit.platform.launcher.TestExecutionListener...)" class="member-name-link">registerTestExecutionListeners</a><wbr>(<a href="../TestExecutionListener.html" title="interface in org.junit.platform.launcher">TestExecutionListener</a>...&nbsp;listeners)</code></div>
@@ -161,6 +171,11 @@ loadScripts(document, 'script');</script>
 <div class="block">Executes tests for the supplied <a href="../core/LauncherDiscoveryResult.html" title="class in org.junit.platform.launcher.core">discoveryResult</a> and notifies the supplied <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/EngineExecutionListener.html" title="interface in org.junit.platform.engine">engineExecutionListener</a> and
  <a href="../TestExecutionListener.html" title="interface in org.junit.platform.launcher">testExecutionListener</a> of execution
  events.</div>
+</div>
+<div class="col-first even-row-color"><code><a href="../core/LauncherExecutionRequestBuilder.html" title="class in org.junit.platform.launcher.core">LauncherExecutionRequestBuilder</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">LauncherExecutionRequestBuilder.</span><code><a href="../core/LauncherExecutionRequestBuilder.html#listeners(org.junit.platform.launcher.TestExecutionListener...)" class="member-name-link">listeners</a><wbr>(<a href="../TestExecutionListener.html" title="interface in org.junit.platform.launcher">TestExecutionListener</a>...&nbsp;listeners)</code></div>
+<div class="col-last even-row-color">
+<div class="block">Add all supplied execution listeners to the request.</div>
 </div>
 </div>
 </section>

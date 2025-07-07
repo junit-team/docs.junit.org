@@ -1476,6 +1476,16 @@ loadScripts(document, 'script');</script>
 <div class="block">Represents the result of test discovery of the configured
  <a href="org.junit.platform.engine/org/junit/platform/engine/TestEngine.html" title="interface in org.junit.platform.engine">test engines</a>.</div>
 </div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab1"><a href="org.junit.platform.launcher/org/junit/platform/launcher/LauncherExecutionRequest.html" title="interface in org.junit.platform.launcher">LauncherExecutionRequest</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab1">
+<div class="block"><code>LauncherExecutionRequest</code> encapsulates a request for test execution
+ passed to the <a href="org.junit.platform.launcher/org/junit/platform/launcher/Launcher.html" title="interface in org.junit.platform.launcher"><code>Launcher</code></a>.</div>
+</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherExecutionRequestBuilder.html" title="class in org.junit.platform.launcher.core">LauncherExecutionRequestBuilder</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="block">The <code>LauncherExecutionRequestBuilder</code> provides a light-weight DSL for
+ generating a <a href="org.junit.platform.launcher/org/junit/platform/launcher/LauncherExecutionRequest.html" title="interface in org.junit.platform.launcher"><code>LauncherExecutionRequest</code></a>.</div>
+</div>
 <div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherFactory.html" title="class in org.junit.platform.launcher.core">LauncherFactory</a></div>
 <div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Factory for creating <a href="org.junit.platform.launcher/org/junit/platform/launcher/Launcher.html" title="interface in org.junit.platform.launcher"><code>Launcher</code></a> instances by invoking <a href="org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherFactory.html#create()"><code>LauncherFactory.create()</code></a>
@@ -2260,7 +2270,8 @@ loadScripts(document, 'script');</script>
 <div class="col-first odd-row-color all-classes-table all-classes-table-tab1"><a href="org.junit.platform.launcher/org/junit/platform/launcher/TestExecutionListener.html" title="interface in org.junit.platform.launcher">TestExecutionListener</a></div>
 <div class="col-last odd-row-color all-classes-table all-classes-table-tab1">
 <div class="block">Register a concrete implementation of this interface with a <a href="org.junit.platform.launcher/org/junit/platform/launcher/Launcher.html" title="interface in org.junit.platform.launcher"><code>Launcher</code></a>
- to be notified of events that occur during test execution.</div>
+ or <a href="org.junit.platform.launcher/org/junit/platform/launcher/LauncherExecutionRequest.html" title="interface in org.junit.platform.launcher"><code>LauncherExecutionRequest</code></a> to be notified of events that occur
+ during test execution.</div>
 </div>
 <div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="org.junit.platform.engine/org/junit/platform/engine/TestExecutionResult.html" title="class in org.junit.platform.engine">TestExecutionResult</a></div>
 <div class="col-last even-row-color all-classes-table all-classes-table-tab2">

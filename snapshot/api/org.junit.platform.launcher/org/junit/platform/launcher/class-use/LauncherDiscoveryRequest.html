@@ -86,6 +86,17 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="org.junit.platform.launcher">
 <h2>Uses of <a href="../LauncherDiscoveryRequest.html" title="interface in org.junit.platform.launcher">LauncherDiscoveryRequest</a> in <a href="../package-summary.html">org.junit.platform.launcher</a></h2>
+<div class="caption"><span>Methods in <a href="../package-summary.html">org.junit.platform.launcher</a> that return types with arguments of type <a href="../LauncherDiscoveryRequest.html" title="interface in org.junit.platform.launcher">LauncherDiscoveryRequest</a></span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a><wbr>&lt;<a href="../LauncherDiscoveryRequest.html" title="interface in org.junit.platform.launcher">LauncherDiscoveryRequest</a>&gt;</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">LauncherExecutionRequest.</span><code><a href="../LauncherExecutionRequest.html#getDiscoveryRequest()" class="member-name-link">getDiscoveryRequest</a>()</code></div>
+<div class="col-last even-row-color">
+<div class="block">Returns the discovery request for this execution request.</div>
+</div>
+</div>
 <div class="caption"><span>Methods in <a href="../package-summary.html">org.junit.platform.launcher</a> with parameters of type <a href="../LauncherDiscoveryRequest.html" title="interface in org.junit.platform.launcher">LauncherDiscoveryRequest</a></span></div>
 <div class="summary-table three-column-summary">
 <div class="table-header col-first">Modifier and Type</div>
@@ -98,15 +109,13 @@ loadScripts(document, 'script');</script>
  <a href="../LauncherDiscoveryRequest.html" title="interface in org.junit.platform.launcher"><code>LauncherDiscoveryRequest</code></a> by querying all registered engines and
  collecting their results.</div>
 </div>
-<div class="col-first odd-row-color"><code>void</code></div>
+<div class="col-first odd-row-color"><code>default void</code></div>
 <div class="col-second odd-row-color"><span class="type-name-label">Launcher.</span><code><a href="../Launcher.html#execute(org.junit.platform.launcher.LauncherDiscoveryRequest,org.junit.platform.launcher.TestExecutionListener...)" class="member-name-link">execute</a><wbr>(<a href="../LauncherDiscoveryRequest.html" title="interface in org.junit.platform.launcher">LauncherDiscoveryRequest</a>&nbsp;launcherDiscoveryRequest,
  <a href="../TestExecutionListener.html" title="interface in org.junit.platform.launcher">TestExecutionListener</a>...&nbsp;listeners)</code></div>
 <div class="col-last odd-row-color">
-<div class="block">Execute a <a href="../TestPlan.html" title="class in org.junit.platform.launcher"><code>TestPlan</code></a> which is built according to the supplied
- <a href="../LauncherDiscoveryRequest.html" title="interface in org.junit.platform.launcher"><code>LauncherDiscoveryRequest</code></a> by querying all registered engines and
- collecting their results, and notify
- <a href="../Launcher.html#registerTestExecutionListeners(org.junit.platform.launcher.TestExecutionListener...)">registered listeners</a> about
- the progress and results of the execution.</div>
+<div class="block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">Please use <a href="../Launcher.html#execute(org.junit.platform.launcher.LauncherExecutionRequest)"><code>Launcher.execute(LauncherExecutionRequest)</code></a> instead.</div>
+</div>
 </div>
 <div class="col-first even-row-color"><code>default void</code></div>
 <div class="col-second even-row-color"><span class="type-name-label">LauncherDiscoveryListener.</span><code><a href="../LauncherDiscoveryListener.html#launcherDiscoveryFinished(org.junit.platform.launcher.LauncherDiscoveryRequest)" class="member-name-link">launcherDiscoveryFinished</a><wbr>(<a href="../LauncherDiscoveryRequest.html" title="interface in org.junit.platform.launcher">LauncherDiscoveryRequest</a>&nbsp;request)</code></div>
@@ -153,6 +162,12 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color">
 <div class="block">Discovers tests for the supplied request in the supplied phase using the
  configured test engines to be used by the suite engine.</div>
+</div>
+<div class="col-first even-row-color"><code>static <a href="../core/LauncherExecutionRequestBuilder.html" title="class in org.junit.platform.launcher.core">LauncherExecutionRequestBuilder</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">LauncherExecutionRequestBuilder.</span><code><a href="../core/LauncherExecutionRequestBuilder.html#request(org.junit.platform.launcher.LauncherDiscoveryRequest)" class="member-name-link">request</a><wbr>(<a href="../LauncherDiscoveryRequest.html" title="interface in org.junit.platform.launcher">LauncherDiscoveryRequest</a>&nbsp;discoveryRequest)</code></div>
+<div class="col-last even-row-color">
+<div class="block">Create a new <code>LauncherExecutionRequestBuilder</code> from the supplied
+ <a href="../LauncherDiscoveryRequest.html" title="interface in org.junit.platform.launcher"><code>LauncherDiscoveryRequest</code></a>.</div>
 </div>
 </div>
 </section>

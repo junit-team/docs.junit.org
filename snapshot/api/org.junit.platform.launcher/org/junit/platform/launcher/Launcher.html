@@ -73,6 +73,7 @@ loadScripts(document, 'script');</script>
 <li><a href="#discover(org.junit.platform.launcher.LauncherDiscoveryRequest)" tabindex="0">discover(LauncherDiscoveryRequest)</a></li>
 <li><a href="#execute(org.junit.platform.launcher.LauncherDiscoveryRequest,org.junit.platform.launcher.TestExecutionListener...)" tabindex="0">execute(LauncherDiscoveryRequest, TestExecutionListener...)</a></li>
 <li><a href="#execute(org.junit.platform.launcher.TestPlan,org.junit.platform.launcher.TestExecutionListener...)" tabindex="0">execute(TestPlan, TestExecutionListener...)</a></li>
+<li><a href="#execute(org.junit.platform.launcher.LauncherExecutionRequest)" tabindex="0">execute(LauncherExecutionRequest)</a></li>
 </ol>
 </li>
 </ol>
@@ -135,7 +136,7 @@ loadScripts(document, 'script');</script>
 <section class="method-summary" id="method-summary">
 <h2>Method Summary</h2>
 <div id="method-summary-table">
-<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab3" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab3', 3)" class="table-tab">Abstract Methods</button></div>
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab3" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab3', 3)" class="table-tab">Abstract Methods</button><button id="method-summary-table-tab5" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab5', 3)" class="table-tab">Default Methods</button><button id="method-summary-table-tab6" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab6', 3)" class="table-tab">Deprecated Methods</button></div>
 <div id="method-summary-table.tabpanel" role="tabpanel" aria-labelledby="method-summary-table-tab0">
 <div class="summary-table three-column-summary">
 <div class="table-header col-first">Modifier and Type</div>
@@ -148,32 +149,37 @@ loadScripts(document, 'script');</script>
  <a href="LauncherDiscoveryRequest.html" title="interface in org.junit.platform.launcher"><code>LauncherDiscoveryRequest</code></a> by querying all registered engines and
  collecting their results.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#execute(org.junit.platform.launcher.LauncherDiscoveryRequest,org.junit.platform.launcher.TestExecutionListener...)" class="member-name-link">execute</a><wbr>(<a href="LauncherDiscoveryRequest.html" title="interface in org.junit.platform.launcher">LauncherDiscoveryRequest</a>&nbsp;launcherDiscoveryRequest,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5 method-summary-table-tab6"><code>default void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5 method-summary-table-tab6"><code><a href="#execute(org.junit.platform.launcher.LauncherDiscoveryRequest,org.junit.platform.launcher.TestExecutionListener...)" class="member-name-link">execute</a><wbr>(<a href="LauncherDiscoveryRequest.html" title="interface in org.junit.platform.launcher">LauncherDiscoveryRequest</a>&nbsp;launcherDiscoveryRequest,
  <a href="TestExecutionListener.html" title="interface in org.junit.platform.launcher">TestExecutionListener</a>...&nbsp;listeners)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
-<div class="block">Execute a <a href="TestPlan.html" title="class in org.junit.platform.launcher"><code>TestPlan</code></a> which is built according to the supplied
- <a href="LauncherDiscoveryRequest.html" title="interface in org.junit.platform.launcher"><code>LauncherDiscoveryRequest</code></a> by querying all registered engines and
- collecting their results, and notify
- <a href="#registerTestExecutionListeners(org.junit.platform.launcher.TestExecutionListener...)">registered listeners</a> about
- the progress and results of the execution.</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5 method-summary-table-tab6">
+<div class="block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">Please use <a href="#execute(org.junit.platform.launcher.LauncherExecutionRequest)"><code>execute(LauncherExecutionRequest)</code></a> instead.</div>
+</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#execute(org.junit.platform.launcher.TestPlan,org.junit.platform.launcher.TestExecutionListener...)" class="member-name-link">execute</a><wbr>(<a href="TestPlan.html" title="class in org.junit.platform.launcher">TestPlan</a>&nbsp;testPlan,
- <a href="TestExecutionListener.html" title="interface in org.junit.platform.launcher">TestExecutionListener</a>...&nbsp;listeners)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#execute(org.junit.platform.launcher.LauncherExecutionRequest)" class="member-name-link">execute</a><wbr>(<a href="LauncherExecutionRequest.html" title="interface in org.junit.platform.launcher">LauncherExecutionRequest</a>&nbsp;launcherExecutionRequest)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
-<div class="block">Execute the supplied <a href="TestPlan.html" title="class in org.junit.platform.launcher"><code>TestPlan</code></a> and notify
+<div class="block">Execute tests according to the supplied <a href="LauncherExecutionRequest.html" title="interface in org.junit.platform.launcher"><code>LauncherExecutionRequest</code></a>
  <a href="#registerTestExecutionListeners(org.junit.platform.launcher.TestExecutionListener...)">registered listeners</a> about
  the progress and results of the execution.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#registerLauncherDiscoveryListeners(org.junit.platform.launcher.LauncherDiscoveryListener...)" class="member-name-link">registerLauncherDiscoveryListeners</a><wbr>(<a href="LauncherDiscoveryListener.html" title="interface in org.junit.platform.launcher">LauncherDiscoveryListener</a>...&nbsp;listeners)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5 method-summary-table-tab6"><code>default void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5 method-summary-table-tab6"><code><a href="#execute(org.junit.platform.launcher.TestPlan,org.junit.platform.launcher.TestExecutionListener...)" class="member-name-link">execute</a><wbr>(<a href="TestPlan.html" title="class in org.junit.platform.launcher">TestPlan</a>&nbsp;testPlan,
+ <a href="TestExecutionListener.html" title="interface in org.junit.platform.launcher">TestExecutionListener</a>...&nbsp;listeners)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5 method-summary-table-tab6">
+<div class="block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">Please use <a href="#execute(org.junit.platform.launcher.LauncherExecutionRequest)"><code>execute(LauncherExecutionRequest)</code></a> instead.</div>
+</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#registerLauncherDiscoveryListeners(org.junit.platform.launcher.LauncherDiscoveryListener...)" class="member-name-link">registerLauncherDiscoveryListeners</a><wbr>(<a href="LauncherDiscoveryListener.html" title="interface in org.junit.platform.launcher">LauncherDiscoveryListener</a>...&nbsp;listeners)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Register one or more listeners for test discovery.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#registerTestExecutionListeners(org.junit.platform.launcher.TestExecutionListener...)" class="member-name-link">registerTestExecutionListeners</a><wbr>(<a href="TestExecutionListener.html" title="interface in org.junit.platform.launcher">TestExecutionListener</a>...&nbsp;listeners)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#registerTestExecutionListeners(org.junit.platform.launcher.TestExecutionListener...)" class="member-name-link">registerTestExecutionListeners</a><wbr>(<a href="TestExecutionListener.html" title="interface in org.junit.platform.launcher">TestExecutionListener</a>...&nbsp;listeners)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Register one or more listeners for test execution.</div>
 </div>
 </div>
@@ -248,8 +254,14 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="execute(org.junit.platform.launcher.LauncherDiscoveryRequest,org.junit.platform.launcher.TestExecutionListener...)">
 <h3>execute</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">execute</span><wbr><span class="parameters">(<a href="LauncherDiscoveryRequest.html" title="interface in org.junit.platform.launcher">LauncherDiscoveryRequest</a>&nbsp;launcherDiscoveryRequest,
+<div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>
+<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#DEPRECATED" title="class or interface in org.apiguardian.api" class="external-link">DEPRECATED</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.0")
+</span><span class="modifiers">default</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">execute</span><wbr><span class="parameters">(<a href="LauncherDiscoveryRequest.html" title="interface in org.junit.platform.launcher">LauncherDiscoveryRequest</a>&nbsp;launcherDiscoveryRequest,
  <a href="TestExecutionListener.html" title="interface in org.junit.platform.launcher">TestExecutionListener</a>...&nbsp;listeners)</span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">Please use <a href="#execute(org.junit.platform.launcher.LauncherExecutionRequest)"><code>execute(LauncherExecutionRequest)</code></a> instead.</div>
+</div>
 <div class="block">Execute a <a href="TestPlan.html" title="class in org.junit.platform.launcher"><code>TestPlan</code></a> which is built according to the supplied
  <a href="LauncherDiscoveryRequest.html" title="interface in org.junit.platform.launcher"><code>LauncherDiscoveryRequest</code></a> by querying all registered engines and
  collecting their results, and notify
@@ -278,10 +290,14 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="execute(org.junit.platform.launcher.TestPlan,org.junit.platform.launcher.TestExecutionListener...)">
 <h3>execute</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#STABLE" title="class or interface in org.apiguardian.api" class="external-link">STABLE</a>,
-     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="1.4")
-</span><span class="return-type">void</span>&nbsp;<span class="element-name">execute</span><wbr><span class="parameters">(<a href="TestPlan.html" title="class in org.junit.platform.launcher">TestPlan</a>&nbsp;testPlan,
+<div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>
+<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#DEPRECATED" title="class or interface in org.apiguardian.api" class="external-link">DEPRECATED</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.0")
+</span><span class="modifiers">default</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">execute</span><wbr><span class="parameters">(<a href="TestPlan.html" title="class in org.junit.platform.launcher">TestPlan</a>&nbsp;testPlan,
  <a href="TestExecutionListener.html" title="interface in org.junit.platform.launcher">TestExecutionListener</a>...&nbsp;listeners)</span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">Please use <a href="#execute(org.junit.platform.launcher.LauncherExecutionRequest)"><code>execute(LauncherExecutionRequest)</code></a> instead.</div>
+</div>
 <div class="block">Execute the supplied <a href="TestPlan.html" title="class in org.junit.platform.launcher"><code>TestPlan</code></a> and notify
  <a href="#registerTestExecutionListeners(org.junit.platform.launcher.TestExecutionListener...)">registered listeners</a> about
  the progress and results of the execution.
@@ -298,6 +314,42 @@ loadScripts(document, 'script');</script>
 <dt>API Note:</dt>
 <dd>The supplied <a href="TestPlan.html" title="class in org.junit.platform.launcher"><code>TestPlan</code></a> must not have been executed
  previously.</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="execute(org.junit.platform.launcher.LauncherExecutionRequest)">
+<h3>execute</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#MAINTAINED" title="class or interface in org.apiguardian.api" class="external-link">MAINTAINED</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.0")
+</span><span class="return-type">void</span>&nbsp;<span class="element-name">execute</span><wbr><span class="parameters">(<a href="LauncherExecutionRequest.html" title="interface in org.junit.platform.launcher">LauncherExecutionRequest</a>&nbsp;launcherExecutionRequest)</span></div>
+<div class="block">Execute tests according to the supplied <a href="LauncherExecutionRequest.html" title="interface in org.junit.platform.launcher"><code>LauncherExecutionRequest</code></a>
+ <a href="#registerTestExecutionListeners(org.junit.platform.launcher.TestExecutionListener...)">registered listeners</a> about
+ the progress and results of the execution.
+
+ <p>Test execution listeners supplied
+ <a href="LauncherExecutionRequest.html#getAdditionalTestExecutionListeners()">as part of the request</a> are registered in addition to already registered
+ listeners but only for the supplied execution request.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>launcherExecutionRequest</code> - the launcher execution request; never
+ <code>null</code></dd>
+<dt>Since:</dt>
+<dd>6.0</dd>
+<dt>API Note:</dt>
+<dd>If the execution request contains a <a href="TestPlan.html" title="class in org.junit.platform.launcher"><code>TestPlan</code></a> rather than
+ a <a href="LauncherDiscoveryRequest.html" title="interface in org.junit.platform.launcher"><code>LauncherDiscoveryRequest</code></a>, it must not have been executed
+ previously.
+
+ <p>If the execution request contains a <a href="LauncherDiscoveryRequest.html" title="interface in org.junit.platform.launcher"><code>LauncherDiscoveryRequest</code></a>,
+ calling this method will cause test discovery to be executed for all
+ registered engines. If the same <a href="LauncherDiscoveryRequest.html" title="interface in org.junit.platform.launcher"><code>LauncherDiscoveryRequest</code></a> was
+ previously passed to <a href="#discover(org.junit.platform.launcher.LauncherDiscoveryRequest)"><code>discover(LauncherDiscoveryRequest)</code></a>, you
+ should instead provide the resulting <a href="TestPlan.html" title="class in org.junit.platform.launcher"><code>TestPlan</code></a> as part of the
+ supplied execution request to avoid the potential performance degradation
+ (e.g., classpath scanning) of running test discovery twice.</dd>
 </dl>
 </div>
 </section>

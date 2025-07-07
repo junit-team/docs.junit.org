@@ -69,23 +69,29 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color">
 <div class="block">Public API for configuring and launching test plans.</div>
 </div>
-<div class="col-first odd-row-color"><a href="#org.junit.platform.launcher.listeners">org.junit.platform.launcher.listeners</a></div>
+<div class="col-first odd-row-color"><a href="#org.junit.platform.launcher.core">org.junit.platform.launcher.core</a></div>
 <div class="col-last odd-row-color">
+<div class="block">Core support classes for the <a href="../Launcher.html" title="interface in org.junit.platform.launcher"><code>Launcher</code></a>
+ including the <a href="../core/LauncherFactory.html" title="class in org.junit.platform.launcher.core"><code>LauncherFactory</code></a>
+ and the <a href="../core/LauncherDiscoveryRequestBuilder.html" title="class in org.junit.platform.launcher.core"><code>LauncherDiscoveryRequestBuilder</code></a>.</div>
+</div>
+<div class="col-first even-row-color"><a href="#org.junit.platform.launcher.listeners">org.junit.platform.launcher.listeners</a></div>
+<div class="col-last even-row-color">
 <div class="block">Common <a href="../TestExecutionListener.html" title="interface in org.junit.platform.launcher"><code>TestExecutionListener</code></a> implementations and related support classes for
  the <a href="../Launcher.html" title="interface in org.junit.platform.launcher"><code>Launcher</code></a>.</div>
 </div>
-<div class="col-first even-row-color"><a href="#org.junit.platform.reporting.legacy">org.junit.platform.reporting.legacy</a></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><a href="#org.junit.platform.reporting.legacy">org.junit.platform.reporting.legacy</a></div>
+<div class="col-last odd-row-color">
 <div class="block">Support for legacy reporting formats.</div>
 </div>
-<div class="col-first odd-row-color"><a href="#org.junit.platform.reporting.legacy.xml">org.junit.platform.reporting.legacy.xml</a></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><a href="#org.junit.platform.reporting.legacy.xml">org.junit.platform.reporting.legacy.xml</a></div>
+<div class="col-last even-row-color">
 <div class="block">Support for generating XML reports using a format which is compatible with
  the de facto standard for JUnit 4 based test reports that was made popular
  by the Ant build system.</div>
 </div>
-<div class="col-first even-row-color"><a href="#org.junit.platform.reporting.open.xml">org.junit.platform.reporting.open.xml</a></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><a href="#org.junit.platform.reporting.open.xml">org.junit.platform.reporting.open.xml</a></div>
+<div class="col-last odd-row-color">
 <div class="block">Support for generating Open Test Reporting compatible XML event reports.</div>
 </div>
 </div>
@@ -116,18 +122,29 @@ loadScripts(document, 'script');</script>
  <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/TestDescriptor.html" title="interface in org.junit.platform.engine"><code>TestDescriptors</code></a>.</div>
 </div>
 </div>
+<div class="caption"><span>Methods in <a href="../package-summary.html">org.junit.platform.launcher</a> that return types with arguments of type <a href="../TestPlan.html" title="class in org.junit.platform.launcher">TestPlan</a></span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a><wbr>&lt;<a href="../TestPlan.html" title="class in org.junit.platform.launcher">TestPlan</a>&gt;</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">LauncherExecutionRequest.</span><code><a href="../LauncherExecutionRequest.html#getTestPlan()" class="member-name-link">getTestPlan</a>()</code></div>
+<div class="col-last even-row-color">
+<div class="block">Returns the test plan for this execution request.</div>
+</div>
+</div>
 <div class="caption"><span>Methods in <a href="../package-summary.html">org.junit.platform.launcher</a> with parameters of type <a href="../TestPlan.html" title="class in org.junit.platform.launcher">TestPlan</a></span></div>
 <div class="summary-table three-column-summary">
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code>void</code></div>
+<div class="col-first even-row-color"><code>default void</code></div>
 <div class="col-second even-row-color"><span class="type-name-label">Launcher.</span><code><a href="../Launcher.html#execute(org.junit.platform.launcher.TestPlan,org.junit.platform.launcher.TestExecutionListener...)" class="member-name-link">execute</a><wbr>(<a href="../TestPlan.html" title="class in org.junit.platform.launcher">TestPlan</a>&nbsp;testPlan,
  <a href="../TestExecutionListener.html" title="interface in org.junit.platform.launcher">TestExecutionListener</a>...&nbsp;listeners)</code></div>
 <div class="col-last even-row-color">
-<div class="block">Execute the supplied <a href="../TestPlan.html" title="class in org.junit.platform.launcher"><code>TestPlan</code></a> and notify
- <a href="../Launcher.html#registerTestExecutionListeners(org.junit.platform.launcher.TestExecutionListener...)">registered listeners</a> about
- the progress and results of the execution.</div>
+<div class="block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">Please use <a href="../Launcher.html#execute(org.junit.platform.launcher.LauncherExecutionRequest)"><code>Launcher.execute(LauncherExecutionRequest)</code></a> instead.</div>
+</div>
 </div>
 <div class="col-first odd-row-color"><code>default void</code></div>
 <div class="col-second odd-row-color"><span class="type-name-label">TestExecutionListener.</span><code><a href="../TestExecutionListener.html#testPlanExecutionFinished(org.junit.platform.launcher.TestPlan)" class="member-name-link">testPlanExecutionFinished</a><wbr>(<a href="../TestPlan.html" title="class in org.junit.platform.launcher">TestPlan</a>&nbsp;testPlan)</code></div>
@@ -140,6 +157,23 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color">
 <div class="block">Called when the execution of the <a href="../TestPlan.html" title="class in org.junit.platform.launcher"><code>TestPlan</code></a> has started,
  <em>before</em> any test has been executed.</div>
+</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="org.junit.platform.launcher.core">
+<h2>Uses of <a href="../TestPlan.html" title="class in org.junit.platform.launcher">TestPlan</a> in <a href="../core/package-summary.html">org.junit.platform.launcher.core</a></h2>
+<div class="caption"><span>Methods in <a href="../core/package-summary.html">org.junit.platform.launcher.core</a> with parameters of type <a href="../TestPlan.html" title="class in org.junit.platform.launcher">TestPlan</a></span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>static <a href="../core/LauncherExecutionRequestBuilder.html" title="class in org.junit.platform.launcher.core">LauncherExecutionRequestBuilder</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">LauncherExecutionRequestBuilder.</span><code><a href="../core/LauncherExecutionRequestBuilder.html#request(org.junit.platform.launcher.TestPlan)" class="member-name-link">request</a><wbr>(<a href="../TestPlan.html" title="class in org.junit.platform.launcher">TestPlan</a>&nbsp;testPlan)</code></div>
+<div class="col-last even-row-color">
+<div class="block">Create a new <code>LauncherExecutionRequestBuilder</code> from the supplied
+ <a href="../TestPlan.html" title="class in org.junit.platform.launcher"><code>TestPlan</code></a>.</div>
 </div>
 </div>
 </section>
