@@ -227,7 +227,10 @@ implements <a href="../../TestEngine.html" title="interface in org.junit.platfor
  hierarchy starting with the supplied <code>request</code>'s
  <a href="../../ExecutionRequest.html#getRootTestDescriptor()">root</a> and notify
  its <a href="../../ExecutionRequest.html#getEngineExecutionListener()">execution
- listener</a> of test execution events.</div>
+ listener</a> of test execution events.
+
+ <p>Supports cancellation via the <a href="../../CancellationToken.html" title="interface in org.junit.platform.engine"><code>CancellationToken</code></a> passed in the
+ supplied <code>request</code>.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="../../TestEngine.html#execute(org.junit.platform.engine.ExecutionRequest)">execute</a></code>&nbsp;in interface&nbsp;<code><a href="../../TestEngine.html" title="interface in org.junit.platform.engine">TestEngine</a></code></dd>

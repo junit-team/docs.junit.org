@@ -15483,18 +15483,34 @@ failed can be achieved as follows.</p>
 </tr>
 </table>
 </div>
-<div class="admonitionblock warning">
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Cancelling tests relies on <a href="#test-engines">Test Engines</a> checking and responding to the
+<div class="title">Test Engine Support for Cancellation</div>
+<div class="paragraph">
+<p>Cancelling tests relies on <a href="#test-engines">Test Engines</a> checking and responding to the
 <code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/CancellationToken.html">CancellationToken</a></code> appropriately (see
 <a href="#test-engines-requirements-cancellation">Test Engine Requirements</a> for details). The
 <code>Launcher</code> will also check the token and cancel test execution when multiple test engines
-are present at runtime.
+are present at runtime.</p>
+</div>
+<div class="paragraph">
+<p>At the time of writing the following test engines support cancellation:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code><a href="../api/org.junit.jupiter.engine/org/junit/jupiter/engine/package-summary.html">junit-jupiter-engine</a></code></p>
+</li>
+<li>
+<p>Any <code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/TestEngine.html">TestEngine</a></code> extending <code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/HierarchicalTestEngine.html">HierarchicalTestEngine</a></code> such as Spock and Cucumber</p>
+</li>
+</ul>
+</div>
 </td>
 </tr>
 </table>
