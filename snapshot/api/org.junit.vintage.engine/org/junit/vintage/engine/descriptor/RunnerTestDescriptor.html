@@ -78,6 +78,7 @@ loadScripts(document, 'script');</script>
 <ol class="toc-list">
 <li><a href="#getLegacyReportingName()" tabindex="0">getLegacyReportingName()</a></li>
 <li><a href="#toRequest()" tabindex="0">toRequest()</a></li>
+<li><a href="#getRunner()" tabindex="0">getRunner()</a></li>
 <li><a href="#tryToExcludeFromRunner(org.junit.runner.Description)" tabindex="0">tryToExcludeFromRunner(Description)</a></li>
 <li><a href="#canBeRemovedFromHierarchy()" tabindex="0">canBeRemovedFromHierarchy()</a></li>
 <li><a href="#prune()" tabindex="0">prune()</a></li>
@@ -188,24 +189,27 @@ loadScripts(document, 'script');</script>
  reporting infrastructure &mdash; for example, for reporting systems built
  on the Ant-based XML reporting format for JUnit 4.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isIgnored()" class="member-name-link">isIgnored</a>()</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://junit.org/junit4/javadoc/4.13.2/org/junit/runner/Runner.html" title="class or interface in org.junit.runner" class="external-link">Runner</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRunner()" class="member-name-link">getRunner</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#prune()" class="member-name-link">prune</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isIgnored()" class="member-name-link">isIgnored</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#prune()" class="member-name-link">prune</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Remove this descriptor from the hierarchy unless it is a root or contains
  tests.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setExecutorService(java.util.concurrent.ExecutorService)" class="member-name-link">setExecutorService</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/concurrent/ExecutorService.html" title="class or interface in java.util.concurrent" class="external-link">ExecutorService</a>&nbsp;executorService)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://junit.org/junit4/javadoc/4.13.2/org/junit/runner/Request.html" title="class or interface in org.junit.runner" class="external-link">Request</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toRequest()" class="member-name-link">toRequest</a>()</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setExecutorService(java.util.concurrent.ExecutorService)" class="member-name-link">setExecutorService</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/concurrent/ExecutorService.html" title="class or interface in java.util.concurrent" class="external-link">ExecutorService</a>&nbsp;executorService)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#tryToExcludeFromRunner(org.junit.runner.Description)" class="member-name-link">tryToExcludeFromRunner</a><wbr>(<a href="https://junit.org/junit4/javadoc/4.13.2/org/junit/runner/Description.html" title="class or interface in org.junit.runner" class="external-link">Description</a>&nbsp;description)</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://junit.org/junit4/javadoc/4.13.2/org/junit/runner/Request.html" title="class or interface in org.junit.runner" class="external-link">Request</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toRequest()" class="member-name-link">toRequest</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#tryToExcludeFromRunner(org.junit.runner.Description)" class="member-name-link">tryToExcludeFromRunner</a><wbr>(<a href="https://junit.org/junit4/javadoc/4.13.2/org/junit/runner/Description.html" title="class or interface in org.junit.runner" class="external-link">Description</a>&nbsp;description)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
 </div>
@@ -278,6 +282,14 @@ loadScripts(document, 'script');</script>
 <h3>toRequest</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://junit.org/junit4/javadoc/4.13.2/org/junit/runner/Request.html" title="class or interface in org.junit.runner" class="external-link">Request</a></span>&nbsp;<span class="element-name">toRequest</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getRunner()">
+<h3>getRunner</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://junit.org/junit4/javadoc/4.13.2/org/junit/runner/Runner.html" title="class or interface in org.junit.runner" class="external-link">Runner</a></span>&nbsp;<span class="element-name">getRunner</span>()</div>
 </div>
 </section>
 </li>
