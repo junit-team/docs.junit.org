@@ -489,6 +489,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#release-notes-5.13.4">5.13.4</a>
 <ul class="sectlevel2">
+<li><a href="#release-notes-5.13.4-overall-improvements">Overall Changes</a></li>
 <li><a href="#release-notes-5.13.4-junit-platform">JUnit Platform</a></li>
 <li><a href="#release-notes-5.13.4-junit-jupiter">JUnit Jupiter</a></li>
 <li><a href="#release-notes-5.13.4-junit-vintage">JUnit Vintage</a></li>
@@ -1021,6 +1022,20 @@ another testing framework with native JUnit Platform support.</p>
 <p>For a complete list of all <em>closed</em> issues and pull requests for this release, consult the
 <a href="https://github.com/junit-team/junit-framework/milestone/101?closed=1">5.13.4</a> milestone page in the JUnit
 repository on GitHub.</p>
+</div>
+<div class="sect2">
+<h3 id="release-notes-5.13.4-overall-improvements"><a class="anchor" href="#release-notes-5.13.4-overall-improvements"></a>Overall Changes</h3>
+<div class="sect3">
+<h4 id="release-notes-5.13.4-overall-new-features-and-improvements"><a class="anchor" href="#release-notes-5.13.4-overall-new-features-and-improvements"></a>New Features and Improvements</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Remove <code>java.*</code> packages from <code>Import-Package</code> headers in all jar manifests to maximize
+compatibility with older OSGi runtimes.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="release-notes-5.13.4-junit-platform"><a class="anchor" href="#release-notes-5.13.4-junit-platform"></a>JUnit Platform</h3>
