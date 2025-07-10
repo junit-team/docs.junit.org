@@ -640,7 +640,10 @@ JUnit Jupiter, Spock, and Cucumber.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>❓</p>
+<p>Change return type of <code>provideTestTemplateInvocationContexts(ExtensionContext)</code> method
+of the <code>TestTemplateInvocationContextProvider</code> interface from
+<code>Stream&lt;TestTemplateInvocationContext&gt;</code> to
+<code>Stream&lt;? extends TestTemplateInvocationContext&gt;</code>.</p>
 </li>
 </ul>
 </div>
