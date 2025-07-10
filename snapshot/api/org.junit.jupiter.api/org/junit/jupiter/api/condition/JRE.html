@@ -311,7 +311,10 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="JRE.html" title="enum class in org.junit.jupiter.api.condition">JRE</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#currentJre()" class="member-name-link">currentJre</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Returns the <a href="JRE.html" title="enum class in org.junit.jupiter.api.condition"><code>JRE</code></a> for the currently executing JVM, potentially
+ <a href="#OTHER"><code>OTHER</code></a>.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4 method-summary-table-tab6"><code>static <a href="JRE.html" title="enum class in org.junit.jupiter.api.condition">JRE</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4 method-summary-table-tab6"><code><a href="#currentVersion()" class="member-name-link">currentVersion</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4 method-summary-table-tab6">
@@ -321,13 +324,25 @@ loadScripts(document, 'script');</script>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static int</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#currentVersionNumber()" class="member-name-link">currentVersionNumber</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Returns the version number for the currently executing JVM, or <code>-1</code>
+ if the current JVM version could not be determined.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isCurrentVersion()" class="member-name-link">isCurrentVersion</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns <code>true</code> if <em>this</em> <code>JRE</code> is known to be the
+ Java Runtime Environment version for the currently executing JVM or if
+ the version is <a href="#OTHER"><code>OTHER</code></a>.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isCurrentVersion(int)" class="member-name-link">isCurrentVersion</a><wbr>(int&nbsp;version)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Returns <code>true</code> if the supplied version number is known to be the
+ Java Runtime Environment version for the currently executing JVM or if
+ the supplied version number is <code>-1</code> and the current JVM version
+ could not be determined.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="JRE.html" title="enum class in org.junit.jupiter.api.condition">JRE</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#valueOf(java.lang.String)" class="member-name-link">valueOf</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
@@ -793,6 +808,9 @@ not permitted.)</div>
 <h3>isCurrentVersion</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isCurrentVersion</span>()</div>
+<div class="block">Returns <code>true</code> if <em>this</em> <code>JRE</code> is known to be the
+ Java Runtime Environment version for the currently executing JVM or if
+ the version is <a href="#OTHER"><code>OTHER</code></a>.</div>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd><code>true</code> if <em>this</em> <code>JRE</code> is known to be the
@@ -820,6 +838,8 @@ not permitted.)</div>
 <div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
 <div class="deprecation-comment">in favor of <a href="#currentJre()"><code>currentJre()</code></a></div>
 </div>
+<div class="block">Returns the <a href="JRE.html" title="enum class in org.junit.jupiter.api.condition"><code>JRE</code></a> for the currently executing JVM, potentially
+ <a href="#OTHER"><code>OTHER</code></a>.</div>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>the <a href="JRE.html" title="enum class in org.junit.jupiter.api.condition"><code>JRE</code></a> for the currently executing JVM, potentially
@@ -843,6 +863,8 @@ not permitted.)</div>
 <div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#STABLE" title="class or interface in org.apiguardian.api" class="external-link">STABLE</a>,
      <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="5.12")
 </span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="JRE.html" title="enum class in org.junit.jupiter.api.condition">JRE</a></span>&nbsp;<span class="element-name">currentJre</span>()</div>
+<div class="block">Returns the <a href="JRE.html" title="enum class in org.junit.jupiter.api.condition"><code>JRE</code></a> for the currently executing JVM, potentially
+ <a href="#OTHER"><code>OTHER</code></a>.</div>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>the <a href="JRE.html" title="enum class in org.junit.jupiter.api.condition"><code>JRE</code></a> for the currently executing JVM, potentially
@@ -866,6 +888,8 @@ not permitted.)</div>
 <div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#MAINTAINED" title="class or interface in org.apiguardian.api" class="external-link">MAINTAINED</a>,
      <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="5.13.3")
 </span><span class="modifiers">public static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">currentVersionNumber</span>()</div>
+<div class="block">Returns the version number for the currently executing JVM, or <code>-1</code>
+ if the current JVM version could not be determined.</div>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>the version number for the currently executing JVM, or <code>-1</code>
@@ -890,6 +914,10 @@ not permitted.)</div>
 <div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#MAINTAINED" title="class or interface in org.apiguardian.api" class="external-link">MAINTAINED</a>,
      <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="5.13.3")
 </span><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isCurrentVersion</span><wbr><span class="parameters">(int&nbsp;version)</span></div>
+<div class="block">Returns <code>true</code> if the supplied version number is known to be the
+ Java Runtime Environment version for the currently executing JVM or if
+ the supplied version number is <code>-1</code> and the current JVM version
+ could not be determined.</div>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd><code>true</code> if the supplied version number is known to be the
