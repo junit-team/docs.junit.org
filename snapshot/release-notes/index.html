@@ -580,6 +580,11 @@ repository on GitHub.</p>
 <code>Launcher.execute(LauncherDiscoveryRequest, TestExecutionListener[])</code> in favor of
 <code>Launcher.execute(LauncherExecutionRequest)</code></p>
 </li>
+<li>
+<p><code>ConversionSupport</code> now converts <code>String</code> to <code>Locale</code> using the IETF BCP 47 language tag
+format supported by the <code>Locale.forLanguageTag(String)</code> factory method instead of the
+format used by the deprecated <code>Locale(String)</code> constructor.</p>
+</li>
 </ul>
 </div>
 </div>
@@ -644,6 +649,12 @@ JUnit Jupiter, Spock, and Cucumber.</p>
 of the <code>TestTemplateInvocationContextProvider</code> interface from
 <code>Stream&lt;TestTemplateInvocationContext&gt;</code> to
 <code>Stream&lt;? extends TestTemplateInvocationContext&gt;</code>.</p>
+</li>
+<li>
+<p>Remove support for <code>junit.jupiter.params.arguments.conversion.locale.format</code>
+configuration parameter. <code>Locale</code> conversions are now always performed using the IETF
+BCP 47 language tag format supported by the <code>Locale.forLanguageTag(String)</code> factory
+method.</p>
 </li>
 </ul>
 </div>

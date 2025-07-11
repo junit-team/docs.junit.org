@@ -6254,22 +6254,6 @@ integral types: <code>byte</code>, <code>short</code>, <code>int</code>, <code>l
 </tr>
 </tbody>
 </table>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-To revert to the old <code>java.util.Locale</code> conversion behavior of version 5.12 and
-earlier (which called the deprecated <code>Locale(String)</code> constructor), you can set the
-<code>junit.jupiter.params.arguments.conversion.locale.format</code>
-<a href="#running-tests-config-params">configuration parameter</a> to <code>iso_639</code>. However, please
-note that this parameter is deprecated and will be removed in a future release.
-</td>
-</tr>
-</table>
-</div>
 <div class="sect5">
 <h6 id="writing-tests-parameterized-tests-argument-conversion-implicit-fallback"><a class="anchor" href="#writing-tests-parameterized-tests-argument-conversion-implicit-fallback"></a>Fallback String-to-Object Conversion</h6>
 <div class="paragraph">
