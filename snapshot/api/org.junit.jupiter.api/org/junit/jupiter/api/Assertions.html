@@ -72,7 +72,6 @@ loadScripts(document, 'script');</script>
 <li><a href="#extensibility-heading" tabindex="0">Extensibility</a></li>
 </ol>
 </li>
-<li><a href="#nested-class-summary" tabindex="0">Nested Class Summary</a></li>
 <li><a href="#constructor-summary" tabindex="0">Constructor Summary</a></li>
 <li><a href="#method-summary" tabindex="0">Method Summary</a></li>
 <li><a href="#constructor-detail" tabindex="0">Constructor Details</a>
@@ -369,7 +368,6 @@ loadScripts(document, 'script');</script>
 <li><a href="#assertTimeoutPreemptively(java.time.Duration,org.junit.jupiter.api.function.ThrowingSupplier)" tabindex="0">assertTimeoutPreemptively(Duration, ThrowingSupplier)</a></li>
 <li><a href="#assertTimeoutPreemptively(java.time.Duration,org.junit.jupiter.api.function.ThrowingSupplier,java.lang.String)" tabindex="0">assertTimeoutPreemptively(Duration, ThrowingSupplier, String)</a></li>
 <li><a href="#assertTimeoutPreemptively(java.time.Duration,org.junit.jupiter.api.function.ThrowingSupplier,java.util.function.Supplier)" tabindex="0">assertTimeoutPreemptively(Duration, ThrowingSupplier, Supplier)</a></li>
-<li><a href="#assertTimeoutPreemptively(java.time.Duration,org.junit.jupiter.api.function.ThrowingSupplier,java.util.function.Supplier,org.junit.jupiter.api.Assertions.TimeoutFailureFactory)" tabindex="0">assertTimeoutPreemptively(Duration, ThrowingSupplier, Supplier, Assertions.TimeoutFailureFactory)</a></li>
 <li><a href="#assertInstanceOf(java.lang.Class,java.lang.Object)" tabindex="0">assertInstanceOf(Class, Object)</a></li>
 <li><a href="#assertInstanceOf(java.lang.Class,java.lang.Object,java.lang.String)" tabindex="0">assertInstanceOf(Class, Object, String)</a></li>
 <li><a href="#assertInstanceOf(java.lang.Class,java.lang.Object,java.util.function.Supplier)" tabindex="0">assertInstanceOf(Class, Object, Supplier)</a></li>
@@ -464,23 +462,6 @@ loadScripts(document, 'script');</script>
 </section>
 <section class="summary">
 <ul class="summary-list">
-<!-- ======== NESTED CLASS SUMMARY ======== -->
-<li>
-<section class="nested-class-summary" id="nested-class-summary">
-<h2>Nested Class Summary</h2>
-<div class="caption"><span>Nested Classes</span></div>
-<div class="summary-table three-column-summary">
-<div class="table-header col-first">Modifier and Type</div>
-<div class="table-header col-second">Class</div>
-<div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code>static interface&nbsp;</code></div>
-<div class="col-second even-row-color"><code><a href="Assertions.TimeoutFailureFactory.html" class="type-name-link" title="interface in org.junit.jupiter.api">Assertions.TimeoutFailureFactory</a>&lt;<a href="Assertions.TimeoutFailureFactory.html#type-param-T" title="type parameter in Assertions.TimeoutFailureFactory">T</a> extends <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&gt;</code></div>
-<div class="col-last even-row-color">
-<div class="block">Factory for timeout failures.</div>
-</div>
-</div>
-</section>
-</li>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
 <li>
 <section class="constructor-summary" id="constructor-summary">
@@ -2413,74 +2394,65 @@ loadScripts(document, 'script');</script>
 <div class="block"><em>Assert</em> that execution of the supplied <code>supplier</code>
  completes before the given <code>timeout</code> is exceeded.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;T extends @Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>, E extends <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&gt;<br>T</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#assertTimeoutPreemptively(java.time.Duration,org.junit.jupiter.api.function.ThrowingSupplier,java.util.function.Supplier,org.junit.jupiter.api.Assertions.TimeoutFailureFactory)" class="member-name-link">assertTimeoutPreemptively</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/time/Duration.html" title="class or interface in java.time" class="external-link">Duration</a>&nbsp;timeout,
- <a href="function/ThrowingSupplier.html" title="interface in org.junit.jupiter.api.function">ThrowingSupplier</a>&lt;T&gt;&nbsp;supplier,
- <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;messageSupplier,
- <a href="Assertions.TimeoutFailureFactory.html" title="interface in org.junit.jupiter.api">Assertions.TimeoutFailureFactory</a>&lt;E&gt;&nbsp;failureFactory)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block"><em>Assert</em> that execution of the supplied <code>supplier</code>
- completes before the given <code>timeout</code> is exceeded.</div>
-</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#assertTrue(boolean)" class="member-name-link">assertTrue</a><wbr>(boolean&nbsp;condition)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block"><em>Assert</em> that the supplied <code>condition</code> is <code>true</code>.</div>
-</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#assertTrue(boolean,java.lang.String)" class="member-name-link">assertTrue</a><wbr>(boolean&nbsp;condition,
- @Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;message)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#assertTrue(boolean)" class="member-name-link">assertTrue</a><wbr>(boolean&nbsp;condition)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block"><em>Assert</em> that the supplied <code>condition</code> is <code>true</code>.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#assertTrue(boolean,java.util.function.Supplier)" class="member-name-link">assertTrue</a><wbr>(boolean&nbsp;condition,
- <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;messageSupplier)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block"><em>Assert</em> that the supplied <code>condition</code> is <code>true</code>.</div>
-</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#assertTrue(java.util.function.BooleanSupplier)" class="member-name-link">assertTrue</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/function/BooleanSupplier.html" title="class or interface in java.util.function" class="external-link">BooleanSupplier</a>&nbsp;booleanSupplier)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block"><em>Assert</em> that the boolean condition supplied by <code>booleanSupplier</code> is <code>true</code>.</div>
-</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#assertTrue(java.util.function.BooleanSupplier,java.lang.String)" class="member-name-link">assertTrue</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/function/BooleanSupplier.html" title="class or interface in java.util.function" class="external-link">BooleanSupplier</a>&nbsp;booleanSupplier,
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#assertTrue(boolean,java.lang.String)" class="member-name-link">assertTrue</a><wbr>(boolean&nbsp;condition,
  @Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;message)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block"><em>Assert</em> that the supplied <code>condition</code> is <code>true</code>.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#assertTrue(boolean,java.util.function.Supplier)" class="member-name-link">assertTrue</a><wbr>(boolean&nbsp;condition,
+ <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;messageSupplier)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block"><em>Assert</em> that the supplied <code>condition</code> is <code>true</code>.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#assertTrue(java.util.function.BooleanSupplier)" class="member-name-link">assertTrue</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/function/BooleanSupplier.html" title="class or interface in java.util.function" class="external-link">BooleanSupplier</a>&nbsp;booleanSupplier)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block"><em>Assert</em> that the boolean condition supplied by <code>booleanSupplier</code> is <code>true</code>.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#assertTrue(java.util.function.BooleanSupplier,java.util.function.Supplier)" class="member-name-link">assertTrue</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/function/BooleanSupplier.html" title="class or interface in java.util.function" class="external-link">BooleanSupplier</a>&nbsp;booleanSupplier,
- <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;messageSupplier)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#assertTrue(java.util.function.BooleanSupplier,java.lang.String)" class="member-name-link">assertTrue</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/function/BooleanSupplier.html" title="class or interface in java.util.function" class="external-link">BooleanSupplier</a>&nbsp;booleanSupplier,
+ @Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;message)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block"><em>Assert</em> that the boolean condition supplied by <code>booleanSupplier</code> is <code>true</code>.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;V&gt;&nbsp;V</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#fail()" class="member-name-link">fail</a>()</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#assertTrue(java.util.function.BooleanSupplier,java.util.function.Supplier)" class="member-name-link">assertTrue</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/function/BooleanSupplier.html" title="class or interface in java.util.function" class="external-link">BooleanSupplier</a>&nbsp;booleanSupplier,
+ <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;messageSupplier)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block"><em>Fail</em> the test <em>without</em> a failure message.</div>
+<div class="block"><em>Assert</em> that the boolean condition supplied by <code>booleanSupplier</code> is <code>true</code>.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;V&gt;&nbsp;V</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#fail(java.lang.String)" class="member-name-link">fail</a><wbr>(@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;message)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#fail()" class="member-name-link">fail</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block"><em>Fail</em> the test with the given failure <code>message</code>.</div>
+<div class="block"><em>Fail</em> the test <em>without</em> a failure message.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;V&gt;&nbsp;V</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#fail(java.lang.String,java.lang.Throwable)" class="member-name-link">fail</a><wbr>(@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;message,
- @Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&nbsp;cause)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#fail(java.lang.String)" class="member-name-link">fail</a><wbr>(@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;message)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block"><em>Fail</em> the test with the given failure <code>message</code>.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;V&gt;&nbsp;V</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#fail(java.lang.String,java.lang.Throwable)" class="member-name-link">fail</a><wbr>(@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;message,
+ @Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&nbsp;cause)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block"><em>Fail</em> the test with the given failure <code>message</code> as well
  as the underlying <code>cause</code>.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;V&gt;&nbsp;V</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#fail(java.lang.Throwable)" class="member-name-link">fail</a><wbr>(@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&nbsp;cause)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;V&gt;&nbsp;V</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#fail(java.lang.Throwable)" class="member-name-link">fail</a><wbr>(@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&nbsp;cause)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block"><em>Fail</em> the test with the given underlying <code>cause</code>.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;V&gt;&nbsp;V</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#fail(java.util.function.Supplier)" class="member-name-link">fail</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;messageSupplier)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;V&gt;&nbsp;V</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#fail(java.util.function.Supplier)" class="member-name-link">fail</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;messageSupplier)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block"><em>Fail</em> the test with the failure message retrieved from the
  given <code>messageSupplier</code>.</div>
 </div>
@@ -7553,50 +7525,6 @@ loadScripts(document, 'script');</script>
  <p>If necessary, the failure message will be retrieved lazily from the
  supplied <code>messageSupplier</code>.</div>
 <dl class="notes">
-<dt>See Also:</dt>
-<dd>
-<ul class="tag-list-long">
-<li><a href="#assertTimeoutPreemptively(java.time.Duration,org.junit.jupiter.api.function.Executable)"><code>assertTimeoutPreemptively(Duration, Executable)</code></a></li>
-<li><a href="#assertTimeoutPreemptively(java.time.Duration,org.junit.jupiter.api.function.Executable,java.lang.String)"><code>assertTimeoutPreemptively(Duration, Executable, String)</code></a></li>
-<li><a href="#assertTimeoutPreemptively(java.time.Duration,org.junit.jupiter.api.function.Executable,java.util.function.Supplier)"><code>assertTimeoutPreemptively(Duration, Executable, Supplier)</code></a></li>
-<li><a href="#assertTimeoutPreemptively(java.time.Duration,org.junit.jupiter.api.function.ThrowingSupplier)"><code>assertTimeoutPreemptively(Duration, ThrowingSupplier)</code></a></li>
-<li><a href="#assertTimeoutPreemptively(java.time.Duration,org.junit.jupiter.api.function.ThrowingSupplier,java.lang.String)"><code>assertTimeoutPreemptively(Duration, ThrowingSupplier, String)</code></a></li>
-<li><a href="#assertTimeout(java.time.Duration,org.junit.jupiter.api.function.Executable,java.util.function.Supplier)"><code>assertTimeout(Duration, Executable, Supplier)</code></a></li>
-</ul>
-</dd>
-</dl>
-</div>
-</section>
-</li>
-<li>
-<section class="detail" id="assertTimeoutPreemptively(java.time.Duration,org.junit.jupiter.api.function.ThrowingSupplier,java.util.function.Supplier,org.junit.jupiter.api.Assertions.TimeoutFailureFactory)">
-<h3>assertTimeoutPreemptively</h3>
-<div class="horizontal-scroll">
-<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#INTERNAL" title="class or interface in org.apiguardian.api" class="external-link">INTERNAL</a>,
-     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="5.9.1")
-</span><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;T extends @Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>, E extends <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&gt;</span>
-<span class="return-type">T</span>&nbsp;<span class="element-name">assertTimeoutPreemptively</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/time/Duration.html" title="class or interface in java.time" class="external-link">Duration</a>&nbsp;timeout,
- <a href="function/ThrowingSupplier.html" title="interface in org.junit.jupiter.api.function">ThrowingSupplier</a>&lt;T&gt;&nbsp;supplier,
- <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;messageSupplier,
- <a href="Assertions.TimeoutFailureFactory.html" title="interface in org.junit.jupiter.api">Assertions.TimeoutFailureFactory</a>&lt;E&gt;&nbsp;failureFactory)</span>
-                     throws <span class="exceptions">E</span></div>
-<div class="block"><em>Assert</em> that execution of the supplied <code>supplier</code>
- completes before the given <code>timeout</code> is exceeded.
-
- <p>See the <a href="Assertions.html" title="class in org.junit.jupiter.api">Preemptive Timeouts</a> section of the
- class-level Javadoc for further details.
-
- <p>If the assertion passes then the <code>supplier</code>'s result is returned.
-
- <p>In the case the assertion does not pass, the supplied
- <a href="Assertions.TimeoutFailureFactory.html" title="interface in org.junit.jupiter.api"><code>Assertions.TimeoutFailureFactory</code></a> is invoked to create an exception which is
- then thrown.
-
- <p>If necessary, the failure message will be retrieved lazily from the
- supplied <code>messageSupplier</code>.</div>
-<dl class="notes">
-<dt>Throws:</dt>
-<dd><code>E</code></dd>
 <dt>See Also:</dt>
 <dd>
 <ul class="tag-list-long">

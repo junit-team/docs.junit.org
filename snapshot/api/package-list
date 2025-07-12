@@ -7,6 +7,7 @@ org.junit.jupiter.api.extension.support
 org.junit.jupiter.api.function
 org.junit.jupiter.api.io
 org.junit.jupiter.api.parallel
+org.junit.jupiter.api.util
 module:org.junit.jupiter.engine
 org.junit.jupiter.engine
 org.junit.jupiter.engine.config
