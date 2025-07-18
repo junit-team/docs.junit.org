@@ -302,40 +302,61 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color">
 <div class="block">in favor of <a href="org.junit.jupiter.api/org/junit/jupiter/api/DisplayNameGenerator.html#generateDisplayNameForNestedClass(java.util.List,java.lang.Class)"><code>DisplayNameGenerator.generateDisplayNameForNestedClass(List, Class)</code></a></div>
 </div>
-<div class="col-summary-item-name odd-row-color"><a href="org.junit.jupiter.params/org/junit/jupiter/params/provider/AnnotationBasedArgumentsProvider.html#provideArguments(org.junit.jupiter.api.extension.ExtensionContext,A)">org.junit.jupiter.params.provider.AnnotationBasedArgumentsProvider.provideArguments<wbr>(ExtensionContext, A)</a></div>
+<div class="col-summary-item-name odd-row-color"><a href="org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Store.html#getOrComputeIfAbsent(java.lang.Class)">org.junit.jupiter.api.extension.ExtensionContext.Store.getOrComputeIfAbsent<wbr>(Class&lt;V&gt;)</a></div>
 <div class="col-last odd-row-color">
+<div class="block">Please use <a href="org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Store.html#computeIfAbsent(java.lang.Class)"><code>ExtensionContext.Store.computeIfAbsent(Class)</code></a> instead.</div>
+</div>
+<div class="col-summary-item-name even-row-color"><a href="org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Store.html#getOrComputeIfAbsent(K,java.util.function.Function)">org.junit.jupiter.api.extension.ExtensionContext.Store.getOrComputeIfAbsent<wbr>(K, Function&lt;? super K, ? extends V&gt;)</a></div>
+<div class="col-last even-row-color">
+<div class="block">Please use <a href="org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Store.html#computeIfAbsent(K,java.util.function.Function)"><code>ExtensionContext.Store.computeIfAbsent(Object, Function)</code></a>
+ instead.</div>
+</div>
+<div class="col-summary-item-name odd-row-color"><a href="org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Store.html#getOrComputeIfAbsent(K,java.util.function.Function,java.lang.Class)">org.junit.jupiter.api.extension.ExtensionContext.Store.getOrComputeIfAbsent<wbr>(K, Function&lt;? super K, ? extends V&gt;, Class&lt;V&gt;)</a></div>
+<div class="col-last odd-row-color"></div>
+<div class="col-summary-item-name even-row-color"><a href="org.junit.jupiter.params/org/junit/jupiter/params/provider/AnnotationBasedArgumentsProvider.html#provideArguments(org.junit.jupiter.api.extension.ExtensionContext,A)">org.junit.jupiter.params.provider.AnnotationBasedArgumentsProvider.provideArguments<wbr>(ExtensionContext, A)</a></div>
+<div class="col-last even-row-color">
 <div class="block">Please implement
  <a href="org.junit.jupiter.params/org/junit/jupiter/params/provider/AnnotationBasedArgumentsProvider.html#provideArguments(org.junit.jupiter.params.support.ParameterDeclarations,org.junit.jupiter.api.extension.ExtensionContext,A)"><code>AnnotationBasedArgumentsProvider.provideArguments(ParameterDeclarations, ExtensionContext, Annotation)</code></a>
  instead.</div>
 </div>
-<div class="col-summary-item-name even-row-color"><a href="org.junit.jupiter.params/org/junit/jupiter/params/provider/ArgumentsProvider.html#provideArguments(org.junit.jupiter.api.extension.ExtensionContext)">org.junit.jupiter.params.provider.ArgumentsProvider.provideArguments<wbr>(ExtensionContext)</a></div>
-<div class="col-last even-row-color">
+<div class="col-summary-item-name odd-row-color"><a href="org.junit.jupiter.params/org/junit/jupiter/params/provider/ArgumentsProvider.html#provideArguments(org.junit.jupiter.api.extension.ExtensionContext)">org.junit.jupiter.params.provider.ArgumentsProvider.provideArguments<wbr>(ExtensionContext)</a></div>
+<div class="col-last odd-row-color">
 <div class="block">Please implement
  <a href="org.junit.jupiter.params/org/junit/jupiter/params/provider/ArgumentsProvider.html#provideArguments(org.junit.jupiter.params.support.ParameterDeclarations,org.junit.jupiter.api.extension.ExtensionContext)"><code>ArgumentsProvider.provideArguments(ParameterDeclarations, ExtensionContext)</code></a> instead.</div>
 </div>
-<div class="col-summary-item-name odd-row-color"><a href="org.junit.platform.commons/org/junit/platform/commons/support/AnnotationSupport.html#findAnnotation(java.lang.Class,java.lang.Class,org.junit.platform.commons.support.SearchOption)">org.junit.platform.commons.support.AnnotationSupport.findAnnotation<wbr>(Class&lt;?&gt;, Class&lt;A&gt;, SearchOption)</a></div>
-<div class="col-last odd-row-color">
+<div class="col-summary-item-name even-row-color"><a href="org.junit.platform.commons/org/junit/platform/commons/support/AnnotationSupport.html#findAnnotation(java.lang.Class,java.lang.Class,org.junit.platform.commons.support.SearchOption)">org.junit.platform.commons.support.AnnotationSupport.findAnnotation<wbr>(Class&lt;?&gt;, Class&lt;A&gt;, SearchOption)</a></div>
+<div class="col-last even-row-color">
 <div class="block">Use <a href="org.junit.platform.commons/org/junit/platform/commons/support/AnnotationSupport.html#findAnnotation(java.lang.reflect.AnnotatedElement,java.lang.Class)"><code>AnnotationSupport.findAnnotation(AnnotatedElement, Class)</code></a>
  (for <code>SearchOption.DEFAULT</code>) or
  <a href="org.junit.platform.commons/org/junit/platform/commons/support/AnnotationSupport.html#findAnnotation(java.lang.Class,java.lang.Class,java.util.List)"><code>AnnotationSupport.findAnnotation(Class, Class, List)</code></a> (for
  <code>SearchOption.INCLUDE_ENCLOSING_CLASSES</code>) instead</div>
 </div>
-<div class="col-summary-item-name even-row-color"><a href="org.junit.platform.engine/org/junit/platform/engine/ExecutionRequest.html#create(org.junit.platform.engine.TestDescriptor,org.junit.platform.engine.EngineExecutionListener,org.junit.platform.engine.ConfigurationParameters)">org.junit.platform.engine.ExecutionRequest.create<wbr>(TestDescriptor, EngineExecutionListener, ConfigurationParameters)</a></div>
-<div class="col-last even-row-color">
+<div class="col-summary-item-name odd-row-color"><a href="org.junit.platform.engine/org/junit/platform/engine/ExecutionRequest.html#create(org.junit.platform.engine.TestDescriptor,org.junit.platform.engine.EngineExecutionListener,org.junit.platform.engine.ConfigurationParameters)">org.junit.platform.engine.ExecutionRequest.create<wbr>(TestDescriptor, EngineExecutionListener, ConfigurationParameters)</a></div>
+<div class="col-last odd-row-color">
 <div class="block">without replacement</div>
 </div>
-<div class="col-summary-item-name odd-row-color"><a href="org.junit.platform.engine/org/junit/platform/engine/Filter.html#adaptFilter(org.junit.platform.engine.Filter,java.util.function.Function)">org.junit.platform.engine.Filter.adaptFilter<wbr>(Filter&lt;V&gt;, Function&lt;T, V&gt;)</a></div>
-<div class="col-last odd-row-color"></div>
-<div class="col-summary-item-name even-row-color"><a href="org.junit.platform.launcher/org/junit/platform/launcher/Launcher.html#execute(org.junit.platform.launcher.LauncherDiscoveryRequest,org.junit.platform.launcher.TestExecutionListener...)">org.junit.platform.launcher.Launcher.execute<wbr>(LauncherDiscoveryRequest, TestExecutionListener...)</a></div>
-<div class="col-last even-row-color">
-<div class="block">Please use <a href="org.junit.platform.launcher/org/junit/platform/launcher/Launcher.html#execute(org.junit.platform.launcher.LauncherExecutionRequest)"><code>Launcher.execute(LauncherExecutionRequest)</code></a> instead.</div>
+<div class="col-summary-item-name even-row-color"><a href="org.junit.platform.engine/org/junit/platform/engine/Filter.html#adaptFilter(org.junit.platform.engine.Filter,java.util.function.Function)">org.junit.platform.engine.Filter.adaptFilter<wbr>(Filter&lt;V&gt;, Function&lt;T, V&gt;)</a></div>
+<div class="col-last even-row-color"></div>
+<div class="col-summary-item-name odd-row-color"><a href="org.junit.platform.engine/org/junit/platform/engine/support/store/NamespacedHierarchicalStore.html#getOrComputeIfAbsent(N,K,java.util.function.Function)">org.junit.platform.engine.support.store.NamespacedHierarchicalStore.getOrComputeIfAbsent<wbr>(N, K, Function&lt;? super K, ? extends V&gt;)</a></div>
+<div class="col-last odd-row-color">
+<div class="block">Please use
+ <a href="org.junit.platform.engine/org/junit/platform/engine/support/store/NamespacedHierarchicalStore.html#computeIfAbsent(N,K,java.util.function.Function)"><code>NamespacedHierarchicalStore.computeIfAbsent(Object, Object, Function)</code></a> instead.</div>
 </div>
-<div class="col-summary-item-name odd-row-color"><a href="org.junit.platform.launcher/org/junit/platform/launcher/Launcher.html#execute(org.junit.platform.launcher.TestPlan,org.junit.platform.launcher.TestExecutionListener...)">org.junit.platform.launcher.Launcher.execute<wbr>(TestPlan, TestExecutionListener...)</a></div>
+<div class="col-summary-item-name even-row-color"><a href="org.junit.platform.engine/org/junit/platform/engine/support/store/NamespacedHierarchicalStore.html#getOrComputeIfAbsent(N,K,java.util.function.Function,java.lang.Class)">org.junit.platform.engine.support.store.NamespacedHierarchicalStore.getOrComputeIfAbsent<wbr>(N, K, Function&lt;? super K, ? extends V&gt;, Class&lt;V&gt;)</a></div>
+<div class="col-last even-row-color">
+<div class="block">Please use
+ <a href="org.junit.platform.engine/org/junit/platform/engine/support/store/NamespacedHierarchicalStore.html#computeIfAbsent(N,K,java.util.function.Function,java.lang.Class)"><code>NamespacedHierarchicalStore.computeIfAbsent(Object, Object, Function, Class)</code></a> instead.</div>
+</div>
+<div class="col-summary-item-name odd-row-color"><a href="org.junit.platform.launcher/org/junit/platform/launcher/Launcher.html#execute(org.junit.platform.launcher.LauncherDiscoveryRequest,org.junit.platform.launcher.TestExecutionListener...)">org.junit.platform.launcher.Launcher.execute<wbr>(LauncherDiscoveryRequest, TestExecutionListener...)</a></div>
 <div class="col-last odd-row-color">
 <div class="block">Please use <a href="org.junit.platform.launcher/org/junit/platform/launcher/Launcher.html#execute(org.junit.platform.launcher.LauncherExecutionRequest)"><code>Launcher.execute(LauncherExecutionRequest)</code></a> instead.</div>
 </div>
-<div class="col-summary-item-name even-row-color"><a href="org.junit.platform.launcher/org/junit/platform/launcher/TestPlan.html#getTestIdentifier(java.lang.String)">org.junit.platform.launcher.TestPlan.getTestIdentifier<wbr>(String)</a></div>
+<div class="col-summary-item-name even-row-color"><a href="org.junit.platform.launcher/org/junit/platform/launcher/Launcher.html#execute(org.junit.platform.launcher.TestPlan,org.junit.platform.launcher.TestExecutionListener...)">org.junit.platform.launcher.Launcher.execute<wbr>(TestPlan, TestExecutionListener...)</a></div>
 <div class="col-last even-row-color">
+<div class="block">Please use <a href="org.junit.platform.launcher/org/junit/platform/launcher/Launcher.html#execute(org.junit.platform.launcher.LauncherExecutionRequest)"><code>Launcher.execute(LauncherExecutionRequest)</code></a> instead.</div>
+</div>
+<div class="col-summary-item-name odd-row-color"><a href="org.junit.platform.launcher/org/junit/platform/launcher/TestPlan.html#getTestIdentifier(java.lang.String)">org.junit.platform.launcher.TestPlan.getTestIdentifier<wbr>(String)</a></div>
+<div class="col-last odd-row-color">
 <div class="block">Use <a href="org.junit.platform.launcher/org/junit/platform/launcher/TestPlan.html#getTestIdentifier(org.junit.platform.engine.UniqueId)"><code>TestPlan.getTestIdentifier(UniqueId)</code></a></div>
 </div>
 </div>

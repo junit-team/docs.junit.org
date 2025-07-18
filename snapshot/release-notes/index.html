@@ -585,6 +585,10 @@ repository on GitHub.</p>
 format supported by the <code>Locale.forLanguageTag(String)</code> factory method instead of the
 format used by the deprecated <code>Locale(String)</code> constructor.</p>
 </li>
+<li>
+<p>Deprecate <code>getOrComputeIfAbsent(&#8230;&#8203;)</code> methods in <code>NamespacedHierarchicalStore</code> in favor
+of the new <code>computeIfAbsent(&#8230;&#8203;)</code> methods.</p>
+</li>
 </ul>
 </div>
 </div>
@@ -624,6 +628,10 @@ JUnit Jupiter, Spock, and Cucumber.</p>
 <p>Introduce <code>TestTask.getTestDescriptor()</code> method for use in
 <code>HierarchicalTestExecutorService</code> implementations.</p>
 </li>
+<li>
+<p>Introduce <code>computeIfAbsent(&#8230;&#8203;)</code> methods in <code>NamespacedHierarchicalStore</code> to simplify
+working with non-nullable types.</p>
+</li>
 </ul>
 </div>
 </div>
@@ -656,6 +664,10 @@ configuration parameter. <code>Locale</code> conversions are now always performe
 BCP 47 language tag format supported by the <code>Locale.forLanguageTag(String)</code> factory
 method.</p>
 </li>
+<li>
+<p>Deprecate <code>getOrComputeIfAbsent(&#8230;&#8203;)</code> methods in <code>ExtensionContext.Store</code> in favor of
+the new <code>computeIfAbsent(&#8230;&#8203;)</code> methods.</p>
+</li>
 </ul>
 </div>
 </div>
@@ -666,6 +678,10 @@ method.</p>
 <li>
 <p>Reason strings supplied to <code>ConditionEvaluationResult</code> APIs are now officially declared
 as <code>@Nullable</code>.</p>
+</li>
+<li>
+<p>Introduce <code>computeIfAbsent(&#8230;&#8203;)</code> methods in <code>ExtensionContext.Store</code> to ease simplify
+with non-nullable types.</p>
 </li>
 </ul>
 </div>

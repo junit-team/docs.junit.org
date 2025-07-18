@@ -1267,34 +1267,38 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Store.html#getOrComputeIfAbsent(java.lang.Class)" class="member-name-link">getOrComputeIfAbsent(Class&lt;V&gt;)</a> - Method in interface org.junit.jupiter.api.extension.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Store.html" title="interface in org.junit.jupiter.api.extension">ExtensionContext.Store</a></dt>
 <dd>
-<div class="block">Get the object of type <code>type</code> that is present in this
- <code>Store</code> (<em>keyed</em> by <code>type</code>); and otherwise invoke
- the default constructor for <code>type</code> to generate the object,
- store it, and return it.</div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">Please use <a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Store.html#computeIfAbsent(java.lang.Class)"><code>ExtensionContext.Store.computeIfAbsent(Class)</code></a> instead.</div>
+</div>
 </dd>
 <dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Store.html#getOrComputeIfAbsent(K,java.util.function.Function)" class="member-name-link">getOrComputeIfAbsent(K, Function&lt;? super K, ? extends V&gt;)</a> - Method in interface org.junit.jupiter.api.extension.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Store.html" title="interface in org.junit.jupiter.api.extension">ExtensionContext.Store</a></dt>
 <dd>
-<div class="block">Get the value that is stored under the supplied <code>key</code>.</div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">Please use <a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Store.html#computeIfAbsent(K,java.util.function.Function)"><code>ExtensionContext.Store.computeIfAbsent(Object, Function)</code></a>
+ instead.</div>
+</div>
 </dd>
 <dt><a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/execution/NamespaceAwareStore.html#getOrComputeIfAbsent(K,java.util.function.Function)" class="member-name-link">getOrComputeIfAbsent(K, Function&lt;? super K, ? extends V&gt;)</a> - Method in class org.junit.jupiter.engine.execution.<a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/execution/NamespaceAwareStore.html" title="class in org.junit.jupiter.engine.execution">NamespaceAwareStore</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Store.html#getOrComputeIfAbsent(K,java.util.function.Function,java.lang.Class)" class="member-name-link">getOrComputeIfAbsent(K, Function&lt;? super K, ? extends V&gt;, Class&lt;V&gt;)</a> - Method in interface org.junit.jupiter.api.extension.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Store.html" title="interface in org.junit.jupiter.api.extension">ExtensionContext.Store</a></dt>
 <dd>
-<div class="block">Get the value of the specified required type that is stored under the
- supplied <code>key</code>.</div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span></div>
 </dd>
 <dt><a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/execution/NamespaceAwareStore.html#getOrComputeIfAbsent(K,java.util.function.Function,java.lang.Class)" class="member-name-link">getOrComputeIfAbsent(K, Function&lt;? super K, ? extends V&gt;, Class&lt;V&gt;)</a> - Method in class org.junit.jupiter.engine.execution.<a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/execution/NamespaceAwareStore.html" title="class in org.junit.jupiter.engine.execution">NamespaceAwareStore</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="../org.junit.platform.engine/org/junit/platform/engine/support/store/NamespacedHierarchicalStore.html#getOrComputeIfAbsent(N,K,java.util.function.Function)" class="member-name-link">getOrComputeIfAbsent(N, K, Function&lt;? super K, ? extends V&gt;)</a> - Method in class org.junit.platform.engine.support.store.<a href="../org.junit.platform.engine/org/junit/platform/engine/support/store/NamespacedHierarchicalStore.html" title="class in org.junit.platform.engine.support.store">NamespacedHierarchicalStore</a></dt>
 <dd>
-<div class="block">Get the value stored for the supplied namespace and key in this store or
- the parent store, if present, or call the supplied function to compute it.</div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">Please use
+ <a href="../org.junit.platform.engine/org/junit/platform/engine/support/store/NamespacedHierarchicalStore.html#computeIfAbsent(N,K,java.util.function.Function)"><code>NamespacedHierarchicalStore.computeIfAbsent(Object, Object, Function)</code></a> instead.</div>
+</div>
 </dd>
 <dt><a href="../org.junit.platform.engine/org/junit/platform/engine/support/store/NamespacedHierarchicalStore.html#getOrComputeIfAbsent(N,K,java.util.function.Function,java.lang.Class)" class="member-name-link">getOrComputeIfAbsent(N, K, Function&lt;? super K, ? extends V&gt;, Class&lt;V&gt;)</a> - Method in class org.junit.platform.engine.support.store.<a href="../org.junit.platform.engine/org/junit/platform/engine/support/store/NamespacedHierarchicalStore.html" title="class in org.junit.platform.engine.support.store">NamespacedHierarchicalStore</a></dt>
 <dd>
-<div class="block">Get the value stored for the supplied namespace and key in this store or
- the parent store, if present, or call the supplied function to compute it
- and, finally, cast it to the supplied required type.</div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">Please use
+ <a href="../org.junit.platform.engine/org/junit/platform/engine/support/store/NamespacedHierarchicalStore.html#computeIfAbsent(N,K,java.util.function.Function,java.lang.Class)"><code>NamespacedHierarchicalStore.computeIfAbsent(Object, Object, Function, Class)</code></a> instead.</div>
+</div>
 </dd>
 <dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Store.html#getOrDefault(java.lang.Object,java.lang.Class,V)" class="member-name-link">getOrDefault(Object, Class&lt;V&gt;, V)</a> - Method in interface org.junit.jupiter.api.extension.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Store.html" title="interface in org.junit.jupiter.api.extension">ExtensionContext.Store</a></dt>
 <dd>
