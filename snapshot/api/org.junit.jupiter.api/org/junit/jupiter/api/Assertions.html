@@ -2500,7 +2500,8 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="fail()">
 <h3>fail</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;V&gt;</span>&nbsp;<span class="return-type">V</span>&nbsp;<span class="element-name">fail</span>()</div>
+<div class="member-signature"><span class="annotations"><a href="../../../../../org.junit.platform.commons/org/junit/platform/commons/annotation/Contract.html" title="annotation interface in org.junit.platform.commons.annotation">@Contract</a>(" -&gt; fail")
+</span><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;V&gt;</span>&nbsp;<span class="return-type">V</span>&nbsp;<span class="element-name">fail</span>()</div>
 <div class="block"><em>Fail</em> the test <em>without</em> a failure message.
 
  <p>Although failing <em>with</em> an explicit failure message is recommended,
@@ -2515,7 +2516,8 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="fail(java.lang.String)">
 <h3>fail</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;V&gt;</span>&nbsp;<span class="return-type">V</span>&nbsp;<span class="element-name">fail</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;message)</span></div>
+<div class="member-signature"><span class="annotations"><a href="../../../../../org.junit.platform.commons/org/junit/platform/commons/annotation/Contract.html" title="annotation interface in org.junit.platform.commons.annotation">@Contract</a>("_ -&gt; fail")
+</span><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;V&gt;</span>&nbsp;<span class="return-type">V</span>&nbsp;<span class="element-name">fail</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;message)</span></div>
 <div class="block"><em>Fail</em> the test with the given failure <code>message</code>.
 
  <p>The generic return type <code>V</code> allows this method to be used
@@ -2535,7 +2537,8 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="fail(java.lang.String,java.lang.Throwable)">
 <h3>fail</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;V&gt;</span>&nbsp;<span class="return-type">V</span>&nbsp;<span class="element-name">fail</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;message,
+<div class="member-signature"><span class="annotations"><a href="../../../../../org.junit.platform.commons/org/junit/platform/commons/annotation/Contract.html" title="annotation interface in org.junit.platform.commons.annotation">@Contract</a>("_, _ -&gt; fail")
+</span><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;V&gt;</span>&nbsp;<span class="return-type">V</span>&nbsp;<span class="element-name">fail</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;message,
  @Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&nbsp;cause)</span></div>
 <div class="block"><em>Fail</em> the test with the given failure <code>message</code> as well
  as the underlying <code>cause</code>.
@@ -2549,7 +2552,8 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="fail(java.lang.Throwable)">
 <h3>fail</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;V&gt;</span>&nbsp;<span class="return-type">V</span>&nbsp;<span class="element-name">fail</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&nbsp;cause)</span></div>
+<div class="member-signature"><span class="annotations"><a href="../../../../../org.junit.platform.commons/org/junit/platform/commons/annotation/Contract.html" title="annotation interface in org.junit.platform.commons.annotation">@Contract</a>("_ -&gt; fail")
+</span><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;V&gt;</span>&nbsp;<span class="return-type">V</span>&nbsp;<span class="element-name">fail</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&nbsp;cause)</span></div>
 <div class="block"><em>Fail</em> the test with the given underlying <code>cause</code>.
 
  <p>See Javadoc for <a href="#fail(java.lang.String)"><code>fail(String)</code></a> for an explanation of this method's
@@ -2561,7 +2565,8 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="fail(java.util.function.Supplier)">
 <h3>fail</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;V&gt;</span>&nbsp;<span class="return-type">V</span>&nbsp;<span class="element-name">fail</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;messageSupplier)</span></div>
+<div class="member-signature"><span class="annotations"><a href="../../../../../org.junit.platform.commons/org/junit/platform/commons/annotation/Contract.html" title="annotation interface in org.junit.platform.commons.annotation">@Contract</a>("_ -&gt; fail")
+</span><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;V&gt;</span>&nbsp;<span class="return-type">V</span>&nbsp;<span class="element-name">fail</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;messageSupplier)</span></div>
 <div class="block"><em>Fail</em> the test with the failure message retrieved from the
  given <code>messageSupplier</code>.
 
@@ -2574,7 +2579,8 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="assertTrue(boolean)">
 <h3>assertTrue</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">assertTrue</span><wbr><span class="parameters">(boolean&nbsp;condition)</span></div>
+<div class="member-signature"><span class="annotations"><a href="../../../../../org.junit.platform.commons/org/junit/platform/commons/annotation/Contract.html" title="annotation interface in org.junit.platform.commons.annotation">@Contract</a>("false -&gt; fail")
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">assertTrue</span><wbr><span class="parameters">(boolean&nbsp;condition)</span></div>
 <div class="block"><em>Assert</em> that the supplied <code>condition</code> is <code>true</code>.</div>
 </div>
 </section>
@@ -2583,7 +2589,8 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="assertTrue(boolean,java.util.function.Supplier)">
 <h3>assertTrue</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">assertTrue</span><wbr><span class="parameters">(boolean&nbsp;condition,
+<div class="member-signature"><span class="annotations"><a href="../../../../../org.junit.platform.commons/org/junit/platform/commons/annotation/Contract.html" title="annotation interface in org.junit.platform.commons.annotation">@Contract</a>("false, _ -&gt; fail")
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">assertTrue</span><wbr><span class="parameters">(boolean&nbsp;condition,
  <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;messageSupplier)</span></div>
 <div class="block"><em>Assert</em> that the supplied <code>condition</code> is <code>true</code>.
  <p>If necessary, the failure message will be retrieved lazily from the supplied <code>messageSupplier</code>.</div>
@@ -2614,7 +2621,8 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="assertTrue(boolean,java.lang.String)">
 <h3>assertTrue</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">assertTrue</span><wbr><span class="parameters">(boolean&nbsp;condition,
+<div class="member-signature"><span class="annotations"><a href="../../../../../org.junit.platform.commons/org/junit/platform/commons/annotation/Contract.html" title="annotation interface in org.junit.platform.commons.annotation">@Contract</a>("false, _ -&gt; fail")
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">assertTrue</span><wbr><span class="parameters">(boolean&nbsp;condition,
  @Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;message)</span></div>
 <div class="block"><em>Assert</em> that the supplied <code>condition</code> is <code>true</code>.
  <p>Fails with the supplied failure <code>message</code>.</div>
@@ -2636,7 +2644,8 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="assertFalse(boolean)">
 <h3>assertFalse</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">assertFalse</span><wbr><span class="parameters">(boolean&nbsp;condition)</span></div>
+<div class="member-signature"><span class="annotations"><a href="../../../../../org.junit.platform.commons/org/junit/platform/commons/annotation/Contract.html" title="annotation interface in org.junit.platform.commons.annotation">@Contract</a>("true -&gt; fail")
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">assertFalse</span><wbr><span class="parameters">(boolean&nbsp;condition)</span></div>
 <div class="block"><em>Assert</em> that the supplied <code>condition</code> is <code>false</code>.</div>
 </div>
 </section>
@@ -2645,7 +2654,8 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="assertFalse(boolean,java.lang.String)">
 <h3>assertFalse</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">assertFalse</span><wbr><span class="parameters">(boolean&nbsp;condition,
+<div class="member-signature"><span class="annotations"><a href="../../../../../org.junit.platform.commons/org/junit/platform/commons/annotation/Contract.html" title="annotation interface in org.junit.platform.commons.annotation">@Contract</a>("true, _ -&gt; fail")
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">assertFalse</span><wbr><span class="parameters">(boolean&nbsp;condition,
  @Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;message)</span></div>
 <div class="block"><em>Assert</em> that the supplied <code>condition</code> is <code>false</code>.
  <p>Fails with the supplied failure <code>message</code>.</div>
@@ -2656,7 +2666,8 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="assertFalse(boolean,java.util.function.Supplier)">
 <h3>assertFalse</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">assertFalse</span><wbr><span class="parameters">(boolean&nbsp;condition,
+<div class="member-signature"><span class="annotations"><a href="../../../../../org.junit.platform.commons/org/junit/platform/commons/annotation/Contract.html" title="annotation interface in org.junit.platform.commons.annotation">@Contract</a>("true, _ -&gt; fail")
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">assertFalse</span><wbr><span class="parameters">(boolean&nbsp;condition,
  <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;messageSupplier)</span></div>
 <div class="block"><em>Assert</em> that the supplied <code>condition</code> is <code>false</code>.
  <p>If necessary, the failure message will be retrieved lazily from the supplied <code>messageSupplier</code>.</div>
@@ -2698,7 +2709,8 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="assertNull(java.lang.Object)">
 <h3>assertNull</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">assertNull</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;actual)</span></div>
+<div class="member-signature"><span class="annotations"><a href="../../../../../org.junit.platform.commons/org/junit/platform/commons/annotation/Contract.html" title="annotation interface in org.junit.platform.commons.annotation">@Contract</a>("!null -&gt; fail")
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">assertNull</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;actual)</span></div>
 <div class="block"><em>Assert</em> that <code>actual</code> is <code>null</code>.</div>
 </div>
 </section>
@@ -2707,7 +2719,8 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="assertNull(java.lang.Object,java.lang.String)">
 <h3>assertNull</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">assertNull</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;actual,
+<div class="member-signature"><span class="annotations"><a href="../../../../../org.junit.platform.commons/org/junit/platform/commons/annotation/Contract.html" title="annotation interface in org.junit.platform.commons.annotation">@Contract</a>("!null, _ -&gt; fail")
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">assertNull</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;actual,
  @Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;message)</span></div>
 <div class="block"><em>Assert</em> that <code>actual</code> is <code>null</code>.
  <p>Fails with the supplied failure <code>message</code>.</div>
@@ -2718,7 +2731,8 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="assertNull(java.lang.Object,java.util.function.Supplier)">
 <h3>assertNull</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">assertNull</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;actual,
+<div class="member-signature"><span class="annotations"><a href="../../../../../org.junit.platform.commons/org/junit/platform/commons/annotation/Contract.html" title="annotation interface in org.junit.platform.commons.annotation">@Contract</a>("!null, _ -&gt; fail")
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">assertNull</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;actual,
  <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;messageSupplier)</span></div>
 <div class="block"><em>Assert</em> that <code>actual</code> is <code>null</code>.
  <p>If necessary, the failure message will be retrieved lazily from the supplied <code>messageSupplier</code>.</div>
@@ -2729,7 +2743,8 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="assertNotNull(java.lang.Object)">
 <h3>assertNotNull</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">assertNotNull</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;actual)</span></div>
+<div class="member-signature"><span class="annotations"><a href="../../../../../org.junit.platform.commons/org/junit/platform/commons/annotation/Contract.html" title="annotation interface in org.junit.platform.commons.annotation">@Contract</a>("null -&gt; fail")
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">assertNotNull</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;actual)</span></div>
 <div class="block"><em>Assert</em> that <code>actual</code> is not <code>null</code>.</div>
 </div>
 </section>
@@ -2738,7 +2753,8 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="assertNotNull(java.lang.Object,java.lang.String)">
 <h3>assertNotNull</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">assertNotNull</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;actual,
+<div class="member-signature"><span class="annotations"><a href="../../../../../org.junit.platform.commons/org/junit/platform/commons/annotation/Contract.html" title="annotation interface in org.junit.platform.commons.annotation">@Contract</a>("null, _ -&gt; fail")
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">assertNotNull</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;actual,
  @Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;message)</span></div>
 <div class="block"><em>Assert</em> that <code>actual</code> is not <code>null</code>.
  <p>Fails with the supplied failure <code>message</code>.</div>
@@ -2749,7 +2765,8 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="assertNotNull(java.lang.Object,java.util.function.Supplier)">
 <h3>assertNotNull</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">assertNotNull</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;actual,
+<div class="member-signature"><span class="annotations"><a href="../../../../../org.junit.platform.commons/org/junit/platform/commons/annotation/Contract.html" title="annotation interface in org.junit.platform.commons.annotation">@Contract</a>("null, _ -&gt; fail")
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">assertNotNull</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;actual,
  <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;messageSupplier)</span></div>
 <div class="block"><em>Assert</em> that <code>actual</code> is not <code>null</code>.
  <p>If necessary, the failure message will be retrieved lazily from the supplied <code>messageSupplier</code>.</div>
@@ -7546,6 +7563,7 @@ loadScripts(document, 'script');</script>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#STABLE" title="class or interface in org.apiguardian.api" class="external-link">STABLE</a>,
      <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="5.10")
+<a href="../../../../../org.junit.platform.commons/org/junit/platform/commons/annotation/Contract.html" title="annotation interface in org.junit.platform.commons.annotation">@Contract</a>("_, null -&gt; fail")
 </span><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name">assertInstanceOf</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;T&gt;&nbsp;expectedType,
  @Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;actualValue)</span></div>
 <div class="block"><em>Assert</em> that the supplied <code>actualValue</code> is an instance of the
@@ -7566,6 +7584,7 @@ loadScripts(document, 'script');</script>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#STABLE" title="class or interface in org.apiguardian.api" class="external-link">STABLE</a>,
      <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="5.10")
+<a href="../../../../../org.junit.platform.commons/org/junit/platform/commons/annotation/Contract.html" title="annotation interface in org.junit.platform.commons.annotation">@Contract</a>("_, null, _ -&gt; fail")
 </span><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name">assertInstanceOf</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;T&gt;&nbsp;expectedType,
  @Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;actualValue,
  @Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;message)</span></div>
@@ -7587,7 +7606,8 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="assertInstanceOf(java.lang.Class,java.lang.Object,java.util.function.Supplier)">
 <h3>assertInstanceOf</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#STABLE" title="class or interface in org.apiguardian.api" class="external-link">STABLE</a>,
+<div class="member-signature"><span class="annotations"><a href="../../../../../org.junit.platform.commons/org/junit/platform/commons/annotation/Contract.html" title="annotation interface in org.junit.platform.commons.annotation">@Contract</a>("_, null, _ -&gt; fail")
+<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#STABLE" title="class or interface in org.apiguardian.api" class="external-link">STABLE</a>,
      <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="5.10")
 </span><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name">assertInstanceOf</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;T&gt;&nbsp;expectedType,
  @Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;actualValue,

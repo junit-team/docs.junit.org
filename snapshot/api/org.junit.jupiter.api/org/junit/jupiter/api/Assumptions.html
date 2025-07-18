@@ -312,7 +312,8 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="assumeTrue(boolean)">
 <h3>assumeTrue</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">assumeTrue</span><wbr><span class="parameters">(boolean&nbsp;assumption)</span>
+<div class="member-signature"><span class="annotations"><a href="../../../../../org.junit.platform.commons/org/junit/platform/commons/annotation/Contract.html" title="annotation interface in org.junit.platform.commons.annotation">@Contract</a>("false -&gt; fail")
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">assumeTrue</span><wbr><span class="parameters">(boolean&nbsp;assumption)</span>
                        throws <span class="exceptions"><a href="https://ota4j-team.github.io/opentest4j/docs/1.3.0/api/org/opentest4j/TestAbortedException.html" title="class or interface in org.opentest4j" class="external-link">TestAbortedException</a></span></div>
 <div class="block">Validate the given assumption.</div>
 <dl class="notes">
@@ -363,7 +364,8 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="assumeTrue(boolean,java.util.function.Supplier)">
 <h3>assumeTrue</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">assumeTrue</span><wbr><span class="parameters">(boolean&nbsp;assumption,
+<div class="member-signature"><span class="annotations"><a href="../../../../../org.junit.platform.commons/org/junit/platform/commons/annotation/Contract.html" title="annotation interface in org.junit.platform.commons.annotation">@Contract</a>("false, _ -&gt; fail")
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">assumeTrue</span><wbr><span class="parameters">(boolean&nbsp;assumption,
  <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;messageSupplier)</span>
                        throws <span class="exceptions"><a href="https://ota4j-team.github.io/opentest4j/docs/1.3.0/api/org/opentest4j/TestAbortedException.html" title="class or interface in org.opentest4j" class="external-link">TestAbortedException</a></span></div>
 <div class="block">Validate the given assumption.</div>
@@ -382,7 +384,8 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="assumeTrue(boolean,java.lang.String)">
 <h3>assumeTrue</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">assumeTrue</span><wbr><span class="parameters">(boolean&nbsp;assumption,
+<div class="member-signature"><span class="annotations"><a href="../../../../../org.junit.platform.commons/org/junit/platform/commons/annotation/Contract.html" title="annotation interface in org.junit.platform.commons.annotation">@Contract</a>("false, _ -&gt; fail")
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">assumeTrue</span><wbr><span class="parameters">(boolean&nbsp;assumption,
  @Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;message)</span>
                        throws <span class="exceptions"><a href="https://ota4j-team.github.io/opentest4j/docs/1.3.0/api/org/opentest4j/TestAbortedException.html" title="class or interface in org.opentest4j" class="external-link">TestAbortedException</a></span></div>
 <div class="block">Validate the given assumption.</div>
@@ -420,7 +423,8 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="assumeFalse(boolean)">
 <h3>assumeFalse</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">assumeFalse</span><wbr><span class="parameters">(boolean&nbsp;assumption)</span>
+<div class="member-signature"><span class="annotations"><a href="../../../../../org.junit.platform.commons/org/junit/platform/commons/annotation/Contract.html" title="annotation interface in org.junit.platform.commons.annotation">@Contract</a>("true -&gt; fail")
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">assumeFalse</span><wbr><span class="parameters">(boolean&nbsp;assumption)</span>
                         throws <span class="exceptions"><a href="https://ota4j-team.github.io/opentest4j/docs/1.3.0/api/org/opentest4j/TestAbortedException.html" title="class or interface in org.opentest4j" class="external-link">TestAbortedException</a></span></div>
 <div class="block">Validate the given assumption.</div>
 <dl class="notes">
@@ -471,7 +475,8 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="assumeFalse(boolean,java.util.function.Supplier)">
 <h3>assumeFalse</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">assumeFalse</span><wbr><span class="parameters">(boolean&nbsp;assumption,
+<div class="member-signature"><span class="annotations"><a href="../../../../../org.junit.platform.commons/org/junit/platform/commons/annotation/Contract.html" title="annotation interface in org.junit.platform.commons.annotation">@Contract</a>("true, _ -&gt; fail")
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">assumeFalse</span><wbr><span class="parameters">(boolean&nbsp;assumption,
  <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;messageSupplier)</span>
                         throws <span class="exceptions"><a href="https://ota4j-team.github.io/opentest4j/docs/1.3.0/api/org/opentest4j/TestAbortedException.html" title="class or interface in org.opentest4j" class="external-link">TestAbortedException</a></span></div>
 <div class="block">Validate the given assumption.</div>
@@ -490,7 +495,8 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="assumeFalse(boolean,java.lang.String)">
 <h3>assumeFalse</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">assumeFalse</span><wbr><span class="parameters">(boolean&nbsp;assumption,
+<div class="member-signature"><span class="annotations"><a href="../../../../../org.junit.platform.commons/org/junit/platform/commons/annotation/Contract.html" title="annotation interface in org.junit.platform.commons.annotation">@Contract</a>("true, _ -&gt; fail")
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">assumeFalse</span><wbr><span class="parameters">(boolean&nbsp;assumption,
  @Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;message)</span>
                         throws <span class="exceptions"><a href="https://ota4j-team.github.io/opentest4j/docs/1.3.0/api/org/opentest4j/TestAbortedException.html" title="class or interface in org.opentest4j" class="external-link">TestAbortedException</a></span></div>
 <div class="block">Validate the given assumption.</div>
@@ -586,7 +592,8 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="abort()">
 <h3>abort</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#STABLE" title="class or interface in org.apiguardian.api" class="external-link">STABLE</a>,
+<div class="member-signature"><span class="annotations"><a href="../../../../../org.junit.platform.commons/org/junit/platform/commons/annotation/Contract.html" title="annotation interface in org.junit.platform.commons.annotation">@Contract</a>(" -&gt; fail")
+<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#STABLE" title="class or interface in org.apiguardian.api" class="external-link">STABLE</a>,
      <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="5.9")
 </span><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;V&gt;</span>&nbsp;<span class="return-type">V</span>&nbsp;<span class="element-name">abort</span>()</div>
 <div class="block"><em>Abort</em> the test <em>without</em> a message.
@@ -609,7 +616,8 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="abort(java.lang.String)">
 <h3>abort</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#STABLE" title="class or interface in org.apiguardian.api" class="external-link">STABLE</a>,
+<div class="member-signature"><span class="annotations"><a href="../../../../../org.junit.platform.commons/org/junit/platform/commons/annotation/Contract.html" title="annotation interface in org.junit.platform.commons.annotation">@Contract</a>("_ -&gt; fail")
+<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#STABLE" title="class or interface in org.apiguardian.api" class="external-link">STABLE</a>,
      <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="5.9")
 </span><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;V&gt;</span>&nbsp;<span class="return-type">V</span>&nbsp;<span class="element-name">abort</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;message)</span></div>
 <div class="block"><em>Abort</em> the test with the given <code>message</code>.
@@ -639,7 +647,8 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="abort(java.util.function.Supplier)">
 <h3>abort</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#STABLE" title="class or interface in org.apiguardian.api" class="external-link">STABLE</a>,
+<div class="member-signature"><span class="annotations"><a href="../../../../../org.junit.platform.commons/org/junit/platform/commons/annotation/Contract.html" title="annotation interface in org.junit.platform.commons.annotation">@Contract</a>("_ -&gt; fail")
+<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#STABLE" title="class or interface in org.apiguardian.api" class="external-link">STABLE</a>,
      <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="5.9")
 </span><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;V&gt;</span>&nbsp;<span class="return-type">V</span>&nbsp;<span class="element-name">abort</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;messageSupplier)</span></div>
 <div class="block"><em>Abort</em> the test with the supplied message.

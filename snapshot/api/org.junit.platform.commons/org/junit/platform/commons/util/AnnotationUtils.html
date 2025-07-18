@@ -245,7 +245,8 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="isAnnotated(java.util.Optional,java.lang.Class)">
 <h3>isAnnotated</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isAnnotated</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;? extends <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/reflect/AnnotatedElement.html" title="class or interface in java.lang.reflect" class="external-link">AnnotatedElement</a>&gt;&nbsp;element,
+<div class="member-signature"><span class="annotations"><a href="../annotation/Contract.html" title="annotation interface in org.junit.platform.commons.annotation">@Contract</a>("null, _ -&gt; false")
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isAnnotated</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;? extends <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/reflect/AnnotatedElement.html" title="class or interface in java.lang.reflect" class="external-link">AnnotatedElement</a>&gt;&nbsp;element,
  <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;? extends <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/annotation/Annotation.html" title="class or interface in java.lang.annotation" class="external-link">Annotation</a>&gt;&nbsp;annotationType)</span></div>
 <div class="block">Determine if an annotation of <code>annotationType</code> is either
  <em>present</em> or <em>meta-present</em> on the supplied optional
@@ -286,7 +287,8 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="isAnnotated(java.lang.reflect.AnnotatedElement,java.lang.Class)">
 <h3>isAnnotated</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isAnnotated</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/reflect/AnnotatedElement.html" title="class or interface in java.lang.reflect" class="external-link">AnnotatedElement</a>&nbsp;element,
+<div class="member-signature"><span class="annotations"><a href="../annotation/Contract.html" title="annotation interface in org.junit.platform.commons.annotation">@Contract</a>("null, _ -&gt; false")
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isAnnotated</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/reflect/AnnotatedElement.html" title="class or interface in java.lang.reflect" class="external-link">AnnotatedElement</a>&nbsp;element,
  <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;? extends <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/annotation/Annotation.html" title="class or interface in java.lang.annotation" class="external-link">Annotation</a>&gt;&nbsp;annotationType)</span></div>
 <div class="block">Determine if an annotation of <code>annotationType</code> is either
  <em>present</em> or <em>meta-present</em> on the supplied

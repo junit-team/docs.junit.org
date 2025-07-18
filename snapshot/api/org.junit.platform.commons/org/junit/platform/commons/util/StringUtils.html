@@ -240,7 +240,8 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="isBlank(java.lang.String)">
 <h3>isBlank</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isBlank</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;str)</span></div>
+<div class="member-signature"><span class="annotations"><a href="../annotation/Contract.html" title="annotation interface in org.junit.platform.commons.annotation">@Contract</a>("null -&gt; true")
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isBlank</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;str)</span></div>
 <div class="block">Determine if the supplied <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link"><code>String</code></a> is <em>blank</em> (i.e.,
  <code>null</code> or consisting only of whitespace characters).</div>
 <dl class="notes">
@@ -263,7 +264,8 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="isNotBlank(java.lang.String)">
 <h3>isNotBlank</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isNotBlank</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;str)</span></div>
+<div class="member-signature"><span class="annotations"><a href="../annotation/Contract.html" title="annotation interface in org.junit.platform.commons.annotation">@Contract</a>("null -&gt; false")
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isNotBlank</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;str)</span></div>
 <div class="block">Determine if the supplied <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link"><code>String</code></a> is not <a href="#isBlank(java.lang.String)">blank</a>.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -284,7 +286,8 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="containsWhitespace(java.lang.String)">
 <h3>containsWhitespace</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">containsWhitespace</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;str)</span></div>
+<div class="member-signature"><span class="annotations"><a href="../annotation/Contract.html" title="annotation interface in org.junit.platform.commons.annotation">@Contract</a>("null -&gt; false")
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">containsWhitespace</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;str)</span></div>
 <div class="block">Determine if the supplied <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link"><code>String</code></a> contains any whitespace characters.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -306,7 +309,8 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="doesNotContainWhitespace(java.lang.String)">
 <h3>doesNotContainWhitespace</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">doesNotContainWhitespace</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;str)</span></div>
+<div class="member-signature"><span class="annotations"><a href="../annotation/Contract.html" title="annotation interface in org.junit.platform.commons.annotation">@Contract</a>("null -&gt; true")
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">doesNotContainWhitespace</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;str)</span></div>
 <div class="block">Determine if the supplied <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link"><code>String</code></a> does not contain any whitespace
  characters.</div>
 <dl class="notes">
@@ -330,7 +334,8 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="containsIsoControlCharacter(java.lang.String)">
 <h3>containsIsoControlCharacter</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">containsIsoControlCharacter</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;str)</span></div>
+<div class="member-signature"><span class="annotations"><a href="../annotation/Contract.html" title="annotation interface in org.junit.platform.commons.annotation">@Contract</a>("null -&gt; false")
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">containsIsoControlCharacter</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;str)</span></div>
 <div class="block">Determine if the supplied <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link"><code>String</code></a> contains any ISO control characters.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -352,7 +357,8 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="doesNotContainIsoControlCharacter(java.lang.String)">
 <h3>doesNotContainIsoControlCharacter</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">doesNotContainIsoControlCharacter</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;str)</span></div>
+<div class="member-signature"><span class="annotations"><a href="../annotation/Contract.html" title="annotation interface in org.junit.platform.commons.annotation">@Contract</a>("null -&gt; true")
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">doesNotContainIsoControlCharacter</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;str)</span></div>
 <div class="block">Determine if the supplied <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link"><code>String</code></a> does not contain any ISO control
  characters.</div>
 <dl class="notes">
@@ -445,6 +451,7 @@ loadScripts(document, 'script');</script>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#INTERNAL" title="class or interface in org.apiguardian.api" class="external-link">INTERNAL</a>,
      <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="1.4")
+<a href="../annotation/Contract.html" title="annotation interface in org.junit.platform.commons.annotation">@Contract</a>("null, _ -&gt; null; !null, _ -&gt; !null")
 </span><span class="modifiers">public static</span>&nbsp;<span class="return-type">@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">replaceIsoControlCharacters</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;str,
  <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;replacement)</span></div>
 <div class="block">Replace all ISO control characters in the supplied <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link"><code>String</code></a>.</div>
@@ -467,6 +474,7 @@ loadScripts(document, 'script');</script>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#INTERNAL" title="class or interface in org.apiguardian.api" class="external-link">INTERNAL</a>,
      <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="1.4")
+<a href="../annotation/Contract.html" title="annotation interface in org.junit.platform.commons.annotation">@Contract</a>("null, _ -&gt; null; !null, _ -&gt; !null")
 </span><span class="modifiers">public static</span>&nbsp;<span class="return-type">@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">replaceWhitespaceCharacters</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;str,
  <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;replacement)</span></div>
 <div class="block">Replace all whitespace characters in the supplied <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link"><code>String</code></a>.</div>
