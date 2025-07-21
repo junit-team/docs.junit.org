@@ -589,6 +589,20 @@ format used by the deprecated <code>Locale(String)</code> constructor.</p>
 <p>Deprecate <code>getOrComputeIfAbsent(&#8230;&#8203;)</code> methods in <code>NamespacedHierarchicalStore</code> in favor
 of the new <code>computeIfAbsent(&#8230;&#8203;)</code> methods.</p>
 </li>
+<li>
+<p>Setting an invalid value for one of the following enum-based configuration parameters
+now causes test discovery to fail:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>junit.platform.discovery.issue.failure.phase</code></p>
+</li>
+<li>
+<p><code>junit.platform.discovery.issue.severity.critical</code></p>
+</li>
+</ul>
+</div>
+</li>
 </ul>
 </div>
 </div>
@@ -667,6 +681,35 @@ method.</p>
 <li>
 <p>Deprecate <code>getOrComputeIfAbsent(&#8230;&#8203;)</code> methods in <code>ExtensionContext.Store</code> in favor of
 the new <code>computeIfAbsent(&#8230;&#8203;)</code> methods.</p>
+</li>
+<li>
+<p>Setting an invalid value for one of the following enum-based configuration parameters
+now causes test discovery or execution to fail:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>junit.jupiter.execution.parallel.mode.default</code></p>
+</li>
+<li>
+<p><code>junit.jupiter.execution.parallel.mode.classes.default</code></p>
+</li>
+<li>
+<p><code>junit.jupiter.execution.timeout.mode</code></p>
+</li>
+<li>
+<p><code>junit.jupiter.execution.timeout.thread.mode.default</code></p>
+</li>
+<li>
+<p><code>junit.jupiter.extensions.testinstantiation.extensioncontextscope.default</code></p>
+</li>
+<li>
+<p><code>junit.jupiter.tempdir.cleanup.mode.default</code></p>
+</li>
+<li>
+<p><code>junit.jupiter.testinstance.lifecycle.default</code></p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>

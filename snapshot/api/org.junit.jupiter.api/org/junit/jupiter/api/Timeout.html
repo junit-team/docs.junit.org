@@ -287,13 +287,14 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color"><code><a href="#DEFAULT_TIMEOUT_THREAD_MODE_PROPERTY_NAME" class="member-name-link">DEFAULT_TIMEOUT_THREAD_MODE_PROPERTY_NAME</a></code></div>
 <div class="col-last even-row-color">
-<div class="block">Property name used to set the default thread mode for all testable and lifecycle
- methods: "junit.jupiter.execution.timeout.thread.mode.default".</div>
+<div class="block">Property name used to set the default thread mode for all testable and
+ lifecycle methods: "junit.jupiter.execution.timeout.thread.mode.default".</div>
 </div>
 <div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color"><code><a href="#TIMEOUT_MODE_PROPERTY_NAME" class="member-name-link">TIMEOUT_MODE_PROPERTY_NAME</a></code></div>
 <div class="col-last odd-row-color">
-<div class="block">Property name used to configure whether timeouts are applied to tests: "junit.jupiter.execution.timeout.mode".</div>
+<div class="block">Property name used to configure whether timeouts are applied to tests:
+ "junit.jupiter.execution.timeout.mode".</div>
 </div>
 </div>
 </section>
@@ -671,19 +672,20 @@ loadScripts(document, 'script');</script>
 <div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#STABLE" title="class or interface in org.apiguardian.api" class="external-link">STABLE</a>,
      <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="5.9")
 </span><span class="modifiers">static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">TIMEOUT_MODE_PROPERTY_NAME</span></div>
-<div class="block">Property name used to configure whether timeouts are applied to tests: "junit.jupiter.execution.timeout.mode".
+<div class="block">Property name used to configure whether timeouts are applied to tests:
+ "junit.jupiter.execution.timeout.mode".
 
  <p>The value of this property will be used to toggle whether
  <a href="Timeout.html" title="annotation interface in org.junit.jupiter.api"><code>@Timeout</code></a> is applied to tests.</p>
 
- <h4 id="supported-timeout-mode-values--heading">Supported timeout mode values:</h4>
+ <h4 id="supported-timeout-mode-values-case-insensitive--heading">Supported timeout mode values (case insensitive):</h4>
  <ul>
- <li><code>enabled</code>: enables timeouts
- <li><code>disabled</code>: disables timeouts
- <li><code>disabled_on_debug</code>: disables timeouts while debugging
+ <li><code>ENABLED</code>: enables timeouts
+ <li><code>DISABLED</code>: disables timeouts
+ <li><code>DISABLED_ON_DEBUG</code>: disables timeouts while debugging
  </ul>
 
- <p>If not specified, the default is <code>enabled</code>.</div>
+ <p>If not specified, the default is <code>ENABLED</code>.</div>
 <dl class="notes">
 <dt>Since:</dt>
 <dd>5.6</dd>
@@ -704,13 +706,15 @@ loadScripts(document, 'script');</script>
 <div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#MAINTAINED" title="class or interface in org.apiguardian.api" class="external-link">MAINTAINED</a>,
      <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="5.13.3")
 </span><span class="modifiers">static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">DEFAULT_TIMEOUT_THREAD_MODE_PROPERTY_NAME</span></div>
-<div class="block">Property name used to set the default thread mode for all testable and lifecycle
- methods: "junit.jupiter.execution.timeout.thread.mode.default".
+<div class="block">Property name used to set the default thread mode for all testable and
+ lifecycle methods: "junit.jupiter.execution.timeout.thread.mode.default".
 
- <p>The value of this property will be used unless overridden by a <a href="Timeout.html" title="annotation interface in org.junit.jupiter.api"><code>@Timeout</code></a>
- annotation present on the method or on an enclosing test class (for testable methods).
+ <p>The value of this property will be used unless overridden by a
+ <a href="Timeout.html" title="annotation interface in org.junit.jupiter.api"><code>@Timeout</code></a> annotation present on the method or on an
+ enclosing test class (for testable methods).
 
- <p>The supported values are <code>SAME_THREAD</code> or <code>SEPARATE_THREAD</code>, if none is provided
+ <p>The supported values are <code>SAME_THREAD</code> or
+ <code>SEPARATE_THREAD</code>, ignoring case. If none is provided,
  <code>SAME_THREAD</code> is used as default.</div>
 <dl class="notes">
 <dt>Since:</dt>
@@ -718,6 +722,7 @@ loadScripts(document, 'script');</script>
 <dt>See Also:</dt>
 <dd>
 <ul class="tag-list">
+<li><a href="#threadMode()"><code>threadMode()</code></a></li>
 <li><a href="../../../../../constant-values.html#org.junit.jupiter.api.Timeout.DEFAULT_TIMEOUT_THREAD_MODE_PROPERTY_NAME">Constant Field Values</a></li>
 </ul>
 </dd>
@@ -784,8 +789,9 @@ loadScripts(document, 'script');</script>
 <dd>5.9</dd>
 <dt>See Also:</dt>
 <dd>
-<ul class="tag-list">
+<ul class="tag-list-long">
 <li><a href="Timeout.ThreadMode.html" title="enum class in org.junit.jupiter.api"><code>Timeout.ThreadMode</code></a></li>
+<li><a href="#DEFAULT_TIMEOUT_THREAD_MODE_PROPERTY_NAME"><code>DEFAULT_TIMEOUT_THREAD_MODE_PROPERTY_NAME</code></a></li>
 </ul>
 </dd>
 </dl>
