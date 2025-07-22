@@ -469,9 +469,10 @@ loadScripts(document, 'script');</script>
 <dd><code>classpathResourceName</code> - the name of the resource to load; never
  <code>null</code> or blank</dd>
 <dt>Returns:</dt>
-<dd>a successful <code>Try</code> containing the loaded resources or a failed
- <code>Try</code> containing the exception if no such resources could be loaded;
- never <code>null</code></dd>
+<dd>a successful <code>Try</code> containing the set of loaded resources
+ (potentially empty) or a failed <code>Try</code> containing the exception in
+ case a failure occurred while trying to list resources; never
+ <code>null</code></dd>
 <dt>Since:</dt>
 <dd>1.12</dd>
 <dt>See Also:</dt>
@@ -506,9 +507,10 @@ loadScripts(document, 'script');</script>
  <code>null</code> or blank</dd>
 <dd><code>classLoader</code> - the <code>ClassLoader</code> to use; never <code>null</code></dd>
 <dt>Returns:</dt>
-<dd>a successful <code>Try</code> containing the loaded resources or a failed
- <code>Try</code> containing the exception if no such resources could be loaded;
- never <code>null</code></dd>
+<dd>a successful <code>Try</code> containing the set of loaded resources
+ (potentially empty) or a failed <code>Try</code> containing the exception in
+ case a failure occurred while trying to list resources; never
+ <code>null</code></dd>
 <dt>Since:</dt>
 <dd>1.12</dd>
 <dt>See Also:</dt>
