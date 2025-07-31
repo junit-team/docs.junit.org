@@ -5730,7 +5730,7 @@ by setting the <code>useHeadersInDisplayName</code> attribute to <code>true</cod
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="java"><span class="nd">@ParameterizedTest</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"[{index}] {arguments}"</span><span class="o">)</span>
+<pre class="rouge highlight"><code data-lang="java"><span class="nd">@ParameterizedTest</span>
 <span class="nd">@CsvSource</span><span class="o">(</span><span class="n">useHeadersInDisplayName</span> <span class="o">=</span> <span class="kc">true</span><span class="o">,</span> <span class="n">textBlock</span> <span class="o">=</span> <span class="s">"""
     FRUIT,         RANK
     apple,         1
@@ -5851,7 +5851,7 @@ be ignored.
     <span class="n">assertNotEquals</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">reference</span><span class="o">);</span>
 <span class="o">}</span>
 
-<span class="nd">@ParameterizedTest</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"[{index}] {arguments}"</span><span class="o">)</span>
+<span class="nd">@ParameterizedTest</span>
 <span class="nd">@CsvFileSource</span><span class="o">(</span><span class="n">resources</span> <span class="o">=</span> <span class="s">"/two-column.csv"</span><span class="o">,</span> <span class="n">useHeadersInDisplayName</span> <span class="o">=</span> <span class="kc">true</span><span class="o">)</span>
 <span class="kt">void</span> <span class="nf">testWithCsvFileSourceAndHeaders</span><span class="o">(</span><span class="nc">String</span> <span class="n">country</span><span class="o">,</span> <span class="kt">int</span> <span class="n">reference</span><span class="o">)</span> <span class="o">{</span>
     <span class="n">assertNotNull</span><span class="o">(</span><span class="n">country</span><span class="o">);</span>

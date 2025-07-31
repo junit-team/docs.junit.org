@@ -602,7 +602,11 @@ repository on GitHub.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>❓</p>
+<p>CSV headers are now properly supported with the default display name pattern and the
+explicit <code>{argumentsWithNames}</code> display name pattern for parameterized tests that
+utilize the <code>useHeadersInDisplayName</code> flag in <code>@CsvSource</code> and <code>@CsvFileSource</code>.
+Specifically, the parameter name is no longer duplicated in the display name when a CSV
+header is desired instead.</p>
 </li>
 </ul>
 </div>
