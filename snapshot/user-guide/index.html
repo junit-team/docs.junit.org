@@ -710,7 +710,13 @@ pre.rouge .gs {
 <li><a href="#writing-tests-parameterized-tests-argument-aggregation-custom">Custom Aggregators</a></li>
 </ul>
 </li>
-<li><a href="#writing-tests-parameterized-tests-display-names">2.17.7. Customizing Display Names</a></li>
+<li><a href="#writing-tests-parameterized-tests-display-names">2.17.7. Customizing Display Names</a>
+<ul class="sectlevel4">
+<li><a href="#writing-tests-parameterized-tests-display-names-quoted-text">Quoted Text-based Arguments</a></li>
+<li><a href="#writing-tests-parameterized-tests-display-names-default-pattern">Default Display Name Pattern</a></li>
+<li><a href="#writing-tests-parameterized-tests-display-names-precedence-rules">Precedence Rules</a></li>
+</ul>
+</li>
 <li><a href="#writing-tests-parameterized-tests-lifecycle-interop">2.17.8. Lifecycle and Interoperability</a>
 <ul class="sectlevel4">
 <li><a href="#writing-tests-parameterized-tests-lifecycle-interop-methods">Parameterized Tests</a></li>
@@ -3903,26 +3909,26 @@ class is parameterized.</p>
 <div class="literalblock">
 <div class="content">
 <pre>FruitTests ✔
-├─ [1] fruit = apple ✔
+├─ [1] fruit = "apple" ✔
 │  └─ QuantityTests ✔
 │     ├─ [1] quantity = 23 ✔
 │     │  └─ test(Duration) ✔
-│     │     ├─ [1] duration = PT1H ✔
-│     │     └─ [2] duration = PT2H ✔
+│     │     ├─ [1] duration = "PT1H" ✔
+│     │     └─ [2] duration = "PT2H" ✔
 │     └─ [2] quantity = 42 ✔
 │        └─ test(Duration) ✔
-│           ├─ [1] duration = PT1H ✔
-│           └─ [2] duration = PT2H ✔
-└─ [2] fruit = banana ✔
+│           ├─ [1] duration = "PT1H" ✔
+│           └─ [2] duration = "PT2H" ✔
+└─ [2] fruit = "banana" ✔
    └─ QuantityTests ✔
       ├─ [1] quantity = 23 ✔
       │  └─ test(Duration) ✔
-      │     ├─ [1] duration = PT1H ✔
-      │     └─ [2] duration = PT2H ✔
+      │     ├─ [1] duration = "PT1H" ✔
+      │     └─ [2] duration = "PT2H" ✔
       └─ [2] quantity = 42 ✔
          └─ test(Duration) ✔
-            ├─ [1] duration = PT1H ✔
-            └─ [2] duration = PT2H ✔</pre>
+            ├─ [1] duration = "PT1H" ✔
+            └─ [2] duration = "PT2H" ✔</pre>
 </div>
 </div>
 </div>
@@ -4666,9 +4672,9 @@ following.</p>
 <div class="literalblock">
 <div class="content">
 <pre>palindromes(String) ✔
-├─ [1] candidate = racecar ✔
-├─ [2] candidate = radar ✔
-└─ [3] candidate = able was I ere I saw elba ✔</pre>
+├─ [1] candidate = "racecar" ✔
+├─ [2] candidate = "radar" ✔
+└─ [3] candidate = "able was I ere I saw elba" ✔</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4705,13 +4711,13 @@ following.</p>
 <div class="literalblock">
 <div class="content">
 <pre>PalindromeTests ✔
-├─ [1] candidate = racecar ✔
+├─ [1] candidate = "racecar" ✔
 │  ├─ palindrome() ✔
 │  └─ reversePalindrome() ✔
-├─ [2] candidate = radar ✔
+├─ [2] candidate = "radar" ✔
 │  ├─ palindrome() ✔
 │  └─ reversePalindrome() ✔
-└─ [3] candidate = able was I ere I saw elba ✔
+└─ [3] candidate = "able was I ere I saw elba" ✔
    ├─ palindrome() ✔
    └─ reversePalindrome() ✔</pre>
 </div>
@@ -5530,7 +5536,7 @@ be invoked four times: with the values <code>"apple"</code>, <code>"banana"</cod
 iterator is wrapped in a <code>java.util.function.Supplier</code>. The following example demonstrates
 how to provide a <code>Supplier</code> of a <code>Stream</code> of named arguments. This parameterized test
 method will be invoked twice: with the values <code>"apple"</code> and <code>"banana"</code> and with display
-names <code>Apple</code> and <code>Banana</code>, respectively.</p>
+names <code>"Apple"</code> and <code>"Banana"</code>, respectively.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -5742,10 +5748,10 @@ by setting the <code>useHeadersInDisplayName</code> attribute to <code>true</cod
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>[1] FRUIT = apple, RANK = 1
-[2] FRUIT = banana, RANK = 2
-[3] FRUIT = lemon, lime, RANK = 0xF1
-[4] FRUIT = strawberry, RANK = 700_000</pre>
+<pre>[1] FRUIT = "apple", RANK = "1"
+[2] FRUIT = "banana", RANK = "2"
+[3] FRUIT = "lemon, lime", RANK = "0xF1"
+[4] FRUIT = "strawberry", RANK = "700_000"</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5869,10 +5875,10 @@ test methods above.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>[1] country = Sweden, reference = 1
-[2] country = Poland, reference = 2
-[3] country = United States of America, reference = 3
-[4] country = France, reference = 700_000</pre>
+<pre>[1] country = "Sweden", reference = "1"
+[2] country = "Poland", reference = "2"
+[3] country = "United States of America", reference = "3"
+[4] country = "France", reference = "700_000"</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5881,10 +5887,10 @@ method above that uses CSV header names.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>[1] COUNTRY = Sweden, REFERENCE = 1
-[2] COUNTRY = Poland, REFERENCE = 2
-[3] COUNTRY = United States of America, REFERENCE = 3
-[4] COUNTRY = France, REFERENCE = 700_000</pre>
+<pre>[1] COUNTRY = "Sweden", REFERENCE = "1"
+[2] COUNTRY = "Poland", REFERENCE = "2"
+[3] COUNTRY = "United States of America", REFERENCE = "3"
+[4] COUNTRY = "France", REFERENCE = "700_000"</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6562,11 +6568,27 @@ action with a custom <code>@CsvToPerson</code> annotation.</p>
 <h4 id="writing-tests-parameterized-tests-display-names"><a class="anchor" href="#writing-tests-parameterized-tests-display-names"></a>2.17.7. Customizing Display Names</h4>
 <div class="paragraph">
 <p>By default, the display name of a parameterized class or test invocation contains the
-invocation index and the <code>String</code> representation of all arguments for that specific
-invocation. Each argument is preceded by its parameter name (unless the argument is only
-available via an <code>ArgumentsAccessor</code> or <code>ArgumentAggregator</code>), if the parameter name is
-present in the bytecode (for Java, test code must be compiled with the <code>-parameters</code>
-compiler flag; for Kotlin, with <code>-java-parameters</code>).</p>
+invocation index and a comma-separated list of the <code>String</code> representations of all
+arguments for that specific invocation. If parameter names are present in the bytecode,
+each argument will be preceded by its parameter name and an equals sign (unless the
+argument is only available via an <code>ArgumentsAccessor</code> or <code>ArgumentAggregator</code>) – for
+example, <code>firstName = "Jane"</code>.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>To ensure that parameter names are present in the bytecode, test code must be compiled
+with the <code>-parameters</code> compiler flag for Java or with the <code>-java-parameters</code> compiler flag
+for Kotlin.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>However, you can customize invocation display names via the <code>name</code> attribute of the
@@ -6577,7 +6599,7 @@ compiler flag; for Kotlin, with <code>-java-parameters</code>).</p>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="java"><span class="nd">@DisplayName</span><span class="o">(</span><span class="s">"Display name of container"</span><span class="o">)</span>
-<span class="nd">@ParameterizedTest</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"{index} ==&gt; the rank of ''{0}'' is {1}"</span><span class="o">)</span>
+<span class="nd">@ParameterizedTest</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"{index} ==&gt; the rank of {0} is {1}"</span><span class="o">)</span>
 <span class="nd">@CsvSource</span><span class="o">({</span> <span class="s">"apple, 1"</span><span class="o">,</span> <span class="s">"banana, 2"</span><span class="o">,</span> <span class="s">"'lemon, lime', 3"</span> <span class="o">})</span>
 <span class="kt">void</span> <span class="nf">testWithCustomDisplayNames</span><span class="o">(</span><span class="nc">String</span> <span class="n">fruit</span><span class="o">,</span> <span class="kt">int</span> <span class="n">rank</span><span class="o">)</span> <span class="o">{</span>
 <span class="o">}</span></code></pre>
@@ -6590,9 +6612,9 @@ the following.</p>
 <div class="literalblock">
 <div class="content">
 <pre>Display name of container ✔
-├─ 1 ==&gt; the rank of 'apple' is 1 ✔
-├─ 2 ==&gt; the rank of 'banana' is 2 ✔
-└─ 3 ==&gt; the rank of 'lemon, lime' is 3 ✔</pre>
+├─ 1 ==&gt; the rank of "apple" is "1" ✔
+├─ 2 ==&gt; the rank of "banana" is "2" ✔
+└─ 3 ==&gt; the rank of "lemon, lime" is "3" ✔</pre>
 </div>
 </div>
 </div>
@@ -6779,6 +6801,95 @@ the following.</p>
 </tr>
 </table>
 </div>
+<div class="sect4">
+<h5 id="writing-tests-parameterized-tests-display-names-quoted-text"><a class="anchor" href="#writing-tests-parameterized-tests-display-names-quoted-text"></a>Quoted Text-based Arguments</h5>
+<div class="paragraph">
+<p>As of JUnit Jupiter 6.0, text-based arguments in display names for parameterized tests are
+quoted by default. In this context, any <code>CharSequence</code> (such as a <code>String</code>) or <code>Character</code>
+is considered text. A <code>CharSequence</code> is wrapped in double quotes (<code>"</code>), and a <code>Character</code>
+is wrapped in single quotes (<code>'</code>).</p>
+</div>
+<div class="paragraph">
+<p>Special characters will be escaped in the quoted text. For example, carriage returns and
+line feeds will be escaped as <code>\\r</code> and <code>\\n</code>, respectively. In addition, any ISO control
+character will be represented as a question mark (<code>?</code>) in the quoted text.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This feature can be disabled by setting the <code>quoteTextArguments</code> attributes in
+<code>@ParameterizedClass</code> and <code>@ParameterizedTest</code> to <code>false</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>For example, given a string argument <code>"line 1\nline 2"</code>, the physical representation in
+the display name will be <code>"\"line 1\\nline 2\""</code> which is printed as <code>"line 1\nline 2"</code>.
+Similarly, given a string argument <code>"\t"</code>, the physical representation in the display name
+will be <code>"\"\\t\""</code> which is printed as <code>"\t"</code> instead of a blank string or invisible tab
+character. The same applies for a character argument <code>'\t'</code>, whose physical representation
+in the display name would be <code>"'\\t'"</code> which is printed as <code>'\t'</code>.</p>
+</div>
+<div class="paragraph">
+<p>For a concrete example, if you run the first <code>nullEmptyAndBlankStrings(String text)</code>
+parameterized test method from the
+<a href="#writing-tests-parameterized-tests-sources-null-and-empty">Null and Empty Sources</a> section above, the following
+display names are generated.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[1] text = null
+[2] text = ""
+[3] text = " "
+[4] text = "   "
+[5] text = "\t"
+[6] text = "\n"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you run the first <code>testWithCsvSource(String fruit, int rank)</code> parameterized test method
+from the <a href="#writing-tests-parameterized-tests-sources-CsvSource">@CsvSource</a> section above, the
+following display names are generated.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[1] fruit = "apple", rank = "1"
+[2] fruit = "banana", rank = "2"
+[3] fruit = "lemon, lime", rank = "0xF1"
+[4] fruit = "strawberry", rank = "700_000"</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The original source arguments are quoted when generating a display name, and this occurs
+before any implicit or explicit argument conversion is performed.</p>
+</div>
+<div class="paragraph">
+<p>For example, if a parameterized test accepts <code>3.14</code> as a <code>float</code> argument that was
+converted from <code>"3.14"</code> as an input string, <code>"3.14"</code> will be present in the display name
+instead of <code>3.14</code>. You can see the effect of this with the <code>rank</code> values in the above
+example.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect4">
+<h5 id="writing-tests-parameterized-tests-display-names-default-pattern"><a class="anchor" href="#writing-tests-parameterized-tests-display-names-default-pattern"></a>Default Display Name Pattern</h5>
 <div class="paragraph">
 <p>If you&#8217;d like to set a default name pattern for all parameterized classes and tests in
 your project, you can declare the <code>junit.jupiter.params.displayname.default</code> configuration
@@ -6790,6 +6901,9 @@ parameter in the <code>junit-platform.properties</code> file as demonstrated in 
 <pre class="rouge highlight"><code data-lang="properties"><span class="py">junit.jupiter.params.displayname.default</span> <span class="p">=</span> <span class="s">{index}</span></code></pre>
 </div>
 </div>
+</div>
+<div class="sect4">
+<h5 id="writing-tests-parameterized-tests-display-names-precedence-rules"><a class="anchor" href="#writing-tests-parameterized-tests-display-names-precedence-rules"></a>Precedence Rules</h5>
 <div class="paragraph">
 <p>The display name for a parameterized class or test is determined according to the
 following precedence rules:</p>
@@ -6807,6 +6921,7 @@ following precedence rules:</p>
 <code>org.junit.jupiter.params.ParameterizedInvocationConstants</code></p>
 </li>
 </ol>
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -15946,6 +16061,10 @@ value of lower stability.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>@ParameterizedClass</code> <em>(annotation)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.0</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@ParameterizedTest(quoteTextArguments=.&ZeroWidthSpace;.&ZeroWidthSpace;.&ZeroWidthSpace;)</code> <em>(annotation attribute)</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.0</code></p></td>
 </tr>
 </tbody>
