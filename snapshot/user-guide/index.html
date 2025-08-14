@@ -1295,16 +1295,16 @@ overridden.</p>
 <dd>
 <p>Denotes that the annotated method should be executed <em>before</em> <strong>all</strong>
 <code>@Test</code>, <code>@RepeatedTest</code>, <code>@ParameterizedTest</code>, and <code>@TestFactory</code> methods in the current
-class; analogous to JUnit 4&#8217;s <code>@BeforeClass</code>. Such methods are inherited unless they are
-overridden and must be <code>static</code> unless the "per-class"
+top-level or <code>@Nested</code> test class; analogous to JUnit 4&#8217;s <code>@BeforeClass</code>. Such methods are
+inherited unless they are overridden and must be <code>static</code> unless the "per-class"
 <a href="#writing-tests-test-instance-lifecycle">test instance lifecycle</a> is used.</p>
 </dd>
 <dt class="hdlist1"><code><strong>@AfterAll</strong></code></dt>
 <dd>
 <p>Denotes that the annotated method should be executed <em>after</em> <strong>all</strong>
 <code>@Test</code>, <code>@RepeatedTest</code>, <code>@ParameterizedTest</code>, and <code>@TestFactory</code> methods in the current
-class; analogous to JUnit 4&#8217;s <code>@AfterClass</code>. Such methods are inherited unless they are
-overridden and must be <code>static</code> unless the "per-class"
+top-level or <code>@Nested</code> test class; analogous to JUnit 4&#8217;s <code>@AfterClass</code>. Such methods are
+inherited unless they are overridden and must be <code>static</code> unless the "per-class"
 <a href="#writing-tests-test-instance-lifecycle">test instance lifecycle</a> is used.</p>
 </dd>
 <dt class="hdlist1"><code><strong>@ParameterizedClass</strong></code></dt>
@@ -1337,12 +1337,7 @@ multiple times depending on the number of invocation contexts returned by the re
 <dt class="hdlist1"><code><strong>@Nested</strong></code></dt>
 <dd>
 <p>Denotes that the annotated class is a non-static
-<a href="#writing-tests-nested">nested test class</a>. On Java 8 through Java 15, <code>@BeforeAll</code> and
-<code>@AfterAll</code> methods cannot be used directly in a <code>@Nested</code> test class unless the
-"per-class" <a href="#writing-tests-test-instance-lifecycle">test instance lifecycle</a> is used.
-Beginning with Java 16, <code>@BeforeAll</code> and <code>@AfterAll</code> methods can be declared as <code>static</code>
-in a <code>@Nested</code> test class with either test instance lifecycle mode. Such annotations are
-not inherited.</p>
+<a href="#writing-tests-nested">nested test class</a>. Such annotations are not inherited.</p>
 </dd>
 <dt class="hdlist1"><code><strong>@Tag</strong></code></dt>
 <dd>
@@ -1978,7 +1973,7 @@ parameter, if present</p>
 <h3 id="writing-tests-assertions"><a class="anchor" href="#writing-tests-assertions"></a>2.5. Assertions</h3>
 <div class="paragraph">
 <p>JUnit Jupiter comes with many of the assertion methods that JUnit 4 has and adds a few
-that lend themselves well to being used with Java 8 lambdas. All JUnit Jupiter assertions
+that lend themselves well to being used with Java lambdas. All JUnit Jupiter assertions
 are <code>static</code> methods in the <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/Assertions.html">org.junit.jupiter.api.Assertions</a></code> class.</p>
 </div>
 <div class="paragraph">
@@ -2395,8 +2390,8 @@ of marked as a failure.</p>
 </div>
 <div class="paragraph">
 <p>JUnit Jupiter comes with a subset of the <em>assumption</em> methods that JUnit 4 provides and
-adds a few that lend themselves well to being used with Java 8 lambda expressions and
-method references.</p>
+adds a few that lend themselves well to being used with Java lambda expressions and method
+references.</p>
 </div>
 <div class="paragraph">
 <p>All JUnit Jupiter assumptions are static methods in the <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/Assumptions.html">org.junit.jupiter.api.Assumptions</a></code> class.</p>
@@ -3649,22 +3644,7 @@ methods rely on state stored in instance variables, you may need to reset that s
 <div class="paragraph">
 <p>The "per-class" mode has some additional benefits over the default "per-method" mode.
 Specifically, with the "per-class" mode it becomes possible to declare <code>@BeforeAll</code> and
-<code>@AfterAll</code> on non-static methods as well as on interface <code>default</code> methods. The
-"per-class" mode therefore also makes it possible to use <code>@BeforeAll</code> and <code>@AfterAll</code>
-methods in <code>@Nested</code> test classes.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Beginning with Java 16, <code>@BeforeAll</code> and <code>@AfterAll</code> methods can be declared as
-<code>static</code> in <code>@Nested</code> test classes.
-</td>
-</tr>
-</table>
+<code>@AfterAll</code> on non-static methods as well as on interface <code>default</code> methods.</p>
 </div>
 <div class="paragraph">
 <p>If you are authoring tests using the Kotlin programming language, you may also find it
@@ -3852,13 +3832,7 @@ running the outer tests, because the setup code from the outer tests is always e
 <td class="content">
 <em>Only non-static nested classes</em> (i.e. <em>inner classes</em>) can serve as <code>@Nested</code> test
 classes. Nesting can be arbitrarily deep, and those inner classes are subject to full
-lifecycle support with one exception: <code>@BeforeAll</code> and <code>@AfterAll</code> methods do not work <em>by
-default</em>. The reason is that Java does not allow <code>static</code> members in inner classes prior
-to Java 16. However, this restriction can be circumvented by annotating a <code>@Nested</code> test
-class with <code>@TestInstance(Lifecycle.PER_CLASS)</code> (see
-<a href="#writing-tests-test-instance-lifecycle">Test Instance Lifecycle</a>). If you are using Java 16 or higher,
-<code>@BeforeAll</code> and <code>@AfterAll</code> methods can be declared as <code>static</code> in <code>@Nested</code> test
-classes, and this restriction no longer applies.
+lifecycle support, including <code>@BeforeAll</code> and <code>@AfterAll</code> methods on each level.
 </td>
 </tr>
 </table>
@@ -7968,9 +7942,9 @@ executing tests will not exceed the configured parallelism. For example, when us
 of the synchronization mechanisms described in the next section, the <code>ForkJoinPool</code> that
 is used behind the scenes may spawn additional threads to ensure execution continues with
 sufficient parallelism.
-If you require such guarantees, with Java 9+, it is possible to limit the maximum number
-of concurrent threads by controlling the maximum pool size of the <code>dynamic</code>, <code>fixed</code> and
-<code>custom</code> strategies.
+If you require such guarantees, it is possible to limit the maximum number of concurrent
+threads by controlling the maximum pool size of the <code>dynamic</code>, <code>fixed</code> and <code>custom</code>
+strategies.
 </td>
 </tr>
 </table>
@@ -11185,23 +11159,14 @@ to a problem.
 </table>
 </div>
 <div class="paragraph">
-<p>In order to record Flight Recorder events generated while running tests, you need to:</p>
+<p>In order to record Flight Recorder events generated while running tests, you need to
+start flight recording when launching a test run via the following java command line
+option:</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Ensure that you are using either Java 8 Update 262 or higher or Java 11 or later.</p>
-</li>
-<li>
-<p>Start flight recording when launching a test run. Flight Recorder can be started via
-java command line option:</p>
 <div class="literalblock">
 <div class="content">
 <pre>-XX:StartFlightRecording:filename=...</pre>
 </div>
-</div>
-</li>
-</ol>
 </div>
 <div class="paragraph">
 <p>Please consult the manual of your build tool for the appropriate commands.</p>

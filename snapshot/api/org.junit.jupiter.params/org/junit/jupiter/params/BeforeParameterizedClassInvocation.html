@@ -104,16 +104,9 @@ loadScripts(document, 'script');</script>
  <h2 id="method-signatures-heading">Method Signatures</h2>
 
  <p><code>@BeforeParameterizedClassInvocation</code> methods must have a
- <code>void</code> return type, must not be private, and must be <code>static</code> by
- default. Consequently, <code>@BeforeParameterizedClassInvocation</code> methods
- are not supported in <a href="../../../../../org.junit.jupiter.api/org/junit/jupiter/api/Nested.html" title="annotation interface in org.junit.jupiter.api"><code>@Nested</code></a> test
- classes or as <em>interface default methods</em> unless the test class is
- annotated with
+ <code>void</code> return type, must not be private, and must be <code>static</code>
+ unless the test class is annotated with
  <a href="../../../../../org.junit.jupiter.api/org/junit/jupiter/api/TestInstance.html" title="annotation interface in org.junit.jupiter.api"><code>@TestInstance(Lifecycle.PER_CLASS)</code></a>.
- However, beginning with Java 16 <code>@BeforeParameterizedClassInvocation</code>
- methods may be declared as <code>static</code> in
- <a href="../../../../../org.junit.jupiter.api/org/junit/jupiter/api/Nested.html" title="annotation interface in org.junit.jupiter.api"><code>@Nested</code></a> test classes, in which case the
- <code>Lifecycle.PER_CLASS</code> restriction no longer applies.
 
  <h2 id="method-arguments-heading">Method Arguments</h2>
 
