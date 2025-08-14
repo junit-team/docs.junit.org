@@ -131,9 +131,7 @@ loadScripts(document, 'script');</script>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#pruneStackTrace(java.lang.Throwable,java.util.List)" class="member-name-link">pruneStackTrace</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&nbsp;throwable,
  <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;classNames)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Prune the stack trace of the supplied <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link"><code>Throwable</code></a> by removing
- <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/StackTraceElement.html" title="class or interface in java.lang" class="external-link">stack trace elements</a> from the <code>org.junit</code>,
- <code>jdk.internal.reflect</code>, and <code>sun.reflect</code> packages.</div>
+<div class="block">Prune the stack trace of the supplied <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link"><code>Throwable</code></a>.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#readStackTrace(java.lang.Throwable)" class="member-name-link">readStackTrace</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&nbsp;throwable)</code></div>
@@ -210,11 +208,15 @@ loadScripts(document, 'script');</script>
      <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="1.10")
 </span><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">pruneStackTrace</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&nbsp;throwable,
  <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;classNames)</span></div>
-<div class="block">Prune the stack trace of the supplied <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link"><code>Throwable</code></a> by removing
- <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/StackTraceElement.html" title="class or interface in java.lang" class="external-link">stack trace elements</a> from the <code>org.junit</code>,
- <code>jdk.internal.reflect</code>, and <code>sun.reflect</code> packages. If a
- <code>StackTraceElement</code> matching one of the supplied <code>classNames</code>
- is encountered, all subsequent elements in the stack trace will be retained.
+<div class="block">Prune the stack trace of the supplied <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link"><code>Throwable</code></a>.
+
+ <p>Prune all <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/StackTraceElement.html" title="class or interface in java.lang" class="external-link">stack trace elements</a> up one
+ of the supplied <code>classNames</code> are pruned. All subsequent elements
+ in the stack trace will be retained.
+
+ <p>If the <code>classNames</code> do not match any of the stacktrace elements
+ then the <code>org.junit</code>, <code>jdk.internal.reflect</code>, and
+ <code>sun.reflect</code> packages are pruned.
 
  <p>Additionally, all elements prior to and including the first JUnit Platform
  Launcher call will be removed.</div>
