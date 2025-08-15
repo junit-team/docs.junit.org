@@ -1232,6 +1232,10 @@ loadScripts(document, 'script');</script>
  <p>This method does <strong>not</strong> search for nested classes
  recursively.
 
+ <p>Nested classes declared in the same enclosing class or interface will
+ be ordered using an algorithm that is deterministic but intentionally
+ nonobvious.
+
  <p>As of JUnit Platform 1.6, this method detects cycles in <em>inner</em>
  class hierarchies &mdash; from the supplied class up to the outermost
  enclosing class &mdash; and throws a <a href="../JUnitException.html" title="class in org.junit.platform.commons"><code>JUnitException</code></a> if such a cycle
@@ -1265,6 +1269,10 @@ loadScripts(document, 'script');</script>
 
  <p>This method does <strong>not</strong> search for nested classes
  recursively.
+
+ <p>Nested classes declared in the same enclosing class or interface will
+ be ordered using an algorithm that is deterministic but intentionally
+ nonobvious.
 
  <p>As of JUnit Platform 1.6, this method detects cycles in <em>inner</em>
  class hierarchies &mdash; from the supplied class up to the outermost
