@@ -6281,13 +6281,14 @@ method</em> or a <em>factory constructor</em> as defined below.</p>
 <ul>
 <li>
 <p><em>factory method</em>: a non-private, <code>static</code> method declared in the target type that
-accepts a single <code>String</code> argument and returns an instance of the target type. The name
-of the method can be arbitrary and need not follow any particular convention.</p>
+accepts either a single <code>String</code> argument or a single <code>CharSequence</code> argument and
+returns an instance of the target type. The name of the method can be arbitrary and need
+not follow any particular convention.</p>
 </li>
 <li>
 <p><em>factory constructor</em>: a non-private constructor in the target type that accepts a
-single <code>String</code> argument. Note that the target type must be declared as either a
-top-level class or as a <code>static</code> nested class.</p>
+either a single <code>String</code> argument or a single <code>CharSequence</code> argument. Note that the
+target type must be declared as either a top-level class or as a <code>static</code> nested class.</p>
 </li>
 </ul>
 </div>

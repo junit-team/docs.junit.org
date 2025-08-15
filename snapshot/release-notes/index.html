@@ -591,6 +591,11 @@ repository on GitHub.</p>
 <li>
 <p>Prune stack traces up to test or lifecycle method</p>
 </li>
+<li>
+<p>Convention-based conversion in <code>ConversionSupport</code> now supports factory methods and
+factory constructors that accept a single <code>CharSequence</code> argument in addition to the
+existing support for factories that accept a single <code>String</code> argument.</p>
+</li>
 </ul>
 </div>
 </div>
@@ -629,6 +634,11 @@ header is desired instead.</p>
 <p>Text-based arguments in display names for parameterized tests are now quoted by default.
 In addition, special characters are escaped within quoted text. Please refer to the
 <a href="../user-guide/index.html#writing-tests-parameterized-tests-display-names-quoted-text">User Guide</a> for details.</p>
+</li>
+<li>
+<p><a href="../user-guide/index.html#writing-tests-parameterized-tests-argument-conversion-implicit-fallback">Fallback String-to-Object Conversion</a> for parameterized tests now supports factory
+methods and factory constructors that accept a single <code>CharSequence</code> argument in
+addition to the existing support for factories that accept a single <code>String</code> argument.</p>
 </li>
 </ul>
 </div>

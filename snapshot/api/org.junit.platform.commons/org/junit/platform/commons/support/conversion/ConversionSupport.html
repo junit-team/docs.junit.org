@@ -171,15 +171,20 @@ loadScripts(document, 'script');</script>
 
  <ol>
  <li>Search for a single, non-private static factory method in the target
- type that converts from a String to the target type. Use the factory method
- if present.</li>
+ type that converts from a <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link"><code>String</code></a> to the target type. Use the
+ factory method if present.</li>
  <li>Search for a single, non-private constructor in the target type that
- accepts a String. Use the constructor if present.</li>
+ accepts a <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link"><code>String</code></a>. Use the constructor if present.</li>
+ <li>Search for a single, non-private static factory method in the target
+ type that converts from a <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/CharSequence.html" title="class or interface in java.lang" class="external-link"><code>CharSequence</code></a> to the target type. Use the
+ factory method if present.</li>
+ <li>Search for a single, non-private constructor in the target type that
+ accepts a <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/CharSequence.html" title="class or interface in java.lang" class="external-link"><code>CharSequence</code></a>. Use the constructor if present.</li>
  </ol>
 
- <p>If multiple suitable factory methods are discovered they will be ignored.
- If neither a single factory method nor a single constructor is found, the
- convention-based conversion strategy will not apply.</div>
+ <p>If multiple suitable factory methods or constructors are discovered they
+ will be ignored. If neither a single factory method nor a single constructor
+ is found, the convention-based conversion strategy will not apply.</div>
 <dl class="notes">
 <dt>Type Parameters:</dt>
 <dd><span id="convert(java.lang.String,java.lang.Class,java.lang.ClassLoader)-type-param-T"><code>T</code> - the type of the target</span></dd>
