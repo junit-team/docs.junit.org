@@ -1745,6 +1745,56 @@ by test runners and IDEs.</p>
 <span class="o">}</span></code></pre>
 </div>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Control characters in text-based arguments in display names for parameterized tests are
+escaped by default. See <a href="#writing-tests-parameterized-tests-display-names-quoted-text">Quoted Text-based Arguments</a>
+for details.</p>
+</div>
+<div class="paragraph">
+<p>Any remaining ISO control characters in a display name will be replaced as follows.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 15%;">
+<col style="width: 60%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Original</th>
+<th class="tableblock halign-left valign-top">Replacement</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><code>\r</code></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><code>&lt;CR&gt;</code></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Textual representation of a carriage return</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><code>\n</code></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><code>&lt;LF&gt;</code></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Textual representation of a line feed</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Other control character</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><code>�</code></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unicode replacement character (U+FFFD)</p></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</table>
+</div>
 <div class="sect3">
 <h4 id="writing-tests-display-name-generator"><a class="anchor" href="#writing-tests-display-name-generator"></a>2.4.1. Display Name Generators</h4>
 <div class="paragraph">
@@ -6786,8 +6836,7 @@ is wrapped in single quotes (<code>'</code>).</p>
 </div>
 <div class="paragraph">
 <p>Special characters will be escaped in the quoted text. For example, carriage returns and
-line feeds will be escaped as <code>\\r</code> and <code>\\n</code>, respectively. In addition, any ISO control
-character will be represented as a question mark (<code>?</code>) in the quoted text.</p>
+line feeds will be escaped as <code>\\r</code> and <code>\\n</code>, respectively.</p>
 </div>
 <div class="admonitionblock tip">
 <table>

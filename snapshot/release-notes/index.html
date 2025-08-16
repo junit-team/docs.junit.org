@@ -598,6 +598,13 @@ deterministic but intentionally nonobvious way.</p>
 factory constructors that accept a single <code>CharSequence</code> argument in addition to the
 existing support for factories that accept a single <code>String</code> argument.</p>
 </li>
+<li>
+<p>Non-printable control characters in display names are now replaced with alternative
+representations. For example, <code>\n</code> is replaced with <code>&lt;LF&gt;</code>. This applies to all display
+names in JUnit Jupiter, <code>@SuiteDisplayName</code>, and any other test engines that subclass
+<code>AbstractTestDescriptor</code>. Please refer to the
+<a href="../user-guide/index.html#writing-tests-display-names">User Guide</a> for details.</p>
+</li>
 </ul>
 </div>
 </div>
@@ -643,6 +650,11 @@ In addition, special characters are escaped within quoted text. Please refer to 
 <p><a href="../user-guide/index.html#writing-tests-parameterized-tests-argument-conversion-implicit-fallback">Fallback String-to-Object Conversion</a> for parameterized tests now supports factory
 methods and factory constructors that accept a single <code>CharSequence</code> argument in
 addition to the existing support for factories that accept a single <code>String</code> argument.</p>
+</li>
+<li>
+<p>Non-printable control characters in display names are now replaced with alternative
+representations. Please refer to the
+<a href="../user-guide/index.html#writing-tests-display-names">User Guide</a> for details.</p>
 </li>
 </ul>
 </div>

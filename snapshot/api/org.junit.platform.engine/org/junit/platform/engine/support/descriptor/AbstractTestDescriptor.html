@@ -325,7 +325,11 @@ implements <a href="../../TestDescriptor.html" title="interface in org.junit.pla
 <div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="element-name">AbstractTestDescriptor</span><wbr><span class="parameters">(<a href="../../UniqueId.html" title="class in org.junit.platform.engine">UniqueId</a>&nbsp;uniqueId,
  <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;displayName)</span></div>
 <div class="block">Create a new <code>AbstractTestDescriptor</code> with the supplied
- <a href="../../UniqueId.html" title="class in org.junit.platform.engine"><code>UniqueId</code></a> and display name.</div>
+ <a href="../../UniqueId.html" title="class in org.junit.platform.engine"><code>UniqueId</code></a> and display name.
+
+ <p>As of JUnit 6.0, ISO control characters in the provided display name
+ will be replaced. See <a href="#%3Cinit%3E(org.junit.platform.engine.UniqueId,java.lang.String,org.junit.platform.engine.TestSource)"><code>AbstractTestDescriptor(UniqueId, String, TestSource)</code></a>
+ for details.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>uniqueId</code> - the unique ID of this <code>TestDescriptor</code>; never
@@ -350,7 +354,18 @@ implements <a href="../../TestDescriptor.html" title="interface in org.junit.pla
  <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;displayName,
  @Nullable <a href="../../TestSource.html" title="interface in org.junit.platform.engine">TestSource</a>&nbsp;source)</span></div>
 <div class="block">Create a new <code>AbstractTestDescriptor</code> with the supplied
- <a href="../../UniqueId.html" title="class in org.junit.platform.engine"><code>UniqueId</code></a>, display name, and source.</div>
+ <a href="../../UniqueId.html" title="class in org.junit.platform.engine"><code>UniqueId</code></a>, display name, and source.
+
+ <p>As of JUnit 6.0, ISO control characters in the provided display name
+ will be replaced according to the following table.
+
+ <table class="plain">
+ <caption>Control Character Replacement</caption>
+ <tr><th> Original                </th><th> Replacement  </th><th> Description                                 </th></tr>
+ <tr><td> <code>\r</code>              </td><td> <code>&lt;CR&gt;</code> </td><td> Textual representation of a carriage return </td></tr>
+ <tr><td> <code>\n</code>              </td><td> <code>&lt;LF&gt;</code> </td><td> Textual representation of a line feed       </td></tr>
+ <tr><td> Other control character </td><td> &#xFFFD;     </td><td> Unicode replacement character (U+FFFD)      </td></tr>
+ </table></div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>uniqueId</code> - the unique ID of this <code>TestDescriptor</code>; never
