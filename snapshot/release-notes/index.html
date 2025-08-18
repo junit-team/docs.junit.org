@@ -605,6 +605,11 @@ names in JUnit Jupiter, <code>@SuiteDisplayName</code>, and any other test engin
 <code>AbstractTestDescriptor</code>. Please refer to the
 <a href="../user-guide/index.html#writing-tests-display-names">User Guide</a> for details.</p>
 </li>
+<li>
+<p>To help diagnosing potentially invalid invocations, the Console Launcher now logs
+warnings for nonexistent classpath roots added via <code>--classpath</code> or <code>--scan-classpath</code>
+rather than silently ignoring them.</p>
+</li>
 </ul>
 </div>
 </div>
