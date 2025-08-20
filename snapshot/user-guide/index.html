@@ -3457,6 +3457,12 @@ configuration of a custom <em>seed</em></p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>The <code>MethodOrderer</code> configured on a test class is inherited by the <code>@Nested</code> test classes
+it contains, recursively. If you want to avoid that a <code>@Nested</code> test class uses the same
+<code>MethodOrderer</code> as its enclosing class, you can specify <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/MethodOrderer.Default.html">MethodOrderer.Default</a></code> together
+with <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/TestMethodOrder.html">@TestMethodOrder</a></code>.</p>
+</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -3620,6 +3626,8 @@ test classes will be ordered relative to other <code>@Nested</code> test classes
 want to order, and supply a class reference to the <code>ClassOrderer</code> implementation you would
 like to use directly in the <code>@TestClassOrder</code> annotation. The configured <code>ClassOrderer</code>
 will be applied recursively to <code>@Nested</code> test classes and their <code>@Nested</code> test classes.
+If you want to avoid that a <code>@Nested</code> test class uses the same <code>ClassOrderer</code> as its
+enclosing class, you can specify <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/ClassOrderer.Default.html">ClassOrderer.Default</a></code> together with <code>@TestClassOrder</code>.
 Note that a local <code>@TestClassOrder</code> declaration always overrides an inherited
 <code>@TestClassOrder</code> declaration or a <code>ClassOrderer</code> configured globally via the
 <code>junit.jupiter.testclass.order.default</code> configuration parameter.</p>
@@ -15992,11 +16000,19 @@ value of lower stability.</p>
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ClassOrderer.&ZeroWidthSpace;Default</code> <em>(class)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.0</code></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>@ClassTemplate</code> <em>(annotation)</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.0</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>@DisplayNameGenerator.&ZeroWidthSpace;IndicativeSentences.&ZeroWidthSpace;SentenceFragment</code> <em>(annotation)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.0</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MethodOrderer.&ZeroWidthSpace;Default</code> <em>(class)</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.0</code></p></td>
 </tr>
 </tbody>

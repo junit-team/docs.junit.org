@@ -93,7 +93,7 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <dl class="notes">
 <dt>All Known Implementing Classes:</dt>
-<dd><code><a href="MethodOrderer.DisplayName.html" title="class in org.junit.jupiter.api">MethodOrderer.DisplayName</a></code>, <code><a href="MethodOrderer.MethodName.html" title="class in org.junit.jupiter.api">MethodOrderer.MethodName</a></code>, <code><a href="MethodOrderer.OrderAnnotation.html" title="class in org.junit.jupiter.api">MethodOrderer.OrderAnnotation</a></code>, <code><a href="MethodOrderer.Random.html" title="class in org.junit.jupiter.api">MethodOrderer.Random</a></code></dd>
+<dd><code><a href="MethodOrderer.Default.html" title="class in org.junit.jupiter.api">MethodOrderer.Default</a></code>, <code><a href="MethodOrderer.DisplayName.html" title="class in org.junit.jupiter.api">MethodOrderer.DisplayName</a></code>, <code><a href="MethodOrderer.MethodName.html" title="class in org.junit.jupiter.api">MethodOrderer.MethodName</a></code>, <code><a href="MethodOrderer.OrderAnnotation.html" title="class in org.junit.jupiter.api">MethodOrderer.OrderAnnotation</a></code>, <code><a href="MethodOrderer.Random.html" title="class in org.junit.jupiter.api">MethodOrderer.Random</a></code></dd>
 </dl>
 <hr>
 <div class="horizontal-scroll">
@@ -118,6 +118,7 @@ loadScripts(document, 'script');</script>
  implementations.
 
  <ul>
+ <li><a href="MethodOrderer.Default.html" title="class in org.junit.jupiter.api"><code>MethodOrderer.Default</code></a></li>
  <li><a href="MethodOrderer.MethodName.html" title="class in org.junit.jupiter.api"><code>MethodOrderer.MethodName</code></a></li>
  <li><a href="MethodOrderer.OrderAnnotation.html" title="class in org.junit.jupiter.api"><code>MethodOrderer.OrderAnnotation</code></a></li>
  <li><a href="MethodOrderer.Random.html" title="class in org.junit.jupiter.api"><code>MethodOrderer.Random</code></a></li>
@@ -148,27 +149,33 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Interface</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code>static class&nbsp;</code></div>
-<div class="col-second even-row-color"><code><a href="MethodOrderer.DisplayName.html" class="type-name-link" title="class in org.junit.jupiter.api">MethodOrderer.DisplayName</a></code></div>
+<div class="col-first even-row-color"><code>static final class&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="MethodOrderer.Default.html" class="type-name-link" title="class in org.junit.jupiter.api">MethodOrderer.Default</a></code></div>
 <div class="col-last even-row-color">
+<div class="block"><code>MethodOrderer</code> that allows to explicitly specify that the default
+ ordering should be applied.</div>
+</div>
+<div class="col-first odd-row-color"><code>static class&nbsp;</code></div>
+<div class="col-second odd-row-color"><code><a href="MethodOrderer.DisplayName.html" class="type-name-link" title="class in org.junit.jupiter.api">MethodOrderer.DisplayName</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block"><code>MethodOrderer</code> that sorts methods alphanumerically based on their
  display names using <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html#compareTo(java.lang.String)" title="class or interface in java.lang" class="external-link"><code>String.compareTo(String)</code></a></div>
 </div>
-<div class="col-first odd-row-color"><code>static class&nbsp;</code></div>
-<div class="col-second odd-row-color"><code><a href="MethodOrderer.MethodName.html" class="type-name-link" title="class in org.junit.jupiter.api">MethodOrderer.MethodName</a></code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code>static class&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="MethodOrderer.MethodName.html" class="type-name-link" title="class in org.junit.jupiter.api">MethodOrderer.MethodName</a></code></div>
+<div class="col-last even-row-color">
 <div class="block"><code>MethodOrderer</code> that sorts methods alphanumerically based on their
  names using <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html#compareTo(java.lang.String)" title="class or interface in java.lang" class="external-link"><code>String.compareTo(String)</code></a>.</div>
 </div>
-<div class="col-first even-row-color"><code>static class&nbsp;</code></div>
-<div class="col-second even-row-color"><code><a href="MethodOrderer.OrderAnnotation.html" class="type-name-link" title="class in org.junit.jupiter.api">MethodOrderer.OrderAnnotation</a></code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code>static class&nbsp;</code></div>
+<div class="col-second odd-row-color"><code><a href="MethodOrderer.OrderAnnotation.html" class="type-name-link" title="class in org.junit.jupiter.api">MethodOrderer.OrderAnnotation</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block"><code>MethodOrderer</code> that sorts methods based on the <a href="Order.html" title="annotation interface in org.junit.jupiter.api"><code>@Order</code></a>
  annotation.</div>
 </div>
-<div class="col-first odd-row-color"><code>static class&nbsp;</code></div>
-<div class="col-second odd-row-color"><code><a href="MethodOrderer.Random.html" class="type-name-link" title="class in org.junit.jupiter.api">MethodOrderer.Random</a></code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code>static class&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="MethodOrderer.Random.html" class="type-name-link" title="class in org.junit.jupiter.api">MethodOrderer.Random</a></code></div>
+<div class="col-last even-row-color">
 <div class="block"><code>MethodOrderer</code> that orders methods pseudo-randomly.</div>
 </div>
 </div>

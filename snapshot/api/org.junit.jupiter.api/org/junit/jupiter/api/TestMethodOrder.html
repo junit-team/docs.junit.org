@@ -102,8 +102,9 @@ loadScripts(document, 'script');</script>
  <code>@TestFactory</code>, or <code>@TestTemplate</code>.
 
  <p>If <code>@TestMethodOrder</code> is not explicitly declared on a test class,
- inherited from a parent class, or declared on a test interface implemented by
- a test class, test methods will be ordered using a default algorithm that is
+ inherited from a parent class, declared on a test interface implemented by
+ a test class, or inherited from an <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Class.html#getEnclosingClass()" title="class or interface in java.lang" class="external-link">enclosing
+ class</a>, test methods will be ordered using a default algorithm that is
  deterministic but intentionally nonobvious.
 
  <p>As an alternative to <code>@TestMethodOrder</code>, a global <a href="MethodOrderer.html" title="interface in org.junit.jupiter.api"><code>MethodOrderer</code></a>

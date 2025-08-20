@@ -661,6 +661,16 @@ addition to the existing support for factories that accept a single <code>String
 representations. Please refer to the
 <a href="../user-guide/index.html#writing-tests-display-names">User Guide</a> for details.</p>
 </li>
+<li>
+<p>For consistency with <code>@TestClassOrder</code>, <code>@TestMethodOrder</code> annotations specified on a
+test class are now inherited by its <code>@Nested</code> inner classes, recursively.</p>
+</li>
+<li>
+<p>Introduce <code>MethodOrderer.Default</code> and <code>ClassOrderer.Default</code> for reverting back to
+default ordering on a <code>@Nested</code> class and its <code>@Nested</code> inner classes when an enclosing
+class specifies a different orderer via <code>@TestMethodOrder</code> or <code>@TestClassOrder</code>,
+respectively.</p>
+</li>
 </ul>
 </div>
 </div>

@@ -99,7 +99,8 @@ loadScripts(document, 'script');</script>
  <p>If <code>@TestClassOrder</code> is not explicitly declared on a test class,
  inherited from a parent class, declared on a test interface implemented by
  a test class, or inherited from an <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Class.html#getEnclosingClass()" title="class or interface in java.lang" class="external-link">enclosing
- class</a>, <code>@Nested</code> test classes will be executed in arbitrary order.
+ class</a>, <code>@Nested</code> test classes will be ordered using a default
+ algorithm that is deterministic but intentionally nonobvious.
 
  <p>As an alternative to <code>@TestClassOrder</code>, a global <a href="ClassOrderer.html" title="interface in org.junit.jupiter.api"><code>ClassOrderer</code></a>
  can be configured for the entire test suite via the
