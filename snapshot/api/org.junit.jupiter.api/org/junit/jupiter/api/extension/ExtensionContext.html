@@ -76,8 +76,8 @@ loadScripts(document, 'script');</script>
 <li><a href="#getTags()" tabindex="0">getTags()</a></li>
 <li><a href="#getElement()" tabindex="0">getElement()</a></li>
 <li><a href="#getTestClass()" tabindex="0">getTestClass()</a></li>
-<li><a href="#getEnclosingTestClasses()" tabindex="0">getEnclosingTestClasses()</a></li>
 <li><a href="#getRequiredTestClass()" tabindex="0">getRequiredTestClass()</a></li>
+<li><a href="#getEnclosingTestClasses()" tabindex="0">getEnclosingTestClasses()</a></li>
 <li><a href="#getTestInstanceLifecycle()" tabindex="0">getTestInstanceLifecycle()</a></li>
 <li><a href="#getTestInstance()" tabindex="0">getTestInstance()</a></li>
 <li><a href="#getRequiredTestInstance()" tabindex="0">getRequiredTestInstance()</a></li>
@@ -503,6 +503,26 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
+<section class="detail" id="getRequiredTestClass()">
+<h3>getRequiredTestClass</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;?&gt;</span>&nbsp;<span class="element-name">getRequiredTestClass</span>()</div>
+<div class="block">Get the <em>required</em> <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link"><code>Class</code></a> associated with the current test
+ or container.
+
+ <p>Use this method as an alternative to <a href="#getTestClass()"><code>getTestClass()</code></a> for use
+ cases in which the test class is required to be present.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the test class; never <code>null</code></dd>
+<dt>Throws:</dt>
+<dd><code><a href="../../../../../../org.junit.platform.commons/org/junit/platform/commons/PreconditionViolationException.html" title="class in org.junit.platform.commons">PreconditionViolationException</a></code> - if the test class is not present
+ in this <code>ExtensionContext</code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
 <section class="detail" id="getEnclosingTestClasses()">
 <h3>getEnclosingTestClasses</h3>
 <div class="horizontal-scroll">
@@ -535,26 +555,6 @@ loadScripts(document, 'script');</script>
 <li><a href="../../../../../../org.junit.platform.commons/org/junit/platform/commons/support/AnnotationSupport.html#findAnnotation(java.lang.Class,java.lang.Class,java.util.List)"><code>AnnotationSupport.findAnnotation(Class, Class, List)</code></a></li>
 </ul>
 </dd>
-</dl>
-</div>
-</section>
-</li>
-<li>
-<section class="detail" id="getRequiredTestClass()">
-<h3>getRequiredTestClass</h3>
-<div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;?&gt;</span>&nbsp;<span class="element-name">getRequiredTestClass</span>()</div>
-<div class="block">Get the <em>required</em> <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link"><code>Class</code></a> associated with the current test
- or container.
-
- <p>Use this method as an alternative to <a href="#getTestClass()"><code>getTestClass()</code></a> for use
- cases in which the test class is required to be present.</div>
-<dl class="notes">
-<dt>Returns:</dt>
-<dd>the test class; never <code>null</code></dd>
-<dt>Throws:</dt>
-<dd><code><a href="../../../../../../org.junit.platform.commons/org/junit/platform/commons/PreconditionViolationException.html" title="class in org.junit.platform.commons">PreconditionViolationException</a></code> - if the test class is not present
- in this <code>ExtensionContext</code></dd>
 </dl>
 </div>
 </section>

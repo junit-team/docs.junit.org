@@ -189,8 +189,7 @@ loadScripts(document, 'script');</script>
  <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super K, ? extends V&gt;&nbsp;defaultCreator)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6">
 <div class="block"><span class="deprecated-label">Deprecated.</span>
-<div class="deprecation-comment">Please use <a href="#computeIfAbsent(K,java.util.function.Function)"><code>computeIfAbsent(Object, Function)</code></a>
- instead.</div>
+<div class="deprecation-comment">Please use <a href="#computeIfAbsent(K,java.util.function.Function)"><code>computeIfAbsent(Object, Function)</code></a> instead.</div>
 </div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6"><code>&lt;K, V extends @Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&gt;<br>@Nullable V</code></div>
@@ -198,7 +197,9 @@ loadScripts(document, 'script');</script>
  <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super K, ? extends V&gt;&nbsp;defaultCreator,
  <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;V&gt;&nbsp;requiredType)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6">
-<div class="block"><span class="deprecated-label">Deprecated.</span></div>
+<div class="block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">Please use <a href="#computeIfAbsent(K,java.util.function.Function,java.lang.Class)"><code>computeIfAbsent(Object, Function, Class)</code></a> instead.</div>
+</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default &lt;V&gt;&nbsp;V</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#getOrDefault(java.lang.Object,java.lang.Class,V)" class="member-name-link">getOrDefault</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;key,
@@ -347,7 +348,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="getOrComputeIfAbsent(java.lang.Class)">
 <h3>getOrComputeIfAbsent</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>
+<div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Deprecated.html#since()" title="class or interface in java.lang" class="external-link">since</a>="6.0")
 <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#DEPRECATED" title="class or interface in org.apiguardian.api" class="external-link">DEPRECATED</a>,
      <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.0")
 </span><span class="modifiers">default</span>&nbsp;<span class="type-parameters">&lt;V&gt;</span>&nbsp;<span class="return-type">V</span>&nbsp;<span class="element-name">getOrComputeIfAbsent</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;V&gt;&nbsp;type)</span></div>
@@ -454,14 +455,13 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="getOrComputeIfAbsent(K,java.util.function.Function)">
 <h3 id="getOrComputeIfAbsent(java.lang.Object,java.util.function.Function)">getOrComputeIfAbsent</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>
+<div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Deprecated.html#since()" title="class or interface in java.lang" class="external-link">since</a>="6.0")
 <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#DEPRECATED" title="class or interface in org.apiguardian.api" class="external-link">DEPRECATED</a>,
      <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.0")
 </span><span class="type-parameters">&lt;K, V extends @Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&gt;</span>&nbsp;<span class="return-type">@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span>&nbsp;<span class="element-name">getOrComputeIfAbsent</span><wbr><span class="parameters">(K&nbsp;key,
  <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super K, ? extends V&gt;&nbsp;defaultCreator)</span></div>
 <div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
-<div class="deprecation-comment">Please use <a href="#computeIfAbsent(K,java.util.function.Function)"><code>computeIfAbsent(Object, Function)</code></a>
- instead.</div>
+<div class="deprecation-comment">Please use <a href="#computeIfAbsent(K,java.util.function.Function)"><code>computeIfAbsent(Object, Function)</code></a> instead.</div>
 </div>
 <div class="block">Get the value that is stored under the supplied <code>key</code>.
 
@@ -508,7 +508,9 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="computeIfAbsent(K,java.util.function.Function)">
 <h3 id="computeIfAbsent(java.lang.Object,java.util.function.Function)">computeIfAbsent</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="type-parameters">&lt;K,<wbr>V&gt;</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span>&nbsp;<span class="element-name">computeIfAbsent</span><wbr><span class="parameters">(K&nbsp;key,
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#MAINTAINED" title="class or interface in org.apiguardian.api" class="external-link">MAINTAINED</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.0")
+</span><span class="type-parameters">&lt;K,<wbr>V&gt;</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span>&nbsp;<span class="element-name">computeIfAbsent</span><wbr><span class="parameters">(K&nbsp;key,
  <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super K, ? extends V&gt;&nbsp;defaultCreator)</span></div>
 <div class="block">Return the value of the specified required type that is stored under
  the supplied <code>key</code>.
@@ -559,13 +561,15 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="getOrComputeIfAbsent(K,java.util.function.Function,java.lang.Class)">
 <h3 id="getOrComputeIfAbsent(java.lang.Object,java.util.function.Function,java.lang.Class)">getOrComputeIfAbsent</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>
+<div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Deprecated.html#since()" title="class or interface in java.lang" class="external-link">since</a>="6.0")
 <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#DEPRECATED" title="class or interface in org.apiguardian.api" class="external-link">DEPRECATED</a>,
      <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.0")
 </span><span class="type-parameters">&lt;K, V extends @Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&gt;</span>&nbsp;<span class="return-type">@Nullable V</span>&nbsp;<span class="element-name">getOrComputeIfAbsent</span><wbr><span class="parameters">(K&nbsp;key,
  <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super K, ? extends V&gt;&nbsp;defaultCreator,
  <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;V&gt;&nbsp;requiredType)</span></div>
-<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">Please use <a href="#computeIfAbsent(K,java.util.function.Function,java.lang.Class)"><code>computeIfAbsent(Object, Function, Class)</code></a> instead.</div>
+</div>
 <div class="block">Get the value of the specified required type that is stored under the
  supplied <code>key</code>.
 
@@ -610,7 +614,9 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="computeIfAbsent(K,java.util.function.Function,java.lang.Class)">
 <h3 id="computeIfAbsent(java.lang.Object,java.util.function.Function,java.lang.Class)">computeIfAbsent</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="type-parameters">&lt;K,<wbr>V&gt;</span>&nbsp;<span class="return-type">V</span>&nbsp;<span class="element-name">computeIfAbsent</span><wbr><span class="parameters">(K&nbsp;key,
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#MAINTAINED" title="class or interface in org.apiguardian.api" class="external-link">MAINTAINED</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.0")
+</span><span class="type-parameters">&lt;K,<wbr>V&gt;</span>&nbsp;<span class="return-type">V</span>&nbsp;<span class="element-name">computeIfAbsent</span><wbr><span class="parameters">(K&nbsp;key,
  <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super K, ? extends V&gt;&nbsp;defaultCreator,
  <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;V&gt;&nbsp;requiredType)</span></div>
 <div class="block">Get the value of the specified required type that is stored under the
@@ -641,6 +647,8 @@ loadScripts(document, 'script');</script>
 <dd><code>requiredType</code> - the required type of the value; never <code>null</code></dd>
 <dt>Returns:</dt>
 <dd>the value; never <code>null</code></dd>
+<dt>Since:</dt>
+<dd>6.0</dd>
 <dt>See Also:</dt>
 <dd>
 <ul class="tag-list-long">
