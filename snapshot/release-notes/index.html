@@ -586,7 +586,9 @@ guidance on upgrading from JUnit 5.x.y to 6.0.0.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>❓</p>
+<p>The <code>Launcher</code> (specifically <code>LauncherDiscoveryResult</code>) now retains the original
+<code>TestEngine</code> registration order after pruning test engines without tests, thereby
+ensuring reliable test execution order of multiple test engines.</p>
 </li>
 </ul>
 </div>
