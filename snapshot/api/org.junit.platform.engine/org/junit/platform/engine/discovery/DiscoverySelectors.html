@@ -86,6 +86,12 @@ loadScripts(document, 'script');</script>
 <li><a href="#selectClass(java.lang.Class)" tabindex="0">selectClass(Class)</a></li>
 <li><a href="#selectClass(java.lang.String)" tabindex="0">selectClass(String)</a></li>
 <li><a href="#selectClass(java.lang.ClassLoader,java.lang.String)" tabindex="0">selectClass(ClassLoader, String)</a></li>
+<li><a href="#selectClasses(java.lang.Class...)" tabindex="0">selectClasses(Class...)</a></li>
+<li><a href="#selectClasses(java.util.List)" tabindex="0">selectClasses(List)</a></li>
+<li><a href="#selectClassesByName(java.lang.String...)" tabindex="0">selectClassesByName(String...)</a></li>
+<li><a href="#selectClassesByName(java.util.List)" tabindex="0">selectClassesByName(List)</a></li>
+<li><a href="#selectClassesByName(java.lang.ClassLoader,java.lang.String...)" tabindex="0">selectClassesByName(ClassLoader, String...)</a></li>
+<li><a href="#selectClassesByName(java.lang.ClassLoader,java.util.List)" tabindex="0">selectClassesByName(ClassLoader, List)</a></li>
 <li><a href="#selectMethod(java.lang.String)" tabindex="0">selectMethod(String)</a></li>
 <li><a href="#selectMethod(java.lang.ClassLoader,java.lang.String)" tabindex="0">selectMethod(ClassLoader, String)</a></li>
 <li><a href="#selectMethod(java.lang.String,java.lang.String)" tabindex="0">selectMethod(String, String)</a></li>
@@ -210,6 +216,40 @@ loadScripts(document, 'script');</script>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#selectClass(java.lang.String)" class="member-name-link">selectClass</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;className)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Create a <code>ClassSelector</code> for the supplied class name.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="ClassSelector.html" title="class in org.junit.platform.engine.discovery">ClassSelector</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#selectClasses(java.lang.Class...)" class="member-name-link">selectClasses</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;?&gt;...&nbsp;classes)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Create a <code>ClassSelector</code> for each supplied <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link"><code>Class</code></a>.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="ClassSelector.html" title="class in org.junit.platform.engine.discovery">ClassSelector</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#selectClasses(java.util.List)" class="member-name-link">selectClasses</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;?&gt;&gt;&nbsp;classes)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Create a <code>ClassSelector</code> for each supplied <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link"><code>Class</code></a>.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="ClassSelector.html" title="class in org.junit.platform.engine.discovery">ClassSelector</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#selectClassesByName(java.lang.ClassLoader,java.lang.String...)" class="member-name-link">selectClassesByName</a><wbr>(@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/ClassLoader.html" title="class or interface in java.lang" class="external-link">ClassLoader</a>&nbsp;classLoader,
+ <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>...&nbsp;classNames)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Create a <code>ClassSelector</code> for each supplied class name, using the
+ supplied class loader.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="ClassSelector.html" title="class in org.junit.platform.engine.discovery">ClassSelector</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#selectClassesByName(java.lang.ClassLoader,java.util.List)" class="member-name-link">selectClassesByName</a><wbr>(@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/ClassLoader.html" title="class or interface in java.lang" class="external-link">ClassLoader</a>&nbsp;classLoader,
+ <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;classNames)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Create a <code>ClassSelector</code> for each supplied class name, using the
+ supplied class loader.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="ClassSelector.html" title="class in org.junit.platform.engine.discovery">ClassSelector</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#selectClassesByName(java.lang.String...)" class="member-name-link">selectClassesByName</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>...&nbsp;classNames)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Create a <code>ClassSelector</code> for each supplied class name.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="ClassSelector.html" title="class in org.junit.platform.engine.discovery">ClassSelector</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#selectClassesByName(java.util.List)" class="member-name-link">selectClassesByName</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;classNames)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Create a <code>ClassSelector</code> for each supplied class name.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="ClasspathResourceSelector.html" title="class in org.junit.platform.engine.discovery">ClasspathResourceSelector</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#selectClasspathResource(java.lang.String)" class="member-name-link">selectClasspathResource</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;classpathResourceName)</code></div>
@@ -1002,6 +1042,171 @@ loadScripts(document, 'script');</script>
 <dt>See Also:</dt>
 <dd>
 <ul class="tag-list">
+<li><a href="ClassSelector.html" title="class in org.junit.platform.engine.discovery"><code>ClassSelector</code></a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="selectClasses(java.lang.Class...)">
+<h3>selectClasses</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#EXPERIMENTAL" title="class or interface in org.apiguardian.api" class="external-link">EXPERIMENTAL</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.0")
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ClassSelector.html" title="class in org.junit.platform.engine.discovery">ClassSelector</a>&gt;</span>&nbsp;<span class="element-name">selectClasses</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;?&gt;...&nbsp;classes)</span></div>
+<div class="block">Create a <code>ClassSelector</code> for each supplied <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link"><code>Class</code></a>.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>classes</code> - the classes to select; never <code>null</code> and never containing
+ <code>null</code> class references</dd>
+<dt>Since:</dt>
+<dd>6.0</dd>
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="#selectClass(java.lang.Class)"><code>selectClass(Class)</code></a></li>
+<li><a href="#selectClasses(java.util.List)"><code>selectClasses(List)</code></a></li>
+<li><a href="ClassSelector.html" title="class in org.junit.platform.engine.discovery"><code>ClassSelector</code></a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="selectClasses(java.util.List)">
+<h3>selectClasses</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#EXPERIMENTAL" title="class or interface in org.apiguardian.api" class="external-link">EXPERIMENTAL</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.0")
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ClassSelector.html" title="class in org.junit.platform.engine.discovery">ClassSelector</a>&gt;</span>&nbsp;<span class="element-name">selectClasses</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;?&gt;&gt;&nbsp;classes)</span></div>
+<div class="block">Create a <code>ClassSelector</code> for each supplied <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link"><code>Class</code></a>.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>classes</code> - the classes to select; never <code>null</code> and never containing
+ <code>null</code> class references</dd>
+<dt>Since:</dt>
+<dd>6.0</dd>
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="#selectClass(java.lang.Class)"><code>selectClass(Class)</code></a></li>
+<li><a href="#selectClasses(java.lang.Class...)"><code>selectClasses(Class...)</code></a></li>
+<li><a href="ClassSelector.html" title="class in org.junit.platform.engine.discovery"><code>ClassSelector</code></a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="selectClassesByName(java.lang.String...)">
+<h3>selectClassesByName</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#EXPERIMENTAL" title="class or interface in org.apiguardian.api" class="external-link">EXPERIMENTAL</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.0")
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ClassSelector.html" title="class in org.junit.platform.engine.discovery">ClassSelector</a>&gt;</span>&nbsp;<span class="element-name">selectClassesByName</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>...&nbsp;classNames)</span></div>
+<div class="block">Create a <code>ClassSelector</code> for each supplied class name.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>classNames</code> - the fully qualified names of the classes to select;
+ never <code>null</code> and never containing <code>null</code> or blank names</dd>
+<dt>Since:</dt>
+<dd>6.0</dd>
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list-long">
+<li><a href="#selectClass(java.lang.String)"><code>selectClass(String)</code></a></li>
+<li><a href="#selectClassesByName(java.util.List)"><code>selectClassesByName(List)</code></a></li>
+<li><a href="#selectClassesByName(java.lang.ClassLoader,java.lang.String...)"><code>selectClassesByName(ClassLoader, String...)</code></a></li>
+<li><a href="ClassSelector.html" title="class in org.junit.platform.engine.discovery"><code>ClassSelector</code></a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="selectClassesByName(java.util.List)">
+<h3>selectClassesByName</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#EXPERIMENTAL" title="class or interface in org.apiguardian.api" class="external-link">EXPERIMENTAL</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.0")
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ClassSelector.html" title="class in org.junit.platform.engine.discovery">ClassSelector</a>&gt;</span>&nbsp;<span class="element-name">selectClassesByName</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;classNames)</span></div>
+<div class="block">Create a <code>ClassSelector</code> for each supplied class name.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>classNames</code> - the fully qualified names of the classes to select;
+ never <code>null</code> and never containing <code>null</code> or blank names</dd>
+<dt>Since:</dt>
+<dd>6.0</dd>
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list-long">
+<li><a href="#selectClass(java.lang.String)"><code>selectClass(String)</code></a></li>
+<li><a href="#selectClassesByName(java.lang.String...)"><code>selectClassesByName(String...)</code></a></li>
+<li><a href="#selectClassesByName(java.lang.ClassLoader,java.util.List)"><code>selectClassesByName(ClassLoader, List)</code></a></li>
+<li><a href="ClassSelector.html" title="class in org.junit.platform.engine.discovery"><code>ClassSelector</code></a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="selectClassesByName(java.lang.ClassLoader,java.lang.String...)">
+<h3>selectClassesByName</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#EXPERIMENTAL" title="class or interface in org.apiguardian.api" class="external-link">EXPERIMENTAL</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.0")
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ClassSelector.html" title="class in org.junit.platform.engine.discovery">ClassSelector</a>&gt;</span>&nbsp;<span class="element-name">selectClassesByName</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/ClassLoader.html" title="class or interface in java.lang" class="external-link">ClassLoader</a>&nbsp;classLoader,
+ <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>...&nbsp;classNames)</span></div>
+<div class="block">Create a <code>ClassSelector</code> for each supplied class name, using the
+ supplied class loader.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>classLoader</code> - the class loader to use to load the classes, or <code>null</code>
+ to signal that the default <code>ClassLoader</code> should be used</dd>
+<dd><code>classNames</code> - the fully qualified names of the classes to select;
+ never <code>null</code> and never containing <code>null</code> or blank names</dd>
+<dt>Since:</dt>
+<dd>6.0</dd>
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list-long">
+<li><a href="#selectClass(java.lang.ClassLoader,java.lang.String)"><code>selectClass(ClassLoader, String)</code></a></li>
+<li><a href="#selectClassesByName(java.lang.ClassLoader,java.util.List)"><code>selectClassesByName(ClassLoader, List)</code></a></li>
+<li><a href="ClassSelector.html" title="class in org.junit.platform.engine.discovery"><code>ClassSelector</code></a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="selectClassesByName(java.lang.ClassLoader,java.util.List)">
+<h3>selectClassesByName</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#EXPERIMENTAL" title="class or interface in org.apiguardian.api" class="external-link">EXPERIMENTAL</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.0")
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ClassSelector.html" title="class in org.junit.platform.engine.discovery">ClassSelector</a>&gt;</span>&nbsp;<span class="element-name">selectClassesByName</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/ClassLoader.html" title="class or interface in java.lang" class="external-link">ClassLoader</a>&nbsp;classLoader,
+ <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;classNames)</span></div>
+<div class="block">Create a <code>ClassSelector</code> for each supplied class name, using the
+ supplied class loader.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>classLoader</code> - the class loader to use to load the classes, or <code>null</code>
+ to signal that the default <code>ClassLoader</code> should be used</dd>
+<dd><code>classNames</code> - the fully qualified names of the classes to select;
+ never <code>null</code> and never containing <code>null</code> or blank names</dd>
+<dt>Since:</dt>
+<dd>6.0</dd>
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list-long">
+<li><a href="#selectClass(java.lang.ClassLoader,java.lang.String)"><code>selectClass(ClassLoader, String)</code></a></li>
 <li><a href="ClassSelector.html" title="class in org.junit.platform.engine.discovery"><code>ClassSelector</code></a></li>
 </ul>
 </dd>

@@ -70,6 +70,7 @@ loadScripts(document, 'script');</script>
 <li><a href="#method-detail" tabindex="0">Method Details</a>
 <ol class="toc-list">
 <li><a href="#selectors(org.junit.platform.engine.DiscoverySelector...)" tabindex="0">selectors(DiscoverySelector...)</a></li>
+<li><a href="#selectors(java.util.List)" tabindex="0">selectors(List)</a></li>
 <li><a href="#filters(org.junit.platform.engine.Filter...)" tabindex="0">filters(Filter...)</a></li>
 <li><a href="#configurationParameter(java.lang.String,java.lang.String)" tabindex="0">configurationParameter(String, String)</a></li>
 <li><a href="#configurationParameters(java.util.Map)" tabindex="0">configurationParameters(Map)</a></li>
@@ -181,8 +182,13 @@ loadScripts(document, 'script');</script>
 <div class="block">Set the <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/reporting/OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting"><code>OutputDirectoryProvider</code></a> to use.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="EngineTestKit.Builder.html" title="class in org.junit.platform.testkit.engine">EngineTestKit.Builder</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#selectors(org.junit.platform.engine.DiscoverySelector...)" class="member-name-link">selectors</a><wbr>(<a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/DiscoverySelector.html" title="interface in org.junit.platform.engine">DiscoverySelector</a>...&nbsp;selectors)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#selectors(java.util.List)" class="member-name-link">selectors</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;? extends <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/DiscoverySelector.html" title="interface in org.junit.platform.engine">DiscoverySelector</a>&gt;&nbsp;selectors)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Add all of the supplied <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/DiscoverySelector.html" title="interface in org.junit.platform.engine">discovery selectors</a>.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="EngineTestKit.Builder.html" title="class in org.junit.platform.testkit.engine">EngineTestKit.Builder</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#selectors(org.junit.platform.engine.DiscoverySelector...)" class="member-name-link">selectors</a><wbr>(<a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/DiscoverySelector.html" title="interface in org.junit.platform.engine">DiscoverySelector</a>...&nbsp;selectors)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Add all of the supplied <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/DiscoverySelector.html" title="interface in org.junit.platform.engine">discovery selectors</a>.</div>
 </div>
 </div>
@@ -219,6 +225,39 @@ loadScripts(document, 'script');</script>
 <dt>See Also:</dt>
 <dd>
 <ul class="tag-list-long">
+<li><a href="#selectors(java.util.List)"><code>selectors(List)</code></a></li>
+<li><a href="#filters(org.junit.platform.engine.Filter...)"><code>filters(Filter...)</code></a></li>
+<li><a href="#configurationParameter(java.lang.String,java.lang.String)"><code>configurationParameter(String, String)</code></a></li>
+<li><a href="#configurationParameters(java.util.Map)"><code>configurationParameters(Map)</code></a></li>
+<li><a href="#execute()"><code>execute()</code></a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="selectors(java.util.List)">
+<h3>selectors</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#MAINTAINED" title="class or interface in org.apiguardian.api" class="external-link">MAINTAINED</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.0")
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="EngineTestKit.Builder.html" title="class in org.junit.platform.testkit.engine">EngineTestKit.Builder</a></span>&nbsp;<span class="element-name">selectors</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;? extends <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/DiscoverySelector.html" title="interface in org.junit.platform.engine">DiscoverySelector</a>&gt;&nbsp;selectors)</span></div>
+<div class="block">Add all of the supplied <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/DiscoverySelector.html" title="interface in org.junit.platform.engine">discovery selectors</a>.
+
+ <p>Built-in discovery selectors can be created via the static factory
+ methods in <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/discovery/DiscoverySelectors.html" title="class in org.junit.platform.engine.discovery"><code>DiscoverySelectors</code></a>.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>selectors</code> - the discovery selectors to add; never <code>null</code></dd>
+<dt>Returns:</dt>
+<dd>this builder for method chaining</dd>
+<dt>Since:</dt>
+<dd>6.0</dd>
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list-long">
+<li><a href="#selectors(org.junit.platform.engine.DiscoverySelector...)"><code>selectors(DiscoverySelector...)</code></a></li>
 <li><a href="#filters(org.junit.platform.engine.Filter...)"><code>filters(Filter...)</code></a></li>
 <li><a href="#configurationParameter(java.lang.String,java.lang.String)"><code>configurationParameter(String, String)</code></a></li>
 <li><a href="#configurationParameters(java.util.Map)"><code>configurationParameters(Map)</code></a></li>

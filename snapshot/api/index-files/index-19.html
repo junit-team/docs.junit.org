@@ -155,10 +155,36 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Create a <code>ClassSelector</code> for the supplied class name.</div>
 </dd>
+<dt><a href="../org.junit.platform.engine/org/junit/platform/engine/discovery/DiscoverySelectors.html#selectClasses(java.lang.Class...)" class="member-name-link">selectClasses(Class&lt;?&gt;...)</a> - Static method in class org.junit.platform.engine.discovery.<a href="../org.junit.platform.engine/org/junit/platform/engine/discovery/DiscoverySelectors.html" title="class in org.junit.platform.engine.discovery">DiscoverySelectors</a></dt>
+<dd>
+<div class="block">Create a <code>ClassSelector</code> for each supplied <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link"><code>Class</code></a>.</div>
+</dd>
+<dt><a href="../org.junit.platform.engine/org/junit/platform/engine/discovery/DiscoverySelectors.html#selectClasses(java.util.List)" class="member-name-link">selectClasses(List&lt;Class&lt;?&gt;&gt;)</a> - Static method in class org.junit.platform.engine.discovery.<a href="../org.junit.platform.engine/org/junit/platform/engine/discovery/DiscoverySelectors.html" title="class in org.junit.platform.engine.discovery">DiscoverySelectors</a></dt>
+<dd>
+<div class="block">Create a <code>ClassSelector</code> for each supplied <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link"><code>Class</code></a>.</div>
+</dd>
 <dt><a href="../org.junit.platform.suite.api/org/junit/platform/suite/api/SelectClasses.html" class="type-name-link" title="annotation interface in org.junit.platform.suite.api">SelectClasses</a> - Annotation Interface in <a href="../org.junit.platform.suite.api/org/junit/platform/suite/api/package-summary.html">org.junit.platform.suite.api</a></dt>
 <dd>
 <div class="block"><code>@SelectClasses</code> specifies the classes to <em>select</em> when running
  a test suite on the JUnit Platform.</div>
+</dd>
+<dt><a href="../org.junit.platform.engine/org/junit/platform/engine/discovery/DiscoverySelectors.html#selectClassesByName(java.lang.ClassLoader,java.lang.String...)" class="member-name-link">selectClassesByName(ClassLoader, String...)</a> - Static method in class org.junit.platform.engine.discovery.<a href="../org.junit.platform.engine/org/junit/platform/engine/discovery/DiscoverySelectors.html" title="class in org.junit.platform.engine.discovery">DiscoverySelectors</a></dt>
+<dd>
+<div class="block">Create a <code>ClassSelector</code> for each supplied class name, using the
+ supplied class loader.</div>
+</dd>
+<dt><a href="../org.junit.platform.engine/org/junit/platform/engine/discovery/DiscoverySelectors.html#selectClassesByName(java.lang.ClassLoader,java.util.List)" class="member-name-link">selectClassesByName(ClassLoader, List&lt;String&gt;)</a> - Static method in class org.junit.platform.engine.discovery.<a href="../org.junit.platform.engine/org/junit/platform/engine/discovery/DiscoverySelectors.html" title="class in org.junit.platform.engine.discovery">DiscoverySelectors</a></dt>
+<dd>
+<div class="block">Create a <code>ClassSelector</code> for each supplied class name, using the
+ supplied class loader.</div>
+</dd>
+<dt><a href="../org.junit.platform.engine/org/junit/platform/engine/discovery/DiscoverySelectors.html#selectClassesByName(java.lang.String...)" class="member-name-link">selectClassesByName(String...)</a> - Static method in class org.junit.platform.engine.discovery.<a href="../org.junit.platform.engine/org/junit/platform/engine/discovery/DiscoverySelectors.html" title="class in org.junit.platform.engine.discovery">DiscoverySelectors</a></dt>
+<dd>
+<div class="block">Create a <code>ClassSelector</code> for each supplied class name.</div>
+</dd>
+<dt><a href="../org.junit.platform.engine/org/junit/platform/engine/discovery/DiscoverySelectors.html#selectClassesByName(java.util.List)" class="member-name-link">selectClassesByName(List&lt;String&gt;)</a> - Static method in class org.junit.platform.engine.discovery.<a href="../org.junit.platform.engine/org/junit/platform/engine/discovery/DiscoverySelectors.html" title="class in org.junit.platform.engine.discovery">DiscoverySelectors</a></dt>
+<dd>
+<div class="block">Create a <code>ClassSelector</code> for each supplied class name.</div>
 </dd>
 <dt><a href="../org.junit.platform.engine/org/junit/platform/engine/discovery/DiscoverySelectors.html#selectClasspathResource(java.lang.String)" class="member-name-link">selectClasspathResource(String)</a> - Static method in class org.junit.platform.engine.discovery.<a href="../org.junit.platform.engine/org/junit/platform/engine/discovery/DiscoverySelectors.html" title="class in org.junit.platform.engine.discovery">DiscoverySelectors</a></dt>
 <dd>
@@ -406,6 +432,10 @@ loadScripts(document, 'script');</script>
 <dt><a href="../org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherDiscoveryRequestBuilder.html#selectors(java.util.List)" class="member-name-link">selectors(List&lt;? extends DiscoverySelector&gt;)</a> - Method in class org.junit.platform.launcher.core.<a href="../org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherDiscoveryRequestBuilder.html" title="class in org.junit.platform.launcher.core">LauncherDiscoveryRequestBuilder</a></dt>
 <dd>
 <div class="block">Add all supplied <code>selectors</code> to the request.</div>
+</dd>
+<dt><a href="../org.junit.platform.testkit/org/junit/platform/testkit/engine/EngineTestKit.Builder.html#selectors(java.util.List)" class="member-name-link">selectors(List&lt;? extends DiscoverySelector&gt;)</a> - Method in class org.junit.platform.testkit.engine.<a href="../org.junit.platform.testkit/org/junit/platform/testkit/engine/EngineTestKit.Builder.html" title="class in org.junit.platform.testkit.engine">EngineTestKit.Builder</a></dt>
+<dd>
+<div class="block">Add all of the supplied <a href="../org.junit.platform.engine/org/junit/platform/engine/DiscoverySelector.html" title="interface in org.junit.platform.engine">discovery selectors</a>.</div>
 </dd>
 <dt><a href="../org.junit.platform.engine/org/junit/platform/engine/support/discovery/SelectorResolver.Resolution.html#selectors(java.util.Set)" class="member-name-link">selectors(Set&lt;? extends DiscoverySelector&gt;)</a> - Static method in class org.junit.platform.engine.support.discovery.<a href="../org.junit.platform.engine/org/junit/platform/engine/support/discovery/SelectorResolver.Resolution.html" title="class in org.junit.platform.engine.support.discovery">SelectorResolver.Resolution</a></dt>
 <dd>
