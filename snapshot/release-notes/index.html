@@ -608,14 +608,24 @@ ensuring reliable test execution order of multiple test engines.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>New <code>selectClasses(&#8230;&#8203;)</code> and <code>selectClassesByName(&#8230;&#8203;)</code> utility methods have been
+<p>New <code>discoveryRequest()</code> method in <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherDiscoveryRequestBuilder.html">LauncherDiscoveryRequestBuilder</a></code>, which is an
+alias for the existing <code>request()</code> method and is intended to be used via a <code>static</code>
+import.</p>
+</li>
+<li>
+<p>New <code>executionRequest(&#8230;&#8203;)</code> methods in <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherExecutionRequestBuilder.html">LauncherExecutionRequestBuilder</a></code>, which are
+aliases for the existing <code>request(&#8230;&#8203;)</code> methods and are intended to be used via a
+<code>static</code> import.</p>
+</li>
+<li>
+<p>New <code>selectClasses(&#8230;&#8203;)</code> and <code>selectClassesByName(&#8230;&#8203;)</code> factory methods have been
 introduced in <code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/discovery/DiscoverySelectors.html">DiscoverySelectors</a></code> to simplify use cases where one needs to select
 multiple individual test classes for the <code>Launcher</code> or <code>EngineTestKit</code>.</p>
 </li>
 <li>
 <p>New <code>selectors(List)</code> builder method for <code><a href="../api/org.junit.platform.testkit/org/junit/platform/testkit/engine/EngineTestKit.html">EngineTestKit</a></code> which can be used in
-conjunction with the new <code>selectClasses(&#8230;&#8203;)</code> and <code>selectClassesByName(&#8230;&#8203;)</code> methods in
-<code>DiscoverySelectors</code>.</p>
+conjunction with the new <code>selectClasses(&#8230;&#8203;)</code> and <code>selectClassesByName(&#8230;&#8203;)</code> factory
+methods in <code>DiscoverySelectors</code>.</p>
 </li>
 </ul>
 </div>
