@@ -608,6 +608,11 @@ ensuring reliable test execution order of multiple test engines.</p>
 <div class="ulist">
 <ul>
 <li>
+<p>The <code>execute(TestPlan,&#160;TestExecutionListener&#8230;&#8203;)</code> and
+<code>execute(LauncherDiscoveryRequest,&#160;TestExecutionListener&#8230;&#8203;)</code> methods in the
+<code>Launcher</code> API are no longer deprecated.</p>
+</li>
+<li>
 <p>New <code>discoveryRequest()</code> method in <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherDiscoveryRequestBuilder.html">LauncherDiscoveryRequestBuilder</a></code>, which is an
 alias for the existing <code>request()</code> method and is intended to be used via a <code>static</code>
 import.</p>
