@@ -120,11 +120,10 @@ loadScripts(document, 'script');</script>
  custom <em>composed annotation</em> that inherits the semantics of this
  annotation.
 
- <p>As of JUnit Jupiter 5.6, this annotation is a <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/annotation/Repeatable.html" title="class or interface in java.lang.annotation" class="external-link">repeatable</a> annotation. Consequently, this annotation may be declared multiple
- times on an <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/reflect/AnnotatedElement.html" title="class or interface in java.lang.reflect" class="external-link"><code>AnnotatedElement</code></a> (i.e.,
- test interface, test class, or test method). Specifically, this annotation will
- be found if it is directly present, indirectly present, or meta-present on a
- given element.</div>
+ <p>This annotation is a <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/annotation/Repeatable.html" title="class or interface in java.lang.annotation" class="external-link">repeatable</a> annotation and may
+ be declared multiple times on an <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/reflect/AnnotatedElement.html" title="class or interface in java.lang.reflect" class="external-link"><code>AnnotatedElement</code></a> such as a test interface, test class, or test method.
+ Specifically, this annotation will be found if it is directly present,
+ indirectly present, or meta-present on a given element.</div>
 <dl class="notes">
 <dt>Since:</dt>
 <dd>5.1</dd>

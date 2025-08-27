@@ -588,7 +588,7 @@ pre.rouge .gs {
 <ul class="sectlevel1">
 <li><a href="#overview">1. Overview</a>
 <ul class="sectlevel2">
-<li><a href="#overview-what-is-junit-5">1.1. What is JUnit?</a></li>
+<li><a href="#overview-what-is-junit">1.1. What is JUnit?</a></li>
 <li><a href="#overview-java-versions">1.2. Supported Java Versions</a></li>
 <li><a href="#overview-getting-help">1.3. Getting Help</a></li>
 <li><a href="#overview-getting-started">1.4. Getting Started</a>
@@ -1050,10 +1050,9 @@ programmers writing tests, extension authors, and engine authors as well as buil
 and IDE vendors.</p>
 </div>
 <div class="sect2">
-<h3 id="overview-what-is-junit-5"><a class="anchor" href="#overview-what-is-junit-5"></a>1.1. What is JUnit?</h3>
+<h3 id="overview-what-is-junit"><a class="anchor" href="#overview-what-is-junit"></a>1.1. What is JUnit?</h3>
 <div class="paragraph">
-<p>Unlike previous versions of JUnit, JUnit 5 and later is composed of several different
-modules from three different sub-projects.</p>
+<p>JUnit is composed of several different modules from three different sub-projects.</p>
 </div>
 <div class="paragraph">
 <p><strong>JUnit 6.0.0-SNAPSHOT = <em>JUnit Platform</em> + <em>JUnit Jupiter</em> + <em>JUnit Vintage</em></strong></p>
@@ -1819,7 +1818,7 @@ table lists the default display name generators available in Jupiter.</p>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Standard</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Matches the standard display name generation behavior in place since JUnit Jupiter 5.0 was released.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Matches the standard display name generation behavior in place since JUnit Jupiter was introduced.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Simple</code></p></td>
@@ -3060,11 +3059,12 @@ constants.</p>
 <div class="paragraph">
 <p>Since the enum constants defined in <a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/condition/JRE.html">JRE</a> are static for any given JUnit release, you
 might find that you need to configure a Java version that is not supported by the <code>JRE</code>
-enum. For example, as of JUnit Jupiter 5.12 the <code>JRE</code> enum defines <code>JAVA_25</code> as the
-highest supported Java version. However, you may wish to run your tests against later
-versions of Java. To support such use cases, you can specify arbitrary Java versions via
-the <code>versions</code> attributes in <code>@EnabledOnJre</code> and <code>@DisabledOnJre</code> and via the <code>minVersion</code>
-and <code>maxVersion</code> attributes in <code>@EnabledForJreRange</code> and <code>@DisabledForJreRange</code>.</p>
+enum. For example, when JUnit Jupiter 5.12 was released the <code>JRE</code> enum defined <code>JAVA_25</code>
+as the highest supported Java version. However, you may wish to run your tests against
+later versions of Java. To support such use cases, you can specify arbitrary Java versions
+via the <code>versions</code> attributes in <code>@EnabledOnJre</code> and <code>@DisabledOnJre</code> and via the
+<code>minVersion</code> and <code>maxVersion</code> attributes in <code>@EnabledForJreRange</code> and
+<code>@DisabledForJreRange</code>.</p>
 </div>
 <div class="paragraph">
 <p>The following listing demonstrates the use of these annotations with arbitrary Java
@@ -3187,10 +3187,10 @@ regular expression.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>As of JUnit Jupiter 5.6, <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/condition/EnabledIfSystemProperty.html">@EnabledIfSystemProperty</a></code> and <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/condition/DisabledIfSystemProperty.html">@DisabledIfSystemProperty</a></code> are
-<em>repeatable annotations</em>. Consequently, these annotations may be declared multiple times
-on a test interface, test class, or test method. Specifically, these annotations will be
-found if they are directly present, indirectly present, or meta-present on a given element.</p>
+<p><code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/condition/EnabledIfSystemProperty.html">@EnabledIfSystemProperty</a></code> and <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/condition/DisabledIfSystemProperty.html">@DisabledIfSystemProperty</a></code> are <em>repeatable annotations</em>.
+Consequently, these annotations may be declared multiple times on a test interface, test
+class, or test method. Specifically, these annotations will be found if they are directly
+present, indirectly present, or meta-present on a given element.</p>
 </div>
 </td>
 </tr>
@@ -3228,11 +3228,10 @@ value supplied via the <code>matches</code> attribute will be interpreted as a r
 </td>
 <td class="content">
 <div class="paragraph">
-<p>As of JUnit Jupiter 5.6, <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/condition/EnabledIfEnvironmentVariable.html">@EnabledIfEnvironmentVariable</a></code> and
-<code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/condition/DisabledIfEnvironmentVariable.html">@DisabledIfEnvironmentVariable</a></code> are <em>repeatable annotations</em>. Consequently, these
-annotations may be declared multiple times on a test interface, test class, or test
-method. Specifically, these annotations will be found if they are directly present,
-indirectly present, or meta-present on a given element.</p>
+<p><code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/condition/EnabledIfEnvironmentVariable.html">@EnabledIfEnvironmentVariable</a></code> and <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/condition/DisabledIfEnvironmentVariable.html">@DisabledIfEnvironmentVariable</a></code> are <em>repeatable
+annotations</em>. Consequently, these annotations may be declared multiple times on a test
+interface, test class, or test method. Specifically, these annotations will be found if
+they are directly present, indirectly present, or meta-present on a given element.</p>
 </div>
 </td>
 </tr>
@@ -4399,11 +4398,11 @@ will be automatically repeated 10 times.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Since JUnit Jupiter 5.10, <code>@RepeatedTest</code> can be configured with a failure threshold which
-signifies the number of failures after which remaining repetitions will be automatically
-skipped. Set the <code>failureThreshold</code> attribute to a positive number less than the total
-number of repetitions in order to skip the invocations of remaining repetitions after the
-specified number of failures has been encountered.</p>
+<p><code>@RepeatedTest</code> can be configured with a failure threshold which signifies the number of
+failures after which remaining repetitions will be automatically skipped. Set the
+<code>failureThreshold</code> attribute to a positive number less than the total number of
+repetitions in order to skip the invocations of remaining repetitions after the specified
+number of failures has been encountered.</p>
 </div>
 <div class="paragraph">
 <p>For example, if you are using <code>@RepeatedTest</code> to repeatedly invoke a test that you suspect
@@ -7795,12 +7794,11 @@ This heuristic is queried by the <code>disabled_on_debug</code> mode.</p>
 <div class="sect2">
 <h3 id="writing-tests-parallel-execution"><a class="anchor" href="#writing-tests-parallel-execution"></a>2.22. Parallel Execution</h3>
 <div class="paragraph">
-<p>By default, JUnit Jupiter tests are run sequentially in a single thread. Running tests in
-parallel&#8201;&#8212;&#8201;for example, to speed up execution&#8201;&#8212;&#8201;is available as an opt-in feature since
-version 5.3. To enable parallel execution, set the
-<code>junit.jupiter.execution.parallel.enabled</code> configuration parameter to <code>true</code>&#8201;&#8212;&#8201;for
-example, in <code>junit-platform.properties</code> (see <a href="#running-tests-config-params">Configuration Parameters</a> for other
-options).</p>
+<p>By default, JUnit Jupiter tests are run sequentially in a single thread; however, running
+tests in parallel&#8201;&#8212;&#8201;for example, to speed up execution&#8201;&#8212;&#8201;is available as an opt-in
+feature. To enable parallel execution, set the <code>junit.jupiter.execution.parallel.enabled</code>
+configuration parameter to <code>true</code>&#8201;&#8212;&#8201;for example, in <code>junit-platform.properties</code> (see
+<a href="#running-tests-config-params">Configuration Parameters</a> for other options).</p>
 </div>
 <div class="paragraph">
 <p>Please note that enabling this property is only the first step required to execute tests
@@ -7851,23 +7849,7 @@ test class or method:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="java"><span class="cm">/*
- * Copyright 2015-2025 the original author or authors.
- *
- * All rights reserved. This program and the accompanying materials are
- * made available under the terms of the Eclipse Public License v2.0 which
- * accompanies this distribution and is available at
- *
- * https://www.eclipse.org/legal/epl-v20.html
- */</span>
-
-<span class="kn">package</span> <span class="nn">example</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">org.junit.jupiter.api.Test</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.junit.jupiter.api.parallel.Execution</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.junit.jupiter.api.parallel.ExecutionMode</span><span class="o">;</span>
-
-<span class="nd">@Execution</span><span class="o">(</span><span class="nc">ExecutionMode</span><span class="o">.</span><span class="na">CONCURRENT</span><span class="o">)</span>
+<pre class="rouge highlight"><code data-lang="java"><span class="nd">@Execution</span><span class="o">(</span><span class="nc">ExecutionMode</span><span class="o">.</span><span class="na">CONCURRENT</span><span class="o">)</span>
 <span class="kd">class</span> <span class="nc">ExplicitExecutionModeDemo</span> <span class="o">{</span>
 
     <span class="nd">@Test</span>
@@ -7880,6 +7862,7 @@ test class or method:</p>
     <span class="kt">void</span> <span class="nf">testB</span><span class="o">()</span> <span class="o">{</span>
         <span class="c1">// overrides to same_thread</span>
     <span class="o">}</span>
+
 <span class="o">}</span></code></pre>
 </div>
 </div>
@@ -8963,9 +8946,9 @@ other assertion library such as <a href="https://assertj.github.io/doc/">AssertJ
 <div class="ulist">
 <ul>
 <li>
-<p>Note that JUnit Jupiter 5.4 and later versions support methods from JUnit 4&#8217;s
-<code>org.junit.Assume</code> class for assumptions. Specifically, JUnit Jupiter supports JUnit
-4&#8217;s <code>AssumptionViolatedException</code> to signal that a test should be aborted instead of
+<p>Note that JUnit Jupiter supports methods from JUnit 4&#8217;s <code>org.junit.Assume</code> class for
+assumptions. Specifically, JUnit Jupiter supports JUnit 4&#8217;s
+<code>AssumptionViolatedException</code> to signal that a test should be aborted instead of
 marked as a failure.</p>
 </li>
 </ul>
@@ -9695,7 +9678,7 @@ dependency to the test runtime classpath.</p>
 <p>Maven Surefire and Maven Failsafe provide
 <a href="https://maven.apache.org/surefire/maven-surefire-plugin/examples/junit-platform.html">native support</a>
 for executing tests on the JUnit Platform. The <code>pom.xml</code> file in the
-<code>{junit5-jupiter-starter-maven}</code> project demonstrates how to use the Maven Surefire plugin
+<code><a href="https://github.com/junit-team/junit-examples/tree/HEAD/junit-jupiter-starter-maven">junit-jupiter-starter-maven</a></code> project demonstrates how to use the Maven Surefire plugin
 and can serve as a starting point for configuring your Maven build.</p>
 </div>
 <div class="admonitionblock warning">
@@ -9980,14 +9963,14 @@ the task a consistent and natural feel when compared to many other core Ant task
 <a href="https://ant.apache.org/manual/Tasks/junitlauncher.html#fork">forking the tests in a separate JVM</a>.</p>
 </div>
 <div class="paragraph">
-<p>The <code>build.xml</code> file in the <code>{junit5-jupiter-starter-ant}</code> project demonstrates how to use
+<p>The <code>build.xml</code> file in the <code><a href="https://github.com/junit-team/junit-examples/tree/HEAD/junit-jupiter-starter-ant">junit-jupiter-starter-ant</a></code> project demonstrates how to use
 the task and can serve as a starting point.</p>
 </div>
 <div class="sect4">
 <h5 id="basic-usage"><a class="anchor" href="#basic-usage"></a>Basic Usage</h5>
 <div class="paragraph">
 <p>The following example demonstrates how to configure the <code>junitlauncher</code> task to select a
-single test class (i.e., <code>org.myapp.test.MyFirstJUnit5Test</code>).</p>
+single test class (i.e., <code>com.example.project.CalculatorTests</code>).</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -10000,7 +9983,7 @@ single test class (i.e., <code>org.myapp.test.MyFirstJUnit5Test</code>).</p>
 
 <span class="nt">&lt;junitlauncher&gt;</span>
     <span class="nt">&lt;classpath</span> <span class="na">refid=</span><span class="s">"test.classpath"</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;test</span> <span class="na">name=</span><span class="s">"org.myapp.test.MyFirstJUnit5Test"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;test</span> <span class="na">name=</span><span class="s">"com.example.project.CalculatorTests"</span> <span class="nt">/&gt;</span>
 <span class="nt">&lt;/junitlauncher&gt;</span></code></pre>
 </div>
 </div>
@@ -11354,9 +11337,9 @@ Java&#8217;s <a href="#extensions-registration-automatic"><code>ServiceLoader</c
 <p>Developers can register one or more extensions <em>declaratively</em> by annotating a test
 interface, test class, test method, or custom <em><a href="#writing-tests-meta-annotations">composed
 annotation</a></em> with <code>@ExtendWith(&#8230;&#8203;)</code> and supplying class references for the extensions to
-register. As of JUnit Jupiter 5.8, <code>@ExtendWith</code> may also be declared on fields or on
-parameters in test class constructors, in test methods, and in <code>@BeforeAll</code>, <code>@AfterAll</code>,
-<code>@BeforeEach</code>, and <code>@AfterEach</code> lifecycle methods.</p>
+register. <code>@ExtendWith</code> may also be declared on fields or on parameters in test class
+constructors, in test methods, and in <code>@BeforeAll</code>, <code>@AfterAll</code>, <code>@BeforeEach</code>, and
+<code>@AfterEach</code> lifecycle methods.</p>
 </div>
 <div class="paragraph">
 <p>For example, to register a <code>WebServerExtension</code> for a particular test method, you would
@@ -13075,14 +13058,20 @@ methods available for storing and retrieving values via the <code><a href="../ap
 </td>
 <td class="content">
 <div class="title">Resource management via <code><em>AutoCloseable</em></code></div>
-An extension context store is bound to its extension context lifecycle. When an
-extension context lifecycle ends it closes its associated store. As of JUnit 5.13,
-all stored values that are instances of <code>AutoCloseable</code> are notified by an invocation of
+<div class="paragraph">
+<p>An extension context store is bound to its extension context lifecycle. When an extension
+context lifecycle ends it closes its associated store.</p>
+</div>
+<div class="paragraph">
+<p>All stored values that are instances of <code>AutoCloseable</code> are notified by an invocation of
 their <code>close()</code> method in the inverse order they were added in (unless the
 <code>junit.jupiter.extensions.store.close.autocloseable.enabled</code>
-<a href="#running-tests-config-params">configuration parameter</a> is set to <code>false</code>). Older
-versions only supported <code>CloseableResource</code>, which is deprecated but still available for
-backward compatibility.
+<a href="#running-tests-config-params">configuration parameter</a> is set to <code>false</code>).</p>
+</div>
+<div class="paragraph">
+<p>Versions prior to 5.13 only supported <code>CloseableResource</code>, which is deprecated but still
+available for backward compatibility.</p>
+</div>
 </td>
 </tr>
 </table>
@@ -13092,7 +13081,7 @@ backward compatibility.
 resource.</p>
 </div>
 <div class="listingblock">
-<div class="title"><code>HttpServer</code> resource implementing <code>AutoCloseable</code></div>
+<div class="title"><code><em>HttpServer</em></code> resource implementing <code><em>AutoCloseable</em></code></div>
 <div class="content">
 <pre class="rouge highlight"><code data-lang="java"><span class="kd">class</span> <span class="nc">HttpServerResource</span> <span class="kd">implements</span> <span class="nc">AutoCloseable</span> <span class="o">{</span>
 
@@ -13135,7 +13124,7 @@ it lazily to ensure it&#8217;s only created once per test run and reused across 
 classes and methods.</p>
 </div>
 <div class="listingblock">
-<div class="title">Lazily storing in root context with <code>Store.getOrComputeIfAbsent</code></div>
+<div class="title">Lazily storing in root context with <code><em>Store.computeIfAbsent</em></code></div>
 <div class="content">
 <pre class="rouge highlight"><code data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HttpServerExtension</span> <span class="kd">implements</span> <span class="nc">ParameterResolver</span> <span class="o">{</span>
 
@@ -13166,7 +13155,7 @@ classes and methods.</p>
 </div>
 </div>
 <div class="listingblock">
-<div class="title">A test case using the <code>HttpServerExtension</code></div>
+<div class="title">A test case using the <code><em>HttpServerExtension</em></code></div>
 <div class="content">
 <pre class="rouge highlight"><code data-lang="java"><span class="nd">@ExtendWith</span><span class="o">(</span><span class="nc">HttpServerExtension</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">HttpServerDemo</span> <span class="o">{</span>
@@ -13204,9 +13193,9 @@ classes and methods.</p>
 <td class="content">
 <div class="title">Migration Note for Resource Cleanup</div>
 <div class="paragraph">
-<p>Starting with JUnit Jupiter 5.13, the framework automatically closes resources stored in
-the <code>ExtensionContext.Store</code> that implement <code>AutoCloseable</code>. In earlier versions, only
-resources implementing <code>Store.CloseableResource</code> were automatically closed.</p>
+<p>The framework automatically closes resources stored in the <code>ExtensionContext.Store</code> that
+implement <code>AutoCloseable</code>. In versions prior to 5.13, only resources implementing
+<code>Store.CloseableResource</code> were automatically closed.</p>
 </div>
 <div class="paragraph">
 <p>If you&#8217;re developing an extension that needs to support both JUnit Jupiter 5.13+ and
@@ -14774,12 +14763,12 @@ following.</p>
 <p>One of the prominent goals of the JUnit Platform is to make the interface between JUnit
 and its programmatic clients – build tools and IDEs – more powerful and stable. The
 purpose is to decouple the internals of discovering and executing tests from all the
-filtering and configuration that&#8217;s necessary from the outside.</p>
+filtering and configuration that is necessary from the outside.</p>
 </div>
 <div class="paragraph">
-<p>JUnit Platform introduces the concept of a <code>Launcher</code> that can be used to discover,
-filter, and execute tests. Moreover, third party test libraries – like Spock or Cucumber
-– can plug into the JUnit Platform&#8217;s launching infrastructure by providing a custom
+<p>JUnit Platform provides a <code>Launcher</code> API that can be used to discover, filter, and execute
+tests. Moreover, third party test libraries – like Spock or Cucumber – can plug into the
+JUnit Platform&#8217;s launching infrastructure by providing a custom
 <a href="#test-engines">TestEngine</a>.</p>
 </div>
 <div class="paragraph">
@@ -14792,9 +14781,9 @@ filter, and execute tests. Moreover, third party test libraries – like Spock o
 <div class="sect3">
 <h4 id="launcher-api-discovery"><a class="anchor" href="#launcher-api-discovery"></a>6.4.1. Discovering Tests</h4>
 <div class="paragraph">
-<p>Having <em>test discovery</em> as a dedicated feature of the platform itself frees IDEs and build
-tools from most of the difficulties they had to go through to identify test classes and
-test methods in previous versions of JUnit.</p>
+<p>Having <em>test discovery</em> as a dedicated feature of the platform frees IDEs and build tools
+from most of the difficulties they had to go through to identify test classes and test
+methods in previous versions of JUnit.</p>
 </div>
 <div class="paragraph">
 <p>Usage Example:</p>
@@ -14804,17 +14793,17 @@ test methods in previous versions of JUnit.</p>
 <pre class="rouge highlight"><code data-lang="java"><span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">junit</span><span class="o">.</span><span class="na">platform</span><span class="o">.</span><span class="na">engine</span><span class="o">.</span><span class="na">discovery</span><span class="o">.</span><span class="na">ClassNameFilter</span><span class="o">.</span><span class="na">includeClassNamePatterns</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">junit</span><span class="o">.</span><span class="na">platform</span><span class="o">.</span><span class="na">engine</span><span class="o">.</span><span class="na">discovery</span><span class="o">.</span><span class="na">DiscoverySelectors</span><span class="o">.</span><span class="na">selectClass</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">junit</span><span class="o">.</span><span class="na">platform</span><span class="o">.</span><span class="na">engine</span><span class="o">.</span><span class="na">discovery</span><span class="o">.</span><span class="na">DiscoverySelectors</span><span class="o">.</span><span class="na">selectPackage</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">junit</span><span class="o">.</span><span class="na">platform</span><span class="o">.</span><span class="na">launcher</span><span class="o">.</span><span class="na">core</span><span class="o">.</span><span class="na">LauncherDiscoveryRequestBuilder</span><span class="o">.</span><span class="na">discoveryRequest</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">org.junit.platform.launcher.LauncherDiscoveryRequest</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.junit.platform.launcher.LauncherSession</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.junit.platform.launcher.TestPlan</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.junit.platform.launcher.core.LauncherDiscoveryRequestBuilder</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.junit.platform.launcher.core.LauncherFactory</span><span class="o">;</span></code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="java"><span class="nc">LauncherDiscoveryRequest</span> <span class="n">request</span> <span class="o">=</span> <span class="nc">LauncherDiscoveryRequestBuilder</span><span class="o">.</span><span class="na">request</span><span class="o">()</span>
+<pre class="rouge highlight"><code data-lang="java"><span class="nc">LauncherDiscoveryRequest</span> <span class="n">discoveryRequest</span> <span class="o">=</span> <span class="n">discoveryRequest</span><span class="o">()</span>
     <span class="o">.</span><span class="na">selectors</span><span class="o">(</span>
         <span class="n">selectPackage</span><span class="o">(</span><span class="s">"com.example.mytests"</span><span class="o">),</span>
         <span class="n">selectClass</span><span class="o">(</span><span class="nc">MyTestClass</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
@@ -14825,7 +14814,7 @@ test methods in previous versions of JUnit.</p>
     <span class="o">.</span><span class="na">build</span><span class="o">();</span>
 
 <span class="k">try</span> <span class="o">(</span><span class="nc">LauncherSession</span> <span class="n">session</span> <span class="o">=</span> <span class="nc">LauncherFactory</span><span class="o">.</span><span class="na">openSession</span><span class="o">())</span> <span class="o">{</span>
-    <span class="nc">TestPlan</span> <span class="n">testPlan</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="na">getLauncher</span><span class="o">().</span><span class="na">discover</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+    <span class="nc">TestPlan</span> <span class="n">testPlan</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="na">getLauncher</span><span class="o">().</span><span class="na">discover</span><span class="o">(</span><span class="n">discoveryRequest</span><span class="o">);</span>
 
     <span class="c1">// ... discover additional test plans or execute tests</span>
 <span class="o">}</span></code></pre>
@@ -14877,14 +14866,14 @@ following example.</p>
 
 <span class="k">try</span> <span class="o">(</span><span class="nc">LauncherSession</span> <span class="n">session</span> <span class="o">=</span> <span class="nc">LauncherFactory</span><span class="o">.</span><span class="na">openSession</span><span class="o">())</span> <span class="o">{</span>
     <span class="nc">Launcher</span> <span class="n">launcher</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="na">getLauncher</span><span class="o">();</span>
-    <span class="c1">// Register a listener of your choice</span>
+    <span class="c1">// Register one ore more listeners of your choice.</span>
     <span class="n">launcher</span><span class="o">.</span><span class="na">registerTestExecutionListeners</span><span class="o">(</span><span class="n">listener</span><span class="o">);</span>
-    <span class="c1">// Discover tests and build a test plan</span>
+    <span class="c1">// Discover tests and build a test plan.</span>
     <span class="nc">TestPlan</span> <span class="n">testPlan</span> <span class="o">=</span> <span class="n">launcher</span><span class="o">.</span><span class="na">discover</span><span class="o">(</span><span class="n">discoveryRequest</span><span class="o">);</span>
-    <span class="c1">// Execute test plan</span>
-    <span class="n">launcher</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="nc">LauncherExecutionRequestBuilder</span><span class="o">.</span><span class="na">request</span><span class="o">(</span><span class="n">testPlan</span><span class="o">).</span><span class="na">build</span><span class="o">());</span>
-    <span class="c1">// Alternatively, execute the discoveryRequest request directly</span>
-    <span class="n">launcher</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="nc">LauncherExecutionRequestBuilder</span><span class="o">.</span><span class="na">request</span><span class="o">(</span><span class="n">discoveryRequest</span><span class="o">).</span><span class="na">build</span><span class="o">());</span>
+    <span class="c1">// Execute the test plan.</span>
+    <span class="n">launcher</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">testPlan</span><span class="o">);</span>
+    <span class="c1">// Alternatively, execute the discovery request directly.</span>
+    <span class="n">launcher</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">discoveryRequest</span><span class="o">);</span>
 <span class="o">}</span>
 
 <span class="nc">TestExecutionSummary</span> <span class="n">summary</span> <span class="o">=</span> <span class="n">listener</span><span class="o">.</span><span class="na">getSummary</span><span class="o">();</span>
@@ -15379,13 +15368,12 @@ built-in fluent <em>builder</em> API, as demonstrated in the following example.<
     <span class="o">.</span><span class="na">addTestExecutionListeners</span><span class="o">(</span><span class="k">new</span> <span class="nc">CustomTestExecutionListener</span><span class="o">())</span>
     <span class="o">.</span><span class="na">build</span><span class="o">();</span>
 
-<span class="nc">LauncherExecutionRequest</span> <span class="n">request</span> <span class="o">=</span> <span class="nc">LauncherDiscoveryRequestBuilder</span><span class="o">.</span><span class="na">request</span><span class="o">()</span>
+<span class="nc">LauncherDiscoveryRequest</span> <span class="n">discoveryRequest</span> <span class="o">=</span> <span class="nc">LauncherDiscoveryRequestBuilder</span><span class="o">.</span><span class="na">request</span><span class="o">()</span>
     <span class="o">.</span><span class="na">selectors</span><span class="o">(</span><span class="n">selectPackage</span><span class="o">(</span><span class="s">"com.example.mytests"</span><span class="o">))</span>
-    <span class="o">.</span><span class="na">forExecution</span><span class="o">()</span>
     <span class="o">.</span><span class="na">build</span><span class="o">();</span>
 
 <span class="k">try</span> <span class="o">(</span><span class="nc">LauncherSession</span> <span class="n">session</span> <span class="o">=</span> <span class="nc">LauncherFactory</span><span class="o">.</span><span class="na">openSession</span><span class="o">(</span><span class="n">launcherConfig</span><span class="o">))</span> <span class="o">{</span>
-    <span class="n">session</span><span class="o">.</span><span class="na">getLauncher</span><span class="o">().</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+    <span class="n">session</span><span class="o">.</span><span class="na">getLauncher</span><span class="o">().</span><span class="na">execute</span><span class="o">(</span><span class="n">discoveryRequest</span><span class="o">);</span>
 <span class="o">}</span></code></pre>
 </div>
 </div>
@@ -15461,6 +15449,10 @@ global store or creates a new one if it doesn&#8217;t exist:</p>
         <span class="k">return</span> <span class="s">"first-custom-test-engine"</span><span class="o">;</span>
     <span class="o">}</span>
 
+    <span class="kd">public</span> <span class="nc">ServerSocket</span> <span class="nf">getSocket</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">socket</span><span class="o">;</span>
+    <span class="o">}</span>
+
     <span class="nd">@Override</span>
     <span class="kd">public</span> <span class="nc">TestDescriptor</span> <span class="nf">discover</span><span class="o">(</span><span class="nc">EngineDiscoveryRequest</span> <span class="n">discoveryRequest</span><span class="o">,</span> <span class="nc">UniqueId</span> <span class="n">uniqueId</span><span class="o">)</span> <span class="o">{</span>
         <span class="k">return</span> <span class="k">new</span> <span class="nf">EngineDescriptor</span><span class="o">(</span><span class="n">uniqueId</span><span class="o">,</span> <span class="s">"First Custom Test Engine"</span><span class="o">);</span>
@@ -15484,6 +15476,7 @@ global store or creates a new one if it doesn&#8217;t exist:</p>
         <span class="n">request</span><span class="o">.</span><span class="na">getEngineExecutionListener</span><span class="o">()</span>
                 <span class="o">.</span><span class="na">executionFinished</span><span class="o">(</span><span class="n">request</span><span class="o">.</span><span class="na">getRootTestDescriptor</span><span class="o">(),</span> <span class="n">successful</span><span class="o">());</span>
     <span class="o">}</span>
+
 <span class="o">}</span></code></pre>
 </div>
 </div>
@@ -15503,6 +15496,10 @@ before or after <code>FirstCustomEngine</code>, it will use the same socket inst
     <span class="nd">@Override</span>
     <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getId</span><span class="o">()</span> <span class="o">{</span>
         <span class="k">return</span> <span class="s">"second-custom-test-engine"</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nc">ServerSocket</span> <span class="nf">getSocket</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">socket</span><span class="o">;</span>
     <span class="o">}</span>
 
     <span class="nd">@Override</span>
@@ -15528,6 +15525,7 @@ before or after <code>FirstCustomEngine</code>, it will use the same socket inst
         <span class="n">request</span><span class="o">.</span><span class="na">getEngineExecutionListener</span><span class="o">()</span>
                 <span class="o">.</span><span class="na">executionFinished</span><span class="o">(</span><span class="n">request</span><span class="o">.</span><span class="na">getRootTestDescriptor</span><span class="o">(),</span> <span class="n">successful</span><span class="o">());</span>
     <span class="o">}</span>
+
 <span class="o">}</span></code></pre>
 </div>
 </div>
@@ -15558,15 +15556,20 @@ resource is closed properly when the test run is finished.
     <span class="nc">FirstCustomEngine</span> <span class="n">firstCustomEngine</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">FirstCustomEngine</span><span class="o">();</span>
     <span class="nc">SecondCustomEngine</span> <span class="n">secondCustomEngine</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SecondCustomEngine</span><span class="o">();</span>
 
-    <span class="nc">Launcher</span> <span class="n">launcher</span> <span class="o">=</span> <span class="nc">LauncherFactory</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="nc">LauncherConfig</span><span class="o">.</span><span class="na">builder</span><span class="o">()</span>
+    <span class="nc">LauncherConfig</span> <span class="n">launcherConfig</span> <span class="o">=</span> <span class="nc">LauncherConfig</span><span class="o">.</span><span class="na">builder</span><span class="o">()</span>
             <span class="o">.</span><span class="na">addTestEngines</span><span class="o">(</span><span class="n">firstCustomEngine</span><span class="o">,</span> <span class="n">secondCustomEngine</span><span class="o">)</span>
             <span class="o">.</span><span class="na">enableTestEngineAutoRegistration</span><span class="o">(</span><span class="kc">false</span><span class="o">)</span>
-            <span class="o">.</span><span class="na">build</span><span class="o">());</span>
+            <span class="o">.</span><span class="na">build</span><span class="o">();</span>
 
-    <span class="n">launcher</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">().</span><span class="na">forExecution</span><span class="o">().</span><span class="na">build</span><span class="o">());</span>
+    <span class="nc">LauncherDiscoveryRequest</span> <span class="n">discoveryRequest</span> <span class="o">=</span> <span class="n">discoveryRequest</span><span class="o">()</span>
+            <span class="o">.</span><span class="na">selectors</span><span class="o">(</span><span class="n">selectPackage</span><span class="o">(</span><span class="s">"com.example.mytests"</span><span class="o">))</span>
+            <span class="o">.</span><span class="na">build</span><span class="o">();</span>
 
-    <span class="n">assertSame</span><span class="o">(</span><span class="n">firstCustomEngine</span><span class="o">.</span><span class="na">socket</span><span class="o">,</span> <span class="n">secondCustomEngine</span><span class="o">.</span><span class="na">socket</span><span class="o">);</span>
-    <span class="n">assertTrue</span><span class="o">(</span><span class="n">firstCustomEngine</span><span class="o">.</span><span class="na">socket</span><span class="o">.</span><span class="na">isClosed</span><span class="o">(),</span> <span class="s">"socket should be closed"</span><span class="o">);</span>
+    <span class="nc">Launcher</span> <span class="n">launcher</span> <span class="o">=</span> <span class="nc">LauncherFactory</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">launcherConfig</span><span class="o">);</span>
+    <span class="n">launcher</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">discoveryRequest</span><span class="o">);</span>
+
+    <span class="n">assertSame</span><span class="o">(</span><span class="n">firstCustomEngine</span><span class="o">.</span><span class="na">getSocket</span><span class="o">(),</span> <span class="n">secondCustomEngine</span><span class="o">.</span><span class="na">getSocket</span><span class="o">());</span>
+    <span class="n">assertTrue</span><span class="o">(</span><span class="n">firstCustomEngine</span><span class="o">.</span><span class="na">getSocket</span><span class="o">().</span><span class="na">isClosed</span><span class="o">(),</span> <span class="s">"socket should be closed"</span><span class="o">);</span>
 <span class="o">}</span></code></pre>
 </div>
 </div>
@@ -15969,7 +15972,7 @@ following values.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>STABLE</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Intended for features that will not be changed in a backwards-
-                     incompatible way in the current major version (<code>5.*</code>).</p></td>
+                     incompatible way in the current major version (<code>6.*</code>).</p></td>
 </tr>
 </tbody>
 </table>
@@ -16796,8 +16799,7 @@ declarations.</p>
 <div class="sect2">
 <h3 id="reproducible-builds"><a class="anchor" href="#reproducible-builds"></a>10.1. Reproducible Builds</h3>
 <div class="paragraph">
-<p>Starting with version 5.7, JUnit aims for its non-javadoc JARs to be
-<a href="https://reproducible-builds.org/">reproducible</a>.</p>
+<p>JUnit aims for its non-javadoc JARs to be <a href="https://reproducible-builds.org/">reproducible</a>.</p>
 </div>
 <div class="paragraph">
 <p>Under identical build conditions, such as Java version, repeated builds should provide the

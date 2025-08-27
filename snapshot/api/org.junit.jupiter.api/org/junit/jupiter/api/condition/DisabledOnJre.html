@@ -122,9 +122,9 @@ loadScripts(document, 'script');</script>
 
  <h2 id="warning-heading">Warning</h2>
 
- <p>As of JUnit Jupiter 5.1, this annotation can only be declared once on an
- <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/reflect/AnnotatedElement.html" title="class or interface in java.lang.reflect" class="external-link"><code>AnnotatedElement</code></a> (i.e., test
- interface, test class, or test method). If this annotation is directly
+ <p>This annotation can only be declared once on an
+ <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/reflect/AnnotatedElement.html" title="class or interface in java.lang.reflect" class="external-link"><code>AnnotatedElement</code></a> such as a test
+ interface, test class, or test method. If this annotation is directly
  present, indirectly present, or meta-present multiple times on a given
  element, only the first such annotation discovered by JUnit will be used;
  any additional declarations will be silently ignored. Note, however, that
