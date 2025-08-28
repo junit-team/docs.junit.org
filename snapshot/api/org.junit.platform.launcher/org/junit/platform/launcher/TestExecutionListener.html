@@ -128,7 +128,7 @@ loadScripts(document, 'script');</script>
  Jupiter engines comply with this contract, there is no way to guarantee this for
  third-party engines.
 
- <p>As of JUnit Platform 1.8, a <code>TestExecutionListener</code> can access
+ <p>A <code>TestExecutionListener</code> can access
  <a href="../../../../../org.junit.platform.engine/org/junit/platform/engine/ConfigurationParameters.html" title="interface in org.junit.platform.engine">configuration
  parameters</a> via the <a href="TestPlan.html#getConfigurationParameters()"><code>getConfigurationParameters()</code></a> method in the <code>TestPlan</code> supplied to
  <a href="#testPlanExecutionStarted(org.junit.platform.launcher.TestPlan)"><code>testPlanExecutionStarted(TestPlan)</code></a> and
@@ -401,6 +401,8 @@ loadScripts(document, 'script');</script>
 <dt>Parameters:</dt>
 <dd><code>testIdentifier</code> - describes the test or container to which the entry pertains</dd>
 <dd><code>file</code> - the published <code>FileEntry</code></dd>
+<dt>Since:</dt>
+<dd>1.12</dd>
 </dl>
 </div>
 </section>

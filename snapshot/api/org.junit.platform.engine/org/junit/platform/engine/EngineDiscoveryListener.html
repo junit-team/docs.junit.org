@@ -95,16 +95,12 @@ loadScripts(document, 'script');</script>
 <div class="type-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#STABLE" title="class or interface in org.apiguardian.api" class="external-link">STABLE</a>,
      <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="1.10")
 </span><span class="modifiers">public interface </span><span class="element-name type-name-label">EngineDiscoveryListener</span></div>
-<div class="block"><code>EngineDiscoveryListener</code> contains <a href="TestEngine.html" title="interface in org.junit.platform.engine"><code>TestEngine</code></a> access to the
- information necessary to discover tests and containers.
+<div class="block"><code>EngineDiscoveryListener</code> defines the API which enables a <a href="TestEngine.html" title="interface in org.junit.platform.engine"><code>TestEngine</code></a>
+ to publish information about events that occur during test discovery.
 
  <p>All methods in this interface have empty <em>default</em> implementations.
  Concrete implementations may therefore override one or more of these methods
- to be notified of the selected events.
-
- <p>The methods declared in this interface <em>should</em> be called by
- each <a href="TestEngine.html" title="interface in org.junit.platform.engine"><code>TestEngine</code></a> during test discovery. However, since this interface
- was only added in 1.6, older engines might not yet do so.</div>
+ to be notified of the selected events.</div>
 <dl class="notes">
 <dt>Since:</dt>
 <dd>1.6</dd>
@@ -112,6 +108,7 @@ loadScripts(document, 'script');</script>
 <dd>
 <ul class="tag-list-long">
 <li><a href="EngineDiscoveryRequest.html#getDiscoveryListener()"><code>EngineDiscoveryRequest.getDiscoveryListener()</code></a></li>
+<li><a href="../../../../../org.junit.platform.launcher/org/junit/platform/launcher/LauncherDiscoveryListener.html" title="interface in org.junit.platform.launcher"><code>LauncherDiscoveryListener</code></a></li>
 </ul>
 </dd>
 </dl>

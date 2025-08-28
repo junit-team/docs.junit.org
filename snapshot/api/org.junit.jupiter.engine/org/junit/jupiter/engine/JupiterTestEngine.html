@@ -266,11 +266,13 @@ loadScripts(document, 'script');</script>
 <div class="block">Returns <code>junit-jupiter-engine</code> as the artifact ID.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>an <code>Optional</code> containing the artifact ID; never
- <code>null</code> but potentially empty if the artifact ID is unknown</dd>
+<dd>an <code>Optional</code> containing the module name or artifact ID; never
+ <code>null</code> but potentially empty if neither the module name nor the artifact
+ ID can be determined</dd>
 <dt>See Also:</dt>
 <dd>
 <ul class="tag-list-long">
+<li><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Module.html#getName()" title="class or interface in java.lang" class="external-link"><code>Module.getName()</code></a></li>
 <li><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Class.html#getPackage()" title="class or interface in java.lang" class="external-link"><code>Class.getPackage()</code></a></li>
 <li><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Package.html#getImplementationTitle()" title="class or interface in java.lang" class="external-link"><code>Package.getImplementationTitle()</code></a></li>
 <li><a href="../../../../../org.junit.platform.engine/org/junit/platform/engine/TestEngine.html#getGroupId()"><code>TestEngine.getGroupId()</code></a></li>
@@ -293,7 +295,10 @@ loadScripts(document, 'script');</script>
  <p>The supplied <a href="../../../../../org.junit.platform.engine/org/junit/platform/engine/UniqueId.html" title="class in org.junit.platform.engine"><code>UniqueId</code></a> must be used as the unique ID of the
  returned root <a href="../../../../../org.junit.platform.engine/org/junit/platform/engine/TestDescriptor.html" title="interface in org.junit.platform.engine"><code>TestDescriptor</code></a>. In addition, the <code>UniqueId</code>
  must be used to create unique IDs for children of the root's descriptor
- by calling <a href="../../../../../org.junit.platform.engine/org/junit/platform/engine/UniqueId.html#append(java.lang.String,java.lang.String)"><code>UniqueId.append(java.lang.String, java.lang.String)</code></a>.</div>
+ by calling <a href="../../../../../org.junit.platform.engine/org/junit/platform/engine/UniqueId.html#append(java.lang.String,java.lang.String)"><code>UniqueId.append(java.lang.String, java.lang.String)</code></a>.
+
+ <p>Furthermore, implementations must publish events about test discovery
+ via the supplied <a href="../../../../../org.junit.platform.engine/org/junit/platform/engine/EngineDiscoveryRequest.html#getDiscoveryListener()"><code>EngineDiscoveryListener</code></a>.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>discoveryRequest</code> - the discovery request; never <code>null</code></dd>

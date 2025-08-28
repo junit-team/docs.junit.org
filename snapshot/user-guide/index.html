@@ -1077,7 +1077,9 @@ sub-project provides a <code>TestEngine</code> for running Jupiter based tests o
 <div class="paragraph">
 <p><strong>JUnit Vintage</strong> provides a <code>TestEngine</code> for running JUnit 3 and JUnit 4 based tests on
 the platform. It requires JUnit 4.12 or later to be present on the class path or module
-path.</p>
+path. Note, however, that the JUnit Vintage engine is deprecated and should only be used
+temporarily while migrating tests to JUnit Jupiter or another testing framework with
+native JUnit Platform support.</p>
 </div>
 </div>
 <div class="sect2">
@@ -10529,15 +10531,15 @@ https://docs.junit.org/snapshot/user-guide/</pre>
 <div class="sect3">
 <h4 id="running-tests-console-launcher-argument-files"><a class="anchor" href="#running-tests-console-launcher-argument-files"></a>4.3.2. Argument Files (@-files)</h4>
 <div class="paragraph">
-<p>On some platforms you may run into system limitations on the length of a command line
-when creating a command line with lots of options or with long arguments.</p>
+<p>On some platforms you may run into system limitations on the length of a command line when
+creating a command line with lots of options or with long arguments.</p>
 </div>
 <div class="paragraph">
-<p>Since version 1.3, the <code>ConsoleLauncher</code> supports <em>argument files</em>, also known as
-<em>@-files</em>. Argument files are files that themselves contain arguments to be passed to the
-command. When the underlying <a href="https://github.com/remkop/picocli">picocli</a> command line
-parser encounters an argument beginning with the character <code>@</code>, it expands the contents
-of that file into the argument list.</p>
+<p>The <code>ConsoleLauncher</code> supports <em>argument files</em>, also known as <em>@-files</em>. Argument files
+are files that themselves contain arguments to be passed to the command. When the
+underlying <a href="https://github.com/remkop/picocli">picocli</a> command line parser encounters an
+argument beginning with the character <code>@</code>, it expands the contents of that file into the
+argument list.</p>
 </div>
 <div class="paragraph">
 <p>The arguments within a file can be separated by spaces or newlines. If an argument
@@ -11051,12 +11053,11 @@ expressions can be useful.</p>
 <div class="sect2">
 <h3 id="running-tests-capturing-output"><a class="anchor" href="#running-tests-capturing-output"></a>4.7. Capturing Standard Output/Error</h3>
 <div class="paragraph">
-<p>Since version 1.3, the JUnit Platform provides opt-in support for capturing output
-printed to <code>System.out</code> and <code>System.err</code>. To enable it, set the
-<code>junit.platform.output.capture.stdout</code> and/or <code>junit.platform.output.capture.stderr</code>
-<a href="#running-tests-config-params">configuration parameter</a> to <code>true</code>. In addition, you may
-configure the maximum number of buffered bytes to be used per executed test or container
-using <code>junit.platform.output.capture.maxBuffer</code>.</p>
+<p>The JUnit Platform provides opt-in support for capturing output printed to <code>System.out</code>
+and <code>System.err</code>. To enable it, set the <code>junit.platform.output.capture.stdout</code> and/or
+<code>junit.platform.output.capture.stderr</code> <a href="#running-tests-config-params">configuration
+parameter</a> to <code>true</code>. In addition, you may configure the maximum number of buffered bytes
+to be used per executed test or container using <code>junit.platform.output.capture.maxBuffer</code>.</p>
 </div>
 <div class="paragraph">
 <p>If enabled, the JUnit Platform captures the corresponding output and publishes it as a
@@ -11180,29 +11181,24 @@ unique IDs once execution of the <code>TestPlan</code> has finished.</p>
 <div class="sect3">
 <h4 id="running-tests-listeners-flight-recorder"><a class="anchor" href="#running-tests-listeners-flight-recorder"></a>4.8.1. Flight Recorder Support</h4>
 <div class="paragraph">
-<p>Since version 1.7, the JUnit Platform provides opt-in support for generating Flight
-Recorder events. <a href="https://openjdk.java.net/jeps/328">JEP 328</a> describes the Java Flight
-Recorder (JFR) as:</p>
+<p>The JUnit Platform provides opt-in support for generating Flight Recorder events.
+<a href="https://openjdk.java.net/jeps/328">JEP 328</a> describes the Java Flight Recorder (JFR) as
+follows.</p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Flight Recorder records events originating from applications, the JVM and the OS.
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Flight Recorder records events originating from applications, the JVM, and the OS.
 Events are stored in a single file that can be attached to bug reports and examined by
 support engineers, allowing after-the-fact analysis of issues in the period leading up
-to a problem.
-</td>
-</tr>
-</table>
+to a problem.</p>
+</div>
+</blockquote>
 </div>
 <div class="paragraph">
 <p>In order to record Flight Recorder events generated while running tests, you need to
-start flight recording when launching a test run via the following java command line
-option:</p>
+start flight recording when launching a test suite via the following java command line
+option.</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -11218,29 +11214,14 @@ option:</p>
 command line tool shipped with recent JDKs or open the recording file with
 <a href="https://jdk.java.net/jmc/">JDK Mission Control</a>.</p>
 </div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-Flight Recorder support is currently an <em>experimental</em> feature. You&#8217;re invited to
-give it a try and provide feedback to the JUnit team so they can improve and eventually
-<a href="#api-evolution">promote</a> this feature.
-</td>
-</tr>
-</table>
-</div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="stacktrace-pruning"><a class="anchor" href="#stacktrace-pruning"></a>4.9. Stack Trace Pruning</h3>
 <div class="paragraph">
-<p>Since version 1.10, the JUnit Platform provides built-in support for pruning stack traces
-produced by failing tests. This feature is enabled by default but can be disabled by
-setting the <code>junit.platform.stacktrace.pruning.enabled</code> <em>configuration parameter</em> to
-<code>false</code>.</p>
+<p>The JUnit Platform provides built-in support for pruning stack traces produced by failing
+tests. This feature is enabled by default but can be disabled by setting the
+<code>junit.platform.stacktrace.pruning.enabled</code> <em>configuration parameter</em> to <code>false</code>.</p>
 </div>
 <div class="paragraph">
 <p>When enabled, all calls from the <code>org.junit</code>, <code>jdk.internal.reflect</code>, and <code>sun.reflect</code>
@@ -11250,7 +11231,7 @@ never be excluded.</p>
 </div>
 <div class="paragraph">
 <p>In addition, all elements prior to and including the first call from the JUnit Platform
-Launcher will be removed.</p>
+<code>Launcher</code> will be removed.</p>
 </div>
 </div>
 <div class="sect2">

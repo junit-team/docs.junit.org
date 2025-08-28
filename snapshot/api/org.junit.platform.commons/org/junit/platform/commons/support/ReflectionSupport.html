@@ -1104,10 +1104,10 @@ loadScripts(document, 'script');</script>
  interface and traversing up the type hierarchy until such a method is
  found or the type hierarchy is exhausted.
 
- <p>As of JUnit Platform 1.10, this method uses the <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/ClassLoader.html" title="class or interface in java.lang" class="external-link"><code>ClassLoader</code></a> of
- the supplied <code>clazz</code> to load parameter types instead of using the
- <em>default</em> <code>ClassLoader</code>, which allows parameter types to be
- resolved in different <code>ClassLoader</code> arrangements.
+ <p>This method uses the <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/ClassLoader.html" title="class or interface in java.lang" class="external-link"><code>ClassLoader</code></a> of the supplied <code>clazz</code>
+ to load parameter types instead of using the <em>default</em>
+ <code>ClassLoader</code>, which allows parameter types to be resolved in different
+ <code>ClassLoader</code> arrangements.
 
  <p>The algorithm does not search for methods in <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link"><code>Object</code></a>.</div>
 <dl class="notes">
@@ -1236,11 +1236,11 @@ loadScripts(document, 'script');</script>
  be ordered using an algorithm that is deterministic but intentionally
  nonobvious.
 
- <p>As of JUnit Platform 1.6, this method detects cycles in <em>inner</em>
- class hierarchies &mdash; from the supplied class up to the outermost
- enclosing class &mdash; and throws a <a href="../JUnitException.html" title="class in org.junit.platform.commons"><code>JUnitException</code></a> if such a cycle
- is detected. Cycles within inner class hierarchies <em>below</em> the
- supplied class are not detected by this method.</div>
+ <p>This method detects cycles in <em>inner</em> class hierarchies &mdash;
+ from the supplied class up to the outermost enclosing class &mdash; and
+ throws a <a href="../JUnitException.html" title="class in org.junit.platform.commons"><code>JUnitException</code></a> if such a cycle is detected. Cycles within
+ inner class hierarchies <em>below</em> the supplied class are not detected
+ by this method.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>clazz</code> - the class to be searched; never <code>null</code></dd>
@@ -1274,11 +1274,11 @@ loadScripts(document, 'script');</script>
  be ordered using an algorithm that is deterministic but intentionally
  nonobvious.
 
- <p>As of JUnit Platform 1.6, this method detects cycles in <em>inner</em>
- class hierarchies &mdash; from the supplied class up to the outermost
- enclosing class &mdash; and throws a <a href="../JUnitException.html" title="class in org.junit.platform.commons"><code>JUnitException</code></a> if such a cycle
- is detected. Cycles within inner class hierarchies <em>below</em> the
- supplied class are not detected by this method.</div>
+ <p>This method detects cycles in <em>inner</em> class hierarchies &mdash;
+ from the supplied class up to the outermost enclosing class &mdash; and
+ throws a <a href="../JUnitException.html" title="class in org.junit.platform.commons"><code>JUnitException</code></a> if such a cycle is detected. Cycles within
+ inner class hierarchies <em>below</em> the supplied class are not detected
+ by this method.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>clazz</code> - the class to be searched; never <code>null</code></dd>
