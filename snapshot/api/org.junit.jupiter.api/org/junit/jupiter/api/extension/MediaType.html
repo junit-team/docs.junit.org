@@ -317,7 +317,7 @@ loadScripts(document, 'script');</script>
  <a href="https://tools.ietf.org/html/rfc2045">RFC 2045</a>.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>value</code> - the media type value to parse; never <code>null</code></dd>
+<dd><code>value</code> - the media type value to parse; never <code>null</code> or blank</dd>
 <dt>Returns:</dt>
 <dd>the parsed media type</dd>
 <dt>Throws:</dt>
@@ -335,8 +335,8 @@ loadScripts(document, 'script');</script>
 <div class="block">Create a media type with the given type and subtype.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>type</code> - the type; never <code>null</code></dd>
-<dd><code>subtype</code> - the subtype; never <code>null</code></dd>
+<dd><code>type</code> - the type; never <code>null</code> or blank</dd>
+<dd><code>subtype</code> - the subtype; never <code>null</code> or blank</dd>
 <dt>Returns:</dt>
 <dd>the media type</dd>
 </dl>
@@ -353,8 +353,8 @@ loadScripts(document, 'script');</script>
 <div class="block">Create a media type with the given type, subtype, and charset.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>type</code> - the type; never <code>null</code></dd>
-<dd><code>subtype</code> - the subtype; never <code>null</code></dd>
+<dd><code>type</code> - the type; never <code>null</code> or blank</dd>
+<dd><code>subtype</code> - the subtype; never <code>null</code> or blank</dd>
 <dd><code>charset</code> - the charset; never <code>null</code></dd>
 <dt>Returns:</dt>
 <dd>the media type</dd>
