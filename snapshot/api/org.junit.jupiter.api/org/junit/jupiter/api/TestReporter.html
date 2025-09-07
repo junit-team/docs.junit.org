@@ -165,8 +165,8 @@ loadScripts(document, 'script');</script>
  <a href="extension/MediaType.html" title="class in org.junit.jupiter.api.extension">MediaType</a>&nbsp;mediaType,
  <a href="function/ThrowingConsumer.html" title="interface in org.junit.jupiter.api.function">ThrowingConsumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&gt;&nbsp;action)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
-<div class="block">Publish a file or directory with the supplied name and media type written
- by the supplied action and attach it to the current test or container.</div>
+<div class="block">Publish a file with the supplied name and media type written by the supplied
+ action and attach it to the current test or container.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#publishFile(java.nio.file.Path,org.junit.jupiter.api.extension.MediaType)" class="member-name-link">publishFile</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;file,
@@ -274,7 +274,7 @@ loadScripts(document, 'script');</script>
  potentially existing file with the same name.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>file</code> - the file to be attached; never <code>null</code> or blank</dd>
+<dd><code>file</code> - the file to be published; never <code>null</code> or blank</dd>
 <dd><code>mediaType</code> - the media type of the file; never <code>null</code>; use
  <a href="extension/MediaType.html#APPLICATION_OCTET_STREAM"><code>MediaType.APPLICATION_OCTET_STREAM</code></a> if unknown</dd>
 <dt>Since:</dt>
@@ -297,7 +297,7 @@ loadScripts(document, 'script');</script>
  replacing any potentially existing files with the same name.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>directory</code> - the file to be attached; never <code>null</code> or blank</dd>
+<dd><code>directory</code> - the directory to be published; never <code>null</code> or blank</dd>
 <dt>Since:</dt>
 <dd>5.12</dd>
 </dl>
@@ -313,14 +313,14 @@ loadScripts(document, 'script');</script>
 </span><span class="modifiers">default</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">publishFile</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  <a href="extension/MediaType.html" title="class in org.junit.jupiter.api.extension">MediaType</a>&nbsp;mediaType,
  <a href="function/ThrowingConsumer.html" title="interface in org.junit.jupiter.api.function">ThrowingConsumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&gt;&nbsp;action)</span></div>
-<div class="block">Publish a file or directory with the supplied name and media type written
- by the supplied action and attach it to the current test or container.
+<div class="block">Publish a file with the supplied name and media type written by the supplied
+ action and attach it to the current test or container.
 
  <p>The <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link"><code>Path</code></a> passed to the supplied action will be relative to the
- report output directory, but it's up to the action to write the file.</div>
+ report output directory, but it is up to the action to write the file.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>name</code> - the name of the file to be attached; never <code>null</code> or
+<dd><code>name</code> - the name of the file to be published; never <code>null</code> or
  blank and must not contain any path separators</dd>
 <dd><code>mediaType</code> - the media type of the file; never <code>null</code>; use
  <a href="extension/MediaType.html#APPLICATION_OCTET_STREAM"><code>MediaType.APPLICATION_OCTET_STREAM</code></a> if unknown</dd>
@@ -343,13 +343,14 @@ loadScripts(document, 'script');</script>
  and attach it to the current test or container.
 
  <p>The <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link"><code>Path</code></a> passed to the supplied action will be relative to the
- report output directory and point to an existing directory, but it's up
- to the action to write files to it.</div>
+ report output directory and will point to an existing directory, but it is
+ up to the action to write files to the directory.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>name</code> - the name of the directory to be attached; never <code>null</code>
+<dd><code>name</code> - the name of the directory to be published; never <code>null</code>
  or blank and must not contain any path separators</dd>
-<dd><code>action</code> - the action to be executed to write the file; never <code>null</code></dd>
+<dd><code>action</code> - the action to be executed to write to the directory; never
+ <code>null</code></dd>
 <dt>Since:</dt>
 <dd>5.12</dd>
 </dl>

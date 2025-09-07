@@ -100,15 +100,16 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>default void</code></div>
 <div class="col-second even-row-color"><span class="type-name-label">EngineExecutionListener.</span><code><a href="../../EngineExecutionListener.html#fileEntryPublished(org.junit.platform.engine.TestDescriptor,org.junit.platform.engine.reporting.FileEntry)" class="member-name-link">fileEntryPublished</a><wbr>(<a href="../../TestDescriptor.html" title="interface in org.junit.platform.engine">TestDescriptor</a>&nbsp;testDescriptor,
- <a href="../FileEntry.html" title="class in org.junit.platform.engine.reporting">FileEntry</a>&nbsp;file)</code></div>
+ <a href="../FileEntry.html" title="class in org.junit.platform.engine.reporting">FileEntry</a>&nbsp;fileEntry)</code></div>
 <div class="col-last even-row-color">
-<div class="block">Can be called for any <a href="../../TestDescriptor.html" title="interface in org.junit.platform.engine"><code>TestDescriptor</code></a> in order to attach a file to
- a test or container &mdash; for example:
+<div class="block">Can be called for any <a href="../../TestDescriptor.html" title="interface in org.junit.platform.engine"><code>TestDescriptor</code></a> in order to publish a file or
+ directory by attaching it to a test or container &mdash; for example:
 
  
      Screenshots
      Logs
      Output files written by the code under test
+     Test output directory
  </div>
 </div>
 </div>

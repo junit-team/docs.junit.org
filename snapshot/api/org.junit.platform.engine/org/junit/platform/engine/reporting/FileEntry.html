@@ -134,7 +134,7 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getPath()" class="member-name-link">getPath</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Get the path to be published.</div>
+<div class="block">Get the path for the file or directory to be published.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/time/LocalDateTime.html" title="class or interface in java.time" class="external-link">LocalDateTime</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTimestamp()" class="member-name-link">getTimestamp</a>()</code></div>
@@ -168,12 +168,14 @@ loadScripts(document, 'script');</script>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="FileEntry.html" title="class in org.junit.platform.engine.reporting">FileEntry</a></span>&nbsp;<span class="element-name">from</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;path,
  @Nullable <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;mediaType)</span></div>
 <div class="block">Factory for creating a new <code>FileEntry</code> from the supplied path and
- media type.</div>
+ media type.
+
+ <p>The <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link"><code>Path</code></a> may represent a file or a directory.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>path</code> - the path to publish; never <code>null</code></dd>
 <dd><code>mediaType</code> - the media type of the path to publish; may be
- <code>null</code></dd>
+ <code>null</code> &mdash; for example, if the path represents a directory</dd>
 </dl>
 </div>
 </section>
@@ -196,7 +198,7 @@ loadScripts(document, 'script');</script>
 <h3>getPath</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></span>&nbsp;<span class="element-name">getPath</span>()</div>
-<div class="block">Get the path to be published.</div>
+<div class="block">Get the path for the file or directory to be published.</div>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>the path to publish; never <code>null</code></dd>
@@ -212,7 +214,8 @@ loadScripts(document, 'script');</script>
 <div class="block">Get the media type of the path to be published.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the media type of the path to publish; never <code>null</code></dd>
+<dd>the media type of the path to publish; never <code>null</code> but
+ potentially empty &mdash; for example, if the path represents a directory</dd>
 </dl>
 </div>
 </section>
