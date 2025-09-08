@@ -74,7 +74,7 @@ loadScripts(document, 'script');</script>
 <div class="package-signature"><span class="annotations">@NullMarked
 </span>package <span class="element-name">org.junit.platform.console.options</span></div>
 <section class="package-description" id="package-description">
-<div class="block">Configuration options for JUnit's console launcher.</div>
+<div class="block">Command-line option utility classes of JUnit's console launcher.</div>
 </section>
 </div>
 <section class="summary">
@@ -89,9 +89,13 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color">
 <div class="block">Support for launching the JUnit Platform from the console.</div>
 </div>
-<div class="col-first odd-row-color"><a href="../tasks/package-summary.html">org.junit.platform.console.tasks</a></div>
+<div class="col-first odd-row-color"><a href="../command/package-summary.html">org.junit.platform.console.command</a></div>
 <div class="col-last odd-row-color">
-<div class="block">Internal execution tasks for JUnit's console launcher.</div>
+<div class="block">Commands of JUnit's console launcher.</div>
+</div>
+<div class="col-first even-row-color"><a href="../output/package-summary.html">org.junit.platform.console.output</a></div>
+<div class="col-last even-row-color">
+<div class="block">Output printing utility classes of JUnit's console launcher.</div>
 </div>
 </div>
 </div>
@@ -103,26 +107,31 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Class</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color class-summary class-summary-tab2"><a href="CommandFacade.html" title="class in org.junit.platform.console.options">CommandFacade</a></div>
-<div class="col-last even-row-color class-summary class-summary-tab2">
-<div class="block">Internal facade to run a CLI command that exists to hide implementation
- details such as the used library.</div>
-</div>
-<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="CommandResult.html" title="class in org.junit.platform.console.options">CommandResult</a>&lt;T&gt;</div>
-<div class="col-last odd-row-color class-summary class-summary-tab2">&nbsp;</div>
-<div class="col-first even-row-color class-summary class-summary-tab2"><a href="ConsoleUtils.html" title="class in org.junit.platform.console.options">ConsoleUtils</a></div>
-<div class="col-last even-row-color class-summary class-summary-tab2">
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="AnsiColorOptionMixin.html" title="class in org.junit.platform.console.options">AnsiColorOptionMixin</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab2">&nbsp;</div>
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="ConsoleUtils.html" title="class in org.junit.platform.console.options">ConsoleUtils</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">
 <div class="block">Collection of utilities for working with <code>java.io.Console</code>
  and friends.</div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab3"><a href="Details.html" title="enum class in org.junit.platform.console.options">Details</a></div>
-<div class="col-last odd-row-color class-summary class-summary-tab3">&nbsp;</div>
-<div class="col-first even-row-color class-summary class-summary-tab2"><a href="TestConsoleOutputOptions.html" title="class in org.junit.platform.console.options">TestConsoleOutputOptions</a></div>
-<div class="col-last even-row-color class-summary class-summary-tab2">&nbsp;</div>
-<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="TestDiscoveryOptions.html" title="class in org.junit.platform.console.options">TestDiscoveryOptions</a></div>
-<div class="col-last odd-row-color class-summary class-summary-tab2">&nbsp;</div>
-<div class="col-first even-row-color class-summary class-summary-tab3"><a href="Theme.html" title="enum class in org.junit.platform.console.options">Theme</a></div>
+<div class="col-first even-row-color class-summary class-summary-tab3"><a href="Details.html" title="enum class in org.junit.platform.console.options">Details</a></div>
 <div class="col-last even-row-color class-summary class-summary-tab3">&nbsp;</div>
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="TestConsoleOutputOptions.html" title="class in org.junit.platform.console.options">TestConsoleOutputOptions</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">&nbsp;</div>
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="TestConsoleOutputOptionsMixin.html" title="class in org.junit.platform.console.options">TestConsoleOutputOptionsMixin</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab2">&nbsp;</div>
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="TestConsoleOutputOptionsMixin.ConsoleOutputOptions.html" title="class in org.junit.platform.console.options">TestConsoleOutputOptionsMixin.ConsoleOutputOptions</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">&nbsp;</div>
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="TestDiscoveryOptions.html" title="class in org.junit.platform.console.options">TestDiscoveryOptions</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab2">&nbsp;</div>
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="TestDiscoveryOptionsMixin.html" title="class in org.junit.platform.console.options">TestDiscoveryOptionsMixin</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">&nbsp;</div>
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="TestDiscoveryOptionsMixin.FilterOptions.html" title="class in org.junit.platform.console.options">TestDiscoveryOptionsMixin.FilterOptions</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab2">&nbsp;</div>
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="TestDiscoveryOptionsMixin.RuntimeConfigurationOptions.html" title="class in org.junit.platform.console.options">TestDiscoveryOptionsMixin.RuntimeConfigurationOptions</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">&nbsp;</div>
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="TestDiscoveryOptionsMixin.SelectorOptions.html" title="class in org.junit.platform.console.options">TestDiscoveryOptionsMixin.SelectorOptions</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab2">&nbsp;</div>
 </div>
 </div>
 </div>

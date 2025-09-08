@@ -5,7 +5,7 @@
 <title>CommandResult (JUnit 6.0.0-SNAPSHOT API)</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="description" content="declaration: module: org.junit.platform.console, package: org.junit.platform.console.options, class: CommandResult">
+<meta name="description" content="declaration: module: org.junit.platform.console, package: org.junit.platform.console.command, class: CommandResult">
 <meta name="generator" content="javadoc/ClassWriter">
 <link rel="stylesheet" type="text/css" href="../../../../../../resource-files/jquery-ui.min.css" title="Style">
 <link rel="stylesheet" type="text/css" href="../../../../../../resource-files/stylesheet.css" title="Style">
@@ -44,7 +44,7 @@ loadScripts(document, 'script');</script>
 <div class="nav-content">
 <ol class="sub-nav-list">
 <li><a href="../../../../../module-summary.html">org.junit.platform.console</a></li>
-<li><a href="package-summary.html">org.junit.platform.console.options</a></li>
+<li><a href="package-summary.html">org.junit.platform.console.command</a></li>
 <li><a href="CommandResult.html" class="current-selection">CommandResult</a></li>
 </ol>
 <div class="nav-list-search">
@@ -90,7 +90,7 @@ loadScripts(document, 'script');</script>
 <h1 title="Class CommandResult" class="title">Class CommandResult&lt;<span id="type-param-T">T</span>&gt;</h1>
 </div>
 <div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
-<div class="inheritance">org.junit.platform.console.options.CommandResult&lt;T&gt;</div>
+<div class="inheritance">org.junit.platform.console.command.CommandResult&lt;T&gt;</div>
 </div>
 <section class="class-description" id="class-description">
 <hr>
@@ -140,11 +140,11 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;T&gt;&nbsp;<a href="CommandResult.html" title="class in org.junit.platform.console.options">CommandResult</a><wbr>&lt;T&gt;</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;T&gt;&nbsp;<a href="CommandResult.html" title="class in org.junit.platform.console.command">CommandResult</a><wbr>&lt;T&gt;</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#create(int,T)" class="member-name-link">create</a><wbr>(int&nbsp;exitCode,
  @Nullable T&nbsp;value)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;T&gt;&nbsp;<a href="CommandResult.html" title="class in org.junit.platform.console.options">CommandResult</a><wbr>&lt;T&gt;</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;T&gt;&nbsp;<a href="CommandResult.html" title="class in org.junit.platform.console.command">CommandResult</a><wbr>&lt;T&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#failure()" class="member-name-link">failure</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
@@ -153,7 +153,7 @@ loadScripts(document, 'script');</script>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a><wbr>&lt;<a href="#type-param-T" title="type parameter in CommandResult">T</a>&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getValue()" class="member-name-link">getValue</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;T&gt;&nbsp;<a href="CommandResult.html" title="class in org.junit.platform.console.options">CommandResult</a><wbr>&lt;T&gt;</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;T&gt;&nbsp;<a href="CommandResult.html" title="class in org.junit.platform.console.command">CommandResult</a><wbr>&lt;T&gt;</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#success()" class="member-name-link">success</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 </div>
@@ -183,7 +183,7 @@ loadScripts(document, 'script');</script>
 <dt>See Also:</dt>
 <dd>
 <ul class="tag-list">
-<li><a href="../../../../../../constant-values.html#org.junit.platform.console.options.CommandResult.SUCCESS">Constant Field Values</a></li>
+<li><a href="../../../../../../constant-values.html#org.junit.platform.console.command.CommandResult.SUCCESS">Constant Field Values</a></li>
 </ul>
 </dd>
 </dl>
@@ -200,7 +200,7 @@ loadScripts(document, 'script');</script>
 <dt>See Also:</dt>
 <dd>
 <ul class="tag-list">
-<li><a href="../../../../../../constant-values.html#org.junit.platform.console.options.CommandResult.FAILURE">Constant Field Values</a></li>
+<li><a href="../../../../../../constant-values.html#org.junit.platform.console.command.CommandResult.FAILURE">Constant Field Values</a></li>
 </ul>
 </dd>
 </dl>
@@ -219,7 +219,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="success()">
 <h3>success</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="CommandResult.html" title="class in org.junit.platform.console.options">CommandResult</a>&lt;T&gt;</span>&nbsp;<span class="element-name">success</span>()</div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="CommandResult.html" title="class in org.junit.platform.console.command">CommandResult</a>&lt;T&gt;</span>&nbsp;<span class="element-name">success</span>()</div>
 </div>
 </section>
 </li>
@@ -227,7 +227,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="failure()">
 <h3>failure</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="CommandResult.html" title="class in org.junit.platform.console.options">CommandResult</a>&lt;T&gt;</span>&nbsp;<span class="element-name">failure</span>()</div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="CommandResult.html" title="class in org.junit.platform.console.command">CommandResult</a>&lt;T&gt;</span>&nbsp;<span class="element-name">failure</span>()</div>
 </div>
 </section>
 </li>
@@ -235,7 +235,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="create(int,T)">
 <h3 id="create(int,java.lang.Object)">create</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="CommandResult.html" title="class in org.junit.platform.console.options">CommandResult</a>&lt;T&gt;</span>&nbsp;<span class="element-name">create</span><wbr><span class="parameters">(int&nbsp;exitCode,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="CommandResult.html" title="class in org.junit.platform.console.command">CommandResult</a>&lt;T&gt;</span>&nbsp;<span class="element-name">create</span><wbr><span class="parameters">(int&nbsp;exitCode,
  @Nullable T&nbsp;value)</span></div>
 </div>
 </section>

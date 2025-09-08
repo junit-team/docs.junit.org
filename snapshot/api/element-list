@@ -40,8 +40,9 @@ org.junit.platform.commons.support.scanning
 org.junit.platform.commons.util
 module:org.junit.platform.console
 org.junit.platform.console
+org.junit.platform.console.command
 org.junit.platform.console.options
-org.junit.platform.console.tasks
+org.junit.platform.console.output
 module:org.junit.platform.engine
 org.junit.platform.engine
 org.junit.platform.engine.discovery

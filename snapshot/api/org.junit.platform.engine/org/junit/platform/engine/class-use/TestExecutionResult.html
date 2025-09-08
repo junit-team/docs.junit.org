@@ -69,9 +69,9 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color">
 <div class="block">Test descriptors used within the JUnit Jupiter test engine.</div>
 </div>
-<div class="col-first odd-row-color"><a href="#org.junit.platform.console.options">org.junit.platform.console.options</a></div>
+<div class="col-first odd-row-color"><a href="#org.junit.platform.console.output">org.junit.platform.console.output</a></div>
 <div class="col-last odd-row-color">
-<div class="block">Configuration options for JUnit's console launcher.</div>
+<div class="block">Output printing utility classes of JUnit's console launcher.</div>
 </div>
 <div class="col-first even-row-color"><a href="#org.junit.platform.engine">org.junit.platform.engine</a></div>
 <div class="col-last even-row-color">
@@ -143,15 +143,31 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="org.junit.platform.console.options">
-<h2>Uses of <a href="../TestExecutionResult.html" title="class in org.junit.platform.engine">TestExecutionResult</a> in <a href="../../../../../../org.junit.platform.console/org/junit/platform/console/options/package-summary.html">org.junit.platform.console.options</a></h2>
-<div class="caption"><span>Methods in <a href="../../../../../../org.junit.platform.console/org/junit/platform/console/options/package-summary.html">org.junit.platform.console.options</a> with parameters of type <a href="../TestExecutionResult.html" title="class in org.junit.platform.engine">TestExecutionResult</a></span></div>
+<section class="detail" id="org.junit.platform.console.output">
+<h2>Uses of <a href="../TestExecutionResult.html" title="class in org.junit.platform.engine">TestExecutionResult</a> in <a href="../../../../../../org.junit.platform.console/org/junit/platform/console/output/package-summary.html">org.junit.platform.console.output</a></h2>
+<div class="caption"><span>Methods in <a href="../../../../../../org.junit.platform.console/org/junit/platform/console/output/package-summary.html">org.junit.platform.console.output</a> with parameters of type <a href="../TestExecutionResult.html" title="class in org.junit.platform.engine">TestExecutionResult</a></span></div>
 <div class="summary-table three-column-summary">
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>void</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">FlatPrintingListener.</span><code><a href="../../../../../../org.junit.platform.console/org/junit/platform/console/output/FlatPrintingListener.html#executionFinished(org.junit.platform.launcher.TestIdentifier,org.junit.platform.engine.TestExecutionResult)" class="member-name-link">executionFinished</a><wbr>(<a href="../../../../../../org.junit.platform.launcher/org/junit/platform/launcher/TestIdentifier.html" title="class in org.junit.platform.launcher">TestIdentifier</a>&nbsp;testIdentifier,
+ <a href="../TestExecutionResult.html" title="class in org.junit.platform.engine">TestExecutionResult</a>&nbsp;testExecutionResult)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>void</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">TestFeedPrintingListener.</span><code><a href="../../../../../../org.junit.platform.console/org/junit/platform/console/output/TestFeedPrintingListener.html#executionFinished(org.junit.platform.launcher.TestIdentifier,org.junit.platform.engine.TestExecutionResult)" class="member-name-link">executionFinished</a><wbr>(<a href="../../../../../../org.junit.platform.launcher/org/junit/platform/launcher/TestIdentifier.html" title="class in org.junit.platform.launcher">TestIdentifier</a>&nbsp;testIdentifier,
+ <a href="../TestExecutionResult.html" title="class in org.junit.platform.engine">TestExecutionResult</a>&nbsp;testExecutionResult)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>void</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">TreePrintingListener.</span><code><a href="../../../../../../org.junit.platform.console/org/junit/platform/console/output/TreePrintingListener.html#executionFinished(org.junit.platform.launcher.TestIdentifier,org.junit.platform.engine.TestExecutionResult)" class="member-name-link">executionFinished</a><wbr>(<a href="../../../../../../org.junit.platform.launcher/org/junit/platform/launcher/TestIdentifier.html" title="class in org.junit.platform.launcher">TestIdentifier</a>&nbsp;testIdentifier,
+ <a href="../TestExecutionResult.html" title="class in org.junit.platform.engine">TestExecutionResult</a>&nbsp;testExecutionResult)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>void</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">VerboseTreePrintingListener.</span><code><a href="../../../../../../org.junit.platform.console/org/junit/platform/console/output/VerboseTreePrintingListener.html#executionFinished(org.junit.platform.launcher.TestIdentifier,org.junit.platform.engine.TestExecutionResult)" class="member-name-link">executionFinished</a><wbr>(<a href="../../../../../../org.junit.platform.launcher/org/junit/platform/launcher/TestIdentifier.html" title="class in org.junit.platform.launcher">TestIdentifier</a>&nbsp;testIdentifier,
+ <a href="../TestExecutionResult.html" title="class in org.junit.platform.engine">TestExecutionResult</a>&nbsp;testExecutionResult)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>final <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">Theme.</span><code><a href="../../../../../../org.junit.platform.console/org/junit/platform/console/options/Theme.html#status(org.junit.platform.engine.TestExecutionResult)" class="member-name-link">status</a><wbr>(<a href="../TestExecutionResult.html" title="class in org.junit.platform.engine">TestExecutionResult</a>&nbsp;result)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">Theme.</span><code><a href="../../../../../../org.junit.platform.console/org/junit/platform/console/output/Theme.html#status(org.junit.platform.engine.TestExecutionResult)" class="member-name-link">status</a><wbr>(<a href="../TestExecutionResult.html" title="class in org.junit.platform.engine">TestExecutionResult</a>&nbsp;result)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>

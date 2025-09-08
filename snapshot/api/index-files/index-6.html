@@ -84,7 +84,7 @@ loadScripts(document, 'script');</script>
 <div class="block"><em>Fail</em> the test with the failure message retrieved from the
  given <code>messageSupplier</code>.</div>
 </dd>
-<dt><a href="../org.junit.platform.console/org/junit/platform/console/options/Theme.html#failed()" class="member-name-link">failed()</a> - Method in enum class org.junit.platform.console.options.<a href="../org.junit.platform.console/org/junit/platform/console/options/Theme.html" title="enum class in org.junit.platform.console.options">Theme</a></dt>
+<dt><a href="../org.junit.platform.console/org/junit/platform/console/output/Theme.html#failed()" class="member-name-link">failed()</a> - Method in enum class org.junit.platform.console.output.<a href="../org.junit.platform.console/org/junit/platform/console/output/Theme.html" title="enum class in org.junit.platform.console.output">Theme</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="../org.junit.platform.testkit/org/junit/platform/testkit/engine/Events.html#failed()" class="member-name-link">failed()</a> - Method in class org.junit.platform.testkit.engine.<a href="../org.junit.platform.testkit/org/junit/platform/testkit/engine/Events.html" title="class in org.junit.platform.testkit.engine">Events</a></dt>
 <dd>
@@ -130,13 +130,13 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Fail suite if no tests were discovered.</div>
 </dd>
-<dt><a href="../org.junit.platform.console/org/junit/platform/console/options/CommandResult.html#failure()" class="member-name-link">failure()</a> - Static method in class org.junit.platform.console.options.<a href="../org.junit.platform.console/org/junit/platform/console/options/CommandResult.html" title="class in org.junit.platform.console.options">CommandResult</a></dt>
+<dt><a href="../org.junit.platform.console/org/junit/platform/console/command/CommandResult.html#failure()" class="member-name-link">failure()</a> - Static method in class org.junit.platform.console.command.<a href="../org.junit.platform.console/org/junit/platform/console/command/CommandResult.html" title="class in org.junit.platform.console.command">CommandResult</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="../org.junit.platform.commons/org/junit/platform/commons/function/Try.html#failure(java.lang.Exception)" class="member-name-link">failure(Exception)</a> - Static method in class org.junit.platform.commons.function.<a href="../org.junit.platform.commons/org/junit/platform/commons/function/Try.html" title="class in org.junit.platform.commons.function">Try</a></dt>
 <dd>
 <div class="block">Convert the supplied exception into a failed <code>Try</code>.</div>
 </dd>
-<dt><a href="../org.junit.platform.console/org/junit/platform/console/options/CommandResult.html#FAILURE" class="member-name-link">FAILURE</a> - Static variable in class org.junit.platform.console.options.<a href="../org.junit.platform.console/org/junit/platform/console/options/CommandResult.html" title="class in org.junit.platform.console.options">CommandResult</a></dt>
+<dt><a href="../org.junit.platform.console/org/junit/platform/console/command/CommandResult.html#FAILURE" class="member-name-link">FAILURE</a> - Static variable in class org.junit.platform.console.command.<a href="../org.junit.platform.console/org/junit/platform/console/command/CommandResult.html" title="class in org.junit.platform.console.command">CommandResult</a></dt>
 <dd>
 <div class="block">Exit code indicating any failure(s).</div>
 </dd>
@@ -214,6 +214,12 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Record an <a href="../org.junit.platform.testkit/org/junit/platform/testkit/engine/Event.html" title="class in org.junit.platform.testkit.engine"><code>Event</code></a> for a published <a href="../org.junit.platform.engine/org/junit/platform/engine/reporting/FileEntry.html" title="class in org.junit.platform.engine.reporting"><code>FileEntry</code></a>.</div>
 </dd>
+<dt><a href="../org.junit.platform.console/org/junit/platform/console/output/FlatPrintingListener.html#fileEntryPublished(org.junit.platform.launcher.TestIdentifier,org.junit.platform.engine.reporting.FileEntry)" class="member-name-link">fileEntryPublished(TestIdentifier, FileEntry)</a> - Method in class org.junit.platform.console.output.<a href="../org.junit.platform.console/org/junit/platform/console/output/FlatPrintingListener.html" title="class in org.junit.platform.console.output">FlatPrintingListener</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="../org.junit.platform.console/org/junit/platform/console/output/TreePrintingListener.html#fileEntryPublished(org.junit.platform.launcher.TestIdentifier,org.junit.platform.engine.reporting.FileEntry)" class="member-name-link">fileEntryPublished(TestIdentifier, FileEntry)</a> - Method in class org.junit.platform.console.output.<a href="../org.junit.platform.console/org/junit/platform/console/output/TreePrintingListener.html" title="class in org.junit.platform.console.output">TreePrintingListener</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="../org.junit.platform.console/org/junit/platform/console/output/VerboseTreePrintingListener.html#fileEntryPublished(org.junit.platform.launcher.TestIdentifier,org.junit.platform.engine.reporting.FileEntry)" class="member-name-link">fileEntryPublished(TestIdentifier, FileEntry)</a> - Method in class org.junit.platform.console.output.<a href="../org.junit.platform.console/org/junit/platform/console/output/VerboseTreePrintingListener.html" title="class in org.junit.platform.console.output">VerboseTreePrintingListener</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="../org.junit.platform.launcher/org/junit/platform/launcher/TestExecutionListener.html#fileEntryPublished(org.junit.platform.launcher.TestIdentifier,org.junit.platform.engine.reporting.FileEntry)" class="member-name-link">fileEntryPublished(TestIdentifier, FileEntry)</a> - Method in interface org.junit.platform.launcher.<a href="../org.junit.platform.launcher/org/junit/platform/launcher/TestExecutionListener.html" title="interface in org.junit.platform.launcher">TestExecutionListener</a></dt>
 <dd>
 <div class="block">Called when a file or directory has been published for the supplied
@@ -279,6 +285,8 @@ loadScripts(document, 'script');</script>
  <a href="../org.junit.platform.engine/org/junit/platform/engine/TestDescriptor.html" title="interface in org.junit.platform.engine"><code>TestDescriptors</code></a> that may
  register dynamic tests during execution and support selective test execution.</div>
 </dd>
+<dt><a href="../org.junit.platform.console/org/junit/platform/console/options/TestDiscoveryOptionsMixin.FilterOptions.html#%3Cinit%3E()" class="member-name-link">FilterOptions()</a> - Constructor for class org.junit.platform.console.options.<a href="../org.junit.platform.console/org/junit/platform/console/options/TestDiscoveryOptionsMixin.FilterOptions.html" title="class in org.junit.platform.console.options">TestDiscoveryOptionsMixin.FilterOptions</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="../org.junit.platform.engine/org/junit/platform/engine/FilterResult.html" class="type-name-link" title="class in org.junit.platform.engine">FilterResult</a> - Class in <a href="../org.junit.platform.engine/org/junit/platform/engine/package-summary.html">org.junit.platform.engine</a></dt>
 <dd>
 <div class="block">The result of applying a <a href="../org.junit.platform.engine/org/junit/platform/engine/Filter.html" title="interface in org.junit.platform.engine"><code>Filter</code></a>.</div>
@@ -677,6 +685,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Test plan execution details are rendered in a flat, line-by-line mode.</div>
 </dd>
+<dt><a href="../org.junit.platform.console/org/junit/platform/console/output/FlatPrintingListener.html" class="type-name-link" title="class in org.junit.platform.console.output">FlatPrintingListener</a> - Class in <a href="../org.junit.platform.console/org/junit/platform/console/output/package-summary.html">org.junit.platform.console.output</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="../org.junit.platform.console/org/junit/platform/console/output/FlatPrintingListener.html#%3Cinit%3E(java.io.PrintWriter,org.junit.platform.console.output.ColorPalette)" class="member-name-link">FlatPrintingListener(PrintWriter, ColorPalette)</a> - Constructor for class org.junit.platform.console.output.<a href="../org.junit.platform.console/org/junit/platform/console/output/FlatPrintingListener.html" title="class in org.junit.platform.console.output">FlatPrintingListener</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="../org.junit.jupiter.params/org/junit/jupiter/params/provider/ValueSource.html#floats()" class="member-name-link">floats()</a> - Element in annotation interface org.junit.jupiter.params.provider.<a href="../org.junit.jupiter.params/org/junit/jupiter/params/provider/ValueSource.html" title="annotation interface in org.junit.jupiter.params.provider">ValueSource</a></dt>
 <dd>
 <div class="block">The <code>float</code> values to use as sources of arguments; must not be empty.</div>
