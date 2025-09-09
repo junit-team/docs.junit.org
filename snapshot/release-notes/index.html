@@ -589,6 +589,31 @@ JUnit repository on GitHub.</p>
 <p>Change serialization of <code>TestIdentifier</code> in a backwards-incompatible way to simplify
 its implementation</p>
 </li>
+<li>
+<p>Deprecate <code>OutputDirectoryProvider</code> interface in favor of the new
+<code>OutputDirectoryCreator</code> interface to resolve cyclic package dependency along
+with the following APIs (which all have replacements working with
+<code>OutputDirectoryCreator</code>):</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>EngineDiscoveryRequest.getOutputDirectoryProvider()</code></p>
+</li>
+<li>
+<p><code>ExecutionRequest.getOutputDirectoryProvider()</code></p>
+</li>
+<li>
+<p><code>LauncherDiscoveryRequestBuilder.outputDirectoryProvider(OutputDirectoryProvider)</code></p>
+</li>
+<li>
+<p><code>TestPlan.getOutputDirectoryProvider()</code></p>
+</li>
+<li>
+<p><code>EngineTestKit.Builder.outputDirectoryProvider(OutputDirectoryProvider)</code></p>
+</li>
+</ul>
+</div>
+</li>
 </ul>
 </div>
 </div>

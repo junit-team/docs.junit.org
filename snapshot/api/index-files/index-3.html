@@ -112,6 +112,12 @@ loadScripts(document, 'script');</script>
 <div class="block">Property name used to enable capturing output to <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/System.html#out" title="class or interface in java.lang" class="external-link"><code>System.out</code></a>:
  "junit.platform.output.capture.stdout"</div>
 </dd>
+<dt><a href="../org.junit.platform.engine/org/junit/platform/engine/reporting/OutputDirectoryProvider.html#castOrAdapt(org.junit.platform.engine.OutputDirectoryCreator)" class="member-name-link">castOrAdapt(OutputDirectoryCreator)</a> - Static method in interface org.junit.platform.engine.reporting.<a href="../org.junit.platform.engine/org/junit/platform/engine/reporting/OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting">OutputDirectoryProvider</a></dt>
+<dd>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span></div>
+<div class="block">Cast or adapt an <a href="../org.junit.platform.engine/org/junit/platform/engine/OutputDirectoryCreator.html" title="interface in org.junit.platform.engine"><code>OutputDirectoryCreator</code></a> to a
+ <code>OutputDirectoryProvider</code>.</div>
+</dd>
 <dt><a href="../org.junit.platform.engine/org/junit/platform/engine/DiscoveryIssue.html#cause()" class="member-name-link">cause()</a> - Method in interface org.junit.platform.engine.<a href="../org.junit.platform.engine/org/junit/platform/engine/DiscoveryIssue.html" title="interface in org.junit.platform.engine">DiscoveryIssue</a></dt>
 <dd>
 <div class="block">Returns the cause of this issue.</div>
@@ -988,7 +994,7 @@ loadScripts(document, 'script');</script>
 <div class="deprecation-comment">without replacement</div>
 </div>
 </dd>
-<dt><a href="../org.junit.platform.engine/org/junit/platform/engine/ExecutionRequest.html#create(org.junit.platform.engine.TestDescriptor,org.junit.platform.engine.EngineExecutionListener,org.junit.platform.engine.ConfigurationParameters,org.junit.platform.engine.reporting.OutputDirectoryProvider,org.junit.platform.engine.support.store.NamespacedHierarchicalStore,org.junit.platform.engine.CancellationToken)" class="member-name-link">create(TestDescriptor, EngineExecutionListener, ConfigurationParameters, OutputDirectoryProvider, NamespacedHierarchicalStore&lt;Namespace&gt;, CancellationToken)</a> - Static method in class org.junit.platform.engine.<a href="../org.junit.platform.engine/org/junit/platform/engine/ExecutionRequest.html" title="class in org.junit.platform.engine">ExecutionRequest</a></dt>
+<dt><a href="../org.junit.platform.engine/org/junit/platform/engine/ExecutionRequest.html#create(org.junit.platform.engine.TestDescriptor,org.junit.platform.engine.EngineExecutionListener,org.junit.platform.engine.ConfigurationParameters,org.junit.platform.engine.OutputDirectoryCreator,org.junit.platform.engine.support.store.NamespacedHierarchicalStore,org.junit.platform.engine.CancellationToken)" class="member-name-link">create(TestDescriptor, EngineExecutionListener, ConfigurationParameters, OutputDirectoryCreator, NamespacedHierarchicalStore&lt;Namespace&gt;, CancellationToken)</a> - Static method in class org.junit.platform.engine.<a href="../org.junit.platform.engine/org/junit/platform/engine/ExecutionRequest.html" title="class in org.junit.platform.engine">ExecutionRequest</a></dt>
 <dd>
 <div class="block">Factory for creating an execution request.</div>
 </dd>
@@ -1024,7 +1030,7 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/discovery/predicates/IsTestTemplateMethod.html#createIssue(java.lang.Class,java.lang.reflect.Method,java.lang.String)" class="member-name-link">createIssue(Class&lt;? extends Annotation&gt;, Method, String)</a> - Static method in class org.junit.jupiter.engine.discovery.predicates.<a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/discovery/predicates/IsTestTemplateMethod.html" title="class in org.junit.jupiter.engine.discovery.predicates">IsTestTemplateMethod</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="../org.junit.platform.engine/org/junit/platform/engine/reporting/OutputDirectoryProvider.html#createOutputDirectory(org.junit.platform.engine.TestDescriptor)" class="member-name-link">createOutputDirectory(TestDescriptor)</a> - Method in interface org.junit.platform.engine.reporting.<a href="../org.junit.platform.engine/org/junit/platform/engine/reporting/OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting">OutputDirectoryProvider</a></dt>
+<dt><a href="../org.junit.platform.engine/org/junit/platform/engine/OutputDirectoryCreator.html#createOutputDirectory(org.junit.platform.engine.TestDescriptor)" class="member-name-link">createOutputDirectory(TestDescriptor)</a> - Method in interface org.junit.platform.engine.<a href="../org.junit.platform.engine/org/junit/platform/engine/OutputDirectoryCreator.html" title="interface in org.junit.platform.engine">OutputDirectoryCreator</a></dt>
 <dd>
 <div class="block">Create an output directory for the supplied test descriptor.</div>
 </dd>

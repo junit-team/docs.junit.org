@@ -1331,24 +1331,42 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Get the instance of the outer class, if available.</div>
 </dd>
-<dt><a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/config/CachingJupiterConfiguration.html#getOutputDirectoryProvider()" class="member-name-link">getOutputDirectoryProvider()</a> - Method in class org.junit.jupiter.engine.config.<a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/config/CachingJupiterConfiguration.html" title="class in org.junit.jupiter.engine.config">CachingJupiterConfiguration</a></dt>
+<dt><a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/config/CachingJupiterConfiguration.html#getOutputDirectoryCreator()" class="member-name-link">getOutputDirectoryCreator()</a> - Method in class org.junit.jupiter.engine.config.<a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/config/CachingJupiterConfiguration.html" title="class in org.junit.jupiter.engine.config">CachingJupiterConfiguration</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/config/DefaultJupiterConfiguration.html#getOutputDirectoryProvider()" class="member-name-link">getOutputDirectoryProvider()</a> - Method in class org.junit.jupiter.engine.config.<a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/config/DefaultJupiterConfiguration.html" title="class in org.junit.jupiter.engine.config">DefaultJupiterConfiguration</a></dt>
+<dt><a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/config/DefaultJupiterConfiguration.html#getOutputDirectoryCreator()" class="member-name-link">getOutputDirectoryCreator()</a> - Method in class org.junit.jupiter.engine.config.<a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/config/DefaultJupiterConfiguration.html" title="class in org.junit.jupiter.engine.config">DefaultJupiterConfiguration</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/config/JupiterConfiguration.html#getOutputDirectoryProvider()" class="member-name-link">getOutputDirectoryProvider()</a> - Method in interface org.junit.jupiter.engine.config.<a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/config/JupiterConfiguration.html" title="interface in org.junit.jupiter.engine.config">JupiterConfiguration</a></dt>
+<dt><a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/config/JupiterConfiguration.html#getOutputDirectoryCreator()" class="member-name-link">getOutputDirectoryCreator()</a> - Method in interface org.junit.jupiter.engine.config.<a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/config/JupiterConfiguration.html" title="interface in org.junit.jupiter.engine.config">JupiterConfiguration</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="../org.junit.platform.engine/org/junit/platform/engine/EngineDiscoveryRequest.html#getOutputDirectoryCreator()" class="member-name-link">getOutputDirectoryCreator()</a> - Method in interface org.junit.platform.engine.<a href="../org.junit.platform.engine/org/junit/platform/engine/EngineDiscoveryRequest.html" title="interface in org.junit.platform.engine">EngineDiscoveryRequest</a></dt>
+<dd>
+<div class="block">Get the <a href="../org.junit.platform.engine/org/junit/platform/engine/OutputDirectoryCreator.html" title="interface in org.junit.platform.engine"><code>OutputDirectoryCreator</code></a> for this request.</div>
+</dd>
+<dt><a href="../org.junit.platform.engine/org/junit/platform/engine/ExecutionRequest.html#getOutputDirectoryCreator()" class="member-name-link">getOutputDirectoryCreator()</a> - Method in class org.junit.platform.engine.<a href="../org.junit.platform.engine/org/junit/platform/engine/ExecutionRequest.html" title="class in org.junit.platform.engine">ExecutionRequest</a></dt>
+<dd>
+<div class="block">Returns the <a href="../org.junit.platform.engine/org/junit/platform/engine/OutputDirectoryCreator.html" title="interface in org.junit.platform.engine"><code>OutputDirectoryCreator</code></a> for this request for writing
+ reports and other output files.</div>
+</dd>
+<dt><a href="../org.junit.platform.launcher/org/junit/platform/launcher/TestPlan.html#getOutputDirectoryCreator()" class="member-name-link">getOutputDirectoryCreator()</a> - Method in class org.junit.platform.launcher.<a href="../org.junit.platform.launcher/org/junit/platform/launcher/TestPlan.html" title="class in org.junit.platform.launcher">TestPlan</a></dt>
+<dd>
+<div class="block">Get the <a href="../org.junit.platform.engine/org/junit/platform/engine/OutputDirectoryCreator.html" title="interface in org.junit.platform.engine"><code>OutputDirectoryCreator</code></a> for this test plan.</div>
+</dd>
 <dt><a href="../org.junit.platform.engine/org/junit/platform/engine/EngineDiscoveryRequest.html#getOutputDirectoryProvider()" class="member-name-link">getOutputDirectoryProvider()</a> - Method in interface org.junit.platform.engine.<a href="../org.junit.platform.engine/org/junit/platform/engine/EngineDiscoveryRequest.html" title="interface in org.junit.platform.engine">EngineDiscoveryRequest</a></dt>
 <dd>
-<div class="block">Get the <a href="../org.junit.platform.engine/org/junit/platform/engine/reporting/OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting"><code>OutputDirectoryProvider</code></a> for this request.</div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
+<div class="deprecation-comment">Please use <a href="../org.junit.platform.engine/org/junit/platform/engine/EngineDiscoveryRequest.html#getOutputDirectoryCreator()"><code>EngineDiscoveryRequest.getOutputDirectoryCreator()</code></a> instead</div>
+</div>
 </dd>
 <dt><a href="../org.junit.platform.engine/org/junit/platform/engine/ExecutionRequest.html#getOutputDirectoryProvider()" class="member-name-link">getOutputDirectoryProvider()</a> - Method in class org.junit.platform.engine.<a href="../org.junit.platform.engine/org/junit/platform/engine/ExecutionRequest.html" title="class in org.junit.platform.engine">ExecutionRequest</a></dt>
 <dd>
-<div class="block">Returns the <a href="../org.junit.platform.engine/org/junit/platform/engine/reporting/OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting"><code>OutputDirectoryProvider</code></a> for this request for writing
- reports and other output files.</div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
+<div class="deprecation-comment">Please use <a href="../org.junit.platform.engine/org/junit/platform/engine/ExecutionRequest.html#getOutputDirectoryCreator()"><code>ExecutionRequest.getOutputDirectoryCreator()</code></a> instead</div>
+</div>
 </dd>
 <dt><a href="../org.junit.platform.launcher/org/junit/platform/launcher/TestPlan.html#getOutputDirectoryProvider()" class="member-name-link">getOutputDirectoryProvider()</a> - Method in class org.junit.platform.launcher.<a href="../org.junit.platform.launcher/org/junit/platform/launcher/TestPlan.html" title="class in org.junit.platform.launcher">TestPlan</a></dt>
 <dd>
-<div class="block">Get the <a href="../org.junit.platform.engine/org/junit/platform/engine/reporting/OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting"><code>OutputDirectoryProvider</code></a> for this test plan.</div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
+<div class="deprecation-comment">Please use <a href="../org.junit.platform.launcher/org/junit/platform/launcher/TestPlan.html#getOutputDirectoryCreator()"><code>TestPlan.getOutputDirectoryCreator()</code></a> instead</div>
+</div>
 </dd>
 <dt><a href="../org.junit.platform.engine/org/junit/platform/engine/support/discovery/EngineDiscoveryRequestResolver.InitializationContext.html#getPackageFilter()" class="member-name-link">getPackageFilter()</a> - Method in interface org.junit.platform.engine.support.discovery.<a href="../org.junit.platform.engine/org/junit/platform/engine/support/discovery/EngineDiscoveryRequestResolver.InitializationContext.html" title="interface in org.junit.platform.engine.support.discovery">EngineDiscoveryRequestResolver.InitializationContext</a></dt>
 <dd>
@@ -1627,7 +1645,7 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Get the <em>root</em> <code>ExtensionContext</code>.</div>
 </dd>
-<dt><a href="../org.junit.platform.engine/org/junit/platform/engine/reporting/OutputDirectoryProvider.html#getRootDirectory()" class="member-name-link">getRootDirectory()</a> - Method in interface org.junit.platform.engine.reporting.<a href="../org.junit.platform.engine/org/junit/platform/engine/reporting/OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting">OutputDirectoryProvider</a></dt>
+<dt><a href="../org.junit.platform.engine/org/junit/platform/engine/OutputDirectoryCreator.html#getRootDirectory()" class="member-name-link">getRootDirectory()</a> - Method in interface org.junit.platform.engine.<a href="../org.junit.platform.engine/org/junit/platform/engine/OutputDirectoryCreator.html" title="interface in org.junit.platform.engine">OutputDirectoryCreator</a></dt>
 <dd>
 <div class="block">Returns the root directory for all output files; never <code>null</code>.</div>
 </dd>

@@ -158,9 +158,35 @@ loadScripts(document, 'script');</script>
 <div class="block">Please use
  <a href="org.junit.jupiter.params/org/junit/jupiter/params/ParameterInfo.html#NAMESPACE"><code>ParameterInfo.NAMESPACE</code></a> instead</div>
 </div>
+<div class="col-summary-item-name odd-row-color"><a href="org.junit.platform.engine/org/junit/platform/engine/EngineDiscoveryRequest.html#getOutputDirectoryProvider()">org.junit.platform.engine.EngineDiscoveryRequest.getOutputDirectoryProvider()</a></div>
+<div class="col-last odd-row-color">
+<div class="block">Please use <a href="org.junit.platform.engine/org/junit/platform/engine/EngineDiscoveryRequest.html#getOutputDirectoryCreator()"><code>EngineDiscoveryRequest.getOutputDirectoryCreator()</code></a> instead</div>
+</div>
+<div class="col-summary-item-name even-row-color"><a href="org.junit.platform.engine/org/junit/platform/engine/ExecutionRequest.html#getOutputDirectoryProvider()">org.junit.platform.engine.ExecutionRequest.getOutputDirectoryProvider()</a></div>
+<div class="col-last even-row-color">
+<div class="block">Please use <a href="org.junit.platform.engine/org/junit/platform/engine/ExecutionRequest.html#getOutputDirectoryCreator()"><code>ExecutionRequest.getOutputDirectoryCreator()</code></a> instead</div>
+</div>
 <div class="col-summary-item-name odd-row-color"><a href="org.junit.platform.engine/org/junit/platform/engine/Filter.html#adaptFilter(org.junit.platform.engine.Filter,java.util.function.Function)">org.junit.platform.engine.Filter.adaptFilter<wbr>(Filter&lt;V&gt;, Function&lt;T, V&gt;)</a></div>
 <div class="col-last odd-row-color">
 <div class="block">without replacement</div>
+</div>
+<div class="col-summary-item-name even-row-color"><a href="org.junit.platform.engine/org/junit/platform/engine/reporting/OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting">org.junit.platform.engine.reporting.OutputDirectoryProvider</a></div>
+<div class="col-last even-row-color">
+<div class="block">Please implement <a href="org.junit.platform.engine/org/junit/platform/engine/OutputDirectoryCreator.html" title="interface in org.junit.platform.engine"><code>OutputDirectoryCreator</code></a> instead</div>
+</div>
+<div class="col-summary-item-name odd-row-color"><a href="org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherDiscoveryRequestBuilder.html#outputDirectoryProvider(org.junit.platform.engine.reporting.OutputDirectoryProvider)">org.junit.platform.launcher.core.LauncherDiscoveryRequestBuilder.outputDirectoryProvider<wbr>(OutputDirectoryProvider)</a></div>
+<div class="col-last odd-row-color">
+<div class="block">Please use
+ <a href="org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherDiscoveryRequestBuilder.html#outputDirectoryCreator(org.junit.platform.engine.OutputDirectoryCreator)"><code>LauncherDiscoveryRequestBuilder.outputDirectoryCreator(OutputDirectoryCreator)</code></a> instead</div>
+</div>
+<div class="col-summary-item-name even-row-color"><a href="org.junit.platform.launcher/org/junit/platform/launcher/TestPlan.html#getOutputDirectoryProvider()">org.junit.platform.launcher.TestPlan.getOutputDirectoryProvider()</a></div>
+<div class="col-last even-row-color">
+<div class="block">Please use <a href="org.junit.platform.launcher/org/junit/platform/launcher/TestPlan.html#getOutputDirectoryCreator()"><code>TestPlan.getOutputDirectoryCreator()</code></a> instead</div>
+</div>
+<div class="col-summary-item-name odd-row-color"><a href="org.junit.platform.testkit/org/junit/platform/testkit/engine/EngineTestKit.Builder.html#outputDirectoryProvider(org.junit.platform.engine.reporting.OutputDirectoryProvider)">org.junit.platform.testkit.engine.EngineTestKit.Builder.outputDirectoryProvider<wbr>(OutputDirectoryProvider)</a></div>
+<div class="col-last odd-row-color">
+<div class="block">Please use
+ <a href="org.junit.platform.testkit/org/junit/platform/testkit/engine/EngineTestKit.Builder.html#outputDirectoryCreator(org.junit.platform.engine.OutputDirectoryCreator)"><code>EngineTestKit.Builder.outputDirectoryCreator(OutputDirectoryCreator)</code></a> instead</div>
 </div>
 </div>
 </div>
@@ -180,6 +206,10 @@ loadScripts(document, 'script');</script>
 <div class="col-summary-item-name odd-row-color"><a href="org.junit.jupiter.params/org/junit/jupiter/params/support/ParameterInfo.html" title="interface in org.junit.jupiter.params.support">org.junit.jupiter.params.support.ParameterInfo</a></div>
 <div class="col-last odd-row-color">
 <div class="block">Please use <a href="org.junit.jupiter.params/org/junit/jupiter/params/ParameterInfo.html" title="interface in org.junit.jupiter.params"><code>ParameterInfo</code></a> instead</div>
+</div>
+<div class="col-summary-item-name even-row-color"><a href="org.junit.platform.engine/org/junit/platform/engine/reporting/OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting">org.junit.platform.engine.reporting.OutputDirectoryProvider</a></div>
+<div class="col-last even-row-color">
+<div class="block">Please implement <a href="org.junit.platform.engine/org/junit/platform/engine/OutputDirectoryCreator.html" title="interface in org.junit.platform.engine"><code>OutputDirectoryCreator</code></a> instead</div>
 </div>
 </div>
 </div>
@@ -378,9 +408,17 @@ loadScripts(document, 'script');</script>
  <a href="org.junit.platform.commons/org/junit/platform/commons/support/AnnotationSupport.html#findAnnotation(java.lang.Class,java.lang.Class,java.util.List)"><code>AnnotationSupport.findAnnotation(Class, Class, List)</code></a> (for
  <code>SearchOption.INCLUDE_ENCLOSING_CLASSES</code>) instead</div>
 </div>
-<div class="col-summary-item-name even-row-color"><a href="org.junit.platform.engine/org/junit/platform/engine/ExecutionRequest.html#create(org.junit.platform.engine.TestDescriptor,org.junit.platform.engine.EngineExecutionListener,org.junit.platform.engine.ConfigurationParameters)">org.junit.platform.engine.ExecutionRequest.create<wbr>(TestDescriptor, EngineExecutionListener, ConfigurationParameters)</a></div>
+<div class="col-summary-item-name even-row-color"><a href="org.junit.platform.engine/org/junit/platform/engine/EngineDiscoveryRequest.html#getOutputDirectoryProvider()">org.junit.platform.engine.EngineDiscoveryRequest.getOutputDirectoryProvider()</a></div>
 <div class="col-last even-row-color">
+<div class="block">Please use <a href="org.junit.platform.engine/org/junit/platform/engine/EngineDiscoveryRequest.html#getOutputDirectoryCreator()"><code>EngineDiscoveryRequest.getOutputDirectoryCreator()</code></a> instead</div>
+</div>
+<div class="col-summary-item-name odd-row-color"><a href="org.junit.platform.engine/org/junit/platform/engine/ExecutionRequest.html#create(org.junit.platform.engine.TestDescriptor,org.junit.platform.engine.EngineExecutionListener,org.junit.platform.engine.ConfigurationParameters)">org.junit.platform.engine.ExecutionRequest.create<wbr>(TestDescriptor, EngineExecutionListener, ConfigurationParameters)</a></div>
+<div class="col-last odd-row-color">
 <div class="block">without replacement</div>
+</div>
+<div class="col-summary-item-name even-row-color"><a href="org.junit.platform.engine/org/junit/platform/engine/ExecutionRequest.html#getOutputDirectoryProvider()">org.junit.platform.engine.ExecutionRequest.getOutputDirectoryProvider()</a></div>
+<div class="col-last even-row-color">
+<div class="block">Please use <a href="org.junit.platform.engine/org/junit/platform/engine/ExecutionRequest.html#getOutputDirectoryCreator()"><code>ExecutionRequest.getOutputDirectoryCreator()</code></a> instead</div>
 </div>
 <div class="col-summary-item-name odd-row-color"><a href="org.junit.platform.engine/org/junit/platform/engine/Filter.html#adaptFilter(org.junit.platform.engine.Filter,java.util.function.Function)">org.junit.platform.engine.Filter.adaptFilter<wbr>(Filter&lt;V&gt;, Function&lt;T, V&gt;)</a></div>
 <div class="col-last odd-row-color">
@@ -394,9 +432,23 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color">
 <div class="block">Please use <a href="org.junit.platform.engine/org/junit/platform/engine/support/store/NamespacedHierarchicalStore.html#computeIfAbsent(N,K,java.util.function.Function,java.lang.Class)"><code>NamespacedHierarchicalStore.computeIfAbsent(Object, Object, Function, Class)</code></a> instead.</div>
 </div>
+<div class="col-summary-item-name even-row-color"><a href="org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherDiscoveryRequestBuilder.html#outputDirectoryProvider(org.junit.platform.engine.reporting.OutputDirectoryProvider)">org.junit.platform.launcher.core.LauncherDiscoveryRequestBuilder.outputDirectoryProvider<wbr>(OutputDirectoryProvider)</a></div>
+<div class="col-last even-row-color">
+<div class="block">Please use
+ <a href="org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherDiscoveryRequestBuilder.html#outputDirectoryCreator(org.junit.platform.engine.OutputDirectoryCreator)"><code>LauncherDiscoveryRequestBuilder.outputDirectoryCreator(OutputDirectoryCreator)</code></a> instead</div>
+</div>
+<div class="col-summary-item-name odd-row-color"><a href="org.junit.platform.launcher/org/junit/platform/launcher/TestPlan.html#getOutputDirectoryProvider()">org.junit.platform.launcher.TestPlan.getOutputDirectoryProvider()</a></div>
+<div class="col-last odd-row-color">
+<div class="block">Please use <a href="org.junit.platform.launcher/org/junit/platform/launcher/TestPlan.html#getOutputDirectoryCreator()"><code>TestPlan.getOutputDirectoryCreator()</code></a> instead</div>
+</div>
 <div class="col-summary-item-name even-row-color"><a href="org.junit.platform.launcher/org/junit/platform/launcher/TestPlan.html#getTestIdentifier(java.lang.String)">org.junit.platform.launcher.TestPlan.getTestIdentifier<wbr>(String)</a></div>
 <div class="col-last even-row-color">
 <div class="block">Use <a href="org.junit.platform.launcher/org/junit/platform/launcher/TestPlan.html#getTestIdentifier(org.junit.platform.engine.UniqueId)"><code>TestPlan.getTestIdentifier(UniqueId)</code></a> instead.</div>
+</div>
+<div class="col-summary-item-name odd-row-color"><a href="org.junit.platform.testkit/org/junit/platform/testkit/engine/EngineTestKit.Builder.html#outputDirectoryProvider(org.junit.platform.engine.reporting.OutputDirectoryProvider)">org.junit.platform.testkit.engine.EngineTestKit.Builder.outputDirectoryProvider<wbr>(OutputDirectoryProvider)</a></div>
+<div class="col-last odd-row-color">
+<div class="block">Please use
+ <a href="org.junit.platform.testkit/org/junit/platform/testkit/engine/EngineTestKit.Builder.html#outputDirectoryCreator(org.junit.platform.engine.OutputDirectoryCreator)"><code>EngineTestKit.Builder.outputDirectoryCreator(OutputDirectoryCreator)</code></a> instead</div>
 </div>
 </div>
 </div>
@@ -411,9 +463,7 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-summary-item-name even-row-color"><a href="org.junit.platform.engine/org/junit/platform/engine/ExecutionRequest.html#%3Cinit%3E(org.junit.platform.engine.TestDescriptor,org.junit.platform.engine.EngineExecutionListener,org.junit.platform.engine.ConfigurationParameters)">org.junit.platform.engine.ExecutionRequest<wbr>(TestDescriptor, EngineExecutionListener, ConfigurationParameters)</a></div>
 <div class="col-last even-row-color">
-<div class="block">Use
- <a href="org.junit.platform.engine/org/junit/platform/engine/ExecutionRequest.html#create(org.junit.platform.engine.TestDescriptor,org.junit.platform.engine.EngineExecutionListener,org.junit.platform.engine.ConfigurationParameters,org.junit.platform.engine.reporting.OutputDirectoryProvider,org.junit.platform.engine.support.store.NamespacedHierarchicalStore,org.junit.platform.engine.CancellationToken)"><code>ExecutionRequest.create(TestDescriptor, EngineExecutionListener, ConfigurationParameters, OutputDirectoryProvider, NamespacedHierarchicalStore, CancellationToken)</code></a>
- instead.</div>
+<div class="block">without replacement because it's an internal API.</div>
 </div>
 </div>
 </div>

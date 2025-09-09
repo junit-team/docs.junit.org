@@ -65,13 +65,14 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Package</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><a href="#org.junit.jupiter.engine.config">org.junit.jupiter.engine.config</a></div>
+<div class="col-first even-row-color"><a href="#org.junit.platform.engine">org.junit.platform.engine</a></div>
 <div class="col-last even-row-color">
-<div class="block">Configuration specific to the JUnit Jupiter test engine.</div>
-</div>
-<div class="col-first odd-row-color"><a href="#org.junit.platform.engine">org.junit.platform.engine</a></div>
-<div class="col-last odd-row-color">
 <div class="block">Public API for test engines.</div>
+</div>
+<div class="col-first odd-row-color"><a href="#org.junit.platform.engine.reporting">org.junit.platform.engine.reporting</a></div>
+<div class="col-last odd-row-color">
+<div class="block">Classes used by test engines to report additional data to execution
+ listeners.</div>
 </div>
 <div class="col-first even-row-color"><a href="#org.junit.platform.launcher">org.junit.platform.launcher</a></div>
 <div class="col-last even-row-color">
@@ -92,37 +93,6 @@ loadScripts(document, 'script');</script>
 <section class="class-uses">
 <ul class="block-list">
 <li>
-<section class="detail" id="org.junit.jupiter.engine.config">
-<h2>Uses of <a href="../OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting">OutputDirectoryProvider</a> in <a href="../../../../../../../org.junit.jupiter.engine/org/junit/jupiter/engine/config/package-summary.html">org.junit.jupiter.engine.config</a></h2>
-<div class="caption"><span>Methods in <a href="../../../../../../../org.junit.jupiter.engine/org/junit/jupiter/engine/config/package-summary.html">org.junit.jupiter.engine.config</a> that return <a href="../OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting">OutputDirectoryProvider</a></span></div>
-<div class="summary-table three-column-summary">
-<div class="table-header col-first">Modifier and Type</div>
-<div class="table-header col-second">Method</div>
-<div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code><a href="../OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting">OutputDirectoryProvider</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">CachingJupiterConfiguration.</span><code><a href="../../../../../../../org.junit.jupiter.engine/org/junit/jupiter/engine/config/CachingJupiterConfiguration.html#getOutputDirectoryProvider()" class="member-name-link">getOutputDirectoryProvider</a>()</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code><a href="../OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting">OutputDirectoryProvider</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">DefaultJupiterConfiguration.</span><code><a href="../../../../../../../org.junit.jupiter.engine/org/junit/jupiter/engine/config/DefaultJupiterConfiguration.html#getOutputDirectoryProvider()" class="member-name-link">getOutputDirectoryProvider</a>()</code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code><a href="../OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting">OutputDirectoryProvider</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">JupiterConfiguration.</span><code><a href="../../../../../../../org.junit.jupiter.engine/org/junit/jupiter/engine/config/JupiterConfiguration.html#getOutputDirectoryProvider()" class="member-name-link">getOutputDirectoryProvider</a>()</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
-</div>
-<div class="caption"><span>Constructors in <a href="../../../../../../../org.junit.jupiter.engine/org/junit/jupiter/engine/config/package-summary.html">org.junit.jupiter.engine.config</a> with parameters of type <a href="../OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting">OutputDirectoryProvider</a></span></div>
-<div class="summary-table three-column-summary">
-<div class="table-header col-first">Modifier</div>
-<div class="table-header col-second">Constructor</div>
-<div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code>&nbsp;</code></div>
-<div class="col-second even-row-color"><code><a href="../../../../../../../org.junit.jupiter.engine/org/junit/jupiter/engine/config/DefaultJupiterConfiguration.html#%3Cinit%3E(org.junit.platform.engine.ConfigurationParameters,org.junit.platform.engine.reporting.OutputDirectoryProvider,org.junit.platform.engine.support.discovery.DiscoveryIssueReporter)" class="member-name-link">DefaultJupiterConfiguration</a><wbr>(<a href="../../ConfigurationParameters.html" title="interface in org.junit.platform.engine">ConfigurationParameters</a>&nbsp;configurationParameters,
- <a href="../OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting">OutputDirectoryProvider</a>&nbsp;outputDirectoryProvider,
- <a href="../../support/discovery/DiscoveryIssueReporter.html" title="interface in org.junit.platform.engine.support.discovery">DiscoveryIssueReporter</a>&nbsp;issueReporter)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
-</div>
-</section>
-</li>
-<li>
 <section class="detail" id="org.junit.platform.engine">
 <h2>Uses of <a href="../OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting">OutputDirectoryProvider</a> in <a href="../../package-summary.html">org.junit.platform.engine</a></h2>
 <div class="caption"><span>Methods in <a href="../../package-summary.html">org.junit.platform.engine</a> that return <a href="../OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting">OutputDirectoryProvider</a></span></div>
@@ -133,29 +103,34 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color"><code>default <a href="../OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting">OutputDirectoryProvider</a></code></div>
 <div class="col-second even-row-color"><span class="type-name-label">EngineDiscoveryRequest.</span><code><a href="../../EngineDiscoveryRequest.html#getOutputDirectoryProvider()" class="member-name-link">getOutputDirectoryProvider</a>()</code></div>
 <div class="col-last even-row-color">
-<div class="block">Get the <a href="../OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting"><code>OutputDirectoryProvider</code></a> for this request.</div>
+<div class="block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
+<div class="deprecation-comment">Please use <a href="../../EngineDiscoveryRequest.html#getOutputDirectoryCreator()"><code>EngineDiscoveryRequest.getOutputDirectoryCreator()</code></a> instead</div>
+</div>
 </div>
 <div class="col-first odd-row-color"><code><a href="../OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting">OutputDirectoryProvider</a></code></div>
 <div class="col-second odd-row-color"><span class="type-name-label">ExecutionRequest.</span><code><a href="../../ExecutionRequest.html#getOutputDirectoryProvider()" class="member-name-link">getOutputDirectoryProvider</a>()</code></div>
 <div class="col-last odd-row-color">
-<div class="block">Returns the <a href="../OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting"><code>OutputDirectoryProvider</code></a> for this request for writing
- reports and other output files.</div>
+<div class="block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
+<div class="deprecation-comment">Please use <a href="../../ExecutionRequest.html#getOutputDirectoryCreator()"><code>ExecutionRequest.getOutputDirectoryCreator()</code></a> instead</div>
 </div>
 </div>
-<div class="caption"><span>Methods in <a href="../../package-summary.html">org.junit.platform.engine</a> with parameters of type <a href="../OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting">OutputDirectoryProvider</a></span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="org.junit.platform.engine.reporting">
+<h2>Uses of <a href="../OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting">OutputDirectoryProvider</a> in <a href="../package-summary.html">org.junit.platform.engine.reporting</a></h2>
+<div class="caption"><span>Methods in <a href="../package-summary.html">org.junit.platform.engine.reporting</a> that return <a href="../OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting">OutputDirectoryProvider</a></span></div>
 <div class="summary-table three-column-summary">
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code>static <a href="../../ExecutionRequest.html" title="class in org.junit.platform.engine">ExecutionRequest</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">ExecutionRequest.</span><code><a href="../../ExecutionRequest.html#create(org.junit.platform.engine.TestDescriptor,org.junit.platform.engine.EngineExecutionListener,org.junit.platform.engine.ConfigurationParameters,org.junit.platform.engine.reporting.OutputDirectoryProvider,org.junit.platform.engine.support.store.NamespacedHierarchicalStore,org.junit.platform.engine.CancellationToken)" class="member-name-link">create</a><wbr>(<a href="../../TestDescriptor.html" title="interface in org.junit.platform.engine">TestDescriptor</a>&nbsp;rootTestDescriptor,
- <a href="../../EngineExecutionListener.html" title="interface in org.junit.platform.engine">EngineExecutionListener</a>&nbsp;engineExecutionListener,
- <a href="../../ConfigurationParameters.html" title="interface in org.junit.platform.engine">ConfigurationParameters</a>&nbsp;configurationParameters,
- <a href="../OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting">OutputDirectoryProvider</a>&nbsp;outputDirectoryProvider,
- <a href="../../support/store/NamespacedHierarchicalStore.html" title="class in org.junit.platform.engine.support.store">NamespacedHierarchicalStore</a>&lt;<a href="../../support/store/Namespace.html" title="class in org.junit.platform.engine.support.store">Namespace</a>&gt;&nbsp;requestLevelStore,
- <a href="../../CancellationToken.html" title="interface in org.junit.platform.engine">CancellationToken</a>&nbsp;cancellationToken)</code></div>
+<div class="col-first even-row-color"><code>static <a href="../OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting">OutputDirectoryProvider</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">OutputDirectoryProvider.</span><code><a href="../OutputDirectoryProvider.html#castOrAdapt(org.junit.platform.engine.OutputDirectoryCreator)" class="member-name-link">castOrAdapt</a><wbr>(<a href="../../OutputDirectoryCreator.html" title="interface in org.junit.platform.engine">OutputDirectoryCreator</a>&nbsp;outputDirectoryCreator)</code></div>
 <div class="col-last even-row-color">
-<div class="block">Factory for creating an execution request.</div>
+<div class="block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span></div>
+<div class="block">Cast or adapt an <a href="../../OutputDirectoryCreator.html" title="interface in org.junit.platform.engine"><code>OutputDirectoryCreator</code></a> to a
+ <code>OutputDirectoryProvider</code>.</div>
 </div>
 </div>
 </section>
@@ -171,34 +146,10 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color"><code><a href="../OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting">OutputDirectoryProvider</a></code></div>
 <div class="col-second even-row-color"><span class="type-name-label">TestPlan.</span><code><a href="../../../../../../../org.junit.platform.launcher/org/junit/platform/launcher/TestPlan.html#getOutputDirectoryProvider()" class="member-name-link">getOutputDirectoryProvider</a>()</code></div>
 <div class="col-last even-row-color">
-<div class="block">Get the <a href="../OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting"><code>OutputDirectoryProvider</code></a> for this test plan.</div>
+<div class="block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
+<div class="deprecation-comment">Please use <a href="../../../../../../../org.junit.platform.launcher/org/junit/platform/launcher/TestPlan.html#getOutputDirectoryCreator()"><code>TestPlan.getOutputDirectoryCreator()</code></a> instead</div>
 </div>
 </div>
-<div class="caption"><span>Methods in <a href="../../../../../../../org.junit.platform.launcher/org/junit/platform/launcher/package-summary.html">org.junit.platform.launcher</a> with parameters of type <a href="../OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting">OutputDirectoryProvider</a></span></div>
-<div class="summary-table three-column-summary">
-<div class="table-header col-first">Modifier and Type</div>
-<div class="table-header col-second">Method</div>
-<div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code>static <a href="../../../../../../../org.junit.platform.launcher/org/junit/platform/launcher/TestPlan.html" title="class in org.junit.platform.launcher">TestPlan</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">TestPlan.</span><code><a href="../../../../../../../org.junit.platform.launcher/org/junit/platform/launcher/TestPlan.html#from(boolean,java.util.Collection,org.junit.platform.engine.ConfigurationParameters,org.junit.platform.engine.reporting.OutputDirectoryProvider)" class="member-name-link">from</a><wbr>(boolean&nbsp;containsTests,
- <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="../../TestDescriptor.html" title="interface in org.junit.platform.engine">TestDescriptor</a>&gt;&nbsp;engineDescriptors,
- <a href="../../ConfigurationParameters.html" title="interface in org.junit.platform.engine">ConfigurationParameters</a>&nbsp;configurationParameters,
- <a href="../OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting">OutputDirectoryProvider</a>&nbsp;outputDirectoryProvider)</code></div>
-<div class="col-last even-row-color">
-<div class="block">Construct a new <code>TestPlan</code> from the supplied collection of
- <a href="../../TestDescriptor.html" title="interface in org.junit.platform.engine"><code>TestDescriptors</code></a>.</div>
-</div>
-</div>
-<div class="caption"><span>Constructors in <a href="../../../../../../../org.junit.platform.launcher/org/junit/platform/launcher/package-summary.html">org.junit.platform.launcher</a> with parameters of type <a href="../OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting">OutputDirectoryProvider</a></span></div>
-<div class="summary-table three-column-summary">
-<div class="table-header col-first">Modifier</div>
-<div class="table-header col-second">Constructor</div>
-<div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code>protected </code></div>
-<div class="col-second even-row-color"><code><a href="../../../../../../../org.junit.platform.launcher/org/junit/platform/launcher/TestPlan.html#%3Cinit%3E(boolean,org.junit.platform.engine.ConfigurationParameters,org.junit.platform.engine.reporting.OutputDirectoryProvider)" class="member-name-link">TestPlan</a><wbr>(boolean&nbsp;containsTests,
- <a href="../../ConfigurationParameters.html" title="interface in org.junit.platform.engine">ConfigurationParameters</a>&nbsp;configurationParameters,
- <a href="../OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting">OutputDirectoryProvider</a>&nbsp;outputDirectoryProvider)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
 </li>
@@ -213,7 +164,10 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color"><code><a href="../../../../../../../org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherDiscoveryRequestBuilder.html" title="class in org.junit.platform.launcher.core">LauncherDiscoveryRequestBuilder</a></code></div>
 <div class="col-second even-row-color"><span class="type-name-label">LauncherDiscoveryRequestBuilder.</span><code><a href="../../../../../../../org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherDiscoveryRequestBuilder.html#outputDirectoryProvider(org.junit.platform.engine.reporting.OutputDirectoryProvider)" class="member-name-link">outputDirectoryProvider</a><wbr>(<a href="../OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting">OutputDirectoryProvider</a>&nbsp;outputDirectoryProvider)</code></div>
 <div class="col-last even-row-color">
-<div class="block">Set the <a href="../OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting"><code>OutputDirectoryProvider</code></a> to use for the request.</div>
+<div class="block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
+<div class="deprecation-comment">Please use
+ <a href="../../../../../../../org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherDiscoveryRequestBuilder.html#outputDirectoryCreator(org.junit.platform.engine.OutputDirectoryCreator)"><code>LauncherDiscoveryRequestBuilder.outputDirectoryCreator(OutputDirectoryCreator)</code></a> instead</div>
+</div>
 </div>
 </div>
 </section>
@@ -229,7 +183,10 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color"><code><a href="../../../../../../../org.junit.platform.testkit/org/junit/platform/testkit/engine/EngineTestKit.Builder.html" title="class in org.junit.platform.testkit.engine">EngineTestKit.Builder</a></code></div>
 <div class="col-second even-row-color"><span class="type-name-label">EngineTestKit.Builder.</span><code><a href="../../../../../../../org.junit.platform.testkit/org/junit/platform/testkit/engine/EngineTestKit.Builder.html#outputDirectoryProvider(org.junit.platform.engine.reporting.OutputDirectoryProvider)" class="member-name-link">outputDirectoryProvider</a><wbr>(<a href="../OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting">OutputDirectoryProvider</a>&nbsp;outputDirectoryProvider)</code></div>
 <div class="col-last even-row-color">
-<div class="block">Set the <a href="../OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting"><code>OutputDirectoryProvider</code></a> to use.</div>
+<div class="block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
+<div class="deprecation-comment">Please use
+ <a href="../../../../../../../org.junit.platform.testkit/org/junit/platform/testkit/engine/EngineTestKit.Builder.html#outputDirectoryCreator(org.junit.platform.engine.OutputDirectoryCreator)"><code>EngineTestKit.Builder.outputDirectoryCreator(OutputDirectoryCreator)</code></a> instead</div>
+</div>
 </div>
 </div>
 </section>

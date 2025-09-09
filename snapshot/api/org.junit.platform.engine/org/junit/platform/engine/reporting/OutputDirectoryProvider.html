@@ -68,8 +68,7 @@ loadScripts(document, 'script');</script>
 <li><a href="#method-summary" tabindex="0">Method Summary</a></li>
 <li><a href="#method-detail" tabindex="0">Method Details</a>
 <ol class="toc-list">
-<li><a href="#getRootDirectory()" tabindex="0">getRootDirectory()</a></li>
-<li><a href="#createOutputDirectory(org.junit.platform.engine.TestDescriptor)" tabindex="0">createOutputDirectory(TestDescriptor)</a></li>
+<li><a href="#castOrAdapt(org.junit.platform.engine.OutputDirectoryCreator)" tabindex="0">castOrAdapt(OutputDirectoryCreator)</a></li>
 </ol>
 </li>
 </ol>
@@ -80,11 +79,21 @@ loadScripts(document, 'script');</script>
 <h1 title="Interface OutputDirectoryProvider" class="title">Interface OutputDirectoryProvider</h1>
 </div>
 <section class="class-description" id="class-description">
+<dl class="notes">
+<dt>All Superinterfaces:</dt>
+<dd><code><a href="../OutputDirectoryCreator.html" title="interface in org.junit.platform.engine">OutputDirectoryCreator</a></code></dd>
+</dl>
 <hr>
 <div class="horizontal-scroll">
-<div class="type-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#MAINTAINED" title="class or interface in org.apiguardian.api" class="external-link">MAINTAINED</a>,
-     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="1.13.3")
-</span><span class="modifiers">public interface </span><span class="element-name type-name-label">OutputDirectoryProvider</span></div>
+<div class="type-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Deprecated.html#since()" title="class or interface in java.lang" class="external-link">since</a>="6.0",
+            <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Deprecated.html#forRemoval()" title="class or interface in java.lang" class="external-link">forRemoval</a>=true)
+<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#DEPRECATED" title="class or interface in org.apiguardian.api" class="external-link">DEPRECATED</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.0")
+</span><span class="modifiers">public interface </span><span class="element-name type-name-label">OutputDirectoryProvider</span><span class="extends-implements">
+extends <a href="../OutputDirectoryCreator.html" title="interface in org.junit.platform.engine">OutputDirectoryCreator</a></span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
+<div class="deprecation-comment">Please implement <a href="../OutputDirectoryCreator.html" title="interface in org.junit.platform.engine"><code>OutputDirectoryCreator</code></a> instead</div>
+</div>
 <div class="block">Provider of output directories for test engines to write reports and other
  output files to.</div>
 <dl class="notes">
@@ -106,25 +115,25 @@ loadScripts(document, 'script');</script>
 <section class="method-summary" id="method-summary">
 <h2>Method Summary</h2>
 <div id="method-summary-table">
-<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab3" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab3', 3)" class="table-tab">Abstract Methods</button></div>
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab1" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab1', 3)" class="table-tab">Static Methods</button><button id="method-summary-table-tab6" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab6', 3)" class="table-tab">Deprecated Methods</button></div>
 <div id="method-summary-table.tabpanel" role="tabpanel" aria-labelledby="method-summary-table-tab0">
 <div class="summary-table three-column-summary">
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#createOutputDirectory(org.junit.platform.engine.TestDescriptor)" class="member-name-link">createOutputDirectory</a><wbr>(<a href="../TestDescriptor.html" title="interface in org.junit.platform.engine">TestDescriptor</a>&nbsp;testDescriptor)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
-<div class="block">Create an output directory for the supplied test descriptor.</div>
-</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getRootDirectory()" class="member-name-link">getRootDirectory</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
-<div class="block">Returns the root directory for all output files; never <code>null</code>.</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab6"><code>static <a href="OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting">OutputDirectoryProvider</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab6"><code><a href="#castOrAdapt(org.junit.platform.engine.OutputDirectoryCreator)" class="member-name-link">castOrAdapt</a><wbr>(<a href="../OutputDirectoryCreator.html" title="interface in org.junit.platform.engine">OutputDirectoryCreator</a>&nbsp;outputDirectoryCreator)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab6">
+<div class="block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span></div>
+<div class="block">Cast or adapt an <a href="../OutputDirectoryCreator.html" title="interface in org.junit.platform.engine"><code>OutputDirectoryCreator</code></a> to a
+ <code>OutputDirectoryProvider</code>.</div>
 </div>
 </div>
 </div>
 </div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-org.junit.platform.engine.OutputDirectoryCreator">Methods inherited from interface&nbsp;org.junit.platform.engine.<a href="../OutputDirectoryCreator.html" title="interface in org.junit.platform.engine">OutputDirectoryCreator</a></h3>
+<code><a href="../OutputDirectoryCreator.html#createOutputDirectory(org.junit.platform.engine.TestDescriptor)">createOutputDirectory</a>, <a href="../OutputDirectoryCreator.html#getRootDirectory()">getRootDirectory</a></code></div>
 </section>
 </li>
 </ul>
@@ -137,33 +146,18 @@ loadScripts(document, 'script');</script>
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="getRootDirectory()">
-<h3>getRootDirectory</h3>
+<section class="detail" id="castOrAdapt(org.junit.platform.engine.OutputDirectoryCreator)">
+<h3>castOrAdapt</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></span>&nbsp;<span class="element-name">getRootDirectory</span>()</div>
-<div class="block">Returns the root directory for all output files; never <code>null</code>.</div>
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#INTERNAL" title="class or interface in org.apiguardian.api" class="external-link">INTERNAL</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.0")
+</span><span class="modifiers">static</span>&nbsp;<span class="return-type"><a href="OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting">OutputDirectoryProvider</a></span>&nbsp;<span class="element-name">castOrAdapt</span><wbr><span class="parameters">(<a href="../OutputDirectoryCreator.html" title="interface in org.junit.platform.engine">OutputDirectoryCreator</a>&nbsp;outputDirectoryCreator)</span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span></div>
+<div class="block">Cast or adapt an <a href="../OutputDirectoryCreator.html" title="interface in org.junit.platform.engine"><code>OutputDirectoryCreator</code></a> to a
+ <code>OutputDirectoryProvider</code>.</div>
 <dl class="notes">
-<dt>Returns:</dt>
-<dd>the root directory for all output files; never <code>null</code></dd>
-</dl>
-</div>
-</section>
-</li>
-<li>
-<section class="detail" id="createOutputDirectory(org.junit.platform.engine.TestDescriptor)">
-<h3>createOutputDirectory</h3>
-<div class="horizontal-scroll">
-<div class="member-signature"><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></span>&nbsp;<span class="element-name">createOutputDirectory</span><wbr><span class="parameters">(<a href="../TestDescriptor.html" title="interface in org.junit.platform.engine">TestDescriptor</a>&nbsp;testDescriptor)</span>
-                    throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
-<div class="block">Create an output directory for the supplied test descriptor.</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>testDescriptor</code> - the test descriptor for which to create an output
- directory; never <code>null</code></dd>
-<dt>Returns:</dt>
-<dd>the output directory</dd>
-<dt>Throws:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code> - if the output directory could not be created</dd>
+<dt>Since:</dt>
+<dd>6.0</dd>
 </dl>
 </div>
 </section>

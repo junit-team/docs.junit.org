@@ -603,18 +603,38 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="../org.junit.platform.launcher/org/junit/platform/launcher/listeners/OutputDir.html" class="type-name-link" title="class in org.junit.platform.launcher.listeners">OutputDir</a> - Class in <a href="../org.junit.platform.launcher/org/junit/platform/launcher/listeners/package-summary.html">org.junit.platform.launcher.listeners</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="../org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherDiscoveryRequestBuilder.html#outputDirectoryProvider(org.junit.platform.engine.reporting.OutputDirectoryProvider)" class="member-name-link">outputDirectoryProvider(OutputDirectoryProvider)</a> - Method in class org.junit.platform.launcher.core.<a href="../org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherDiscoveryRequestBuilder.html" title="class in org.junit.platform.launcher.core">LauncherDiscoveryRequestBuilder</a></dt>
+<dt><a href="../org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherDiscoveryRequestBuilder.html#outputDirectoryCreator(org.junit.platform.engine.OutputDirectoryCreator)" class="member-name-link">outputDirectoryCreator(OutputDirectoryCreator)</a> - Method in class org.junit.platform.launcher.core.<a href="../org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherDiscoveryRequestBuilder.html" title="class in org.junit.platform.launcher.core">LauncherDiscoveryRequestBuilder</a></dt>
 <dd>
-<div class="block">Set the <a href="../org.junit.platform.engine/org/junit/platform/engine/reporting/OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting"><code>OutputDirectoryProvider</code></a> to use for the request.</div>
+<div class="block">Set the <a href="../org.junit.platform.engine/org/junit/platform/engine/OutputDirectoryCreator.html" title="interface in org.junit.platform.engine"><code>OutputDirectoryCreator</code></a> to use for the request.</div>
 </dd>
-<dt><a href="../org.junit.platform.testkit/org/junit/platform/testkit/engine/EngineTestKit.Builder.html#outputDirectoryProvider(org.junit.platform.engine.reporting.OutputDirectoryProvider)" class="member-name-link">outputDirectoryProvider(OutputDirectoryProvider)</a> - Method in class org.junit.platform.testkit.engine.<a href="../org.junit.platform.testkit/org/junit/platform/testkit/engine/EngineTestKit.Builder.html" title="class in org.junit.platform.testkit.engine">EngineTestKit.Builder</a></dt>
+<dt><a href="../org.junit.platform.testkit/org/junit/platform/testkit/engine/EngineTestKit.Builder.html#outputDirectoryCreator(org.junit.platform.engine.OutputDirectoryCreator)" class="member-name-link">outputDirectoryCreator(OutputDirectoryCreator)</a> - Method in class org.junit.platform.testkit.engine.<a href="../org.junit.platform.testkit/org/junit/platform/testkit/engine/EngineTestKit.Builder.html" title="class in org.junit.platform.testkit.engine">EngineTestKit.Builder</a></dt>
 <dd>
-<div class="block">Set the <a href="../org.junit.platform.engine/org/junit/platform/engine/reporting/OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting"><code>OutputDirectoryProvider</code></a> to use.</div>
+<div class="block">Set the <a href="../org.junit.platform.engine/org/junit/platform/engine/OutputDirectoryCreator.html" title="interface in org.junit.platform.engine"><code>OutputDirectoryCreator</code></a> to use.</div>
 </dd>
-<dt><a href="../org.junit.platform.engine/org/junit/platform/engine/reporting/OutputDirectoryProvider.html" class="type-name-link" title="interface in org.junit.platform.engine.reporting">OutputDirectoryProvider</a> - Interface in <a href="../org.junit.platform.engine/org/junit/platform/engine/reporting/package-summary.html">org.junit.platform.engine.reporting</a></dt>
+<dt><a href="../org.junit.platform.engine/org/junit/platform/engine/OutputDirectoryCreator.html" class="type-name-link" title="interface in org.junit.platform.engine">OutputDirectoryCreator</a> - Interface in <a href="../org.junit.platform.engine/org/junit/platform/engine/package-summary.html">org.junit.platform.engine</a></dt>
 <dd>
 <div class="block">Provider of output directories for test engines to write reports and other
  output files to.</div>
+</dd>
+<dt><a href="../org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherDiscoveryRequestBuilder.html#outputDirectoryProvider(org.junit.platform.engine.reporting.OutputDirectoryProvider)" class="member-name-link">outputDirectoryProvider(OutputDirectoryProvider)</a> - Method in class org.junit.platform.launcher.core.<a href="../org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherDiscoveryRequestBuilder.html" title="class in org.junit.platform.launcher.core">LauncherDiscoveryRequestBuilder</a></dt>
+<dd>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
+<div class="deprecation-comment">Please use
+ <a href="../org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherDiscoveryRequestBuilder.html#outputDirectoryCreator(org.junit.platform.engine.OutputDirectoryCreator)"><code>LauncherDiscoveryRequestBuilder.outputDirectoryCreator(OutputDirectoryCreator)</code></a> instead</div>
+</div>
+</dd>
+<dt><a href="../org.junit.platform.testkit/org/junit/platform/testkit/engine/EngineTestKit.Builder.html#outputDirectoryProvider(org.junit.platform.engine.reporting.OutputDirectoryProvider)" class="member-name-link">outputDirectoryProvider(OutputDirectoryProvider)</a> - Method in class org.junit.platform.testkit.engine.<a href="../org.junit.platform.testkit/org/junit/platform/testkit/engine/EngineTestKit.Builder.html" title="class in org.junit.platform.testkit.engine">EngineTestKit.Builder</a></dt>
+<dd>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
+<div class="deprecation-comment">Please use
+ <a href="../org.junit.platform.testkit/org/junit/platform/testkit/engine/EngineTestKit.Builder.html#outputDirectoryCreator(org.junit.platform.engine.OutputDirectoryCreator)"><code>EngineTestKit.Builder.outputDirectoryCreator(OutputDirectoryCreator)</code></a> instead</div>
+</div>
+</dd>
+<dt><a href="../org.junit.platform.engine/org/junit/platform/engine/reporting/OutputDirectoryProvider.html" class="type-name-link" title="interface in org.junit.platform.engine.reporting">OutputDirectoryProvider</a> - Interface in <a href="../org.junit.platform.engine/org/junit/platform/engine/reporting/package-summary.html">org.junit.platform.engine.reporting</a></dt>
+<dd>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
+<div class="deprecation-comment">Please implement <a href="../org.junit.platform.engine/org/junit/platform/engine/OutputDirectoryCreator.html" title="interface in org.junit.platform.engine"><code>OutputDirectoryCreator</code></a> instead</div>
+</div>
 </dd>
 </dl>
 <a href="index-1.html">A</a>&nbsp;<a href="index-2.html">B</a>&nbsp;<a href="index-3.html">C</a>&nbsp;<a href="index-4.html">D</a>&nbsp;<a href="index-5.html">E</a>&nbsp;<a href="index-6.html">F</a>&nbsp;<a href="index-7.html">G</a>&nbsp;<a href="index-8.html">H</a>&nbsp;<a href="index-9.html">I</a>&nbsp;<a href="index-10.html">J</a>&nbsp;<a href="index-11.html">K</a>&nbsp;<a href="index-12.html">L</a>&nbsp;<a href="index-13.html">M</a>&nbsp;<a href="index-14.html">N</a>&nbsp;<a href="index-15.html">O</a>&nbsp;<a href="index-16.html">P</a>&nbsp;<a href="index-17.html">Q</a>&nbsp;<a href="index-18.html">R</a>&nbsp;<a href="index-19.html">S</a>&nbsp;<a href="index-20.html">T</a>&nbsp;<a href="index-21.html">U</a>&nbsp;<a href="index-22.html">V</a>&nbsp;<a href="index-23.html">W</a>&nbsp;<br><a href="../allclasses-index.html">All&nbsp;Classes&nbsp;and&nbsp;Interfaces</a><span class="vertical-separator">|</span><a href="../allpackages-index.html">All&nbsp;Packages</a><span class="vertical-separator">|</span><a href="../constant-values.html">Constant&nbsp;Field&nbsp;Values</a><span class="vertical-separator">|</span><a href="../serialized-form.html">Serialized&nbsp;Form</a></main>

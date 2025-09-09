@@ -70,7 +70,7 @@ loadScripts(document, 'script');</script>
 <li><a href="#method-summary" tabindex="0">Method Summary</a></li>
 <li><a href="#constructor-detail" tabindex="0">Constructor Details</a>
 <ol class="toc-list">
-<li><a href="#%3Cinit%3E(org.junit.platform.engine.ConfigurationParameters,org.junit.platform.engine.reporting.OutputDirectoryProvider,org.junit.platform.engine.support.discovery.DiscoveryIssueReporter)" tabindex="0">DefaultJupiterConfiguration(ConfigurationParameters, OutputDirectoryProvider, DiscoveryIssueReporter)</a></li>
+<li><a href="#%3Cinit%3E(org.junit.platform.engine.ConfigurationParameters,org.junit.platform.engine.OutputDirectoryCreator,org.junit.platform.engine.support.discovery.DiscoveryIssueReporter)" tabindex="0">DefaultJupiterConfiguration(ConfigurationParameters, OutputDirectoryCreator, DiscoveryIssueReporter)</a></li>
 </ol>
 </li>
 <li><a href="#method-detail" tabindex="0">Method Details</a>
@@ -92,7 +92,7 @@ loadScripts(document, 'script');</script>
 <li><a href="#getDefaultTempDirCleanupMode()" tabindex="0">getDefaultTempDirCleanupMode()</a></li>
 <li><a href="#getDefaultTempDirFactorySupplier()" tabindex="0">getDefaultTempDirFactorySupplier()</a></li>
 <li><a href="#getDefaultTestInstantiationExtensionContextScope()" tabindex="0">getDefaultTestInstantiationExtensionContextScope()</a></li>
-<li><a href="#getOutputDirectoryProvider()" tabindex="0">getOutputDirectoryProvider()</a></li>
+<li><a href="#getOutputDirectoryCreator()" tabindex="0">getOutputDirectoryCreator()</a></li>
 </ol>
 </li>
 </ol>
@@ -143,8 +143,8 @@ implements <a href="JupiterConfiguration.html" title="interface in org.junit.jup
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(org.junit.platform.engine.ConfigurationParameters,org.junit.platform.engine.reporting.OutputDirectoryProvider,org.junit.platform.engine.support.discovery.DiscoveryIssueReporter)" class="member-name-link">DefaultJupiterConfiguration</a><wbr>(<a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/ConfigurationParameters.html" title="interface in org.junit.platform.engine">ConfigurationParameters</a>&nbsp;configurationParameters,
- <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/reporting/OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting">OutputDirectoryProvider</a>&nbsp;outputDirectoryProvider,
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(org.junit.platform.engine.ConfigurationParameters,org.junit.platform.engine.OutputDirectoryCreator,org.junit.platform.engine.support.discovery.DiscoveryIssueReporter)" class="member-name-link">DefaultJupiterConfiguration</a><wbr>(<a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/ConfigurationParameters.html" title="interface in org.junit.platform.engine">ConfigurationParameters</a>&nbsp;configurationParameters,
+ <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/OutputDirectoryCreator.html" title="interface in org.junit.platform.engine">OutputDirectoryCreator</a>&nbsp;outputDirectoryCreator,
  <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/support/discovery/DiscoveryIssueReporter.html" title="interface in org.junit.platform.engine.support.discovery">DiscoveryIssueReporter</a>&nbsp;issueReporter)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
@@ -194,8 +194,8 @@ implements <a href="JupiterConfiguration.html" title="interface in org.junit.jup
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;? extends <a href="../../../../../../org.junit.jupiter.api/org/junit/jupiter/api/extension/Extension.html" title="interface in org.junit.jupiter.api.extension">Extension</a>&gt;&gt;</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getFilterForAutoDetectedExtensions()" class="member-name-link">getFilterForAutoDetectedExtensions</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/reporting/OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting">OutputDirectoryProvider</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getOutputDirectoryProvider()" class="member-name-link">getOutputDirectoryProvider</a>()</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/OutputDirectoryCreator.html" title="interface in org.junit.platform.engine">OutputDirectoryCreator</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getOutputDirectoryCreator()" class="member-name-link">getOutputDirectoryCreator</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRawConfigurationParameter(java.lang.String)" class="member-name-link">getRawConfigurationParameter</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;key)</code></div>
@@ -234,11 +234,11 @@ implements <a href="JupiterConfiguration.html" title="interface in org.junit.jup
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(org.junit.platform.engine.ConfigurationParameters,org.junit.platform.engine.reporting.OutputDirectoryProvider,org.junit.platform.engine.support.discovery.DiscoveryIssueReporter)">
+<section class="detail" id="&lt;init&gt;(org.junit.platform.engine.ConfigurationParameters,org.junit.platform.engine.OutputDirectoryCreator,org.junit.platform.engine.support.discovery.DiscoveryIssueReporter)">
 <h3>DefaultJupiterConfiguration</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">DefaultJupiterConfiguration</span><wbr><span class="parameters">(<a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/ConfigurationParameters.html" title="interface in org.junit.platform.engine">ConfigurationParameters</a>&nbsp;configurationParameters,
- <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/reporting/OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting">OutputDirectoryProvider</a>&nbsp;outputDirectoryProvider,
+ <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/OutputDirectoryCreator.html" title="interface in org.junit.platform.engine">OutputDirectoryCreator</a>&nbsp;outputDirectoryCreator,
  <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/support/discovery/DiscoveryIssueReporter.html" title="interface in org.junit.platform.engine.support.discovery">DiscoveryIssueReporter</a>&nbsp;issueReporter)</span></div>
 </div>
 </section>
@@ -457,13 +457,13 @@ implements <a href="JupiterConfiguration.html" title="interface in org.junit.jup
 </section>
 </li>
 <li>
-<section class="detail" id="getOutputDirectoryProvider()">
-<h3>getOutputDirectoryProvider</h3>
+<section class="detail" id="getOutputDirectoryCreator()">
+<h3>getOutputDirectoryCreator</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/reporting/OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting">OutputDirectoryProvider</a></span>&nbsp;<span class="element-name">getOutputDirectoryProvider</span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/OutputDirectoryCreator.html" title="interface in org.junit.platform.engine">OutputDirectoryCreator</a></span>&nbsp;<span class="element-name">getOutputDirectoryCreator</span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="JupiterConfiguration.html#getOutputDirectoryProvider()">getOutputDirectoryProvider</a></code>&nbsp;in interface&nbsp;<code><a href="JupiterConfiguration.html" title="interface in org.junit.jupiter.engine.config">JupiterConfiguration</a></code></dd>
+<dd><code><a href="JupiterConfiguration.html#getOutputDirectoryCreator()">getOutputDirectoryCreator</a></code>&nbsp;in interface&nbsp;<code><a href="JupiterConfiguration.html" title="interface in org.junit.jupiter.engine.config">JupiterConfiguration</a></code></dd>
 </dl>
 </div>
 </section>
