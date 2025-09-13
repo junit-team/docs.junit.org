@@ -586,8 +586,8 @@ JUnit repository on GitHub.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Change serialization of <code>TestIdentifier</code> in a backwards-incompatible way to simplify
-its implementation</p>
+<p>Serialization support for <code>TestIdentifier</code> has been changed in a backwards-incompatible
+way in order to simplify the implementation.</p>
 </li>
 <li>
 <p>Deprecate <code>OutputDirectoryProvider</code> interface in favor of the new
@@ -622,7 +622,7 @@ with the following APIs (which all have replacements working with
 <div class="ulist">
 <ul>
 <li>
-<p>New <code>Resource.from(String, URI)</code> static factory method for creating an
+<p>New <code>Resource.of(String, URI)</code> static factory method for creating an
 <code>org.junit.platform.commons.support.Resource</code>.</p>
 </li>
 <li>
@@ -656,8 +656,8 @@ different <code>FilePosition</code> instances for the same <code>File</code>.</p
 default encoding for the <code>application/json</code> media type.</p>
 </li>
 <li>
-<p><code>org.junit.jupiter.params.support.ParameterInfo</code> is now deprecated in favor of
-<code>org.junit.jupiter.params.ParameterInfo</code></p>
+<p><code>org.junit.jupiter.params.support.ParameterInfo</code> is now deprecated in favor of the new
+<code>org.junit.jupiter.params.ParameterInfo</code>.</p>
 </li>
 </ul>
 </div>
