@@ -71,6 +71,7 @@ loadScripts(document, 'script');</script>
 <ol class="toc-list">
 <li><a href="#getClasspathResourceName()" tabindex="0">getClasspathResourceName()</a></li>
 <li><a href="#getClasspathResources()" tabindex="0">getClasspathResources()</a></li>
+<li><a href="#getResources()" tabindex="0">getResources()</a></li>
 <li><a href="#getPosition()" tabindex="0">getPosition()</a></li>
 <li><a href="#equals(java.lang.Object)" tabindex="0">equals(Object)</a></li>
 <li><a href="#hashCode()" tabindex="0">hashCode()</a></li>
@@ -153,7 +154,7 @@ implements <a href="../DiscoverySelector.html" title="interface in org.junit.pla
 <section class="method-summary" id="method-summary">
 <h2>Method Summary</h2>
 <div id="method-summary-table">
-<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button></div>
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button><button id="method-summary-table-tab6" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab6', 3)" class="table-tab">Deprecated Methods</button></div>
 <div id="method-summary-table.tabpanel" role="tabpanel" aria-labelledby="method-summary-table-tab0">
 <div class="summary-table three-column-summary">
 <div class="table-header col-first">Modifier and Type</div>
@@ -167,28 +168,35 @@ implements <a href="../DiscoverySelector.html" title="interface in org.junit.pla
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Get the name of the selected classpath resource.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a><wbr>&lt;<a href="../../../../../../org.junit.platform.commons/org/junit/platform/commons/support/Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getClasspathResources()" class="member-name-link">getClasspathResources</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Get the selected <a href="../../../../../../org.junit.platform.commons/org/junit/platform/commons/support/Resource.html" title="interface in org.junit.platform.commons.support"><code>resources</code></a>.</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4 method-summary-table-tab6"><code><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a><wbr>&lt;<a href="../../../../../../org.junit.platform.commons/org/junit/platform/commons/support/Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4 method-summary-table-tab6"><code><a href="#getClasspathResources()" class="member-name-link">getClasspathResources</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4 method-summary-table-tab6">
+<div class="block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">Please use {<a href="#getResources()"><code>getResources()</code></a>} instead.</div>
+</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a><wbr>&lt;<a href="FilePosition.html" title="class in org.junit.platform.engine.discovery">FilePosition</a>&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getPosition()" class="member-name-link">getPosition</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Get the selected <code>FilePosition</code> within the classpath resource.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hashCode()" class="member-name-link">hashCode</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a><wbr>&lt;<a href="../DiscoverySelectorIdentifier.html" title="class in org.junit.platform.engine">DiscoverySelectorIdentifier</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toIdentifier()" class="member-name-link">toIdentifier</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a><wbr>&lt;<a href="../../../../../../org.junit.platform.commons/org/junit/platform/commons/io/Resource.html" title="interface in org.junit.platform.commons.io">Resource</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getResources()" class="member-name-link">getResources</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Get the selected <a href="../../../../../../org.junit.platform.commons/org/junit/platform/commons/io/Resource.html" title="interface in org.junit.platform.commons.io"><code>resources</code></a>.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hashCode()" class="member-name-link">hashCode</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a><wbr>&lt;<a href="../DiscoverySelectorIdentifier.html" title="class in org.junit.platform.engine">DiscoverySelectorIdentifier</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toIdentifier()" class="member-name-link">toIdentifier</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Return the <a href="../DiscoverySelectorIdentifier.html" title="class in org.junit.platform.engine">identifier</a> of this
  selector.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
 </div>
@@ -232,18 +240,42 @@ implements <a href="../DiscoverySelector.html" title="interface in org.junit.pla
 <section class="detail" id="getClasspathResources()">
 <h3>getClasspathResources</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#MAINTAINED" title="class or interface in org.apiguardian.api" class="external-link">MAINTAINED</a>,
-     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="1.13.3")
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#DEPRECATED" title="class or interface in org.apiguardian.api" class="external-link">DEPRECATED</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.0")
+<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Deprecated.html#since()" title="class or interface in java.lang" class="external-link">since</a>="6.0")
 </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../../../../../../org.junit.platform.commons/org/junit/platform/commons/support/Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;</span>&nbsp;<span class="element-name">getClasspathResources</span>()</div>
-<div class="block">Get the selected <a href="../../../../../../org.junit.platform.commons/org/junit/platform/commons/support/Resource.html" title="interface in org.junit.platform.commons.support"><code>resources</code></a>.
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">Please use {<a href="#getResources()"><code>getResources()</code></a>} instead.</div>
+</div>
+<div class="block">Get the selected <a href="../../../../../../org.junit.platform.commons/org/junit/platform/commons/io/Resource.html" title="interface in org.junit.platform.commons.io"><code>resources</code></a>.
 
- <p>If the <a href="../../../../../../org.junit.platform.commons/org/junit/platform/commons/support/Resource.html" title="interface in org.junit.platform.commons.support"><code>resources</code></a> were not provided, but only their name,
- this method attempts to lazily load the <a href="../../../../../../org.junit.platform.commons/org/junit/platform/commons/support/Resource.html" title="interface in org.junit.platform.commons.support"><code>resources</code></a> based on
+ <p>If the <a href="../../../../../../org.junit.platform.commons/org/junit/platform/commons/io/Resource.html" title="interface in org.junit.platform.commons.io"><code>resources</code></a> were not provided, but only their name,
+ this method attempts to lazily load the <a href="../../../../../../org.junit.platform.commons/org/junit/platform/commons/io/Resource.html" title="interface in org.junit.platform.commons.io"><code>resources</code></a> based on
  their name and throws a <a href="../../../../../../org.junit.platform.commons/org/junit/platform/commons/PreconditionViolationException.html" title="class in org.junit.platform.commons"><code>PreconditionViolationException</code></a> if the
  resource cannot be loaded.</div>
 <dl class="notes">
 <dt>Since:</dt>
 <dd>1.12</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getResources()">
+<h3>getResources</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#MAINTAINED" title="class or interface in org.apiguardian.api" class="external-link">MAINTAINED</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.0")
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../../../../../../org.junit.platform.commons/org/junit/platform/commons/io/Resource.html" title="interface in org.junit.platform.commons.io">Resource</a>&gt;</span>&nbsp;<span class="element-name">getResources</span>()</div>
+<div class="block">Get the selected <a href="../../../../../../org.junit.platform.commons/org/junit/platform/commons/io/Resource.html" title="interface in org.junit.platform.commons.io"><code>resources</code></a>.
+
+ <p>If the <a href="../../../../../../org.junit.platform.commons/org/junit/platform/commons/io/Resource.html" title="interface in org.junit.platform.commons.io"><code>resources</code></a> were not provided, but only their name,
+ this method attempts to lazily load the <a href="../../../../../../org.junit.platform.commons/org/junit/platform/commons/io/Resource.html" title="interface in org.junit.platform.commons.io"><code>resources</code></a> based on
+ their name and throws a <a href="../../../../../../org.junit.platform.commons/org/junit/platform/commons/PreconditionViolationException.html" title="class in org.junit.platform.commons"><code>PreconditionViolationException</code></a> if the
+ resource cannot be loaded.</div>
+<dl class="notes">
+<dt>Since:</dt>
+<dd>6.0</dd>
 </dl>
 </div>
 </section>

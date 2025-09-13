@@ -131,6 +131,7 @@ loadScripts(document, 'script');</script>
 <li><a href="AnnotationSupport.html" title="class in org.junit.platform.commons.support"><code>AnnotationSupport</code></a></li>
 <li><a href="ClassSupport.html" title="class in org.junit.platform.commons.support"><code>ClassSupport</code></a></li>
 <li><a href="ModifierSupport.html" title="class in org.junit.platform.commons.support"><code>ModifierSupport</code></a></li>
+<li><a href="ResourceSupport.html" title="class in org.junit.platform.commons.support"><code>ResourceSupport</code></a></li>
 </ul>
 </dd>
 </dl>
@@ -143,7 +144,7 @@ loadScripts(document, 'script');</script>
 <section class="method-summary" id="method-summary">
 <h2>Method Summary</h2>
 <div id="method-summary-table">
-<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab1" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab1', 3)" class="table-tab">Static Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button></div>
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab1" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab1', 3)" class="table-tab">Static Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button><button id="method-summary-table-tab6" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab6', 3)" class="table-tab">Deprecated Methods</button></div>
 <div id="method-summary-table.tabpanel" role="tabpanel" aria-labelledby="method-summary-table-tab0">
 <div class="summary-table three-column-summary">
 <div class="table-header col-first">Modifier and Type</div>
@@ -176,26 +177,29 @@ loadScripts(document, 'script');</script>
  that match the specified <code>classFilter</code> and <code>classNameFilter</code>
  predicates.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#findAllResourcesInClasspathRoot(java.net.URI,java.util.function.Predicate)" class="member-name-link">findAllResourcesInClasspathRoot</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/net/URI.html" title="class or interface in java.net" class="external-link">URI</a>&nbsp;root,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4 method-summary-table-tab6"><code>static <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4 method-summary-table-tab6"><code><a href="#findAllResourcesInClasspathRoot(java.net.URI,java.util.function.Predicate)" class="member-name-link">findAllResourcesInClasspathRoot</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/net/URI.html" title="class or interface in java.net" class="external-link">URI</a>&nbsp;root,
  <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a>&lt;<a href="Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;&nbsp;resourceFilter)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Find all <a href="Resource.html" title="interface in org.junit.platform.commons.support">resources</a> in the supplied classpath <code>root</code>
- that match the specified <code>resourceFilter</code> predicate.</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4 method-summary-table-tab6">
+<div class="block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
+<div class="deprecation-comment">Please use <a href="ResourceSupport.html#findAllResourcesInClasspathRoot(java.net.URI,org.junit.platform.commons.io.ResourceFilter)"><code>ResourceSupport.findAllResourcesInClasspathRoot(URI, ResourceFilter)</code></a> instead</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#findAllResourcesInModule(java.lang.String,java.util.function.Predicate)" class="member-name-link">findAllResourcesInModule</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;moduleName,
- <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a>&lt;<a href="Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;&nbsp;resourceFilter)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Find all <a href="Resource.html" title="interface in org.junit.platform.commons.support">resources</a> in the supplied <code>moduleName</code>
- that match the specified <code>resourceFilter</code> predicate.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#findAllResourcesInPackage(java.lang.String,java.util.function.Predicate)" class="member-name-link">findAllResourcesInPackage</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;basePackageName,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4 method-summary-table-tab6"><code>static <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4 method-summary-table-tab6"><code><a href="#findAllResourcesInModule(java.lang.String,java.util.function.Predicate)" class="member-name-link">findAllResourcesInModule</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;moduleName,
  <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a>&lt;<a href="Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;&nbsp;resourceFilter)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Find all <a href="Resource.html" title="interface in org.junit.platform.commons.support">resources</a> in the supplied <code>basePackageName</code>
- that match the specified <code>resourceFilter</code> predicate.</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4 method-summary-table-tab6">
+<div class="block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
+<div class="deprecation-comment">Please use <a href="ResourceSupport.html#findAllResourcesInModule(java.lang.String,org.junit.platform.commons.io.ResourceFilter)"><code>ResourceSupport.findAllResourcesInModule(String, ResourceFilter)</code></a> instead</div>
+</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4 method-summary-table-tab6"><code>static <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4 method-summary-table-tab6"><code><a href="#findAllResourcesInPackage(java.lang.String,java.util.function.Predicate)" class="member-name-link">findAllResourcesInPackage</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;basePackageName,
+ <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a>&lt;<a href="Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;&nbsp;resourceFilter)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4 method-summary-table-tab6">
+<div class="block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
+<div class="deprecation-comment">Please use <a href="ResourceSupport.html#findAllResourcesInPackage(java.lang.String,org.junit.platform.commons.io.ResourceFilter)"><code>ResourceSupport.findAllResourcesInPackage(String, ResourceFilter)</code></a> instead</div>
+</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/reflect/Field.html" title="class or interface in java.lang.reflect" class="external-link">Field</a>&gt;</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#findFields(java.lang.Class,java.util.function.Predicate,org.junit.platform.commons.support.HierarchyTraversalMode)" class="member-name-link">findFields</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;?&gt;&nbsp;clazz,
@@ -289,26 +293,29 @@ loadScripts(document, 'script');</script>
  that match the specified <code>classFilter</code> and <code>classNameFilter</code>
  predicates.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/stream/Stream.html" title="class or interface in java.util.stream" class="external-link">Stream</a><wbr>&lt;<a href="Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#streamAllResourcesInClasspathRoot(java.net.URI,java.util.function.Predicate)" class="member-name-link">streamAllResourcesInClasspathRoot</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/net/URI.html" title="class or interface in java.net" class="external-link">URI</a>&nbsp;root,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4 method-summary-table-tab6"><code>static <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/stream/Stream.html" title="class or interface in java.util.stream" class="external-link">Stream</a><wbr>&lt;<a href="Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4 method-summary-table-tab6"><code><a href="#streamAllResourcesInClasspathRoot(java.net.URI,java.util.function.Predicate)" class="member-name-link">streamAllResourcesInClasspathRoot</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/net/URI.html" title="class or interface in java.net" class="external-link">URI</a>&nbsp;root,
  <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a>&lt;<a href="Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;&nbsp;resourceFilter)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Find all <a href="Resource.html" title="interface in org.junit.platform.commons.support">resources</a> in the supplied classpath <code>root</code>
- that match the specified <code>resourceFilter</code> predicate.</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4 method-summary-table-tab6">
+<div class="block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
+<div class="deprecation-comment">Please use <a href="ResourceSupport.html#streamAllResourcesInClasspathRoot(java.net.URI,org.junit.platform.commons.io.ResourceFilter)"><code>ResourceSupport.streamAllResourcesInClasspathRoot(URI, ResourceFilter)</code></a> instead</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/stream/Stream.html" title="class or interface in java.util.stream" class="external-link">Stream</a><wbr>&lt;<a href="Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#streamAllResourcesInModule(java.lang.String,java.util.function.Predicate)" class="member-name-link">streamAllResourcesInModule</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;moduleName,
- <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a>&lt;<a href="Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;&nbsp;resourceFilter)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Find all <a href="Resource.html" title="interface in org.junit.platform.commons.support">resources</a> in the supplied <code>moduleName</code>
- that match the specified <code>resourceFilter</code> predicate.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/stream/Stream.html" title="class or interface in java.util.stream" class="external-link">Stream</a><wbr>&lt;<a href="Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#streamAllResourcesInPackage(java.lang.String,java.util.function.Predicate)" class="member-name-link">streamAllResourcesInPackage</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;basePackageName,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4 method-summary-table-tab6"><code>static <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/stream/Stream.html" title="class or interface in java.util.stream" class="external-link">Stream</a><wbr>&lt;<a href="Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4 method-summary-table-tab6"><code><a href="#streamAllResourcesInModule(java.lang.String,java.util.function.Predicate)" class="member-name-link">streamAllResourcesInModule</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;moduleName,
  <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a>&lt;<a href="Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;&nbsp;resourceFilter)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Find all <a href="Resource.html" title="interface in org.junit.platform.commons.support">resources</a> in the supplied <code>basePackageName</code>
- that match the specified <code>resourceFilter</code> predicate.</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4 method-summary-table-tab6">
+<div class="block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
+<div class="deprecation-comment">Please use <a href="ResourceSupport.html#streamAllResourcesInModule(java.lang.String,org.junit.platform.commons.io.ResourceFilter)"><code>ResourceSupport.streamAllResourcesInModule(String, ResourceFilter)</code></a> instead</div>
+</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4 method-summary-table-tab6"><code>static <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/stream/Stream.html" title="class or interface in java.util.stream" class="external-link">Stream</a><wbr>&lt;<a href="Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4 method-summary-table-tab6"><code><a href="#streamAllResourcesInPackage(java.lang.String,java.util.function.Predicate)" class="member-name-link">streamAllResourcesInPackage</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;basePackageName,
+ <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a>&lt;<a href="Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;&nbsp;resourceFilter)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4 method-summary-table-tab6">
+<div class="block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
+<div class="deprecation-comment">Please use <a href="ResourceSupport.html#streamAllResourcesInPackage(java.lang.String,org.junit.platform.commons.io.ResourceFilter)"><code>ResourceSupport.streamAllResourcesInPackage(String, ResourceFilter)</code></a> instead</div>
+</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/stream/Stream.html" title="class or interface in java.util.stream" class="external-link">Stream</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/reflect/Field.html" title="class or interface in java.lang.reflect" class="external-link">Field</a>&gt;</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#streamFields(java.lang.Class,java.util.function.Predicate,org.junit.platform.commons.support.HierarchyTraversalMode)" class="member-name-link">streamFields</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;?&gt;&nbsp;clazz,
@@ -333,18 +340,20 @@ loadScripts(document, 'script');</script>
 <div class="block">Find all nested classes within the supplied class, or inherited by the
  supplied class, that conform to the supplied predicate.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="../function/Try.html" title="class in org.junit.platform.commons.function">Try</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#tryToGetResources(java.lang.String)" class="member-name-link">tryToGetResources</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;classpathResourceName)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Try to get the <a href="Resource.html" title="interface in org.junit.platform.commons.support">resources</a> for the supplied classpath
- resource name.</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4 method-summary-table-tab6"><code>static <a href="../function/Try.html" title="class in org.junit.platform.commons.function">Try</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4 method-summary-table-tab6"><code><a href="#tryToGetResources(java.lang.String)" class="member-name-link">tryToGetResources</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;classpathResourceName)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4 method-summary-table-tab6">
+<div class="block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
+<div class="deprecation-comment">Please use <a href="ResourceSupport.html#tryToGetResources(java.lang.String)"><code>ResourceSupport.tryToGetResources(String)</code></a> instead</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="../function/Try.html" title="class in org.junit.platform.commons.function">Try</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#tryToGetResources(java.lang.String,java.lang.ClassLoader)" class="member-name-link">tryToGetResources</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;classpathResourceName,
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4 method-summary-table-tab6"><code>static <a href="../function/Try.html" title="class in org.junit.platform.commons.function">Try</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4 method-summary-table-tab6"><code><a href="#tryToGetResources(java.lang.String,java.lang.ClassLoader)" class="member-name-link">tryToGetResources</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;classpathResourceName,
  <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/ClassLoader.html" title="class or interface in java.lang" class="external-link">ClassLoader</a>&nbsp;classLoader)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Try to load the <a href="Resource.html" title="interface in org.junit.platform.commons.support">resources</a> for the supplied classpath
- resource name, using the supplied <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/ClassLoader.html" title="class or interface in java.lang" class="external-link"><code>ClassLoader</code></a>.</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4 method-summary-table-tab6">
+<div class="block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
+<div class="deprecation-comment">Please use <a href="ResourceSupport.html#tryToGetResources(java.lang.String,java.lang.ClassLoader)"><code>ResourceSupport.tryToGetResources(String, ClassLoader)</code></a> instead</div>
+</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="../function/Try.html" title="class in org.junit.platform.commons.function">Try</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;?&gt;&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#tryToLoadClass(java.lang.String)" class="member-name-link">tryToLoadClass</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</code></div>
@@ -410,6 +419,7 @@ loadScripts(document, 'script');</script>
 <dd>
 <ul class="tag-list-long">
 <li><a href="#tryToLoadClass(java.lang.String,java.lang.ClassLoader)"><code>tryToLoadClass(String, ClassLoader)</code></a></li>
+<li><a href="ResourceSupport.html#tryToGetResources(java.lang.String)"><code>ResourceSupport.tryToGetResources(String)</code></a></li>
 </ul>
 </dd>
 </dl>
@@ -441,8 +451,9 @@ loadScripts(document, 'script');</script>
 <dd>1.10</dd>
 <dt>See Also:</dt>
 <dd>
-<ul class="tag-list">
+<ul class="tag-list-long">
 <li><a href="#tryToLoadClass(java.lang.String)"><code>tryToLoadClass(String)</code></a></li>
+<li><a href="ResourceSupport.html#tryToGetResources(java.lang.String,java.lang.ClassLoader)"><code>ResourceSupport.tryToGetResources(String, ClassLoader)</code></a></li>
 </ul>
 </dd>
 </dl>
@@ -453,9 +464,14 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="tryToGetResources(java.lang.String)">
 <h3>tryToGetResources</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#MAINTAINED" title="class or interface in org.apiguardian.api" class="external-link">MAINTAINED</a>,
-     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="1.13.3")
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#DEPRECATED" title="class or interface in org.apiguardian.api" class="external-link">DEPRECATED</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.0")
+<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Deprecated.html#since()" title="class or interface in java.lang" class="external-link">since</a>="6.0",
+            <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Deprecated.html#forRemoval()" title="class or interface in java.lang" class="external-link">forRemoval</a>=true)
 </span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../function/Try.html" title="class in org.junit.platform.commons.function">Try</a>&lt;<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;&gt;</span>&nbsp;<span class="element-name">tryToGetResources</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;classpathResourceName)</span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
+<div class="deprecation-comment">Please use <a href="ResourceSupport.html#tryToGetResources(java.lang.String)"><code>ResourceSupport.tryToGetResources(String)</code></a> instead</div>
+</div>
 <div class="block">Try to get the <a href="Resource.html" title="interface in org.junit.platform.commons.support">resources</a> for the supplied classpath
  resource name.
 
@@ -489,10 +505,15 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="tryToGetResources(java.lang.String,java.lang.ClassLoader)">
 <h3>tryToGetResources</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#MAINTAINED" title="class or interface in org.apiguardian.api" class="external-link">MAINTAINED</a>,
-     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="1.13.3")
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#DEPRECATED" title="class or interface in org.apiguardian.api" class="external-link">DEPRECATED</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.0")
+<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Deprecated.html#since()" title="class or interface in java.lang" class="external-link">since</a>="6.0",
+            <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Deprecated.html#forRemoval()" title="class or interface in java.lang" class="external-link">forRemoval</a>=true)
 </span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../function/Try.html" title="class in org.junit.platform.commons.function">Try</a>&lt;<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;&gt;</span>&nbsp;<span class="element-name">tryToGetResources</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;classpathResourceName,
  <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/ClassLoader.html" title="class or interface in java.lang" class="external-link">ClassLoader</a>&nbsp;classLoader)</span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
+<div class="deprecation-comment">Please use <a href="ResourceSupport.html#tryToGetResources(java.lang.String,java.lang.ClassLoader)"><code>ResourceSupport.tryToGetResources(String, ClassLoader)</code></a> instead</div>
+</div>
 <div class="block">Try to load the <a href="Resource.html" title="interface in org.junit.platform.commons.support">resources</a> for the supplied classpath
  resource name, using the supplied <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/ClassLoader.html" title="class or interface in java.lang" class="external-link"><code>ClassLoader</code></a>.
 
@@ -550,6 +571,7 @@ loadScripts(document, 'script');</script>
 <ul class="tag-list-long">
 <li><a href="#findAllClassesInPackage(java.lang.String,java.util.function.Predicate,java.util.function.Predicate)"><code>findAllClassesInPackage(String, Predicate, Predicate)</code></a></li>
 <li><a href="#findAllClassesInModule(java.lang.String,java.util.function.Predicate,java.util.function.Predicate)"><code>findAllClassesInModule(String, Predicate, Predicate)</code></a></li>
+<li><a href="ResourceSupport.html#findAllResourcesInClasspathRoot(java.net.URI,org.junit.platform.commons.io.ResourceFilter)"><code>ResourceSupport.findAllResourcesInClasspathRoot(URI, ResourceFilter)</code></a></li>
 </ul>
 </dd>
 </dl>
@@ -560,10 +582,15 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="findAllResourcesInClasspathRoot(java.net.URI,java.util.function.Predicate)">
 <h3>findAllResourcesInClasspathRoot</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#MAINTAINED" title="class or interface in org.apiguardian.api" class="external-link">MAINTAINED</a>,
-     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="1.13.3")
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#DEPRECATED" title="class or interface in org.apiguardian.api" class="external-link">DEPRECATED</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.0")
+<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Deprecated.html#since()" title="class or interface in java.lang" class="external-link">since</a>="6.0",
+            <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Deprecated.html#forRemoval()" title="class or interface in java.lang" class="external-link">forRemoval</a>=true)
 </span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;</span>&nbsp;<span class="element-name">findAllResourcesInClasspathRoot</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/net/URI.html" title="class or interface in java.net" class="external-link">URI</a>&nbsp;root,
  <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a>&lt;<a href="Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;&nbsp;resourceFilter)</span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
+<div class="deprecation-comment">Please use <a href="ResourceSupport.html#findAllResourcesInClasspathRoot(java.net.URI,org.junit.platform.commons.io.ResourceFilter)"><code>ResourceSupport.findAllResourcesInClasspathRoot(URI, ResourceFilter)</code></a> instead</div>
+</div>
 <div class="block">Find all <a href="Resource.html" title="interface in org.junit.platform.commons.support">resources</a> in the supplied classpath <code>root</code>
  that match the specified <code>resourceFilter</code> predicate.
 
@@ -621,6 +648,7 @@ loadScripts(document, 'script');</script>
 <ul class="tag-list-long">
 <li><a href="#streamAllClassesInPackage(java.lang.String,java.util.function.Predicate,java.util.function.Predicate)"><code>streamAllClassesInPackage(String, Predicate, Predicate)</code></a></li>
 <li><a href="#streamAllClassesInModule(java.lang.String,java.util.function.Predicate,java.util.function.Predicate)"><code>streamAllClassesInModule(String, Predicate, Predicate)</code></a></li>
+<li><a href="ResourceSupport.html#streamAllResourcesInClasspathRoot(java.net.URI,org.junit.platform.commons.io.ResourceFilter)"><code>ResourceSupport.streamAllResourcesInClasspathRoot(URI, ResourceFilter)</code></a></li>
 </ul>
 </dd>
 </dl>
@@ -631,10 +659,15 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="streamAllResourcesInClasspathRoot(java.net.URI,java.util.function.Predicate)">
 <h3>streamAllResourcesInClasspathRoot</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#MAINTAINED" title="class or interface in org.apiguardian.api" class="external-link">MAINTAINED</a>,
-     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="1.13.3")
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#DEPRECATED" title="class or interface in org.apiguardian.api" class="external-link">DEPRECATED</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.0")
+<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Deprecated.html#since()" title="class or interface in java.lang" class="external-link">since</a>="6.0",
+            <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Deprecated.html#forRemoval()" title="class or interface in java.lang" class="external-link">forRemoval</a>=true)
 </span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/stream/Stream.html" title="class or interface in java.util.stream" class="external-link">Stream</a>&lt;<a href="Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;</span>&nbsp;<span class="element-name">streamAllResourcesInClasspathRoot</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/net/URI.html" title="class or interface in java.net" class="external-link">URI</a>&nbsp;root,
  <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a>&lt;<a href="Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;&nbsp;resourceFilter)</span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
+<div class="deprecation-comment">Please use <a href="ResourceSupport.html#streamAllResourcesInClasspathRoot(java.net.URI,org.junit.platform.commons.io.ResourceFilter)"><code>ResourceSupport.streamAllResourcesInClasspathRoot(URI, ResourceFilter)</code></a> instead</div>
+</div>
 <div class="block">Find all <a href="Resource.html" title="interface in org.junit.platform.commons.support">resources</a> in the supplied classpath <code>root</code>
  that match the specified <code>resourceFilter</code> predicate.
 
@@ -689,6 +722,7 @@ loadScripts(document, 'script');</script>
 <ul class="tag-list-long">
 <li><a href="#findAllClassesInClasspathRoot(java.net.URI,java.util.function.Predicate,java.util.function.Predicate)"><code>findAllClassesInClasspathRoot(URI, Predicate, Predicate)</code></a></li>
 <li><a href="#findAllClassesInModule(java.lang.String,java.util.function.Predicate,java.util.function.Predicate)"><code>findAllClassesInModule(String, Predicate, Predicate)</code></a></li>
+<li><a href="ResourceSupport.html#findAllResourcesInPackage(java.lang.String,org.junit.platform.commons.io.ResourceFilter)"><code>ResourceSupport.findAllResourcesInPackage(String, ResourceFilter)</code></a></li>
 </ul>
 </dd>
 </dl>
@@ -699,10 +733,15 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="findAllResourcesInPackage(java.lang.String,java.util.function.Predicate)">
 <h3>findAllResourcesInPackage</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#MAINTAINED" title="class or interface in org.apiguardian.api" class="external-link">MAINTAINED</a>,
-     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="1.13.3")
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#DEPRECATED" title="class or interface in org.apiguardian.api" class="external-link">DEPRECATED</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.0")
+<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Deprecated.html#since()" title="class or interface in java.lang" class="external-link">since</a>="6.0",
+            <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Deprecated.html#forRemoval()" title="class or interface in java.lang" class="external-link">forRemoval</a>=true)
 </span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;</span>&nbsp;<span class="element-name">findAllResourcesInPackage</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;basePackageName,
  <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a>&lt;<a href="Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;&nbsp;resourceFilter)</span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
+<div class="deprecation-comment">Please use <a href="ResourceSupport.html#findAllResourcesInPackage(java.lang.String,org.junit.platform.commons.io.ResourceFilter)"><code>ResourceSupport.findAllResourcesInPackage(String, ResourceFilter)</code></a> instead</div>
+</div>
 <div class="block">Find all <a href="Resource.html" title="interface in org.junit.platform.commons.support">resources</a> in the supplied <code>basePackageName</code>
  that match the specified <code>resourceFilter</code> predicate.
 
@@ -764,6 +803,7 @@ loadScripts(document, 'script');</script>
 <ul class="tag-list-long">
 <li><a href="#streamAllClassesInClasspathRoot(java.net.URI,java.util.function.Predicate,java.util.function.Predicate)"><code>streamAllClassesInClasspathRoot(URI, Predicate, Predicate)</code></a></li>
 <li><a href="#streamAllClassesInModule(java.lang.String,java.util.function.Predicate,java.util.function.Predicate)"><code>streamAllClassesInModule(String, Predicate, Predicate)</code></a></li>
+<li><a href="ResourceSupport.html#streamAllResourcesInPackage(java.lang.String,org.junit.platform.commons.io.ResourceFilter)"><code>ResourceSupport.streamAllResourcesInPackage(String, ResourceFilter)</code></a></li>
 </ul>
 </dd>
 </dl>
@@ -774,10 +814,15 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="streamAllResourcesInPackage(java.lang.String,java.util.function.Predicate)">
 <h3>streamAllResourcesInPackage</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#MAINTAINED" title="class or interface in org.apiguardian.api" class="external-link">MAINTAINED</a>,
-     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="1.13.3")
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#DEPRECATED" title="class or interface in org.apiguardian.api" class="external-link">DEPRECATED</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.0")
+<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Deprecated.html#since()" title="class or interface in java.lang" class="external-link">since</a>="6.0",
+            <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Deprecated.html#forRemoval()" title="class or interface in java.lang" class="external-link">forRemoval</a>=true)
 </span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/stream/Stream.html" title="class or interface in java.util.stream" class="external-link">Stream</a>&lt;<a href="Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;</span>&nbsp;<span class="element-name">streamAllResourcesInPackage</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;basePackageName,
  <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a>&lt;<a href="Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;&nbsp;resourceFilter)</span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
+<div class="deprecation-comment">Please use <a href="ResourceSupport.html#streamAllResourcesInPackage(java.lang.String,org.junit.platform.commons.io.ResourceFilter)"><code>ResourceSupport.streamAllResourcesInPackage(String, ResourceFilter)</code></a> instead</div>
+</div>
 <div class="block">Find all <a href="Resource.html" title="interface in org.junit.platform.commons.support">resources</a> in the supplied <code>basePackageName</code>
  that match the specified <code>resourceFilter</code> predicate.
 
@@ -837,6 +882,7 @@ loadScripts(document, 'script');</script>
 <ul class="tag-list-long">
 <li><a href="#findAllClassesInClasspathRoot(java.net.URI,java.util.function.Predicate,java.util.function.Predicate)"><code>findAllClassesInClasspathRoot(URI, Predicate, Predicate)</code></a></li>
 <li><a href="#findAllClassesInPackage(java.lang.String,java.util.function.Predicate,java.util.function.Predicate)"><code>findAllClassesInPackage(String, Predicate, Predicate)</code></a></li>
+<li><a href="ResourceSupport.html#findAllResourcesInModule(java.lang.String,org.junit.platform.commons.io.ResourceFilter)"><code>ResourceSupport.findAllResourcesInModule(String, ResourceFilter)</code></a></li>
 </ul>
 </dd>
 </dl>
@@ -847,10 +893,15 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="findAllResourcesInModule(java.lang.String,java.util.function.Predicate)">
 <h3>findAllResourcesInModule</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#MAINTAINED" title="class or interface in org.apiguardian.api" class="external-link">MAINTAINED</a>,
-     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="1.13.3")
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#DEPRECATED" title="class or interface in org.apiguardian.api" class="external-link">DEPRECATED</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.0")
+<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Deprecated.html#since()" title="class or interface in java.lang" class="external-link">since</a>="6.0",
+            <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Deprecated.html#forRemoval()" title="class or interface in java.lang" class="external-link">forRemoval</a>=true)
 </span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;</span>&nbsp;<span class="element-name">findAllResourcesInModule</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;moduleName,
  <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a>&lt;<a href="Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;&nbsp;resourceFilter)</span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
+<div class="deprecation-comment">Please use <a href="ResourceSupport.html#findAllResourcesInModule(java.lang.String,org.junit.platform.commons.io.ResourceFilter)"><code>ResourceSupport.findAllResourcesInModule(String, ResourceFilter)</code></a> instead</div>
+</div>
 <div class="block">Find all <a href="Resource.html" title="interface in org.junit.platform.commons.support">resources</a> in the supplied <code>moduleName</code>
  that match the specified <code>resourceFilter</code> predicate.
 
@@ -918,10 +969,15 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="streamAllResourcesInModule(java.lang.String,java.util.function.Predicate)">
 <h3>streamAllResourcesInModule</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#MAINTAINED" title="class or interface in org.apiguardian.api" class="external-link">MAINTAINED</a>,
-     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="1.13.3")
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#DEPRECATED" title="class or interface in org.apiguardian.api" class="external-link">DEPRECATED</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.0")
+<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Deprecated.html#since()" title="class or interface in java.lang" class="external-link">since</a>="6.0",
+            <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Deprecated.html#forRemoval()" title="class or interface in java.lang" class="external-link">forRemoval</a>=true)
 </span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/stream/Stream.html" title="class or interface in java.util.stream" class="external-link">Stream</a>&lt;<a href="Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;</span>&nbsp;<span class="element-name">streamAllResourcesInModule</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;moduleName,
  <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a>&lt;<a href="Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;&nbsp;resourceFilter)</span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
+<div class="deprecation-comment">Please use <a href="ResourceSupport.html#streamAllResourcesInModule(java.lang.String,org.junit.platform.commons.io.ResourceFilter)"><code>ResourceSupport.streamAllResourcesInModule(String, ResourceFilter)</code></a> instead</div>
+</div>
 <div class="block">Find all <a href="Resource.html" title="interface in org.junit.platform.commons.support">resources</a> in the supplied <code>moduleName</code>
  that match the specified <code>resourceFilter</code> predicate.
 

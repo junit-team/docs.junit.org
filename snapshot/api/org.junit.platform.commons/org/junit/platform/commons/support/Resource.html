@@ -68,10 +68,7 @@ loadScripts(document, 'script');</script>
 <li><a href="#method-summary" tabindex="0">Method Summary</a></li>
 <li><a href="#method-detail" tabindex="0">Method Details</a>
 <ol class="toc-list">
-<li><a href="#of(java.lang.String,java.net.URI)" tabindex="0">of(String, URI)</a></li>
-<li><a href="#getName()" tabindex="0">getName()</a></li>
-<li><a href="#getUri()" tabindex="0">getUri()</a></li>
-<li><a href="#getInputStream()" tabindex="0">getInputStream()</a></li>
+<li><a href="#of(org.junit.platform.commons.io.Resource)" tabindex="0">of(Resource)</a></li>
 </ol>
 </li>
 </ol>
@@ -82,11 +79,21 @@ loadScripts(document, 'script');</script>
 <h1 title="Interface Resource" class="title">Interface Resource</h1>
 </div>
 <section class="class-description" id="class-description">
+<dl class="notes">
+<dt>All Superinterfaces:</dt>
+<dd><code><a href="../io/Resource.html" title="interface in org.junit.platform.commons.io">Resource</a></code></dd>
+</dl>
 <hr>
 <div class="horizontal-scroll">
-<div class="type-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#MAINTAINED" title="class or interface in org.apiguardian.api" class="external-link">MAINTAINED</a>,
-     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="1.13.3")
-</span><span class="modifiers">public interface </span><span class="element-name type-name-label">Resource</span></div>
+<div class="type-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#DEPRECATED" title="class or interface in org.apiguardian.api" class="external-link">DEPRECATED</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.0")
+<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Deprecated.html#since()" title="class or interface in java.lang" class="external-link">since</a>="6.0",
+            <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Deprecated.html#forRemoval()" title="class or interface in java.lang" class="external-link">forRemoval</a>=true)
+</span><span class="modifiers">public interface </span><span class="element-name type-name-label">Resource</span><span class="extends-implements">
+extends <a href="../io/Resource.html" title="interface in org.junit.platform.commons.io">Resource</a></span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
+<div class="deprecation-comment">Please use <a href="../io/Resource.html" title="interface in org.junit.platform.commons.io"><code>Resource</code></a> instead.</div>
+</div>
 <div class="block"><code>Resource</code> represents a resource on the classpath.
 
  <p><strong>WARNING</strong>: a <code>Resource</code> must provide correct
@@ -117,36 +124,25 @@ loadScripts(document, 'script');</script>
 <section class="method-summary" id="method-summary">
 <h2>Method Summary</h2>
 <div id="method-summary-table">
-<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab1" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab1', 3)" class="table-tab">Static Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab3" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab3', 3)" class="table-tab">Abstract Methods</button><button id="method-summary-table-tab5" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab5', 3)" class="table-tab">Default Methods</button></div>
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab1" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab1', 3)" class="table-tab">Static Methods</button><button id="method-summary-table-tab6" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab6', 3)" class="table-tab">Deprecated Methods</button></div>
 <div id="method-summary-table.tabpanel" role="tabpanel" aria-labelledby="method-summary-table-tab0">
 <div class="summary-table three-column-summary">
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/io/InputStream.html" title="class or interface in java.io" class="external-link">InputStream</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#getInputStream()" class="member-name-link">getInputStream</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
-<div class="block">Get an <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/io/InputStream.html" title="class or interface in java.io" class="external-link"><code>InputStream</code></a> for reading this resource.</div>
-</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getName()" class="member-name-link">getName</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
-<div class="block">Get the name of this resource.</div>
-</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/net/URI.html" title="class or interface in java.net" class="external-link">URI</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getUri()" class="member-name-link">getUri</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
-<div class="block">Get the URI of this resource.</div>
-</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1"><code>static <a href="Resource.html" title="interface in org.junit.platform.commons.support">Resource</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#of(java.lang.String,java.net.URI)" class="member-name-link">of</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
- <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/net/URI.html" title="class or interface in java.net" class="external-link">URI</a>&nbsp;uri)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1">
-<div class="block">Create a new <a href="Resource.html" title="interface in org.junit.platform.commons.support"><code>Resource</code></a> with the given name and URI.</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab6"><code>static <a href="Resource.html" title="interface in org.junit.platform.commons.support">Resource</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab6"><code><a href="#of(org.junit.platform.commons.io.Resource)" class="member-name-link">of</a><wbr>(<a href="../io/Resource.html" title="interface in org.junit.platform.commons.io">Resource</a>&nbsp;resource)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab6">
+<div class="block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span></div>
+<div class="block">Create a new <a href="Resource.html" title="interface in org.junit.platform.commons.support"><code>Resource</code></a> from the supplied
+ <a href="../io/Resource.html" title="interface in org.junit.platform.commons.io"><code>Resource</code></a>.</div>
 </div>
 </div>
 </div>
 </div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-org.junit.platform.commons.io.Resource">Methods inherited from interface&nbsp;org.junit.platform.commons.io.<a href="../io/Resource.html" title="interface in org.junit.platform.commons.io">Resource</a></h3>
+<code><a href="../io/Resource.html#getInputStream()">getInputStream</a>, <a href="../io/Resource.html#getName()">getName</a>, <a href="../io/Resource.html#getUri()">getUri</a></code></div>
 </section>
 </li>
 </ul>
@@ -159,70 +155,20 @@ loadScripts(document, 'script');</script>
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="of(java.lang.String,java.net.URI)">
+<section class="detail" id="of(org.junit.platform.commons.io.Resource)">
 <h3>of</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#MAINTAINED" title="class or interface in org.apiguardian.api" class="external-link">MAINTAINED</a>,
-     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.0")
-</span><span class="modifiers">static</span>&nbsp;<span class="return-type"><a href="Resource.html" title="interface in org.junit.platform.commons.support">Resource</a></span>&nbsp;<span class="element-name">of</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
- <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/net/URI.html" title="class or interface in java.net" class="external-link">URI</a>&nbsp;uri)</span></div>
-<div class="block">Create a new <a href="Resource.html" title="interface in org.junit.platform.commons.support"><code>Resource</code></a> with the given name and URI.</div>
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type"><a href="Resource.html" title="interface in org.junit.platform.commons.support">Resource</a></span>&nbsp;<span class="element-name">of</span><wbr><span class="parameters">(<a href="../io/Resource.html" title="interface in org.junit.platform.commons.io">Resource</a>&nbsp;resource)</span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span></div>
+<div class="block">Create a new <a href="Resource.html" title="interface in org.junit.platform.commons.support"><code>Resource</code></a> from the supplied
+ <a href="../io/Resource.html" title="interface in org.junit.platform.commons.io"><code>Resource</code></a>.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>name</code> - the name of the resource; never <code>null</code></dd>
-<dd><code>uri</code> - the URI of the resource; never <code>null</code></dd>
+<dd><code>resource</code> - the resource to copy attributes from; never <code>null</code></dd>
 <dt>Returns:</dt>
 <dd>a new <code>Resource</code></dd>
 <dt>Since:</dt>
 <dd>6.0</dd>
-</dl>
-</div>
-</section>
-</li>
-<li>
-<section class="detail" id="getName()">
-<h3>getName</h3>
-<div class="horizontal-scroll">
-<div class="member-signature"><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getName</span>()</div>
-<div class="block">Get the name of this resource.
-
- <p>The resource name is a <code>/</code>-separated path. The path is relative
- to the classpath root in which the resource is located.</div>
-<dl class="notes">
-<dt>Returns:</dt>
-<dd>the resource name; never <code>null</code></dd>
-</dl>
-</div>
-</section>
-</li>
-<li>
-<section class="detail" id="getUri()">
-<h3>getUri</h3>
-<div class="horizontal-scroll">
-<div class="member-signature"><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/net/URI.html" title="class or interface in java.net" class="external-link">URI</a></span>&nbsp;<span class="element-name">getUri</span>()</div>
-<div class="block">Get the URI of this resource.</div>
-<dl class="notes">
-<dt>Returns:</dt>
-<dd>the URI of the resource; never <code>null</code></dd>
-</dl>
-</div>
-</section>
-</li>
-<li>
-<section class="detail" id="getInputStream()">
-<h3>getInputStream</h3>
-<div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/io/InputStream.html" title="class or interface in java.io" class="external-link">InputStream</a></span>&nbsp;<span class="element-name">getInputStream</span>()
-                            throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
-<div class="block">Get an <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/io/InputStream.html" title="class or interface in java.io" class="external-link"><code>InputStream</code></a> for reading this resource.
-
- <p>The default implementation delegates to <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/net/URL.html#openStream()" title="class or interface in java.net" class="external-link"><code>URL.openStream()</code></a>
- for this resource's <a href="#getUri()"><code>URI</code></a>.</div>
-<dl class="notes">
-<dt>Returns:</dt>
-<dd>an input stream for this resource; never <code>null</code></dd>
-<dt>Throws:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code> - if an I/O exception occurs</dd>
 </dl>
 </div>
 </section>

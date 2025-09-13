@@ -339,28 +339,46 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="../org.junit.platform.commons/org/junit/platform/commons/support/ReflectionSupport.html#findAllResourcesInClasspathRoot(java.net.URI,java.util.function.Predicate)" class="member-name-link">findAllResourcesInClasspathRoot(URI, Predicate&lt;Resource&gt;)</a> - Static method in class org.junit.platform.commons.support.<a href="../org.junit.platform.commons/org/junit/platform/commons/support/ReflectionSupport.html" title="class in org.junit.platform.commons.support">ReflectionSupport</a></dt>
 <dd>
-<div class="block">Find all <a href="../org.junit.platform.commons/org/junit/platform/commons/support/Resource.html" title="interface in org.junit.platform.commons.support">resources</a> in the supplied classpath <code>root</code>
- that match the specified <code>resourceFilter</code> predicate.</div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
+<div class="deprecation-comment">Please use <a href="../org.junit.platform.commons/org/junit/platform/commons/support/ResourceSupport.html#findAllResourcesInClasspathRoot(java.net.URI,org.junit.platform.commons.io.ResourceFilter)"><code>ResourceSupport.findAllResourcesInClasspathRoot(URI, ResourceFilter)</code></a> instead</div>
+</div>
 </dd>
-<dt><a href="../org.junit.platform.commons/org/junit/platform/commons/util/ReflectionUtils.html#findAllResourcesInClasspathRoot(java.net.URI,java.util.function.Predicate)" class="member-name-link">findAllResourcesInClasspathRoot(URI, Predicate&lt;Resource&gt;)</a> - Static method in class org.junit.platform.commons.util.<a href="../org.junit.platform.commons/org/junit/platform/commons/util/ReflectionUtils.html" title="class in org.junit.platform.commons.util">ReflectionUtils</a></dt>
+<dt><a href="../org.junit.platform.commons/org/junit/platform/commons/support/ResourceSupport.html#findAllResourcesInClasspathRoot(java.net.URI,org.junit.platform.commons.io.ResourceFilter)" class="member-name-link">findAllResourcesInClasspathRoot(URI, ResourceFilter)</a> - Static method in class org.junit.platform.commons.support.<a href="../org.junit.platform.commons/org/junit/platform/commons/support/ResourceSupport.html" title="class in org.junit.platform.commons.support">ResourceSupport</a></dt>
+<dd>
+<div class="block">Find all <a href="../org.junit.platform.commons/org/junit/platform/commons/io/Resource.html" title="interface in org.junit.platform.commons.io">resources</a> in the supplied classpath <code>root</code>
+ that match the specified <code>resourceFilter</code>.</div>
+</dd>
+<dt><a href="../org.junit.platform.commons/org/junit/platform/commons/util/ReflectionUtils.html#findAllResourcesInClasspathRoot(java.net.URI,org.junit.platform.commons.io.ResourceFilter)" class="member-name-link">findAllResourcesInClasspathRoot(URI, ResourceFilter)</a> - Static method in class org.junit.platform.commons.util.<a href="../org.junit.platform.commons/org/junit/platform/commons/util/ReflectionUtils.html" title="class in org.junit.platform.commons.util">ReflectionUtils</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="../org.junit.platform.commons/org/junit/platform/commons/support/ReflectionSupport.html#findAllResourcesInModule(java.lang.String,java.util.function.Predicate)" class="member-name-link">findAllResourcesInModule(String, Predicate&lt;Resource&gt;)</a> - Static method in class org.junit.platform.commons.support.<a href="../org.junit.platform.commons/org/junit/platform/commons/support/ReflectionSupport.html" title="class in org.junit.platform.commons.support">ReflectionSupport</a></dt>
 <dd>
-<div class="block">Find all <a href="../org.junit.platform.commons/org/junit/platform/commons/support/Resource.html" title="interface in org.junit.platform.commons.support">resources</a> in the supplied <code>moduleName</code>
- that match the specified <code>resourceFilter</code> predicate.</div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
+<div class="deprecation-comment">Please use <a href="../org.junit.platform.commons/org/junit/platform/commons/support/ResourceSupport.html#findAllResourcesInModule(java.lang.String,org.junit.platform.commons.io.ResourceFilter)"><code>ResourceSupport.findAllResourcesInModule(String, ResourceFilter)</code></a> instead</div>
+</div>
 </dd>
-<dt><a href="../org.junit.platform.commons/org/junit/platform/commons/util/ModuleUtils.html#findAllResourcesInModule(java.lang.String,java.util.function.Predicate)" class="member-name-link">findAllResourcesInModule(String, Predicate&lt;Resource&gt;)</a> - Static method in class org.junit.platform.commons.util.<a href="../org.junit.platform.commons/org/junit/platform/commons/util/ModuleUtils.html" title="class in org.junit.platform.commons.util">ModuleUtils</a></dt>
+<dt><a href="../org.junit.platform.commons/org/junit/platform/commons/support/ResourceSupport.html#findAllResourcesInModule(java.lang.String,org.junit.platform.commons.io.ResourceFilter)" class="member-name-link">findAllResourcesInModule(String, ResourceFilter)</a> - Static method in class org.junit.platform.commons.support.<a href="../org.junit.platform.commons/org/junit/platform/commons/support/ResourceSupport.html" title="class in org.junit.platform.commons.support">ResourceSupport</a></dt>
 <dd>
-<div class="block">Find all <a href="../org.junit.platform.commons/org/junit/platform/commons/support/Resource.html" title="interface in org.junit.platform.commons.support">resources</a> for the given module name.</div>
+<div class="block">Find all <a href="../org.junit.platform.commons/org/junit/platform/commons/io/Resource.html" title="interface in org.junit.platform.commons.io">resources</a> in the supplied <code>moduleName</code>
+ that match the specified <code>resourceFilter</code>.</div>
 </dd>
-<dt><a href="../org.junit.platform.commons/org/junit/platform/commons/util/ReflectionUtils.html#findAllResourcesInModule(java.lang.String,java.util.function.Predicate)" class="member-name-link">findAllResourcesInModule(String, Predicate&lt;Resource&gt;)</a> - Static method in class org.junit.platform.commons.util.<a href="../org.junit.platform.commons/org/junit/platform/commons/util/ReflectionUtils.html" title="class in org.junit.platform.commons.util">ReflectionUtils</a></dt>
+<dt><a href="../org.junit.platform.commons/org/junit/platform/commons/util/ModuleUtils.html#findAllResourcesInModule(java.lang.String,org.junit.platform.commons.io.ResourceFilter)" class="member-name-link">findAllResourcesInModule(String, ResourceFilter)</a> - Static method in class org.junit.platform.commons.util.<a href="../org.junit.platform.commons/org/junit/platform/commons/util/ModuleUtils.html" title="class in org.junit.platform.commons.util">ModuleUtils</a></dt>
+<dd>
+<div class="block">Find all <a href="../org.junit.platform.commons/org/junit/platform/commons/io/Resource.html" title="interface in org.junit.platform.commons.io">resources</a> for the given module name.</div>
+</dd>
+<dt><a href="../org.junit.platform.commons/org/junit/platform/commons/util/ReflectionUtils.html#findAllResourcesInModule(java.lang.String,org.junit.platform.commons.io.ResourceFilter)" class="member-name-link">findAllResourcesInModule(String, ResourceFilter)</a> - Static method in class org.junit.platform.commons.util.<a href="../org.junit.platform.commons/org/junit/platform/commons/util/ReflectionUtils.html" title="class in org.junit.platform.commons.util">ReflectionUtils</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="../org.junit.platform.commons/org/junit/platform/commons/support/ReflectionSupport.html#findAllResourcesInPackage(java.lang.String,java.util.function.Predicate)" class="member-name-link">findAllResourcesInPackage(String, Predicate&lt;Resource&gt;)</a> - Static method in class org.junit.platform.commons.support.<a href="../org.junit.platform.commons/org/junit/platform/commons/support/ReflectionSupport.html" title="class in org.junit.platform.commons.support">ReflectionSupport</a></dt>
 <dd>
-<div class="block">Find all <a href="../org.junit.platform.commons/org/junit/platform/commons/support/Resource.html" title="interface in org.junit.platform.commons.support">resources</a> in the supplied <code>basePackageName</code>
- that match the specified <code>resourceFilter</code> predicate.</div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
+<div class="deprecation-comment">Please use <a href="../org.junit.platform.commons/org/junit/platform/commons/support/ResourceSupport.html#findAllResourcesInPackage(java.lang.String,org.junit.platform.commons.io.ResourceFilter)"><code>ResourceSupport.findAllResourcesInPackage(String, ResourceFilter)</code></a> instead</div>
+</div>
 </dd>
-<dt><a href="../org.junit.platform.commons/org/junit/platform/commons/util/ReflectionUtils.html#findAllResourcesInPackage(java.lang.String,java.util.function.Predicate)" class="member-name-link">findAllResourcesInPackage(String, Predicate&lt;Resource&gt;)</a> - Static method in class org.junit.platform.commons.util.<a href="../org.junit.platform.commons/org/junit/platform/commons/util/ReflectionUtils.html" title="class in org.junit.platform.commons.util">ReflectionUtils</a></dt>
+<dt><a href="../org.junit.platform.commons/org/junit/platform/commons/support/ResourceSupport.html#findAllResourcesInPackage(java.lang.String,org.junit.platform.commons.io.ResourceFilter)" class="member-name-link">findAllResourcesInPackage(String, ResourceFilter)</a> - Static method in class org.junit.platform.commons.support.<a href="../org.junit.platform.commons/org/junit/platform/commons/support/ResourceSupport.html" title="class in org.junit.platform.commons.support">ResourceSupport</a></dt>
+<dd>
+<div class="block">Find all <a href="../org.junit.platform.commons/org/junit/platform/commons/io/Resource.html" title="interface in org.junit.platform.commons.io">resources</a> in the supplied <code>basePackageName</code>
+ that match the specified <code>resourceFilter</code>.</div>
+</dd>
+<dt><a href="../org.junit.platform.commons/org/junit/platform/commons/util/ReflectionUtils.html#findAllResourcesInPackage(java.lang.String,org.junit.platform.commons.io.ResourceFilter)" class="member-name-link">findAllResourcesInPackage(String, ResourceFilter)</a> - Static method in class org.junit.platform.commons.util.<a href="../org.junit.platform.commons/org/junit/platform/commons/util/ReflectionUtils.html" title="class in org.junit.platform.commons.util">ReflectionUtils</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="../org.junit.platform.commons/org/junit/platform/commons/support/AnnotationSupport.html#findAnnotatedFields(java.lang.Class,java.lang.Class)" class="member-name-link">findAnnotatedFields(Class&lt;?&gt;, Class&lt;? extends Annotation&gt;)</a> - Static method in class org.junit.platform.commons.support.<a href="../org.junit.platform.commons/org/junit/platform/commons/support/AnnotationSupport.html" title="class in org.junit.platform.commons.support">AnnotationSupport</a></dt>
 <dd>

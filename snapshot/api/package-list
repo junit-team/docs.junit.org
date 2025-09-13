@@ -33,6 +33,7 @@ module:org.junit.platform.commons
 org.junit.platform.commons
 org.junit.platform.commons.annotation
 org.junit.platform.commons.function
+org.junit.platform.commons.io
 org.junit.platform.commons.logging
 org.junit.platform.commons.support
 org.junit.platform.commons.support.conversion

@@ -614,6 +614,69 @@ with the following APIs (which all have replacements working with
 </ul>
 </div>
 </li>
+<li>
+<p>Deprecate <code>org.junit.platform.commons.support.Resource</code> interface in favor of the new
+<code>org.junit.platform.commons.io.Resource</code> one.</p>
+</li>
+<li>
+<p>Deprecate <code>Resource</code>-related methods in <code>ReflectionSupport</code> in favor of corresponding
+methods in new <code>ResourceSupport</code> class:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>findAllResourcesInClasspathRoot(URI, Predicate)</code></p>
+</li>
+<li>
+<p><code>findAllResourcesInModule(String, Predicate)</code></p>
+</li>
+<li>
+<p><code>findAllResourcesInPackage(String, Predicate)</code></p>
+</li>
+<li>
+<p><code>streamAllResourcesInClasspathRoot(URI, Predicate)</code></p>
+</li>
+<li>
+<p><code>streamAllResourcesInModule(String, Predicate)</code></p>
+</li>
+<li>
+<p><code>streamAllResourcesInPackage(String, Predicate)</code></p>
+</li>
+<li>
+<p><code>tryToGetResources(String)</code></p>
+</li>
+<li>
+<p><code>tryToGetResources(String, ClassLoader)</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Deprecate <code>DiscoverySelectors.selectClasspathResource(Set)</code> method in favor of
+<code>selectClasspathResourceByName(Set)</code>.</p>
+</li>
+<li>
+<p>Deprecate <code>ClasspathResourceSelector.getClasspathResources()</code> method in favor of
+<code>getResources()</code>.</p>
+</li>
+<li>
+<p>Deprecate
+<code>EngineDiscoveryRequestResolver.Builder.addResourceContainerSelectorResolver(Predicate)</code>
+method in favor of <code>addResourceContainerSelectorResolver(ResourceFilter)</code>.</p>
+</li>
+<li>
+<p>Deprecate <code>Resource</code>-related methods in <code>ClasspathScanner</code> in favor of new methods using
+<code>org.junit.platform.commons.io.Resource</code> and <code>ResourceFilter</code>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>scanForResourcesInPackage(String, Predicate)</code></p>
+</li>
+<li>
+<p><code>scanForResourcesInClasspathRoot(URI, Predicate)</code></p>
+</li>
+</ul>
+</div>
+</li>
 </ul>
 </div>
 </div>
@@ -621,6 +684,11 @@ with the following APIs (which all have replacements working with
 <h4 id="release-notes-6.0.0-RC3-junit-platform-new-features-and-improvements"><a class="anchor" href="#release-notes-6.0.0-RC3-junit-platform-new-features-and-improvements"></a>New Features and Improvements</h4>
 <div class="ulist">
 <ul>
+<li>
+<p>New classpath resource abstraction in <code>org.junit.platform.commons.io.Resource</code> with
+support for loading resources or finding them on the classpath via static utility
+methods in the new <code>org.junit.platform.commons.support.ResourceSupport</code> class.</p>
+</li>
 <li>
 <p>New <code>Resource.of(String, URI)</code> static factory method for creating an
 <code>org.junit.platform.commons.support.Resource</code>.</p>
