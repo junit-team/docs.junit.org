@@ -250,6 +250,11 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/MediaType.html#parse(java.lang.String)" class="member-name-link">parse(String)</a> - Static method in class org.junit.jupiter.api.extension.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/MediaType.html" title="class in org.junit.jupiter.api.extension">MediaType</a></dt>
 <dd>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span></div>
+<div class="block">Parse the given media type value.</div>
+</dd>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/MediaType.html#parse(java.lang.String)" class="member-name-link">parse(String)</a> - Static method in class org.junit.jupiter.api.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/MediaType.html" title="class in org.junit.jupiter.api">MediaType</a></dt>
+<dd>
 <div class="block">Parse the given media type value.</div>
 </dd>
 <dt><a href="../org.junit.platform.engine/org/junit/platform/engine/discovery/DiscoverySelectorIdentifierParser.Context.html#parse(java.lang.String)" class="member-name-link">parse(String)</a> - Method in interface org.junit.platform.engine.discovery.<a href="../org.junit.platform.engine/org/junit/platform/engine/discovery/DiscoverySelectorIdentifierParser.Context.html" title="interface in org.junit.platform.engine.discovery">DiscoverySelectorIdentifierParser.Context</a></dt>
@@ -589,15 +594,35 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.html#publishFile(java.lang.String,org.junit.jupiter.api.extension.MediaType,org.junit.jupiter.api.function.ThrowingConsumer)" class="member-name-link">publishFile(String, MediaType, ThrowingConsumer&lt;Path&gt;)</a> - Method in interface org.junit.jupiter.api.extension.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.html" title="interface in org.junit.jupiter.api.extension">ExtensionContext</a></dt>
 <dd>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
+<div class="deprecation-comment">Use
+ <a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.html#publishFile(java.lang.String,org.junit.jupiter.api.MediaType,org.junit.jupiter.api.function.ThrowingConsumer)"><code>ExtensionContext.publishFile(String, MediaType, ThrowingConsumer)</code></a>
+ instead.</div>
+</div>
+</dd>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/TestReporter.html#publishFile(java.lang.String,org.junit.jupiter.api.extension.MediaType,org.junit.jupiter.api.function.ThrowingConsumer)" class="member-name-link">publishFile(String, MediaType, ThrowingConsumer&lt;Path&gt;)</a> - Method in interface org.junit.jupiter.api.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/TestReporter.html" title="interface in org.junit.jupiter.api">TestReporter</a></dt>
+<dd>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
+<div class="deprecation-comment">Use <a href="../org.junit.jupiter.api/org/junit/jupiter/api/TestReporter.html#publishFile(java.lang.String,org.junit.jupiter.api.MediaType,org.junit.jupiter.api.function.ThrowingConsumer)"><code>TestReporter.publishFile(String, MediaType, ThrowingConsumer)</code></a> instead.</div>
+</div>
+</dd>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.html#publishFile(java.lang.String,org.junit.jupiter.api.MediaType,org.junit.jupiter.api.function.ThrowingConsumer)" class="member-name-link">publishFile(String, MediaType, ThrowingConsumer&lt;Path&gt;)</a> - Method in interface org.junit.jupiter.api.extension.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.html" title="interface in org.junit.jupiter.api.extension">ExtensionContext</a></dt>
+<dd>
 <div class="block">Publish a file with the supplied name written by the supplied action and
  attach it to the current test or container.</div>
 </dd>
-<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/TestReporter.html#publishFile(java.lang.String,org.junit.jupiter.api.extension.MediaType,org.junit.jupiter.api.function.ThrowingConsumer)" class="member-name-link">publishFile(String, MediaType, ThrowingConsumer&lt;Path&gt;)</a> - Method in interface org.junit.jupiter.api.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/TestReporter.html" title="interface in org.junit.jupiter.api">TestReporter</a></dt>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/TestReporter.html#publishFile(java.lang.String,org.junit.jupiter.api.MediaType,org.junit.jupiter.api.function.ThrowingConsumer)" class="member-name-link">publishFile(String, MediaType, ThrowingConsumer&lt;Path&gt;)</a> - Method in interface org.junit.jupiter.api.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/TestReporter.html" title="interface in org.junit.jupiter.api">TestReporter</a></dt>
 <dd>
 <div class="block">Publish a file with the supplied name and media type written by the supplied
  action and attach it to the current test or container.</div>
 </dd>
 <dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/TestReporter.html#publishFile(java.nio.file.Path,org.junit.jupiter.api.extension.MediaType)" class="member-name-link">publishFile(Path, MediaType)</a> - Method in interface org.junit.jupiter.api.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/TestReporter.html" title="interface in org.junit.jupiter.api">TestReporter</a></dt>
+<dd>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
+<div class="deprecation-comment">Use <a href="../org.junit.jupiter.api/org/junit/jupiter/api/TestReporter.html#publishFile(java.nio.file.Path,org.junit.jupiter.api.MediaType)"><code>TestReporter.publishFile(Path, MediaType)</code></a> instead.</div>
+</div>
+</dd>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/TestReporter.html#publishFile(java.nio.file.Path,org.junit.jupiter.api.MediaType)" class="member-name-link">publishFile(Path, MediaType)</a> - Method in interface org.junit.jupiter.api.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/TestReporter.html" title="interface in org.junit.jupiter.api">TestReporter</a></dt>
 <dd>
 <div class="block">Publish the supplied file and attach it to the current test or container.</div>
 </dd>

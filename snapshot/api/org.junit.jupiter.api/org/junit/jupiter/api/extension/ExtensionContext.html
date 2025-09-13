@@ -92,6 +92,7 @@ loadScripts(document, 'script');</script>
 <li><a href="#publishReportEntry(java.lang.String,java.lang.String)" tabindex="0">publishReportEntry(String, String)</a></li>
 <li><a href="#publishReportEntry(java.lang.String)" tabindex="0">publishReportEntry(String)</a></li>
 <li><a href="#publishFile(java.lang.String,org.junit.jupiter.api.extension.MediaType,org.junit.jupiter.api.function.ThrowingConsumer)" tabindex="0">publishFile(String, MediaType, ThrowingConsumer)</a></li>
+<li><a href="#publishFile(java.lang.String,org.junit.jupiter.api.MediaType,org.junit.jupiter.api.function.ThrowingConsumer)" tabindex="0">publishFile(String, MediaType, ThrowingConsumer)</a></li>
 <li><a href="#publishDirectory(java.lang.String,org.junit.jupiter.api.function.ThrowingConsumer)" tabindex="0">publishDirectory(String, ThrowingConsumer)</a></li>
 <li><a href="#getStore(org.junit.jupiter.api.extension.ExtensionContext.Namespace)" tabindex="0">getStore(ExtensionContext.Namespace)</a></li>
 <li><a href="#getStore(org.junit.jupiter.api.extension.ExtensionContext.StoreScope,org.junit.jupiter.api.extension.ExtensionContext.Namespace)" tabindex="0">getStore(ExtensionContext.StoreScope, ExtensionContext.Namespace)</a></li>
@@ -172,7 +173,7 @@ loadScripts(document, 'script');</script>
 <section class="method-summary" id="method-summary">
 <h2>Method Summary</h2>
 <div id="method-summary-table">
-<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab3" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab3', 3)" class="table-tab">Abstract Methods</button><button id="method-summary-table-tab5" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab5', 3)" class="table-tab">Default Methods</button></div>
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab3" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab3', 3)" class="table-tab">Abstract Methods</button><button id="method-summary-table-tab5" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab5', 3)" class="table-tab">Default Methods</button><button id="method-summary-table-tab6" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab6', 3)" class="table-tab">Deprecated Methods</button></div>
 <div id="method-summary-table.tabpanel" role="tabpanel" aria-labelledby="method-summary-table-tab0">
 <div class="summary-table three-column-summary">
 <div class="table-header col-first">Modifier and Type</div>
@@ -314,32 +315,43 @@ loadScripts(document, 'script');</script>
 <div class="block">Publish a directory with the supplied name written by the supplied action
  and attach it to the current test or container.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#publishFile(java.lang.String,org.junit.jupiter.api.extension.MediaType,org.junit.jupiter.api.function.ThrowingConsumer)" class="member-name-link">publishFile</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5 method-summary-table-tab6"><code>default void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5 method-summary-table-tab6"><code><a href="#publishFile(java.lang.String,org.junit.jupiter.api.extension.MediaType,org.junit.jupiter.api.function.ThrowingConsumer)" class="member-name-link">publishFile</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  <a href="MediaType.html" title="class in org.junit.jupiter.api.extension">MediaType</a>&nbsp;mediaType,
  <a href="../function/ThrowingConsumer.html" title="interface in org.junit.jupiter.api.function">ThrowingConsumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&gt;&nbsp;action)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5 method-summary-table-tab6">
+<div class="block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
+<div class="deprecation-comment">Use
+ <a href="#publishFile(java.lang.String,org.junit.jupiter.api.MediaType,org.junit.jupiter.api.function.ThrowingConsumer)"><code>publishFile(String, MediaType, ThrowingConsumer)</code></a>
+ instead.</div>
+</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#publishFile(java.lang.String,org.junit.jupiter.api.MediaType,org.junit.jupiter.api.function.ThrowingConsumer)" class="member-name-link">publishFile</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ <a href="../MediaType.html" title="class in org.junit.jupiter.api">MediaType</a>&nbsp;mediaType,
+ <a href="../function/ThrowingConsumer.html" title="interface in org.junit.jupiter.api.function">ThrowingConsumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&gt;&nbsp;action)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Publish a file with the supplied name written by the supplied action and
  attach it to the current test or container.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#publishReportEntry(java.lang.String)" class="member-name-link">publishReportEntry</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;value)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#publishReportEntry(java.lang.String)" class="member-name-link">publishReportEntry</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;value)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
 <div class="block">Publish the specified value to be consumed by an
  <code>org.junit.platform.engine.EngineExecutionListener</code> in order to
  supply additional information to the reporting infrastructure.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#publishReportEntry(java.lang.String,java.lang.String)" class="member-name-link">publishReportEntry</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;key,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#publishReportEntry(java.lang.String,java.lang.String)" class="member-name-link">publishReportEntry</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;key,
  <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;value)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
 <div class="block">Publish the specified key-value pair to be consumed by an
  <code>org.junit.platform.engine.EngineExecutionListener</code> in order to
  supply additional information to the reporting infrastructure.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#publishReportEntry(java.util.Map)" class="member-name-link">publishReportEntry</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;map)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#publishReportEntry(java.util.Map)" class="member-name-link">publishReportEntry</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;map)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Publish a map of key-value pairs to be consumed by an
  <code>org.junit.platform.engine.EngineExecutionListener</code> in order to
  supply additional information to the reporting infrastructure.</div>
@@ -915,11 +927,18 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="publishFile(java.lang.String,org.junit.jupiter.api.extension.MediaType,org.junit.jupiter.api.function.ThrowingConsumer)">
 <h3>publishFile</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#MAINTAINED" title="class or interface in org.apiguardian.api" class="external-link">MAINTAINED</a>,
-     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="5.13.3")
-</span><span class="return-type">void</span>&nbsp;<span class="element-name">publishFile</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+<div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Deprecated.html#since()" title="class or interface in java.lang" class="external-link">since</a>="6.0",
+            <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Deprecated.html#forRemoval()" title="class or interface in java.lang" class="external-link">forRemoval</a>=true)
+<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#DEPRECATED" title="class or interface in org.apiguardian.api" class="external-link">DEPRECATED</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.0")
+</span><span class="modifiers">default</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">publishFile</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  <a href="MediaType.html" title="class in org.junit.jupiter.api.extension">MediaType</a>&nbsp;mediaType,
  <a href="../function/ThrowingConsumer.html" title="interface in org.junit.jupiter.api.function">ThrowingConsumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&gt;&nbsp;action)</span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
+<div class="deprecation-comment">Use
+ <a href="#publishFile(java.lang.String,org.junit.jupiter.api.MediaType,org.junit.jupiter.api.function.ThrowingConsumer)"><code>publishFile(String, MediaType, ThrowingConsumer)</code></a>
+ instead.</div>
+</div>
 <div class="block">Publish a file with the supplied name written by the supplied action and
  attach it to the current test or container.
 
@@ -930,10 +949,44 @@ loadScripts(document, 'script');</script>
 <dd><code>name</code> - the name of the file to be published; never <code>null</code> or
  blank and must not contain any path separators</dd>
 <dd><code>mediaType</code> - the media type of the file; never <code>null</code>; use
- <a href="MediaType.html#APPLICATION_OCTET_STREAM"><code>MediaType.APPLICATION_OCTET_STREAM</code></a> if unknown</dd>
+ <a href="MediaType.html#APPLICATION_OCTET_STREAM"><code>MediaType.APPLICATION_OCTET_STREAM</code></a>
+ if unknown</dd>
 <dd><code>action</code> - the action to be executed to write the file; never <code>null</code></dd>
 <dt>Since:</dt>
 <dd>5.12</dd>
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list-long">
+<li><a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/EngineExecutionListener.html#fileEntryPublished(org.junit.platform.engine.TestDescriptor,org.junit.platform.engine.reporting.FileEntry)"><code>EngineExecutionListener.fileEntryPublished(org.junit.platform.engine.TestDescriptor, org.junit.platform.engine.reporting.FileEntry)</code></a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="publishFile(java.lang.String,org.junit.jupiter.api.MediaType,org.junit.jupiter.api.function.ThrowingConsumer)">
+<h3>publishFile</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#MAINTAINED" title="class or interface in org.apiguardian.api" class="external-link">MAINTAINED</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.0")
+</span><span class="return-type">void</span>&nbsp;<span class="element-name">publishFile</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ <a href="../MediaType.html" title="class in org.junit.jupiter.api">MediaType</a>&nbsp;mediaType,
+ <a href="../function/ThrowingConsumer.html" title="interface in org.junit.jupiter.api.function">ThrowingConsumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&gt;&nbsp;action)</span></div>
+<div class="block">Publish a file with the supplied name written by the supplied action and
+ attach it to the current test or container.
+
+ <p>The file will be resolved in the report output directory prior to
+ invoking the supplied action.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>name</code> - the name of the file to be attached; never <code>null</code> or
+ blank and must not contain any path separators</dd>
+<dd><code>mediaType</code> - the media type of the file; never <code>null</code>; use
+ <a href="../MediaType.html#APPLICATION_OCTET_STREAM"><code>MediaType.APPLICATION_OCTET_STREAM</code></a> if unknown</dd>
+<dd><code>action</code> - the action to be executed to write the file; never <code>null</code></dd>
+<dt>Since:</dt>
+<dd>6.0</dd>
 <dt>See Also:</dt>
 <dd>
 <ul class="tag-list-long">

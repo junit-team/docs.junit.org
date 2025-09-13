@@ -83,9 +83,6 @@ loadScripts(document, 'script');</script>
 <li><a href="#parse(java.lang.String)" tabindex="0">parse(String)</a></li>
 <li><a href="#create(java.lang.String,java.lang.String)" tabindex="0">create(String, String)</a></li>
 <li><a href="#create(java.lang.String,java.lang.String,java.nio.charset.Charset)" tabindex="0">create(String, String, Charset)</a></li>
-<li><a href="#toString()" tabindex="0">toString()</a></li>
-<li><a href="#equals(java.lang.Object)" tabindex="0">equals(Object)</a></li>
-<li><a href="#hashCode()" tabindex="0">hashCode()</a></li>
 </ol>
 </li>
 </ol>
@@ -96,15 +93,22 @@ loadScripts(document, 'script');</script>
 <h1 title="Class MediaType" class="title">Class MediaType</h1>
 </div>
 <div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
+<div class="inheritance"><a href="../MediaType.html" title="class in org.junit.jupiter.api">org.junit.jupiter.api.MediaType</a>
 <div class="inheritance">org.junit.jupiter.api.extension.MediaType</div>
+</div>
 </div>
 <section class="class-description" id="class-description">
 <hr>
 <div class="horizontal-scroll">
-<div class="type-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#MAINTAINED" title="class or interface in org.apiguardian.api" class="external-link">MAINTAINED</a>,
-     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="5.13.3")
+<div class="type-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Deprecated.html#since()" title="class or interface in java.lang" class="external-link">since</a>="6.0",
+            <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Deprecated.html#forRemoval()" title="class or interface in java.lang" class="external-link">forRemoval</a>=true)
+<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#DEPRECATED" title="class or interface in org.apiguardian.api" class="external-link">DEPRECATED</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.0")
 </span><span class="modifiers">public final class </span><span class="element-name type-name-label">MediaType</span>
-<span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+<span class="extends-implements">extends <a href="../MediaType.html" title="class in org.junit.jupiter.api">MediaType</a></span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
+<div class="deprecation-comment">Use <a href="../MediaType.html" title="class in org.junit.jupiter.api"><code>MediaType</code></a> instead.</div>
+</div>
 <div class="block">Represents a media type as defined by
  <a href="https://tools.ietf.org/html/rfc2045">RFC 2045</a>.</div>
 <dl class="notes">
@@ -114,8 +118,8 @@ loadScripts(document, 'script');</script>
 <dd>
 <ul class="tag-list-long">
 <li><a href="../TestReporter.html#publishFile(java.nio.file.Path,org.junit.jupiter.api.extension.MediaType)"><code>TestReporter.publishFile(Path, MediaType)</code></a></li>
-<li><a href="../TestReporter.html#publishFile(java.lang.String,org.junit.jupiter.api.extension.MediaType,org.junit.jupiter.api.function.ThrowingConsumer)"><code>TestReporter.publishFile(String, MediaType, ThrowingConsumer)</code></a></li>
-<li><a href="ExtensionContext.html#publishFile(java.lang.String,org.junit.jupiter.api.extension.MediaType,org.junit.jupiter.api.function.ThrowingConsumer)"><code>ExtensionContext.publishFile(String, MediaType, ThrowingConsumer)</code></a></li>
+<li><a href="../TestReporter.html#publishFile(java.lang.String,org.junit.jupiter.api.extension.MediaType,org.junit.jupiter.api.function.ThrowingConsumer)"><code>TestReporter.publishFile(String, MediaType, org.junit.jupiter.api.function.ThrowingConsumer)</code></a></li>
+<li><a href="ExtensionContext.html#publishFile(java.lang.String,org.junit.jupiter.api.extension.MediaType,org.junit.jupiter.api.function.ThrowingConsumer)"><code>ExtensionContext.publishFile(String, MediaType, org.junit.jupiter.api.function.ThrowingConsumer)</code></a></li>
 </ul>
 </dd>
 </dl>
@@ -135,6 +139,7 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color"><code>static final <a href="MediaType.html" title="class in org.junit.jupiter.api.extension">MediaType</a></code></div>
 <div class="col-second even-row-color"><code><a href="#APPLICATION_JSON" class="member-name-link">APPLICATION_JSON</a></code></div>
 <div class="col-last even-row-color">
+<div class="block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span></div>
 <div class="block">The <code>application/json</code> media type.</div>
 </div>
 <div class="col-first odd-row-color"><code>static final <a href="MediaType.html" title="class in org.junit.jupiter.api.extension">MediaType</a></code></div>
@@ -147,26 +152,31 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color"><code>static final <a href="MediaType.html" title="class in org.junit.jupiter.api.extension">MediaType</a></code></div>
 <div class="col-second even-row-color"><code><a href="#APPLICATION_OCTET_STREAM" class="member-name-link">APPLICATION_OCTET_STREAM</a></code></div>
 <div class="col-last even-row-color">
+<div class="block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span></div>
 <div class="block">The <code>application/octet-stream</code> media type.</div>
 </div>
 <div class="col-first odd-row-color"><code>static final <a href="MediaType.html" title="class in org.junit.jupiter.api.extension">MediaType</a></code></div>
 <div class="col-second odd-row-color"><code><a href="#IMAGE_JPEG" class="member-name-link">IMAGE_JPEG</a></code></div>
 <div class="col-last odd-row-color">
+<div class="block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span></div>
 <div class="block">The <code>image/jpeg</code> media type.</div>
 </div>
 <div class="col-first even-row-color"><code>static final <a href="MediaType.html" title="class in org.junit.jupiter.api.extension">MediaType</a></code></div>
 <div class="col-second even-row-color"><code><a href="#IMAGE_PNG" class="member-name-link">IMAGE_PNG</a></code></div>
 <div class="col-last even-row-color">
+<div class="block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span></div>
 <div class="block">The <code>image/png</code> media type.</div>
 </div>
 <div class="col-first odd-row-color"><code>static final <a href="MediaType.html" title="class in org.junit.jupiter.api.extension">MediaType</a></code></div>
 <div class="col-second odd-row-color"><code><a href="#TEXT_PLAIN" class="member-name-link">TEXT_PLAIN</a></code></div>
 <div class="col-last odd-row-color">
+<div class="block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span></div>
 <div class="block">The <code>text/plain</code> media type.</div>
 </div>
 <div class="col-first even-row-color"><code>static final <a href="MediaType.html" title="class in org.junit.jupiter.api.extension">MediaType</a></code></div>
 <div class="col-second even-row-color"><code><a href="#TEXT_PLAIN_UTF_8" class="member-name-link">TEXT_PLAIN_UTF_8</a></code></div>
 <div class="col-last even-row-color">
+<div class="block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span></div>
 <div class="block">The <code>text/plain; charset=UTF-8</code> media type.</div>
 </div>
 </div>
@@ -177,44 +187,39 @@ loadScripts(document, 'script');</script>
 <section class="method-summary" id="method-summary">
 <h2>Method Summary</h2>
 <div id="method-summary-table">
-<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab1" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab1', 3)" class="table-tab">Static Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button></div>
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab1" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab1', 3)" class="table-tab">Static Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button><button id="method-summary-table-tab6" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab6', 3)" class="table-tab">Deprecated Methods</button></div>
 <div id="method-summary-table.tabpanel" role="tabpanel" aria-labelledby="method-summary-table-tab0">
 <div class="summary-table three-column-summary">
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="MediaType.html" title="class in org.junit.jupiter.api.extension">MediaType</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#create(java.lang.String,java.lang.String)" class="member-name-link">create</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;type,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4 method-summary-table-tab6"><code>static <a href="MediaType.html" title="class in org.junit.jupiter.api.extension">MediaType</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4 method-summary-table-tab6"><code><a href="#create(java.lang.String,java.lang.String)" class="member-name-link">create</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;type,
  <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;subtype)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4 method-summary-table-tab6">
+<div class="block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span></div>
 <div class="block">Create a media type with the given type and subtype.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="MediaType.html" title="class in org.junit.jupiter.api.extension">MediaType</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#create(java.lang.String,java.lang.String,java.nio.charset.Charset)" class="member-name-link">create</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;type,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4 method-summary-table-tab6"><code>static <a href="MediaType.html" title="class in org.junit.jupiter.api.extension">MediaType</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4 method-summary-table-tab6"><code><a href="#create(java.lang.String,java.lang.String,java.nio.charset.Charset)" class="member-name-link">create</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;type,
  <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;subtype,
  <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/nio/charset/Charset.html" title="class or interface in java.nio.charset" class="external-link">Charset</a>&nbsp;charset)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4 method-summary-table-tab6">
+<div class="block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span></div>
 <div class="block">Create a media type with the given type, subtype, and charset.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#equals(java.lang.Object)" class="member-name-link">equals</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;o)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hashCode()" class="member-name-link">hashCode</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="MediaType.html" title="class in org.junit.jupiter.api.extension">MediaType</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#parse(java.lang.String)" class="member-name-link">parse</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;value)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4 method-summary-table-tab6"><code>static <a href="MediaType.html" title="class in org.junit.jupiter.api.extension">MediaType</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4 method-summary-table-tab6"><code><a href="#parse(java.lang.String)" class="member-name-link">parse</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;value)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4 method-summary-table-tab6">
+<div class="block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span></div>
 <div class="block">Parse the given media type value.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns a string representation of this media type.</div>
 </div>
 </div>
 </div>
-</div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-org.junit.jupiter.api.MediaType">Methods inherited from class&nbsp;org.junit.jupiter.api.<a href="../MediaType.html" title="class in org.junit.jupiter.api">MediaType</a></h3>
+<code><a href="../MediaType.html#equals(java.lang.Object)">equals</a>, <a href="../MediaType.html#hashCode()">hashCode</a>, <a href="../MediaType.html#toString()">toString</a></code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;java.lang.<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></h3>
 <code><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
@@ -234,6 +239,7 @@ loadScripts(document, 'script');</script>
 <h3>TEXT_PLAIN</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="MediaType.html" title="class in org.junit.jupiter.api.extension">MediaType</a></span>&nbsp;<span class="element-name">TEXT_PLAIN</span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span></div>
 <div class="block">The <code>text/plain</code> media type.</div>
 </div>
 </section>
@@ -243,6 +249,7 @@ loadScripts(document, 'script');</script>
 <h3>TEXT_PLAIN_UTF_8</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="MediaType.html" title="class in org.junit.jupiter.api.extension">MediaType</a></span>&nbsp;<span class="element-name">TEXT_PLAIN_UTF_8</span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span></div>
 <div class="block">The <code>text/plain; charset=UTF-8</code> media type.</div>
 </div>
 </section>
@@ -252,6 +259,7 @@ loadScripts(document, 'script');</script>
 <h3>APPLICATION_JSON</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="MediaType.html" title="class in org.junit.jupiter.api.extension">MediaType</a></span>&nbsp;<span class="element-name">APPLICATION_JSON</span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span></div>
 <div class="block">The <code>application/json</code> media type.</div>
 </div>
 </section>
@@ -276,6 +284,7 @@ loadScripts(document, 'script');</script>
 <h3>APPLICATION_OCTET_STREAM</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="MediaType.html" title="class in org.junit.jupiter.api.extension">MediaType</a></span>&nbsp;<span class="element-name">APPLICATION_OCTET_STREAM</span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span></div>
 <div class="block">The <code>application/octet-stream</code> media type.</div>
 </div>
 </section>
@@ -285,6 +294,7 @@ loadScripts(document, 'script');</script>
 <h3>IMAGE_JPEG</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="MediaType.html" title="class in org.junit.jupiter.api.extension">MediaType</a></span>&nbsp;<span class="element-name">IMAGE_JPEG</span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span></div>
 <div class="block">The <code>image/jpeg</code> media type.</div>
 </div>
 </section>
@@ -294,6 +304,7 @@ loadScripts(document, 'script');</script>
 <h3>IMAGE_PNG</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="MediaType.html" title="class in org.junit.jupiter.api.extension">MediaType</a></span>&nbsp;<span class="element-name">IMAGE_PNG</span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span></div>
 <div class="block">The <code>image/png</code> media type.</div>
 </div>
 </section>
@@ -311,6 +322,7 @@ loadScripts(document, 'script');</script>
 <h3>parse</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="MediaType.html" title="class in org.junit.jupiter.api.extension">MediaType</a></span>&nbsp;<span class="element-name">parse</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;value)</span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span></div>
 <div class="block">Parse the given media type value.
 
  <p>Must be valid according to
@@ -332,6 +344,7 @@ loadScripts(document, 'script');</script>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="MediaType.html" title="class in org.junit.jupiter.api.extension">MediaType</a></span>&nbsp;<span class="element-name">create</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;type,
  <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;subtype)</span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span></div>
 <div class="block">Create a media type with the given type and subtype.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -350,6 +363,7 @@ loadScripts(document, 'script');</script>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="MediaType.html" title="class in org.junit.jupiter.api.extension">MediaType</a></span>&nbsp;<span class="element-name">create</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;type,
  <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;subtype,
  <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/nio/charset/Charset.html" title="class or interface in java.nio.charset" class="external-link">Charset</a>&nbsp;charset)</span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span></div>
 <div class="block">Create a media type with the given type, subtype, and charset.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -358,45 +372,6 @@ loadScripts(document, 'script');</script>
 <dd><code>charset</code> - the charset; never <code>null</code></dd>
 <dt>Returns:</dt>
 <dd>the media type</dd>
-</dl>
-</div>
-</section>
-</li>
-<li>
-<section class="detail" id="toString()">
-<h3>toString</h3>
-<div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">toString</span>()</div>
-<div class="block">Returns a string representation of this media type.</div>
-<dl class="notes">
-<dt>Overrides:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></code></dd>
-<dt>Returns:</dt>
-<dd>a string representation of this media type</dd>
-</dl>
-</div>
-</section>
-</li>
-<li>
-<section class="detail" id="equals(java.lang.Object)">
-<h3>equals</h3>
-<div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">equals</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;o)</span></div>
-<dl class="notes">
-<dt>Overrides:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></code></dd>
-</dl>
-</div>
-</section>
-</li>
-<li>
-<section class="detail" id="hashCode()">
-<h3>hashCode</h3>
-<div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">hashCode</span>()</div>
-<dl class="notes">
-<dt>Overrides:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></code></dd>
 </dl>
 </div>
 </section>
