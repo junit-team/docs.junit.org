@@ -625,6 +625,11 @@ with the following APIs (which all have replacements working with
 <p>New <code>Resource.from(String, URI)</code> static factory method for creating an
 <code>org.junit.platform.commons.support.Resource</code>.</p>
 </li>
+<li>
+<p>New <code>FileSource.withPosition(FilePosition)</code> method to avoid the overhead of redundant
+canonicalization of files when using <code>FileSource.from(File, FilePosition)</code> with many
+different <code>FilePosition</code> instances for the same <code>File</code>.</p>
+</li>
 </ul>
 </div>
 </div>
