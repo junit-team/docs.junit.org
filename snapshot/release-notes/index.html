@@ -508,37 +508,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#release-notes-6.0.0-M1-junit-vintage">JUnit Vintage</a></li>
 </ul>
 </li>
-<li><a href="#release-notes-5.13.4">5.13.4</a>
+<li><a href="#release-notes-5.14.0-RC1">5.14.0-RC1</a>
 <ul class="sectlevel2">
-<li><a href="#release-notes-5.13.4-overall-improvements">Overall Changes</a></li>
-<li><a href="#release-notes-5.13.4-junit-platform">JUnit Platform</a></li>
-<li><a href="#release-notes-5.13.4-junit-jupiter">JUnit Jupiter</a></li>
-<li><a href="#release-notes-5.13.4-junit-vintage">JUnit Vintage</a></li>
+<li><a href="#release-notes-5.14.0-RC1-junit-platform">JUnit Platform</a></li>
+<li><a href="#release-notes-5.14.0-RC1-junit-jupiter">JUnit Jupiter</a></li>
+<li><a href="#release-notes-5.14.0-RC1-junit-vintage">JUnit Vintage</a></li>
 </ul>
 </li>
-<li><a href="#release-notes-5.13.3">5.13.3</a>
-<ul class="sectlevel2">
-<li><a href="#release-notes-5.13.3-overall-improvements">Overall Changes</a></li>
-<li><a href="#release-notes-5.13.3-junit-platform">JUnit Platform</a></li>
-<li><a href="#release-notes-5.13.3-junit-jupiter">JUnit Jupiter</a></li>
-<li><a href="#release-notes-5.13.3-junit-vintage">JUnit Vintage</a></li>
-</ul>
-</li>
-<li><a href="#release-notes-5.13.2">5.13.2</a>
-<ul class="sectlevel2">
-<li><a href="#release-notes-5.13.2-junit-platform">JUnit Platform</a></li>
-<li><a href="#release-notes-5.13.2-junit-jupiter">JUnit Jupiter</a></li>
-<li><a href="#release-notes-5.13.2-junit-vintage">JUnit Vintage</a></li>
-</ul>
-</li>
-<li><a href="#release-notes-5.13.1">5.13.1</a>
-<ul class="sectlevel2">
-<li><a href="#release-notes-5.13.1-junit-platform">JUnit Platform</a></li>
-<li><a href="#release-notes-5.13.1-junit-jupiter">JUnit Jupiter</a></li>
-<li><a href="#release-notes-5.13.1-junit-vintage">JUnit Vintage</a></li>
-</ul>
-</li>
-<li><a href="#release-notes-5.13.0">5.13.0</a></li>
 </ul>
 </div>
 </div>
@@ -1505,348 +1481,117 @@ another testing framework with native JUnit Platform support.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="release-notes-5.13.4"><a class="anchor" href="#release-notes-5.13.4"></a>5.13.4</h2>
+<h2 id="release-notes-5.14.0-RC1"><a class="anchor" href="#release-notes-5.14.0-RC1"></a>5.14.0-RC1</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>Date of Release:</strong> July 21, 2025</p>
+<p><strong>Date of Release:</strong> ❓</p>
 </div>
 <div class="paragraph">
-<p><strong>Scope:</strong> Bug fixes and enhancements since 5.13.3</p>
+<p><strong>Scope:</strong> ❓</p>
 </div>
 <div class="paragraph">
 <p>For a complete list of all <em>closed</em> issues and pull requests for this release, consult the
-<a href="https://github.com/junit-team/junit-framework/milestone/101?closed=1">5.13.4</a> milestone page in the JUnit
+<a href="https://github.com/junit-team/junit-framework/milestone/108?closed=1">5.14.0-RC1</a> milestone page in the JUnit
 repository on GitHub.</p>
 </div>
 <div class="sect2">
-<h3 id="release-notes-5.13.4-overall-improvements"><a class="anchor" href="#release-notes-5.13.4-overall-improvements"></a>Overall Changes</h3>
+<h3 id="release-notes-5.14.0-RC1-junit-platform"><a class="anchor" href="#release-notes-5.14.0-RC1-junit-platform"></a>JUnit Platform</h3>
 <div class="sect3">
-<h4 id="release-notes-5.13.4-overall-new-features-and-improvements"><a class="anchor" href="#release-notes-5.13.4-overall-new-features-and-improvements"></a>New Features and Improvements</h4>
+<h4 id="release-notes-5.14.0-RC1-junit-platform-bug-fixes"><a class="anchor" href="#release-notes-5.14.0-RC1-junit-platform-bug-fixes"></a>Bug Fixes</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Remove <code>java.*</code> packages from <code>Import-Package</code> headers in all jar manifests to maximize
-compatibility with older OSGi runtimes.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="release-notes-5.13.4-junit-platform"><a class="anchor" href="#release-notes-5.13.4-junit-platform"></a>JUnit Platform</h3>
-<div class="sect3">
-<h4 id="release-notes-5.13.4-junit-platform-bug-fixes"><a class="anchor" href="#release-notes-5.13.4-junit-platform-bug-fixes"></a>Bug Fixes</h4>
-<div class="ulist">
-<ul>
-<li>
-<p><code>ClasspathResourceSelector</code> no longer allows to be constructed with a resource name that
-is blank after removing the leading slash.</p>
-</li>
-<li>
-<p><code>PackageSource.from(String)</code> now allows to be constructed with an empty string to
-indicate the default package.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="release-notes-5.13.4-junit-jupiter"><a class="anchor" href="#release-notes-5.13.4-junit-jupiter"></a>JUnit Jupiter</h3>
-<div class="sect3">
-<h4 id="release-notes-5.13.4-junit-jupiter-new-features-and-improvements"><a class="anchor" href="#release-notes-5.13.4-junit-jupiter-new-features-and-improvements"></a>New Features and Improvements</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>Log only once per implementation type for <code>CloseableResource</code> implementations that do
-not implement <code>AutoCloseable</code> to avoid flooding console output with this warning.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="release-notes-5.13.4-junit-vintage"><a class="anchor" href="#release-notes-5.13.4-junit-vintage"></a>JUnit Vintage</h3>
-<div class="paragraph">
-<p>No changes.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="release-notes-5.13.3"><a class="anchor" href="#release-notes-5.13.3"></a>5.13.3</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Date of Release:</strong> July 4, 2025</p>
-</div>
-<div class="paragraph">
-<p><strong>Scope:</strong> Bug fixes and enhancements since 5.13.2</p>
-</div>
-<div class="paragraph">
-<p>For a complete list of all <em>closed</em> issues and pull requests for this release, consult the
-<a href="https://github.com/junit-team/junit-framework/milestone/100?closed=1">5.13.3</a> milestone page in the JUnit
-repository on GitHub.</p>
-</div>
-<div class="sect2">
-<h3 id="release-notes-5.13.3-overall-improvements"><a class="anchor" href="#release-notes-5.13.3-overall-improvements"></a>Overall Changes</h3>
-<div class="sect3">
-<h4 id="release-notes-5.13.3-overall-new-features-and-improvements"><a class="anchor" href="#release-notes-5.13.3-overall-new-features-and-improvements"></a>New Features and Improvements</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>All <em>experimental</em> APIs have been promoted to <em>maintained</em> to indicate that they won&#8217;t
-be removed in any future 5.x release.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="release-notes-5.13.3-junit-platform"><a class="anchor" href="#release-notes-5.13.3-junit-platform"></a>JUnit Platform</h3>
-<div class="paragraph">
-<p>No changes.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="release-notes-5.13.3-junit-jupiter"><a class="anchor" href="#release-notes-5.13.3-junit-jupiter"></a>JUnit Jupiter</h3>
-<div class="sect3">
-<h4 id="release-notes-5.13.3-junit-jupiter-bug-fixes"><a class="anchor" href="#release-notes-5.13.3-junit-jupiter-bug-fixes"></a>Bug Fixes</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>Fix regression that caused top-level and static member classes annotated with <code>@Nested</code>
-to no longer be executed because they caused a discovery issue to be reported.</p>
-</li>
-<li>
-<p>Stop reporting discovery issues for composed annotation classes that are meta-annotated
-with <code>@Nested</code>.</p>
-</li>
-<li>
-<p>Stop reporting discovery issues for <code>DefaultImpls</code> classes generated by the Kotlin
-compiler for interfaces with non-abstract test methods.</p>
-</li>
-<li>
-<p>When a <code>customReason</code> is supplied along with a <code>null</code> value for the default <code>reason</code> to
-<code>ConditionEvaluationResult.disabled(String, String)</code>, the resulting reason is now
-<code>"my&nbsp;custom&nbsp;reason"</code> instead of
-<code>"null&nbsp;==&gt;&nbsp;my&nbsp;custom&nbsp;reason"</code>.</p>
+<p>❓</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="release-notes-5.13.3-junit-jupiter-new-features-and-improvements"><a class="anchor" href="#release-notes-5.13.3-junit-jupiter-new-features-and-improvements"></a>New Features and Improvements</h4>
+<h4 id="release-notes-5.14.0-RC1-junit-platform-deprecations-and-breaking-changes"><a class="anchor" href="#release-notes-5.14.0-RC1-junit-platform-deprecations-and-breaking-changes"></a>Deprecations and Breaking Changes</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>A <em>blank</em> reason supplied to a <code>ConditionEvaluationResult</code> factory method is now treated
-the same as a <code>null</code> reason, resulting in an <em>empty</em> <code>Optional</code> returned from
-<code>ConditionEvaluationResult.getReason()</code>.</p>
-</li>
-<li>
-<p>The Javadoc for factory methods in <code>ConditionEvaluationResult</code> now explicitly states
-that both <code>null</code> and <em>blank</em> values are supported for reason strings and that such
-values will result in an <em>empty</em> <code>Optional</code> returned from
-<code>ConditionEvaluationResult.getReason()</code>.</p>
-</li>
-<li>
-<p>Improve message of discovery issues reported for ineffective <code>@Order</code> annotations.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="release-notes-5.13.3-junit-vintage"><a class="anchor" href="#release-notes-5.13.3-junit-vintage"></a>JUnit Vintage</h3>
-<div class="paragraph">
-<p>No changes.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="release-notes-5.13.2"><a class="anchor" href="#release-notes-5.13.2"></a>5.13.2</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Date of Release:</strong> June 24, 2025</p>
-</div>
-<div class="paragraph">
-<p><strong>Scope:</strong> Bug fixes and enhancements since 5.13.1</p>
-</div>
-<div class="paragraph">
-<p>For a complete list of all <em>closed</em> issues and pull requests for this release, consult the
-<a href="https://github.com/junit-team/junit-framework/milestone/98?closed=1">5.13.2</a> milestone page in the JUnit
-repository on GitHub.</p>
-</div>
-<div class="sect2">
-<h3 id="release-notes-5.13.2-junit-platform"><a class="anchor" href="#release-notes-5.13.2-junit-platform"></a>JUnit Platform</h3>
-<div class="sect3">
-<h4 id="release-notes-5.13.2-junit-platform-bug-fixes"><a class="anchor" href="#release-notes-5.13.2-junit-platform-bug-fixes"></a>Bug Fixes</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>If Git information is included in the Open Test Reporting XML format (see below), any
-credentials that may be configured as part the <code>remote.origin.url</code> setting in Git were
-previously written to the <code>originUrl</code> attribute of <code>&lt;git:repository&gt;</code> elements. For
-example, when cloning a GitHub repository using a URL like
-<code><a href="https://username:password@github.com/organization/repository.git" class="bare">https://username:password@github.com/organization/repository.git</a></code>, both username and
-password were included in the XML report. Since a report which includes this information
-may be shared, published, or archived (for example, on a CI server), this was reported
-as a potential security vulnerability (CVE-2025-53103). Any credentials are now replaced
-with <code>***</code> before writing them to the XML report.</p>
+<p>❓</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="release-notes-5.13.2-junit-platform-deprecations-and-breaking-changes"><a class="anchor" href="#release-notes-5.13.2-junit-platform-deprecations-and-breaking-changes"></a>Deprecations and Breaking Changes</h4>
+<h4 id="release-notes-5.14.0-RC1-junit-platform-new-features-and-improvements"><a class="anchor" href="#release-notes-5.14.0-RC1-junit-platform-new-features-and-improvements"></a>New Features and Improvements</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Including information about the Git repository (such as the commit hash and branch name)
-in the Open Test Reporting XML format is now an opt-in feature that can be enabled via a
-configuration parameter. Please refer to the
-<a href="../user-guide/index.html#junit-platform-reporting-open-test-reporting">User Guide</a>
-for details.</p>
+<p>Emit warning when <code>@SuiteDisplayName</code> is used with a blank string</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="release-notes-5.13.2-junit-jupiter"><a class="anchor" href="#release-notes-5.13.2-junit-jupiter"></a>JUnit Jupiter</h3>
+<h3 id="release-notes-5.14.0-RC1-junit-jupiter"><a class="anchor" href="#release-notes-5.14.0-RC1-junit-jupiter"></a>JUnit Jupiter</h3>
 <div class="sect3">
-<h4 id="release-notes-5.13.2-junit-jupiter-bug-fixes"><a class="anchor" href="#release-notes-5.13.2-junit-jupiter-bug-fixes"></a>Bug Fixes</h4>
+<h4 id="release-notes-5.14.0-RC1-junit-jupiter-bug-fixes"><a class="anchor" href="#release-notes-5.14.0-RC1-junit-jupiter-bug-fixes"></a>Bug Fixes</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Stop reporting discovery issues for cyclic inner class hierarchies not annotated with
-<code>@Nested</code>.</p>
-</li>
-<li>
-<p>Stop reporting discovery issues for <em>abstract</em> inner classes that contain test methods
-but are not annotated with <code>@Nested</code>.</p>
-</li>
-<li>
-<p>Stop reporting discovery issues for <em>abstract</em> test methods. Although they will not be
-executed, it is a valid pattern to annotate them with <code>@Test</code> for documentation purposes
-and override them in subclasses while re-declaring the <code>@Test</code> annotation.</p>
+<p>❓</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="release-notes-5.13.2-junit-jupiter-new-features-and-improvements"><a class="anchor" href="#release-notes-5.13.2-junit-jupiter-new-features-and-improvements"></a>New Features and Improvements</h4>
+<h4 id="release-notes-5.14.0-RC1-junit-jupiter-deprecations-and-breaking-changes"><a class="anchor" href="#release-notes-5.14.0-RC1-junit-jupiter-deprecations-and-breaking-changes"></a>Deprecations and Breaking Changes</h4>
 <div class="ulist">
 <ul>
 <li>
-<p><code>JAVA_26</code> has been added to the <code>JRE</code> enum for use with JRE-based execution conditions.</p>
+<p>❓</p>
 </li>
 </ul>
 </div>
 </div>
-</div>
-<div class="sect2">
-<h3 id="release-notes-5.13.2-junit-vintage"><a class="anchor" href="#release-notes-5.13.2-junit-vintage"></a>JUnit Vintage</h3>
-<div class="paragraph">
-<p>No changes.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="release-notes-5.13.1"><a class="anchor" href="#release-notes-5.13.1"></a>5.13.1</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Date of Release:</strong> June 7, 2025</p>
-</div>
-<div class="paragraph">
-<p><strong>Scope:</strong> Bug fixes and enhancements since 5.13.0</p>
-</div>
-<div class="paragraph">
-<p>For a complete list of all <em>closed</em> issues and pull requests for this release, consult the
-<a href="https://github.com/junit-team/junit-framework/milestone/97?closed=1">5.13.1</a> milestone page in the JUnit
-repository on GitHub.</p>
-</div>
-<div class="sect2">
-<h3 id="release-notes-5.13.1-junit-platform"><a class="anchor" href="#release-notes-5.13.1-junit-platform"></a>JUnit Platform</h3>
-<div class="paragraph">
-<p>No changes.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="release-notes-5.13.1-junit-jupiter"><a class="anchor" href="#release-notes-5.13.1-junit-jupiter"></a>JUnit Jupiter</h3>
 <div class="sect3">
-<h4 id="release-notes-5.13.1-junit-jupiter-bug-fixes"><a class="anchor" href="#release-notes-5.13.1-junit-jupiter-bug-fixes"></a>Bug Fixes</h4>
+<h4 id="release-notes-5.14.0-RC1-junit-jupiter-new-features-and-improvements"><a class="anchor" href="#release-notes-5.14.0-RC1-junit-jupiter-new-features-and-improvements"></a>New Features and Improvements</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>The 5.13.0 release introduced a regression regarding the execution order in test classes
-containing both test methods and <code>@Nested</code> test classes. When classpath scanning was
-used during test discovery&#8201;&#8212;&#8201;for example, when resolving a package selector for a
-<code>@Suite</code> class&#8201;&#8212;&#8201;test methods in <code>@Nested</code> classes were executed <em>before</em> test methods
-in their enclosing class. This undesired change in behavior has now been reverted so
-that tests in <code>@Nested</code> test classes are always executed <em>after</em> tests in enclosing test
-classes again.</p>
-</li>
-<li>
-<p>Fix support for <code>AnnotationBasedArgumentsProvider</code> implementations that override the
-deprecated <code>provideArguments(ExtensionContext, Annotation)</code> method.</p>
+<p>❓</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="release-notes-5.13.1-junit-vintage"><a class="anchor" href="#release-notes-5.13.1-junit-vintage"></a>JUnit Vintage</h3>
-<div class="paragraph">
-<p>No changes</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="release-notes-5.13.0"><a class="anchor" href="#release-notes-5.13.0"></a>5.13.0</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Date of Release:</strong> May 30, 2025</p>
-</div>
-<div class="paragraph">
-<p><strong>Scope:</strong></p>
-</div>
+<h3 id="release-notes-5.14.0-RC1-junit-vintage"><a class="anchor" href="#release-notes-5.14.0-RC1-junit-vintage"></a>JUnit Vintage</h3>
+<div class="sect3">
+<h4 id="release-notes-5.14.0-RC1-junit-vintage-bug-fixes"><a class="anchor" href="#release-notes-5.14.0-RC1-junit-vintage-bug-fixes"></a>Bug Fixes</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Introduce <code>@ClassTemplate</code> and <code>@ParameterizedClass</code> support in JUnit Jupiter</p>
-</li>
-<li>
-<p>Access to <code>ParameterInfo</code> for JUnit Jupiter extensions</p>
-</li>
-<li>
-<p>New <code>@SentenceFragment</code> annotation for use with <code>IndicativeSentences</code> display name generator</p>
-</li>
-<li>
-<p>Add <code>--redirect-stdout</code> and <code>--redirect-stderr</code> options to <code>ConsoleLauncher</code></p>
-</li>
-<li>
-<p>Introduce test <em>discovery</em> support in <code>EngineTestKit</code></p>
-</li>
-<li>
-<p>Reporting of discovery issues for test engines</p>
-</li>
-<li>
-<p>Resource management for launcher sessions and execution requests</p>
-</li>
-<li>
-<p>GraalVM: removal of <code>native-image.properties</code> files from JARs</p>
-</li>
-<li>
-<p>Bug fixes and other minor improvements</p>
+<p>❓</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>For complete details consult the
-<a href="https://junit.org/junit5/docs/5.13.0/release-notes/index.html">5.13.0 Release Notes</a> online.</p>
+</div>
+<div class="sect3">
+<h4 id="release-notes-5.14.0-RC1-junit-vintage-deprecations-and-breaking-changes"><a class="anchor" href="#release-notes-5.14.0-RC1-junit-vintage-deprecations-and-breaking-changes"></a>Deprecations and Breaking Changes</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>❓</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="release-notes-5.14.0-RC1-junit-vintage-new-features-and-improvements"><a class="anchor" href="#release-notes-5.14.0-RC1-junit-vintage-new-features-and-improvements"></a>New Features and Improvements</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>❓</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 </div>
