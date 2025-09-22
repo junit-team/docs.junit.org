@@ -472,40 +472,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#release-notes-6.0.0-RC3">6.0.0-RC3</a>
+<li><a href="#release-notes-6.0.0">6.0.0</a>
 <ul class="sectlevel2">
-<li><a href="#release-notes-6.0.0-RC3-junit-platform">JUnit Platform</a></li>
-<li><a href="#release-notes-6.0.0-RC3-junit-jupiter">JUnit Jupiter</a></li>
-<li><a href="#release-notes-6.0.0-RC3-junit-vintage">JUnit Vintage</a></li>
-</ul>
-</li>
-<li><a href="#release-notes-6.0.0-RC2">6.0.0-RC2</a>
-<ul class="sectlevel2">
-<li><a href="#release-notes-6.0.0-RC2-junit-platform">JUnit Platform</a></li>
-<li><a href="#release-notes-6.0.0-RC2-junit-jupiter">JUnit Jupiter</a></li>
-<li><a href="#release-notes-6.0.0-RC2-junit-vintage">JUnit Vintage</a></li>
-</ul>
-</li>
-<li><a href="#release-notes-6.0.0-RC1">6.0.0-RC1</a>
-<ul class="sectlevel2">
-<li><a href="#release-notes-6.0.0-RC1-junit-platform">JUnit Platform</a></li>
-<li><a href="#release-notes-6.0.0-RC1-junit-jupiter">JUnit Jupiter</a></li>
-<li><a href="#release-notes-6.0.0-RC1-junit-vintage">JUnit Vintage</a></li>
-</ul>
-</li>
-<li><a href="#release-notes-6.0.0-M2">6.0.0-M2</a>
-<ul class="sectlevel2">
-<li><a href="#release-notes-6.0.0-M2-junit-platform">JUnit Platform</a></li>
-<li><a href="#release-notes-6.0.0-M2-junit-jupiter">JUnit Jupiter</a></li>
-<li><a href="#release-notes-6.0.0-M2-junit-vintage">JUnit Vintage</a></li>
-</ul>
-</li>
-<li><a href="#release-notes-6.0.0-M1">6.0.0-M1</a>
-<ul class="sectlevel2">
-<li><a href="#release-notes-6.0.0-M1-overall-improvements">Overall Improvements</a></li>
-<li><a href="#release-notes-6.0.0-M1-junit-platform">JUnit Platform</a></li>
-<li><a href="#release-notes-6.0.0-M1-junit-jupiter">JUnit Jupiter</a></li>
-<li><a href="#release-notes-6.0.0-M1-junit-vintage">JUnit Vintage</a></li>
+<li><a href="#release-notes-6.0.0-overall-improvements">Overall Improvements</a></li>
+<li><a href="#release-notes-6.0.0-junit-platform">JUnit Platform</a></li>
+<li><a href="#release-notes-6.0.0-junit-jupiter">JUnit Jupiter</a></li>
+<li><a href="#release-notes-6.0.0-junit-vintage">JUnit Vintage</a></li>
 </ul>
 </li>
 <li><a href="#release-notes-5.14.0-RC1">5.14.0-RC1</a>
@@ -532,206 +504,66 @@ authors as well as build tool and IDE vendors.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="release-notes-6.0.0-RC3"><a class="anchor" href="#release-notes-6.0.0-RC3"></a>6.0.0-RC3</h2>
+<h2 id="release-notes-6.0.0"><a class="anchor" href="#release-notes-6.0.0"></a>6.0.0</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>Date of Release:</strong> September 14, 2025</p>
+<p><strong>Date of Release:</strong> ❓</p>
 </div>
 <div class="paragraph">
-<p><strong>Scope:</strong> Enhancements, deprecations, and bug fixes since 6.0.0-RC2</p>
+<p><strong>Scope:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Java 17 and Kotlin 2.2 baseline</p>
+</li>
+<li>
+<p>Single version number for Platform, Jupiter, and Vintage</p>
+</li>
+<li>
+<p>Use of JSpecify annotations to document nullability</p>
+</li>
+<li>
+<p>Integration of JFR functionality into <code>junit-platform-launcher</code></p>
+</li>
+<li>
+<p>Removal of <code>junit-platform-runner</code> and <code>junit-platform-jfr</code></p>
+</li>
+<li>
+<p>Switch to FastCSV library for <code>@CsvSource</code> and <code>@CsvFileSource</code></p>
+</li>
+<li>
+<p>Support for using Kotlin <code>suspend</code> functions as test methods</p>
+</li>
+<li>
+<p>Support for cancelling test execution via <code>CancellationToken</code></p>
+</li>
+<li>
+<p>New <code>--fail-fast</code> mode for ConsoleLauncher</p>
+</li>
+<li>
+<p>Deterministic order of <code>@Nested</code> classes</p>
+</li>
+<li>
+<p>Inheritance of <code>@TestMethodOrder</code> by enclosed <code>@Nested</code> classes</p>
+</li>
+<li>
+<p><code>MethodOrderer.Default</code> and <code>ClassOrderer.Default</code> for <code>@Nested</code> classes</p>
+</li>
+<li>
+<p>Removal of various deprecated behaviors and APIs</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>For a complete list of all <em>closed</em> issues and pull requests for this release, consult the
-<a href="https://github.com/junit-team/junit-framework/milestone/106?closed=1">6.0.0-RC3</a> milestone page in the
-JUnit repository on GitHub.</p>
-</div>
-<div class="sect2">
-<h3 id="release-notes-6.0.0-RC3-junit-platform"><a class="anchor" href="#release-notes-6.0.0-RC3-junit-platform"></a>JUnit Platform</h3>
-<div class="sect3">
-<h4 id="release-notes-6.0.0-RC3-junit-platform-deprecations-and-breaking-changes"><a class="anchor" href="#release-notes-6.0.0-RC3-junit-platform-deprecations-and-breaking-changes"></a>Deprecations and Breaking Changes</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>Serialization support for <code>TestIdentifier</code> has been changed in a backwards-incompatible
-way in order to simplify the implementation.</p>
-</li>
-<li>
-<p>Deprecate <code>OutputDirectoryProvider</code> interface in favor of the new
-<code>OutputDirectoryCreator</code> interface to resolve cyclic package dependency along
-with the following APIs (which all have replacements working with
-<code>OutputDirectoryCreator</code>):</p>
-<div class="ulist">
-<ul>
-<li>
-<p><code>EngineDiscoveryRequest.getOutputDirectoryProvider()</code></p>
-</li>
-<li>
-<p><code>ExecutionRequest.getOutputDirectoryProvider()</code></p>
-</li>
-<li>
-<p><code>LauncherDiscoveryRequestBuilder.outputDirectoryProvider(OutputDirectoryProvider)</code></p>
-</li>
-<li>
-<p><code>TestPlan.getOutputDirectoryProvider()</code></p>
-</li>
-<li>
-<p><code>EngineTestKit.Builder.outputDirectoryProvider(OutputDirectoryProvider)</code></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Deprecate <code>org.junit.platform.commons.support.Resource</code> interface in favor of the new
-<code>org.junit.platform.commons.io.Resource</code> one.</p>
-</li>
-<li>
-<p>Deprecate <code>Resource</code>-related methods in <code>ReflectionSupport</code> in favor of corresponding
-methods in new <code>ResourceSupport</code> class:</p>
-<div class="ulist">
-<ul>
-<li>
-<p><code>findAllResourcesInClasspathRoot(URI, Predicate)</code></p>
-</li>
-<li>
-<p><code>findAllResourcesInModule(String, Predicate)</code></p>
-</li>
-<li>
-<p><code>findAllResourcesInPackage(String, Predicate)</code></p>
-</li>
-<li>
-<p><code>streamAllResourcesInClasspathRoot(URI, Predicate)</code></p>
-</li>
-<li>
-<p><code>streamAllResourcesInModule(String, Predicate)</code></p>
-</li>
-<li>
-<p><code>streamAllResourcesInPackage(String, Predicate)</code></p>
-</li>
-<li>
-<p><code>tryToGetResources(String)</code></p>
-</li>
-<li>
-<p><code>tryToGetResources(String, ClassLoader)</code></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Deprecate <code>DiscoverySelectors.selectClasspathResource(Set)</code> method in favor of
-<code>selectClasspathResourceByName(Set)</code>.</p>
-</li>
-<li>
-<p>Deprecate <code>ClasspathResourceSelector.getClasspathResources()</code> method in favor of
-<code>getResources()</code>.</p>
-</li>
-<li>
-<p>Deprecate
-<code>EngineDiscoveryRequestResolver.Builder.addResourceContainerSelectorResolver(Predicate)</code>
-method in favor of <code>addResourceContainerSelectorResolver(ResourceFilter)</code>.</p>
-</li>
-<li>
-<p>Deprecate <code>Resource</code>-related methods in <code>ClasspathScanner</code> in favor of new methods using
-<code>org.junit.platform.commons.io.Resource</code> and <code>ResourceFilter</code>:</p>
-<div class="ulist">
-<ul>
-<li>
-<p><code>scanForResourcesInPackage(String, Predicate)</code></p>
-</li>
-<li>
-<p><code>scanForResourcesInClasspathRoot(URI, Predicate)</code></p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="release-notes-6.0.0-RC3-junit-platform-new-features-and-improvements"><a class="anchor" href="#release-notes-6.0.0-RC3-junit-platform-new-features-and-improvements"></a>New Features and Improvements</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>New classpath resource abstraction in <code>org.junit.platform.commons.io.Resource</code> with
-support for loading resources or finding them on the classpath via static utility
-methods in the new <code>org.junit.platform.commons.support.ResourceSupport</code> class.</p>
-</li>
-<li>
-<p>New <code>FileSource.withPosition(FilePosition)</code> method to avoid the overhead of redundant
-canonicalization of files when using <code>FileSource.from(File, FilePosition)</code> with many
-different <code>FilePosition</code> instances for the same <code>File</code>.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="release-notes-6.0.0-RC3-junit-jupiter"><a class="anchor" href="#release-notes-6.0.0-RC3-junit-jupiter"></a>JUnit Jupiter</h3>
-<div class="sect3">
-<h4 id="release-notes-6.0.0-RC3-junit-jupiter-deprecations-and-breaking-changes"><a class="anchor" href="#release-notes-6.0.0-RC3-junit-jupiter-deprecations-and-breaking-changes"></a>Deprecations and Breaking Changes</h4>
-<div class="ulist">
-<ul>
-<li>
-<p><code>MediaType.APPLICATION_JSON_UTF_8</code> is now deprecated in favor of using
-<code>MediaType.APPLICATION_JSON</code>, since the industry considers UTF-8 to be the implicit
-default encoding for the <code>application/json</code> media type.</p>
-</li>
-<li>
-<p><code>org.junit.jupiter.api.extension.MediaType</code> is now deprecated in favor of the new
-<code>org.junit.jupiter.api.MediaType</code>.</p>
-</li>
-<li>
-<p>The <code>publishFile(&#8230;&#8203;)</code> methods in <code>TestReporter</code> which accept an
-<code>org.junit.jupiter.api.extension.MediaType</code> are now deprecated in favor of new variants
-which accept an <code>org.junit.jupiter.api.MediaType</code>.</p>
-</li>
-<li>
-<p>The <code>publishFile(&#8230;&#8203;)</code> method in <code>ExtensionContext</code> which accepts an
-<code>org.junit.jupiter.api.extension.MediaType</code> is now deprecated in favor of a new variant
-which accepts an <code>org.junit.jupiter.api.MediaType</code>.</p>
-</li>
-<li>
-<p><code>org.junit.jupiter.params.support.ParameterInfo</code> is now deprecated in favor of the new
-<code>org.junit.jupiter.params.ParameterInfo</code>.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="release-notes-6.0.0-RC3-junit-jupiter-new-features-and-improvements"><a class="anchor" href="#release-notes-6.0.0-RC3-junit-jupiter-new-features-and-improvements"></a>New Features and Improvements</h4>
-<div class="ulist">
-<ul>
-<li>
-<p><code>MediaType</code> now strips leading and trailing whitespace from a supplied <code>value</code>, <code>type</code>,
-or <code>subtype</code>.</p>
-</li>
-<li>
-<p><code>MediaType</code> now eagerly rejects a <em>blank</em> <code>value</code>, <code>type</code>, or <code>subtype</code>.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="release-notes-6.0.0-RC3-junit-vintage"><a class="anchor" href="#release-notes-6.0.0-RC3-junit-vintage"></a>JUnit Vintage</h3>
-<div class="paragraph">
-<p>No changes.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="release-notes-6.0.0-RC2"><a class="anchor" href="#release-notes-6.0.0-RC2"></a>6.0.0-RC2</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Date of Release:</strong> August 25, 2025</p>
-</div>
-<div class="paragraph">
-<p><strong>Scope:</strong> Minor enhancements and bug fixes since 6.0.0-RC1.</p>
-</div>
-<div class="paragraph">
-<p>For a complete list of all <em>closed</em> issues and pull requests for this release, consult the
-<a href="https://github.com/junit-team/junit-framework/milestone/105?closed=1">6.0.0-RC2</a> milestone page in the
-JUnit repository on GitHub.</p>
+<a href="https://github.com/junit-team/junit-framework/milestone/87?closed=1">6.0.0-M1</a>,
+<a href="https://github.com/junit-team/junit-framework/milestone/99?closed=1">6.0.0-M2</a>,
+<a href="https://github.com/junit-team/junit-framework/milestone/102?closed=1">6.0.0-RC1</a>,
+<a href="https://github.com/junit-team/junit-framework/milestone/105?closed=1">6.0.0-RC2</a>,
+<a href="https://github.com/junit-team/junit-framework/milestone/106?closed=1">6.0.0-RC3</a>, and
+<a href="https://github.com/junit-team/junit-framework/milestone/103?closed=1">6.0.0</a>
+milestone pages in the JUnit repository on GitHub.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -751,464 +583,9 @@ guidance on upgrading from JUnit 5.x.y to 6.0.0.</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="release-notes-6.0.0-RC2-junit-platform"><a class="anchor" href="#release-notes-6.0.0-RC2-junit-platform"></a>JUnit Platform</h3>
+<h3 id="release-notes-6.0.0-overall-improvements"><a class="anchor" href="#release-notes-6.0.0-overall-improvements"></a>Overall Improvements</h3>
 <div class="sect3">
-<h4 id="release-notes-6.0.0-RC2-junit-platform-bug-fixes"><a class="anchor" href="#release-notes-6.0.0-RC2-junit-platform-bug-fixes"></a>Bug Fixes</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>The <code>Launcher</code> (specifically <code>LauncherDiscoveryResult</code>) now retains the original
-<code>TestEngine</code> registration order after pruning test engines without tests, thereby
-ensuring reliable test execution order of multiple test engines.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="release-notes-6.0.0-RC2-junit-platform-new-features-and-improvements"><a class="anchor" href="#release-notes-6.0.0-RC2-junit-platform-new-features-and-improvements"></a>New Features and Improvements</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>The <code>execute(TestPlan,&#160;TestExecutionListener&#8230;&#8203;)</code> and
-<code>execute(LauncherDiscoveryRequest,&#160;TestExecutionListener&#8230;&#8203;)</code> methods in the
-<code>Launcher</code> API are no longer deprecated.</p>
-</li>
-<li>
-<p>New <code>discoveryRequest()</code> method in <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherDiscoveryRequestBuilder.html">LauncherDiscoveryRequestBuilder</a></code>, which is an
-alias for the existing <code>request()</code> method and is intended to be used via a <code>static</code>
-import.</p>
-</li>
-<li>
-<p>New <code>executionRequest(&#8230;&#8203;)</code> methods in <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherExecutionRequestBuilder.html">LauncherExecutionRequestBuilder</a></code>, which are
-aliases for the existing <code>request(&#8230;&#8203;)</code> methods and are intended to be used via a
-<code>static</code> import.</p>
-</li>
-<li>
-<p>New <code>selectClasses(&#8230;&#8203;)</code> and <code>selectClassesByName(&#8230;&#8203;)</code> factory methods have been
-introduced in <code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/discovery/DiscoverySelectors.html">DiscoverySelectors</a></code> to simplify use cases where one needs to select
-multiple individual test classes for the <code>Launcher</code> or <code>EngineTestKit</code>.</p>
-</li>
-<li>
-<p>New <code>selectors(List)</code> builder method for <code><a href="../api/org.junit.platform.testkit/org/junit/platform/testkit/engine/EngineTestKit.html">EngineTestKit</a></code> which can be used in
-conjunction with the new <code>selectClasses(&#8230;&#8203;)</code> and <code>selectClassesByName(&#8230;&#8203;)</code> factory
-methods in <code>DiscoverySelectors</code>.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="release-notes-6.0.0-RC2-junit-jupiter"><a class="anchor" href="#release-notes-6.0.0-RC2-junit-jupiter"></a>JUnit Jupiter</h3>
-<div class="paragraph">
-<p>No changes.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="release-notes-6.0.0-RC2-junit-vintage"><a class="anchor" href="#release-notes-6.0.0-RC2-junit-vintage"></a>JUnit Vintage</h3>
-<div class="paragraph">
-<p>No changes.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="release-notes-6.0.0-RC1"><a class="anchor" href="#release-notes-6.0.0-RC1"></a>6.0.0-RC1</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Date of Release:</strong> August 20, 2025</p>
-</div>
-<div class="paragraph">
-<p><strong>Scope:</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Display name improvements for parameterized classes and tests</p>
-</li>
-<li>
-<p>Replacing of non-printable control characters in display names</p>
-</li>
-<li>
-<p>Deterministic order of <code>@Nested</code> classes</p>
-</li>
-<li>
-<p>Inheritance of <code>@TestMethodOrder</code> by enclosed <code>@Nested</code> classes</p>
-</li>
-<li>
-<p><code>MethodOrderer.Default</code> and <code>ClassOrderer.Default</code> for <code>@Nested</code> classes</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>For a complete list of all <em>closed</em> issues and pull requests for this release, consult the
-<a href="https://github.com/junit-team/junit-framework/milestone/102?closed=1">6.0.0-RC1</a> milestone page in the JUnit
-repository on GitHub.</p>
-</div>
-<div class="sect2">
-<h3 id="release-notes-6.0.0-RC1-junit-platform"><a class="anchor" href="#release-notes-6.0.0-RC1-junit-platform"></a>JUnit Platform</h3>
-<div class="sect3">
-<h4 id="release-notes-6.0.0-RC1-junit-platform-deprecations-and-breaking-changes"><a class="anchor" href="#release-notes-6.0.0-RC1-junit-platform-deprecations-and-breaking-changes"></a>Deprecations and Breaking Changes</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>The methods <code>findNestedClasses</code> and <code>streamNestedClasses</code> in <code>ReflectionSupport</code> now
-return nested classes declared in the same enclosing class or interface ordered in a
-deterministic but intentionally nonobvious way.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="release-notes-6.0.0-RC1-junit-platform-new-features-and-improvements"><a class="anchor" href="#release-notes-6.0.0-RC1-junit-platform-new-features-and-improvements"></a>New Features and Improvements</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>Stack traces are now pruned up to the test method or lifecycle method.</p>
-</li>
-<li>
-<p>Convention-based conversion in <code>ConversionSupport</code> now supports factory methods and
-factory constructors that accept a single <code>CharSequence</code> argument in addition to the
-existing support for factories that accept a single <code>String</code> argument.</p>
-</li>
-<li>
-<p>Non-printable control characters in display names are now replaced with alternative
-representations. For example, <code>\n</code> is replaced with <code>&lt;LF&gt;</code>. This applies to all display
-names in JUnit Jupiter, <code>@SuiteDisplayName</code>, and any other test engines that subclass
-<code>AbstractTestDescriptor</code>. Please refer to the
-<a href="../user-guide/index.html#writing-tests-display-names">User Guide</a> for details.</p>
-</li>
-<li>
-<p>To help diagnosing potentially invalid invocations, the Console Launcher now logs
-warnings for nonexistent classpath roots added via <code>--classpath</code> or <code>--scan-classpath</code>
-rather than silently ignoring them.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="release-notes-6.0.0-RC1-junit-jupiter"><a class="anchor" href="#release-notes-6.0.0-RC1-junit-jupiter"></a>JUnit Jupiter</h3>
-<div class="sect3">
-<h4 id="release-notes-6.0.0-RC1-junit-jupiter-bug-fixes"><a class="anchor" href="#release-notes-6.0.0-RC1-junit-jupiter-bug-fixes"></a>Bug Fixes</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>CSV headers are now properly supported with the default display name pattern and the
-explicit <code>{argumentsWithNames}</code> display name pattern for parameterized tests that
-utilize the <code>useHeadersInDisplayName</code> flag in <code>@CsvSource</code> and <code>@CsvFileSource</code>.
-Specifically, the parameter name is no longer duplicated in the display name when a CSV
-header is desired instead.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="release-notes-6.0.0-RC1-junit-jupiter-deprecations-and-breaking-changes"><a class="anchor" href="#release-notes-6.0.0-RC1-junit-jupiter-deprecations-and-breaking-changes"></a>Deprecations and Breaking Changes</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>For consistency with test methods, <code>@Nested</code> classes declared in the same enclosing
-class or interface are now ordered in a deterministic but intentionally nonobvious
-way.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="release-notes-6.0.0-RC1-junit-jupiter-new-features-and-improvements"><a class="anchor" href="#release-notes-6.0.0-RC1-junit-jupiter-new-features-and-improvements"></a>New Features and Improvements</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>Text-based arguments in display names for parameterized tests are now quoted by default.
-In addition, special characters are escaped within quoted text. Please refer to the
-<a href="../user-guide/index.html#writing-tests-parameterized-tests-display-names-quoted-text">User Guide</a> for details.</p>
-</li>
-<li>
-<p><a href="../user-guide/index.html#writing-tests-parameterized-tests-argument-conversion-implicit-fallback">Fallback String-to-Object Conversion</a> for parameterized tests now supports factory
-methods and factory constructors that accept a single <code>CharSequence</code> argument in
-addition to the existing support for factories that accept a single <code>String</code> argument.</p>
-</li>
-<li>
-<p>Non-printable control characters in display names are now replaced with alternative
-representations. Please refer to the
-<a href="../user-guide/index.html#writing-tests-display-names">User Guide</a> for details.</p>
-</li>
-<li>
-<p>For consistency with <code>@TestClassOrder</code>, <code>@TestMethodOrder</code> annotations specified on a
-test class are now inherited by its <code>@Nested</code> inner classes, recursively.</p>
-</li>
-<li>
-<p>Introduce <code>MethodOrderer.Default</code> and <code>ClassOrderer.Default</code> for reverting back to
-default ordering on a <code>@Nested</code> class and its <code>@Nested</code> inner classes when an enclosing
-class specifies a different orderer via <code>@TestMethodOrder</code> or <code>@TestClassOrder</code>,
-respectively.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="release-notes-6.0.0-RC1-junit-vintage"><a class="anchor" href="#release-notes-6.0.0-RC1-junit-vintage"></a>JUnit Vintage</h3>
-<div class="paragraph">
-<p>No changes.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="release-notes-6.0.0-M2"><a class="anchor" href="#release-notes-6.0.0-M2"></a>6.0.0-M2</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Date of Release:</strong> July 22, 2025</p>
-</div>
-<div class="paragraph">
-<p><strong>Scope:</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>New <code>LauncherExecutionRequest</code> API</p>
-</li>
-<li>
-<p>Support for cancelling test execution via <code>CancellationToken</code></p>
-</li>
-<li>
-<p>New <code>--fail-fast</code> mode for ConsoleLauncher</p>
-</li>
-<li>
-<p>Null-safe <code>computeIfAbsent</code> methods for stores</p>
-</li>
-<li>
-<p>Strict evaluation of enum-based configuration parameters</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>For a complete list of all <em>closed</em> issues and pull requests for this release, consult the
-<a href="https://github.com/junit-team/junit-framework/milestone/99?closed=1">6.0.0-M2</a> milestone page in the JUnit
-repository on GitHub.</p>
-</div>
-<div class="sect2">
-<h3 id="release-notes-6.0.0-M2-junit-platform"><a class="anchor" href="#release-notes-6.0.0-M2-junit-platform"></a>JUnit Platform</h3>
-<div class="sect3">
-<h4 id="release-notes-6.0.0-M2-junit-platform-deprecations-and-breaking-changes"><a class="anchor" href="#release-notes-6.0.0-M2-junit-platform-deprecations-and-breaking-changes"></a>Deprecations and Breaking Changes</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>Discontinue <code>junit-platform-suite-commons</code> which is now integrated into
-<code>junit-platform-suite</code>.</p>
-</li>
-<li>
-<p>Deprecate <code>Launcher.execute(TestPlan, TestExecutionListener[])</code> and
-<code>Launcher.execute(LauncherDiscoveryRequest, TestExecutionListener[])</code> in favor of
-<code>Launcher.execute(LauncherExecutionRequest)</code></p>
-</li>
-<li>
-<p><code>ConversionSupport</code> now converts <code>String</code> to <code>Locale</code> using the IETF BCP 47 language tag
-format supported by the <code>Locale.forLanguageTag(String)</code> factory method instead of the
-format used by the deprecated <code>Locale(String)</code> constructor.</p>
-</li>
-<li>
-<p>Deprecate <code>getOrComputeIfAbsent(&#8230;&#8203;)</code> methods in <code>NamespacedHierarchicalStore</code> in favor
-of the new <code>computeIfAbsent(&#8230;&#8203;)</code> methods.</p>
-</li>
-<li>
-<p>Setting an invalid value for one of the following enum-based configuration parameters
-now causes test discovery to fail:</p>
-<div class="ulist">
-<ul>
-<li>
-<p><code>junit.platform.discovery.issue.failure.phase</code></p>
-</li>
-<li>
-<p><code>junit.platform.discovery.issue.severity.critical</code></p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="release-notes-6.0.0-M2-junit-platform-new-features-and-improvements"><a class="anchor" href="#release-notes-6.0.0-M2-junit-platform-new-features-and-improvements"></a>New Features and Improvements</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>Introduce new <code>Launcher.execute(<a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/LauncherExecutionRequest.html">LauncherExecutionRequest</a>)</code> API with corresponding
-<code>LauncherExecutionRequestBuilder</code> to enable the addition of parameters to test
-executions without additional overloads of <code>execute(&#8230;&#8203;)</code>.</p>
-</li>
-<li>
-<p>Introduce <code>LauncherDiscoveryRequestBuilder.forExecution()</code> method as a convenience
-method for constructing a <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/LauncherExecutionRequest.html">LauncherExecutionRequest</a></code> that contains a
-<code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/LauncherDiscoveryRequest.html">LauncherDiscoveryRequest</a></code>.</p>
-</li>
-<li>
-<p>Introduce support for cancelling a running test execution via a <code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/CancellationToken.html">CancellationToken</a></code>
-passed to the <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/Launcher.html">Launcher</a></code> as part of a <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/LauncherExecutionRequest.html">LauncherExecutionRequest</a></code> and from there to
-all registered test engines. Please refer to the
-<a href="../user-guide/index.html#launcher-api-launcher-cancellation">User Guide</a> for details
-and a usage example.</p>
-</li>
-<li>
-<p>Passing the <code>--fail-fast</code> option to the <code>execute</code> subcommand of the <code>ConsoleLauncher</code>
-now causes test execution to be cancelled after the first failed test.</p>
-</li>
-<li>
-<p>Provide cancellation support for implementations of <code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/HierarchicalTestEngine.html">HierarchicalTestEngine</a></code> such as
-JUnit Jupiter, Spock, and Cucumber.</p>
-</li>
-<li>
-<p>Provide cancellation support for the <code>@Suite</code> test engine.</p>
-</li>
-<li>
-<p>Introduce <code>TestTask.getTestDescriptor()</code> method for use in
-<code>HierarchicalTestExecutorService</code> implementations.</p>
-</li>
-<li>
-<p>Introduce <code>computeIfAbsent(&#8230;&#8203;)</code> methods in <code>NamespacedHierarchicalStore</code> to simplify
-working with non-nullable types.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="release-notes-6.0.0-M2-junit-jupiter"><a class="anchor" href="#release-notes-6.0.0-M2-junit-jupiter"></a>JUnit Jupiter</h3>
-<div class="sect3">
-<h4 id="release-notes-6.0.0-M2-junit-jupiter-deprecations-and-breaking-changes"><a class="anchor" href="#release-notes-6.0.0-M2-junit-jupiter-deprecations-and-breaking-changes"></a>Deprecations and Breaking Changes</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>Change the return type of the <code>provideTestTemplateInvocationContexts(ExtensionContext)</code>
-method in the <code>TestTemplateInvocationContextProvider</code> interface from
-<code>Stream&lt;TestTemplateInvocationContext&gt;</code> to
-<code>Stream&lt;? extends TestTemplateInvocationContext&gt;</code>.</p>
-</li>
-<li>
-<p>Remove support for the <code>junit.jupiter.params.arguments.conversion.locale.format</code>
-configuration parameter. <code>Locale</code> conversions are now always performed using the IETF
-BCP 47 language tag format supported by the <code>Locale.forLanguageTag(String)</code> factory
-method.</p>
-</li>
-<li>
-<p>Deprecate <code>getOrComputeIfAbsent(&#8230;&#8203;)</code> methods in <code>ExtensionContext.Store</code> in favor of
-the new <code>computeIfAbsent(&#8230;&#8203;)</code> methods.</p>
-</li>
-<li>
-<p>Setting an invalid value for one of the following enum-based configuration parameters
-now causes test discovery or execution to fail:</p>
-<div class="ulist">
-<ul>
-<li>
-<p><code>junit.jupiter.execution.parallel.mode.default</code></p>
-</li>
-<li>
-<p><code>junit.jupiter.execution.parallel.mode.classes.default</code></p>
-</li>
-<li>
-<p><code>junit.jupiter.execution.timeout.mode</code></p>
-</li>
-<li>
-<p><code>junit.jupiter.execution.timeout.thread.mode.default</code></p>
-</li>
-<li>
-<p><code>junit.jupiter.extensions.testinstantiation.extensioncontextscope.default</code></p>
-</li>
-<li>
-<p><code>junit.jupiter.tempdir.cleanup.mode.default</code></p>
-</li>
-<li>
-<p><code>junit.jupiter.testinstance.lifecycle.default</code></p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="release-notes-6.0.0-M2-junit-jupiter-new-features-and-improvements"><a class="anchor" href="#release-notes-6.0.0-M2-junit-jupiter-new-features-and-improvements"></a>New Features and Improvements</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>Display names for <code>@ParameterizedClass</code> and <code>@ParameterizedTest</code> now consistently style
-name-value pairs for arguments using <code>name = value</code> formatting – for example,
-<code>fruit&#160;=&#160;apple</code> instead of <code>fruit=apple</code>.</p>
-</li>
-<li>
-<p>Reason strings supplied to <code>ConditionEvaluationResult</code> APIs are now officially declared
-as <code>@Nullable</code>.</p>
-</li>
-<li>
-<p>Introduce <code>computeIfAbsent(&#8230;&#8203;)</code> methods in <code>ExtensionContext.Store</code> to simplify working
-with non-nullable types.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="release-notes-6.0.0-M2-junit-vintage"><a class="anchor" href="#release-notes-6.0.0-M2-junit-vintage"></a>JUnit Vintage</h3>
-<div class="sect3">
-<h4 id="release-notes-6.0.0-M2-junit-vintage-new-features-and-improvements"><a class="anchor" href="#release-notes-6.0.0-M2-junit-vintage-new-features-and-improvements"></a>New Features and Improvements</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>Provide cancellation support for the Vintage test engine.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="release-notes-6.0.0-M1"><a class="anchor" href="#release-notes-6.0.0-M1"></a>6.0.0-M1</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Date of Release:</strong> June 27, 2025</p>
-</div>
-<div class="paragraph">
-<p><strong>Scope:</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Java 17 and Kotlin 2.2 baseline</p>
-</li>
-<li>
-<p>Single version number for Platform, Jupiter, and Vintage</p>
-</li>
-<li>
-<p>Use of JSpecify annotations to document nullability</p>
-</li>
-<li>
-<p>Removal of various deprecated behaviors and APIs</p>
-</li>
-<li>
-<p>Integration of JFR functionality into <code>junit-platform-launcher</code></p>
-</li>
-<li>
-<p>Removal of <code>junit-platform-runner</code> and <code>junit-platform-jfr</code></p>
-</li>
-<li>
-<p>Switch to FastCSV library for <code>@CsvSource</code> and <code>@CsvFileSource</code></p>
-</li>
-<li>
-<p>Support for using Kotlin <code>suspend</code> functions as test methods</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>For a complete list of all <em>closed</em> issues and pull requests for this release, consult the
-<a href="https://github.com/junit-team/junit-framework/milestone/87?closed=1">6.0.0-M1</a> milestone page in the JUnit
-repository on GitHub.</p>
-</div>
-<div class="sect2">
-<h3 id="release-notes-6.0.0-M1-overall-improvements"><a class="anchor" href="#release-notes-6.0.0-M1-overall-improvements"></a>Overall Improvements</h3>
-<div class="sect3">
-<h4 id="release-notes-6.0.0-M1-overall-deprecations-and-breaking-changes"><a class="anchor" href="#release-notes-6.0.0-M1-overall-deprecations-and-breaking-changes"></a>Deprecations and Breaking Changes</h4>
+<h4 id="release-notes-6.0.0-overall-deprecations-and-breaking-changes"><a class="anchor" href="#release-notes-6.0.0-overall-deprecations-and-breaking-changes"></a>Deprecations and Breaking Changes</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1224,7 +601,7 @@ repository on GitHub.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="release-notes-6.0.0-M1-overall-new-features-and-improvements"><a class="anchor" href="#release-notes-6.0.0-M1-overall-new-features-and-improvements"></a>New Features and Improvements</h4>
+<h4 id="release-notes-6.0.0-overall-new-features-and-improvements"><a class="anchor" href="#release-notes-6.0.0-overall-new-features-and-improvements"></a>New Features and Improvements</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1236,9 +613,21 @@ indicate which method parameters, return types, etc. can be <code>null</code>.</
 </div>
 </div>
 <div class="sect2">
-<h3 id="release-notes-6.0.0-M1-junit-platform"><a class="anchor" href="#release-notes-6.0.0-M1-junit-platform"></a>JUnit Platform</h3>
+<h3 id="release-notes-6.0.0-junit-platform"><a class="anchor" href="#release-notes-6.0.0-junit-platform"></a>JUnit Platform</h3>
 <div class="sect3">
-<h4 id="release-notes-6.0.0-M1-junit-platform-deprecations-and-breaking-changes"><a class="anchor" href="#release-notes-6.0.0-M1-junit-platform-deprecations-and-breaking-changes"></a>Deprecations and Breaking Changes</h4>
+<h4 id="release-notes-6.0.0-junit-platform-bug-fixes"><a class="anchor" href="#release-notes-6.0.0-junit-platform-bug-fixes"></a>Bug Fixes</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>Launcher</code> (specifically <code>LauncherDiscoveryResult</code>) now retains the original
+<code>TestEngine</code> registration order after pruning test engines without tests, thereby
+ensuring reliable test execution order of multiple test engines.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="release-notes-6.0.0-junit-platform-deprecations-and-breaking-changes"><a class="anchor" href="#release-notes-6.0.0-junit-platform-deprecations-and-breaking-changes"></a>Deprecations and Breaking Changes</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1347,14 +736,245 @@ nullable and non-nullable types:</p>
 </ul>
 </div>
 </li>
+<li>
+<p>Discontinue <code>junit-platform-suite-commons</code> which is now integrated into
+<code>junit-platform-suite</code>.</p>
+</li>
+<li>
+<p>Deprecate <code>Launcher.execute(TestPlan, TestExecutionListener[])</code> and
+<code>Launcher.execute(LauncherDiscoveryRequest, TestExecutionListener[])</code> in favor of
+<code>Launcher.execute(LauncherExecutionRequest)</code></p>
+</li>
+<li>
+<p><code>ConversionSupport</code> now converts <code>String</code> to <code>Locale</code> using the IETF BCP 47 language tag
+format supported by the <code>Locale.forLanguageTag(String)</code> factory method instead of the
+format used by the deprecated <code>Locale(String)</code> constructor.</p>
+</li>
+<li>
+<p>Deprecate <code>getOrComputeIfAbsent(&#8230;&#8203;)</code> methods in <code>NamespacedHierarchicalStore</code> in favor
+of the new <code>computeIfAbsent(&#8230;&#8203;)</code> methods.</p>
+</li>
+<li>
+<p>Setting an invalid value for one of the following enum-based configuration parameters
+now causes test discovery to fail:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>junit.platform.discovery.issue.failure.phase</code></p>
+</li>
+<li>
+<p><code>junit.platform.discovery.issue.severity.critical</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The methods <code>findNestedClasses</code> and <code>streamNestedClasses</code> in <code>ReflectionSupport</code> now
+return nested classes declared in the same enclosing class or interface ordered in a
+deterministic but intentionally nonobvious way.</p>
+</li>
+<li>
+<p>Serialization support for <code>TestIdentifier</code> has been changed in a backwards-incompatible
+way in order to simplify the implementation.</p>
+</li>
+<li>
+<p>Deprecate <code>OutputDirectoryProvider</code> interface in favor of the new
+<code>OutputDirectoryCreator</code> interface to resolve cyclic package dependency along
+with the following APIs (which all have replacements working with
+<code>OutputDirectoryCreator</code>):</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>EngineDiscoveryRequest.getOutputDirectoryProvider()</code></p>
+</li>
+<li>
+<p><code>ExecutionRequest.getOutputDirectoryProvider()</code></p>
+</li>
+<li>
+<p><code>LauncherDiscoveryRequestBuilder.outputDirectoryProvider(OutputDirectoryProvider)</code></p>
+</li>
+<li>
+<p><code>TestPlan.getOutputDirectoryProvider()</code></p>
+</li>
+<li>
+<p><code>EngineTestKit.Builder.outputDirectoryProvider(OutputDirectoryProvider)</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Deprecate <code>org.junit.platform.commons.support.Resource</code> interface in favor of the new
+<code>org.junit.platform.commons.io.Resource</code> one.</p>
+</li>
+<li>
+<p>Deprecate <code>Resource</code>-related methods in <code>ReflectionSupport</code> in favor of corresponding
+methods in new <code>ResourceSupport</code> class:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>findAllResourcesInClasspathRoot(URI, Predicate)</code></p>
+</li>
+<li>
+<p><code>findAllResourcesInModule(String, Predicate)</code></p>
+</li>
+<li>
+<p><code>findAllResourcesInPackage(String, Predicate)</code></p>
+</li>
+<li>
+<p><code>streamAllResourcesInClasspathRoot(URI, Predicate)</code></p>
+</li>
+<li>
+<p><code>streamAllResourcesInModule(String, Predicate)</code></p>
+</li>
+<li>
+<p><code>streamAllResourcesInPackage(String, Predicate)</code></p>
+</li>
+<li>
+<p><code>tryToGetResources(String)</code></p>
+</li>
+<li>
+<p><code>tryToGetResources(String, ClassLoader)</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Deprecate <code>DiscoverySelectors.selectClasspathResource(Set)</code> method in favor of
+<code>selectClasspathResourceByName(Set)</code>.</p>
+</li>
+<li>
+<p>Deprecate <code>ClasspathResourceSelector.getClasspathResources()</code> method in favor of
+<code>getResources()</code>.</p>
+</li>
+<li>
+<p>Deprecate
+<code>EngineDiscoveryRequestResolver.Builder.addResourceContainerSelectorResolver(Predicate)</code>
+method in favor of <code>addResourceContainerSelectorResolver(ResourceFilter)</code>.</p>
+</li>
+<li>
+<p>Deprecate <code>Resource</code>-related methods in <code>ClasspathScanner</code> in favor of new methods using
+<code>org.junit.platform.commons.io.Resource</code> and <code>ResourceFilter</code>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>scanForResourcesInPackage(String, Predicate)</code></p>
+</li>
+<li>
+<p><code>scanForResourcesInClasspathRoot(URI, Predicate)</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="release-notes-6.0.0-junit-platform-new-features-and-improvements"><a class="anchor" href="#release-notes-6.0.0-junit-platform-new-features-and-improvements"></a>New Features and Improvements</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Introduce new <code>Launcher.execute(<a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/LauncherExecutionRequest.html">LauncherExecutionRequest</a>)</code> API with corresponding
+<code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherExecutionRequestBuilder.html">LauncherExecutionRequestBuilder</a></code> to enable the addition of parameters to test
+executions without additional overloads of <code>execute(&#8230;&#8203;)</code>.</p>
+</li>
+<li>
+<p>New <code>discoveryRequest()</code> method in <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherDiscoveryRequestBuilder.html">LauncherDiscoveryRequestBuilder</a></code> (analogous to
+<code>executionRequest(&#8230;&#8203;)</code> in <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherExecutionRequestBuilder.html">LauncherExecutionRequestBuilder</a></code>), which is an alias for
+the existing <code>request()</code> method and is intended to be used via a <code>static</code> import.</p>
+</li>
+<li>
+<p>Introduce <code>LauncherDiscoveryRequestBuilder.forExecution()</code> method as a convenience
+method for constructing a <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/LauncherExecutionRequest.html">LauncherExecutionRequest</a></code> that contains a
+<code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/LauncherDiscoveryRequest.html">LauncherDiscoveryRequest</a></code>.</p>
+</li>
+<li>
+<p>Introduce support for cancelling a running test execution via a <code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/CancellationToken.html">CancellationToken</a></code>
+passed to the <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/Launcher.html">Launcher</a></code> as part of a <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/LauncherExecutionRequest.html">LauncherExecutionRequest</a></code> and from there to
+all registered test engines. Please refer to the
+<a href="../user-guide/index.html#launcher-api-launcher-cancellation">User Guide</a> for details
+and a usage example.</p>
+</li>
+<li>
+<p>Passing the <code>--fail-fast</code> option to the <code>execute</code> subcommand of the <code>ConsoleLauncher</code>
+now causes test execution to be cancelled after the first failed test.</p>
+</li>
+<li>
+<p>Provide cancellation support for implementations of <code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/HierarchicalTestEngine.html">HierarchicalTestEngine</a></code> such as
+JUnit Jupiter, Spock, and Cucumber.</p>
+</li>
+<li>
+<p>Provide cancellation support for the <code>@Suite</code> test engine.</p>
+</li>
+<li>
+<p>Introduce <code>TestTask.getTestDescriptor()</code> method for use in
+<code>HierarchicalTestExecutorService</code> implementations.</p>
+</li>
+<li>
+<p>Introduce <code>computeIfAbsent(&#8230;&#8203;)</code> methods in <code>NamespacedHierarchicalStore</code> to simplify
+working with non-nullable types.</p>
+</li>
+<li>
+<p>Stack traces are now pruned up to the test method or lifecycle method.</p>
+</li>
+<li>
+<p>Convention-based conversion in <code>ConversionSupport</code> now supports factory methods and
+factory constructors that accept a single <code>CharSequence</code> argument in addition to the
+existing support for factories that accept a single <code>String</code> argument.</p>
+</li>
+<li>
+<p>Non-printable control characters in display names are now replaced with alternative
+representations. For example, <code>\n</code> is replaced with <code>&lt;LF&gt;</code>. This applies to all display
+names in JUnit Jupiter, <code>@SuiteDisplayName</code>, and any other test engines that subclass
+<code>AbstractTestDescriptor</code>. Please refer to the
+<a href="../user-guide/index.html#writing-tests-display-names">User Guide</a> for details.</p>
+</li>
+<li>
+<p>To help diagnosing potentially invalid invocations, the Console Launcher now logs
+warnings for nonexistent classpath roots added via <code>--classpath</code> or <code>--scan-classpath</code>
+rather than silently ignoring them.</p>
+</li>
+<li>
+<p>New <code>selectClasses(&#8230;&#8203;)</code> and <code>selectClassesByName(&#8230;&#8203;)</code> factory methods have been
+introduced in <code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/discovery/DiscoverySelectors.html">DiscoverySelectors</a></code> to simplify use cases where one needs to select
+multiple individual test classes for the <code>Launcher</code> or <code>EngineTestKit</code>.</p>
+</li>
+<li>
+<p>New <code>selectors(List)</code> builder method for <code><a href="../api/org.junit.platform.testkit/org/junit/platform/testkit/engine/EngineTestKit.html">EngineTestKit</a></code> which can be used in
+conjunction with the new <code>selectClasses(&#8230;&#8203;)</code> and <code>selectClassesByName(&#8230;&#8203;)</code> factory
+methods in <code>DiscoverySelectors</code>.</p>
+</li>
+<li>
+<p>New classpath resource abstraction in <code>org.junit.platform.commons.io.Resource</code> with
+support for loading resources or finding them on the classpath via static utility
+methods in the new <code>org.junit.platform.commons.support.ResourceSupport</code> class.</p>
+</li>
+<li>
+<p>New <code>FileSource.withPosition(FilePosition)</code> method to avoid the overhead of redundant
+canonicalization of files when using <code>FileSource.from(File, FilePosition)</code> with many
+different <code>FilePosition</code> instances for the same <code>File</code>.</p>
+</li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="release-notes-6.0.0-M1-junit-jupiter"><a class="anchor" href="#release-notes-6.0.0-M1-junit-jupiter"></a>JUnit Jupiter</h3>
+<h3 id="release-notes-6.0.0-junit-jupiter"><a class="anchor" href="#release-notes-6.0.0-junit-jupiter"></a>JUnit Jupiter</h3>
 <div class="sect3">
-<h4 id="release-notes-6.0.0-M1-junit-jupiter-deprecations-and-breaking-changes"><a class="anchor" href="#release-notes-6.0.0-M1-junit-jupiter-deprecations-and-breaking-changes"></a>Deprecations and Breaking Changes</h4>
+<h4 id="release-notes-6.0.0-junit-jupiter-bug-fixes"><a class="anchor" href="#release-notes-6.0.0-junit-jupiter-bug-fixes"></a>Bug Fixes</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>CSV headers are now properly supported with the default display name pattern and the
+explicit <code>{argumentsWithNames}</code> display name pattern for parameterized tests that
+utilize the <code>useHeadersInDisplayName</code> flag in <code>@CsvSource</code> and <code>@CsvFileSource</code>.
+Specifically, the parameter name is no longer duplicated in the display name when a CSV
+header is desired instead.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="release-notes-6.0.0-junit-jupiter-deprecations-and-breaking-changes"><a class="anchor" href="#release-notes-6.0.0-junit-jupiter-deprecations-and-breaking-changes"></a>Deprecations and Breaking Changes</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1436,11 +1056,84 @@ nullable and non-nullable types:</p>
 </ul>
 </div>
 </li>
+<li>
+<p>Change the return type of the <code>provideTestTemplateInvocationContexts(ExtensionContext)</code>
+method in the <code>TestTemplateInvocationContextProvider</code> interface from
+<code>Stream&lt;TestTemplateInvocationContext&gt;</code> to
+<code>Stream&lt;? extends TestTemplateInvocationContext&gt;</code>.</p>
+</li>
+<li>
+<p>Remove support for the <code>junit.jupiter.params.arguments.conversion.locale.format</code>
+configuration parameter. <code>Locale</code> conversions are now always performed using the IETF
+BCP 47 language tag format supported by the <code>Locale.forLanguageTag(String)</code> factory
+method.</p>
+</li>
+<li>
+<p>Deprecate <code>getOrComputeIfAbsent(&#8230;&#8203;)</code> methods in <code>ExtensionContext.Store</code> in favor of
+the new <code>computeIfAbsent(&#8230;&#8203;)</code> methods.</p>
+</li>
+<li>
+<p>Setting an invalid value for one of the following enum-based configuration parameters
+now causes test discovery or execution to fail:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>junit.jupiter.execution.parallel.mode.default</code></p>
+</li>
+<li>
+<p><code>junit.jupiter.execution.parallel.mode.classes.default</code></p>
+</li>
+<li>
+<p><code>junit.jupiter.execution.timeout.mode</code></p>
+</li>
+<li>
+<p><code>junit.jupiter.execution.timeout.thread.mode.default</code></p>
+</li>
+<li>
+<p><code>junit.jupiter.extensions.testinstantiation.extensioncontextscope.default</code></p>
+</li>
+<li>
+<p><code>junit.jupiter.tempdir.cleanup.mode.default</code></p>
+</li>
+<li>
+<p><code>junit.jupiter.testinstance.lifecycle.default</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>For consistency with test methods, <code>@Nested</code> classes declared in the same enclosing
+class or interface are now ordered in a deterministic but intentionally nonobvious
+way.</p>
+</li>
+<li>
+<p><code>MediaType.APPLICATION_JSON_UTF_8</code> is now deprecated in favor of using
+<code>MediaType.APPLICATION_JSON</code>, since the industry considers UTF-8 to be the implicit
+default encoding for the <code>application/json</code> media type.</p>
+</li>
+<li>
+<p><code>org.junit.jupiter.api.extension.MediaType</code> is now deprecated in favor of the new
+<code>org.junit.jupiter.api.MediaType</code>.</p>
+</li>
+<li>
+<p>The <code>publishFile(&#8230;&#8203;)</code> methods in <code>TestReporter</code> which accept an
+<code>org.junit.jupiter.api.extension.MediaType</code> are now deprecated in favor of new variants
+which accept an <code>org.junit.jupiter.api.MediaType</code>.</p>
+</li>
+<li>
+<p>The <code>publishFile(&#8230;&#8203;)</code> method in <code>ExtensionContext</code> which accepts an
+<code>org.junit.jupiter.api.extension.MediaType</code> is now deprecated in favor of a new variant
+which accepts an <code>org.junit.jupiter.api.MediaType</code>.</p>
+</li>
+<li>
+<p><code>org.junit.jupiter.params.support.ParameterInfo</code> is now deprecated in favor of the new
+<code>org.junit.jupiter.params.ParameterInfo</code>.</p>
+</li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="release-notes-6.0.0-M1-junit-jupiter-new-features-and-improvements"><a class="anchor" href="#release-notes-6.0.0-M1-junit-jupiter-new-features-and-improvements"></a>New Features and Improvements</h4>
+<h4 id="release-notes-6.0.0-junit-jupiter-new-features-and-improvements"><a class="anchor" href="#release-notes-6.0.0-junit-jupiter-new-features-and-improvements"></a>New Features and Improvements</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1457,14 +1150,69 @@ longer maintained <a href="https://github.com/uniVocity/univocity-parsers">univo
 including for malformed entries, and provides better error reporting and overall
 performance.</p>
 </li>
+<li>
+<p>Display names for <code>@ParameterizedClass</code> and <code>@ParameterizedTest</code> now consistently style
+name-value pairs for arguments using <code>name = value</code> formatting – for example,
+<code>fruit&#160;=&#160;apple</code> instead of <code>fruit=apple</code>.</p>
+</li>
+<li>
+<p>Reason strings supplied to <code>ConditionEvaluationResult</code> APIs are now officially declared
+as <code>@Nullable</code>.</p>
+</li>
+<li>
+<p>Introduce <code>computeIfAbsent(&#8230;&#8203;)</code> methods in <code>ExtensionContext.Store</code> to simplify working
+with non-nullable types.</p>
+</li>
+<li>
+<p>Text-based arguments in display names for parameterized tests are now quoted by default.
+In addition, special characters are escaped within quoted text. Please refer to the
+<a href="../user-guide/index.html#writing-tests-parameterized-tests-display-names-quoted-text">User Guide</a> for details.</p>
+</li>
+<li>
+<p><a href="../user-guide/index.html#writing-tests-parameterized-tests-argument-conversion-implicit-fallback">Fallback String-to-Object Conversion</a> for parameterized tests now supports factory
+methods and factory constructors that accept a single <code>CharSequence</code> argument in
+addition to the existing support for factories that accept a single <code>String</code> argument.</p>
+</li>
+<li>
+<p>Non-printable control characters in display names are now replaced with alternative
+representations. Please refer to the
+<a href="../user-guide/index.html#writing-tests-display-names">User Guide</a> for details.</p>
+</li>
+<li>
+<p>For consistency with <code>@TestClassOrder</code>, <code>@TestMethodOrder</code> annotations specified on a
+test class are now inherited by its <code>@Nested</code> inner classes, recursively.</p>
+</li>
+<li>
+<p>Introduce <code>MethodOrderer.Default</code> and <code>ClassOrderer.Default</code> for reverting back to
+default ordering on a <code>@Nested</code> class and its <code>@Nested</code> inner classes when an enclosing
+class specifies a different orderer via <code>@TestMethodOrder</code> or <code>@TestClassOrder</code>,
+respectively.</p>
+</li>
+<li>
+<p><code>MediaType</code> now strips leading and trailing whitespace from a supplied <code>value</code>, <code>type</code>,
+or <code>subtype</code>.</p>
+</li>
+<li>
+<p><code>MediaType</code> now eagerly rejects a <em>blank</em> <code>value</code>, <code>type</code>, or <code>subtype</code>.</p>
+</li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="release-notes-6.0.0-M1-junit-vintage"><a class="anchor" href="#release-notes-6.0.0-M1-junit-vintage"></a>JUnit Vintage</h3>
+<h3 id="release-notes-6.0.0-junit-vintage"><a class="anchor" href="#release-notes-6.0.0-junit-vintage"></a>JUnit Vintage</h3>
 <div class="sect3">
-<h4 id="release-notes-6.0.0-M1-junit-vintage-deprecations-and-breaking-changes"><a class="anchor" href="#release-notes-6.0.0-M1-junit-vintage-deprecations-and-breaking-changes"></a>Deprecations and Breaking Changes</h4>
+<h4 id="release-notes-6.0.0-junit-vintage-bug-fixes"><a class="anchor" href="#release-notes-6.0.0-junit-vintage-bug-fixes"></a>Bug Fixes</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>❓</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="release-notes-6.0.0-junit-vintage-deprecations-and-breaking-changes"><a class="anchor" href="#release-notes-6.0.0-junit-vintage-deprecations-and-breaking-changes"></a>Deprecations and Breaking Changes</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1473,6 +1221,16 @@ when it finds at least one JUnit 4 test class. For now, the intent of the deprec
 not to signal removal in the next major version but to clarify the intended purpose of
 the engine. It should only be used temporarily while migrating tests to JUnit Jupiter or
 another testing framework with native JUnit Platform support.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="release-notes-6.0.0-junit-vintage-new-features-and-improvements"><a class="anchor" href="#release-notes-6.0.0-junit-vintage-new-features-and-improvements"></a>New Features and Improvements</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Provide cancellation support for the Vintage test engine.</p>
 </li>
 </ul>
 </div>
