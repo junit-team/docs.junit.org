@@ -766,31 +766,6 @@ deterministic but intentionally nonobvious way.</p>
 way in order to simplify the implementation.</p>
 </li>
 <li>
-<p>Deprecate <code>OutputDirectoryProvider</code> interface in favor of the new
-<code>OutputDirectoryCreator</code> interface to resolve cyclic package dependency along
-with the following APIs (which all have replacements working with
-<code>OutputDirectoryCreator</code>):</p>
-<div class="ulist">
-<ul>
-<li>
-<p><code>EngineDiscoveryRequest.getOutputDirectoryProvider()</code></p>
-</li>
-<li>
-<p><code>ExecutionRequest.getOutputDirectoryProvider()</code></p>
-</li>
-<li>
-<p><code>LauncherDiscoveryRequestBuilder.outputDirectoryProvider(OutputDirectoryProvider)</code></p>
-</li>
-<li>
-<p><code>TestPlan.getOutputDirectoryProvider()</code></p>
-</li>
-<li>
-<p><code>EngineTestKit.Builder.outputDirectoryProvider(OutputDirectoryProvider)</code></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
 <p>Deprecate <code>org.junit.platform.commons.support.Resource</code> interface in favor of the new
 <code>org.junit.platform.commons.io.Resource</code> one.</p>
 </li>
@@ -1245,7 +1220,29 @@ ensuring reliable test execution order of multiple test engines.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>❓</p>
+<p>Deprecate <code>OutputDirectoryProvider</code> interface in favor of the new
+<code>OutputDirectoryCreator</code> interface to resolve cyclic package dependency along
+with the following APIs (which all have replacements working with
+<code>OutputDirectoryCreator</code>):</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>EngineDiscoveryRequest.getOutputDirectoryProvider()</code></p>
+</li>
+<li>
+<p><code>ExecutionRequest.getOutputDirectoryProvider()</code></p>
+</li>
+<li>
+<p><code>LauncherDiscoveryRequestBuilder.outputDirectoryProvider(OutputDirectoryProvider)</code></p>
+</li>
+<li>
+<p><code>TestPlan.getOutputDirectoryProvider()</code></p>
+</li>
+<li>
+<p><code>EngineTestKit.Builder.outputDirectoryProvider(OutputDirectoryProvider)</code></p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
