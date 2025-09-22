@@ -13852,10 +13852,10 @@ used to build custom reporting. See <a href="#running-tests-listeners">Using Lis
 <div class="sect3">
 <h4 id="junit-platform-reporting-output-directory"><a class="anchor" href="#junit-platform-reporting-output-directory"></a>6.1.1. Output Directory</h4>
 <div class="paragraph">
-<p>The JUnit Platform provides an <code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/reporting/OutputDirectoryProvider.html">OutputDirectoryProvider</a></code> via
-<code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/EngineDiscoveryRequest.html">EngineDiscoveryRequest</a></code> and <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/TestPlan.html">TestPlan</a></code> to registered <a href="#test-engines">test engines</a>
-and <a href="#running-tests-listeners">listeners</a>, respectively. Its root directory can be
-configured via the following <a href="#running-tests-config-params">configuration parameter</a>:</p>
+<p>The JUnit Platform provides an <code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/OutputDirectoryCreator.html">OutputDirectoryCreator</a></code> via <code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/EngineDiscoveryRequest.html">EngineDiscoveryRequest</a></code>
+and <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/TestPlan.html">TestPlan</a></code> to registered <a href="#test-engines">test engines</a> and
+<a href="#running-tests-listeners">listeners</a>, respectively. Its root directory can be configured
+via the following <a href="#running-tests-config-params">configuration parameter</a>:</p>
 </div>
 <div class="dlist">
 <dl>
