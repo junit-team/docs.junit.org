@@ -917,11 +917,6 @@ names in JUnit Jupiter, <code>@SuiteDisplayName</code>, and any other test engin
 <a href="../user-guide/index.html#writing-tests-display-names">User Guide</a> for details.</p>
 </li>
 <li>
-<p>To help diagnosing potentially invalid invocations, the Console Launcher now logs
-warnings for nonexistent classpath roots added via <code>--classpath</code> or <code>--scan-classpath</code>
-rather than silently ignoring them.</p>
-</li>
-<li>
 <p>New <code>selectClasses(&#8230;&#8203;)</code> and <code>selectClassesByName(&#8230;&#8203;)</code> factory methods have been
 introduced in <code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/discovery/DiscoverySelectors.html">DiscoverySelectors</a></code> to simplify use cases where one needs to select
 multiple individual test classes for the <code>Launcher</code> or <code>EngineTestKit</code>.</p>
@@ -1265,6 +1260,11 @@ ensuring reliable test execution order of multiple test engines.</p>
 <ul>
 <li>
 <p>Emit warning when <code>@SuiteDisplayName</code> is used with a blank string</p>
+</li>
+<li>
+<p>To help diagnosing potentially invalid invocations, the Console Launcher now logs
+warnings for nonexistent classpath roots added via <code>--classpath</code> or <code>--scan-classpath</code>
+rather than silently ignoring them.</p>
 </li>
 </ul>
 </div>
