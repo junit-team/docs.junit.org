@@ -1097,10 +1097,20 @@ another testing framework with native JUnit Platform support.</p>
 <h2 id="release-notes-5.14.0-RC1"><a class="anchor" href="#release-notes-5.14.0-RC1"></a>5.14.0-RC1</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>Date of Release:</strong> ❓</p>
+<p><strong>Date of Release:</strong> September 23, 2025</p>
 </div>
 <div class="paragraph">
-<p><strong>Scope:</strong> ❓</p>
+<p><strong>Scope:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Bug fixes and enhancements since 5.13.x</p>
+</li>
+<li>
+<p>Deprecations along with new APIs to ease migration to the upcoming 6.0 release</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>For a complete list of all <em>closed</em> issues and pull requests for this release, consult the
@@ -1245,16 +1255,6 @@ methods in the new <code>org.junit.platform.commons.support.ResourceSupport</cod
 <div class="sect2">
 <h3 id="release-notes-5.14.0-RC1-junit-jupiter"><a class="anchor" href="#release-notes-5.14.0-RC1-junit-jupiter"></a>JUnit Jupiter</h3>
 <div class="sect3">
-<h4 id="release-notes-5.14.0-RC1-junit-jupiter-bug-fixes"><a class="anchor" href="#release-notes-5.14.0-RC1-junit-jupiter-bug-fixes"></a>Bug Fixes</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>❓</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
 <h4 id="release-notes-5.14.0-RC1-junit-jupiter-deprecations-and-breaking-changes"><a class="anchor" href="#release-notes-5.14.0-RC1-junit-jupiter-deprecations-and-breaking-changes"></a>Deprecations and Breaking Changes</h4>
 <div class="ulist">
 <ul>
@@ -1263,40 +1263,6 @@ methods in the new <code>org.junit.platform.commons.support.ResourceSupport</cod
 <code>MediaType.APPLICATION_JSON</code>, since the industry considers UTF-8 to be the implicit
 default encoding for the <code>application/json</code> media type.</p>
 </li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="release-notes-5.14.0-RC1-junit-jupiter-new-features-and-improvements"><a class="anchor" href="#release-notes-5.14.0-RC1-junit-jupiter-new-features-and-improvements"></a>New Features and Improvements</h4>
-<div class="ulist">
-<ul>
-<li>
-<p><code>MediaType</code> now trims leading and trailing whitespace from a supplied <code>value</code>, <code>type</code>,
-or <code>subtype</code>.</p>
-</li>
-<li>
-<p><code>MediaType</code> now eagerly rejects a <em>blank</em> <code>value</code>, <code>type</code>, or <code>subtype</code>.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="release-notes-5.14.0-RC1-junit-vintage"><a class="anchor" href="#release-notes-5.14.0-RC1-junit-vintage"></a>JUnit Vintage</h3>
-<div class="sect3">
-<h4 id="release-notes-5.14.0-RC1-junit-vintage-bug-fixes"><a class="anchor" href="#release-notes-5.14.0-RC1-junit-vintage-bug-fixes"></a>Bug Fixes</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>❓</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="release-notes-5.14.0-RC1-junit-vintage-deprecations-and-breaking-changes"><a class="anchor" href="#release-notes-5.14.0-RC1-junit-vintage-deprecations-and-breaking-changes"></a>Deprecations and Breaking Changes</h4>
-<div class="ulist">
-<ul>
 <li>
 <p><code>org.junit.jupiter.api.extension.MediaType</code> is now deprecated in favor of the new
 <code>org.junit.jupiter.api.MediaType</code>.</p>
@@ -1319,14 +1285,24 @@ which accepts an <code>org.junit.jupiter.api.MediaType</code>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="release-notes-5.14.0-RC1-junit-vintage-new-features-and-improvements"><a class="anchor" href="#release-notes-5.14.0-RC1-junit-vintage-new-features-and-improvements"></a>New Features and Improvements</h4>
+<h4 id="release-notes-5.14.0-RC1-junit-jupiter-new-features-and-improvements"><a class="anchor" href="#release-notes-5.14.0-RC1-junit-jupiter-new-features-and-improvements"></a>New Features and Improvements</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>❓</p>
+<p><code>MediaType</code> now trims leading and trailing whitespace from a supplied <code>value</code>, <code>type</code>,
+or <code>subtype</code>.</p>
+</li>
+<li>
+<p><code>MediaType</code> now eagerly rejects a <em>blank</em> <code>value</code>, <code>type</code>, or <code>subtype</code>.</p>
 </li>
 </ul>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="release-notes-5.14.0-RC1-junit-vintage"><a class="anchor" href="#release-notes-5.14.0-RC1-junit-vintage"></a>JUnit Vintage</h3>
+<div class="paragraph">
+<p>No changes.</p>
 </div>
 </div>
 </div>
