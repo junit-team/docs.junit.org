@@ -765,69 +765,6 @@ deterministic but intentionally nonobvious way.</p>
 <p>Serialization support for <code>TestIdentifier</code> has been changed in a backwards-incompatible
 way in order to simplify the implementation.</p>
 </li>
-<li>
-<p>Deprecate <code>org.junit.platform.commons.support.Resource</code> interface in favor of the new
-<code>org.junit.platform.commons.io.Resource</code> one.</p>
-</li>
-<li>
-<p>Deprecate <code>Resource</code>-related methods in <code>ReflectionSupport</code> in favor of corresponding
-methods in new <code>ResourceSupport</code> class:</p>
-<div class="ulist">
-<ul>
-<li>
-<p><code>findAllResourcesInClasspathRoot(URI, Predicate)</code></p>
-</li>
-<li>
-<p><code>findAllResourcesInModule(String, Predicate)</code></p>
-</li>
-<li>
-<p><code>findAllResourcesInPackage(String, Predicate)</code></p>
-</li>
-<li>
-<p><code>streamAllResourcesInClasspathRoot(URI, Predicate)</code></p>
-</li>
-<li>
-<p><code>streamAllResourcesInModule(String, Predicate)</code></p>
-</li>
-<li>
-<p><code>streamAllResourcesInPackage(String, Predicate)</code></p>
-</li>
-<li>
-<p><code>tryToGetResources(String)</code></p>
-</li>
-<li>
-<p><code>tryToGetResources(String, ClassLoader)</code></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Deprecate <code>DiscoverySelectors.selectClasspathResource(Set)</code> method in favor of
-<code>selectClasspathResourceByName(Set)</code>.</p>
-</li>
-<li>
-<p>Deprecate <code>ClasspathResourceSelector.getClasspathResources()</code> method in favor of
-<code>getResources()</code>.</p>
-</li>
-<li>
-<p>Deprecate
-<code>EngineDiscoveryRequestResolver.Builder.addResourceContainerSelectorResolver(Predicate)</code>
-method in favor of <code>addResourceContainerSelectorResolver(ResourceFilter)</code>.</p>
-</li>
-<li>
-<p>Deprecate <code>Resource</code>-related methods in <code>ClasspathScanner</code> in favor of new methods using
-<code>org.junit.platform.commons.io.Resource</code> and <code>ResourceFilter</code>:</p>
-<div class="ulist">
-<ul>
-<li>
-<p><code>scanForResourcesInPackage(String, Predicate)</code></p>
-</li>
-<li>
-<p><code>scanForResourcesInClasspathRoot(URI, Predicate)</code></p>
-</li>
-</ul>
-</div>
-</li>
 </ul>
 </div>
 </div>
@@ -900,11 +837,6 @@ multiple individual test classes for the <code>Launcher</code> or <code>EngineTe
 <p>New <code>selectors(List)</code> builder method for <code><a href="../api/org.junit.platform.testkit/org/junit/platform/testkit/engine/EngineTestKit.html">EngineTestKit</a></code> which can be used in
 conjunction with the new <code>selectClasses(&#8230;&#8203;)</code> and <code>selectClassesByName(&#8230;&#8203;)</code> factory
 methods in <code>DiscoverySelectors</code>.</p>
-</li>
-<li>
-<p>New classpath resource abstraction in <code>org.junit.platform.commons.io.Resource</code> with
-support for loading resources or finding them on the classpath via static utility
-methods in the new <code>org.junit.platform.commons.support.ResourceSupport</code> class.</p>
 </li>
 </ul>
 </div>
@@ -1218,6 +1150,69 @@ with the following APIs (which all have replacements working with
 </ul>
 </div>
 </li>
+<li>
+<p>Deprecate <code>org.junit.platform.commons.support.Resource</code> interface in favor of the new
+<code>org.junit.platform.commons.io.Resource</code> one.</p>
+</li>
+<li>
+<p>Deprecate <code>Resource</code>-related methods in <code>ReflectionSupport</code> in favor of corresponding
+methods in new <code>ResourceSupport</code> class:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>findAllResourcesInClasspathRoot(URI, Predicate)</code></p>
+</li>
+<li>
+<p><code>findAllResourcesInModule(String, Predicate)</code></p>
+</li>
+<li>
+<p><code>findAllResourcesInPackage(String, Predicate)</code></p>
+</li>
+<li>
+<p><code>streamAllResourcesInClasspathRoot(URI, Predicate)</code></p>
+</li>
+<li>
+<p><code>streamAllResourcesInModule(String, Predicate)</code></p>
+</li>
+<li>
+<p><code>streamAllResourcesInPackage(String, Predicate)</code></p>
+</li>
+<li>
+<p><code>tryToGetResources(String)</code></p>
+</li>
+<li>
+<p><code>tryToGetResources(String, ClassLoader)</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Deprecate <code>DiscoverySelectors.selectClasspathResource(Set)</code> method in favor of
+<code>selectClasspathResourceByName(Set)</code>.</p>
+</li>
+<li>
+<p>Deprecate <code>ClasspathResourceSelector.getClasspathResources()</code> method in favor of
+<code>getResources()</code>.</p>
+</li>
+<li>
+<p>Deprecate
+<code>EngineDiscoveryRequestResolver.Builder.addResourceContainerSelectorResolver(Predicate)</code>
+method in favor of <code>addResourceContainerSelectorResolver(ResourceFilter)</code>.</p>
+</li>
+<li>
+<p>Deprecate <code>Resource</code>-related methods in <code>ClasspathScanner</code> in favor of new methods using
+<code>org.junit.platform.commons.io.Resource</code> and <code>ResourceFilter</code>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>scanForResourcesInPackage(String, Predicate)</code></p>
+</li>
+<li>
+<p><code>scanForResourcesInClasspathRoot(URI, Predicate)</code></p>
+</li>
+</ul>
+</div>
+</li>
 </ul>
 </div>
 </div>
@@ -1237,6 +1232,11 @@ rather than silently ignoring them.</p>
 <p>New <code>FileSource.withPosition(FilePosition)</code> method to avoid the overhead of redundant
 canonicalization of files when using <code>FileSource.from(File, FilePosition)</code> with many
 different <code>FilePosition</code> instances for the same <code>File</code>.</p>
+</li>
+<li>
+<p>New classpath resource abstraction in <code>org.junit.platform.commons.io.Resource</code> with
+support for loading resources or finding them on the classpath via static utility
+methods in the new <code>org.junit.platform.commons.support.ResourceSupport</code> class.</p>
 </li>
 </ul>
 </div>
