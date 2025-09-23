@@ -13005,14 +13005,41 @@ to provide their functionality.</p>
 <div class="paragraph">
 <p>Usually, an extension is instantiated only once. So the question becomes relevant: How do
 you keep the state from one invocation of an extension to the next? The
-<code>ExtensionContext</code> API provides a <code>Store</code> exactly for this purpose. Extensions may put
-values into a store for later retrieval. See the
-<code><a href="#extensions-lifecycle-callbacks-timing-extension">TimingExtension</a></code> for an example of
-using the <code>Store</code> with a method-level scope. It is important to remember that values
-stored in an <code>ExtensionContext</code> during test execution will not be available in the
-surrounding <code>ExtensionContext</code>. Since <code>ExtensionContexts</code> may be nested, the scope of
-inner contexts may also be limited. Consult the corresponding Javadoc for details on the
-methods available for storing and retrieving values via the <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Store.html">Store</a></code>.</p>
+<code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.html">ExtensionContext</a></code> API provides a <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Store.html">Store</a></code> exactly for this purpose.
+Extensions may put values into a store for later retrieval.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+See the <code><a href="#extensions-lifecycle-callbacks-timing-extension">TimingExtension</a></code> for an
+example of using the <code>Store</code> with a method-level scope.
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="images/extensions_StoreHierarchy.svg" alt="UML diagram">
+</div>
+<div class="title">The <code>ExtensionContext</code> and <code>Store</code> hierarchy</div>
+</div>
+<div class="paragraph">
+<p>As illustrated by the diagram above, stores are hierarchical in nature. When looking up a
+value, if no value is stored in the current <code>ExtensionContext</code> for the supplied key, the
+stores of the context&#8217;s ancestors will be queried for a value with the same key in the
+<code>Namespace</code> used to create this store. The root <code>ExtensionContext</code> represents the engine
+level so its <code>Store</code> may be used to store or cache values that are used by multiple test
+classes or extension. The <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.StoreScope.html">StoreScope</a></code> enum allows to go beyond even
+that and access the stores on the level of the current <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/LauncherExecutionRequest.html">LauncherExecutionRequest</a></code> or
+<code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/LauncherSession.html">LauncherSession</a></code> which can be used to share data across test engines or inject data
+from a registered
+<a href="#launcher-api-launcher-session-listeners-custom"><code>LauncherSessionListener</code></a>,
+respectively. Please consult the Javadoc of <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.html">ExtensionContext</a></code>,
+<code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Store.html">Store</a></code>, and <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.StoreScope.html">StoreScope</a></code> for details.</p>
 </div>
 <div id="extensions-keeping-state-autocloseable-support" class="admonitionblock note">
 <table>
