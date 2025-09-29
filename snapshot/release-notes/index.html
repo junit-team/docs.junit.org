@@ -1108,7 +1108,7 @@ another testing framework with native JUnit Platform support.</p>
 <p>Bug fixes and enhancements since 5.13.x</p>
 </li>
 <li>
-<p>Deprecations along with new APIs to ease migration to the upcoming 6.0 release</p>
+<p>Deprecations along with new APIs to ease migration to JUnit 6</p>
 </li>
 </ul>
 </div>
@@ -1155,7 +1155,7 @@ ensuring reliable test execution order of multiple test engines.</p>
 <ul>
 <li>
 <p>Deprecate <code>OutputDirectoryProvider</code> interface in favor of the new
-<code>OutputDirectoryCreator</code> interface to resolve cyclic package dependency along
+<code>OutputDirectoryCreator</code> interface to resolve a cyclic package dependency along
 with the following APIs (which all have replacements working with
 <code>OutputDirectoryCreator</code>):</p>
 <div class="ulist">
@@ -1180,11 +1180,11 @@ with the following APIs (which all have replacements working with
 </li>
 <li>
 <p>Deprecate <code>org.junit.platform.commons.support.Resource</code> interface in favor of the new
-<code>org.junit.platform.commons.io.Resource</code> one.</p>
+<code>org.junit.platform.commons.io.Resource</code> interface.</p>
 </li>
 <li>
 <p>Deprecate <code>Resource</code>-related methods in <code>ReflectionSupport</code> in favor of corresponding
-methods in new <code>ResourceSupport</code> class:</p>
+methods in the new <code>ResourceSupport</code> class:</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1223,7 +1223,7 @@ methods in new <code>ResourceSupport</code> class:</p>
 <code>getResources()</code>.</p>
 </li>
 <li>
-<p>Deprecate
+<p>Deprecate the
 <code>EngineDiscoveryRequestResolver.Builder.addResourceContainerSelectorResolver(Predicate)</code>
 method in favor of <code>addResourceContainerSelectorResolver(ResourceFilter)</code>.</p>
 </li>
@@ -1249,7 +1249,7 @@ method in favor of <code>addResourceContainerSelectorResolver(ResourceFilter)</c
 <div class="ulist">
 <ul>
 <li>
-<p>Emit warning when <code>@SuiteDisplayName</code> is used with a blank string</p>
+<p>Emit discovery warning when <code>@SuiteDisplayName</code> is used with a blank string.</p>
 </li>
 <li>
 <p>To help diagnosing potentially invalid invocations, the Console Launcher now logs
