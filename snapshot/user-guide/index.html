@@ -581,7 +581,7 @@ pre.rouge .gs {
 <span id="author5" class="author">Marc Philipp</span><br>
 <span id="author6" class="author">Juliette de Rancourt</span><br>
 <span id="author7" class="author">Christian Stein</span><br>
-<span id="revnumber">version 6.0.0-SNAPSHOT</span>
+<span id="revnumber">version 6.1.0-SNAPSHOT</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -1055,7 +1055,7 @@ and IDE vendors.</p>
 <p>JUnit is composed of several different modules from three different sub-projects.</p>
 </div>
 <div class="paragraph">
-<p><strong>JUnit 6.0.0-SNAPSHOT = <em>JUnit Platform</em> + <em>JUnit Jupiter</em> + <em>JUnit Vintage</em></strong></p>
+<p><strong>JUnit 6.1.0-SNAPSHOT = <em>JUnit Platform</em> + <em>JUnit Jupiter</em> + <em>JUnit Vintage</em></strong></p>
 </div>
 <div class="paragraph">
 <p>The <strong>JUnit Platform</strong> serves as a foundation for <a href="#launcher-api">launching testing
@@ -1108,7 +1108,7 @@ to <a href="#dependency-metadata">Dependency Metadata</a>. To set up dependency 
 <div class="sect3">
 <h4 id="overview-getting-started-features"><a class="anchor" href="#overview-getting-started-features"></a>1.4.2. JUnit Features</h4>
 <div class="paragraph">
-<p>To find out what features are available in JUnit 6.0.0-SNAPSHOT and how to use them, read the
+<p>To find out what features are available in JUnit 6.1.0-SNAPSHOT and how to use them, read the
 corresponding sections of this User Guide, organized by topic.</p>
 </div>
 <div class="ulist">
@@ -9321,14 +9321,14 @@ IDEA download the following JARs automatically based on the API version used in 
 project: <code>junit-platform-launcher</code>, <code>junit-jupiter-engine</code>, and <code>junit-vintage-engine</code>.</p>
 </div>
 <div class="paragraph">
-<p>In order to use a different JUnit version (e.g., 6.0.0-SNAPSHOT), you may need to
+<p>In order to use a different JUnit version (e.g., 6.1.0-SNAPSHOT), you may need to
 include the corresponding versions of the <code>junit-platform-launcher</code>,
 <code>junit-jupiter-engine</code>, and <code>junit-vintage-engine</code> JARs in the classpath.</p>
 </div>
 <div class="listingblock">
 <div class="title">Additional Gradle Dependencies</div>
 <div class="content">
-<pre class="rouge highlight"><code data-lang="groovy"><span class="n">testImplementation</span><span class="o">(</span><span class="n">platform</span><span class="o">(</span><span class="s2">"org.junit:junit-bom:6.0.0-SNAPSHOT"</span><span class="o">))</span>
+<pre class="rouge highlight"><code data-lang="groovy"><span class="n">testImplementation</span><span class="o">(</span><span class="n">platform</span><span class="o">(</span><span class="s2">"org.junit:junit-bom:6.1.0-SNAPSHOT"</span><span class="o">))</span>
 <span class="n">testRuntimeOnly</span><span class="o">(</span><span class="s2">"org.junit.platform:junit-platform-launcher"</span><span class="o">)</span>
 <span class="n">testRuntimeOnly</span><span class="o">(</span><span class="s2">"org.junit.jupiter:junit-jupiter-engine"</span><span class="o">)</span>
 <span class="n">testRuntimeOnly</span><span class="o">(</span><span class="s2">"org.junit.vintage:junit-vintage-engine"</span><span class="o">)</span></code></pre>
@@ -9360,7 +9360,7 @@ include the corresponding versions of the <code>junit-platform-launcher</code>,
         <span class="nt">&lt;dependency&gt;</span>
             <span class="nt">&lt;groupId&gt;</span>org.junit<span class="nt">&lt;/groupId&gt;</span>
             <span class="nt">&lt;artifactId&gt;</span>junit-bom<span class="nt">&lt;/artifactId&gt;</span>
-            <span class="nt">&lt;version&gt;</span>6.0.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;version&gt;</span>6.1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
             <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
             <span class="nt">&lt;scope&gt;</span>import<span class="nt">&lt;/scope&gt;</span>
         <span class="nt">&lt;/dependency&gt;</span>
@@ -9481,7 +9481,7 @@ versions of all JUnit artifacts.</p>
 <div class="title">Explicit platform dependency on the BOM</div>
 <div class="content">
 <pre class="rouge highlight"><code data-lang="groovy"><span class="n">dependencies</span> <span class="o">{</span>
-    <span class="n">testImplementation</span><span class="o">(</span><span class="n">platform</span><span class="o">(</span><span class="s2">"org.junit:junit-bom:6.0.0-SNAPSHOT"</span><span class="o">))</span>
+    <span class="n">testImplementation</span><span class="o">(</span><span class="n">platform</span><span class="o">(</span><span class="s2">"org.junit:junit-bom:6.1.0-SNAPSHOT"</span><span class="o">))</span>
     <span class="n">testImplementation</span><span class="o">(</span><span class="s2">"org.junit.jupiter:junit-jupiter"</span><span class="o">)</span>
     <span class="n">testRuntimeOnly</span><span class="o">(</span><span class="s2">"org.junit.platform:junit-platform-launcher"</span><span class="o">)</span>
 <span class="o">}</span></code></pre>
@@ -9503,7 +9503,7 @@ artifacts.</p>
 <div class="title">Implicit platform dependency on the BOM</div>
 <div class="content">
 <pre class="rouge highlight"><code data-lang="groovy"><span class="n">dependencies</span> <span class="o">{</span>
-    <span class="n">testImplementation</span><span class="o">(</span><span class="s2">"org.junit.jupiter:junit-jupiter:6.0.0-SNAPSHOT"</span><span class="o">)</span> <i class="conum" data-value="1"></i><b>(1)</b>
+    <span class="n">testImplementation</span><span class="o">(</span><span class="s2">"org.junit.jupiter:junit-jupiter:6.1.0-SNAPSHOT"</span><span class="o">)</span> <i class="conum" data-value="1"></i><b>(1)</b>
     <span class="n">testRuntimeOnly</span><span class="o">(</span><span class="s2">"org.junit.platform:junit-platform-launcher"</span><span class="o">)</span> <i class="conum" data-value="2"></i><b>(2)</b>
 <span class="o">}</span></code></pre>
 </div>
@@ -9555,7 +9555,7 @@ on the dependency-aggregating JUnit Jupiter artifact similar to the following.</
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="groovy"><span class="n">dependencies</span> <span class="o">{</span>
-    <span class="n">testImplementation</span><span class="o">(</span><span class="s2">"org.junit.jupiter:junit-jupiter:6.0.0-SNAPSHOT"</span><span class="o">)</span>
+    <span class="n">testImplementation</span><span class="o">(</span><span class="s2">"org.junit.jupiter:junit-jupiter:6.1.0-SNAPSHOT"</span><span class="o">)</span>
     <span class="n">testRuntimeOnly</span><span class="o">(</span><span class="s2">"org.junit.platform:junit-platform-launcher"</span><span class="o">)</span>
 <span class="o">}</span></code></pre>
 </div>
@@ -9571,7 +9571,7 @@ support.</p>
 <pre class="rouge highlight"><code data-lang="kotlin"><span class="nf">testing</span> <span class="p">{</span>
     <span class="nf">suites</span> <span class="p">{</span>
         <span class="n">named</span><span class="p">&lt;</span><span class="nc">JvmTestSuite</span><span class="p">&gt;(</span><span class="s">"test"</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nf">useJUnitJupiter</span><span class="p">(</span><span class="s">"6.0.0-SNAPSHOT"</span><span class="p">)</span>
+            <span class="nf">useJUnitJupiter</span><span class="p">(</span><span class="s">"6.1.0-SNAPSHOT"</span><span class="p">)</span>
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span></code></pre>
@@ -9583,7 +9583,7 @@ support.</p>
 <pre class="rouge highlight"><code data-lang="groovy"><span class="n">testing</span> <span class="o">{</span>
     <span class="n">suites</span> <span class="o">{</span>
         <span class="n">test</span> <span class="o">{</span>
-            <span class="n">useJUnitJupiter</span><span class="o">(</span><span class="s2">"6.0.0-SNAPSHOT"</span><span class="o">)</span>
+            <span class="n">useJUnitJupiter</span><span class="o">(</span><span class="s2">"6.1.0-SNAPSHOT"</span><span class="o">)</span>
         <span class="o">}</span>
     <span class="o">}</span>
 <span class="o">}</span></code></pre>
@@ -9598,7 +9598,7 @@ implementation similar to the following.</p>
 <div class="content">
 <pre class="rouge highlight"><code data-lang="groovy"><span class="n">dependencies</span> <span class="o">{</span>
     <span class="n">testImplementation</span><span class="o">(</span><span class="s2">"junit:junit:4.13.2"</span><span class="o">)</span>
-    <span class="n">testRuntimeOnly</span><span class="o">(</span><span class="s2">"org.junit.vintage:junit-vintage-engine:6.0.0-SNAPSHOT"</span><span class="o">)</span>
+    <span class="n">testRuntimeOnly</span><span class="o">(</span><span class="s2">"org.junit.vintage:junit-vintage-engine:6.1.0-SNAPSHOT"</span><span class="o">)</span>
     <span class="n">testRuntimeOnly</span><span class="o">(</span><span class="s2">"org.junit.platform:junit-platform-launcher"</span><span class="o">)</span>
 <span class="o">}</span></code></pre>
 </div>
@@ -9695,7 +9695,7 @@ versions of all JUnit artifacts.</p>
         <span class="nt">&lt;dependency&gt;</span>
             <span class="nt">&lt;groupId&gt;</span>org.junit<span class="nt">&lt;/groupId&gt;</span>
             <span class="nt">&lt;artifactId&gt;</span>junit-bom<span class="nt">&lt;/artifactId&gt;</span>
-            <span class="nt">&lt;version&gt;</span>6.0.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;version&gt;</span>6.1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
             <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
             <span class="nt">&lt;scope&gt;</span>import<span class="nt">&lt;/scope&gt;</span>
         <span class="nt">&lt;/dependency&gt;</span>
@@ -9740,7 +9740,7 @@ following.</p>
     <span class="nt">&lt;dependency&gt;</span>
         <span class="nt">&lt;groupId&gt;</span>org.junit.jupiter<span class="nt">&lt;/groupId&gt;</span>
         <span class="nt">&lt;artifactId&gt;</span>junit-jupiter<span class="nt">&lt;/artifactId&gt;</span>
-        <span class="nt">&lt;version&gt;</span>6.0.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span> <span class="c">&lt;!-- can be omitted when using the BOM --&gt;</span>
+        <span class="nt">&lt;version&gt;</span>6.1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span> <span class="c">&lt;!-- can be omitted when using the BOM --&gt;</span>
         <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
     <span class="nt">&lt;/dependency&gt;</span>
     <span class="c">&lt;!-- ... --&gt;</span>
@@ -9779,7 +9779,7 @@ long as you configure <code>test</code> scoped dependencies on JUnit 4 and the J
     <span class="nt">&lt;dependency&gt;</span>
         <span class="nt">&lt;groupId&gt;</span>org.junit.vintage<span class="nt">&lt;/groupId&gt;</span>
         <span class="nt">&lt;artifactId&gt;</span>junit-vintage-engine<span class="nt">&lt;/artifactId&gt;</span>
-        <span class="nt">&lt;version&gt;</span>6.0.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span> <span class="c">&lt;!-- can be omitted when using the BOM --&gt;</span>
+        <span class="nt">&lt;version&gt;</span>6.1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span> <span class="c">&lt;!-- can be omitted when using the BOM --&gt;</span>
         <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
     <span class="nt">&lt;/dependency&gt;</span>
     <span class="c">&lt;!-- ... --&gt;</span>
@@ -10043,7 +10043,7 @@ and
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="groovy"><span class="n">ext</span><span class="o">[</span><span class="s1">'junit-jupiter.version'</span><span class="o">]</span> <span class="o">=</span> <span class="s1">'6.0.0-SNAPSHOT'</span></code></pre>
+<pre class="rouge highlight"><code data-lang="groovy"><span class="n">ext</span><span class="o">[</span><span class="s1">'junit-jupiter.version'</span><span class="o">]</span> <span class="o">=</span> <span class="s1">'6.1.0-SNAPSHOT'</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -10053,7 +10053,7 @@ and
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="xml"><span class="nt">&lt;properties&gt;</span>
-    <span class="nt">&lt;junit-jupiter.version&gt;</span>6.0.0-SNAPSHOT<span class="nt">&lt;/junit-jupiter.version&gt;</span>
+    <span class="nt">&lt;junit-jupiter.version&gt;</span>6.1.0-SNAPSHOT<span class="nt">&lt;/junit-jupiter.version&gt;</span>
 <span class="nt">&lt;/properties&gt;</span></code></pre>
 </div>
 </div>
@@ -10067,7 +10067,7 @@ Platform from the console. For example, it can be used to run JUnit Vintage and 
 Jupiter tests and print test execution results to the console.</p>
 </div>
 <div class="paragraph">
-<p>An executable <em>Fat JAR</em> (<code>junit-platform-console-standalone-6.0.0-SNAPSHOT.jar</code>) that
+<p>An executable <em>Fat JAR</em> (<code>junit-platform-console-standalone-6.1.0-SNAPSHOT.jar</code>) that
 contains the contents of all of its dependencies is published in the <a href="https://central.sonatype.com/">Maven Central</a>
 repository under the
 <a href="https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone">junit-platform-console-standalone</a>
@@ -10085,37 +10085,37 @@ directory. It contains the contents of the following artifacts:</p>
 <p><code>org.hamcrest:hamcrest-core:1.3</code></p>
 </li>
 <li>
-<p><code>org.junit.jupiter:junit-jupiter-api:6.0.0-SNAPSHOT</code></p>
+<p><code>org.junit.jupiter:junit-jupiter-api:6.1.0-SNAPSHOT</code></p>
 </li>
 <li>
-<p><code>org.junit.jupiter:junit-jupiter-engine:6.0.0-SNAPSHOT</code></p>
+<p><code>org.junit.jupiter:junit-jupiter-engine:6.1.0-SNAPSHOT</code></p>
 </li>
 <li>
-<p><code>org.junit.jupiter:junit-jupiter-params:6.0.0-SNAPSHOT</code></p>
+<p><code>org.junit.jupiter:junit-jupiter-params:6.1.0-SNAPSHOT</code></p>
 </li>
 <li>
-<p><code>org.junit.platform:junit-platform-commons:6.0.0-SNAPSHOT</code></p>
+<p><code>org.junit.platform:junit-platform-commons:6.1.0-SNAPSHOT</code></p>
 </li>
 <li>
-<p><code>org.junit.platform:junit-platform-console:6.0.0-SNAPSHOT</code></p>
+<p><code>org.junit.platform:junit-platform-console:6.1.0-SNAPSHOT</code></p>
 </li>
 <li>
-<p><code>org.junit.platform:junit-platform-engine:6.0.0-SNAPSHOT</code></p>
+<p><code>org.junit.platform:junit-platform-engine:6.1.0-SNAPSHOT</code></p>
 </li>
 <li>
-<p><code>org.junit.platform:junit-platform-launcher:6.0.0-SNAPSHOT</code></p>
+<p><code>org.junit.platform:junit-platform-launcher:6.1.0-SNAPSHOT</code></p>
 </li>
 <li>
-<p><code>org.junit.platform:junit-platform-reporting:6.0.0-SNAPSHOT</code></p>
+<p><code>org.junit.platform:junit-platform-reporting:6.1.0-SNAPSHOT</code></p>
 </li>
 <li>
-<p><code>org.junit.platform:junit-platform-suite-api:6.0.0-SNAPSHOT</code></p>
+<p><code>org.junit.platform:junit-platform-suite-api:6.1.0-SNAPSHOT</code></p>
 </li>
 <li>
-<p><code>org.junit.platform:junit-platform-suite-engine:6.0.0-SNAPSHOT</code></p>
+<p><code>org.junit.platform:junit-platform-suite-engine:6.1.0-SNAPSHOT</code></p>
 </li>
 <li>
-<p><code>org.junit.vintage:junit-vintage-engine:6.0.0-SNAPSHOT</code></p>
+<p><code>org.junit.vintage:junit-vintage-engine:6.1.0-SNAPSHOT</code></p>
 </li>
 <li>
 <p><code>org.opentest4j.reporting:open-test-reporting-tooling-spi:0.2.4</code></p>
@@ -10160,7 +10160,7 @@ standalone <code>ConsoleLauncher</code> as shown below.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="console"><span class="gp">$</span><span class="w"> </span>java <span class="nt">-jar</span> junit-platform-console-standalone-6.0.0-SNAPSHOT.jar execute &lt;OPTIONS&gt;
+<pre class="rouge highlight"><code data-lang="console"><span class="gp">$</span><span class="w"> </span>java <span class="nt">-jar</span> junit-platform-console-standalone-6.1.0-SNAPSHOT.jar execute &lt;OPTIONS&gt;
 <span class="go">
 ├─ JUnit Vintage
 │  └─ example.JUnit4Tests
@@ -10553,7 +10553,7 @@ files using the <code>--redirect-stdout</code> and <code>--redirect-stderr</code
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="console"><span class="gp">$</span><span class="w"> </span>java <span class="nt">-jar</span> junit-platform-console-standalone-6.0.0-SNAPSHOT.jar &lt;OPTIONS&gt; <span class="se">\</span>
+<pre class="rouge highlight"><code data-lang="console"><span class="gp">$</span><span class="w"> </span>java <span class="nt">-jar</span> junit-platform-console-standalone-6.1.0-SNAPSHOT.jar &lt;OPTIONS&gt; <span class="se">\</span>
 <span class="go">  --redirect-stdout=stdout.txt \
   --redirect-stderr=stderr.txt</span></code></pre>
 </div>
@@ -13959,7 +13959,7 @@ using Gradle&#8217;s Build Cache.</p>
 <div class="title">Groovy DSL</div>
 <div class="content">
 <pre class="rouge highlight"><code data-lang="groovy"><span class="n">dependencies</span> <span class="o">{</span>
-    <span class="n">testRuntimeOnly</span><span class="o">(</span><span class="s2">"org.junit.platform:junit-platform-reporting:6.0.0-SNAPSHOT"</span><span class="o">)</span>
+    <span class="n">testRuntimeOnly</span><span class="o">(</span><span class="s2">"org.junit.platform:junit-platform-reporting:6.1.0-SNAPSHOT"</span><span class="o">)</span>
 <span class="o">}</span>
 <span class="n">tasks</span><span class="o">.</span><span class="na">withType</span><span class="o">(</span><span class="n">Test</span><span class="o">).</span><span class="na">configureEach</span> <span class="o">{</span>
     <span class="kt">def</span> <span class="n">outputDir</span> <span class="o">=</span> <span class="n">reports</span><span class="o">.</span><span class="na">junitXml</span><span class="o">.</span><span class="na">outputLocation</span>
@@ -13976,7 +13976,7 @@ using Gradle&#8217;s Build Cache.</p>
 <div class="title">Kotlin DSL</div>
 <div class="content">
 <pre class="rouge highlight"><code data-lang="kotlin"><span class="nf">dependencies</span> <span class="p">{</span>
-    <span class="nf">testRuntimeOnly</span><span class="p">(</span><span class="s">"org.junit.platform:junit-platform-reporting:6.0.0-SNAPSHOT"</span><span class="p">)</span>
+    <span class="nf">testRuntimeOnly</span><span class="p">(</span><span class="s">"org.junit.platform:junit-platform-reporting:6.1.0-SNAPSHOT"</span><span class="p">)</span>
 <span class="p">}</span>
 <span class="n">tasks</span><span class="p">.</span><span class="n">withType</span><span class="p">&lt;</span><span class="nc">Test</span><span class="p">&gt;().</span><span class="nf">configureEach</span> <span class="p">{</span>
     <span class="kd">val</span> <span class="py">outputDir</span> <span class="p">=</span> <span class="n">reports</span><span class="p">.</span><span class="n">junitXml</span><span class="p">.</span><span class="n">outputLocation</span>
@@ -14005,7 +14005,7 @@ XML reports as follows:</p>
         <span class="nt">&lt;dependency&gt;</span>
             <span class="nt">&lt;groupId&gt;</span>org.junit.platform<span class="nt">&lt;/groupId&gt;</span>
             <span class="nt">&lt;artifactId&gt;</span>junit-platform-reporting<span class="nt">&lt;/artifactId&gt;</span>
-            <span class="nt">&lt;version&gt;</span>6.0.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;version&gt;</span>6.1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
             <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
         <span class="nt">&lt;/dependency&gt;</span>
     <span class="nt">&lt;/dependencies&gt;</span>
@@ -14038,7 +14038,7 @@ output by setting the configuration parameters via <code>--config</code>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="console"><span class="gp">$</span><span class="w"> </span>java <span class="nt">-jar</span> junit-platform-console-standalone-6.0.0-SNAPSHOT.jar &lt;OPTIONS&gt; <span class="se">\</span>
+<pre class="rouge highlight"><code data-lang="console"><span class="gp">$</span><span class="w"> </span>java <span class="nt">-jar</span> junit-platform-console-standalone-6.1.0-SNAPSHOT.jar &lt;OPTIONS&gt; <span class="se">\</span>
 <span class="go">  --config=junit.platform.reporting.open.xml.enabled=true \
   --config=junit.platform.reporting.output.dir=reports</span></code></pre>
 </div>
@@ -14049,7 +14049,7 @@ classpath resource via the <code>--config-resource</code> option:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="console"><span class="gp">$</span><span class="w"> </span>java <span class="nt">-jar</span> junit-platform-console-standalone-6.0.0-SNAPSHOT.jar &lt;OPTIONS&gt; <span class="se">\</span>
+<pre class="rouge highlight"><code data-lang="console"><span class="gp">$</span><span class="w"> </span>java <span class="nt">-jar</span> junit-platform-console-standalone-6.1.0-SNAPSHOT.jar &lt;OPTIONS&gt; <span class="se">\</span>
 <span class="go">  --config-resource=configuration.properties</span></code></pre>
 </div>
 </div>
@@ -14201,7 +14201,7 @@ all tests of the test suite.</p>
 <div class="paragraph">
 <p>The <code>junit-platform-testkit</code> artifact provides support for executing a test plan on the
 JUnit Platform and then verifying the expected results. As of JUnit Platform
-6.0.0-SNAPSHOT, this support is limited to the execution of a single <code>TestEngine</code> (see
+6.1.0-SNAPSHOT, this support is limited to the execution of a single <code>TestEngine</code> (see
 <a href="#testkit-engine">Engine Test Kit</a>).</p>
 </div>
 <div class="sect3">
@@ -17078,7 +17078,7 @@ Please refer to the corresponding sections for <a href="#running-tests-build-mav
 <p><strong>Group ID</strong>: <code>org.junit.platform</code></p>
 </li>
 <li>
-<p><strong>Version</strong>: <code>6.0.0-SNAPSHOT</code></p>
+<p><strong>Version</strong>: <code>6.1.0-SNAPSHOT</code></p>
 </li>
 <li>
 <p><strong>Artifact IDs</strong>:</p>
@@ -17150,7 +17150,7 @@ accessing the results via a fluent API to verify the expected results.</p>
 <p><strong>Group ID</strong>: <code>org.junit.jupiter</code></p>
 </li>
 <li>
-<p><strong>Version</strong>: <code>6.0.0-SNAPSHOT</code></p>
+<p><strong>Version</strong>: <code>6.1.0-SNAPSHOT</code></p>
 </li>
 <li>
 <p><strong>Artifact IDs</strong>:</p>
@@ -17193,7 +17193,7 @@ support for JUnit 4&#8217;s <code>@Ignore</code> annotation and for running sele
 <p><strong>Group ID</strong>: <code>org.junit.vintage</code></p>
 </li>
 <li>
-<p><strong>Version</strong>: <code>6.0.0-SNAPSHOT</code></p>
+<p><strong>Version</strong>: <code>6.1.0-SNAPSHOT</code></p>
 </li>
 <li>
 <p><strong>Artifact ID</strong>:</p>
@@ -17228,7 +17228,7 @@ or <a href="https://docs.gradle.org/current/userguide/platforms.html#sub:bom_imp
 <p><strong>Artifact ID</strong>: <code>junit-bom</code></p>
 </li>
 <li>
-<p><strong>Version</strong>: <code>6.0.0-SNAPSHOT</code></p>
+<p><strong>Version</strong>: <code>6.1.0-SNAPSHOT</code></p>
 </li>
 </ul>
 </div>
@@ -17284,7 +17284,7 @@ following <em>OpenTest4J</em> JAR.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 6.0.0-SNAPSHOT<br>
+Version 6.1.0-SNAPSHOT<br>
 </div>
 </div>
 <script src="../tocbot-3.0.2/tocbot.min.js"></script>
