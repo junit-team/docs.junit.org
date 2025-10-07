@@ -732,6 +732,7 @@ pre.rouge .gs {
 <li><a href="#writing-tests-dynamic-tests-examples">2.20.1. Dynamic Test Examples</a></li>
 <li><a href="#writing-tests-dynamic-tests-named-support">2.20.2. Dynamic Tests and Named</a></li>
 <li><a href="#writing-tests-dynamic-tests-uri-test-source">2.20.3. URI Test Sources for Dynamic Tests</a></li>
+<li><a href="#writing-tests-dynamic-tests-parallel-execution">2.20.4. Parallel Execution</a></li>
 </ul>
 </li>
 <li><a href="#writing-tests-declarative-timeouts">2.21. Timeouts</a>
@@ -7254,6 +7255,8 @@ a nested hierarchy of dynamic tests utilizing <code>DynamicContainer</code>.</p>
 <span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">junit</span><span class="o">.</span><span class="na">jupiter</span><span class="o">.</span><span class="na">api</span><span class="o">.</span><span class="na">Assertions</span><span class="o">.</span><span class="na">assertTrue</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">junit</span><span class="o">.</span><span class="na">jupiter</span><span class="o">.</span><span class="na">api</span><span class="o">.</span><span class="na">DynamicContainer</span><span class="o">.</span><span class="na">dynamicContainer</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">junit</span><span class="o">.</span><span class="na">jupiter</span><span class="o">.</span><span class="na">api</span><span class="o">.</span><span class="na">DynamicTest</span><span class="o">.</span><span class="na">dynamicTest</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">junit</span><span class="o">.</span><span class="na">jupiter</span><span class="o">.</span><span class="na">api</span><span class="o">.</span><span class="na">parallel</span><span class="o">.</span><span class="na">ExecutionMode</span><span class="o">.</span><span class="na">CONCURRENT</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">junit</span><span class="o">.</span><span class="na">jupiter</span><span class="o">.</span><span class="na">api</span><span class="o">.</span><span class="na">parallel</span><span class="o">.</span><span class="na">ExecutionMode</span><span class="o">.</span><span class="na">SAME_THREAD</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.Collection</span><span class="o">;</span>
@@ -7271,6 +7274,7 @@ a nested hierarchy of dynamic tests utilizing <code>DynamicContainer</code>.</p>
 <span class="kn">import</span> <span class="nn">org.junit.jupiter.api.Tag</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.junit.jupiter.api.TestFactory</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.junit.jupiter.api.function.ThrowingConsumer</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.jupiter.api.parallel.Execution</span><span class="o">;</span>
 
 <span class="kd">class</span> <span class="nc">DynamicTestsDemo</span> <span class="o">{</span>
 
@@ -7508,6 +7512,93 @@ supported formats for a FQMN.</p>
 <p>If none of the above <code>TestSource</code> implementations are applicable.</p>
 </dd>
 </dl>
+</div>
+</div>
+<div class="sect3">
+<h4 id="writing-tests-dynamic-tests-parallel-execution"><a class="anchor" href="#writing-tests-dynamic-tests-parallel-execution"></a>2.20.4. Parallel Execution</h4>
+<div class="paragraph">
+<p>Dynamic tests and containers support
+<a href="#writing-tests-parallel-execution">parallel execution</a>. You can configure their
+<code>ExecutionMode</code> by using the <code>dynamicTest(Consumer)</code> and <code>dynamicContainer(Consumer)</code>
+factory methods as illustrated by the following example.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="java"><span class="nd">@TestFactory</span>
+<span class="nd">@Execution</span><span class="o">(</span><span class="no">CONCURRENT</span><span class="o">)</span> <i class="conum" data-value="1"></i><b>(1)</b>
+<span class="nc">Stream</span><span class="o">&lt;</span><span class="nc">DynamicNode</span><span class="o">&gt;</span> <span class="nf">dynamicTestsWithConfiguredExecutionMode</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="nc">Stream</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="s">"A"</span><span class="o">,</span> <span class="s">"B"</span><span class="o">,</span> <span class="s">"C"</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="n">input</span> <span class="o">-&gt;</span>
+                <span class="n">dynamicContainer</span><span class="o">(</span><span class="n">outer</span> <span class="o">-&gt;</span> <span class="n">outer</span>
+                    <span class="o">.</span><span class="na">displayName</span><span class="o">(</span><span class="s">"Container "</span> <span class="o">+</span> <span class="n">input</span><span class="o">)</span>
+                    <span class="o">.</span><span class="na">children</span><span class="o">(</span>
+                        <span class="n">dynamicTest</span><span class="o">(</span><span class="n">config</span> <span class="o">-&gt;</span> <span class="n">config</span>
+                            <span class="o">.</span><span class="na">displayName</span><span class="o">(</span><span class="s">"not null"</span><span class="o">)</span>
+                            <span class="o">.</span><span class="na">executionMode</span><span class="o">(</span><span class="no">SAME_THREAD</span><span class="o">)</span> <i class="conum" data-value="2"></i><b>(2)</b>
+                            <span class="o">.</span><span class="na">executable</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">assertNotNull</span><span class="o">(</span><span class="n">input</span><span class="o">))</span>
+                        <span class="o">),</span>
+                        <span class="n">dynamicContainer</span><span class="o">(</span><span class="n">inner</span> <span class="o">-&gt;</span> <span class="n">inner</span>
+                            <span class="o">.</span><span class="na">displayName</span><span class="o">(</span><span class="s">"properties"</span><span class="o">)</span>
+                            <span class="o">.</span><span class="na">executionMode</span><span class="o">(</span><span class="no">CONCURRENT</span><span class="o">)</span> <i class="conum" data-value="3"></i><b>(3)</b>
+                            <span class="o">.</span><span class="na">childExecutionMode</span><span class="o">(</span><span class="no">SAME_THREAD</span><span class="o">)</span> <i class="conum" data-value="4"></i><b>(4)</b>
+                            <span class="o">.</span><span class="na">children</span><span class="o">(</span>
+                                <span class="n">dynamicTest</span><span class="o">(</span><span class="n">config</span> <span class="o">-&gt;</span> <span class="n">config</span>
+                                    <span class="o">.</span><span class="na">displayName</span><span class="o">(</span><span class="s">"length &gt; 0"</span><span class="o">)</span>
+                                    <span class="o">.</span><span class="na">executionMode</span><span class="o">(</span><span class="no">CONCURRENT</span><span class="o">)</span> <i class="conum" data-value="5"></i><b>(5)</b>
+                                    <span class="o">.</span><span class="na">executable</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">assertTrue</span><span class="o">(</span><span class="n">input</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">))</span>
+                                <span class="o">),</span>
+                                <span class="n">dynamicTest</span><span class="o">(</span><span class="n">config</span> <span class="o">-&gt;</span> <span class="n">config</span>
+                                    <span class="o">.</span><span class="na">displayName</span><span class="o">(</span><span class="s">"not empty"</span><span class="o">)</span>
+                                    <span class="o">.</span><span class="na">executable</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">assertFalse</span><span class="o">(</span><span class="n">input</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()))</span>
+                                <span class="o">)</span>
+                            <span class="o">)</span>
+                        <span class="o">)</span>
+                    <span class="o">)</span>
+                <span class="o">)</span>
+            <span class="o">);</span>
+<span class="o">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Executing the above test factory method results in the following test tree and execution
+modes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>dynamicTestsWithConfiguredExecutionMode()&#8201;&#8212;&#8201;<code>CONCURRENT</code> (from <code>@Execution</code> annotation)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Container A&#8201;&#8212;&#8201;<code>CONCURRENT</code> (from <code>@Execution</code> annotation)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>not null&#8201;&#8212;&#8201;<code>SAME_THREAD</code> (from <code>executionMode(&#8230;&#8203;)</code> call)</p>
+</li>
+<li>
+<p>properties&#8201;&#8212;&#8201;<code>CONCURRENT</code> (from <code>@Execution</code> annotation)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>length &gt; 0&#8201;&#8212;&#8201;<code>CONCURRENT</code> (from <code>executionMode(&#8230;&#8203;)</code> call)</p>
+</li>
+<li>
+<p>not empty&#8201;&#8212;&#8201;<code>SAME_THREAD</code> (from <code>childExecutionMode(&#8230;&#8203;)</code> call)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>&#8230;&#8203; (same for "Container B" and "Container C")</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -16004,6 +16095,34 @@ value of lower stability.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>@DisplayNameGenerator.&ZeroWidthSpace;IndicativeSentences.&ZeroWidthSpace;SentenceFragment</code> <em>(annotation)</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.0</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DynamicContainer.&ZeroWidthSpace;Configuration</code> <em>(interface)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DynamicContainer.&ZeroWidthSpace;dynamicContainer(Consumer&lt;? super Configuration&gt;)</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DynamicContainer.&ZeroWidthSpace;getChildExecutionMode()</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DynamicNode.&ZeroWidthSpace;Configuration</code> <em>(interface)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DynamicNode.&ZeroWidthSpace;getExecutionMode()</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DynamicTest.&ZeroWidthSpace;Configuration</code> <em>(interface)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DynamicTest.&ZeroWidthSpace;dynamicTest(Consumer&lt;? super Configuration&gt;)</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.1</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>MethodOrderer.&ZeroWidthSpace;Default</code> <em>(class)</em></p></td>

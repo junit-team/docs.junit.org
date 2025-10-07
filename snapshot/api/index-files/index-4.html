@@ -801,6 +801,11 @@ a <code>@RepeatedTest</code> method: <code>{displayName}</code></div>
 instead.</div>
 </div>
 </dd>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/DynamicNode.Configuration.html#displayName(java.lang.String)" class="member-name-link">displayName(String)</a> - Method in interface org.junit.jupiter.api.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/DynamicNode.Configuration.html" title="interface in org.junit.jupiter.api">DynamicNode.Configuration</a></dt>
+<dd>
+<div class="block">Set the <a href="../org.junit.jupiter.api/org/junit/jupiter/api/DynamicNode.html#getDisplayName()">display name</a> to use
+for the configured <a href="../org.junit.jupiter.api/org/junit/jupiter/api/DynamicNode.html" title="class in org.junit.jupiter.api"><code>DynamicNode</code></a>.</div>
+</dd>
 <dt><a href="../org.junit.platform.testkit/org/junit/platform/testkit/engine/EventConditions.html#displayName(java.lang.String)" class="member-name-link">displayName(String)</a> - Static method in class org.junit.platform.testkit.engine.<a href="../org.junit.platform.testkit/org/junit/platform/testkit/engine/EventConditions.html" title="class in org.junit.platform.testkit.engine">EventConditions</a></dt>
 <dd>
 <div class="block">Create a new <a href="https://javadoc.io/doc/org.assertj/assertj-core/3.27.6/org/assertj/core/api/Condition.html" title="class or interface in org.assertj.core.api" class="external-link"><code>Condition</code></a> that matches if and only if the
@@ -910,9 +915,18 @@ name, custom test source <a href="https://docs.oracle.com/en/java/javase/25/docs
 <div class="block">Factory for creating a new <code>DynamicContainer</code> for the supplied display
 name and stream of dynamic nodes.</div>
 </dd>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/DynamicContainer.html#dynamicContainer(java.util.function.Consumer)" class="member-name-link">dynamicContainer(Consumer)</a> - Static method in class org.junit.jupiter.api.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/DynamicContainer.html" title="class in org.junit.jupiter.api">DynamicContainer</a></dt>
+<dd>
+<div class="block">Factory for creating a new <code>DynamicTest</code> that is configured via the
+supplied <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link"><code>Consumer</code></a> of <a href="../org.junit.jupiter.api/org/junit/jupiter/api/DynamicTest.Configuration.html" title="interface in org.junit.jupiter.api"><code>DynamicTest.Configuration</code></a>.</div>
+</dd>
 <dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/DynamicContainer.html" class="type-name-link" title="class in org.junit.jupiter.api">DynamicContainer</a> - Class in <a href="../org.junit.jupiter.api/org/junit/jupiter/api/package-summary.html">org.junit.jupiter.api</a></dt>
 <dd>
 <div class="block">A <code>DynamicContainer</code> is a container generated at runtime.</div>
+</dd>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/DynamicContainer.Configuration.html" class="type-name-link" title="interface in org.junit.jupiter.api">DynamicContainer.Configuration</a> - Interface in <a href="../org.junit.jupiter.api/org/junit/jupiter/api/package-summary.html">org.junit.jupiter.api</a></dt>
+<dd>
+<div class="block"><code>Configuration</code> of a <a href="../org.junit.jupiter.api/org/junit/jupiter/api/DynamicContainer.html" title="class in org.junit.jupiter.api"><code>DynamicContainer</code></a>.</div>
 </dd>
 <dt><a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/descriptor/DynamicDescendantFilter.html" class="type-name-link" title="class in org.junit.jupiter.engine.descriptor">DynamicDescendantFilter</a> - Class in <a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/descriptor/package-summary.html">org.junit.jupiter.engine.descriptor</a></dt>
 <dd>
@@ -926,6 +940,11 @@ implement <a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/descript
 <div class="block"><code>DynamicNode</code> serves as the abstract base class for a container or a
 test case generated at runtime.</div>
 </dd>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/DynamicNode.Configuration.html" class="type-name-link" title="interface in org.junit.jupiter.api">DynamicNode.Configuration&lt;T&gt;</a> - Interface in <a href="../org.junit.jupiter.api/org/junit/jupiter/api/package-summary.html">org.junit.jupiter.api</a></dt>
+<dd>
+<div class="block"><code>Configuration</code> of a <a href="../org.junit.jupiter.api/org/junit/jupiter/api/DynamicNode.html" title="class in org.junit.jupiter.api"><code>DynamicNode</code></a> or one of its
+subinterfaces.</div>
+</dd>
 <dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/DynamicTest.html#dynamicTest(java.lang.String,java.net.URI,org.junit.jupiter.api.function.Executable)" class="member-name-link">dynamicTest(String, URI, Executable)</a> - Static method in class org.junit.jupiter.api.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/DynamicTest.html" title="class in org.junit.jupiter.api">DynamicTest</a></dt>
 <dd>
 <div class="block">Factory for creating a new <code>DynamicTest</code> for the supplied display
@@ -936,9 +955,18 @@ name, custom test source <a href="https://docs.oracle.com/en/java/javase/25/docs
 <div class="block">Factory for creating a new <code>DynamicTest</code> for the supplied display
 name and executable code block.</div>
 </dd>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/DynamicTest.html#dynamicTest(java.util.function.Consumer)" class="member-name-link">dynamicTest(Consumer)</a> - Static method in class org.junit.jupiter.api.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/DynamicTest.html" title="class in org.junit.jupiter.api">DynamicTest</a></dt>
+<dd>
+<div class="block">Factory for creating a new <code>DynamicTest</code> that is configured via the
+supplied <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link"><code>Consumer</code></a> of <a href="../org.junit.jupiter.api/org/junit/jupiter/api/DynamicTest.Configuration.html" title="interface in org.junit.jupiter.api"><code>DynamicTest.Configuration</code></a>.</div>
+</dd>
 <dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/DynamicTest.html" class="type-name-link" title="class in org.junit.jupiter.api">DynamicTest</a> - Class in <a href="../org.junit.jupiter.api/org/junit/jupiter/api/package-summary.html">org.junit.jupiter.api</a></dt>
 <dd>
 <div class="block">A <code>DynamicTest</code> is a test case generated at runtime.</div>
+</dd>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/DynamicTest.Configuration.html" class="type-name-link" title="interface in org.junit.jupiter.api">DynamicTest.Configuration</a> - Interface in <a href="../org.junit.jupiter.api/org/junit/jupiter/api/package-summary.html">org.junit.jupiter.api</a></dt>
+<dd>
+<div class="block"><code>Configuration</code> of a <a href="../org.junit.jupiter.api/org/junit/jupiter/api/DynamicTest.html" title="class in org.junit.jupiter.api"><code>DynamicTest</code></a>.</div>
 </dd>
 <dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/DynamicTestInvocationContext.html" class="type-name-link" title="interface in org.junit.jupiter.api.extension">DynamicTestInvocationContext</a> - Interface in <a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/package-summary.html">org.junit.jupiter.api.extension</a></dt>
 <dd>
