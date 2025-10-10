@@ -2336,52 +2336,37 @@ functions in the <code>org.junit.jupiter.api</code> package.</p>
 <h4 id="writing-tests-assertions-third-party"><a class="anchor" href="#writing-tests-assertions-third-party"></a>2.5.2. Third-party Assertion Libraries</h4>
 <div class="paragraph">
 <p>Even though the assertion facilities provided by JUnit Jupiter are sufficient for many
-testing scenarios, there are times when more power and additional functionality such as
-<em>matchers</em> are desired or required. In such cases, the JUnit team recommends the use of
-third-party assertion libraries such as <a href="https://assertj.github.io/doc/">AssertJ</a>, <a href="https://hamcrest.org/JavaHamcrest/">Hamcrest</a>, <a href="https://truth.dev/">Truth</a>, etc. Developers
-are therefore free to use the assertion library of their choice.</p>
+testing scenarios, there are times when more power and additional functionality are
+desired or required. In such cases, the JUnit team recommends the use of third-party
+assertion libraries such as <a href="https://assertj.github.io/doc/">AssertJ</a>, <a href="https://hamcrest.org/JavaHamcrest/">Hamcrest</a>, <a href="https://truth.dev/">Truth</a>, etc. Developers are therefore
+free to use the assertion library of their choice.</p>
 </div>
 <div class="paragraph">
-<p>For example, the combination of <em>matchers</em> and a fluent API can be used to make
-assertions more descriptive and readable. However, JUnit Jupiter&#8217;s <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/Assertions.html">org.junit.jupiter.api.Assertions</a></code> class
-does not provide an
-<a href="https://junit.org/junit4/javadoc/latest/org/junit/Assert.html#assertThat"><code>assertThat()</code></a>
-method like the one found in JUnit 4&#8217;s <code>org.junit.Assert</code> class which accepts a Hamcrest
-<a href="https://junit.org/junit4/javadoc/latest/org/hamcrest/Matcher.html"><code>Matcher</code></a>. Instead,
-developers are encouraged to use the built-in support for matchers provided by third-party
-assertion libraries.</p>
-</div>
-<div class="paragraph">
-<p>The following example demonstrates how to use the <code>assertThat()</code> support from Hamcrest in
-a JUnit Jupiter test. As long as the Hamcrest library has been added to the classpath,
-you can statically import methods such as <code>assertThat()</code>, <code>is()</code>, and <code>equalTo()</code> and
-then use them in tests like in the <code>assertWithHamcrestMatcher()</code> method below.</p>
+<p>For example, the following demonstrates how to use the <code>assertThat()</code> support from AssertJ
+in a JUnit Jupiter test. As long as the AssertJ library has been added to the classpath,
+you can statically import methods such as <code>assertThat()</code>, <code>assertThatException()</code>, etc.
+from <code>org.assertj.core.api.Assertions</code> and then use them in tests like in the
+<code>assertWithAssertJ()</code> method below.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="java"><span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">hamcrest</span><span class="o">.</span><span class="na">CoreMatchers</span><span class="o">.</span><span class="na">equalTo</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">hamcrest</span><span class="o">.</span><span class="na">CoreMatchers</span><span class="o">.</span><span class="na">is</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">hamcrest</span><span class="o">.</span><span class="na">MatcherAssert</span><span class="o">.</span><span class="na">assertThat</span><span class="o">;</span>
+<pre class="rouge highlight"><code data-lang="java"><span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">assertj</span><span class="o">.</span><span class="na">core</span><span class="o">.</span><span class="na">api</span><span class="o">.</span><span class="na">Assertions</span><span class="o">.</span><span class="na">assertThat</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">example.util.Calculator</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">org.junit.jupiter.api.Test</span><span class="o">;</span>
 
-<span class="kd">class</span> <span class="nc">HamcrestAssertionsDemo</span> <span class="o">{</span>
+<span class="kd">class</span> <span class="nc">AssertJAssertionsDemo</span> <span class="o">{</span>
 
     <span class="kd">private</span> <span class="kd">final</span> <span class="nc">Calculator</span> <span class="n">calculator</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Calculator</span><span class="o">();</span>
 
     <span class="nd">@Test</span>
-    <span class="kt">void</span> <span class="nf">assertWithHamcrestMatcher</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">assertThat</span><span class="o">(</span><span class="n">calculator</span><span class="o">.</span><span class="na">subtract</span><span class="o">(</span><span class="mi">4</span><span class="o">,</span> <span class="mi">1</span><span class="o">),</span> <span class="n">is</span><span class="o">(</span><span class="n">equalTo</span><span class="o">(</span><span class="mi">3</span><span class="o">)));</span>
+    <span class="kt">void</span> <span class="nf">assertWithAssertJ</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">assertThat</span><span class="o">(</span><span class="n">calculator</span><span class="o">.</span><span class="na">subtract</span><span class="o">(</span><span class="mi">4</span><span class="o">,</span> <span class="mi">1</span><span class="o">)).</span><span class="na">isEqualTo</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
     <span class="o">}</span>
 
 <span class="o">}</span></code></pre>
 </div>
-</div>
-<div class="paragraph">
-<p>Naturally, legacy tests based on the JUnit 4 programming model can continue using
-<code>org.junit.Assert#assertThat</code>.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -2500,6 +2485,21 @@ references.</p>
 It is also possible to use methods from JUnit 4&#8217;s <code>org.junit.Assume</code> class for
 assumptions. Specifically, JUnit Jupiter supports JUnit 4&#8217;s <code>AssumptionViolatedException</code>
 to signal that a test should be aborted instead of marked as a failure.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If you use AssertJ for assertions, you may also wish to use AssertJ for assumptions.
+To do so, you can statically import the <code>assumeThat()</code> method from
+<code>org.assertj.core.api.Assumptions</code> and then use AssertJ&#8217;s fluent API to specify your
+assumptions.
 </td>
 </tr>
 </table>
