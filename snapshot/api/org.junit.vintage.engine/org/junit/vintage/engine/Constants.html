@@ -66,6 +66,7 @@ loadScripts(document, 'script');</script>
 <li><a href="#PARALLEL_POOL_SIZE" tabindex="0">PARALLEL_POOL_SIZE</a></li>
 <li><a href="#PARALLEL_CLASS_EXECUTION" tabindex="0">PARALLEL_CLASS_EXECUTION</a></li>
 <li><a href="#PARALLEL_METHOD_EXECUTION" tabindex="0">PARALLEL_METHOD_EXECUTION</a></li>
+<li><a href="#DISCOVERY_ISSUE_REPORTING_ENABLED_PROPERTY_NAME" tabindex="0">DISCOVERY_ISSUE_REPORTING_ENABLED_PROPERTY_NAME</a></li>
 </ol>
 </li>
 </ol>
@@ -105,28 +106,35 @@ Jupiter or another testing framework with native JUnit Platform support</div>
 <div class="table-header col-second">Field</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color"><code><a href="#PARALLEL_CLASS_EXECUTION" class="member-name-link">PARALLEL_CLASS_EXECUTION</a></code></div>
+<div class="col-second even-row-color"><code><a href="#DISCOVERY_ISSUE_REPORTING_ENABLED_PROPERTY_NAME" class="member-name-link">DISCOVERY_ISSUE_REPORTING_ENABLED_PROPERTY_NAME</a></code></div>
 <div class="col-last even-row-color">
+<div class="block"><span class="deprecated-label">Deprecated.</span></div>
+<div class="block">Property name used to configure whether the JUnit Vintage engine should
+report discovery issues such as deprecation notices.</div>
+</div>
+<div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#PARALLEL_CLASS_EXECUTION" class="member-name-link">PARALLEL_CLASS_EXECUTION</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block"><span class="deprecated-label">Deprecated.</span></div>
 <div class="block">Indicates whether parallel execution is enabled for test classes in the
 JUnit Vintage engine.</div>
 </div>
-<div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color"><code><a href="#PARALLEL_EXECUTION_ENABLED" class="member-name-link">PARALLEL_EXECUTION_ENABLED</a></code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="#PARALLEL_EXECUTION_ENABLED" class="member-name-link">PARALLEL_EXECUTION_ENABLED</a></code></div>
+<div class="col-last even-row-color">
 <div class="block"><span class="deprecated-label">Deprecated.</span></div>
 <div class="block">Indicates whether parallel execution is enabled for the JUnit Vintage engine.</div>
 </div>
-<div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color"><code><a href="#PARALLEL_METHOD_EXECUTION" class="member-name-link">PARALLEL_METHOD_EXECUTION</a></code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#PARALLEL_METHOD_EXECUTION" class="member-name-link">PARALLEL_METHOD_EXECUTION</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block"><span class="deprecated-label">Deprecated.</span></div>
 <div class="block">Indicates whether parallel execution is enabled for test methods in the
 JUnit Vintage engine.</div>
 </div>
-<div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color"><code><a href="#PARALLEL_POOL_SIZE" class="member-name-link">PARALLEL_POOL_SIZE</a></code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="#PARALLEL_POOL_SIZE" class="member-name-link">PARALLEL_POOL_SIZE</a></code></div>
+<div class="col-last even-row-color">
 <div class="block"><span class="deprecated-label">Deprecated.</span></div>
 <div class="block">Specifies the size of the thread pool to be used for parallel execution.</div>
 </div>
@@ -248,6 +256,32 @@ methods. Defaults to <code>false</code>.</div>
 <dd>
 <ul class="tag-list">
 <li><a href="../../../../../constant-values.html#org.junit.vintage.engine.Constants.PARALLEL_METHOD_EXECUTION">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="DISCOVERY_ISSUE_REPORTING_ENABLED_PROPERTY_NAME">
+<h3>DISCOVERY_ISSUE_REPORTING_ENABLED_PROPERTY_NAME</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#MAINTAINED" title="class or interface in org.apiguardian.api" class="external-link">MAINTAINED</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.0.1")
+</span><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">DISCOVERY_ISSUE_REPORTING_ENABLED_PROPERTY_NAME</span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span></div>
+<div class="block">Property name used to configure whether the JUnit Vintage engine should
+report discovery issues such as deprecation notices.
+
+<p>Set this property to <code>false</code> to disable reporting of discovery
+issues. Defaults to <code>true</code>.</div>
+<dl class="notes">
+<dt>Since:</dt>
+<dd>6.0.1</dd>
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../../constant-values.html#org.junit.vintage.engine.Constants.DISCOVERY_ISSUE_REPORTING_ENABLED_PROPERTY_NAME">Constant Field Values</a></li>
 </ul>
 </dd>
 </dl>
