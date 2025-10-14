@@ -685,7 +685,12 @@ repository on GitHub.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>❓</p>
+<p>A regression introduced in version 6.0.0 caused an exception when using <code>@CsvSource</code> or
+<code>@CsvFileSource</code> if the <code>delimiter</code> or <code>delimiterString</code> attribute was set to <code>#</code>.
+This occurred because <code>#</code> was used as the default comment character without an
+option to change it. To resolve this, a new <code>commentCharacter</code> attribute has been added
+to both annotations. Its default value remains <code>#</code>, but it can now be customized
+to avoid conflicts with other control characters.</p>
 </li>
 </ul>
 </div>
@@ -705,7 +710,8 @@ repository on GitHub.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>❓</p>
+<p>The <code>@CsvSource</code> and <code>@CsvFileSource</code> annotations now allow specifying
+a custom comment character using the new <code>commentCharacter</code> attribute.</p>
 </li>
 </ul>
 </div>

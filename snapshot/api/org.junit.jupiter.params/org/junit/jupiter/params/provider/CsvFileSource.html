@@ -77,6 +77,7 @@ loadScripts(document, 'script');</script>
 <li><a href="#nullValues()" tabindex="0">nullValues</a></li>
 <li><a href="#maxCharsPerColumn()" tabindex="0">maxCharsPerColumn</a></li>
 <li><a href="#ignoreLeadingAndTrailingWhitespace()" tabindex="0">ignoreLeadingAndTrailingWhitespace</a></li>
+<li><a href="#commentCharacter()" tabindex="0">commentCharacter</a></li>
 </ol>
 </li>
 </ol>
@@ -109,8 +110,8 @@ arguments to the annotated
 that the first record may optionally be used to supply CSV headers (see
 <a href="#useHeadersInDisplayName()"><code>useHeadersInDisplayName()</code></a>).
 
-<p>Any line beginning with a <code>#</code> symbol will be interpreted as a comment
-and will be ignored.
+<p>Any line beginning with a <a href="#commentCharacter()"><code>commentCharacter()</code></a>
+will be interpreted as a comment and will be ignored.
 
 <p>The column delimiter (which defaults to a comma (<code>,</code>)) can be customized
 via either <a href="#delimiter()"><code>delimiter()</code></a> or <a href="#delimiterString()"><code>delimiterString()</code></a>.
@@ -135,6 +136,10 @@ reference is a primitive type.
 <p>Except within a quoted string, leading and trailing whitespace in a CSV
 column is trimmed by default. This behavior can be changed by setting the
 <a href="#ignoreLeadingAndTrailingWhitespace()"><code>ignoreLeadingAndTrailingWhitespace()</code></a> attribute to <code>true</code>.
+
+<p>Note that <a href="#delimiter()"><code>delimiter()</code></a> (or <a href="#delimiterString()"><code>delimiterString()</code></a>),
+<a href="#quoteCharacter()"><code>quoteCharacter()</code></a>, and <a href="#commentCharacter()"><code>commentCharacter()</code></a> are treated as
+<em>control characters</em> and must all be distinct.
 
 <h2 id="inheritance-heading">Inheritance</h2>
 
@@ -166,66 +171,71 @@ column is trimmed by default. This behavior can be changed by setting the
 <div class="table-header col-second">Optional Element</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>char</code></div>
-<div class="col-second even-row-color"><code><a href="#delimiter()" class="member-name-link">delimiter</a></code></div>
+<div class="col-second even-row-color"><code><a href="#commentCharacter()" class="member-name-link">commentCharacter</a></code></div>
 <div class="col-last even-row-color">
+<div class="block">The character used to denote comments when reading the CSV files.</div>
+</div>
+<div class="col-first odd-row-color"><code>char</code></div>
+<div class="col-second odd-row-color"><code><a href="#delimiter()" class="member-name-link">delimiter</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">The column delimiter character to use when reading the CSV files.</div>
 </div>
-<div class="col-first odd-row-color"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color"><code><a href="#delimiterString()" class="member-name-link">delimiterString</a></code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="#delimiterString()" class="member-name-link">delimiterString</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">The column delimiter string to use when reading the CSV files.</div>
 </div>
-<div class="col-first even-row-color"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color"><code><a href="#emptyValue()" class="member-name-link">emptyValue</a></code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#emptyValue()" class="member-name-link">emptyValue</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">The empty value to use when reading the CSV files.</div>
 </div>
-<div class="col-first odd-row-color"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color"><code><a href="#encoding()" class="member-name-link">encoding</a></code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="#encoding()" class="member-name-link">encoding</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">The encoding to use when reading the CSV files; must be a valid charset.</div>
 </div>
-<div class="col-first even-row-color"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>[]</code></div>
-<div class="col-second even-row-color"><code><a href="#files()" class="member-name-link">files</a></code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>[]</code></div>
+<div class="col-second odd-row-color"><code><a href="#files()" class="member-name-link">files</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">The CSV files to use as the sources of arguments; must not be empty
 unless <a href="#resources()"><code>resources()</code></a> is non-empty.</div>
 </div>
-<div class="col-first odd-row-color"><code>boolean</code></div>
-<div class="col-second odd-row-color"><code><a href="#ignoreLeadingAndTrailingWhitespace()" class="member-name-link">ignoreLeadingAndTrailingWhitespace</a></code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code>boolean</code></div>
+<div class="col-second even-row-color"><code><a href="#ignoreLeadingAndTrailingWhitespace()" class="member-name-link">ignoreLeadingAndTrailingWhitespace</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">Controls whether leading and trailing whitespace characters of unquoted
 CSV columns should be ignored.</div>
 </div>
-<div class="col-first even-row-color"><code>int</code></div>
-<div class="col-second even-row-color"><code><a href="#maxCharsPerColumn()" class="member-name-link">maxCharsPerColumn</a></code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code>int</code></div>
+<div class="col-second odd-row-color"><code><a href="#maxCharsPerColumn()" class="member-name-link">maxCharsPerColumn</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">The maximum number of characters allowed per CSV column.</div>
 </div>
-<div class="col-first odd-row-color"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>[]</code></div>
-<div class="col-second odd-row-color"><code><a href="#nullValues()" class="member-name-link">nullValues</a></code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>[]</code></div>
+<div class="col-second even-row-color"><code><a href="#nullValues()" class="member-name-link">nullValues</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">A list of strings that should be interpreted as <code>null</code> references.</div>
 </div>
-<div class="col-first even-row-color"><code>int</code></div>
-<div class="col-second even-row-color"><code><a href="#numLinesToSkip()" class="member-name-link">numLinesToSkip</a></code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code>int</code></div>
+<div class="col-second odd-row-color"><code><a href="#numLinesToSkip()" class="member-name-link">numLinesToSkip</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">The number of lines to skip when reading the CSV files.</div>
 </div>
-<div class="col-first odd-row-color"><code>char</code></div>
-<div class="col-second odd-row-color"><code><a href="#quoteCharacter()" class="member-name-link">quoteCharacter</a></code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code>char</code></div>
+<div class="col-second even-row-color"><code><a href="#quoteCharacter()" class="member-name-link">quoteCharacter</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">The quote character to use for <em>quoted strings</em>.</div>
 </div>
-<div class="col-first even-row-color"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>[]</code></div>
-<div class="col-second even-row-color"><code><a href="#resources()" class="member-name-link">resources</a></code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>[]</code></div>
+<div class="col-second odd-row-color"><code><a href="#resources()" class="member-name-link">resources</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">The CSV classpath resources to use as the sources of arguments; must not
 be empty unless <a href="#files()"><code>files()</code></a> is non-empty.</div>
 </div>
-<div class="col-first odd-row-color"><code>boolean</code></div>
-<div class="col-second odd-row-color"><code><a href="#useHeadersInDisplayName()" class="member-name-link">useHeadersInDisplayName</a></code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code>boolean</code></div>
+<div class="col-second even-row-color"><code><a href="#useHeadersInDisplayName()" class="member-name-link">useHeadersInDisplayName</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">Configures whether the first CSV record should be treated as header names
 for columns.</div>
 </div>
@@ -511,6 +521,35 @@ or equal to <code>U+0020</code>, as defined by <a href="https://docs.oracle.com/
 <dl class="notes">
 <dt>Default:</dt>
 <dd><code>true</code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="commentCharacter()">
+<h3>commentCharacter</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#EXPERIMENTAL" title="class or interface in org.apiguardian.api" class="external-link">EXPERIMENTAL</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.0.1")
+</span><span class="return-type">char</span>&nbsp;<span class="element-name">commentCharacter</span></div>
+<div class="block">The character used to denote comments when reading the CSV files.
+
+<p>Any line that begins with this character will be treated as a comment
+and ignored during parsing. Note that there is one exception to this rule:
+if the comment character appears within a quoted field, it loses its
+special meaning.
+
+<p>The comment character must be the first character on the line without
+any leading whitespace.
+
+<p>Defaults to <code>'#'</code>.</div>
+<dl class="notes">
+<dt>Since:</dt>
+<dd>6.0.1</dd>
+</dl>
+<dl class="notes">
+<dt>Default:</dt>
+<dd><code>'#'</code></dd>
 </dl>
 </div>
 </section>

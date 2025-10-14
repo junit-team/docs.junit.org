@@ -5789,12 +5789,17 @@ by setting the <code>useHeadersInDisplayName</code> attribute to <code>true</cod
 </div>
 <div class="paragraph">
 <p>In contrast to CSV records supplied via the <code>value</code> attribute, a text block can contain
-comments. Any line beginning with a <code>#</code> symbol will be treated as a comment and
-ignored. Note, however, that the <code>#</code> symbol must be the first character on the line
-without any leading whitespace. It is therefore recommended that the closing text block
-delimiter (<code>"""</code>) be placed either at the end of the last line of input or on the
-following line, left aligned with the rest of the input (as can be seen in the example
-below which demonstrates formatting similar to a table).</p>
+comments. Any line beginning with the value of the <code>commentCharacter</code> attribute (<code>#</code>
+by default) will be treated as a comment and ignored. Note that there is one exception
+to this rule: if the comment character appears within a quoted field, it loses
+its special meaning.</p>
+</div>
+<div class="paragraph">
+<p>The comment character must be the first character on the line without any leading
+whitespace. It is therefore recommended that the closing text block delimiter (<code>"""</code>)
+be placed either at the end of the last line of input or on the following line,
+left aligned with the rest of the input (as can be seen in the example below which
+demonstrates formatting similar to a table).</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -5862,8 +5867,8 @@ cannot be set simultaneously.</p>
 </td>
 <td class="content">
 <div class="title">Comments in CSV files</div>
-Any line beginning with a <code>#</code> symbol will be interpreted as a comment and will
-be ignored.
+Any line beginning with the value of the <code>commentCharacter</code> attribute (<code>#</code>
+by default) will be interpreted as a comment and will be ignored.
 </td>
 </tr>
 </table>
@@ -16284,6 +16289,14 @@ value of lower stability.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>ArgumentsProvider.&ZeroWidthSpace;provideArguments(ParameterDeclarations, ExtensionContext)</code> <em>(method)</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.0</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@CsvFileSource(commentCharacter=.&ZeroWidthSpace;.&ZeroWidthSpace;.&ZeroWidthSpace;)</code> <em>(annotation attribute)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.0.1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@CsvSource(commentCharacter=.&ZeroWidthSpace;.&ZeroWidthSpace;.&ZeroWidthSpace;)</code> <em>(annotation attribute)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.0.1</code></p></td>
 </tr>
 </tbody>
 </table>
