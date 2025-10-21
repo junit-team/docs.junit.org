@@ -4858,9 +4858,8 @@ test class.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>If your programming language level you are using supports <em>records</em>&#8201;&#8212;&#8201;for example, Java
-16 or higher&#8201;&#8212;&#8201;you may use them to implement parameterized classes that avoid the
-boilerplate code of declaring a test class constructor.</p>
+<p>You may use <em>records</em> to implement parameterized classes that avoid the boilerplate code
+of declaring a test class constructor.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -5752,11 +5751,12 @@ by default. This behavior can be changed by setting the
 </tbody>
 </table>
 <div class="paragraph">
-<p>If the programming language you are using supports <em>text blocks</em>&#8201;&#8212;&#8201;for example, Java SE
-15 or higher&#8201;&#8212;&#8201;you can alternatively use the <code>textBlock</code> attribute of <code>@CsvSource</code>. Each
-record within a text block represents a CSV record and results in one invocation of the
-parameterized class or test. The first record may optionally be used to supply CSV headers
-by setting the <code>useHeadersInDisplayName</code> attribute to <code>true</code> as in the example below.</p>
+<p>If the programming language you are using supports Java <em>text blocks</em>  or equivalent
+multi-line string literals, you can alternatively use the <code>textBlock</code> attribute of
+<code>@CsvSource</code>. Each record within a text block represents a CSV record and results in one
+invocation of the parameterized class or test. The first record may optionally be used to
+supply CSV headers by setting the <code>useHeadersInDisplayName</code> attribute to <code>true</code> as in the
+example below.</p>
 </div>
 <div class="paragraph">
 <p>Using a text block, the previous example can be implemented as follows.</p>
@@ -5830,7 +5830,7 @@ demonstrates formatting similar to a table).</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Java&#8217;s <a href="https://docs.oracle.com/en/java/javase/15/text-blocks/index.html">text block</a>
+<p>Java&#8217;s <a href="https://docs.oracle.com/en/java/javase/17/text-blocks/index.html">text block</a>
 feature automatically removes <em>incidental whitespace</em> when the code is compiled.
 However other JVM languages such as Groovy and Kotlin do not. Thus, if you are using a
 programming language other than Java and your text block contains comments or new lines
@@ -9735,13 +9735,13 @@ build script via system properties (as shown below) or via the
 <div class="paragraph">
 <p>JUnit uses the Java Logging APIs in the <code>java.util.logging</code> package (a.k.a. <em>JUL</em>) to
 emit warnings and debug information. Please refer to the official documentation of
-<code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/logging/LogManager.html">LogManager</a></code> for configuration options.</p>
+<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.logging/java/util/logging/LogManager.html">LogManager</a></code> for configuration options.</p>
 </div>
 <div class="paragraph">
 <p>Alternatively, it&#8217;s possible to redirect log messages to other logging frameworks such as
 <a href="https://logging.apache.org/log4j/2.x/">Log4j</a> or <a href="https://logback.qos.ch/">Logback</a>. To use a logging framework that provides a custom implementation of
-<code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/logging/LogManager.html">LogManager</a></code>, set the <code>java.util.logging.manager</code> system property to the <em>fully
-qualified class name</em> of the <code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/logging/LogManager.html">LogManager</a></code> implementation to use. The example below
+<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.logging/java/util/logging/LogManager.html">LogManager</a></code>, set the <code>java.util.logging.manager</code> system property to the <em>fully
+qualified class name</em> of the <code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.logging/java/util/logging/LogManager.html">LogManager</a></code> implementation to use. The example below
 demonstrates how to configure Log4j&#160;2.x (see <a href="https://logging.apache.org/log4j/2.x/log4j-jul/index.html">Log4j JDK Logging Adapter</a> for
 details).</p>
 </div>
@@ -11298,7 +11298,7 @@ option.</p>
 </div>
 <div class="paragraph">
 <p>To analyze the recorded events, use the
-<a href="https://docs.oracle.com/en/java/javase/14/docs/specs/man/jfr.html">jfr</a>
+<a href="https://docs.oracle.com/en/java/javase/17/docs/specs/man/jfr.html">jfr</a>
 command line tool shipped with recent JDKs or open the recording file with
 <a href="https://jdk.java.net/jmc/">JDK Mission Control</a>.</p>
 </div>
