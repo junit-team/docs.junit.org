@@ -14030,11 +14030,19 @@ JUnit Platform such as hierarchical test structures, display names, tags, etc.</
 <dd>
 <p>Enable/disable including information about the Git repository (see <a href="https://github.com/ota4j-team/open-test-reporting#git">Git extension schema</a> of open-test-reporting); defaults to <code>false</code>.</p>
 </dd>
+<dt class="hdlist1"><code>junit.platform.reporting.open.xml.socket=&lt;port&gt;</code></dt>
+<dd>
+<p>Optional port number to redirect events to a socket instead of a file. When specified, the
+listener will connect to <code>127.0.0.1:&lt;port&gt;</code> and send the XML events to the socket. The socket
+connection is automatically closed when the test execution completes.</p>
+</dd>
 </dl>
 </div>
 <div class="paragraph">
 <p>If enabled, the listener creates an XML report file named <code>open-test-report.xml</code> in the
-configured <a href="#junit-platform-reporting-output-directory">output directory</a>.</p>
+configured <a href="#junit-platform-reporting-output-directory">output directory</a>, unless the
+<code>junit.platform.reporting.open.xml.socket</code> configuration parameter is set, in which case the
+events are sent to the specified socket instead.</p>
 </div>
 <div class="paragraph">
 <p>If <a href="#running-tests-capturing-output">output capturing</a> is enabled, the captured output

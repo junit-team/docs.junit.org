@@ -547,6 +547,11 @@ repository on GitHub.</p>
 <p>Support for creating a <code>ModuleSelector</code> from a <code>java.lang.Module</code> and using
 its classloader for test discovery.</p>
 </li>
+<li>
+<p><code>OpenTestReportGeneratingListener</code> now supports redirecting XML events to a socket via
+the new <code>junit.platform.reporting.open.xml.socket</code> configuration parameter. When set to a
+port number, events are sent to <code>127.0.0.1:&lt;port&gt;</code> instead of being written to a file.</p>
+</li>
 </ul>
 </div>
 </div>
