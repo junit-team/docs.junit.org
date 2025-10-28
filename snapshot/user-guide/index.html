@@ -10460,10 +10460,12 @@ https://docs.junit.org/snapshot/user-guide/</pre>
 </td>
 <td class="content">
 <div class="title">Exit Code</div>
-The <code><a href="../api/org.junit.platform.console/org/junit/platform/console/ConsoleLauncher.html">ConsoleLauncher</a></code> exits with a status code of <code>1</code> if any containers or tests
-failed. If no tests are discovered and the <code>--fail-if-no-tests</code> command-line option is
-supplied, the <code>ConsoleLauncher</code> exits with a status code of <code>2</code>. Otherwise, the exit code
-is <code>0</code>.
+On successful runs, the <code><a href="../api/org.junit.platform.console/org/junit/platform/console/ConsoleLauncher.html">ConsoleLauncher</a></code> exits with a status code of <code>0</code>.
+All non-zero codes indicate an error of some sort. For example, status code <code>1</code>
+is returned if any containers or tests failed. If no tests are discovered and the
+<code>--fail-if-no-tests</code> command-line option is supplied, the <code>ConsoleLauncher</code> exits
+with a status code of <code>2</code>. Unexpected or invalid user input yields a status code
+of <code>3</code>. An exit code of <code>-1</code> indicates an unspecified error condition.
 </td>
 </tr>
 </table>
