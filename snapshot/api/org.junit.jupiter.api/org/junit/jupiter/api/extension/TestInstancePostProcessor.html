@@ -60,6 +60,7 @@ loadScripts(document, 'script');</script>
 <li><a href="#" tabindex="0">Description</a>
 <ol class="toc-list">
 <li><a href="#constructor-requirements-heading" tabindex="0">Constructor Requirements</a></li>
+<li><a href="#extensioncontext-scope-heading" tabindex="0">ExtensionContext Scope</a></li>
 </ol>
 </li>
 <li><a href="#nested-class-summary" tabindex="0">Nested Class Summary</a></li>
@@ -106,7 +107,16 @@ via a <em>static</em> field of the test class.
 <h2 id="constructor-requirements-heading">Constructor Requirements</h2>
 
 <p>Consult the documentation in <a href="Extension.html" title="interface in org.junit.jupiter.api.extension"><code>Extension</code></a> for details on
-constructor requirements.</div>
+constructor requirements.
+
+<h2 id="extensioncontext-scope-heading"><code>ExtensionContext</code> Scope</h2>
+
+<p>As of JUnit Jupiter 5.12, this API participates in the
+<a href="TestInstantiationAwareExtension.html" title="interface in org.junit.jupiter.api.extension"><code>TestInstantiationAwareExtension</code></a> contract. Implementations of this API
+may therefore choose to override
+<a href="TestInstantiationAwareExtension.html#getTestInstantiationExtensionContextScope(org.junit.jupiter.api.extension.ExtensionContext)"><code>getTestInstantiationExtensionContextScope(ExtensionContext)</code></a> to require a
+test-method scoped <code>ExtensionContext</code>. See
+<a href="#postProcessTestInstance(java.lang.Object,org.junit.jupiter.api.extension.ExtensionContext)"><code>postProcessTestInstance(Object, ExtensionContext)</code></a> for further details.</div>
 <dl class="notes">
 <dt>Since:</dt>
 <dd>5.0</dd>

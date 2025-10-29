@@ -86,8 +86,8 @@ loadScripts(document, 'script');</script>
 <div class="col-second even-row-color"><code><a href="../TestInstantiationAwareExtension.ExtensionContextScope.html" class="type-name-link" title="enum class in org.junit.jupiter.api.extension">TestInstantiationAwareExtension.ExtensionContextScope</a></code></div>
 <div class="col-last even-row-color">
 <div class="block"><code>ExtensionContextScope</code> is used to define the scope of the
-<a href="../ExtensionContext.html" title="interface in org.junit.jupiter.api.extension"><code>ExtensionContext</code></a> passed to an extension during the instantiation
-of test instances.</div>
+<a href="../ExtensionContext.html" title="interface in org.junit.jupiter.api.extension"><code>ExtensionContext</code></a> supplied to an extension during the instantiation
+of test classes or processing of test instances.</div>
 </div>
 </div>
 <div class="caption"><span>Methods in <a href="../package-summary.html">org.junit.jupiter.api.extension</a> that return <a href="../TestInstantiationAwareExtension.ExtensionContextScope.html" title="enum class in org.junit.jupiter.api.extension">TestInstantiationAwareExtension.ExtensionContextScope</a></span></div>
@@ -98,8 +98,9 @@ of test instances.</div>
 <div class="col-first even-row-color"><code>default <a href="../TestInstantiationAwareExtension.ExtensionContextScope.html" title="enum class in org.junit.jupiter.api.extension">TestInstantiationAwareExtension.ExtensionContextScope</a></code></div>
 <div class="col-second even-row-color"><span class="type-name-label">TestInstantiationAwareExtension.</span><code><a href="../TestInstantiationAwareExtension.html#getTestInstantiationExtensionContextScope(org.junit.jupiter.api.extension.ExtensionContext)" class="member-name-link">getTestInstantiationExtensionContextScope</a><wbr>(<a href="../ExtensionContext.html" title="interface in org.junit.jupiter.api.extension">ExtensionContext</a>&nbsp;rootContext)</code></div>
 <div class="col-last even-row-color">
-<div class="block">Whether this extension should receive a test-scoped
-<a href="../ExtensionContext.html" title="interface in org.junit.jupiter.api.extension"><code>ExtensionContext</code></a> during the instantiation of test instances.</div>
+<div class="block">Determine whether this extension should receive a test-method scoped
+<a href="../ExtensionContext.html" title="interface in org.junit.jupiter.api.extension"><code>ExtensionContext</code></a> during the instantiation of test classes or
+processing of test instances.</div>
 </div>
 <div class="col-first odd-row-color"><code>static <a href="../TestInstantiationAwareExtension.ExtensionContextScope.html" title="enum class in org.junit.jupiter.api.extension">TestInstantiationAwareExtension.ExtensionContextScope</a></code></div>
 <div class="col-second odd-row-color"><span class="type-name-label">TestInstantiationAwareExtension.ExtensionContextScope.</span><code><a href="../TestInstantiationAwareExtension.ExtensionContextScope.html#valueOf(java.lang.String)" class="member-name-link">valueOf</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</code></div>
