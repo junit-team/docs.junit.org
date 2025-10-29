@@ -552,6 +552,11 @@ its classloader for test discovery.</p>
 the new <code>junit.platform.reporting.open.xml.socket</code> configuration parameter. When set to a
 port number, events are sent to <code>127.0.0.1:&lt;port&gt;</code> instead of being written to a file.</p>
 </li>
+<li>
+<p>Allow implementations of <code>HierarchicalTestEngine</code> to specify which nodes require the
+global read lock by overriding the <code>Node.isGlobalReadLockRequired()</code> method to return
+<code>false</code>.</p>
+</li>
 </ul>
 </div>
 </div>
