@@ -960,6 +960,7 @@ pre.rouge .gs {
 </li>
 <li><a href="#junit-platform-suite-engine-example">6.2.2. @Suite Example</a></li>
 <li><a href="#beforesuite-and-aftersuite">6.2.3. @BeforeSuite and @AfterSuite</a></li>
+<li><a href="#junit-platform-suite-engine-duplicate-test-execution">6.2.4. Duplicate test execution</a></li>
 </ul>
 </li>
 <li><a href="#testkit">6.3. JUnit Platform Test Kit</a>
@@ -14186,8 +14187,13 @@ as well.</p>
 <div class="sect2">
 <h3 id="junit-platform-suite-engine"><a class="anchor" href="#junit-platform-suite-engine"></a>6.2. JUnit Platform Suite Engine</h3>
 <div class="paragraph">
-<p>The JUnit Platform supports the declarative definition and execution of suites of tests
-from <em>any</em> test engine using the JUnit Platform.</p>
+<p>The Suite Engine supports the declarative selection and execution of tests from
+<em>any</em> test engine on the JUnit Platform using the <a href="#launcher-api">JUnit Platform Launcher API</a>.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="images/junit-platform-suite-engine-diagram.svg" alt="junit platform suite engine diagram">
+</div>
 </div>
 <div class="sect3">
 <h4 id="junit-platform-suite-engine-setup"><a class="anchor" href="#junit-platform-suite-engine-setup"></a>6.2.1. Setup</h4>
@@ -14308,6 +14314,28 @@ all tests of the test suite.</p>
 
 <span class="o">}</span></code></pre>
 </div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="junit-platform-suite-engine-duplicate-test-execution"><a class="anchor" href="#junit-platform-suite-engine-duplicate-test-execution"></a>6.2.4. Duplicate test execution</h4>
+<div class="paragraph">
+<p>Depending on the declared test selection, different suites may contain the same tests,
+potentially with different configurations.
+Moreover, tests in a suite are executed in addition to the tests executed by every other
+test engine. This can result in the same tests being executed twice.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="images/junit-platform-suite-engine-duplicate-test-execution-diagram.svg" alt="junit platform suite engine duplicate test execution diagram">
+</div>
+</div>
+<div class="paragraph">
+<p>This can be prevented by configuring your build tool to only include the
+<code>junit-platform-suite</code> engine. Or by using a naming pattern. For example, name all suites
+<code>*Suite</code> and all tests <code>*Test</code> and configure your build tool to only include the former.</p>
+</div>
+<div class="paragraph">
+<p>Alternatively, consider <a href="#running-tests-tags">using tags</a> to select specific groups of tests.</p>
 </div>
 </div>
 </div>
@@ -14876,6 +14904,11 @@ filtering and configuration that is necessary from the outside.</p>
 tests. Moreover, third party test libraries – like Spock or Cucumber – can plug into the
 JUnit Platform&#8217;s launching infrastructure by providing a custom
 <a href="#test-engines">TestEngine</a>.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="images/launcher-api-diagram.svg" alt="launcher api diagram">
+</div>
 </div>
 <div class="paragraph">
 <p>The launcher API is in the <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/package-summary.html">junit-platform-launcher</a></code> module.</p>

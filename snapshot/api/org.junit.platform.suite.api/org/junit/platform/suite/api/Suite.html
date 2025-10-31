@@ -85,7 +85,7 @@ loadScripts(document, 'script');</script>
 <div class="block"><code>@Suite</code> marks a class as a test suite on the JUnit Platform.
 
 <p>Selector and filter annotations are used to control the contents of the
-suite. Additionally configuration can be passed to the suite via the
+suite. Additionally, configuration can be passed to the suite via the
 configuration annotations.
 
 <p>When the <a href="IncludeClassNamePatterns.html" title="annotation interface in org.junit.platform.suite.api"><code>@IncludeClassNamePatterns</code></a>
@@ -99,7 +99,18 @@ and the configuration parameters from the discovery request that discovered
 the suite. Annotating a suite with
 <a href="DisableParentConfigurationParameters.html" title="annotation interface in org.junit.platform.suite.api"><code>@DisableParentConfigurationParameters</code></a>
 annotation disables the latter as a source of parameters so that only explicit
-configuration parameters are taken into account.</div>
+configuration parameters are taken into account.
+
+<p>Note: Depending on the declared test selection, different suites may contain the
+same tests, potentially with different configurations.
+Moreover, tests in a suite are executed in addition to the tests executed by every
+other test engine. This can result in the same tests being executed twice and can be
+prevented by configuring your build tool to only include the
+<code>junit-platform-suite</code> engine. Or by using a naming pattern. For example, name
+all suites <code>*Suite</code> and all tests <code>*Test</code> and configure your build tool
+to only include the former.
+
+<p>Alternatively, consider using tags to select specific groups of tests.</div>
 <dl class="notes">
 <dt>Since:</dt>
 <dd>1.8</dd>
