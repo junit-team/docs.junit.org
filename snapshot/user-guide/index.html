@@ -12198,8 +12198,8 @@ solely on the type of the parameter, you may find it convenient to extend the
 <code><a href="https://github.com/junit-team/junit-framework/tree/HEAD/junit-jupiter-api/src/main/java/org/junit/jupiter/api/extension/support/TypeBasedParameterResolver.java">TypeBasedParameterResolver</a></code> which serves as a generic adapter for such use cases.</p>
 </div>
 <div class="paragraph">
-<p>For concrete examples, consult the source code for <code><a href="https://github.com/junit-team/junit-framework/tree/HEAD/junit-jupiter-engine/src/test/java/org/junit/jupiter/engine/execution/injection/sample/CustomTypeParameterResolver.java">CustomTypeParameterResolver</a></code>,
-<code><a href="https://github.com/junit-team/junit-framework/tree/HEAD/junit-jupiter-engine/src/test/java/org/junit/jupiter/engine/execution/injection/sample/CustomAnnotationParameterResolver.java">CustomAnnotationParameterResolver</a></code>, and <code><a href="https://github.com/junit-team/junit-framework/tree/HEAD/junit-jupiter-engine/src/test/java/org/junit/jupiter/engine/execution/injection/sample/MapOfListsTypeBasedParameterResolver.java">MapOfListsTypeBasedParameterResolver</a></code>.</p>
+<p>For concrete examples, consult the source code for <code><a href="https://github.com/junit-team/junit-framework/tree/HEAD/jupiter-tests/src/test/java/org/junit/jupiter/engine/execution/injection/sample/CustomTypeParameterResolver.java">CustomTypeParameterResolver</a></code>,
+<code><a href="https://github.com/junit-team/junit-framework/tree/HEAD/jupiter-tests/src/test/java/org/junit/jupiter/engine/execution/injection/sample/CustomAnnotationParameterResolver.java">CustomAnnotationParameterResolver</a></code>, and <code><a href="https://github.com/junit-team/junit-framework/tree/HEAD/jupiter-tests/src/test/java/org/junit/jupiter/engine/execution/injection/sample/MapOfListsTypeBasedParameterResolver.java">MapOfListsTypeBasedParameterResolver</a></code>.</p>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -12373,7 +12373,7 @@ methods as shown in the following example, no conflict occurs.</p>
 <div class="paragraph">
 <p>If the conflicting <code>ParameterResolver</code> implementations need to be applied to the same test
 method, you can implement a custom type or custom annotation as illustrated by
-<code><a href="https://github.com/junit-team/junit-framework/tree/HEAD/junit-jupiter-engine/src/test/java/org/junit/jupiter/engine/execution/injection/sample/CustomTypeParameterResolver.java">CustomTypeParameterResolver</a></code> and <code><a href="https://github.com/junit-team/junit-framework/tree/HEAD/junit-jupiter-engine/src/test/java/org/junit/jupiter/engine/execution/injection/sample/CustomAnnotationParameterResolver.java">CustomAnnotationParameterResolver</a></code>, respectively.</p>
+<code><a href="https://github.com/junit-team/junit-framework/tree/HEAD/jupiter-tests/src/test/java/org/junit/jupiter/engine/execution/injection/sample/CustomTypeParameterResolver.java">CustomTypeParameterResolver</a></code> and <code><a href="https://github.com/junit-team/junit-framework/tree/HEAD/jupiter-tests/src/test/java/org/junit/jupiter/engine/execution/injection/sample/CustomAnnotationParameterResolver.java">CustomAnnotationParameterResolver</a></code>, respectively.</p>
 </div>
 <div class="listingblock">
 <div class="title">Custom type to resolve duplicate types</div>
