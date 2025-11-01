@@ -960,7 +960,7 @@ pre.rouge .gs {
 </li>
 <li><a href="#junit-platform-suite-engine-example">6.2.2. @Suite Example</a></li>
 <li><a href="#beforesuite-and-aftersuite">6.2.3. @BeforeSuite and @AfterSuite</a></li>
-<li><a href="#junit-platform-suite-engine-duplicate-test-execution">6.2.4. Duplicate test execution</a></li>
+<li><a href="#junit-platform-suite-engine-duplicate-test-execution">6.2.4. Duplicate Test Execution</a></li>
 </ul>
 </li>
 <li><a href="#testkit">6.3. JUnit Platform Test Kit</a>
@@ -14187,8 +14187,8 @@ as well.</p>
 <div class="sect2">
 <h3 id="junit-platform-suite-engine"><a class="anchor" href="#junit-platform-suite-engine"></a>6.2. JUnit Platform Suite Engine</h3>
 <div class="paragraph">
-<p>The Suite Engine supports the declarative selection and execution of tests from
-<em>any</em> test engine on the JUnit Platform using the <a href="#launcher-api">JUnit Platform Launcher API</a>.</p>
+<p>The Suite Engine supports the declarative selection and execution of tests from <em>any</em> test
+engine on the JUnit Platform using the <a href="#launcher-api">JUnit Platform Launcher API</a>.</p>
 </div>
 <div class="imageblock text-center">
 <div class="content">
@@ -14254,9 +14254,9 @@ on <code>junit-platform-suite-api</code> and <code>junit-platform-suite-engine</
 <div class="sect3">
 <h4 id="junit-platform-suite-engine-example"><a class="anchor" href="#junit-platform-suite-engine-example"></a>6.2.2. @Suite Example</h4>
 <div class="paragraph">
-<p>By annotating a class with <code>@Suite</code> it is marked as a test suite on the JUnit Platform.
-As seen in the following example, selector and filter annotations can then be used to
-control the contents of the suite.</p>
+<p>Annotate a class with <code>@Suite</code> to have it marked as a test suite on the JUnit Platform. As
+seen in the following example, selector and filter annotations can be used to control the
+contents of the suite.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -14293,8 +14293,8 @@ list of supported annotations and further details.
 <h4 id="beforesuite-and-aftersuite"><a class="anchor" href="#beforesuite-and-aftersuite"></a>6.2.3. @BeforeSuite and @AfterSuite</h4>
 <div class="paragraph">
 <p><code>@BeforeSuite</code> and <code>@AfterSuite</code> annotations can be used on methods inside a
-<code>@Suite</code>-annotated class. They will be executed respectively before and after
-all tests of the test suite.</p>
+<code>@Suite</code>-annotated class. They will be executed before and after all tests of the test
+suite, respectively.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -14317,12 +14317,12 @@ all tests of the test suite.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="junit-platform-suite-engine-duplicate-test-execution"><a class="anchor" href="#junit-platform-suite-engine-duplicate-test-execution"></a>6.2.4. Duplicate test execution</h4>
+<h4 id="junit-platform-suite-engine-duplicate-test-execution"><a class="anchor" href="#junit-platform-suite-engine-duplicate-test-execution"></a>6.2.4. Duplicate Test Execution</h4>
 <div class="paragraph">
-<p>Depending on the declared test selection, different suites may contain the same tests,
-potentially with different configurations.
-Moreover, tests in a suite are executed in addition to the tests executed by every other
-test engine. This can result in the same tests being executed twice.</p>
+<p>Depending on the declared selectors, different suites may contain the same tests,
+potentially with different configurations. Moreover, tests in a suite are executed in
+addition to the tests executed by every other test engine, which can result in the same
+tests being executed twice.</p>
 </div>
 <div class="imageblock text-center">
 <div class="content">
@@ -14330,12 +14330,14 @@ test engine. This can result in the same tests being executed twice.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>This can be prevented by configuring your build tool to only include the
-<code>junit-platform-suite</code> engine. Or by using a naming pattern. For example, name all suites
-<code>*Suite</code> and all tests <code>*Test</code> and configure your build tool to only include the former.</p>
+<p>To prevent duplicate execution of tests within a suite, configure your build tool to
+include only the <code>junit-platform-suite</code> engine, or use a custom naming pattern. For
+example, name all suites <code>*Suite</code> and all tests <code>*Test</code>, and configure your build tool to
+include only the former.</p>
 </div>
 <div class="paragraph">
-<p>Alternatively, consider <a href="#running-tests-tags">using tags</a> to select specific groups of tests.</p>
+<p>Alternatively, consider <a href="#running-tests-tags">using tags</a> to select specific groups of
+tests.</p>
 </div>
 </div>
 </div>
@@ -14343,9 +14345,8 @@ test engine. This can result in the same tests being executed twice.</p>
 <h3 id="testkit"><a class="anchor" href="#testkit"></a>6.3. JUnit Platform Test Kit</h3>
 <div class="paragraph">
 <p>The <code>junit-platform-testkit</code> artifact provides support for executing a test plan on the
-JUnit Platform and then verifying the expected results. As of JUnit Platform
-6.1.0-SNAPSHOT, this support is limited to the execution of a single <code>TestEngine</code> (see
-<a href="#testkit-engine">Engine Test Kit</a>).</p>
+JUnit Platform and then verifying the expected results. This support is currently limited
+to the execution of a single <code>TestEngine</code> (see <a href="#testkit-engine">Engine Test Kit</a>).</p>
 </div>
 <div class="sect3">
 <h4 id="testkit-engine"><a class="anchor" href="#testkit-engine"></a>6.3.1. Engine Test Kit</h4>

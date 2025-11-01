@@ -665,8 +665,15 @@ repository on GitHub.</p>
 <p>The <code>jdk.jfr</code> package is now an optional import when using the <code>junit-platform-launcher</code>
 as an OSGi bundle.</p>
 </li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="release-notes-6.0.1-junit-platform-new-features-and-improvements"><a class="anchor" href="#release-notes-6.0.1-junit-platform-new-features-and-improvements"></a>New Features and Improvements</h4>
+<div class="ulist">
+<ul>
 <li>
-<p>Remove remnants of Java 8 compatibility from User Guide.</p>
+<p>Legacy documentation regarding Java 8 compatibility has been removed from the User Guide.</p>
 </li>
 </ul>
 </div>
@@ -695,8 +702,8 @@ assertion.</p>
 Kotlin suspend functions.</p>
 </li>
 <li>
-<p>Fix support for test methods with the same signature as a package-private methods
-declared in super classes in different packages.</p>
+<p>Fix support for test methods with the same signature as package-private methods declared
+in super classes in different packages.</p>
 </li>
 </ul>
 </div>
@@ -706,7 +713,8 @@ declared in super classes in different packages.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Mark <code>org.junit.jupiter.migrationsupport</code> module descriptor as deprecated for removal.</p>
+<p>The <code>org.junit.jupiter.migrationsupport</code> module descriptor has been marked as deprecated
+for removal.</p>
 </li>
 </ul>
 </div>
@@ -716,15 +724,15 @@ declared in super classes in different packages.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>The <code>@CsvSource</code> and <code>@CsvFileSource</code> annotations now allow specifying
-a custom comment character using the new <code>commentCharacter</code> attribute.</p>
+<p>The <code>@CsvSource</code> and <code>@CsvFileSource</code> annotations now allow specifying a custom comment
+character using the new <code>commentCharacter</code> attribute.</p>
 </li>
 <li>
-<p>Improve error message when using <code>@ParameterizedClass</code> with field injection and not
+<p>Improve error message when <code>@ParameterizedClass</code> is used with field injection without
 providing enough arguments.</p>
 </li>
 <li>
-<p>Allow calling <code>TypedArgumentConverter</code> constructor for <code>@Nullable T</code> target types
+<p>Allow calling the <code>TypedArgumentConverter</code> constructor for <code>@Nullable T</code> target types
 without having to cast class literals to <code>Class&lt;@Nullable T&gt;</code>.</p>
 </li>
 </ul>
