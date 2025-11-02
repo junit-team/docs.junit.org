@@ -564,8 +564,8 @@ pre.rouge .gs {
     .is-collapsible{ max-height:3000px; overflow:hidden; }
     .is-collapsed{ max-height:0 }
     .is-active-link{ font-weight:700 }
-    table.scrollable {
-      overflow-x: scroll;
+    table {
+      overflow-x: auto;
       display: block;
       border-width: 0;
     }
@@ -8085,7 +8085,7 @@ strategies.
 <p>The following table lists relevant properties for configuring parallel execution. See
 <a href="#running-tests-config-params">Configuration Parameters</a> for details on how to set such properties.</p>
 </div>
-<table class="tableblock frame-all grid-all stretch scrollable">
+<table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 25%;">
@@ -10728,7 +10728,7 @@ generically as strings via their identifiers.</p>
 <div class="paragraph">
 <p>The following discovery selectors are provided out of the box:</p>
 </div>
-<table class="tableblock frame-all grid-all stretch scrollable">
+<table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 20%;">
