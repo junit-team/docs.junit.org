@@ -450,6 +450,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
     .is-collapsible{ max-height:3000px; overflow:hidden; }
     .is-collapsed{ max-height:0 }
     .is-active-link{ font-weight:700 }
+    table.scrollable {
+      overflow-x: scroll;
+      display: block;
+      border-width: 0;
+    }
   }
   @media print{
     #tocbot a.toc-link.node-name--H4{ display:none }
