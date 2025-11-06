@@ -539,7 +539,9 @@ repository on GitHub.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>❓</p>
+<p>Deprecate constructors for <code>ForkJoinPoolHierarchicalTestExecutorService</code> in favor of the
+new <code>ParallelHierarchicalTestExecutorServiceFactory</code> that also supports
+<code>WorkerThreadPoolHierarchicalTestExecutorService</code>.</p>
 </li>
 </ul>
 </div>
@@ -551,6 +553,13 @@ repository on GitHub.</p>
 <li>
 <p>Support for creating a <code>ModuleSelector</code> from a <code>java.lang.Module</code> and using
 its classloader for test discovery.</p>
+</li>
+<li>
+<p>New <code>WorkerThreadPoolHierarchicalTestExecutorService</code> implementation used for parallel
+test execution that is backed by a regular thread pool rather than a <code>ForkJoinPool</code>.
+Engine authors should switch to use <code>ParallelHierarchicalTestExecutorServiceFactory</code>
+rather than instantiating a concrete <code>HierarchicalTestExecutorService</code> implementation
+for parallel execution directly.</p>
 </li>
 <li>
 <p><code>OpenTestReportGeneratingListener</code> now supports redirecting XML events to a socket via
@@ -606,6 +615,15 @@ and/or its children in addition to its display name, test source URI, and childr
 <p>Enrich <code>assertInstanceOf</code> failure using the test subject <code>Throwable</code> as cause. It
 results in the stack trace of the test subject <code>Throwable</code> to get reported along with
 the failure.</p>
+</li>
+<li>
+<p>Make implementation of <code>HierarchicalTestExecutorService</code> used for parallel test
+execution configurable via the new
+<code>junit.jupiter.execution.parallel.config.executor-service</code> configuration parameter to
+in order to add support for <code>WorkerThreadPoolHierarchicalTestExecutorService</code>. Please
+refer to the
+<a href="../user-guide/index.html#writing-tests-parallel-execution-config-executor-service">User Guide</a>
+for details.</p>
 </li>
 </ul>
 </div>

@@ -759,6 +759,11 @@ initialized to contain the resulting discovery request.</div>
 <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.logging/java/util/logging/Logger.html" title="class or interface in java.util.logging" class="external-link"><code>Logger</code></a> using the supplied
 <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.logging/java/util/logging/Level.html" title="class or interface in java.util.logging" class="external-link">log level</a>.</div>
 </dd>
+<dt><a href="../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/ParallelHierarchicalTestExecutorServiceFactory.ParallelExecutorServiceType.html#FORK_JOIN_POOL" class="member-name-link">FORK_JOIN_POOL</a> - Enum constant in enum class org.junit.platform.engine.support.hierarchical.<a href="../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/ParallelHierarchicalTestExecutorServiceFactory.ParallelExecutorServiceType.html" title="enum class in org.junit.platform.engine.support.hierarchical">ParallelHierarchicalTestExecutorServiceFactory.ParallelExecutorServiceType</a></dt>
+<dd>
+<div class="block">Indicates that <a href="../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/ForkJoinPoolHierarchicalTestExecutorService.html" title="class in org.junit.platform.engine.support.hierarchical"><code>ForkJoinPoolHierarchicalTestExecutorService</code></a>
+should be used.</div>
+</dd>
 <dt><a href="../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/ForkJoinPoolHierarchicalTestExecutorService.html" class="type-name-link" title="class in org.junit.platform.engine.support.hierarchical">ForkJoinPoolHierarchicalTestExecutorService</a> - Class in <a href="../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/package-summary.html">org.junit.platform.engine.support.hierarchical</a></dt>
 <dd>
 <div class="block">A <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/ForkJoinPool.html" title="class or interface in java.util.concurrent" class="external-link"><code>ForkJoinPool</code></a>-based
@@ -767,13 +772,25 @@ initialized to contain the resulting discovery request.</div>
 </dd>
 <dt><a href="../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/ForkJoinPoolHierarchicalTestExecutorService.html#%3Cinit%3E(org.junit.platform.engine.ConfigurationParameters)" class="member-name-link">ForkJoinPoolHierarchicalTestExecutorService(ConfigurationParameters)</a> - Constructor for class org.junit.platform.engine.support.hierarchical.<a href="../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/ForkJoinPoolHierarchicalTestExecutorService.html" title="class in org.junit.platform.engine.support.hierarchical">ForkJoinPoolHierarchicalTestExecutorService</a></dt>
 <dd>
-<div class="block">Create a new <code>ForkJoinPoolHierarchicalTestExecutorService</code> based on
-the supplied <a href="../org.junit.platform.engine/org/junit/platform/engine/ConfigurationParameters.html" title="interface in org.junit.platform.engine"><code>ConfigurationParameters</code></a>.</div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">Please use
+<a href="../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/ParallelHierarchicalTestExecutorServiceFactory.html#create(org.junit.platform.engine.ConfigurationParameters)"><code>ParallelHierarchicalTestExecutorServiceFactory.create(ConfigurationParameters)</code></a>
+with configuration parameter
+<a href="../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/ParallelHierarchicalTestExecutorServiceFactory.html#EXECUTOR_SERVICE_PROPERTY_NAME">"executor-service"</a>
+set to
+<a href="../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/ParallelHierarchicalTestExecutorServiceFactory.ParallelExecutorServiceType.html#FORK_JOIN_POOL"><code>FORK_JOIN_POOL</code></a>
+instead.</div>
+</div>
 </dd>
 <dt><a href="../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/ForkJoinPoolHierarchicalTestExecutorService.html#%3Cinit%3E(org.junit.platform.engine.support.hierarchical.ParallelExecutionConfiguration)" class="member-name-link">ForkJoinPoolHierarchicalTestExecutorService(ParallelExecutionConfiguration)</a> - Constructor for class org.junit.platform.engine.support.hierarchical.<a href="../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/ForkJoinPoolHierarchicalTestExecutorService.html" title="class in org.junit.platform.engine.support.hierarchical">ForkJoinPoolHierarchicalTestExecutorService</a></dt>
 <dd>
-<div class="block">Create a new <code>ForkJoinPoolHierarchicalTestExecutorService</code> based on
-the supplied <a href="../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/ParallelExecutionConfiguration.html" title="interface in org.junit.platform.engine.support.hierarchical"><code>ParallelExecutionConfiguration</code></a>.</div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">Please use
+<a href="../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/ParallelHierarchicalTestExecutorServiceFactory.html#create(org.junit.platform.engine.support.hierarchical.ParallelHierarchicalTestExecutorServiceFactory.ParallelExecutorServiceType,org.junit.platform.engine.support.hierarchical.ParallelExecutionConfiguration)"><code>ParallelHierarchicalTestExecutorServiceFactory.create(ParallelExecutorServiceType, ParallelExecutionConfiguration)</code></a>
+with
+<a href="../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/ParallelHierarchicalTestExecutorServiceFactory.ParallelExecutorServiceType.html#FORK_JOIN_POOL"><code>ParallelExecutorServiceType.FORK_JOIN_POOL</code></a>
+instead.</div>
+</div>
 </dd>
 <dt><a href="../org.junit.jupiter.params/org/junit/jupiter/params/ParameterizedTest.html#formal-parameter-list-heading" class="search-tag-link">Formal Parameter List</a> - Section in annotation interface org.junit.jupiter.params.ParameterizedTest</dt>
 <dd>&nbsp;</dd>

@@ -636,6 +636,24 @@ instead</div>
 <div class="col-last even-row-color">
 <div class="block">without replacement because it's an internal API.</div>
 </div>
+<div class="col-summary-item-name odd-row-color"><a href="org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/ForkJoinPoolHierarchicalTestExecutorService.html#%3Cinit%3E(org.junit.platform.engine.ConfigurationParameters)">org.junit.platform.engine.support.hierarchical.ForkJoinPoolHierarchicalTestExecutorService<wbr>(ConfigurationParameters)</a></div>
+<div class="col-last odd-row-color">
+<div class="block">Please use
+<a href="org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/ParallelHierarchicalTestExecutorServiceFactory.html#create(org.junit.platform.engine.ConfigurationParameters)"><code>ParallelHierarchicalTestExecutorServiceFactory.create(ConfigurationParameters)</code></a>
+with configuration parameter
+<a href="org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/ParallelHierarchicalTestExecutorServiceFactory.html#EXECUTOR_SERVICE_PROPERTY_NAME">"executor-service"</a>
+set to
+<a href="org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/ParallelHierarchicalTestExecutorServiceFactory.ParallelExecutorServiceType.html#FORK_JOIN_POOL"><code>FORK_JOIN_POOL</code></a>
+instead.</div>
+</div>
+<div class="col-summary-item-name even-row-color"><a href="org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/ForkJoinPoolHierarchicalTestExecutorService.html#%3Cinit%3E(org.junit.platform.engine.support.hierarchical.ParallelExecutionConfiguration)">org.junit.platform.engine.support.hierarchical.ForkJoinPoolHierarchicalTestExecutorService<wbr>(ParallelExecutionConfiguration)</a></div>
+<div class="col-last even-row-color">
+<div class="block">Please use
+<a href="org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/ParallelHierarchicalTestExecutorServiceFactory.html#create(org.junit.platform.engine.support.hierarchical.ParallelHierarchicalTestExecutorServiceFactory.ParallelExecutorServiceType,org.junit.platform.engine.support.hierarchical.ParallelExecutionConfiguration)"><code>ParallelHierarchicalTestExecutorServiceFactory.create(ParallelExecutorServiceType, ParallelExecutionConfiguration)</code></a>
+with
+<a href="org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/ParallelHierarchicalTestExecutorServiceFactory.ParallelExecutorServiceType.html#FORK_JOIN_POOL"><code>ParallelExecutorServiceType.FORK_JOIN_POOL</code></a>
+instead.</div>
+</div>
 </div>
 </div>
 </li>
