@@ -72,6 +72,8 @@ module:org.junit.platform.suite.engine
 org.junit.platform.suite.engine
 module:org.junit.platform.testkit
 org.junit.platform.testkit.engine
+module:org.junit.start
+org.junit.start
 module:org.junit.vintage.engine
 org.junit.vintage.engine
 org.junit.vintage.engine.descriptor

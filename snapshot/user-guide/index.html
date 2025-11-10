@@ -851,26 +851,27 @@ pre.rouge .gs {
 <li><a href="#running-tests-console-launcher-color-customization">4.3.4. Color Customization</a></li>
 </ul>
 </li>
-<li><a href="#running-tests-discovery-selectors">4.4. Discovery Selectors</a></li>
-<li><a href="#running-tests-config-params">4.5. Configuration Parameters</a>
+<li><a href="#running-tests-source-launcher">4.4. Source Launcher</a></li>
+<li><a href="#running-tests-discovery-selectors">4.5. Discovery Selectors</a></li>
+<li><a href="#running-tests-config-params">4.6. Configuration Parameters</a>
 <ul class="sectlevel3">
-<li><a href="#running-tests-config-params-deactivation-pattern">4.5.1. Pattern Matching Syntax</a></li>
+<li><a href="#running-tests-config-params-deactivation-pattern">4.6.1. Pattern Matching Syntax</a></li>
 </ul>
 </li>
-<li><a href="#running-tests-tags">4.6. Tags</a>
+<li><a href="#running-tests-tags">4.7. Tags</a>
 <ul class="sectlevel3">
-<li><a href="#running-tests-tag-syntax-rules">4.6.1. Syntax Rules for Tags</a></li>
-<li><a href="#running-tests-tag-expressions">4.6.2. Tag Expressions</a></li>
+<li><a href="#running-tests-tag-syntax-rules">4.7.1. Syntax Rules for Tags</a></li>
+<li><a href="#running-tests-tag-expressions">4.7.2. Tag Expressions</a></li>
 </ul>
 </li>
-<li><a href="#running-tests-capturing-output">4.7. Capturing Standard Output/Error</a></li>
-<li><a href="#running-tests-listeners">4.8. Using Listeners and Interceptors</a>
+<li><a href="#running-tests-capturing-output">4.8. Capturing Standard Output/Error</a></li>
+<li><a href="#running-tests-listeners">4.9. Using Listeners and Interceptors</a>
 <ul class="sectlevel3">
-<li><a href="#running-tests-listeners-flight-recorder">4.8.1. Flight Recorder Support</a></li>
+<li><a href="#running-tests-listeners-flight-recorder">4.9.1. Flight Recorder Support</a></li>
 </ul>
 </li>
-<li><a href="#stacktrace-pruning">4.9. Stack Trace Pruning</a></li>
-<li><a href="#running-tests-discovery-issues">4.10. Discovery Issues</a></li>
+<li><a href="#stacktrace-pruning">4.10. Stack Trace Pruning</a></li>
+<li><a href="#running-tests-discovery-issues">4.11. Discovery Issues</a></li>
 </ul>
 </li>
 <li><a href="#extensions">5. Extension Model</a>
@@ -10692,7 +10693,46 @@ The properties file below demonstrates the default style:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="running-tests-discovery-selectors"><a class="anchor" href="#running-tests-discovery-selectors"></a>4.4. Discovery Selectors</h3>
+<h3 id="running-tests-source-launcher"><a class="anchor" href="#running-tests-source-launcher"></a>4.4. Source Launcher</h3>
+<div class="paragraph">
+<p>Starting with Java 25 it is possible to write minimal source code test programs
+using the <code>org.junit.start</code> module. For example, like in a <code>HelloTests.java</code>
+file reading:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="java"><span class="kn">import</span> <span class="nn">module</span> <span class="n">org</span><span class="o">.</span><span class="na">junit</span><span class="o">.</span><span class="na">start</span><span class="o">;</span>
+
+<span class="kt">void</span> <span class="nf">main</span><span class="o">()</span> <span class="o">{</span>
+  <span class="nc">JUnit</span><span class="o">.</span><span class="na">run</span><span class="o">();</span>
+<span class="o">}</span>
+
+<span class="nd">@Test</span>
+<span class="kt">void</span> <span class="nf">stringLength</span><span class="o">()</span> <span class="o">{</span>
+  <span class="nc">Assertions</span><span class="o">.</span><span class="na">assertEquals</span><span class="o">(</span><span class="mi">11</span><span class="o">,</span> <span class="s">"Hello JUnit"</span><span class="o">.</span><span class="na">length</span><span class="o">());</span>
+<span class="o">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>With all required modular JAR files available in a local <code>lib/</code> directory, the
+following Java 25+ command will discover and execute tests using the JUnit Platform.
+It will also print the result tree to the console.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="shell">java <span class="nt">--module-path</span> lib <span class="nt">--add-modules</span> org.junit.start HelloTests.java
+╷
+└─ JUnit Jupiter ✔
+   └─ HelloTests ✔
+      └─ stringLength<span class="o">()</span> ✔</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Find JUnit&#8217;s class API documentation here: <a href="../api/org.junit.start/org/junit/start/JUnit.html">JUnit</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="running-tests-discovery-selectors"><a class="anchor" href="#running-tests-discovery-selectors"></a>4.5. Discovery Selectors</h3>
 <div class="paragraph">
 <p>The JUnit Platform provides a rich set of discovery selectors that can be used to specify
 which tests should be discovered or executed.</p>
@@ -10819,7 +10859,7 @@ generically as strings via their identifiers.</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="running-tests-config-params"><a class="anchor" href="#running-tests-config-params"></a>4.5. Configuration Parameters</h3>
+<h3 id="running-tests-config-params"><a class="anchor" href="#running-tests-config-params"></a>4.6. Configuration Parameters</h3>
 <div class="paragraph">
 <p>In addition to instructing the platform which test classes and test engines to include,
 which packages to scan, etc., it is sometimes necessary to provide additional custom
@@ -10906,7 +10946,7 @@ properties take precedence over those supplied via the default configuration fil
 </table>
 </div>
 <div class="sect3">
-<h4 id="running-tests-config-params-deactivation-pattern"><a class="anchor" href="#running-tests-config-params-deactivation-pattern"></a>4.5.1. Pattern Matching Syntax</h4>
+<h4 id="running-tests-config-params-deactivation-pattern"><a class="anchor" href="#running-tests-config-params-deactivation-pattern"></a>4.6.1. Pattern Matching Syntax</h4>
 <div class="paragraph">
 <p>This section describes the pattern matching syntax that is applied to the <em>configuration
 parameters</em> used for the following features.</p>
@@ -10972,7 +11012,7 @@ FQCN is exactly <code>org.example.MyCustomImpl</code> or <code>org.example.Their
 </div>
 </div>
 <div class="sect2">
-<h3 id="running-tests-tags"><a class="anchor" href="#running-tests-tags"></a>4.6. Tags</h3>
+<h3 id="running-tests-tags"><a class="anchor" href="#running-tests-tags"></a>4.7. Tags</h3>
 <div class="paragraph">
 <p>Tags are a JUnit Platform concept for marking and filtering tests. The programming model
 for adding tags to containers and tests is defined by the testing framework. For example,
@@ -10983,7 +11023,7 @@ Vintage engine maps <code>@Category</code> annotations to tags (see
 own annotation or other means for users to specify tags.</p>
 </div>
 <div class="sect3">
-<h4 id="running-tests-tag-syntax-rules"><a class="anchor" href="#running-tests-tag-syntax-rules"></a>4.6.1. Syntax Rules for Tags</h4>
+<h4 id="running-tests-tag-syntax-rules"><a class="anchor" href="#running-tests-tag-syntax-rules"></a>4.7.1. Syntax Rules for Tags</h4>
 <div class="paragraph">
 <p>Regardless how a tag is specified, the JUnit Platform enforces the following rules:</p>
 </div>
@@ -11040,7 +11080,7 @@ characters have been removed using <code>java.lang.String.strip()</code>.
 </div>
 </div>
 <div class="sect3">
-<h4 id="running-tests-tag-expressions"><a class="anchor" href="#running-tests-tag-expressions"></a>4.6.2. Tag Expressions</h4>
+<h4 id="running-tests-tag-expressions"><a class="anchor" href="#running-tests-tag-expressions"></a>4.7.2. Tag Expressions</h4>
 <div class="paragraph">
 <p>Tag expressions are boolean expressions with the operators <code>!</code>, <code>&amp;</code> and <code>|</code>. In addition,
 <code>(</code> and <code>)</code> can be used to adjust for operator precedence.</p>
@@ -11125,7 +11165,7 @@ expressions can be useful.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="running-tests-capturing-output"><a class="anchor" href="#running-tests-capturing-output"></a>4.7. Capturing Standard Output/Error</h3>
+<h3 id="running-tests-capturing-output"><a class="anchor" href="#running-tests-capturing-output"></a>4.8. Capturing Standard Output/Error</h3>
 <div class="paragraph">
 <p>The JUnit Platform provides opt-in support for capturing output printed to <code>System.out</code>
 and <code>System.err</code>. To enable it, set the <code>junit.platform.output.capture.stdout</code> and/or
@@ -11148,7 +11188,7 @@ to attribute it to a specific test or container.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="running-tests-listeners"><a class="anchor" href="#running-tests-listeners"></a>4.8. Using Listeners and Interceptors</h3>
+<h3 id="running-tests-listeners"><a class="anchor" href="#running-tests-listeners"></a>4.9. Using Listeners and Interceptors</h3>
 <div class="paragraph">
 <p>The JUnit Platform provides the following listener APIs that allow JUnit, third parties,
 and custom user code to react to events fired at various points during the discovery and
@@ -11253,7 +11293,7 @@ unique IDs once execution of the <code>TestPlan</code> has finished.</p>
 </dl>
 </div>
 <div class="sect3">
-<h4 id="running-tests-listeners-flight-recorder"><a class="anchor" href="#running-tests-listeners-flight-recorder"></a>4.8.1. Flight Recorder Support</h4>
+<h4 id="running-tests-listeners-flight-recorder"><a class="anchor" href="#running-tests-listeners-flight-recorder"></a>4.9.1. Flight Recorder Support</h4>
 <div class="paragraph">
 <p>The JUnit Platform provides opt-in support for generating Flight Recorder events.
 <a href="https://openjdk.java.net/jeps/328">JEP 328</a> describes the Java Flight Recorder (JFR) as
@@ -11291,7 +11331,7 @@ command line tool shipped with recent JDKs or open the recording file with
 </div>
 </div>
 <div class="sect2">
-<h3 id="stacktrace-pruning"><a class="anchor" href="#stacktrace-pruning"></a>4.9. Stack Trace Pruning</h3>
+<h3 id="stacktrace-pruning"><a class="anchor" href="#stacktrace-pruning"></a>4.10. Stack Trace Pruning</h3>
 <div class="paragraph">
 <p>The JUnit Platform provides built-in support for pruning stack traces produced by failing
 tests. This feature is enabled by default but can be disabled by setting the
@@ -11309,7 +11349,7 @@ never be excluded.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="running-tests-discovery-issues"><a class="anchor" href="#running-tests-discovery-issues"></a>4.10. Discovery Issues</h3>
+<h3 id="running-tests-discovery-issues"><a class="anchor" href="#running-tests-discovery-issues"></a>4.11. Discovery Issues</h3>
 <div class="paragraph">
 <p>Test engines may encounter issues during test discovery. For example, the declaration of a
 test class or method may be invalid. To avoid such issues from going unnoticed, the JUnit
@@ -16677,6 +16717,26 @@ value of lower stability.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>EventConditions.&ZeroWidthSpace;uniqueId(UniqueId)</code> <em>(method)</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.0</code></p></td>
+</tr>
+</tbody>
+</table>
+<h4 id="module-org-junit-start" class="discrete">Module org.junit.start</h4>
+<h5 id="package-org-junit-start" class="discrete">Package org.junit.start</h5>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 99%;">
+<col style="width: 1%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Since</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>JUnit</code> <em>(class)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.1</code></p></td>
 </tr>
 </tbody>
 </table>
