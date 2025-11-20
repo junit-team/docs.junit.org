@@ -82,18 +82,18 @@ loadScripts(document, 'script');</script>
      <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.0")
 </span><span class="modifiers">public interface </span><span class="element-name type-name-label">ParameterDeclarations</span></div>
 <div class="block"><code>ParameterDeclarations</code> encapsulates the combined <em>declarations</em>
-of all <em>indexed</em> <code>@ParameterizedClass</code> or
-<code>@ParameterizedTest</code> parameters.
+of all <em>indexed</em> parameters for a <code>@ParameterizedClass</code> or
+<code>@ParameterizedTest</code>.
 
 <p>For a <code>@ParameterizedTest</code>, the parameter declarations are derived
 from the method signature. For a <code>@ParameterizedClass</code>, they may be
 derived from the constructor or
-<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/reflect/Parameter.html" title="class or interface in java.lang.reflect" class="external-link"><code>@Parameter</code></a>-annotated fields.
+<a href="../Parameter.html" title="annotation interface in org.junit.jupiter.params"><code>@Parameter</code></a>-annotated fields.
 
-<p>Aggregators, that is parameters of type
-<a href="../aggregator/ArgumentsAccessor.html" title="interface in org.junit.jupiter.params.aggregator"><code>ArgumentsAccessor</code></a> or parameters annotated with
-<a href="../aggregator/AggregateWith.html" title="annotation interface in org.junit.jupiter.params.aggregator"><code>@AggregateWith</code></a>, are
-<em>not</em> indexed and thus not included in the list of parameter
+<p>Aggregators &mdash; parameters of type <a href="../aggregator/ArgumentsAccessor.html" title="interface in org.junit.jupiter.params.aggregator"><code>ArgumentsAccessor</code></a>
+or parameters annotated with
+<a href="../aggregator/AggregateWith.html" title="annotation interface in org.junit.jupiter.params.aggregator"><code>@AggregateWith</code></a> &mdash;
+are <em>not</em> indexed and thus not included in the list of parameter
 declarations.</div>
 <dl class="notes">
 <dt>Since:</dt>
@@ -126,19 +126,19 @@ declarations.</div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#get(int)" class="member-name-link">get</a><wbr>(int&nbsp;parameterIndex)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Returns the <em>indexed</em> parameter declaration for the supplied
-index, if available; never <code>null</code>.</div>
+index, if available; never <code>null</code>, but potentially empty.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="ParameterDeclaration.html" title="interface in org.junit.jupiter.params.support">ParameterDeclaration</a>&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getAll()" class="member-name-link">getAll</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
-<div class="block">Returns all <em>indexed</em> parameter declarations; never <code>null</code>,
-sorted by index.</div>
+<div class="block">Returns all <em>indexed</em> parameter declarations, sorted by index;
+never <code>null</code>, but potentially empty.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a><wbr>&lt;<a href="ParameterDeclaration.html" title="interface in org.junit.jupiter.params.support">ParameterDeclaration</a>&gt;</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getFirst()" class="member-name-link">getFirst</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Returns the first <em>indexed</em> parameter declaration, if available;
-never <code>null</code>.</div>
+never <code>null</code>, but potentially empty.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/reflect/AnnotatedElement.html" title="class or interface in java.lang.reflect" class="external-link">AnnotatedElement</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getSourceElement()" class="member-name-link">getSourceElement</a>()</code></div>
@@ -169,12 +169,12 @@ never <code>null</code>.</div>
 <h3>getAll</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ParameterDeclaration.html" title="interface in org.junit.jupiter.params.support">ParameterDeclaration</a>&gt;</span>&nbsp;<span class="element-name">getAll</span>()</div>
-<div class="block">Returns all <em>indexed</em> parameter declarations; never <code>null</code>,
-sorted by index.</div>
+<div class="block">Returns all <em>indexed</em> parameter declarations, sorted by index;
+never <code>null</code>, but potentially empty.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>all <em>indexed</em> parameter declarations; never <code>null</code>,
-sorted by index</dd>
+<dd>all <em>indexed</em> parameter declarations, sorted by index;
+never <code>null</code>, but potentially empty</dd>
 </dl>
 </div>
 </section>
@@ -185,11 +185,11 @@ sorted by index</dd>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="ParameterDeclaration.html" title="interface in org.junit.jupiter.params.support">ParameterDeclaration</a>&gt;</span>&nbsp;<span class="element-name">getFirst</span>()</div>
 <div class="block">Returns the first <em>indexed</em> parameter declaration, if available;
-never <code>null</code>.</div>
+never <code>null</code>, but potentially empty.</div>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>the first <em>indexed</em> parameter declaration, if available;
-never <code>null</code></dd>
+never <code>null</code>, but potentially empty</dd>
 </dl>
 </div>
 </section>
@@ -200,11 +200,11 @@ never <code>null</code></dd>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="ParameterDeclaration.html" title="interface in org.junit.jupiter.params.support">ParameterDeclaration</a>&gt;</span>&nbsp;<span class="element-name">get</span><wbr><span class="parameters">(int&nbsp;parameterIndex)</span></div>
 <div class="block">Returns the <em>indexed</em> parameter declaration for the supplied
-index, if available; never <code>null</code>.</div>
+index, if available; never <code>null</code>, but potentially empty.</div>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>the <em>indexed</em> parameter declaration for the supplied
-index, if available; never <code>null</code></dd>
+index, if available; never <code>null</code>, but potentially empty</dd>
 </dl>
 </div>
 </section>

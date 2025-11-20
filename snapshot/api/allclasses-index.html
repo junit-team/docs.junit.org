@@ -80,7 +80,7 @@ after all tests in the container have been executed.</div>
 <div class="col-last even-row-color all-classes-table all-classes-table-tab1">
 <div class="block"><code>AfterClassTemplateInvocationCallback</code> defines the API for
 <a href="org.junit.jupiter.api/org/junit/jupiter/api/extension/Extension.html" title="interface in org.junit.jupiter.api.extension"><code>Extensions</code></a> that wish to provide additional behavior
-<strong>once</strong> before each invocation of a
+<strong>once</strong> after each invocation of a
 <a href="org.junit.jupiter.api/org/junit/jupiter/api/ClassTemplate.html" title="annotation interface in org.junit.jupiter.api"><code>@ClassTemplate</code></a>.</div>
 </div>
 <div class="col-first odd-row-color all-classes-table all-classes-table-tab6"><a href="org.junit.jupiter.api/org/junit/jupiter/api/AfterEach.html" title="annotation interface in org.junit.jupiter.api">AfterEach</a></div>
@@ -206,7 +206,8 @@ with a set of <a href="org.junit.jupiter.params/org/junit/jupiter/params/provide
 <div class="block"><code>ArgumentsAccessor</code> defines the public API for accessing arguments provided
 by an <a href="org.junit.jupiter.params/org/junit/jupiter/params/provider/ArgumentsProvider.html" title="interface in org.junit.jupiter.params.provider"><code>ArgumentsProvider</code></a>
 for a single invocation of a
-<a href="org.junit.jupiter.params/org/junit/jupiter/params/ParameterizedTest.html" title="annotation interface in org.junit.jupiter.params"><code>@ParameterizedTest</code></a> method.</div>
+<a href="org.junit.jupiter.params/org/junit/jupiter/params/ParameterizedClass.html" title="annotation interface in org.junit.jupiter.params"><code>@ParameterizedClass</code></a> or
+<a href="org.junit.jupiter.params/org/junit/jupiter/params/ParameterizedTest.html" title="annotation interface in org.junit.jupiter.params"><code>@ParameterizedTest</code></a>.</div>
 </div>
 <div class="col-first odd-row-color all-classes-table all-classes-table-tab5"><a href="org.junit.jupiter.params/org/junit/jupiter/params/aggregator/ArgumentsAggregationException.html" title="class in org.junit.jupiter.params.aggregator">ArgumentsAggregationException</a></div>
 <div class="col-last odd-row-color all-classes-table all-classes-table-tab5">
@@ -1891,8 +1892,8 @@ indexed <code>@ParameterizedClass</code> or <code>@ParameterizedTest</code> para
 <div class="col-first odd-row-color all-classes-table all-classes-table-tab1"><a href="org.junit.jupiter.params/org/junit/jupiter/params/support/ParameterDeclarations.html" title="interface in org.junit.jupiter.params.support">ParameterDeclarations</a></div>
 <div class="col-last odd-row-color all-classes-table all-classes-table-tab1">
 <div class="block"><code>ParameterDeclarations</code> encapsulates the combined <em>declarations</em>
-of all <em>indexed</em> <code>@ParameterizedClass</code> or
-<code>@ParameterizedTest</code> parameters.</div>
+of all <em>indexed</em> parameters for a <code>@ParameterizedClass</code> or
+<code>@ParameterizedTest</code>.</div>
 </div>
 <div class="col-first even-row-color all-classes-table all-classes-table-tab1"><a href="org.junit.jupiter.params/org/junit/jupiter/params/ParameterInfo.html" title="interface in org.junit.jupiter.params">ParameterInfo</a></div>
 <div class="col-last even-row-color all-classes-table all-classes-table-tab1">

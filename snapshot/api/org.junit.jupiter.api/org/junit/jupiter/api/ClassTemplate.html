@@ -84,18 +84,16 @@ loadScripts(document, 'script');</script>
 <em>class template</em>.
 
 <p>In contrast to regular test classes, a class template is not directly
-a test class but rather a template for a set of test cases. As such, it is
-designed to be invoked multiple times depending on the number of <a href="extension/ClassTemplateInvocationContext.html" title="interface in org.junit.jupiter.api.extension">invocation
-contexts</a> returned by the registered <a href="extension/ClassTemplateInvocationContextProvider.html" title="interface in org.junit.jupiter.api.extension">providers</a>. Must be used together with at least one provider. Otherwise,
-execution will fail.
+a test class but rather a template for a set of test classes. As such, it is
+designed to be invoked multiple times depending on the number of <a href="extension/ClassTemplateInvocationContext.html" title="interface in org.junit.jupiter.api.extension">invocation contexts</a>
+returned by the registered <a href="extension/ClassTemplateInvocationContextProvider.html" title="interface in org.junit.jupiter.api.extension">providers</a>.
+Must be used together with at least one provider. Otherwise, execution will fail.
 
-<p>Each invocation of a class template method behaves like the execution
-of a regular test class with full support for the same lifecycle callbacks
-and extensions.
+<p>Each invocation of a class template behaves like the execution of a regular
+test class with full support for the same lifecycle callbacks and extensions.
 
-<p><code>@ClassTemplate</code> may be combined with <a href="Nested.html" title="annotation interface in org.junit.jupiter.api"><code>@Nested</code></a> and
-a class template may contain regular nested test classes or nested
-class templates.
+<p><code>@ClassTemplate</code> may be combined with <a href="Nested.html" title="annotation interface in org.junit.jupiter.api"><code>@Nested</code></a>, and a
+class template may contain regular nested test classes or nested class templates.
 
 <p><code>@ClassTemplate</code> may also be used as a meta-annotation in order
 to create a custom <em>composed annotation</em> that inherits the semantics
@@ -110,7 +108,7 @@ of <code>@ClassTemplate</code>.
 <dt>See Also:</dt>
 <dd>
 <ul class="tag-list-long">
-<li><a href="TestTemplate.html" title="annotation interface in org.junit.jupiter.api"><code>TestTemplate</code></a></li>
+<li><a href="TestTemplate.html" title="annotation interface in org.junit.jupiter.api"><code>@TestTemplate</code></a></li>
 <li><a href="extension/ClassTemplateInvocationContext.html" title="interface in org.junit.jupiter.api.extension"><code>ClassTemplateInvocationContext</code></a></li>
 <li><a href="extension/ClassTemplateInvocationContextProvider.html" title="interface in org.junit.jupiter.api.extension"><code>ClassTemplateInvocationContextProvider</code></a></li>
 <li><a href="extension/BeforeClassTemplateInvocationCallback.html" title="interface in org.junit.jupiter.api.extension"><code>BeforeClassTemplateInvocationCallback</code></a></li>
