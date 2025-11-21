@@ -69,17 +69,16 @@ loadScripts(document, 'script');</script>
 <section class="module-description" id="module-description">
 <!-- ============ MODULE DESCRIPTION =========== -->
 <div class="block"><p>Defines the API of the JUnit Start module for writing and running tests.</p>
-<p>Usage example:</p>
+<p>Usage example in a <code>HelloTests.java</code> compact source-file program:</p>
 <pre><code class="language-java">import module org.junit.start;
 
- void main() {
-   JUnit.run();
- }
+void main() {
+  JUnit.run();
+}
 
- @Test
- void addition() {
-   Assertions.assertEquals(2, 1 + 1, &quot;Addition error detected!&quot;);
-  }
+@Test
+void addition() {
+  Assertions.assertEquals(2, 1 + 1, &quot;Addition error detected!&quot;);
 }
 </code></pre>
 </div>
