@@ -4463,13 +4463,13 @@ currently supported.</p>
 </div>
 <div class="paragraph">
 <p>The default display name for a given repetition is generated based on the following
-pattern: <code>"repetition {currentRepetition} of {totalRepetitions}"</code>. Thus, the display
+pattern: <code>"repetition +{currentRepetition}+ of +{totalRepetitions}+"</code>.Thus, the display
 names for individual repetitions of the previous <code>repeatedTest()</code> example would be:
-<code>repetition 1 of 10</code>, <code>repetition 2 of 10</code>, etc. If you would like the display name of
+<code>repetition 1 of 10</code>, <code>repetition 2 of 10</code>, etc.If you would like the display name of
 the <code>@RepeatedTest</code> method included in the name of each repetition, you can define your
-own custom pattern or use the predefined <code>RepeatedTest.LONG_DISPLAY_NAME</code> pattern. The
-latter is equal to <code>"{displayName} :: repetition {currentRepetition} of
-{totalRepetitions}"</code> which results in display names for individual repetitions like
+own custom pattern or use the predefined <code>RepeatedTest.LONG_DISPLAY_NAME</code> pattern.The
+latter is equal to <code>"+{displayName}+ :: repetition +{currentRepetition}+ of
++{totalRepetitions}+"</code> which results in display names for individual repetitions like
 <code>repeatedTest() :: repetition 1 of 10</code>, <code>repeatedTest() :: repetition 2 of 10</code>, etc.</p>
 </div>
 <div class="paragraph">
@@ -4492,7 +4492,7 @@ current repeated test.</p>
 </div>
 <div class="paragraph">
 <p><code>repeatedTestWithFailureThreshold()</code> demonstrates how to set a failure threshold and
-simulates an unexpected failure for every second repetition. The resulting behavior can be
+simulates an unexpected failure for every second repetition.The resulting behavior can be
 viewed in the <code>ConsoleLauncher</code> output at the end of this section.</p>
 </div>
 <div class="paragraph">
@@ -4501,7 +4501,7 @@ viewed in the <code>ConsoleLauncher</code> output at the end of this section.</p
 combines a custom display name with a custom pattern and then uses <code>TestInfo</code> to verify
 the format of the generated display name. <code>Repeat!</code> is the <code>{displayName}</code> which comes
 from the <code>@DisplayName</code> declaration, and <code>1/1</code> comes from
-<code>{currentRepetition}/{totalRepetitions}</code>. In contrast,
+<code>{currentRepetition}+/+{totalRepetitions}</code>.In contrast,
 <code>customDisplayNameWithLongPattern()</code> uses the aforementioned predefined
 <code>RepeatedTest.LONG_DISPLAY_NAME</code> pattern.</p>
 </div>
