@@ -203,16 +203,19 @@ method to be supplied as the operand in a <code>throw</code> statement</dd>
  <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;classNames)</span></div>
 <div class="block">Prune the stack trace of the supplied <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link"><code>Throwable</code></a>.
 
-<p>Prune all <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/StackTraceElement.html" title="class or interface in java.lang" class="external-link">stack trace elements</a> up one
-of the supplied <code>classNames</code> are pruned. All subsequent elements
-in the stack trace will be retained.
+<p>Prune all <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/StackTraceElement.html" title="class or interface in java.lang" class="external-link">stack trace elements</a> up to one
+of the supplied <code>classNames</code>. All subsequent elements in the stack
+trace will be retained.
 
 <p>If the <code>classNames</code> do not match any of the stacktrace elements
 then the <code>org.junit</code>, <code>jdk.internal.reflect</code>, and
 <code>sun.reflect</code> packages are pruned.
 
-<p>Additionally, all elements prior to and including the first JUnit Platform
-Launcher call will be removed.</div>
+<p>Additionally:
+<ul>
+    <li>all elements prior to and including the first JUnit Platform Launcher call will be removed.
+    <li>all elements prior to and including <code>org.junit.start</code> are kept.
+</ul></div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>throwable</code> - the <code>Throwable</code> whose stack trace should be pruned;
