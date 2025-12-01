@@ -16002,6 +16002,10 @@ of <code>TestDescriptor</code> instances. This implies that there <em>must not</
 a node and its descendants.</p>
 </li>
 <li>
+<p>The hierarchy of test descriptors returned from <code>TestEngine.discover()</code> <em>must</em> be
+mutable, but the test descriptors <em>must</em> otherwise be immutable after discovery.</p>
+</li>
+<li>
 <p>A <code>TestEngine</code> <em>must</em> be able to discover <code>UniqueIdSelectors</code> for any unique ID that it
 previously generated and returned from <code>TestEngine.discover()</code>. This enables selecting a
 subset of tests to execute or rerun.</p>
