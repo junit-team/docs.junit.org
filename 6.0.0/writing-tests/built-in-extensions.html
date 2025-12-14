@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Built-in Extensions :: JUnit User Guide</title>
+    <link rel="canonical" href="https://docs.junit.org/current/writing-tests/built-in-extensions.html">
+    <link rel="prev" href="parallel-execution.html">
+    <link rel="next" href="../migrating-from-junit4.html">
+    <meta name="generator" content="Antora 3.2.0-alpha.11">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<link rel="icon" type="image/png" href="../../_/img/junit-diamond.png">
+<link rel="stylesheet" href="../../_/css/site-extra.css">
+<link rel="stylesheet" href="../../_/css/vendor/highlightjs/github.min.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item title" href="https://docs.junit.org">
+          <img class="logo" src="../../_/img/junit-diamond-white.png" alt="✔️"/>
+          JUnit User Guide<span class="version">6.0.0</span>
+      </a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search the docs">
+        </div>
+      </div>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="junit" data-version="6.0.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">JUnit</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="intro.html">Writing Tests</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="annotations.html">Annotations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="definitions.html">Definitions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-classes-and-methods.html">Test Classes and Methods</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="display-names.html">Display Names</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="assertions.html">Assertions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="assumptions.html">Assumptions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="exception-handling.html">Exception Handling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="disabling-tests.html">Disabling Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="conditional-test-execution.html">Conditional Test Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="tagging-and-filtering.html">Tagging and Filtering</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-execution-order.html">Test Execution Order</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-instance-lifecycle.html">Test Instance Lifecycle</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="nested-tests.html">Nested Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dependency-injection-for-constructors-and-methods.html">Dependency Injection for Constructors and Methods</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-interfaces-and-default-methods.html">Test Interfaces and Default Methods</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="repeated-tests.html">Repeated Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="parameterized-classes-and-tests.html">Parameterized Classes and Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="class-templates.html">Class Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-templates.html">Test Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dynamic-tests.html">Dynamic Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="timeouts.html">Timeouts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="parallel-execution.html">Parallel Execution</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="built-in-extensions.html">Built-in Extensions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../migrating-from-junit4.html">Migrating from JUnit 4</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../running-tests/intro.html">Running Tests</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/ide-support.html">IDE Support</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/build-support.html">Build Support</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/console-launcher.html">Console Launcher</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/discovery-selectors.html">Discovery Selectors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/configuration-parameters.html">Configuration Parameters</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/tags.html">Tags</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/capturing-standard-output-error.html">Capturing Standard Output/Error</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/using-listeners-and-interceptors.html">Using Listeners and Interceptors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/stack-trace-pruning.html">Stack Trace Pruning</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/discovery-issues.html">Discovery Issues</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../extensions/overview.html">Extension Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/registering-extensions.html">Registering Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/conditional-test-execution.html">Conditional Test Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-instance-pre-construct-callback.html">Test Instance Pre-construct Callback</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-instance-factories.html">Test Instance Factories</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-instance-post-processing.html">Test Instance Post-processing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-instance-pre-destroy-callback.html">Test Instance Pre-destroy Callback</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/parameter-resolution.html">Parameter Resolution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-result-processing.html">Test Result Processing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-lifecycle-callbacks.html">Test Lifecycle Callbacks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/exception-handling.html">Exception Handling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/pre-interrupt-callback.html">Pre-Interrupt Callback</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/intercepting-invocations.html">Intercepting Invocations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/providing-invocation-contexts-for-class-templates.html">Providing Invocation Contexts for Class Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/providing-invocation-contexts-for-test-templates.html">Providing Invocation Contexts for Test Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/keeping-state-in-extensions.html">Keeping State in Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/supported-utilities-in-extensions.html">Supported Utilities in Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/relative-execution-order-of-user-code-and-extensions.html">Relative Execution Order of User Code and Extensions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced Topics</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/junit-platform-reporting.html">JUnit Platform Reporting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/junit-platform-suite-engine.html">JUnit Platform Suite Engine</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/testkit.html">JUnit Platform Test Kit</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/launcher-api.html">JUnit Platform Launcher API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/engines.html">Test Engines</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../api-evolution.html">API Evolution</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../release-notes.html">Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">JUnit</span>
+    <span class="version">6.0.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../../current/index.html">JUnit</a></div>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../snapshot/index.html">6.1.0-SNAPSHOT</a>
+        </li>
+        <li class="version">
+          <a href="../../6.0.2/index.html">6.0.2-SNAPSHOT</a>
+        </li>
+        <li class="version is-latest">
+          <a href="../../current/index.html">6.0.1</a>
+        </li>
+        <li class="version is-current">
+          <a href="../index.html">6.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.2/index.html">5.14.2-SNAPSHOT</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.1/index.html">5.14.1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">JUnit</a></li>
+    <li><a href="intro.html">Writing Tests</a></li>
+    <li><a href="built-in-extensions.html">Built-in Extensions</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">6.0.0</button>
+  <div class="version-menu">
+    <a class="version" href="../../snapshot/writing-tests/built-in-extensions.html">6.1.0-SNAPSHOT</a>
+    <a class="version" href="../../6.0.2/writing-tests/built-in-extensions.html">6.0.2-SNAPSHOT</a>
+    <a class="version" href="../../current/writing-tests/built-in-extensions.html">6.0.1</a>
+    <a class="version is-current" href="built-in-extensions.html">6.0.0</a>
+    <a class="version" href="../../5.14.2/writing-tests/built-in-extensions.html">5.14.2-SNAPSHOT</a>
+    <a class="version" href="../../5.14.1/writing-tests/built-in-extensions.html">5.14.1</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/junit-team/junit-framework/edit/antora/6.0.0/documentation/modules/ROOT/pages/writing-tests/built-in-extensions.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="version-banner">
+<strong>
+There is a newer version available.</strong><br/>
+For the latest stable version, please use <a href="../../current/writing-tests/built-in-extensions.html">JUnit 6.0.1</a>!
+</div>
+<h1 class="page">Built-in Extensions</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>While the JUnit team encourages reusable extensions to be packaged and maintained in
+separate libraries, JUnit Jupiter includes a few user-facing extension implementations
+that are considered so generally useful that users shouldn&#8217;t have to add another
+dependency.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="TempDirectory"><a class="anchor" href="#TempDirectory"></a>The @TempDir Extension</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The built-in <code><a href="https://github.com/junit-team/junit-framework/tree/r6.0.0/junit-jupiter-engine/src/main/java/org/junit/jupiter/engine/extension/TempDirectory.java">TempDirectory</a></code> extension is used to create and clean up a temporary
+directory for an individual test or all tests in a test class. It is registered by
+default. To use it, annotate a non-final, unassigned field of type <code>java.nio.file.Path</code> or
+<code>java.io.File</code> with <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/io/TempDir.html" class="xref attachment">@TempDir</a></code> or add a parameter of type <code>java.nio.file.Path</code> or
+<code>java.io.File</code> annotated with <code>@TempDir</code> to a test class constructor, lifecycle method, or
+test method.</p>
+</div>
+<div class="paragraph">
+<p>For example, the following test declares a parameter annotated with <code>@TempDir</code> for a
+single test method, creates and writes to a file in the temporary directory, and checks
+its content.</p>
+</div>
+<div class="listingblock">
+<div class="title">A test method that requires a temporary directory</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Test
+void writeItemsToFile(@TempDir Path tempDir) throws IOException {
+	Path file = tempDir.resolve("test.txt");
+
+	new ListWriter(file).write("a", "b", "c");
+
+	assertEquals(List.of("a,b,c"), Files.readAllLines(file));
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can inject multiple temporary directories by specifying multiple annotated parameters.</p>
+</div>
+<div class="listingblock">
+<div class="title">A test method that requires multiple temporary directories</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Test
+void copyFileFromSourceToTarget(@TempDir Path source, @TempDir Path target) throws IOException {
+	Path sourceFile = source.resolve("test.txt");
+	new ListWriter(sourceFile).write("a", "b", "c");
+
+	Path targetFile = Files.copy(sourceFile, target.resolve("test.txt"));
+
+	assertNotEquals(sourceFile, targetFile);
+	assertEquals(List.of("a,b,c"), Files.readAllLines(targetFile));
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following example stores a <em>shared</em> temporary directory in a <code>static</code> field. This
+allows the same <code>sharedTempDir</code> to be used in all lifecycle methods and test methods of
+the test class. For better isolation, you should use an instance field or constructor
+injection so that each test method uses a separate directory.</p>
+</div>
+<div class="listingblock">
+<div class="title">A test class that shares a temporary directory across test methods</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">class SharedTempDirectoryDemo {
+
+	@TempDir
+	static Path sharedTempDir;
+
+	@Test
+	void writeItemsToFile() throws IOException {
+		Path file = sharedTempDir.resolve("test.txt");
+
+		new ListWriter(file).write("a", "b", "c");
+
+		assertEquals(List.of("a,b,c"), Files.readAllLines(file));
+	}
+
+	@Test
+	void anotherTestThatUsesTheSameTempDir() {
+		// use sharedTempDir
+	}
+
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>@TempDir</code> annotation has an optional <code>cleanup</code> attribute that can be set to either
+<code>NEVER</code>, <code>ON_SUCCESS</code>, or <code>ALWAYS</code>. If the cleanup mode is set to <code>NEVER</code>, the temporary
+directory will not be deleted after the test completes. If it is set to <code>ON_SUCCESS</code>, the
+temporary directory will only be deleted after the test if the test completed successfully.</p>
+</div>
+<div class="paragraph">
+<p>The default cleanup mode is <code>ALWAYS</code>. You can use the
+<code>junit.jupiter.tempdir.cleanup.mode.default</code>
+<a href="../running-tests/configuration-parameters.html" class="xref page">configuration parameter</a> to override this default.</p>
+</div>
+<div class="listingblock">
+<div class="title">A test class with a temporary directory that doesn&#8217;t get cleaned up</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">class CleanupModeDemo {
+
+	@Test
+	void fileTest(@TempDir(cleanup = ON_SUCCESS) Path tempDir) {
+		// perform test
+	}
+
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>@TempDir</code> supports the programmatic creation of temporary directories via the optional
+<code>factory</code> attribute. This is typically used to gain control over the temporary directory
+creation, like defining the parent directory or the file system that should be used.</p>
+</div>
+<div class="paragraph">
+<p>Factories can be created by implementing <code>TempDirFactory</code>. Implementations must provide a
+no-args constructor and should not make any assumptions regarding when and how many times
+they are instantiated, but they can assume that their <code>createTempDirectory(&#8230;&#8203;)</code> and
+<code>close()</code> methods will both be called once per instance, in this order, and from the same
+thread.</p>
+</div>
+<div class="paragraph">
+<p>The default implementation available in Jupiter delegates directory creation to
+<code>java.nio.file.Files::createTempDirectory</code> which uses the default file system and the
+system&#8217;s temporary directory as the parent directory. It passes <code>junit-</code> as the prefix
+string of the generated directory name to help identify it as a created by JUnit.</p>
+</div>
+<div class="paragraph">
+<p>The following example defines a factory that uses the test name as the directory name
+prefix instead of the <code>junit</code> constant value.</p>
+</div>
+<div class="listingblock">
+<div class="title">A test class with a temporary directory having the test name as the directory name prefix</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">class TempDirFactoryDemo {
+
+	@Test
+	void factoryTest(@TempDir(factory = Factory.class) Path tempDir) {
+		assertTrue(tempDir.getFileName().toString().startsWith("factoryTest"));
+	}
+
+	static class Factory implements TempDirFactory {
+
+		@Override
+		public Path createTempDirectory(AnnotatedElementContext elementContext, ExtensionContext extensionContext)
+				throws IOException {
+			return Files.createTempDirectory(extensionContext.getRequiredTestMethod().getName());
+		}
+
+	}
+
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It is also possible to use an in-memory file system like <code><a href="https://google.github.io/jimfs/">Jimfs</a></code> for the creation of the
+temporary directory. The following example demonstrates how to achieve that.</p>
+</div>
+<div class="listingblock">
+<div class="title">A test class with a temporary directory created with the Jimfs in-memory file system</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">class InMemoryTempDirDemo {
+
+	@Test
+	void test(@TempDir(factory = JimfsTempDirFactory.class) Path tempDir) {
+		// perform test
+	}
+
+	static class JimfsTempDirFactory implements TempDirFactory {
+
+		private final FileSystem fileSystem = Jimfs.newFileSystem(Configuration.unix());
+
+		@Override
+		public Path createTempDirectory(AnnotatedElementContext elementContext, ExtensionContext extensionContext)
+				throws IOException {
+			return Files.createTempDirectory(fileSystem.getPath("/"), "junit-");
+		}
+
+		@Override
+		public void close() throws IOException {
+			fileSystem.close();
+		}
+
+	}
+
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>@TempDir</code> can also be used as a <a href="annotations.html#annotations" class="xref page">meta-annotation</a> to
+reduce repetition. The following code listing shows how to create a custom <code>@JimfsTempDir</code>
+annotation that can be used as a drop-in replacement for
+<code>@TempDir(factory = JimfsTempDirFactory.class)</code>.</p>
+</div>
+<div class="listingblock">
+<div class="title">A custom annotation meta-annotated with <code>@TempDir</code></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Target({ ElementType.ANNOTATION_TYPE, ElementType.FIELD, ElementType.PARAMETER })
+@Retention(RetentionPolicy.RUNTIME)
+@TempDir(factory = JimfsTempDirFactory.class)
+@interface JimfsTempDir {
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following example demonstrates how to use the custom <code>@JimfsTempDir</code> annotation.</p>
+</div>
+<div class="listingblock">
+<div class="title">A test class using the custom annotation</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">class JimfsTempDirAnnotationDemo {
+
+	@Test
+	void test(@JimfsTempDir Path tempDir) {
+		// perform test
+	}
+
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Meta-annotations or additional annotations on the field or parameter the <code>TempDir</code>
+annotation is declared on might expose additional attributes to configure the factory.
+Such annotations and related attributes can be accessed via the <code>AnnotatedElementContext</code>
+parameter of the <code>createTempDirectory(&#8230;&#8203;)</code> method.</p>
+</div>
+<div class="paragraph">
+<p>You can use the <code>junit.jupiter.tempdir.factory.default</code> <a href="../running-tests/configuration-parameters.html" class="xref page">configuration parameter</a> to specify the fully qualified class name of the
+<code>TempDirFactory</code> you would like to use by default. Just like for factories configured via
+the <code>factory</code> attribute of the <code>@TempDir</code> annotation, the supplied class has to implement
+the <code>TempDirFactory</code> interface. The default factory will be used for all <code>@TempDir</code>
+annotations unless the <code>factory</code> attribute of the annotation specifies a different factory.</p>
+</div>
+<div class="paragraph">
+<p>In summary, the factory for a temporary directory is determined according to the following
+precedence rules:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <code>factory</code> attribute of the <code>@TempDir</code> annotation, if present</p>
+</li>
+<li>
+<p>The default <code>TempDirFactory</code> configured via the configuration
+parameter, if present</p>
+</li>
+<li>
+<p>Otherwise, <code>org.junit.jupiter.api.io.TempDirFactory$Standard</code> will be used.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="AutoClose"><a class="anchor" href="#AutoClose"></a>The @AutoClose Extension</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The built-in <code><a href="https://github.com/junit-team/junit-framework/tree/r6.0.0/junit-jupiter-engine/src/main/java/org/junit/jupiter/engine/extension/AutoCloseExtension.java">AutoCloseExtension</a></code> automatically closes resources associated with fields.
+It is registered by default. To use it, annotate a field in a test class with
+<code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/AutoClose.html" class="xref attachment">@AutoClose</a></code>.</p>
+</div>
+<div class="paragraph">
+<p><code>@AutoClose</code> fields may be either <code>static</code> or non-static. If the value of an <code>@AutoClose</code>
+field is <code>null</code> when it is evaluated the field will be ignored, but a warning message will
+be logged to inform you.</p>
+</div>
+<div class="paragraph">
+<p>By default, <code>@AutoClose</code> expects the value of the annotated field to implement a <code>close()</code>
+method that will be invoked to close the resource. However, developers can customize the
+name of the close method via the <code>value</code> attribute. For example, <code>@AutoClose("shutdown")</code>
+instructs JUnit to look for a <code>shutdown()</code> method to close the resource.</p>
+</div>
+<div class="paragraph">
+<p><code>@AutoClose</code> fields are inherited from superclasses. Furthermore, <code>@AutoClose</code> fields from
+subclasses will be closed before <code>@AutoClose</code> fields in superclasses.</p>
+</div>
+<div class="paragraph">
+<p>When multiple <code>@AutoClose</code> fields exist within a given test class, the order in which the
+resources are closed depends on an algorithm that is deterministic but intentionally
+nonobvious. This ensures that subsequent runs of a test suite close resources in the same
+order, thereby allowing for repeatable builds.</p>
+</div>
+<div class="paragraph">
+<p>The <code>AutoCloseExtension</code> implements the <code>AfterAllCallback</code> and
+<code>TestInstancePreDestroyCallback</code> extension APIs. Consequently, a <code>static</code> <code>@AutoClose</code>
+field will be closed after all tests in the current test class have completed, effectively
+after <code>@AfterAll</code> methods have executed for the test class. A non-static <code>@AutoClose</code>
+field will be closed before the current test class instance is destroyed. Specifically, if
+the test class is configured with <code>@TestInstance(Lifecycle.PER_METHOD)</code> semantics, a
+non-static <code>@AutoClose</code> field will be closed after the execution of each test method, test
+factory method, or test template method. However, if the test class is configured with
+<code>@TestInstance(Lifecycle.PER_CLASS)</code> semantics, a non-static <code>@AutoClose</code> field will not
+be closed until the current test class instance is no longer needed, which means after
+<code>@AfterAll</code> methods and after all <code>static</code> <code>@AutoClose</code> fields have been closed.</p>
+</div>
+<div class="paragraph">
+<p>The following example demonstrates how to annotate an instance field with <code>@AutoClose</code> so
+that the resource is automatically closed after test execution. In this example, we assume
+that the default <code>@TestInstance(Lifecycle.PER_METHOD)</code> semantics apply.</p>
+</div>
+<div class="listingblock">
+<div class="title">A test class using <code>@AutoClose</code> to close a resource</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">class AutoCloseDemo {
+
+	@AutoClose <i class="conum" data-value="1"></i><b>(1)</b>
+	WebClient webClient = new WebClient(); <i class="conum" data-value="2"></i><b>(2)</b>
+
+	String serverUrl = // specify server URL ...
+
+	@Test
+	void getProductList() {
+		// Use WebClient to connect to web server and verify response
+		assertEquals(200, webClient.get(serverUrl + "/products").getResponseStatus());
+	}
+
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Annotate an instance field with <code>@AutoClose</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td><code>WebClient</code> implements <code>java.lang.AutoCloseable</code> which defines a <code>close()</code> method that
+will be invoked after each <code>@Test</code> method.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="parallel-execution.html">Parallel Execution</a></span>
+  <span class="next"><a href="../migrating-from-junit4.html">Migrating from JUnit 4</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+    <div style="float: right">
+        <a href="https://www.netlify.com">
+            <img src="https://www.netlify.com/assets/badges/netlify-badge-color-accent.svg" alt="Deploys by Netlify" />
+        </a>
+    </div>
+    <p>
+        &copy; Copyright 2015-2025 the original author or authors.
+        All rights reserved.
+        The content of this page is made available under the terms of the <a href="https://www.eclipse.org/legal/epl-v20.html">Eclipse Public License v2.0</a>.
+    </p>
+    <p>
+        This page was built using an adapted version of the Antora default UI.
+        The source code for this UI is licensed under the terms of the <a href="https://www.mozilla.org/en-US/MPL/2.0/">Mozilla Public License v2.0</a>.
+    </p>
+</footer>
+<script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="100" data-stylesheet="../../_/css/search.css"></script>
+<script async src="../../search-index.js"></script>
+  </body>
+</html>

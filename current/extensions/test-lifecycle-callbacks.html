@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Test Lifecycle Callbacks :: JUnit User Guide</title>
+    <link rel="canonical" href="https://docs.junit.org/current/extensions/test-lifecycle-callbacks.html">
+    <link rel="prev" href="test-result-processing.html">
+    <link rel="next" href="exception-handling.html">
+    <meta name="generator" content="Antora 3.2.0-alpha.11">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<link rel="icon" type="image/png" href="../../_/img/junit-diamond.png">
+<link rel="stylesheet" href="../../_/css/site-extra.css">
+<link rel="stylesheet" href="../../_/css/vendor/highlightjs/github.min.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item title" href="https://docs.junit.org">
+          <img class="logo" src="../../_/img/junit-diamond-white.png" alt="✔️"/>
+          JUnit User Guide<span class="version">6.0.1</span>
+      </a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search the docs">
+        </div>
+      </div>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="junit" data-version="6.0.1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">JUnit</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../writing-tests/intro.html">Writing Tests</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/annotations.html">Annotations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/definitions.html">Definitions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/test-classes-and-methods.html">Test Classes and Methods</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/display-names.html">Display Names</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/assertions.html">Assertions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/assumptions.html">Assumptions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/exception-handling.html">Exception Handling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/disabling-tests.html">Disabling Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/conditional-test-execution.html">Conditional Test Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/tagging-and-filtering.html">Tagging and Filtering</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/test-execution-order.html">Test Execution Order</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/test-instance-lifecycle.html">Test Instance Lifecycle</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/nested-tests.html">Nested Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/dependency-injection-for-constructors-and-methods.html">Dependency Injection for Constructors and Methods</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/test-interfaces-and-default-methods.html">Test Interfaces and Default Methods</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/repeated-tests.html">Repeated Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/parameterized-classes-and-tests.html">Parameterized Classes and Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/class-templates.html">Class Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/test-templates.html">Test Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/dynamic-tests.html">Dynamic Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/timeouts.html">Timeouts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/parallel-execution.html">Parallel Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/built-in-extensions.html">Built-in Extensions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../migrating-from-junit4.html">Migrating from JUnit 4</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../running-tests/intro.html">Running Tests</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/ide-support.html">IDE Support</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/build-support.html">Build Support</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/console-launcher.html">Console Launcher</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/discovery-selectors.html">Discovery Selectors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/configuration-parameters.html">Configuration Parameters</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/tags.html">Tags</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/capturing-standard-output-error.html">Capturing Standard Output/Error</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/using-listeners-and-interceptors.html">Using Listeners and Interceptors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/stack-trace-pruning.html">Stack Trace Pruning</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/discovery-issues.html">Discovery Issues</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="overview.html">Extension Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="registering-extensions.html">Registering Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="conditional-test-execution.html">Conditional Test Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-instance-pre-construct-callback.html">Test Instance Pre-construct Callback</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-instance-factories.html">Test Instance Factories</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-instance-post-processing.html">Test Instance Post-processing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-instance-pre-destroy-callback.html">Test Instance Pre-destroy Callback</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="parameter-resolution.html">Parameter Resolution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-result-processing.html">Test Result Processing</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="test-lifecycle-callbacks.html">Test Lifecycle Callbacks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="exception-handling.html">Exception Handling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="pre-interrupt-callback.html">Pre-Interrupt Callback</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="intercepting-invocations.html">Intercepting Invocations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="providing-invocation-contexts-for-class-templates.html">Providing Invocation Contexts for Class Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="providing-invocation-contexts-for-test-templates.html">Providing Invocation Contexts for Test Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="keeping-state-in-extensions.html">Keeping State in Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="supported-utilities-in-extensions.html">Supported Utilities in Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="relative-execution-order-of-user-code-and-extensions.html">Relative Execution Order of User Code and Extensions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced Topics</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/junit-platform-reporting.html">JUnit Platform Reporting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/junit-platform-suite-engine.html">JUnit Platform Suite Engine</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/testkit.html">JUnit Platform Test Kit</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/launcher-api.html">JUnit Platform Launcher API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/engines.html">Test Engines</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../api-evolution.html">API Evolution</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../release-notes.html">Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">JUnit</span>
+    <span class="version">6.0.1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../index.html">JUnit</a></div>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../snapshot/index.html">6.1.0-SNAPSHOT</a>
+        </li>
+        <li class="version">
+          <a href="../../6.0.2/index.html">6.0.2-SNAPSHOT</a>
+        </li>
+        <li class="version is-current is-latest">
+          <a href="../index.html">6.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../6.0.0/index.html">6.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.2/index.html">5.14.2-SNAPSHOT</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.1/index.html">5.14.1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">JUnit</a></li>
+    <li><a href="overview.html">Extension Model</a></li>
+    <li><a href="test-lifecycle-callbacks.html">Test Lifecycle Callbacks</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">6.0.1</button>
+  <div class="version-menu">
+    <a class="version" href="../../snapshot/extensions/test-lifecycle-callbacks.html">6.1.0-SNAPSHOT</a>
+    <a class="version" href="../../6.0.2/extensions/test-lifecycle-callbacks.html">6.0.2-SNAPSHOT</a>
+    <a class="version is-current" href="test-lifecycle-callbacks.html">6.0.1</a>
+    <a class="version" href="../../6.0.0/extensions/test-lifecycle-callbacks.html">6.0.0</a>
+    <a class="version" href="../../5.14.2/extensions/test-lifecycle-callbacks.html">5.14.2-SNAPSHOT</a>
+    <a class="version" href="../../5.14.1/extensions/test-lifecycle-callbacks.html">5.14.1</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/junit-team/junit-framework/edit/antora/6.0.1/documentation/modules/ROOT/pages/extensions/test-lifecycle-callbacks.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Test Lifecycle Callbacks</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following interfaces define the APIs for extending tests at various points in the
+test execution lifecycle. Consult the following sections for examples and the Javadoc for
+each of these interfaces in the <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/package-summary.html" class="xref attachment">org.junit.jupiter.api.extension</a></code> package for further details.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/BeforeAllCallback.html" class="xref attachment">BeforeAllCallback</a></code></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/BeforeClassTemplateInvocationCallback.html" class="xref attachment">BeforeClassTemplateInvocationCallback</a></code> (only applicable for
+<a href="../writing-tests/class-templates.html" class="xref page">class templates</a>)</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/BeforeEachCallback.html" class="xref attachment">BeforeEachCallback</a></code></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/BeforeTestExecutionCallback.html" class="xref attachment">BeforeTestExecutionCallback</a></code></p>
+</li>
+<li>
+<p><code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/AfterTestExecutionCallback.html" class="xref attachment">AfterTestExecutionCallback</a></code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/AfterEachCallback.html" class="xref attachment">AfterEachCallback</a></code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/AfterClassTemplateInvocationCallback.html" class="xref attachment">AfterClassTemplateInvocationCallback</a></code> (only applicable for
+<a href="../writing-tests/class-templates.html" class="xref page">class templates</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/AfterAllCallback.html" class="xref attachment">AfterAllCallback</a></code></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title">Implementing Multiple Extension APIs</div>
+Extension developers may choose to implement any number of these interfaces
+within a single extension. Consult the source code of the <code><a href="https://github.com/spring-projects/spring-framework/tree/HEAD/spring-test/src/main/java/org/springframework/test/context/junit/jupiter/SpringExtension.java">SpringExtension</a></code> for a
+concrete example.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="before-after-execution"><a class="anchor" href="#before-after-execution"></a>Before and After Test Execution Callbacks</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/BeforeTestExecutionCallback.html" class="xref attachment">BeforeTestExecutionCallback</a></code> and <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/AfterTestExecutionCallback.html" class="xref attachment">AfterTestExecutionCallback</a></code> define the APIs for
+<code>Extensions</code> that wish to add behavior that will be executed <em>immediately before</em> and
+<em>immediately after</em> a test method is executed, respectively. As such, these callbacks are
+well suited for timing, tracing, and similar use cases. If you need to implement
+callbacks that are invoked <em>around</em> <code>@BeforeEach</code> and <code>@AfterEach</code> methods, implement
+<code>BeforeEachCallback</code> and <code>AfterEachCallback</code> instead.</p>
+</div>
+<div class="paragraph">
+<p>The following example shows how to use these callbacks to calculate and log the execution
+time of a test method. <code>TimingExtension</code> implements both <code>BeforeTestExecutionCallback</code>
+and <code>AfterTestExecutionCallback</code> in order to time and log the test execution.</p>
+</div>
+<div id="timing-extension" class="listingblock">
+<div class="title">An extension that times and logs the execution of test methods</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import java.lang.reflect.Method;
+import java.util.logging.Logger;
+
+import org.junit.jupiter.api.extension.AfterTestExecutionCallback;
+import org.junit.jupiter.api.extension.BeforeTestExecutionCallback;
+import org.junit.jupiter.api.extension.ExtensionContext;
+import org.junit.jupiter.api.extension.ExtensionContext.Namespace;
+import org.junit.jupiter.api.extension.ExtensionContext.Store;
+
+public class TimingExtension implements BeforeTestExecutionCallback, AfterTestExecutionCallback {
+
+	private static final Logger logger = Logger.getLogger(TimingExtension.class.getName());
+
+	private static final String START_TIME = "start time";
+
+	@Override
+	public void beforeTestExecution(ExtensionContext context) {
+		getStore(context).put(START_TIME, System.currentTimeMillis());
+	}
+
+	@Override
+	public void afterTestExecution(ExtensionContext context) {
+		Method testMethod = context.getRequiredTestMethod();
+		long startTime = getStore(context).remove(START_TIME, long.class);
+		long duration = System.currentTimeMillis() - startTime;
+
+		logger.info(() -&gt;
+			"Method [%s] took %s ms.".formatted(testMethod.getName(), duration));
+	}
+
+	private Store getStore(ExtensionContext context) {
+		return context.getStore(Namespace.create(getClass(), context.getRequiredTestMethod()));
+	}
+
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Since the <code>TimingExtensionTests</code> class registers the <code>TimingExtension</code> via <code>@ExtendWith</code>,
+its tests will have this timing applied when they execute.</p>
+</div>
+<div class="listingblock">
+<div class="title">A test class that uses the example TimingExtension</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@ExtendWith(TimingExtension.class)
+class TimingExtensionTests {
+
+	@Test
+	void sleep20ms() throws Exception {
+		Thread.sleep(20);
+	}
+
+	@Test
+	void sleep50ms() throws Exception {
+		Thread.sleep(50);
+	}
+
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following is an example of the logging produced when <code>TimingExtensionTests</code> is run.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>INFO: Method [sleep20ms] took 24 ms.
+INFO: Method [sleep50ms] took 53 ms.</pre>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="test-result-processing.html">Test Result Processing</a></span>
+  <span class="next"><a href="exception-handling.html">Exception Handling</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+    <div style="float: right">
+        <a href="https://www.netlify.com">
+            <img src="https://www.netlify.com/assets/badges/netlify-badge-color-accent.svg" alt="Deploys by Netlify" />
+        </a>
+    </div>
+    <p>
+        &copy; Copyright 2015-2025 the original author or authors.
+        All rights reserved.
+        The content of this page is made available under the terms of the <a href="https://www.eclipse.org/legal/epl-v20.html">Eclipse Public License v2.0</a>.
+    </p>
+    <p>
+        This page was built using an adapted version of the Antora default UI.
+        The source code for this UI is licensed under the terms of the <a href="https://www.mozilla.org/en-US/MPL/2.0/">Mozilla Public License v2.0</a>.
+    </p>
+</footer>
+<script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="100" data-stylesheet="../../_/css/search.css"></script>
+<script async src="../../search-index.js"></script>
+  </body>
+</html>

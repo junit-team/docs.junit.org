@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Discovery Selectors :: JUnit User Guide</title>
+    <link rel="canonical" href="https://docs.junit.org/current/running-tests/discovery-selectors.html">
+    <link rel="prev" href="console-launcher.html">
+    <link rel="next" href="configuration-parameters.html">
+    <meta name="generator" content="Antora 3.2.0-alpha.11">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<link rel="icon" type="image/png" href="../../_/img/junit-diamond.png">
+<link rel="stylesheet" href="../../_/css/site-extra.css">
+<link rel="stylesheet" href="../../_/css/vendor/highlightjs/github.min.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item title" href="https://docs.junit.org">
+          <img class="logo" src="../../_/img/junit-diamond-white.png" alt="✔️"/>
+          JUnit User Guide<span class="version">6.0.0</span>
+      </a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search the docs">
+        </div>
+      </div>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="junit" data-version="6.0.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">JUnit</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../writing-tests/intro.html">Writing Tests</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/annotations.html">Annotations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/definitions.html">Definitions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/test-classes-and-methods.html">Test Classes and Methods</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/display-names.html">Display Names</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/assertions.html">Assertions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/assumptions.html">Assumptions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/exception-handling.html">Exception Handling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/disabling-tests.html">Disabling Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/conditional-test-execution.html">Conditional Test Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/tagging-and-filtering.html">Tagging and Filtering</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/test-execution-order.html">Test Execution Order</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/test-instance-lifecycle.html">Test Instance Lifecycle</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/nested-tests.html">Nested Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/dependency-injection-for-constructors-and-methods.html">Dependency Injection for Constructors and Methods</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/test-interfaces-and-default-methods.html">Test Interfaces and Default Methods</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/repeated-tests.html">Repeated Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/parameterized-classes-and-tests.html">Parameterized Classes and Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/class-templates.html">Class Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/test-templates.html">Test Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/dynamic-tests.html">Dynamic Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/timeouts.html">Timeouts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/parallel-execution.html">Parallel Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/built-in-extensions.html">Built-in Extensions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../migrating-from-junit4.html">Migrating from JUnit 4</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="intro.html">Running Tests</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ide-support.html">IDE Support</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="build-support.html">Build Support</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="console-launcher.html">Console Launcher</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="discovery-selectors.html">Discovery Selectors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="configuration-parameters.html">Configuration Parameters</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="tags.html">Tags</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="capturing-standard-output-error.html">Capturing Standard Output/Error</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="using-listeners-and-interceptors.html">Using Listeners and Interceptors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="stack-trace-pruning.html">Stack Trace Pruning</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="discovery-issues.html">Discovery Issues</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../extensions/overview.html">Extension Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/registering-extensions.html">Registering Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/conditional-test-execution.html">Conditional Test Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-instance-pre-construct-callback.html">Test Instance Pre-construct Callback</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-instance-factories.html">Test Instance Factories</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-instance-post-processing.html">Test Instance Post-processing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-instance-pre-destroy-callback.html">Test Instance Pre-destroy Callback</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/parameter-resolution.html">Parameter Resolution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-result-processing.html">Test Result Processing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-lifecycle-callbacks.html">Test Lifecycle Callbacks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/exception-handling.html">Exception Handling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/pre-interrupt-callback.html">Pre-Interrupt Callback</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/intercepting-invocations.html">Intercepting Invocations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/providing-invocation-contexts-for-class-templates.html">Providing Invocation Contexts for Class Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/providing-invocation-contexts-for-test-templates.html">Providing Invocation Contexts for Test Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/keeping-state-in-extensions.html">Keeping State in Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/supported-utilities-in-extensions.html">Supported Utilities in Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/relative-execution-order-of-user-code-and-extensions.html">Relative Execution Order of User Code and Extensions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced Topics</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/junit-platform-reporting.html">JUnit Platform Reporting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/junit-platform-suite-engine.html">JUnit Platform Suite Engine</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/testkit.html">JUnit Platform Test Kit</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/launcher-api.html">JUnit Platform Launcher API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/engines.html">Test Engines</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../api-evolution.html">API Evolution</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../release-notes.html">Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">JUnit</span>
+    <span class="version">6.0.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../../current/index.html">JUnit</a></div>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../snapshot/index.html">6.1.0-SNAPSHOT</a>
+        </li>
+        <li class="version">
+          <a href="../../6.0.2/index.html">6.0.2-SNAPSHOT</a>
+        </li>
+        <li class="version is-latest">
+          <a href="../../current/index.html">6.0.1</a>
+        </li>
+        <li class="version is-current">
+          <a href="../index.html">6.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.2/index.html">5.14.2-SNAPSHOT</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.1/index.html">5.14.1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">JUnit</a></li>
+    <li><a href="intro.html">Running Tests</a></li>
+    <li><a href="discovery-selectors.html">Discovery Selectors</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">6.0.0</button>
+  <div class="version-menu">
+    <a class="version" href="../../snapshot/running-tests/discovery-selectors.html">6.1.0-SNAPSHOT</a>
+    <a class="version" href="../../6.0.2/running-tests/discovery-selectors.html">6.0.2-SNAPSHOT</a>
+    <a class="version" href="../../current/running-tests/discovery-selectors.html">6.0.1</a>
+    <a class="version is-current" href="discovery-selectors.html">6.0.0</a>
+    <a class="version" href="../../5.14.2/running-tests/discovery-selectors.html">5.14.2-SNAPSHOT</a>
+    <a class="version" href="../../5.14.1/running-tests/discovery-selectors.html">5.14.1</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/junit-team/junit-framework/edit/antora/6.0.0/documentation/modules/ROOT/pages/running-tests/discovery-selectors.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="version-banner">
+<strong>
+There is a newer version available.</strong><br/>
+For the latest stable version, please use <a href="../../current/running-tests/discovery-selectors.html">JUnit 6.0.1</a>!
+</div>
+<h1 class="page">Discovery Selectors</h1>
+<div class="paragraph">
+<p>The JUnit Platform provides a rich set of discovery selectors that can be used to specify
+which tests should be discovered or executed.</p>
+</div>
+<div class="paragraph">
+<p>Discovery selectors can be created programmatically using the factory methods in the
+<code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/discovery/DiscoverySelectors.html" class="xref attachment">DiscoverySelectors</a></code> class, specified declaratively via annotations when using the
+<a href="../advanced-topics/junit-platform-suite-engine.html" class="xref page">JUnit Platform Suite Engine</a>, via options of the <a href="console-launcher.html" class="xref page">Console Launcher</a>, or
+generically as strings via their identifiers.</p>
+</div>
+<div class="paragraph">
+<p>The following discovery selectors are provided out of the box:</p>
+</div>
+<table class="tableblock frame-none grid-rows stripes-odd stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Java Type</th>
+<th class="tableblock halign-left valign-top">API</th>
+<th class="tableblock halign-left valign-top">Annotation</th>
+<th class="tableblock halign-left valign-top">Console Launcher</th>
+<th class="tableblock halign-left valign-top">Identifier</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/discovery/ClasspathResourceSelector.html" class="xref attachment">ClasspathResourceSelector</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/discovery/DiscoverySelectors.html#selectClasspathResource(java.lang.String)" class="xref attachment">selectClasspathResource</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="../api/org.junit.platform.suite.api/org/junit/platform/suite/api/SelectClasspathResource.html" class="xref attachment">@SelectClasspathResource</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>--select-resource /foo.csv</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>resource:/foo.csv</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/discovery/ClasspathRootSelector.html" class="xref attachment">ClasspathRootSelector</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/discovery/DiscoverySelectors.html#selectClasspathRoots(java.util.Set)" class="xref attachment">selectClasspathRoots</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>--scan-classpath bin</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>classpath-root:bin</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/discovery/ClassSelector.html" class="xref attachment">ClassSelector</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/discovery/DiscoverySelectors.html#selectClass(java.lang.String)" class="xref attachment">selectClass</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="../api/org.junit.platform.suite.api/org/junit/platform/suite/api/SelectClasses.html" class="xref attachment">@SelectClasses</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>--select-class com.acme.Foo</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>class:com.acme.Foo</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/discovery/DirectorySelector.html" class="xref attachment">DirectorySelector</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/discovery/DiscoverySelectors.html#selectDirectory(java.lang.String)" class="xref attachment">selectDirectory</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="../api/org.junit.platform.suite.api/org/junit/platform/suite/api/SelectDirectories.html" class="xref attachment">@SelectDirectories</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>--select-directory foo/bar</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>directory:foo/bar</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/discovery/FileSelector.html" class="xref attachment">FileSelector</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/discovery/DiscoverySelectors.html#selectFile(java.lang.String)" class="xref attachment">selectFile</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="../api/org.junit.platform.suite.api/org/junit/platform/suite/api/SelectFile.html" class="xref attachment">@SelectFile</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>--select-file dir/foo.txt</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>file:dir/foo.txt</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/discovery/IterationSelector.html" class="xref attachment">IterationSelector</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/discovery/DiscoverySelectors.html#selectIteration(org.junit.platform.engine.DiscoverySelector,int...)" class="xref attachment">selectIteration</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="../api/org.junit.platform.suite.api/org/junit/platform/suite/api/Select.html" class="xref attachment">@Select</a>("&lt;identifier&gt;")</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>--select-iteration method=com.acme.Foo#m[1..2]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>iteration:method:com.acme.Foo#m[1..2]</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/discovery/MethodSelector.html" class="xref attachment">MethodSelector</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/discovery/DiscoverySelectors.html#selectMethod(java.lang.String)" class="xref attachment">selectMethod</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="../api/org.junit.platform.suite.api/org/junit/platform/suite/api/SelectMethod.html" class="xref attachment">@SelectMethod</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>--select-method com.acme.Foo#m</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>method:com.acme.Foo#m</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/discovery/ModuleSelector.html" class="xref attachment">ModuleSelector</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/discovery/DiscoverySelectors.html#selectModule(java.lang.String)" class="xref attachment">selectModule</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="../api/org.junit.platform.suite.api/org/junit/platform/suite/api/SelectModules.html" class="xref attachment">@SelectModules</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>--select-module com.acme</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>module:com.acme</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/discovery/NestedClassSelector.html" class="xref attachment">NestedClassSelector</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/discovery/DiscoverySelectors.html#selectNestedClass(java.util.List,java.lang.Class)" class="xref attachment">selectNestedClass</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="../api/org.junit.platform.suite.api/org/junit/platform/suite/api/Select.html" class="xref attachment">@Select</a>("&lt;identifier&gt;")</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>--select &lt;identifier&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>nested-class:com.acme.Foo/Bar</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/discovery/NestedMethodSelector.html" class="xref attachment">NestedMethodSelector</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/discovery/DiscoverySelectors.html#selectNestedMethod(java.util.List,java.lang.Class,java.lang.String)" class="xref attachment">selectNestedMethod</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="../api/org.junit.platform.suite.api/org/junit/platform/suite/api/Select.html" class="xref attachment">@Select</a>("&lt;identifier&gt;")</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>--select &lt;identifier&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>nested-method:com.acme.Foo/Bar#m</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/discovery/PackageSelector.html" class="xref attachment">PackageSelector</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/discovery/DiscoverySelectors.html#selectPackage(java.lang.String)" class="xref attachment">selectPackage</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="../api/org.junit.platform.suite.api/org/junit/platform/suite/api/SelectPackages.html" class="xref attachment">@SelectPackages</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>--select-package com.acme.foo</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>package:com.acme.foo</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/discovery/UniqueIdSelector.html" class="xref attachment">UniqueIdSelector</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/discovery/DiscoverySelectors.html#selectUniqueId(java.lang.String)" class="xref attachment">selectUniqueId</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="../api/org.junit.platform.suite.api/org/junit/platform/suite/api/Select.html" class="xref attachment">@Select</a>("&lt;identifier&gt;")</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>--select-unique-id &lt;identifier&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>uid:[engine:Foo]/[segment:Bar]</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/discovery/UriSelector.html" class="xref attachment">UriSelector</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/discovery/DiscoverySelectors.html#selectUri(java.lang.String)" class="xref attachment">selectUri</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="../api/org.junit.platform.suite.api/org/junit/platform/suite/api/SelectUris.html" class="xref attachment">@SelectUris</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>--select-uri file:///foo.txt</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>uri:file:///foo.txt</code></p></td>
+</tr>
+</tbody>
+</table>
+<nav class="pagination">
+  <span class="prev"><a href="console-launcher.html">Console Launcher</a></span>
+  <span class="next"><a href="configuration-parameters.html">Configuration Parameters</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+    <div style="float: right">
+        <a href="https://www.netlify.com">
+            <img src="https://www.netlify.com/assets/badges/netlify-badge-color-accent.svg" alt="Deploys by Netlify" />
+        </a>
+    </div>
+    <p>
+        &copy; Copyright 2015-2025 the original author or authors.
+        All rights reserved.
+        The content of this page is made available under the terms of the <a href="https://www.eclipse.org/legal/epl-v20.html">Eclipse Public License v2.0</a>.
+    </p>
+    <p>
+        This page was built using an adapted version of the Antora default UI.
+        The source code for this UI is licensed under the terms of the <a href="https://www.mozilla.org/en-US/MPL/2.0/">Mozilla Public License v2.0</a>.
+    </p>
+</footer>
+<script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="100" data-stylesheet="../../_/css/search.css"></script>
+<script async src="../../search-index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Dynamic Tests :: JUnit User Guide</title>
+    <link rel="canonical" href="https://docs.junit.org/current/writing-tests/dynamic-tests.html">
+    <link rel="prev" href="test-templates.html">
+    <link rel="next" href="timeouts.html">
+    <meta name="generator" content="Antora 3.2.0-alpha.11">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<link rel="icon" type="image/png" href="../../_/img/junit-diamond.png">
+<link rel="stylesheet" href="../../_/css/site-extra.css">
+<link rel="stylesheet" href="../../_/css/vendor/highlightjs/github.min.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item title" href="https://docs.junit.org">
+          <img class="logo" src="../../_/img/junit-diamond-white.png" alt="✔️"/>
+          JUnit User Guide<span class="version">6.0.1</span>
+      </a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search the docs">
+        </div>
+      </div>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="junit" data-version="6.0.1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">JUnit</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="intro.html">Writing Tests</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="annotations.html">Annotations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="definitions.html">Definitions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-classes-and-methods.html">Test Classes and Methods</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="display-names.html">Display Names</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="assertions.html">Assertions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="assumptions.html">Assumptions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="exception-handling.html">Exception Handling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="disabling-tests.html">Disabling Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="conditional-test-execution.html">Conditional Test Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="tagging-and-filtering.html">Tagging and Filtering</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-execution-order.html">Test Execution Order</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-instance-lifecycle.html">Test Instance Lifecycle</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="nested-tests.html">Nested Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dependency-injection-for-constructors-and-methods.html">Dependency Injection for Constructors and Methods</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-interfaces-and-default-methods.html">Test Interfaces and Default Methods</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="repeated-tests.html">Repeated Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="parameterized-classes-and-tests.html">Parameterized Classes and Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="class-templates.html">Class Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-templates.html">Test Templates</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="dynamic-tests.html">Dynamic Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="timeouts.html">Timeouts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="parallel-execution.html">Parallel Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="built-in-extensions.html">Built-in Extensions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../migrating-from-junit4.html">Migrating from JUnit 4</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../running-tests/intro.html">Running Tests</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/ide-support.html">IDE Support</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/build-support.html">Build Support</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/console-launcher.html">Console Launcher</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/discovery-selectors.html">Discovery Selectors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/configuration-parameters.html">Configuration Parameters</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/tags.html">Tags</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/capturing-standard-output-error.html">Capturing Standard Output/Error</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/using-listeners-and-interceptors.html">Using Listeners and Interceptors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/stack-trace-pruning.html">Stack Trace Pruning</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/discovery-issues.html">Discovery Issues</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../extensions/overview.html">Extension Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/registering-extensions.html">Registering Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/conditional-test-execution.html">Conditional Test Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-instance-pre-construct-callback.html">Test Instance Pre-construct Callback</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-instance-factories.html">Test Instance Factories</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-instance-post-processing.html">Test Instance Post-processing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-instance-pre-destroy-callback.html">Test Instance Pre-destroy Callback</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/parameter-resolution.html">Parameter Resolution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-result-processing.html">Test Result Processing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-lifecycle-callbacks.html">Test Lifecycle Callbacks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/exception-handling.html">Exception Handling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/pre-interrupt-callback.html">Pre-Interrupt Callback</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/intercepting-invocations.html">Intercepting Invocations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/providing-invocation-contexts-for-class-templates.html">Providing Invocation Contexts for Class Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/providing-invocation-contexts-for-test-templates.html">Providing Invocation Contexts for Test Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/keeping-state-in-extensions.html">Keeping State in Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/supported-utilities-in-extensions.html">Supported Utilities in Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/relative-execution-order-of-user-code-and-extensions.html">Relative Execution Order of User Code and Extensions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced Topics</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/junit-platform-reporting.html">JUnit Platform Reporting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/junit-platform-suite-engine.html">JUnit Platform Suite Engine</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/testkit.html">JUnit Platform Test Kit</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/launcher-api.html">JUnit Platform Launcher API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/engines.html">Test Engines</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../api-evolution.html">API Evolution</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../release-notes.html">Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">JUnit</span>
+    <span class="version">6.0.1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../index.html">JUnit</a></div>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../snapshot/index.html">6.1.0-SNAPSHOT</a>
+        </li>
+        <li class="version">
+          <a href="../../6.0.2/index.html">6.0.2-SNAPSHOT</a>
+        </li>
+        <li class="version is-current is-latest">
+          <a href="../index.html">6.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../6.0.0/index.html">6.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.2/index.html">5.14.2-SNAPSHOT</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.1/index.html">5.14.1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">JUnit</a></li>
+    <li><a href="intro.html">Writing Tests</a></li>
+    <li><a href="dynamic-tests.html">Dynamic Tests</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">6.0.1</button>
+  <div class="version-menu">
+    <a class="version" href="../../snapshot/writing-tests/dynamic-tests.html">6.1.0-SNAPSHOT</a>
+    <a class="version" href="../../6.0.2/writing-tests/dynamic-tests.html">6.0.2-SNAPSHOT</a>
+    <a class="version is-current" href="dynamic-tests.html">6.0.1</a>
+    <a class="version" href="../../6.0.0/writing-tests/dynamic-tests.html">6.0.0</a>
+    <a class="version" href="../../5.14.2/writing-tests/dynamic-tests.html">5.14.2-SNAPSHOT</a>
+    <a class="version" href="../../5.14.1/writing-tests/dynamic-tests.html">5.14.1</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/junit-team/junit-framework/edit/antora/6.0.1/documentation/modules/ROOT/pages/writing-tests/dynamic-tests.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Dynamic Tests</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>The standard <code>@Test</code> annotation in JUnit Jupiter described in
+<a href="annotations.html" class="xref page">Annotations</a> is very similar to the <code>@Test</code> annotation in JUnit 4. Both
+describe methods that implement test cases. These test cases are static in the sense that
+they are fully specified at compile time, and their behavior cannot be changed by
+anything happening at runtime. <em>Assumptions provide a basic form of dynamic behavior but
+are intentionally rather limited in their expressiveness.</em></p>
+</div>
+<div class="paragraph">
+<p>In addition to these standard tests a completely new kind of test programming model has
+been introduced in JUnit Jupiter. This new kind of test is a <em>dynamic test</em> which is
+generated at runtime by a factory method that is annotated with <code>@TestFactory</code>.</p>
+</div>
+<div class="paragraph">
+<p>In contrast to <code>@Test</code> methods, a <code>@TestFactory</code> method is not itself a test case but
+rather a factory for test cases. Thus, a dynamic test is the product of a factory.
+Technically speaking, a <code>@TestFactory</code> method must return a single <code>DynamicNode</code> or a
+<em>stream</em> of <code>DynamicNode</code> instances or any of its subclasses. In this context, a "stream"
+is anything that JUnit can reliably convert into a <code>Stream</code>, such as <code>Stream</code>,
+<code>Collection</code>, <code>Iterator</code>, <code>Iterable</code>, an array of objects, or any type that provides an
+<code>iterator(): Iterator</code> method (such as, for example, a <code>kotlin.sequences.Sequence</code>).</p>
+</div>
+<div class="paragraph">
+<p>Instantiable subclasses of <code>DynamicNode</code> are <code>DynamicContainer</code> and <code>DynamicTest</code>.
+<code>DynamicContainer</code> instances are composed of a <em>display name</em> and a list of dynamic child
+nodes, enabling the creation of arbitrarily nested hierarchies of dynamic nodes.
+<code>DynamicTest</code> instances will be executed lazily, enabling dynamic and even
+non-deterministic generation of test cases.</p>
+</div>
+<div class="paragraph">
+<p>Any <code>Stream</code> returned by a <code>@TestFactory</code> will be properly closed by calling
+<code>stream.close()</code>, making it safe to use a resource such as <code>Files.lines()</code>.</p>
+</div>
+<div class="paragraph">
+<p>As with <code>@Test</code> methods, <code>@TestFactory</code> methods must not be <code>private</code> or <code>static</code> and may
+optionally declare parameters to be resolved by <code>ParameterResolvers</code>.</p>
+</div>
+<div class="paragraph">
+<p>A <code>DynamicTest</code> is a test case generated at runtime. It is composed of a <em>display name</em>
+and an <code>Executable</code>. <code>Executable</code> is a <code>@FunctionalInterface</code> which means that the
+implementations of dynamic tests can be provided as <em>lambda expressions</em> or <em>method
+references</em>.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="title">Dynamic Test Lifecycle</div>
+The execution lifecycle of a dynamic test is quite different than it is for a
+standard <code>@Test</code> case. Specifically, there are no lifecycle callbacks for individual
+dynamic tests. This means that <code>@BeforeEach</code> and <code>@AfterEach</code> methods and their
+corresponding extension callbacks are executed for the <code>@TestFactory</code> method but not for
+each <em>dynamic test</em>. In other words, if you access fields from the test instance within a
+lambda expression for a dynamic test, those fields will not be reset by callback methods
+or extensions between the execution of individual dynamic tests generated by the same
+<code>@TestFactory</code> method.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="examples"><a class="anchor" href="#examples"></a>Dynamic Test Examples</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following <code>DynamicTestsDemo</code> class demonstrates several examples of test factories
+and dynamic tests.</p>
+</div>
+<div class="paragraph">
+<p>The first method returns an invalid return type and will cause a warning to be reported by
+JUnit during test discovery. Such methods are not executed.</p>
+</div>
+<div class="paragraph">
+<p>The next six methods demonstrate the generation of a <code>Collection</code>, <code>Iterable</code>, <code>Iterator</code>,
+array, or <code>Stream</code> of <code>DynamicTest</code> instances. Most of these examples do not really
+exhibit dynamic behavior but merely demonstrate the supported return types in principle.
+However, <code>dynamicTestsFromStream()</code> and <code>dynamicTestsFromIntStream()</code> demonstrate how to
+generate dynamic tests for a given set of strings or a range of input numbers.</p>
+</div>
+<div class="paragraph">
+<p>The next method is truly dynamic in nature. <code>generateRandomNumberOfTests()</code> implements an
+<code>Iterator</code> that generates random numbers, a display name generator, and a test executor
+and then provides all three to <code>DynamicTest.stream()</code>. Although the non-deterministic
+behavior of <code>generateRandomNumberOfTests()</code> is of course in conflict with test
+repeatability and should thus be used with care, it serves to demonstrate the
+expressiveness and power of dynamic tests.</p>
+</div>
+<div class="paragraph">
+<p>The next method is similar to <code>generateRandomNumberOfTests()</code> in terms of flexibility;
+however, <code>dynamicTestsFromStreamFactoryMethod()</code> generates a stream of dynamic tests from
+an existing <code>Stream</code> via the <code>DynamicTest.stream()</code> factory method.</p>
+</div>
+<div class="paragraph">
+<p>For demonstration purposes, the <code>dynamicNodeSingleTest()</code> method generates a single
+<code>DynamicTest</code> instead of a stream, and the <code>dynamicNodeSingleContainer()</code> method generates
+a nested hierarchy of dynamic tests utilizing <code>DynamicContainer</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static example.util.StringUtils.isPalindrome;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.DynamicContainer.dynamicContainer;
+import static org.junit.jupiter.api.DynamicTest.dynamicTest;
+
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Random;
+import java.util.function.Function;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
+
+import example.util.Calculator;
+
+import org.junit.jupiter.api.DynamicNode;
+import org.junit.jupiter.api.DynamicTest;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.TestFactory;
+import org.junit.jupiter.api.function.ThrowingConsumer;
+
+class DynamicTestsDemo {
+
+	private final Calculator calculator = new Calculator();
+
+	// This method will not be executed but produce a warning
+	@TestFactory
+	List&lt;String&gt; dynamicTestsWithInvalidReturnType() {
+		return Arrays.asList("Hello");
+	}
+
+	@TestFactory
+	Collection&lt;DynamicTest&gt; dynamicTestsFromCollection() {
+		return Arrays.asList(
+			dynamicTest("1st dynamic test", () -&gt; assertTrue(isPalindrome("madam"))),
+			dynamicTest("2nd dynamic test", () -&gt; assertEquals(4, calculator.multiply(2, 2)))
+		);
+	}
+
+	@TestFactory
+	Iterable&lt;DynamicTest&gt; dynamicTestsFromIterable() {
+		return Arrays.asList(
+			dynamicTest("3rd dynamic test", () -&gt; assertTrue(isPalindrome("madam"))),
+			dynamicTest("4th dynamic test", () -&gt; assertEquals(4, calculator.multiply(2, 2)))
+		);
+	}
+
+	@TestFactory
+	Iterator&lt;DynamicTest&gt; dynamicTestsFromIterator() {
+		return Arrays.asList(
+			dynamicTest("5th dynamic test", () -&gt; assertTrue(isPalindrome("madam"))),
+			dynamicTest("6th dynamic test", () -&gt; assertEquals(4, calculator.multiply(2, 2)))
+		).iterator();
+	}
+
+	@TestFactory
+	DynamicTest[] dynamicTestsFromArray() {
+		return new DynamicTest[] {
+			dynamicTest("7th dynamic test", () -&gt; assertTrue(isPalindrome("madam"))),
+			dynamicTest("8th dynamic test", () -&gt; assertEquals(4, calculator.multiply(2, 2)))
+		};
+	}
+
+	@TestFactory
+	Stream&lt;DynamicTest&gt; dynamicTestsFromStream() {
+		return Stream.of("racecar", "radar", "mom", "dad")
+			.map(text -&gt; dynamicTest(text, () -&gt; assertTrue(isPalindrome(text))));
+	}
+
+	@TestFactory
+	Stream&lt;DynamicTest&gt; dynamicTestsFromIntStream() {
+		// Generates tests for the first 10 even integers.
+		return IntStream.iterate(0, n -&gt; n + 2).limit(10)
+			.mapToObj(n -&gt; dynamicTest("test" + n, () -&gt; assertEquals(0, n % 2)));
+	}
+
+	@TestFactory
+	Stream&lt;DynamicTest&gt; generateRandomNumberOfTests() {
+
+		// Generates random positive integers between 0 and 100 until
+		// a number evenly divisible by 7 is encountered.
+		Iterator&lt;Integer&gt; inputGenerator = new Iterator&lt;&gt;() {
+
+			Random random = new Random();
+			int current;
+
+			@Override
+			public boolean hasNext() {
+				current = random.nextInt(100);
+				return current % 7 != 0;
+			}
+
+			@Override
+			public Integer next() {
+				return current;
+			}
+		};
+
+		// Generates display names like: input:5, input:37, input:85, etc.
+		Function&lt;Integer, String&gt; displayNameGenerator = (input) -&gt; "input:" + input;
+
+		// Executes tests based on the current input value.
+		ThrowingConsumer&lt;Integer&gt; testExecutor = (input) -&gt; assertTrue(input % 7 != 0);
+
+		// Returns a stream of dynamic tests.
+		return DynamicTest.stream(inputGenerator, displayNameGenerator, testExecutor);
+	}
+
+	@TestFactory
+	Stream&lt;DynamicTest&gt; dynamicTestsFromStreamFactoryMethod() {
+		// Stream of palindromes to check
+		Stream&lt;String&gt; inputStream = Stream.of("racecar", "radar", "mom", "dad");
+
+		// Generates display names like: racecar is a palindrome
+		Function&lt;String, String&gt; displayNameGenerator = text -&gt; text + " is a palindrome";
+
+		// Executes tests based on the current input value.
+		ThrowingConsumer&lt;String&gt; testExecutor = text -&gt; assertTrue(isPalindrome(text));
+
+		// Returns a stream of dynamic tests.
+		return DynamicTest.stream(inputStream, displayNameGenerator, testExecutor);
+	}
+
+	@TestFactory
+	Stream&lt;DynamicNode&gt; dynamicTestsWithContainers() {
+		return Stream.of("A", "B", "C")
+			.map(input -&gt; dynamicContainer("Container " + input, Stream.of(
+				dynamicTest("not null", () -&gt; assertNotNull(input)),
+				dynamicContainer("properties", Stream.of(
+					dynamicTest("length &gt; 0", () -&gt; assertTrue(input.length() &gt; 0)),
+					dynamicTest("not empty", () -&gt; assertFalse(input.isEmpty()))
+				))
+			)));
+	}
+
+	@TestFactory
+	DynamicNode dynamicNodeSingleTest() {
+		return dynamicTest("'pop' is a palindrome", () -&gt; assertTrue(isPalindrome("pop")));
+	}
+
+	@TestFactory
+	DynamicNode dynamicNodeSingleContainer() {
+		return dynamicContainer("palindromes",
+			Stream.of("racecar", "radar", "mom", "dad")
+				.map(text -&gt; dynamicTest(text, () -&gt; assertTrue(isPalindrome(text)))
+		));
+	}
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="named-support"><a class="anchor" href="#named-support"></a>Dynamic Tests and Named</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In some cases, it can be more natural to specify inputs together with a descriptive name
+using the <a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/Named.html" class="xref attachment">Named</a> API and the corresponding <code>stream()</code> factory methods on <code>DynamicTest</code> as
+shown in the first example below. The second example takes it one step further and allows
+to provide the code block that should be executed by implementing the <code>Executable</code>
+interface along with <code>Named</code> via the <code>NamedExecutable</code> base class.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static example.util.StringUtils.isPalindrome;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Named.named;
+
+import java.util.stream.Stream;
+
+import org.junit.jupiter.api.DynamicTest;
+import org.junit.jupiter.api.NamedExecutable;
+import org.junit.jupiter.api.TestFactory;
+
+public class DynamicTestsNamedDemo {
+
+	@TestFactory
+	Stream&lt;DynamicTest&gt; dynamicTestsFromStreamFactoryMethodWithNames() {
+		// Stream of palindromes to check
+		var inputStream = Stream.of(
+			named("racecar is a palindrome", "racecar"),
+			named("radar is also a palindrome", "radar"),
+			named("mom also seems to be a palindrome", "mom"),
+			named("dad is yet another palindrome", "dad")
+		);
+
+		// Returns a stream of dynamic tests.
+		return DynamicTest.stream(inputStream, text -&gt; assertTrue(isPalindrome(text)));
+	}
+
+	@TestFactory
+	Stream&lt;DynamicTest&gt; dynamicTestsFromStreamFactoryMethodWithNamedExecutables() {
+		// Stream of palindromes to check
+		var inputStream = Stream.of("racecar", "radar", "mom", "dad")
+				.map(PalindromeNamedExecutable::new);
+
+		// Returns a stream of dynamic tests based on NamedExecutables.
+		return DynamicTest.stream(inputStream);
+	}
+
+	record PalindromeNamedExecutable(String text) implements NamedExecutable {
+
+		@Override
+		public String getName() {
+			return "'%s' is a palindrome".formatted(text);
+		}
+
+		@Override
+		public void execute() {
+			assertTrue(isPalindrome(text));
+		}
+	}
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="uri-test-source"><a class="anchor" href="#uri-test-source"></a>URI Test Sources for Dynamic Tests</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The JUnit Platform provides <code>TestSource</code>, a representation of the source of a test or
+container used to navigate to its location by IDEs and build tools.</p>
+</div>
+<div class="paragraph">
+<p>The <code>TestSource</code> for a dynamic test or dynamic container can be constructed from a
+<code>java.net.URI</code> which can be supplied via the <code>DynamicTest.dynamicTest(String, URI,
+Executable)</code> or <code>DynamicContainer.dynamicContainer(String, URI, Stream)</code> factory method,
+respectively. The <code>URI</code> will be converted to one of the following <code>TestSource</code>
+implementations.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>ClasspathResourceSource</code> </dt>
+<dd>
+<p>If the <code>URI</code> contains the <code>classpath</code> scheme&#8201;&#8212;&#8201;for example,
+<code>classpath:/test/foo.xml?line=20,column=2</code>.</p>
+</dd>
+<dt class="hdlist1"><code>DirectorySource</code> </dt>
+<dd>
+<p>If the <code>URI</code> represents a directory present in the file system.</p>
+</dd>
+<dt class="hdlist1"><code>FileSource</code> </dt>
+<dd>
+<p>If the <code>URI</code> represents a file present in the file system.</p>
+</dd>
+<dt class="hdlist1"><code>MethodSource</code> </dt>
+<dd>
+<p>If the <code>URI</code> contains the <code>method</code> scheme and the fully qualified method name (FQMN)&#8201;&#8212;&#8201;for example, <code>method:org.junit.Foo#bar(java.lang.String, java.lang.String[])</code>. Please
+refer to the Javadoc for <code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/discovery/DiscoverySelectors.html" class="xref attachment">DiscoverySelectors</a>.<a href="../api/org.junit.platform.engine/org/junit/platform/engine/discovery/DiscoverySelectors.html#selectMethod(java.lang.String)" class="xref attachment">selectMethod</a></code> for the
+supported formats for a FQMN.</p>
+</dd>
+<dt class="hdlist1"><code>ClassSource</code> </dt>
+<dd>
+<p>If the <code>URI</code> contains the <code>class</code> scheme and the fully qualified class name&#8201;&#8212;&#8201;for example, <code>class:org.junit.Foo?line=42</code>.</p>
+</dd>
+<dt class="hdlist1"><code>UriSource</code> </dt>
+<dd>
+<p>If none of the above <code>TestSource</code> implementations are applicable.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="test-templates.html">Test Templates</a></span>
+  <span class="next"><a href="timeouts.html">Timeouts</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+    <div style="float: right">
+        <a href="https://www.netlify.com">
+            <img src="https://www.netlify.com/assets/badges/netlify-badge-color-accent.svg" alt="Deploys by Netlify" />
+        </a>
+    </div>
+    <p>
+        &copy; Copyright 2015-2025 the original author or authors.
+        All rights reserved.
+        The content of this page is made available under the terms of the <a href="https://www.eclipse.org/legal/epl-v20.html">Eclipse Public License v2.0</a>.
+    </p>
+    <p>
+        This page was built using an adapted version of the Antora default UI.
+        The source code for this UI is licensed under the terms of the <a href="https://www.mozilla.org/en-US/MPL/2.0/">Mozilla Public License v2.0</a>.
+    </p>
+</footer>
+<script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="100" data-stylesheet="../../_/css/search.css"></script>
+<script async src="../../search-index.js"></script>
+  </body>
+</html>

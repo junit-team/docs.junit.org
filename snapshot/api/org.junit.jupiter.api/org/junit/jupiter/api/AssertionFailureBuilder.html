@@ -68,6 +68,8 @@ loadScripts(document, 'script');</script>
 <li><a href="#expected(java.lang.Object)" tabindex="0">expected(Object)</a></li>
 <li><a href="#actual(java.lang.Object)" tabindex="0">actual(Object)</a></li>
 <li><a href="#includeValuesInMessage(boolean)" tabindex="0">includeValuesInMessage(boolean)</a></li>
+<li><a href="#trimStacktrace(java.lang.Class)" tabindex="0">trimStacktrace(Class)</a></li>
+<li><a href="#retainStackTraceElements(int)" tabindex="0">retainStackTraceElements(int)</a></li>
 <li><a href="#buildAndThrow()" tabindex="0">buildAndThrow()</a></li>
 <li><a href="#build()" tabindex="0">build()</a></li>
 </ol>
@@ -164,6 +166,16 @@ failure message.</div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#reason(java.lang.String)" class="member-name-link">reason</a><wbr>(<a href="https://jspecify.dev/docs/api/org/jspecify/annotations/Nullable.html" title="class or interface in org.jspecify.annotations" class="external-link">@Nullable</a> <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;reason)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Set the reason why the assertion failed.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="AssertionFailureBuilder.html" title="class in org.junit.jupiter.api">AssertionFailureBuilder</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#retainStackTraceElements(int)" class="member-name-link">retainStackTraceElements</a><wbr>(int&nbsp;retainStackTraceElements)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Set depth to trim the stacktrace to.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="AssertionFailureBuilder.html" title="class in org.junit.jupiter.api">AssertionFailureBuilder</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#trimStacktrace(java.lang.Class)" class="member-name-link">trimStacktrace</a><wbr>(<a href="https://jspecify.dev/docs/api/org/jspecify/annotations/Nullable.html" title="class or interface in org.jspecify.annotations" class="external-link">@Nullable</a> <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;?&gt;&nbsp;target)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Set target to trim the stacktrace to.</div>
 </div>
 </div>
 </div>
@@ -281,6 +293,50 @@ failure message.</div>
 <dt>Parameters:</dt>
 <dd><code>includeValuesInMessage</code> - whether to include the actual and expected
 values</dd>
+<dt>Returns:</dt>
+<dd>this builder for method chaining</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="trimStacktrace(java.lang.Class)">
+<h3>trimStacktrace</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#EXPERIMENTAL" title="class or interface in org.apiguardian.api" class="external-link">EXPERIMENTAL</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.1")
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="AssertionFailureBuilder.html" title="class in org.junit.jupiter.api">AssertionFailureBuilder</a></span>&nbsp;<span class="element-name">trimStacktrace</span><wbr><span class="parameters">(<a href="https://jspecify.dev/docs/api/org/jspecify/annotations/Nullable.html" title="class or interface in org.jspecify.annotations" class="external-link">@Nullable</a> <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;?&gt;&nbsp;target)</span></div>
+<div class="block">Set target to trim the stacktrace to.
+
+<p>Unless <a href="#retainStackTraceElements(int)"><code>retainStackTraceElements(int)</code></a> is set all stacktrace
+elements before the last element from <code>target</code> are trimmed.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>target</code> - class to trim from the stacktrace</dd>
+<dt>Returns:</dt>
+<dd>this builder for method chaining</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="retainStackTraceElements(int)">
+<h3>retainStackTraceElements</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#EXPERIMENTAL" title="class or interface in org.apiguardian.api" class="external-link">EXPERIMENTAL</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.1")
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="AssertionFailureBuilder.html" title="class in org.junit.jupiter.api">AssertionFailureBuilder</a></span>&nbsp;<span class="element-name">retainStackTraceElements</span><wbr><span class="parameters">(int&nbsp;retainStackTraceElements)</span></div>
+<div class="block">Set depth to trim the stacktrace to. Defaults to
+1.
+
+<p>If <a href="#trimStacktrace(java.lang.Class)"><code>trimStacktrace(Class)</code></a> was set, all but
+<code>retainStackTraceElements - 1</code> stacktrace elements before the last
+element from <code>target</code> are removed. If
+<code>retainStackTraceElements</code> is zero, all elements including those
+from <code>target</code> are trimmed.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>retainStackTraceElements</code> - depth of trimming, must be non-negative</dd>
 <dt>Returns:</dt>
 <dd>this builder for method chaining</dd>
 </dl>

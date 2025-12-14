@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>JUnit Platform Test Kit :: JUnit User Guide</title>
+    <link rel="canonical" href="https://docs.junit.org/current/advanced-topics/testkit.html">
+    <link rel="prev" href="junit-platform-suite-engine.html">
+    <link rel="next" href="launcher-api.html">
+    <meta name="generator" content="Antora 3.2.0-alpha.11">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<link rel="icon" type="image/png" href="../../_/img/junit-diamond.png">
+<link rel="stylesheet" href="../../_/css/site-extra.css">
+<link rel="stylesheet" href="../../_/css/vendor/highlightjs/github.min.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item title" href="https://docs.junit.org">
+          <img class="logo" src="../../_/img/junit-diamond-white.png" alt="✔️"/>
+          JUnit User Guide<span class="version">6.0.1</span>
+      </a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search the docs">
+        </div>
+      </div>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="junit" data-version="6.0.1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">JUnit</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../writing-tests/intro.html">Writing Tests</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/annotations.html">Annotations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/definitions.html">Definitions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/test-classes-and-methods.html">Test Classes and Methods</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/display-names.html">Display Names</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/assertions.html">Assertions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/assumptions.html">Assumptions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/exception-handling.html">Exception Handling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/disabling-tests.html">Disabling Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/conditional-test-execution.html">Conditional Test Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/tagging-and-filtering.html">Tagging and Filtering</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/test-execution-order.html">Test Execution Order</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/test-instance-lifecycle.html">Test Instance Lifecycle</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/nested-tests.html">Nested Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/dependency-injection-for-constructors-and-methods.html">Dependency Injection for Constructors and Methods</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/test-interfaces-and-default-methods.html">Test Interfaces and Default Methods</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/repeated-tests.html">Repeated Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/parameterized-classes-and-tests.html">Parameterized Classes and Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/class-templates.html">Class Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/test-templates.html">Test Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/dynamic-tests.html">Dynamic Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/timeouts.html">Timeouts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/parallel-execution.html">Parallel Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/built-in-extensions.html">Built-in Extensions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../migrating-from-junit4.html">Migrating from JUnit 4</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../running-tests/intro.html">Running Tests</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/ide-support.html">IDE Support</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/build-support.html">Build Support</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/console-launcher.html">Console Launcher</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/discovery-selectors.html">Discovery Selectors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/configuration-parameters.html">Configuration Parameters</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/tags.html">Tags</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/capturing-standard-output-error.html">Capturing Standard Output/Error</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/using-listeners-and-interceptors.html">Using Listeners and Interceptors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/stack-trace-pruning.html">Stack Trace Pruning</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/discovery-issues.html">Discovery Issues</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../extensions/overview.html">Extension Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/registering-extensions.html">Registering Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/conditional-test-execution.html">Conditional Test Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-instance-pre-construct-callback.html">Test Instance Pre-construct Callback</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-instance-factories.html">Test Instance Factories</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-instance-post-processing.html">Test Instance Post-processing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-instance-pre-destroy-callback.html">Test Instance Pre-destroy Callback</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/parameter-resolution.html">Parameter Resolution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-result-processing.html">Test Result Processing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-lifecycle-callbacks.html">Test Lifecycle Callbacks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/exception-handling.html">Exception Handling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/pre-interrupt-callback.html">Pre-Interrupt Callback</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/intercepting-invocations.html">Intercepting Invocations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/providing-invocation-contexts-for-class-templates.html">Providing Invocation Contexts for Class Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/providing-invocation-contexts-for-test-templates.html">Providing Invocation Contexts for Test Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/keeping-state-in-extensions.html">Keeping State in Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/supported-utilities-in-extensions.html">Supported Utilities in Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/relative-execution-order-of-user-code-and-extensions.html">Relative Execution Order of User Code and Extensions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced Topics</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="junit-platform-reporting.html">JUnit Platform Reporting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="junit-platform-suite-engine.html">JUnit Platform Suite Engine</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="testkit.html">JUnit Platform Test Kit</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="launcher-api.html">JUnit Platform Launcher API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="engines.html">Test Engines</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../api-evolution.html">API Evolution</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../release-notes.html">Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">JUnit</span>
+    <span class="version">6.0.1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../index.html">JUnit</a></div>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../snapshot/index.html">6.1.0-SNAPSHOT</a>
+        </li>
+        <li class="version">
+          <a href="../../6.0.2/index.html">6.0.2-SNAPSHOT</a>
+        </li>
+        <li class="version is-current is-latest">
+          <a href="../index.html">6.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../6.0.0/index.html">6.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.2/index.html">5.14.2-SNAPSHOT</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.1/index.html">5.14.1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">JUnit</a></li>
+    <li>Advanced Topics</li>
+    <li><a href="testkit.html">JUnit Platform Test Kit</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">6.0.1</button>
+  <div class="version-menu">
+    <a class="version" href="../../snapshot/advanced-topics/testkit.html">6.1.0-SNAPSHOT</a>
+    <a class="version" href="../../6.0.2/advanced-topics/testkit.html">6.0.2-SNAPSHOT</a>
+    <a class="version is-current" href="testkit.html">6.0.1</a>
+    <a class="version" href="../../6.0.0/advanced-topics/testkit.html">6.0.0</a>
+    <a class="version" href="../../5.14.2/advanced-topics/testkit.html">5.14.2-SNAPSHOT</a>
+    <a class="version" href="../../5.14.1/advanced-topics/testkit.html">5.14.1</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/junit-team/junit-framework/edit/antora/6.0.1/documentation/modules/ROOT/pages/advanced-topics/testkit.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">JUnit Platform Test Kit</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>junit-platform-testkit</code> artifact provides support for executing a test plan on the
+JUnit Platform and then verifying the expected results. This support is currently limited
+to the execution of a single <code>TestEngine</code> (see <a href="#engine">Engine Test Kit</a>).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="engine"><a class="anchor" href="#engine"></a>Engine Test Kit</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code><a href="../api/org.junit.platform.testkit/org/junit/platform/testkit/engine/package-summary.html" class="xref attachment">org.junit.platform.testkit.engine</a></code> package provides support for discovering and executing a
+<code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/TestPlan.html" class="xref attachment">TestPlan</a></code> for a given <code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/TestEngine.html" class="xref attachment">TestEngine</a></code> running on the JUnit Platform and then accessing
+the results via convenient result objects. For execution, a fluent API may be used to
+verify the expected execution events were received. The key entry point into this API is
+the <code><a href="../api/org.junit.platform.testkit/org/junit/platform/testkit/engine/EngineTestKit.html" class="xref attachment">EngineTestKit</a></code> which provides static factory methods named <code>engine()</code>,
+<code>discover()</code>, and <code>execute()</code>. It is recommended that you select one of the <code>engine()</code>
+variants to benefit from the fluent API for building a <code>LauncherDiscoveryRequest</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you prefer to use the <code>LauncherDiscoveryRequestBuilder</code> from the <code>Launcher</code> API
+to build your <code>LauncherDiscoveryRequest</code>, you must use one of the <code>discover()</code> or
+<code>execute()</code> variants in <code>EngineTestKit</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following test class written using JUnit Jupiter will be used in subsequent examples.</p>
+</div>
+<div id="engine-ExampleTestCase" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
+
+import example.util.Calculator;
+
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
+
+@TestMethodOrder(OrderAnnotation.class)
+public class ExampleTestCase {
+
+	private final Calculator calculator = new Calculator();
+
+	@Test
+	@Disabled("for demonstration purposes")
+	@Order(1)
+	void skippedTest() {
+		// skipped ...
+	}
+
+	@Test
+	@Order(2)
+	void succeedingTest() {
+		assertEquals(42, calculator.multiply(6, 7));
+	}
+
+	@Test
+	@Order(3)
+	void abortedTest() {
+		assumeTrue("abc".contains("Z"), "abc does not contain Z");
+		// aborted ...
+	}
+
+	@Test
+	@Order(4)
+	void failingTest() {
+		// The following throws an ArithmeticException: "/ by zero"
+		calculator.divide(1, 0);
+	}
+
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For the sake of brevity, the following sections demonstrate how to test JUnit&#8217;s own
+<code>JupiterTestEngine</code> whose unique engine ID is <code>"junit-jupiter"</code>. If you want to test your
+own <code>TestEngine</code> implementation, you need to use its unique engine ID. Alternatively, you
+may test your own <code>TestEngine</code> by supplying an instance of it to the
+<code>EngineTestKit.engine(TestEngine)</code> static factory method.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="engine-discovery"><a class="anchor" href="#engine-discovery"></a>Verifying Test Discovery</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following test demonstrates how to verify that a <code>TestPlan</code> was discovered as expected
+by the JUnit Jupiter <code>TestEngine</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static java.util.Collections.emptyList;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.platform.engine.discovery.DiscoverySelectors.selectClass;
+
+import example.ExampleTestCase;
+
+import org.junit.jupiter.api.Test;
+import org.junit.platform.testkit.engine.EngineDiscoveryResults;
+import org.junit.platform.testkit.engine.EngineTestKit;
+
+class EngineTestKitDiscoveryDemo {
+
+	@Test
+	void verifyJupiterDiscovery() {
+		EngineDiscoveryResults results = EngineTestKit.engine("junit-jupiter") <i class="conum" data-value="1"></i><b>(1)</b>
+				.selectors(selectClass(ExampleTestCase.class)) <i class="conum" data-value="2"></i><b>(2)</b>
+				.discover(); <i class="conum" data-value="3"></i><b>(3)</b>
+
+		assertEquals("JUnit Jupiter", results.getEngineDescriptor().getDisplayName()); <i class="conum" data-value="4"></i><b>(4)</b>
+		assertEquals(emptyList(), results.getDiscoveryIssues()); <i class="conum" data-value="5"></i><b>(5)</b>
+	}
+
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Select the JUnit Jupiter <code>TestEngine</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Select the <a href="#engine-ExampleTestCase"><code>ExampleTestCase</code></a> test class.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Discover the <code>TestPlan</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Assert engine root descriptor has expected display name.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Assert no discovery issues were encountered.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="engine-statistics"><a class="anchor" href="#engine-statistics"></a>Asserting Execution Statistics</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>One of the most common features of the Test Kit is the ability to assert statistics
+against events fired during the execution of a <code>TestPlan</code>. The following tests demonstrate
+how to assert statistics for <em>containers</em> and <em>tests</em> in the JUnit Jupiter <code>TestEngine</code>.
+For details on what statistics are available, consult the Javadoc for <code><a href="../api/org.junit.platform.testkit/org/junit/platform/testkit/engine/EventStatistics.html" class="xref attachment">EventStatistics</a></code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static org.junit.platform.engine.discovery.DiscoverySelectors.selectClass;
+
+import example.ExampleTestCase;
+
+import org.junit.jupiter.api.Test;
+import org.junit.platform.testkit.engine.EngineTestKit;
+
+class EngineTestKitStatisticsDemo {
+
+	@Test
+	void verifyJupiterContainerStats() {
+		EngineTestKit
+			.engine("junit-jupiter") <i class="conum" data-value="1"></i><b>(1)</b>
+			.selectors(selectClass(ExampleTestCase.class)) <i class="conum" data-value="2"></i><b>(2)</b>
+			.execute() <i class="conum" data-value="3"></i><b>(3)</b>
+			.containerEvents() <i class="conum" data-value="4"></i><b>(4)</b>
+			.assertStatistics(stats -&gt; stats.started(2).succeeded(2)); <i class="conum" data-value="5"></i><b>(5)</b>
+	}
+
+	@Test
+	void verifyJupiterTestStats() {
+		EngineTestKit
+			.engine("junit-jupiter") <i class="conum" data-value="1"></i><b>(1)</b>
+			.selectors(selectClass(ExampleTestCase.class)) <i class="conum" data-value="2"></i><b>(2)</b>
+			.execute() <i class="conum" data-value="3"></i><b>(3)</b>
+			.testEvents() <i class="conum" data-value="6"></i><b>(6)</b>
+			.assertStatistics(stats -&gt;
+				stats.skipped(1).started(3).succeeded(1).aborted(1).failed(1)); <i class="conum" data-value="7"></i><b>(7)</b>
+	}
+
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Select the JUnit Jupiter <code>TestEngine</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Select the <a href="#engine-ExampleTestCase"><code>ExampleTestCase</code></a> test class.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Execute the <code>TestPlan</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Filter by <em>container</em> events.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Assert statistics for <em>container</em> events.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>Filter by <em>test</em> events.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="7"></i><b>7</b></td>
+<td>Assert statistics for <em>test</em> events.</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+In the <code>verifyJupiterContainerStats()</code> test method, the counts for the <code>started</code> and
+<code>succeeded</code> statistics are <code>2</code> since the <code>JupiterTestEngine</code> and the
+<a href="#engine-ExampleTestCase"><code>ExampleTestCase</code></a> class are both considered containers.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="engine-events"><a class="anchor" href="#engine-events"></a>Asserting Events</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you find that <a href="#engine-statistics">asserting statistics</a> alone is insufficient
+for verifying the expected behavior of test execution, you can work directly with the
+recorded <code><a href="../api/org.junit.platform.testkit/org/junit/platform/testkit/engine/Event.html" class="xref attachment">Event</a></code> elements and perform assertions against them.</p>
+</div>
+<div class="paragraph">
+<p>For example, if you want to verify the reason that the <code>skippedTest()</code> method in
+<a href="#engine-ExampleTestCase"><code>ExampleTestCase</code></a> was skipped, you can do that as
+follows.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The <code>assertThatEvents()</code> method in the following example is a shortcut for
+<code>org.assertj.core.api.Assertions.assertThat(events.list())</code> from the <a href="https://assertj.github.io/doc/">AssertJ</a> assertion
+library.</p>
+</div>
+<div class="paragraph">
+<p>For details on what <em>conditions</em> are available for use with AssertJ assertions against
+events, consult the Javadoc for <code><a href="../api/org.junit.platform.testkit/org/junit/platform/testkit/engine/EventConditions.html" class="xref attachment">EventConditions</a></code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static org.junit.platform.engine.discovery.DiscoverySelectors.selectMethod;
+import static org.junit.platform.testkit.engine.EventConditions.event;
+import static org.junit.platform.testkit.engine.EventConditions.skippedWithReason;
+import static org.junit.platform.testkit.engine.EventConditions.test;
+
+import example.ExampleTestCase;
+
+import org.junit.jupiter.api.Test;
+import org.junit.platform.testkit.engine.EngineTestKit;
+import org.junit.platform.testkit.engine.Events;
+
+class EngineTestKitSkippedMethodDemo {
+
+	@Test
+	void verifyJupiterMethodWasSkipped() {
+		String methodName = "skippedTest";
+
+		Events testEvents = EngineTestKit <i class="conum" data-value="5"></i><b>(5)</b>
+			.engine("junit-jupiter") <i class="conum" data-value="1"></i><b>(1)</b>
+			.selectors(selectMethod(ExampleTestCase.class, methodName)) <i class="conum" data-value="2"></i><b>(2)</b>
+			.execute() <i class="conum" data-value="3"></i><b>(3)</b>
+			.testEvents(); <i class="conum" data-value="4"></i><b>(4)</b>
+
+		testEvents.assertStatistics(stats -&gt; stats.skipped(1)); <i class="conum" data-value="6"></i><b>(6)</b>
+
+		testEvents.assertThatEvents() <i class="conum" data-value="7"></i><b>(7)</b>
+			.haveExactly(1, event(test(methodName),
+				skippedWithReason("for demonstration purposes")));
+	}
+
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Select the JUnit Jupiter <code>TestEngine</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Select the <code>skippedTest()</code> method in the <a href="#engine-ExampleTestCase"><code>ExampleTestCase</code></a> test class.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Execute the <code>TestPlan</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Filter by <em>test</em> events.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Save the <em>test</em> <code>Events</code> to a local variable.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>Optionally assert the expected statistics.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="7"></i><b>7</b></td>
+<td>Assert that the recorded <em>test</em> events contain exactly one skipped test named
+<code>skippedTest</code> with <code>"for demonstration purposes"</code> as the <em>reason</em>.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>If you want to verify the type of exception thrown from the <code>failingTest()</code> method in
+<a href="#engine-ExampleTestCase"><code>ExampleTestCase</code></a>, you can do that as follows.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>For details on what <em>conditions</em> are available for use with AssertJ assertions against
+events and execution results, consult the Javadoc for <code><a href="../api/org.junit.platform.testkit/org/junit/platform/testkit/engine/EventConditions.html" class="xref attachment">EventConditions</a></code> and
+<code><a href="../api/org.junit.platform.testkit/org/junit/platform/testkit/engine/TestExecutionResultConditions.html" class="xref attachment">TestExecutionResultConditions</a></code>, respectively.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static org.junit.platform.engine.discovery.DiscoverySelectors.selectClass;
+import static org.junit.platform.testkit.engine.EventConditions.event;
+import static org.junit.platform.testkit.engine.EventConditions.finishedWithFailure;
+import static org.junit.platform.testkit.engine.EventConditions.test;
+import static org.junit.platform.testkit.engine.TestExecutionResultConditions.instanceOf;
+import static org.junit.platform.testkit.engine.TestExecutionResultConditions.message;
+
+import example.ExampleTestCase;
+
+import org.junit.jupiter.api.Test;
+import org.junit.platform.testkit.engine.EngineTestKit;
+
+class EngineTestKitFailedMethodDemo {
+
+	@Test
+	void verifyJupiterMethodFailed() {
+		EngineTestKit.engine("junit-jupiter") <i class="conum" data-value="1"></i><b>(1)</b>
+			.selectors(selectClass(ExampleTestCase.class)) <i class="conum" data-value="2"></i><b>(2)</b>
+			.execute() <i class="conum" data-value="3"></i><b>(3)</b>
+			.testEvents() <i class="conum" data-value="4"></i><b>(4)</b>
+			.assertThatEvents().haveExactly(1, <i class="conum" data-value="5"></i><b>(5)</b>
+				event(test("failingTest"),
+					finishedWithFailure(
+						instanceOf(ArithmeticException.class), message(it -&gt; it.endsWith("by zero")))));
+	}
+
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Select the JUnit Jupiter <code>TestEngine</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Select the <a href="#engine-ExampleTestCase"><code>ExampleTestCase</code></a> test class.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Execute the <code>TestPlan</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Filter by <em>test</em> events.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Assert that the recorded <em>test</em> events contain exactly one failing test named
+<code>failingTest</code> with an exception of type <code>ArithmeticException</code> and an error message
+that ends with <code>"/ by zero"</code>.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Although typically unnecessary, there are times when you need to verify <strong>all</strong> of the
+events fired during the execution of a <code>TestPlan</code>. The following test demonstrates how to
+achieve this via the <code>assertEventsMatchExactly()</code> method in the <code>EngineTestKit</code> API.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Since <code>assertEventsMatchExactly()</code> matches conditions exactly in the order in which the
+events were fired, <a href="#engine-ExampleTestCase"><code>ExampleTestCase</code></a> has been
+annotated with <code>@TestMethodOrder(OrderAnnotation.class)</code> and each test method has been
+annotated with <code>@Order(&#8230;&#8203;)</code>. This allows us to enforce the order in which the test
+methods are executed, which in turn allows our <code>verifyAllJupiterEvents()</code> test to be
+reliable.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>If you want to do a <em>partial</em> match <em>with</em> or <em>without</em> ordering requirements, you can use
+the methods <code>assertEventsMatchLooselyInOrder()</code> and <code>assertEventsMatchLoosely()</code>,
+respectively.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static org.junit.platform.engine.discovery.DiscoverySelectors.selectClass;
+import static org.junit.platform.testkit.engine.EventConditions.abortedWithReason;
+import static org.junit.platform.testkit.engine.EventConditions.container;
+import static org.junit.platform.testkit.engine.EventConditions.engine;
+import static org.junit.platform.testkit.engine.EventConditions.event;
+import static org.junit.platform.testkit.engine.EventConditions.finishedSuccessfully;
+import static org.junit.platform.testkit.engine.EventConditions.finishedWithFailure;
+import static org.junit.platform.testkit.engine.EventConditions.skippedWithReason;
+import static org.junit.platform.testkit.engine.EventConditions.started;
+import static org.junit.platform.testkit.engine.EventConditions.test;
+import static org.junit.platform.testkit.engine.TestExecutionResultConditions.instanceOf;
+import static org.junit.platform.testkit.engine.TestExecutionResultConditions.message;
+
+import java.io.StringWriter;
+import java.io.Writer;
+
+import example.ExampleTestCase;
+
+import org.junit.jupiter.api.Test;
+import org.junit.platform.testkit.engine.EngineTestKit;
+import org.opentest4j.TestAbortedException;
+
+class EngineTestKitAllEventsDemo {
+
+	@Test
+	void verifyAllJupiterEvents() {
+		Writer writer = // create a java.io.Writer for debug output
+
+		EngineTestKit.engine("junit-jupiter") <i class="conum" data-value="1"></i><b>(1)</b>
+			.selectors(selectClass(ExampleTestCase.class)) <i class="conum" data-value="2"></i><b>(2)</b>
+			.execute() <i class="conum" data-value="3"></i><b>(3)</b>
+			.allEvents() <i class="conum" data-value="4"></i><b>(4)</b>
+			.debug(writer) <i class="conum" data-value="5"></i><b>(5)</b>
+			.assertEventsMatchExactly( <i class="conum" data-value="6"></i><b>(6)</b>
+				event(engine(), started()),
+				event(container(ExampleTestCase.class), started()),
+				event(test("skippedTest"), skippedWithReason("for demonstration purposes")),
+				event(test("succeedingTest"), started()),
+				event(test("succeedingTest"), finishedSuccessfully()),
+				event(test("abortedTest"), started()),
+				event(test("abortedTest"),
+					abortedWithReason(instanceOf(TestAbortedException.class),
+						message(m -&gt; m.contains("abc does not contain Z")))),
+				event(test("failingTest"), started()),
+				event(test("failingTest"), finishedWithFailure(
+					instanceOf(ArithmeticException.class), message(it -&gt; it.endsWith("by zero")))),
+				event(container(ExampleTestCase.class), finishedSuccessfully()),
+				event(engine(), finishedSuccessfully()));
+	}
+
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Select the JUnit Jupiter <code>TestEngine</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Select the <a href="#engine-ExampleTestCase"><code>ExampleTestCase</code></a> test class.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Execute the <code>TestPlan</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Filter by <em>all</em> events.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Print all events to the supplied <code>writer</code> for debugging purposes. Debug information
+can also be written to an <code>OutputStream</code> such as <code>System.out</code> or <code>System.err</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>Assert <em>all</em> events in exactly the order in which they were fired by the test engine.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <code>debug()</code> invocation from the preceding example results in output similar to the
+following.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-none hljs">All Events:
+	Event [type = STARTED, testDescriptor = JupiterEngineDescriptor: [engine:junit-jupiter], timestamp = 2018-12-14T12:45:14.082280Z, payload = null]
+	Event [type = STARTED, testDescriptor = ClassTestDescriptor: [engine:junit-jupiter]/[class:example.ExampleTestCase], timestamp = 2018-12-14T12:45:14.089339Z, payload = null]
+	Event [type = SKIPPED, testDescriptor = TestMethodTestDescriptor: [engine:junit-jupiter]/[class:example.ExampleTestCase]/[method:skippedTest()], timestamp = 2018-12-14T12:45:14.094314Z, payload = 'for demonstration purposes']
+	Event [type = STARTED, testDescriptor = TestMethodTestDescriptor: [engine:junit-jupiter]/[class:example.ExampleTestCase]/[method:succeedingTest()], timestamp = 2018-12-14T12:45:14.095182Z, payload = null]
+	Event [type = FINISHED, testDescriptor = TestMethodTestDescriptor: [engine:junit-jupiter]/[class:example.ExampleTestCase]/[method:succeedingTest()], timestamp = 2018-12-14T12:45:14.104922Z, payload = TestExecutionResult [status = SUCCESSFUL, throwable = null]]
+	Event [type = STARTED, testDescriptor = TestMethodTestDescriptor: [engine:junit-jupiter]/[class:example.ExampleTestCase]/[method:abortedTest()], timestamp = 2018-12-14T12:45:14.106121Z, payload = null]
+	Event [type = FINISHED, testDescriptor = TestMethodTestDescriptor: [engine:junit-jupiter]/[class:example.ExampleTestCase]/[method:abortedTest()], timestamp = 2018-12-14T12:45:14.109956Z, payload = TestExecutionResult [status = ABORTED, throwable = org.opentest4j.TestAbortedException: Assumption failed: abc does not contain Z]]
+	Event [type = STARTED, testDescriptor = TestMethodTestDescriptor: [engine:junit-jupiter]/[class:example.ExampleTestCase]/[method:failingTest()], timestamp = 2018-12-14T12:45:14.110680Z, payload = null]
+	Event [type = FINISHED, testDescriptor = TestMethodTestDescriptor: [engine:junit-jupiter]/[class:example.ExampleTestCase]/[method:failingTest()], timestamp = 2018-12-14T12:45:14.111217Z, payload = TestExecutionResult [status = FAILED, throwable = java.lang.ArithmeticException: / by zero]]
+	Event [type = FINISHED, testDescriptor = ClassTestDescriptor: [engine:junit-jupiter]/[class:example.ExampleTestCase], timestamp = 2018-12-14T12:45:14.113731Z, payload = TestExecutionResult [status = SUCCESSFUL, throwable = null]]
+	Event [type = FINISHED, testDescriptor = JupiterEngineDescriptor: [engine:junit-jupiter], timestamp = 2018-12-14T12:45:14.113806Z, payload = TestExecutionResult [status = SUCCESSFUL, throwable = null]]</code></pre>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="junit-platform-suite-engine.html">JUnit Platform Suite Engine</a></span>
+  <span class="next"><a href="launcher-api.html">JUnit Platform Launcher API</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+    <div style="float: right">
+        <a href="https://www.netlify.com">
+            <img src="https://www.netlify.com/assets/badges/netlify-badge-color-accent.svg" alt="Deploys by Netlify" />
+        </a>
+    </div>
+    <p>
+        &copy; Copyright 2015-2025 the original author or authors.
+        All rights reserved.
+        The content of this page is made available under the terms of the <a href="https://www.eclipse.org/legal/epl-v20.html">Eclipse Public License v2.0</a>.
+    </p>
+    <p>
+        This page was built using an adapted version of the Antora default UI.
+        The source code for this UI is licensed under the terms of the <a href="https://www.mozilla.org/en-US/MPL/2.0/">Mozilla Public License v2.0</a>.
+    </p>
+</footer>
+<script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="100" data-stylesheet="../../_/css/search.css"></script>
+<script async src="../../search-index.js"></script>
+  </body>
+</html>
