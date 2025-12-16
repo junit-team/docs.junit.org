@@ -2021,8 +2021,8 @@ integral types: <code>byte</code>, <code>short</code>, <code>int</code>, <code>l
 <div class="paragraph">
 <p>In addition to implicit conversion from strings to the target types listed in the above
 table, JUnit Jupiter also provides a fallback mechanism for automatic conversion from a
-<code>String</code> to a given target type if the target type declares exactly one suitable <em>factory
-method</em> or a <em>factory constructor</em> as defined below.</p>
+<code>String</code> to a given target type if the target type declares a suitable <em>factory method</em>
+or <em>factory constructor</em> as defined below.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2039,19 +2039,33 @@ target type must be declared as either a top-level class or as a <code>static</c
 </li>
 </ul>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If multiple <em>factory methods</em> are discovered, they will be ignored. If a <em>factory
-method</em> and a <em>factory constructor</em> are discovered, the factory method will be used
-instead of the constructor.
-</td>
-</tr>
-</table>
+<div class="paragraph">
+<p>If there are multiple <em>factory methods</em> or <em>factory constructors</em>, matching proceeds in the
+following order:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>A single <em>factory method</em> accepting a <code>String</code> argument.</p>
+</li>
+<li>
+<p>A single <em>factory constructor</em> accepting a <code>String</code> argument.</p>
+</li>
+<li>
+<p>A single <em>factory method</em> accepting a <code>CharSequence</code> argument.</p>
+</li>
+<li>
+<p>A single <em>factory constructor</em> accepting a <code>CharSequence</code> argument.</p>
+</li>
+<li>
+<p>A single <em>factory method</em> accepting a <code>String</code> argument once all <code>@Deprecated</code> factory
+methods have been removed from the set of methods being considered.</p>
+</li>
+<li>
+<p>A single <em>factory method</em> accepting a <code>CharSequence</code> argument once all <code>@Deprecated</code> factory
+methods have been removed from the set of methods being considered.</p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
 <p>For example, in the following <code>@ParameterizedTest</code> method, the <code>Book</code> argument will be

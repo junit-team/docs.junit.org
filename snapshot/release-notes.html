@@ -430,6 +430,32 @@ objects.</p>
 <a href="writing-tests/built-in-extensions.html#DefaultLocaleAndTimeZone" class="xref page">User Guide</a>.</p>
 </li>
 <li>
+<p>Support the creation of <code>Arguments</code> from iterables. These additions make it
+easier to dynamically build arguments from collections when using
+<code>@ParameterizedTest</code>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Arguments.of(Iterable&lt;?&gt;)</code></p>
+</li>
+<li>
+<p><code>Arguments.argumentsFrom(Iterable&lt;?&gt;)</code> (alias)</p>
+</li>
+<li>
+<p><code>Arguments.argumentSetFrom(String, Iterable&lt;?&gt;)</code></p>
+</li>
+<li>
+<p><code>Arguments.toList()</code> — returns a mutable <code>List&lt;@Nullable Object&gt;</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Exclude competing <code>@Deprecated</code> factory methods in
+<a href="writing-tests/parameterized-classes-and-tests.html#tests-argument-conversion-implicit-fallback" class="xref page">fallback String-to-Object</a>
+converter.</p>
+</li>
+<li>
 <p>Trim internal stack frames from <code>AssertionFailedError</code> stack traces.</p>
 </li>
 <li>
