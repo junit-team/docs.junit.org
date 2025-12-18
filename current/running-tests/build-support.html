@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Build Support :: JUnit User Guide</title>
+    <link rel="canonical" href="https://docs.junit.org/current/running-tests/build-support.html">
     <link rel="prev" href="ide-support.html">
     <link rel="next" href="console-launcher.html">
     <meta name="generator" content="Antora 3.2.0-alpha.11">
@@ -22,7 +23,7 @@
     <div class="navbar-brand">
       <a class="navbar-item title" href="https://docs.junit.org">
           <img class="logo" src="../../_/img/junit-diamond-white.png" alt="✔️"/>
-          JUnit User Guide<span class="version">6.1.0-SNAPSHOT</span>
+          JUnit User Guide<span class="version">6.0.1</span>
       </a>
       <div class="navbar-item search hide-for-print">
         <div id="search-field" class="field">
@@ -44,7 +45,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="junit" data-version="6.1.0">
+<div class="nav-container" data-component="junit" data-version="6.0.1">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -147,9 +148,6 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="console-launcher.html">Console Launcher</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="source-launcher.html">Source Launcher</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="discovery-selectors.html">Discovery Selectors</a>
@@ -269,14 +267,29 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">JUnit</span>
-    <span class="version">6.1.0-SNAPSHOT</span>
+    <span class="version">6.0.1</span>
   </div>
   <ul class="components">
     <li class="component is-current">
       <div class="title"><a href="../index.html">JUnit</a></div>
       <ul class="versions">
+        <li class="version">
+          <a href="../../snapshot/index.html">6.1.0-SNAPSHOT</a>
+        </li>
+        <li class="version">
+          <a href="../../6.0.2/index.html">6.0.2-SNAPSHOT</a>
+        </li>
         <li class="version is-current is-latest">
-          <a href="../index.html">6.1.0-SNAPSHOT</a>
+          <a href="../index.html">6.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../6.0.0/index.html">6.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.2/index.html">5.14.2-SNAPSHOT</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.1/index.html">5.14.1</a>
         </li>
       </ul>
     </li>
@@ -296,7 +309,18 @@
     <li><a href="build-support.html">Build Support</a></li>
   </ul>
 </nav>
-<div class="edit-this-page"><a href="https://github.com/junit-team/junit-framework/edit/main/documentation/modules/ROOT/pages/running-tests/build-support.adoc">Edit this Page</a></div>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">6.0.1</button>
+  <div class="version-menu">
+    <a class="version" href="../../snapshot/running-tests/build-support.html">6.1.0-SNAPSHOT</a>
+    <a class="version" href="../../6.0.2/running-tests/build-support.html">6.0.2-SNAPSHOT</a>
+    <a class="version is-current" href="build-support.html">6.0.1</a>
+    <a class="version" href="../../6.0.0/running-tests/build-support.html">6.0.0</a>
+    <a class="version" href="../../5.14.2/running-tests/build-support.html">5.14.2-SNAPSHOT</a>
+    <a class="version" href="../../5.14.1/running-tests/build-support.html">5.14.1</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/junit-team/junit-framework/edit/antora/6.0.1/documentation/modules/ROOT/pages/running-tests/build-support.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
@@ -365,7 +389,7 @@ versions of all JUnit artifacts.</p>
 <div class="title">Explicit platform dependency on the BOM</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">dependencies {
-	testImplementation(platform("org.junit:junit-bom:6.1.0-SNAPSHOT"))
+	testImplementation(platform("org.junit:junit-bom:6.0.1"))
 	testImplementation("org.junit.jupiter:junit-jupiter")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }</code></pre>
@@ -387,7 +411,7 @@ artifacts.</p>
 <div class="title">Implicit platform dependency on the BOM</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">dependencies {
-	testImplementation("org.junit.jupiter:junit-jupiter:6.1.0-SNAPSHOT") <i class="conum" data-value="1"></i><b>(1)</b>
+	testImplementation("org.junit.jupiter:junit-jupiter:6.0.1") <i class="conum" data-value="1"></i><b>(1)</b>
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher") <i class="conum" data-value="2"></i><b>(2)</b>
 }</code></pre>
 </div>
@@ -439,7 +463,7 @@ on the dependency-aggregating JUnit Jupiter artifact similar to the following.</
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">dependencies {
-	testImplementation("org.junit.jupiter:junit-jupiter:6.1.0-SNAPSHOT")
+	testImplementation("org.junit.jupiter:junit-jupiter:6.0.1")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }</code></pre>
 </div>
@@ -455,7 +479,7 @@ support.</p>
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">testing {
 	suites {
 		named&lt;JvmTestSuite&gt;("test") {
-			useJUnitJupiter("6.1.0-SNAPSHOT")
+			useJUnitJupiter("6.0.1")
 		}
 	}
 }</code></pre>
@@ -467,7 +491,7 @@ support.</p>
 <pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">testing {
 	suites {
 		test {
-			useJUnitJupiter("6.1.0-SNAPSHOT")
+			useJUnitJupiter("6.0.1")
 		}
 	}
 }</code></pre>
@@ -482,7 +506,7 @@ implementation similar to the following.</p>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">dependencies {
 	testImplementation("junit:junit:4.13.2")
-	testRuntimeOnly("org.junit.vintage:junit-vintage-engine:6.1.0-SNAPSHOT")
+	testRuntimeOnly("org.junit.vintage:junit-vintage-engine:6.0.1")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }</code></pre>
 </div>
@@ -549,7 +573,7 @@ dependency to the test runtime classpath.</p>
 <p>Maven Surefire and Maven Failsafe provide
 <a href="https://maven.apache.org/surefire/maven-surefire-plugin/examples/junit-platform.html">native support</a>
 for executing tests on the JUnit Platform. The <code>pom.xml</code> file in the
-<code><a href="https://github.com/junit-team/junit-examples/tree/HEAD/junit-jupiter-starter-maven">junit-jupiter-starter-maven</a></code> project demonstrates how to use the Maven Surefire plugin
+<code><a href="https://github.com/junit-team/junit-examples/tree/r6.0.1/junit-jupiter-starter-maven">junit-jupiter-starter-maven</a></code> project demonstrates how to use the Maven Surefire plugin
 and can serve as a starting point for configuring your Maven build.</p>
 </div>
 <div class="admonitionblock warning">
@@ -581,7 +605,7 @@ versions of all JUnit artifacts.</p>
 		&lt;dependency&gt;
 			&lt;groupId&gt;org.junit&lt;/groupId&gt;
 			&lt;artifactId&gt;junit-bom&lt;/artifactId&gt;
-			&lt;version&gt;6.1.0-SNAPSHOT&lt;/version&gt;
+			&lt;version&gt;6.0.1&lt;/version&gt;
 			&lt;type&gt;pom&lt;/type&gt;
 			&lt;scope&gt;import&lt;/scope&gt;
 		&lt;/dependency&gt;
@@ -626,7 +650,7 @@ following.</p>
 	&lt;dependency&gt;
 		&lt;groupId&gt;org.junit.jupiter&lt;/groupId&gt;
 		&lt;artifactId&gt;junit-jupiter&lt;/artifactId&gt;
-		&lt;version&gt;6.1.0-SNAPSHOT&lt;/version&gt; &lt;!-- can be omitted when using the BOM --&gt;
+		&lt;version&gt;6.0.1&lt;/version&gt; &lt;!-- can be omitted when using the BOM --&gt;
 		&lt;scope&gt;test&lt;/scope&gt;
 	&lt;/dependency&gt;
 	&lt;!-- ... --&gt;
@@ -665,7 +689,7 @@ long as you configure <code>test</code> scoped dependencies on JUnit 4 and the J
 	&lt;dependency&gt;
 		&lt;groupId&gt;org.junit.vintage&lt;/groupId&gt;
 		&lt;artifactId&gt;junit-vintage-engine&lt;/artifactId&gt;
-		&lt;version&gt;6.1.0-SNAPSHOT&lt;/version&gt; &lt;!-- can be omitted when using the BOM --&gt;
+		&lt;version&gt;6.0.1&lt;/version&gt; &lt;!-- can be omitted when using the BOM --&gt;
 		&lt;scope&gt;test&lt;/scope&gt;
 	&lt;/dependency&gt;
 	&lt;!-- ... --&gt;
@@ -836,7 +860,7 @@ the task a consistent and natural feel when compared to many other core Ant task
 <a href="https://ant.apache.org/manual/Tasks/junitlauncher.html#fork">forking the tests in a separate JVM</a>.</p>
 </div>
 <div class="paragraph">
-<p>The <code>build.xml</code> file in the <code><a href="https://github.com/junit-team/junit-examples/tree/HEAD/junit-jupiter-starter-ant">junit-jupiter-starter-ant</a></code> project demonstrates how to use
+<p>The <code>build.xml</code> file in the <code><a href="https://github.com/junit-team/junit-examples/tree/r6.0.1/junit-jupiter-starter-ant">junit-jupiter-starter-ant</a></code> project demonstrates how to use
 the task and can serve as a starting point.</p>
 </div>
 <div class="sect2">
@@ -933,7 +957,7 @@ and
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">ext['junit-jupiter.version'] = '6.1.0-SNAPSHOT'</code></pre>
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">ext['junit-jupiter.version'] = '6.0.1'</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -943,7 +967,7 @@ and
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;properties&gt;
-	&lt;junit-jupiter.version&gt;6.1.0-SNAPSHOT&lt;/junit-jupiter.version&gt;
+	&lt;junit-jupiter.version&gt;6.0.1&lt;/junit-jupiter.version&gt;
 &lt;/properties&gt;</code></pre>
 </div>
 </div>

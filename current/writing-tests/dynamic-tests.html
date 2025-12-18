@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Dynamic Tests :: JUnit User Guide</title>
+    <link rel="canonical" href="https://docs.junit.org/current/writing-tests/dynamic-tests.html">
     <link rel="prev" href="test-templates.html">
     <link rel="next" href="timeouts.html">
     <meta name="generator" content="Antora 3.2.0-alpha.11">
@@ -22,7 +23,7 @@
     <div class="navbar-brand">
       <a class="navbar-item title" href="https://docs.junit.org">
           <img class="logo" src="../../_/img/junit-diamond-white.png" alt="✔️"/>
-          JUnit User Guide<span class="version">6.1.0-SNAPSHOT</span>
+          JUnit User Guide<span class="version">6.0.1</span>
       </a>
       <div class="navbar-item search hide-for-print">
         <div id="search-field" class="field">
@@ -44,7 +45,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="junit" data-version="6.1.0">
+<div class="nav-container" data-component="junit" data-version="6.0.1">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -147,9 +148,6 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../running-tests/console-launcher.html">Console Launcher</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../running-tests/source-launcher.html">Source Launcher</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../running-tests/discovery-selectors.html">Discovery Selectors</a>
@@ -269,14 +267,29 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">JUnit</span>
-    <span class="version">6.1.0-SNAPSHOT</span>
+    <span class="version">6.0.1</span>
   </div>
   <ul class="components">
     <li class="component is-current">
       <div class="title"><a href="../index.html">JUnit</a></div>
       <ul class="versions">
+        <li class="version">
+          <a href="../../snapshot/index.html">6.1.0-SNAPSHOT</a>
+        </li>
+        <li class="version">
+          <a href="../../6.0.2/index.html">6.0.2-SNAPSHOT</a>
+        </li>
         <li class="version is-current is-latest">
-          <a href="../index.html">6.1.0-SNAPSHOT</a>
+          <a href="../index.html">6.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../6.0.0/index.html">6.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.2/index.html">5.14.2-SNAPSHOT</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.1/index.html">5.14.1</a>
         </li>
       </ul>
     </li>
@@ -296,7 +309,18 @@
     <li><a href="dynamic-tests.html">Dynamic Tests</a></li>
   </ul>
 </nav>
-<div class="edit-this-page"><a href="https://github.com/junit-team/junit-framework/edit/main/documentation/modules/ROOT/pages/writing-tests/dynamic-tests.adoc">Edit this Page</a></div>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">6.0.1</button>
+  <div class="version-menu">
+    <a class="version" href="../../snapshot/writing-tests/dynamic-tests.html">6.1.0-SNAPSHOT</a>
+    <a class="version" href="../../6.0.2/writing-tests/dynamic-tests.html">6.0.2-SNAPSHOT</a>
+    <a class="version is-current" href="dynamic-tests.html">6.0.1</a>
+    <a class="version" href="../../6.0.0/writing-tests/dynamic-tests.html">6.0.0</a>
+    <a class="version" href="../../5.14.2/writing-tests/dynamic-tests.html">5.14.2-SNAPSHOT</a>
+    <a class="version" href="../../5.14.1/writing-tests/dynamic-tests.html">5.14.1</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/junit-team/junit-framework/edit/antora/6.0.1/documentation/modules/ROOT/pages/writing-tests/dynamic-tests.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
@@ -416,8 +440,6 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.DynamicContainer.dynamicContainer;
 import static org.junit.jupiter.api.DynamicTest.dynamicTest;
-import static org.junit.jupiter.api.parallel.ExecutionMode.CONCURRENT;
-import static org.junit.jupiter.api.parallel.ExecutionMode.SAME_THREAD;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -435,7 +457,6 @@ import org.junit.jupiter.api.DynamicTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.TestFactory;
 import org.junit.jupiter.api.function.ThrowingConsumer;
-import org.junit.jupiter.api.parallel.Execution;
 
 class DynamicTestsDemo {
 
@@ -677,95 +698,6 @@ supported formats for a FQMN.</p>
 <p>If none of the above <code>TestSource</code> implementations are applicable.</p>
 </dd>
 </dl>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="parallel-execution"><a class="anchor" href="#parallel-execution"></a>Parallel Execution</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Dynamic tests and containers support
-<a href="parallel-execution.html" class="xref page">parallel execution</a>. You can configure their
-<code>ExecutionMode</code> by using the <code>dynamicTest(Consumer)</code> and <code>dynamicContainer(Consumer)</code>
-factory methods as illustrated by the following example.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@TestFactory
-@Execution(CONCURRENT) <i class="conum" data-value="1"></i><b>(1)</b>
-Stream&lt;DynamicNode&gt; dynamicTestsWithConfiguredExecutionMode() {
-	return Stream.of("A", "B", "C")
-			.map(input -&gt;
-				dynamicContainer(outer -&gt; outer
-					.displayName("Container " + input)
-					.children(
-						dynamicTest(config -&gt; config
-							.displayName("not null")
-							.executionMode(SAME_THREAD) <i class="conum" data-value="2"></i><b>(2)</b>
-							.executable(() -&gt; assertNotNull(input))
-						),
-						dynamicContainer(inner -&gt; inner
-							.displayName("properties")
-							.executionMode(CONCURRENT) <i class="conum" data-value="3"></i><b>(3)</b>
-							.childExecutionMode(SAME_THREAD) <i class="conum" data-value="4"></i><b>(4)</b>
-							.children(
-								dynamicTest(config -&gt; config
-									.displayName("length &gt; 0")
-									.executionMode(CONCURRENT) <i class="conum" data-value="5"></i><b>(5)</b>
-									.executable(() -&gt; assertTrue(input.length() &gt; 0))
-								),
-								dynamicTest(config -&gt; config
-									.displayName("not empty")
-									.executable(() -&gt; assertFalse(input.isEmpty()))
-								)
-							)
-						)
-					)
-				)
-			);
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Executing the above test factory method results in the following test tree and execution
-modes:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>dynamicTestsWithConfiguredExecutionMode()&#8201;&#8212;&#8201;<code>CONCURRENT</code> (from <code>@Execution</code> annotation)</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Container A&#8201;&#8212;&#8201;<code>CONCURRENT</code> (from <code>@Execution</code> annotation)</p>
-<div class="ulist">
-<ul>
-<li>
-<p>not null&#8201;&#8212;&#8201;<code>SAME_THREAD</code> (from <code>executionMode(&#8230;&#8203;)</code> call)</p>
-</li>
-<li>
-<p>properties&#8201;&#8212;&#8201;<code>CONCURRENT</code> (from <code>@Execution</code> annotation)</p>
-<div class="ulist">
-<ul>
-<li>
-<p>length &gt; 0&#8201;&#8212;&#8201;<code>CONCURRENT</code> (from <code>executionMode(&#8230;&#8203;)</code> call)</p>
-</li>
-<li>
-<p>not empty&#8201;&#8212;&#8201;<code>SAME_THREAD</code> (from <code>childExecutionMode(&#8230;&#8203;)</code> call)</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>&#8230;&#8203; (same for "Container B" and "Container C")</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
 </div>
 </div>
 </div>

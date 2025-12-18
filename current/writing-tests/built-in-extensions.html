@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Built-in Extensions :: JUnit User Guide</title>
+    <link rel="canonical" href="https://docs.junit.org/current/writing-tests/built-in-extensions.html">
     <link rel="prev" href="parallel-execution.html">
     <link rel="next" href="../migrating-from-junit4.html">
     <meta name="generator" content="Antora 3.2.0-alpha.11">
@@ -22,7 +23,7 @@
     <div class="navbar-brand">
       <a class="navbar-item title" href="https://docs.junit.org">
           <img class="logo" src="../../_/img/junit-diamond-white.png" alt="✔️"/>
-          JUnit User Guide<span class="version">6.1.0-SNAPSHOT</span>
+          JUnit User Guide<span class="version">6.0.1</span>
       </a>
       <div class="navbar-item search hide-for-print">
         <div id="search-field" class="field">
@@ -44,7 +45,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="junit" data-version="6.1.0">
+<div class="nav-container" data-component="junit" data-version="6.0.1">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -147,9 +148,6 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../running-tests/console-launcher.html">Console Launcher</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../running-tests/source-launcher.html">Source Launcher</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../running-tests/discovery-selectors.html">Discovery Selectors</a>
@@ -269,14 +267,29 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">JUnit</span>
-    <span class="version">6.1.0-SNAPSHOT</span>
+    <span class="version">6.0.1</span>
   </div>
   <ul class="components">
     <li class="component is-current">
       <div class="title"><a href="../index.html">JUnit</a></div>
       <ul class="versions">
+        <li class="version">
+          <a href="../../snapshot/index.html">6.1.0-SNAPSHOT</a>
+        </li>
+        <li class="version">
+          <a href="../../6.0.2/index.html">6.0.2-SNAPSHOT</a>
+        </li>
         <li class="version is-current is-latest">
-          <a href="../index.html">6.1.0-SNAPSHOT</a>
+          <a href="../index.html">6.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../6.0.0/index.html">6.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.2/index.html">5.14.2-SNAPSHOT</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.1/index.html">5.14.1</a>
         </li>
       </ul>
     </li>
@@ -296,7 +309,18 @@
     <li><a href="built-in-extensions.html">Built-in Extensions</a></li>
   </ul>
 </nav>
-<div class="edit-this-page"><a href="https://github.com/junit-team/junit-framework/edit/main/documentation/modules/ROOT/pages/writing-tests/built-in-extensions.adoc">Edit this Page</a></div>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">6.0.1</button>
+  <div class="version-menu">
+    <a class="version" href="../../snapshot/writing-tests/built-in-extensions.html">6.1.0-SNAPSHOT</a>
+    <a class="version" href="../../6.0.2/writing-tests/built-in-extensions.html">6.0.2-SNAPSHOT</a>
+    <a class="version is-current" href="built-in-extensions.html">6.0.1</a>
+    <a class="version" href="../../6.0.0/writing-tests/built-in-extensions.html">6.0.0</a>
+    <a class="version" href="../../5.14.2/writing-tests/built-in-extensions.html">5.14.2-SNAPSHOT</a>
+    <a class="version" href="../../5.14.1/writing-tests/built-in-extensions.html">5.14.1</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/junit-team/junit-framework/edit/antora/6.0.1/documentation/modules/ROOT/pages/writing-tests/built-in-extensions.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
@@ -318,7 +342,7 @@ dependency.</p>
 <h2 id="TempDirectory"><a class="anchor" href="#TempDirectory"></a>The @TempDir Extension</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The built-in <code><a href="https://github.com/junit-team/junit-framework/tree/HEAD/junit-jupiter-engine/src/main/java/org/junit/jupiter/engine/extension/TempDirectory.java">TempDirectory</a></code> extension is used to create and clean up a temporary
+<p>The built-in <code><a href="https://github.com/junit-team/junit-framework/tree/r6.0.1/junit-jupiter-engine/src/main/java/org/junit/jupiter/engine/extension/TempDirectory.java">TempDirectory</a></code> extension is used to create and clean up a temporary
 directory for an individual test or all tests in a test class. It is registered by
 default. To use it, annotate a non-final, unassigned field of type <code>java.nio.file.Path</code> or
 <code>java.io.File</code> with <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/io/TempDir.html" class="xref attachment">@TempDir</a></code> or add a parameter of type <code>java.nio.file.Path</code> or
@@ -564,7 +588,7 @@ parameter, if present</p>
 <h2 id="AutoClose"><a class="anchor" href="#AutoClose"></a>The @AutoClose Extension</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The built-in <code><a href="https://github.com/junit-team/junit-framework/tree/HEAD/junit-jupiter-engine/src/main/java/org/junit/jupiter/engine/extension/AutoCloseExtension.java">AutoCloseExtension</a></code> automatically closes resources associated with fields.
+<p>The built-in <code><a href="https://github.com/junit-team/junit-framework/tree/r6.0.1/junit-jupiter-engine/src/main/java/org/junit/jupiter/engine/extension/AutoCloseExtension.java">AutoCloseExtension</a></code> automatically closes resources associated with fields.
 It is registered by default. To use it, annotate a field in a test class with
 <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/AutoClose.html" class="xref attachment">@AutoClose</a></code>.</p>
 </div>
@@ -638,286 +662,6 @@ that the default <code>@TestInstance(Lifecycle.PER_METHOD)</code> semantics appl
 will be invoked after each <code>@Test</code> method.</td>
 </tr>
 </table>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="DefaultLocaleAndTimeZone"><a class="anchor" href="#DefaultLocaleAndTimeZone"></a>The @DefaultLocale and @DefaultTimeZone Extensions</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>The <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/util/DefaultLocale.html" class="xref attachment">@DefaultLocale</a></code> and <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/util/DefaultTimeZone.html" class="xref attachment">@DefaultTimeZone</a></code> annotations can be used to change the values
-returned from <code>Locale.getDefault()</code> and <code>TimeZone.getDefault()</code>, respectively, which are
-often used implicitly when no specific locale or time zone is chosen. Both annotations
-work on the test class level and on the test method level, and are inherited from
-higher-level containers. After the annotated element has been executed, the initial
-default value is restored.</p>
-</div>
-<div class="sect2">
-<h3 id="DefaultLocale"><a class="anchor" href="#DefaultLocale"></a>@DefaultLocale</h3>
-<div class="paragraph">
-<p>The default <code>Locale</code> can be specified using an
-<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Locale.html#forLanguageTag-java.lang.String-">IETF BCP 47 language tag string</a>.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Test
-@DefaultLocale("zh-Hant-TW")
-void test_with_language() {
-	assertThat(Locale.getDefault()).isEqualTo(Locale.forLanguageTag("zh-Hant-TW"));
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Alternatively, the default <code>Locale</code> can be created using the following attributes from
-which a <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Locale.Builder.html"><code>Locale.Builder</code></a>
-can create an instance:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>language</code> or</p>
-</li>
-<li>
-<p><code>language</code> and <code>country</code> or</p>
-</li>
-<li>
-<p><code>language</code>, <code>country</code>, and <code>variant</code></p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The variant needs to be a string which follows the
-<a href="https://www.rfc-editor.org/rfc/rfc5646.html">IETF BCP 47 / RFC 5646</a> syntax
-</td>
-</tr>
-</table>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Test
-@DefaultLocale(language = "en")
-void test_with_language_only() {
-	assertThat(Locale.getDefault()).isEqualTo(new Locale.Builder().setLanguage("en").build());
-}
-
-@Test
-@DefaultLocale(language = "en", country = "EN")
-void test_with_language_and_country() {
-	assertThat(Locale.getDefault()).isEqualTo(new Locale.Builder().setLanguage("en").setRegion("EN").build());
-}
-
-@Test
-@DefaultLocale(language = "ja", country = "JP", variant = "japanese")
-void test_with_language_and_country_and_vairant() {
-	assertThat(Locale.getDefault()).isEqualTo(
-		new Locale.Builder().setLanguage("ja").setRegion("JP").setVariant("japanese").build());
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Mixing language tag configuration (via the annotation&#8217;s <code>value</code> attributed) and
-attributed-based configuration will cause an exception to be thrown. Furthermore, a
-<code>variant</code> can only be specified if <code>country</code> is also specified. Otherwise, an exception
-will be thrown.</p>
-</div>
-<div class="paragraph">
-<p>Any method-level <code>@DefaultLocale</code> configurations will override class-level configurations.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@DefaultLocale(language = "fr")
-class MyLocaleTests {
-
-	@Test
-	void test_with_class_level_configuration() {
-		assertThat(Locale.getDefault()).isEqualTo(new Locale.Builder().setLanguage("fr").build());
-	}
-
-	@Test
-	@DefaultLocale(language = "en")
-	void test_with_method_level_configuration() {
-		assertThat(Locale.getDefault()).isEqualTo(new Locale.Builder().setLanguage("en").build());
-	}
-
-}</code></pre>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-A class-level configuration means that the specified locale is set before and reset
-after each individual test in the annotated class.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>If your use case is not covered, you can implement the <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/util/LocaleProvider.html" class="xref attachment">LocaleProvider</a></code> interface.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Test
-@DefaultLocale(localeProvider = EnglishProvider.class)
-void test_with_locale_provider() {
-	assertThat(Locale.getDefault()).isEqualTo(new Locale.Builder().setLanguage("en").build());
-}
-
-static class EnglishProvider implements LocaleProvider {
-	@Override
-	public Locale get() {
-		return Locale.ENGLISH;
-	}
-}</code></pre>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The provider implementation must have a no-args (or the default) constructor.
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="DefaultTimeZone"><a class="anchor" href="#DefaultTimeZone"></a>@DefaultTimeZone</h3>
-<div class="paragraph">
-<p>The default <code>TimeZone</code> is specified according to the
-<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/TimeZone.html#getTimeZone(java.lang.String)">TimeZone.getTimeZone(String)</a>
-method.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Test
-@DefaultTimeZone("CET")
-void test_with_short_zone_id() {
-	assertThat(TimeZone.getDefault()).isEqualTo(TimeZone.getTimeZone("CET"));
-}
-
-@Test
-@DefaultTimeZone("Africa/Juba")
-void test_with_long_zone_id() {
-	assertThat(TimeZone.getDefault()).isEqualTo(TimeZone.getTimeZone("Africa/Juba"));
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Any method level <code>@DefaultTimeZone</code> configurations will override class level configurations:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@DefaultTimeZone("CET")
-class MyTimeZoneTests {
-
-	@Test
-	void test_with_class_level_configuration() {
-		assertThat(TimeZone.getDefault()).isEqualTo(TimeZone.getTimeZone("CET"));
-	}
-
-	@Test
-	@DefaultTimeZone("Africa/Juba")
-	void test_with_method_level_configuration() {
-		assertThat(TimeZone.getDefault()).isEqualTo(TimeZone.getTimeZone("Africa/Juba"));
-	}
-
-}</code></pre>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-A class-level configuration means that the specified time zone is set before and
-reset after each individual test in the annotated class.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>If your use case is not covered, you can implement the <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/util/TimeZoneProvider.html" class="xref attachment">TimeZoneProvider</a></code> interface.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Test
-@DefaultTimeZone(timeZoneProvider = UtcTimeZoneProvider.class)
-void test_with_time_zone_provider() {
-	assertThat(TimeZone.getDefault()).isEqualTo(TimeZone.getTimeZone("UTC"));
-}
-
-static class UtcTimeZoneProvider implements TimeZoneProvider {
-	@Override
-	public TimeZone get() {
-		return TimeZone.getTimeZone(ZoneOffset.UTC);
-	}
-}</code></pre>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The provider implementation must have a no-args (or the default) constructor.
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="thread-safety"><a class="anchor" href="#thread-safety"></a>Thread Safety</h3>
-<div class="paragraph">
-<p>Since the default locale and time zone are global state, reading and writing them during
-<a href="parallel-execution.html" class="xref page">parallel test execution</a> can lead to unpredictable
-results and flaky tests. The <code>@DefaultLocale</code> and <code>@DefaultTimeZone</code> extensions are
-prepared for that and tests annotated with them will never execute in parallel (thanks to
-<code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLock.html" class="xref attachment">@ResourceLock</a></code>) to guarantee correct test results.</p>
-</div>
-<div class="paragraph">
-<p>However, this does not cover all possible cases. Tested code that reads or writes default
-locale and time zone <em>independently</em> of the extensions can still run in parallel to them
-and may thus behave erratically when, for example, it unexpectedly reads a locale set by
-the extension in another thread. Tests that cover code that reads or writes the default
-locale or time zone need to be annotated with the respective annotation:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/util/ReadsDefaultLocale.html" class="xref attachment">@ReadsDefaultLocale</a></code></p>
-</li>
-<li>
-<p><code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/util/ReadsDefaultTimeZone.html" class="xref attachment">@ReadsDefaultTimeZone</a></code></p>
-</li>
-<li>
-<p><code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/util/WritesDefaultLocale.html" class="xref attachment">@WritesDefaultLocale</a></code></p>
-</li>
-<li>
-<p><code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/util/WritesDefaultTimeZone.html" class="xref attachment">@WritesDefaultTimeZone</a></code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Tests annotated in this way will never execute in parallel with tests annotated with
-<code>@DefaultLocale</code> or <code>@DefaultTimeZone</code>.</p>
-</div>
 </div>
 </div>
 </div>

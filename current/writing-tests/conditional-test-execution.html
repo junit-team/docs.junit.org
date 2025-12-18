@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Conditional Test Execution :: JUnit User Guide</title>
+    <link rel="canonical" href="https://docs.junit.org/current/writing-tests/conditional-test-execution.html">
     <link rel="prev" href="disabling-tests.html">
     <link rel="next" href="tagging-and-filtering.html">
     <meta name="generator" content="Antora 3.2.0-alpha.11">
@@ -22,7 +23,7 @@
     <div class="navbar-brand">
       <a class="navbar-item title" href="https://docs.junit.org">
           <img class="logo" src="../../_/img/junit-diamond-white.png" alt="✔️"/>
-          JUnit User Guide<span class="version">6.1.0-SNAPSHOT</span>
+          JUnit User Guide<span class="version">6.0.1</span>
       </a>
       <div class="navbar-item search hide-for-print">
         <div id="search-field" class="field">
@@ -44,7 +45,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="junit" data-version="6.1.0">
+<div class="nav-container" data-component="junit" data-version="6.0.1">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -147,9 +148,6 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../running-tests/console-launcher.html">Console Launcher</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../running-tests/source-launcher.html">Source Launcher</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../running-tests/discovery-selectors.html">Discovery Selectors</a>
@@ -269,14 +267,29 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">JUnit</span>
-    <span class="version">6.1.0-SNAPSHOT</span>
+    <span class="version">6.0.1</span>
   </div>
   <ul class="components">
     <li class="component is-current">
       <div class="title"><a href="../index.html">JUnit</a></div>
       <ul class="versions">
+        <li class="version">
+          <a href="../../snapshot/index.html">6.1.0-SNAPSHOT</a>
+        </li>
+        <li class="version">
+          <a href="../../6.0.2/index.html">6.0.2-SNAPSHOT</a>
+        </li>
         <li class="version is-current is-latest">
-          <a href="../index.html">6.1.0-SNAPSHOT</a>
+          <a href="../index.html">6.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../6.0.0/index.html">6.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.2/index.html">5.14.2-SNAPSHOT</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.1/index.html">5.14.1</a>
         </li>
       </ul>
     </li>
@@ -296,7 +309,18 @@
     <li><a href="conditional-test-execution.html">Conditional Test Execution</a></li>
   </ul>
 </nav>
-<div class="edit-this-page"><a href="https://github.com/junit-team/junit-framework/edit/main/documentation/modules/ROOT/pages/writing-tests/conditional-test-execution.adoc">Edit this Page</a></div>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">6.0.1</button>
+  <div class="version-menu">
+    <a class="version" href="../../snapshot/writing-tests/conditional-test-execution.html">6.1.0-SNAPSHOT</a>
+    <a class="version" href="../../6.0.2/writing-tests/conditional-test-execution.html">6.0.2-SNAPSHOT</a>
+    <a class="version is-current" href="conditional-test-execution.html">6.0.1</a>
+    <a class="version" href="../../6.0.0/writing-tests/conditional-test-execution.html">6.0.0</a>
+    <a class="version" href="../../5.14.2/writing-tests/conditional-test-execution.html">5.14.2-SNAPSHOT</a>
+    <a class="version" href="../../5.14.1/writing-tests/conditional-test-execution.html">5.14.1</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/junit-team/junit-framework/edit/antora/6.0.1/documentation/modules/ROOT/pages/writing-tests/conditional-test-execution.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
@@ -310,7 +334,7 @@
 <p>The <a href="../extensions/conditional-test-execution.html" class="xref page"><code>ExecutionCondition</code></a> extension API in JUnit Jupiter allows
 developers to either <em>enable</em> or <em>disable</em> a test class or test method based on certain
 conditions <em>programmatically</em>. The simplest example of such a condition is the built-in
-<code><a href="https://github.com/junit-team/junit-framework/tree/HEAD/junit-jupiter-engine/src/main/java/org/junit/jupiter/engine/extension/DisabledCondition.java">DisabledCondition</a></code> which supports the <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/Disabled.html" class="xref attachment">@Disabled</a></code> annotation (see
+<code><a href="https://github.com/junit-team/junit-framework/tree/r6.0.1/junit-jupiter-engine/src/main/java/org/junit/jupiter/engine/extension/DisabledCondition.java">DisabledCondition</a></code> which supports the <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/Disabled.html" class="xref attachment">@Disabled</a></code> annotation (see
 <a href="disabling-tests.html" class="xref page">Disabling Tests</a>).</p>
 </div>
 <div class="paragraph">

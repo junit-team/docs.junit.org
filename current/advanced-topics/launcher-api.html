@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>JUnit Platform Launcher API :: JUnit User Guide</title>
+    <link rel="canonical" href="https://docs.junit.org/current/advanced-topics/launcher-api.html">
     <link rel="prev" href="testkit.html">
     <link rel="next" href="engines.html">
     <meta name="generator" content="Antora 3.2.0-alpha.11">
@@ -22,7 +23,7 @@
     <div class="navbar-brand">
       <a class="navbar-item title" href="https://docs.junit.org">
           <img class="logo" src="../../_/img/junit-diamond-white.png" alt="✔️"/>
-          JUnit User Guide<span class="version">6.1.0-SNAPSHOT</span>
+          JUnit User Guide<span class="version">6.0.1</span>
       </a>
       <div class="navbar-item search hide-for-print">
         <div id="search-field" class="field">
@@ -44,7 +45,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="junit" data-version="6.1.0">
+<div class="nav-container" data-component="junit" data-version="6.0.1">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -147,9 +148,6 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../running-tests/console-launcher.html">Console Launcher</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../running-tests/source-launcher.html">Source Launcher</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../running-tests/discovery-selectors.html">Discovery Selectors</a>
@@ -269,14 +267,29 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">JUnit</span>
-    <span class="version">6.1.0-SNAPSHOT</span>
+    <span class="version">6.0.1</span>
   </div>
   <ul class="components">
     <li class="component is-current">
       <div class="title"><a href="../index.html">JUnit</a></div>
       <ul class="versions">
+        <li class="version">
+          <a href="../../snapshot/index.html">6.1.0-SNAPSHOT</a>
+        </li>
+        <li class="version">
+          <a href="../../6.0.2/index.html">6.0.2-SNAPSHOT</a>
+        </li>
         <li class="version is-current is-latest">
-          <a href="../index.html">6.1.0-SNAPSHOT</a>
+          <a href="../index.html">6.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../6.0.0/index.html">6.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.2/index.html">5.14.2-SNAPSHOT</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.1/index.html">5.14.1</a>
         </li>
       </ul>
     </li>
@@ -296,7 +309,18 @@
     <li><a href="launcher-api.html">JUnit Platform Launcher API</a></li>
   </ul>
 </nav>
-<div class="edit-this-page"><a href="https://github.com/junit-team/junit-framework/edit/main/documentation/modules/ROOT/pages/advanced-topics/launcher-api.adoc">Edit this Page</a></div>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">6.0.1</button>
+  <div class="version-menu">
+    <a class="version" href="../../snapshot/advanced-topics/launcher-api.html">6.1.0-SNAPSHOT</a>
+    <a class="version" href="../../6.0.2/advanced-topics/launcher-api.html">6.0.2-SNAPSHOT</a>
+    <a class="version is-current" href="launcher-api.html">6.0.1</a>
+    <a class="version" href="../../6.0.0/advanced-topics/launcher-api.html">6.0.0</a>
+    <a class="version" href="../../5.14.2/advanced-topics/launcher-api.html">5.14.2-SNAPSHOT</a>
+    <a class="version" href="../../5.14.1/advanced-topics/launcher-api.html">5.14.1</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/junit-team/junit-framework/edit/antora/6.0.1/documentation/modules/ROOT/pages/advanced-topics/launcher-api.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
@@ -1262,106 +1286,6 @@ are present at runtime.</p>
 </td>
 </tr>
 </table>
-</div>
-<div class="sect2">
-<h3 id="launcher-cancellation-execution-request-from-discovery-request"><a class="anchor" href="#launcher-cancellation-execution-request-from-discovery-request"></a>Building a LauncherExecutionRequest from a LauncherDiscoveryRequest</h3>
-<div class="paragraph">
-<p>Rather than building a <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/LauncherExecutionRequest.html" class="xref attachment">LauncherExecutionRequest</a></code> by starting with a
-<code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherDiscoveryRequestBuilder.html" class="xref attachment">LauncherDiscoveryRequestBuilder</a></code> and calling <code>forExecution()</code>, you can create a
-<code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherExecutionRequestBuilder.html" class="xref attachment">LauncherExecutionRequestBuilder</a></code> from a previously built <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/LauncherDiscoveryRequest.html" class="xref attachment">LauncherDiscoveryRequest</a></code>.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">LauncherDiscoveryRequest discoveryRequest = LauncherDiscoveryRequestBuilder.request()
-		.selectors(selectClass(MyTestClass.class))
-		.build(); <i class="conum" data-value="1"></i><b>(1)</b>
-
-LauncherExecutionRequest executionRequest = LauncherExecutionRequestBuilder.request(discoveryRequest) <i class="conum" data-value="2"></i><b>(2)</b>
-		.cancellationToken(cancellationToken) <i class="conum" data-value="3"></i><b>(3)</b>
-		.listeners(failFastListener) <i class="conum" data-value="4"></i><b>(4)</b>
-		.build();
-
-try (LauncherSession session = LauncherFactory.openSession()) {
-	session.getLauncher().execute(executionRequest); <i class="conum" data-value="5"></i><b>(5)</b>
-}</code></pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Build a <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/LauncherDiscoveryRequest.html" class="xref attachment">LauncherDiscoveryRequest</a></code></td>
-</tr>
-<tr>
-<td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Create a <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherExecutionRequestBuilder.html" class="xref attachment">LauncherExecutionRequestBuilder</a></code> with it</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>Register the cancellation token</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>Register the listener</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="5"></i><b>5</b></td>
-<td>Pass the <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/LauncherExecutionRequest.html" class="xref attachment">LauncherExecutionRequest</a></code> to <code>Launcher.execute</code></td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="launcher-cancellation-execution-request-from-test-plan"><a class="anchor" href="#launcher-cancellation-execution-request-from-test-plan"></a>Building a LauncherExecutionRequest from a TestPlan</h3>
-<div class="paragraph">
-<p>Alternatively, a <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherExecutionRequestBuilder.html" class="xref attachment">LauncherExecutionRequestBuilder</a></code> can be created from a previously
-discovered <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/TestPlan.html" class="xref attachment">TestPlan</a></code>.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">LauncherDiscoveryRequest discoveryRequest = LauncherDiscoveryRequestBuilder.request()
-		.selectors(selectClass(MyTestClass.class))
-		.build(); <i class="conum" data-value="1"></i><b>(1)</b>
-
-try (LauncherSession session = LauncherFactory.openSession()) {
-	var launcher = session.getLauncher();
-	TestPlan testPlan = launcher.discover(discoveryRequest); <i class="conum" data-value="2"></i><b>(2)</b>
-	LauncherExecutionRequest executionRequest = LauncherExecutionRequestBuilder.request(testPlan) <i class="conum" data-value="3"></i><b>(3)</b>
-			.cancellationToken(cancellationToken) <i class="conum" data-value="4"></i><b>(4)</b>
-			.listeners(failFastListener) <i class="conum" data-value="5"></i><b>(5)</b>
-			.build();
-	launcher.execute(executionRequest); <i class="conum" data-value="6"></i><b>(6)</b>
-}</code></pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Build a <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/LauncherDiscoveryRequest.html" class="xref attachment">LauncherDiscoveryRequest</a></code></td>
-</tr>
-<tr>
-<td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Discover a <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/TestPlan.html" class="xref attachment">TestPlan</a></code> via <code>Launcher.discover</code></td>
-</tr>
-<tr>
-<td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>Create a <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherExecutionRequestBuilder.html" class="xref attachment">LauncherExecutionRequestBuilder</a></code> with it</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>Register the cancellation token</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="5"></i><b>5</b></td>
-<td>Register the listener</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="6"></i><b>6</b></td>
-<td>Pass the <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/LauncherExecutionRequest.html" class="xref attachment">LauncherExecutionRequest</a></code> to <code>Launcher.execute</code></td>
-</tr>
-</table>
-</div>
 </div>
 </div>
 </div>
