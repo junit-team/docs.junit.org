@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Dependency Injection for Constructors and Methods :: JUnit User Guide</title>
-    <link rel="canonical" href="https://docs.junit.org/current/writing-tests/dependency-injection-for-constructors-and-methods.html">
     <link rel="prev" href="nested-tests.html">
     <link rel="next" href="test-interfaces-and-default-methods.html">
     <meta name="generator" content="Antora 3.2.0-alpha.11">
@@ -23,7 +22,7 @@
     <div class="navbar-brand">
       <a class="navbar-item title" href="https://docs.junit.org">
           <img class="logo" src="../../_/img/junit-diamond-white.png" alt="✔️"/>
-          JUnit User Guide<span class="version">6.0.1</span>
+          JUnit User Guide<span class="version">6.1.0-SNAPSHOT</span>
       </a>
       <div class="navbar-item search hide-for-print">
         <div id="search-field" class="field">
@@ -45,7 +44,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="junit" data-version="6.0.1">
+<div class="nav-container" data-component="junit" data-version="6.1.0">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -148,6 +147,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../running-tests/console-launcher.html">Console Launcher</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/source-launcher.html">Source Launcher</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../running-tests/discovery-selectors.html">Discovery Selectors</a>
@@ -267,29 +269,14 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">JUnit</span>
-    <span class="version">6.0.1</span>
+    <span class="version">6.1.0-SNAPSHOT</span>
   </div>
   <ul class="components">
     <li class="component is-current">
       <div class="title"><a href="../index.html">JUnit</a></div>
       <ul class="versions">
-        <li class="version">
-          <a href="../../snapshot/index.html">6.1.0-SNAPSHOT</a>
-        </li>
-        <li class="version">
-          <a href="../../6.0.2/index.html">6.0.2-SNAPSHOT</a>
-        </li>
         <li class="version is-current is-latest">
-          <a href="../index.html">6.0.1</a>
-        </li>
-        <li class="version">
-          <a href="../../6.0.0/index.html">6.0.0</a>
-        </li>
-        <li class="version">
-          <a href="../../5.14.2/index.html">5.14.2-SNAPSHOT</a>
-        </li>
-        <li class="version">
-          <a href="../../5.14.1/index.html">5.14.1</a>
+          <a href="../index.html">6.1.0-SNAPSHOT</a>
         </li>
       </ul>
     </li>
@@ -301,6 +288,7 @@
 <main class="article">
 <div class="toolbar" role="navigation">
 <button class="nav-toggle"></button>
+  <a href="../overview.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">JUnit</a></li>
@@ -308,18 +296,7 @@
     <li><a href="dependency-injection-for-constructors-and-methods.html">Dependency Injection for Constructors and Methods</a></li>
   </ul>
 </nav>
-<div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">6.0.1</button>
-  <div class="version-menu">
-    <a class="version" href="../../snapshot/writing-tests/dependency-injection-for-constructors-and-methods.html">6.1.0-SNAPSHOT</a>
-    <a class="version" href="../../6.0.2/writing-tests/dependency-injection-for-constructors-and-methods.html">6.0.2-SNAPSHOT</a>
-    <a class="version is-current" href="dependency-injection-for-constructors-and-methods.html">6.0.1</a>
-    <a class="version" href="../../6.0.0/writing-tests/dependency-injection-for-constructors-and-methods.html">6.0.0</a>
-    <a class="version" href="../../5.14.2/writing-tests/dependency-injection-for-constructors-and-methods.html">5.14.2-SNAPSHOT</a>
-    <a class="version" href="../../5.14.1/writing-tests/dependency-injection-for-constructors-and-methods.html">5.14.1</a>
-  </div>
-</div>
-<div class="edit-this-page"><a href="https://github.com/junit-team/junit-framework/edit/antora/6.0.1/documentation/modules/ROOT/pages/writing-tests/dependency-injection-for-constructors-and-methods.adoc">Edit this Page</a></div>
+<div class="edit-this-page"><a href="https://github.com/junit-team/junit-framework/edit/main/documentation/modules/ROOT/pages/writing-tests/dependency-injection-for-constructors-and-methods.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
@@ -346,7 +323,7 @@ must be resolved at runtime by a registered <code>ParameterResolver</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code><a href="https://github.com/junit-team/junit-framework/tree/r6.0.1/junit-jupiter-engine/src/main/java/org/junit/jupiter/engine/extension/TestInfoParameterResolver.java">TestInfoParameterResolver</a></code>: if a constructor or method parameter is of type
+<p><code><a href="https://github.com/junit-team/junit-framework/tree/HEAD/junit-jupiter-engine/src/main/java/org/junit/jupiter/engine/extension/TestInfoParameterResolver.java">TestInfoParameterResolver</a></code>: if a constructor or method parameter is of type
 <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/TestInfo.html" class="xref attachment">TestInfo</a></code>, the <code>TestInfoParameterResolver</code> will supply an instance of <code>TestInfo</code>
 corresponding to the current container or test as the value for the parameter. The
 <code>TestInfo</code> can then be used to retrieve information about the current container or test
@@ -410,7 +387,7 @@ class TestInfoDemo {
 <div class="ulist">
 <ul>
 <li>
-<p><code><a href="https://github.com/junit-team/junit-framework/tree/r6.0.1/junit-jupiter-engine/src/main/java/org/junit/jupiter/engine/extension/RepetitionExtension.java">RepetitionExtension</a></code>: if a method parameter in a <code>@RepeatedTest</code>, <code>@BeforeEach</code>, or
+<p><code><a href="https://github.com/junit-team/junit-framework/tree/HEAD/junit-jupiter-engine/src/main/java/org/junit/jupiter/engine/extension/RepetitionExtension.java">RepetitionExtension</a></code>: if a method parameter in a <code>@RepeatedTest</code>, <code>@BeforeEach</code>, or
 <code>@AfterEach</code> method is of type <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/RepetitionInfo.html" class="xref attachment">RepetitionInfo</a></code>, the <code>RepetitionExtension</code> will supply
 an instance of <code>RepetitionInfo</code>. <code>RepetitionInfo</code> can then be used to retrieve
 information about the current repetition, the total number of repetitions, the number of
@@ -419,7 +396,7 @@ repetitions that have failed, and the failure threshold for the corresponding
 context of a <code>@RepeatedTest</code>. See <a href="repeated-tests.html#examples" class="xref page">Repeated Test Examples</a>.</p>
 </li>
 <li>
-<p><code><a href="https://github.com/junit-team/junit-framework/tree/r6.0.1/junit-jupiter-engine/src/main/java/org/junit/jupiter/engine/extension/TestReporterParameterResolver.java">TestReporterParameterResolver</a></code>: if a constructor or method parameter is of type
+<p><code><a href="https://github.com/junit-team/junit-framework/tree/HEAD/junit-jupiter-engine/src/main/java/org/junit/jupiter/engine/extension/TestReporterParameterResolver.java">TestReporterParameterResolver</a></code>: if a constructor or method parameter is of type
 <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/TestReporter.html" class="xref attachment">TestReporter</a></code>, the <code>TestReporterParameterResolver</code> will supply an instance of
 <code>TestReporter</code>. The <code>TestReporter</code> can be used to publish additional data about the
 current test run or attach files to it. The data can be consumed in a
@@ -491,7 +468,7 @@ Other parameter resolvers must be explicitly enabled by registering appropriate
 </table>
 </div>
 <div class="paragraph">
-<p>Check out the <code><a href="https://github.com/junit-team/junit-examples/tree/r6.0.1/junit-jupiter-extensions/src/main/java/com/example/random/RandomParametersExtension.java">RandomParametersExtension</a></code> for an example of a custom
+<p>Check out the <code><a href="https://github.com/junit-team/junit-examples/tree/HEAD/junit-jupiter-extensions/src/main/java/com/example/random/RandomParametersExtension.java">RandomParametersExtension</a></code> for an example of a custom
 <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/ParameterResolver.html" class="xref attachment">ParameterResolver</a></code>. While not intended to be production-ready, it demonstrates the
 simplicity and expressiveness of both the extension model and the parameter resolution
 process. <code>MyRandomParametersTest</code> demonstrates how to inject random values into <code>@Test</code>
@@ -521,7 +498,7 @@ class MyRandomParametersTest {
 </div>
 <div class="paragraph">
 <p>When the type of the parameter to inject is the only condition for your
-<code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/ParameterResolver.html" class="xref attachment">ParameterResolver</a></code>, you can use the generic <code><a href="https://github.com/junit-team/junit-framework/tree/r6.0.1/junit-jupiter-api/src/main/java/org/junit/jupiter/api/extension/support/TypeBasedParameterResolver.java">TypeBasedParameterResolver</a></code> base class.
+<code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/ParameterResolver.html" class="xref attachment">ParameterResolver</a></code>, you can use the generic <code><a href="https://github.com/junit-team/junit-framework/tree/HEAD/junit-jupiter-api/src/main/java/org/junit/jupiter/api/extension/support/TypeBasedParameterResolver.java">TypeBasedParameterResolver</a></code> base class.
 The <code>supportsParameters</code> method is implemented behind the scenes and supports
 parameterized types.</p>
 </div>

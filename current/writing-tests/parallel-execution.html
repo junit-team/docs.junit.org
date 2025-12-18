@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Parallel Execution :: JUnit User Guide</title>
-    <link rel="canonical" href="https://docs.junit.org/current/writing-tests/parallel-execution.html">
     <link rel="prev" href="timeouts.html">
     <link rel="next" href="built-in-extensions.html">
     <meta name="generator" content="Antora 3.2.0-alpha.11">
@@ -23,7 +22,7 @@
     <div class="navbar-brand">
       <a class="navbar-item title" href="https://docs.junit.org">
           <img class="logo" src="../../_/img/junit-diamond-white.png" alt="✔️"/>
-          JUnit User Guide<span class="version">6.0.1</span>
+          JUnit User Guide<span class="version">6.1.0-SNAPSHOT</span>
       </a>
       <div class="navbar-item search hide-for-print">
         <div id="search-field" class="field">
@@ -45,7 +44,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="junit" data-version="6.0.1">
+<div class="nav-container" data-component="junit" data-version="6.1.0">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -148,6 +147,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../running-tests/console-launcher.html">Console Launcher</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/source-launcher.html">Source Launcher</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../running-tests/discovery-selectors.html">Discovery Selectors</a>
@@ -267,29 +269,14 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">JUnit</span>
-    <span class="version">6.0.1</span>
+    <span class="version">6.1.0-SNAPSHOT</span>
   </div>
   <ul class="components">
     <li class="component is-current">
       <div class="title"><a href="../index.html">JUnit</a></div>
       <ul class="versions">
-        <li class="version">
-          <a href="../../snapshot/index.html">6.1.0-SNAPSHOT</a>
-        </li>
-        <li class="version">
-          <a href="../../6.0.2/index.html">6.0.2-SNAPSHOT</a>
-        </li>
         <li class="version is-current is-latest">
-          <a href="../index.html">6.0.1</a>
-        </li>
-        <li class="version">
-          <a href="../../6.0.0/index.html">6.0.0</a>
-        </li>
-        <li class="version">
-          <a href="../../5.14.2/index.html">5.14.2-SNAPSHOT</a>
-        </li>
-        <li class="version">
-          <a href="../../5.14.1/index.html">5.14.1</a>
+          <a href="../index.html">6.1.0-SNAPSHOT</a>
         </li>
       </ul>
     </li>
@@ -301,6 +288,7 @@
 <main class="article">
 <div class="toolbar" role="navigation">
 <button class="nav-toggle"></button>
+  <a href="../overview.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">JUnit</a></li>
@@ -308,18 +296,7 @@
     <li><a href="parallel-execution.html">Parallel Execution</a></li>
   </ul>
 </nav>
-<div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">6.0.1</button>
-  <div class="version-menu">
-    <a class="version" href="../../snapshot/writing-tests/parallel-execution.html">6.1.0-SNAPSHOT</a>
-    <a class="version" href="../../6.0.2/writing-tests/parallel-execution.html">6.0.2-SNAPSHOT</a>
-    <a class="version is-current" href="parallel-execution.html">6.0.1</a>
-    <a class="version" href="../../6.0.0/writing-tests/parallel-execution.html">6.0.0</a>
-    <a class="version" href="../../5.14.2/writing-tests/parallel-execution.html">5.14.2-SNAPSHOT</a>
-    <a class="version" href="../../5.14.1/writing-tests/parallel-execution.html">5.14.1</a>
-  </div>
-</div>
-<div class="edit-this-page"><a href="https://github.com/junit-team/junit-framework/edit/antora/6.0.1/documentation/modules/ROOT/pages/writing-tests/parallel-execution.adoc">Edit this Page</a></div>
+<div class="edit-this-page"><a href="https://github.com/junit-team/junit-framework/edit/main/documentation/modules/ROOT/pages/writing-tests/parallel-execution.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
@@ -469,6 +446,49 @@ used instead.</p>
 <div class="sect1">
 <h2 id="config"><a class="anchor" href="#config"></a>Configuration</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="config-executor-service"><a class="anchor" href="#config-executor-service"></a>Executor Service</h3>
+<div class="paragraph">
+<p>If parallel execution is enabled, a thread pool is used behind the scenes to execute tests
+concurrently. You can configure which implementation of <code>HierarchicalTestExecutorService</code>
+is used be setting the <code>junit.jupiter.execution.parallel.config.executor-service</code>
+configuration parameter to one of the following options:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>fork_join_pool</code> (default)</dt>
+<dd>
+<p>Use an executor service that is backed by a <code>ForkJoinPool</code> from the JDK. This will cause
+tests to be executed in a <code>ForkJoinWorkerThread</code>. In some cases, usages of
+<code>ForkJoinPool</code> in test or production code or calls to blocking JDK APIs may cause the
+number of concurrently executing tests to increase. To avoid this situation, please use
+<code>worker_thread_pool</code>.</p>
+</dd>
+<dt class="hdlist1"><code>worker_thread_pool</code> (experimental)</dt>
+<dd>
+<p>Use an executor service that is backed by a regular thread pool and does not create
+additional threads if test or production code uses <code>ForkJoinPool</code> or calls a blocking
+API in the JDK.</p>
+</dd>
+</dl>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Using <code>worker_thread_pool</code> is currently an <em>experimental</em> feature. You&#8217;re invited
+to give it a try and provide feedback to the JUnit team so they can improve and eventually
+<a href="../api-evolution.html" class="xref page">promote</a> this feature.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="config-strategies"><a class="anchor" href="#config-strategies"></a>Strategies</h3>
 <div class="paragraph">
 <p>Properties such as the desired parallelism and the maximum pool size can be configured
 using a <code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/ParallelExecutionConfigurationStrategy.html" class="xref attachment">ParallelExecutionConfigurationStrategy</a></code>. The JUnit Platform provides two
@@ -517,17 +537,17 @@ number of available processors/cores.</p>
 </td>
 <td class="content">
 <div class="title">Parallelism alone does not imply maximum number of concurrent threads</div>
-By default JUnit Jupiter does not guarantee that the number of concurrently
-executing tests will not exceed the configured parallelism. For example, when using one
-of the synchronization mechanisms described in the next section, the <code>ForkJoinPool</code> that
-is used behind the scenes may spawn additional threads to ensure execution continues with
-sufficient parallelism.
-If you require such guarantees, it is possible to limit the maximum number of concurrent
-threads by controlling the maximum pool size of the <code>dynamic</code>, <code>fixed</code> and <code>custom</code>
+By default, JUnit Jupiter does not guarantee that the number of threads used to
+execute test will not exceed the configured parallelism. For example, when using one
+of the synchronization mechanisms described in the next section, the executor service
+implementation may spawn additional threads to ensure execution continues with sufficient
+parallelism. If you require such guarantees, it is possible to limit the maximum number of
+threads by configuring the maximum pool size of the <code>dynamic</code>, <code>fixed</code> and <code>custom</code>
 strategies.
 </td>
 </tr>
 </table>
+</div>
 </div>
 <div class="sect2">
 <h3 id="config-properties"><a class="anchor" href="#config-properties"></a>Relevant properties</h3>
@@ -535,165 +555,99 @@ strategies.
 <p>The following table lists relevant properties for configuring parallel execution. See
 <a href="../running-tests/configuration-parameters.html" class="xref page">Configuration Parameters</a> for details on how to set such properties.</p>
 </div>
-<table class="tableblock frame-none grid-rows stripes-odd stretch">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Property</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Supported Values</th>
-<th class="tableblock halign-left valign-top">Default Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><code>junit.jupiter.execution.parallel.enabled</code></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enable parallel test execution</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
-<ul>
-<li>
-<p><code>true</code></p>
-</li>
-<li>
-<p><code>false</code></p>
-</li>
-</ul>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><code>false</code></code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><code>junit.jupiter.execution.parallel.mode.default</code></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Default execution mode of nodes in the test tree</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
-<ul>
-<li>
-<p><code>concurrent</code></p>
-</li>
-<li>
-<p><code>same_thread</code></p>
-</li>
-</ul>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><code>same_thread</code></code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><code>junit.jupiter.execution.parallel.mode.classes.default</code></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Default execution mode of top-level classes</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
-<ul>
-<li>
-<p><code>concurrent</code></p>
-</li>
-<li>
-<p><code>same_thread</code></p>
-</li>
-</ul>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><code>same_thread</code></code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><code>junit.jupiter.execution.parallel.config.strategy</code></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Execution strategy for desired parallelism and maximum pool size</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
-<ul>
-<li>
-<p><code>dynamic</code></p>
-</li>
-<li>
-<p><code>fixed</code></p>
-</li>
-<li>
-<p><code>custom</code></p>
-</li>
-</ul>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><code>dynamic</code></code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><code>junit.jupiter.execution.parallel.config.dynamic.factor</code></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Factor to be multiplied by the number of available processors/cores to determine the
-  desired parallelism for the <code><code>dynamic</code></code> configuration strategy</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>a positive decimal number</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><code>1.0</code></code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><code>junit.jupiter.execution.parallel.config.dynamic.max-pool-size-factor</code></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Factor to be multiplied by the number of available processors/cores and the value of
-  <code>junit.jupiter.execution.parallel.config.dynamic.factor</code> to determine the desired
-  parallelism for the <code><code>dynamic</code></code> configuration strategy</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>a positive decimal number, must be greater than or equal to <code>1.0</code></p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">256 + the value of <code>junit.jupiter.execution.parallel.config.dynamic.factor</code> multiplied
-  by the number of available processors/cores</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><code>junit.jupiter.execution.parallel.config.dynamic.saturate</code></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Disable saturation of the underlying fork-join pool for the <code><code>dynamic</code></code> configuration
-strategy</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
-<ul>
-<li>
-<p><code>true</code></p>
-</li>
-<li>
-<p><code>false</code></p>
-</li>
-</ul>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><code>true</code></code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><code>junit.jupiter.execution.parallel.config.fixed.parallelism</code></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Desired parallelism for the <code><code>fixed</code></code> configuration strategy</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>a positive integer</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">no default value</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><code>junit.jupiter.execution.parallel.config.fixed.max-pool-size</code></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Desired maximum pool size of the underlying fork-join pool for the <code><code>fixed</code></code>
-  configuration strategy</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>a positive integer, must be greater than or equal to <code>junit.jupiter.execution.parallel.config.fixed.parallelism</code></p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">256 + the value of <code>junit.jupiter.execution.parallel.config.fixed.parallelism</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><code>junit.jupiter.execution.parallel.config.fixed.saturate</code></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Disable saturation of the underlying fork-join pool for the <code><code>fixed</code></code> configuration
-  strategy</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
-<ul>
-<li>
-<p><code>true</code></p>
-</li>
-<li>
-<p><code>false</code></p>
-</li>
-</ul>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><code>true</code></code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><code>junit.jupiter.execution.parallel.config.custom.class</code></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Fully qualified class name of the <em>ParallelExecutionConfigurationStrategy</em> to be
-  used for the <code><code>custom</code></code> configuration strategy</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>for example, <em>org.example.CustomStrategy</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">no default value</p></td>
-</tr>
-</tbody>
-</table>
+<div class="sect3">
+<h4 id="general"><a class="anchor" href="#general"></a>General</h4>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>junit.jupiter.execution.parallel.enabled=true|false</code></dt>
+<dd>
+<p>Enable/disable parallel test execution (defaults to <code>false</code>).</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.execution.parallel.mode.default=concurrent|same_thread</code></dt>
+<dd>
+<p>Default execution mode of nodes in the test tree (defaults to <code>same_thread</code>).</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.execution.parallel.mode.classes.default=concurrent|same_thread</code></dt>
+<dd>
+<p>Default execution mode of top-level classes (defaults to <code>same_thread</code>).</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.execution.parallel.config.executor-service=fork_join_pool|worker_thread_pool</code></dt>
+<dd>
+<p>Type of <code>HierarchicalTestExecutorService</code> to use for parallel execution (defaults to
+<code>fork_join_pool</code>).</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.execution.parallel.config.strategy=dynamic|fixed|custom</code></dt>
+<dd>
+<p>Execution strategy for desired parallelism, maximum pool size, etc. (defaults to <code>dynamic</code>).</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect3">
+<h4 id="dynamic-strategy"><a class="anchor" href="#dynamic-strategy"></a>Dynamic strategy</h4>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>junit.jupiter.execution.parallel.config.dynamic.factor=decimal</code></dt>
+<dd>
+<p>Factor to be multiplied by the number of available processors/cores to determine the
+desired parallelism for the <code><code>dynamic</code></code> configuration strategy.
+Must be a positive decimal number (defaults to <code>1.0</code>).</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.execution.parallel.config.dynamic.max-pool-size-factor=decimal</code></dt>
+<dd>
+<p>Factor to be multiplied by the number of available processors/cores and the value of
+<code>junit.jupiter.execution.parallel.config.dynamic.factor</code> to determine the desired
+parallelism for the <code><code>dynamic</code></code> configuration strategy.
+Must be a positive decimal number greater than or equal to <code>1.0</code> (defaults to 256 plus
+the value of <code>junit.jupiter.execution.parallel.config.dynamic.factor</code> multiplied by the
+number of available processors/cores)</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.execution.parallel.config.dynamic.saturate=true|false</code></dt>
+<dd>
+<p>Enable/disable saturation of the underlying <code>ForkJoinPool</code> for the <code><code>dynamic</code></code>
+configuration strategy (defaults to <code>true</code>). Only used if
+<code>junit.jupiter.execution.parallel.config.executor-service</code> is set to <code>fork_join_pool</code>.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect3">
+<h4 id="fixed-strategy"><a class="anchor" href="#fixed-strategy"></a>Fixed strategy</h4>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>junit.jupiter.execution.parallel.config.fixed.parallelism=integer</code></dt>
+<dd>
+<p>Desired parallelism for the <code><code>fixed</code></code> configuration strategy (no default value). Must
+be a positive integer.</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.execution.parallel.config.fixed.max-pool-size=integer</code></dt>
+<dd>
+<p>Desired maximum pool size of the underlying fork-join pool for the <code><code>fixed</code></code>
+configuration strategy. Must be a positive integer greater than or equal to
+<code>junit.jupiter.execution.parallel.config.fixed.parallelism</code> (defaults to 256 plus the
+value of <code>junit.jupiter.execution.parallel.config.fixed.parallelism</code>).</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.execution.parallel.config.fixed.saturate=true|false</code></dt>
+<dd>
+<p>Enable/disable saturation of the underlying <code>ForkJoinPool</code> for the <code><code>fixed</code></code>
+configuration strategy (defaults to <code>true</code>). Only used if
+<code>junit.jupiter.execution.parallel.config.executor-service</code> is set to <code>fork_join_pool</code>.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect3">
+<h4 id="custom-strategy"><a class="anchor" href="#custom-strategy"></a>Custom strategy</h4>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>junit.jupiter.execution.parallel.config.custom.class=classname</code></dt>
+<dd>
+<p>Fully qualified class name of the <code>ParallelExecutionConfigurationStrategy</code> to be used
+for the <code><code>custom</code></code> configuration strategy (no default value).</p>
+</dd>
+</dl>
+</div>
+</div>
 </div>
 </div>
 </div>

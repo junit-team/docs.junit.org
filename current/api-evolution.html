@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>API Evolution :: JUnit User Guide</title>
-    <link rel="canonical" href="https://docs.junit.org/current/api-evolution.html">
     <link rel="prev" href="advanced-topics/engines.html">
     <link rel="next" href="release-notes.html">
     <meta name="generator" content="Antora 3.2.0-alpha.11">
@@ -23,7 +22,7 @@
     <div class="navbar-brand">
       <a class="navbar-item title" href="https://docs.junit.org">
           <img class="logo" src="../_/img/junit-diamond-white.png" alt="✔️"/>
-          JUnit User Guide<span class="version">6.0.1</span>
+          JUnit User Guide<span class="version">6.1.0-SNAPSHOT</span>
       </a>
       <div class="navbar-item search hide-for-print">
         <div id="search-field" class="field">
@@ -45,7 +44,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="junit" data-version="6.0.1">
+<div class="nav-container" data-component="junit" data-version="6.1.0">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -148,6 +147,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="running-tests/console-launcher.html">Console Launcher</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="running-tests/source-launcher.html">Source Launcher</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="running-tests/discovery-selectors.html">Discovery Selectors</a>
@@ -267,29 +269,14 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">JUnit</span>
-    <span class="version">6.0.1</span>
+    <span class="version">6.1.0-SNAPSHOT</span>
   </div>
   <ul class="components">
     <li class="component is-current">
       <div class="title"><a href="index.html">JUnit</a></div>
       <ul class="versions">
-        <li class="version">
-          <a href="../snapshot/index.html">6.1.0-SNAPSHOT</a>
-        </li>
-        <li class="version">
-          <a href="../6.0.2/index.html">6.0.2-SNAPSHOT</a>
-        </li>
         <li class="version is-current is-latest">
-          <a href="index.html">6.0.1</a>
-        </li>
-        <li class="version">
-          <a href="../6.0.0/index.html">6.0.0</a>
-        </li>
-        <li class="version">
-          <a href="../5.14.2/index.html">5.14.2-SNAPSHOT</a>
-        </li>
-        <li class="version">
-          <a href="../5.14.1/index.html">5.14.1</a>
+          <a href="index.html">6.1.0-SNAPSHOT</a>
         </li>
       </ul>
     </li>
@@ -301,24 +288,14 @@
 <main class="article">
 <div class="toolbar" role="navigation">
 <button class="nav-toggle"></button>
+  <a href="overview.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">JUnit</a></li>
     <li><a href="api-evolution.html">API Evolution</a></li>
   </ul>
 </nav>
-<div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">6.0.1</button>
-  <div class="version-menu">
-    <a class="version" href="../snapshot/api-evolution.html">6.1.0-SNAPSHOT</a>
-    <a class="version" href="../6.0.2/api-evolution.html">6.0.2-SNAPSHOT</a>
-    <a class="version is-current" href="api-evolution.html">6.0.1</a>
-    <a class="version" href="../6.0.0/api-evolution.html">6.0.0</a>
-    <a class="version" href="../5.14.2/api-evolution.html">5.14.2-SNAPSHOT</a>
-    <a class="version" href="../5.14.1/api-evolution.html">5.14.1</a>
-  </div>
-</div>
-<div class="edit-this-page"><a href="https://github.com/junit-team/junit-framework/edit/antora/6.0.1/documentation/modules/ROOT/pages/api-evolution.adoc">Edit this Page</a></div>
+<div class="edit-this-page"><a href="https://github.com/junit-team/junit-framework/edit/main/documentation/modules/ROOT/pages/api-evolution.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="1">
@@ -420,6 +397,14 @@ value of lower stability.</p>
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>AssertionFailureBuilder.&ZeroWidthSpace;retainStackTraceElements(int)</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>AssertionFailureBuilder.&ZeroWidthSpace;trimStacktrace(@Nullable Class&lt;?&gt;)</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.1</code></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>ClassOrderer.&ZeroWidthSpace;Default</code> <em>(class)</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.0</code></p></td>
 </tr>
@@ -430,6 +415,34 @@ value of lower stability.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>@DisplayNameGenerator.&ZeroWidthSpace;IndicativeSentences.&ZeroWidthSpace;SentenceFragment</code> <em>(annotation)</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.0</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DynamicContainer.&ZeroWidthSpace;Configuration</code> <em>(interface)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DynamicContainer.&ZeroWidthSpace;dynamicContainer(Consumer&lt;? super Configuration&gt;)</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DynamicContainer.&ZeroWidthSpace;getChildExecutionMode()</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DynamicNode.&ZeroWidthSpace;Configuration</code> <em>(interface)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DynamicNode.&ZeroWidthSpace;getExecutionMode()</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DynamicTest.&ZeroWidthSpace;Configuration</code> <em>(interface)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DynamicTest.&ZeroWidthSpace;dynamicTest(Consumer&lt;? super Configuration&gt;)</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.1</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>MethodOrderer.&ZeroWidthSpace;Default</code> <em>(class)</em></p></td>
@@ -592,6 +605,22 @@ value of lower stability.</p>
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Arguments.&ZeroWidthSpace;argumentSetFrom(String, Iterable&lt;?&gt;)</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Arguments.&ZeroWidthSpace;argumentsFrom(Iterable&lt;?&gt;)</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Arguments.&ZeroWidthSpace;from(Iterable&lt;?&gt;)</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Arguments.&ZeroWidthSpace;toList()</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.1</code></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>ArgumentsProvider.&ZeroWidthSpace;provideArguments(ParameterDeclarations, ExtensionContext)</code> <em>(method)</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.0</code></p></td>
 </tr>
@@ -685,6 +714,14 @@ value of lower stability.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>ModifierSupport.&ZeroWidthSpace;isNotAbstract(Member)</code> <em>(method)</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.0</code></p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ReflectionSupport.&ZeroWidthSpace;findAllClassesInModule(Module, Predicate&lt;Class&lt;?&gt;&gt;, Predicate&lt;String&gt;)</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ResourceSupport.&ZeroWidthSpace;findAllResourcesInModule(Module, ResourceFilter)</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.1</code></p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -770,6 +807,14 @@ value of lower stability.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>DiscoverySelectors.&ZeroWidthSpace;selectClassesByName(String[])</code> <em>(method)</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.0</code></p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DiscoverySelectors.&ZeroWidthSpace;selectModule(Module)</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ModuleSelector.&ZeroWidthSpace;getModule()</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.1</code></p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -844,6 +889,18 @@ value of lower stability.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>HierarchicalTestExecutorService.&ZeroWidthSpace;TestTask.&ZeroWidthSpace;getTestDescriptor()</code> <em>(method)</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.0</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Node.&ZeroWidthSpace;isGlobalReadLockRequired()</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ResourceLock.&ZeroWidthSpace;tryAcquire()</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>WorkerThreadPoolHierarchicalTestExecutorService</code> <em>(class)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.1</code></p></td>
 </tr>
 </tbody>
 </table>
@@ -957,6 +1014,30 @@ value of lower stability.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>EventConditions.&ZeroWidthSpace;uniqueId(UniqueId)</code> <em>(method)</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.0</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="module-org-junit-start"><a class="anchor" href="#module-org-junit-start"></a>Module org.junit.start</h3>
+<div class="sect3">
+<h4 id="package-org-junit-start"><a class="anchor" href="#package-org-junit-start"></a>Package org.junit.start</h4>
+<table class="tableblock frame-none grid-rows stripes-odd stretch">
+<colgroup>
+<col style="width: 99%;">
+<col style="width: 1%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Since</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>JUnit</code> <em>(class)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.1</code></p></td>
 </tr>
 </tbody>
 </table>
@@ -1384,6 +1465,31 @@ since such APIs will likely be removed in an upcoming release.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>EngineDiscoveryRequestResolver.&ZeroWidthSpace;Builder.&ZeroWidthSpace;addResourceContainerSelectorResolver(Predicate&lt;Resource&gt;)</code> <em>(method)</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.14</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="package-org-junit-platform-engine-support-hierarchical-2"><a class="anchor" href="#package-org-junit-platform-engine-support-hierarchical-2"></a>Package org.junit.platform.engine.support.hierarchical</h4>
+<table class="tableblock frame-none grid-rows stripes-odd stretch">
+<colgroup>
+<col style="width: 99%;">
+<col style="width: 1%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Since</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ForkJoinPoolHierarchicalTestExecutorService(ConfigurationParameters)</code> <em>(constructor)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ForkJoinPoolHierarchicalTestExecutorService(ParallelExecutionConfiguration)</code> <em>(constructor)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.1</code></p></td>
 </tr>
 </tbody>
 </table>

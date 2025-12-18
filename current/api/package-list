@@ -7,6 +7,7 @@ org.junit.jupiter.api.extension.support
 org.junit.jupiter.api.function
 org.junit.jupiter.api.io
 org.junit.jupiter.api.parallel
+org.junit.jupiter.api.timeout
 org.junit.jupiter.api.util
 module:org.junit.jupiter.engine
 org.junit.jupiter.engine
@@ -72,6 +73,8 @@ module:org.junit.platform.suite.engine
 org.junit.platform.suite.engine
 module:org.junit.platform.testkit
 org.junit.platform.testkit.engine
+module:org.junit.start
+org.junit.start
 module:org.junit.vintage.engine
 org.junit.vintage.engine
 org.junit.vintage.engine.descriptor

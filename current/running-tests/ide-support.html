@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>IDE Support :: JUnit User Guide</title>
-    <link rel="canonical" href="https://docs.junit.org/current/running-tests/ide-support.html">
     <link rel="prev" href="intro.html">
     <link rel="next" href="build-support.html">
     <meta name="generator" content="Antora 3.2.0-alpha.11">
@@ -23,7 +22,7 @@
     <div class="navbar-brand">
       <a class="navbar-item title" href="https://docs.junit.org">
           <img class="logo" src="../../_/img/junit-diamond-white.png" alt="✔️"/>
-          JUnit User Guide<span class="version">6.0.1</span>
+          JUnit User Guide<span class="version">6.1.0-SNAPSHOT</span>
       </a>
       <div class="navbar-item search hide-for-print">
         <div id="search-field" class="field">
@@ -45,7 +44,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="junit" data-version="6.0.1">
+<div class="nav-container" data-component="junit" data-version="6.1.0">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -148,6 +147,9 @@
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="console-launcher.html">Console Launcher</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="source-launcher.html">Source Launcher</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="discovery-selectors.html">Discovery Selectors</a>
@@ -267,29 +269,14 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">JUnit</span>
-    <span class="version">6.0.1</span>
+    <span class="version">6.1.0-SNAPSHOT</span>
   </div>
   <ul class="components">
     <li class="component is-current">
       <div class="title"><a href="../index.html">JUnit</a></div>
       <ul class="versions">
-        <li class="version">
-          <a href="../../snapshot/index.html">6.1.0-SNAPSHOT</a>
-        </li>
-        <li class="version">
-          <a href="../../6.0.2/index.html">6.0.2-SNAPSHOT</a>
-        </li>
         <li class="version is-current is-latest">
-          <a href="../index.html">6.0.1</a>
-        </li>
-        <li class="version">
-          <a href="../../6.0.0/index.html">6.0.0</a>
-        </li>
-        <li class="version">
-          <a href="../../5.14.2/index.html">5.14.2-SNAPSHOT</a>
-        </li>
-        <li class="version">
-          <a href="../../5.14.1/index.html">5.14.1</a>
+          <a href="../index.html">6.1.0-SNAPSHOT</a>
         </li>
       </ul>
     </li>
@@ -301,6 +288,7 @@
 <main class="article">
 <div class="toolbar" role="navigation">
 <button class="nav-toggle"></button>
+  <a href="../overview.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">JUnit</a></li>
@@ -308,18 +296,7 @@
     <li><a href="ide-support.html">IDE Support</a></li>
   </ul>
 </nav>
-<div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">6.0.1</button>
-  <div class="version-menu">
-    <a class="version" href="../../snapshot/running-tests/ide-support.html">6.1.0-SNAPSHOT</a>
-    <a class="version" href="../../6.0.2/running-tests/ide-support.html">6.0.2-SNAPSHOT</a>
-    <a class="version is-current" href="ide-support.html">6.0.1</a>
-    <a class="version" href="../../6.0.0/running-tests/ide-support.html">6.0.0</a>
-    <a class="version" href="../../5.14.2/running-tests/ide-support.html">5.14.2-SNAPSHOT</a>
-    <a class="version" href="../../5.14.1/running-tests/ide-support.html">5.14.1</a>
-  </div>
-</div>
-<div class="edit-this-page"><a href="https://github.com/junit-team/junit-framework/edit/antora/6.0.1/documentation/modules/ROOT/pages/running-tests/ide-support.adoc">Edit this Page</a></div>
+<div class="edit-this-page"><a href="https://github.com/junit-team/junit-framework/edit/main/documentation/modules/ROOT/pages/running-tests/ide-support.adoc">Edit this Page</a></div>
 </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
@@ -338,14 +315,14 @@ IDEA download the following JARs automatically based on the API version used in 
 project: <code>junit-platform-launcher</code>, <code>junit-jupiter-engine</code>, and <code>junit-vintage-engine</code>.</p>
 </div>
 <div class="paragraph">
-<p>In order to use a different JUnit version (e.g., 6.0.1), you may need to
+<p>In order to use a different JUnit version (e.g., 6.1.0-SNAPSHOT), you may need to
 include the corresponding versions of the <code>junit-platform-launcher</code>,
 <code>junit-jupiter-engine</code>, and <code>junit-vintage-engine</code> JARs in the classpath.</p>
 </div>
 <div class="listingblock">
 <div class="title">Additional Gradle Dependencies</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">testImplementation(platform("org.junit:junit-bom:6.0.1"))
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">testImplementation(platform("org.junit:junit-bom:6.1.0-SNAPSHOT"))
 testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
 testRuntimeOnly("org.junit.vintage:junit-vintage-engine")</code></pre>
@@ -377,7 +354,7 @@ testRuntimeOnly("org.junit.vintage:junit-vintage-engine")</code></pre>
 		&lt;dependency&gt;
 			&lt;groupId&gt;org.junit&lt;/groupId&gt;
 			&lt;artifactId&gt;junit-bom&lt;/artifactId&gt;
-			&lt;version&gt;6.0.1&lt;/version&gt;
+			&lt;version&gt;6.1.0-SNAPSHOT&lt;/version&gt;
 			&lt;type&gt;pom&lt;/type&gt;
 			&lt;scope&gt;import&lt;/scope&gt;
 		&lt;/dependency&gt;
