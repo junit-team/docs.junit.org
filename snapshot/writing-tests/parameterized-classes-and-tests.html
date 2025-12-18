@@ -365,9 +365,9 @@ to give it a try and provide feedback to the JUnit team so they can improve and 
 </div>
 <div class="paragraph">
 <p>Regardless of whether you are parameterizing a test method or a test class, you must
-declare at least one <a href="#tests-sources">source</a> that will
+declare at least one <a href="#sources">source</a> that will
 provide the arguments for each invocation and then
-<a href="#tests-consuming-arguments">consume</a> the arguments in the
+<a href="#consuming-arguments">consume</a> the arguments in the
 parameterized method or class, respectively.</p>
 </div>
 <div class="paragraph">
@@ -444,7 +444,7 @@ following.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="tests-setup"><a class="anchor" href="#tests-setup"></a>Required Setup</h2>
+<h2 id="setup"><a class="anchor" href="#setup"></a>Required Setup</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>In order to use parameterized classes or tests you need to add a dependency on the
@@ -453,17 +453,17 @@ following.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="tests-consuming-arguments"><a class="anchor" href="#tests-consuming-arguments"></a>Consuming Arguments</h2>
+<h2 id="consuming-arguments"><a class="anchor" href="#consuming-arguments"></a>Consuming Arguments</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="tests-consuming-arguments-methods"><a class="anchor" href="#tests-consuming-arguments-methods"></a>Parameterized Tests</h3>
+<h3 id="consuming-arguments-methods"><a class="anchor" href="#consuming-arguments-methods"></a>Parameterized Tests</h3>
 <div class="paragraph">
 <p>Parameterized test methods <em>consume</em> arguments directly from the configured source (see
-<a href="#tests-sources">Sources of Arguments</a>) following a one-to-one correlation between
+<a href="#sources">Sources of Arguments</a>) following a one-to-one correlation between
 argument source index and method parameter index (see examples in
-<a href="#tests-sources-CsvSource">@CsvSource</a>). However, a parameterized test
+<a href="#sources-CsvSource">@CsvSource</a>). However, a parameterized test
 method may also choose to <em>aggregate</em> arguments from the source into a single object
-passed to the method (see <a href="#tests-argument-aggregation">Argument Aggregation</a>).
+passed to the method (see <a href="#argument-aggregation">Argument Aggregation</a>).
 Additional arguments may also be provided by a <code>ParameterResolver</code> (e.g., to obtain an
 instance of <code>TestInfo</code>, <code>TestReporter</code>, etc.). Specifically, a parameterized test method
 must declare formal parameters according to the following rules.</p>
@@ -490,16 +490,16 @@ with <code><a href="../api/org.junit.jupiter.params/org/junit/jupiter/params/agg
 </div>
 </div>
 <div class="sect2">
-<h3 id="tests-consuming-arguments-classes"><a class="anchor" href="#tests-consuming-arguments-classes"></a>Parameterized Classes</h3>
+<h3 id="consuming-arguments-classes"><a class="anchor" href="#consuming-arguments-classes"></a>Parameterized Classes</h3>
 <div class="paragraph">
 <p>Parameterized classes <em>consume</em> arguments directly from the configured source (see
-<a href="#tests-sources">Sources of Arguments</a>); either via their unique constructor or via
+<a href="#sources">Sources of Arguments</a>); either via their unique constructor or via
 field injection. If a <code><a href="../api/org.junit.jupiter.params/org/junit/jupiter/params/Parameter.html" class="xref attachment">@Parameter</a></code>-annotated field is declared in the parameterized class
 or one of its superclasses, field injection will be used. Otherwise, constructor injection
 will be used.</p>
 </div>
 <div class="sect3">
-<h4 id="tests-consuming-arguments-constructor-injection"><a class="anchor" href="#tests-consuming-arguments-constructor-injection"></a>Constructor Injection</h4>
+<h4 id="consuming-arguments-constructor-injection"><a class="anchor" href="#consuming-arguments-constructor-injection"></a>Constructor Injection</h4>
 <div class="admonitionblock warning">
 <table>
 <tr>
@@ -509,7 +509,7 @@ will be used.</p>
 <td class="content">
 Constructor injection can only be used with the (default) <code>PER_METHOD</code>
 <a href="test-instance-lifecycle.html" class="xref page">test instance lifecycle</a> mode. Please use
-<a href="#tests-consuming-arguments-field-injection">field injection</a>
+<a href="#consuming-arguments-field-injection">field injection</a>
 with the <code>PER_CLASS</code> mode instead.
 </td>
 </tr>
@@ -517,7 +517,7 @@ with the <code>PER_CLASS</code> mode instead.
 </div>
 <div class="paragraph">
 <p>For constructor injection, the same rules apply as defined for
-<a href="#tests-consuming-arguments-methods">parameterized tests</a>
+<a href="#consuming-arguments-methods">parameterized tests</a>
 above. In the following example, two arguments are injected into the constructor of the
 test class.</p>
 </div>
@@ -573,7 +573,7 @@ record FruitTests(String fruit, int quantity) {
 </div>
 </div>
 <div class="sect3">
-<h4 id="tests-consuming-arguments-field-injection"><a class="anchor" href="#tests-consuming-arguments-field-injection"></a>Field Injection</h4>
+<h4 id="consuming-arguments-field-injection"><a class="anchor" href="#consuming-arguments-field-injection"></a>Field Injection</h4>
 <div class="paragraph">
 <p>For field injection, the following rules apply for fields annotated with <code>@Parameter</code>.</p>
 </div>
@@ -637,16 +637,16 @@ may resolve constructor parameters as usual, though.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="tests-consuming-arguments-lifecycle-method"><a class="anchor" href="#tests-consuming-arguments-lifecycle-method"></a>Lifecycle Methods</h4>
+<h4 id="consuming-arguments-lifecycle-method"><a class="anchor" href="#consuming-arguments-lifecycle-method"></a>Lifecycle Methods</h4>
 <div class="paragraph">
 <p><code><a href="../api/org.junit.jupiter.params/org/junit/jupiter/params/BeforeParameterizedClassInvocation.html" class="xref attachment">@BeforeParameterizedClassInvocation</a></code> and <code><a href="../api/org.junit.jupiter.params/org/junit/jupiter/params/AfterParameterizedClassInvocation.html" class="xref attachment">@AfterParameterizedClassInvocation</a></code> can also
 be used to consume arguments if their <code>injectArguments</code> attribute is set to <code>true</code> (the
 default). If so, their method signatures must follow the same rules apply as defined for
-<a href="#tests-consuming-arguments-methods">parameterized tests</a> and
+<a href="#consuming-arguments-methods">parameterized tests</a> and
 additionally use the same parameter types as the <em>indexed parameters</em> of the parameterized
 test class. Please refer to the Javadoc of <code><a href="../api/org.junit.jupiter.params/org/junit/jupiter/params/BeforeParameterizedClassInvocation.html" class="xref attachment">@BeforeParameterizedClassInvocation</a></code> and
 <code><a href="../api/org.junit.jupiter.params/org/junit/jupiter/params/AfterParameterizedClassInvocation.html" class="xref attachment">@AfterParameterizedClassInvocation</a></code> for details and to the
-<a href="#tests-lifecycle-interop-classes">Lifecycle</a> section for an
+<a href="#lifecycle-interop-classes">Lifecycle</a> section for an
 example.</p>
 </div>
 <div class="admonitionblock note">
@@ -677,7 +677,7 @@ invocations.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="tests-consuming-arguments-other-extensions"><a class="anchor" href="#tests-consuming-arguments-other-extensions"></a>Other Extensions</h3>
+<h3 id="consuming-arguments-other-extensions"><a class="anchor" href="#consuming-arguments-other-extensions"></a>Other Extensions</h3>
 <div class="paragraph">
 <p>Other extensions can access the parameters and resolved arguments of a parameterized test
 or class by retrieving a <code><a href="../api/org.junit.jupiter.params/org/junit/jupiter/params/support/ParameterInfo.html" class="xref attachment">ParameterInfo</a></code> object from the <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Store.html" class="xref attachment">Store</a></code>.
@@ -687,7 +687,7 @@ Please refer to the Javadoc of <code><a href="../api/org.junit.jupiter.params/or
 </div>
 </div>
 <div class="sect1">
-<h2 id="tests-sources"><a class="anchor" href="#tests-sources"></a>Sources of Arguments</h2>
+<h2 id="sources"><a class="anchor" href="#sources"></a>Sources of Arguments</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Out of the box, JUnit Jupiter provides quite a few <em>source</em> annotations. Each of the
@@ -710,7 +710,7 @@ show how to use them with <code><a href="../api/org.junit.jupiter.params/org/jun
 </table>
 </div>
 <div class="sect2">
-<h3 id="tests-sources-ValueSource"><a class="anchor" href="#tests-sources-ValueSource"></a>@ValueSource</h3>
+<h3 id="sources-ValueSource"><a class="anchor" href="#sources-ValueSource"></a>@ValueSource</h3>
 <div class="paragraph">
 <p><code>@ValueSource</code> is one of the simplest possible sources. It lets you specify a single
 array of literal values and can only be used for providing a single argument per
@@ -768,7 +768,7 @@ void testWithValueSource(int argument) {
 </div>
 </div>
 <div class="sect2">
-<h3 id="tests-sources-null-and-empty"><a class="anchor" href="#tests-sources-null-and-empty"></a>Null and Empty Sources</h3>
+<h3 id="sources-null-and-empty"><a class="anchor" href="#sources-null-and-empty"></a>Null and Empty Sources</h3>
 <div class="paragraph">
 <p>In order to check corner cases and verify proper behavior of our software when it is
 supplied <em>bad input</em>, it can be useful to have <code>null</code> and <em>empty</em> values supplied to our
@@ -806,7 +806,7 @@ constructor), <code>java.util.SortedMap</code>, <code>java.util.NavigableMap</co
 <div class="paragraph">
 <p>If you need to supply multiple varying types of <em>blank</em> strings to a parameterized
 class or test, you can achieve that using
-<a href="#tests-sources-ValueSource">@ValueSource</a>&#8201;&#8212;&#8201;for example,
+<a href="#sources-ValueSource">@ValueSource</a>&#8201;&#8212;&#8201;for example,
 <code>@ValueSource(strings = {"&#160;", "&#160;&#160;&#160;", "\t", "\n"})</code>.</p>
 </div>
 <div class="paragraph">
@@ -855,7 +855,7 @@ blank strings supplied via <code>@ValueSource</code>.
 </div>
 </div>
 <div class="sect2">
-<h3 id="tests-sources-EnumSource"><a class="anchor" href="#tests-sources-EnumSource"></a>@EnumSource</h3>
+<h3 id="sources-EnumSource"><a class="anchor" href="#sources-EnumSource"></a>@EnumSource</h3>
 <div class="paragraph">
 <p><code>@EnumSource</code> provides a convenient way to use <code>Enum</code> constants.</p>
 </div>
@@ -959,7 +959,7 @@ void testWithEnumSourceRangeExclude(ChronoUnit unit) {
 </div>
 </div>
 <div class="sect2">
-<h3 id="tests-sources-MethodSource"><a class="anchor" href="#tests-sources-MethodSource"></a>@MethodSource</h3>
+<h3 id="sources-MethodSource"><a class="anchor" href="#sources-MethodSource"></a>@MethodSource</h3>
 <div class="paragraph">
 <p><code><a href="../api/org.junit.jupiter.params/org/junit/jupiter/params/provider/MethodSource.html" class="xref attachment">@MethodSource</a></code> allows you to refer to one or more <em>factory</em> methods of the test class
 or external classes.</p>
@@ -1145,7 +1145,7 @@ static class IntegerResolver implements ParameterResolver {
 </div>
 </div>
 <div class="sect2">
-<h3 id="tests-sources-FieldSource"><a class="anchor" href="#tests-sources-FieldSource"></a>@FieldSource</h3>
+<h3 id="sources-FieldSource"><a class="anchor" href="#sources-FieldSource"></a>@FieldSource</h3>
 <div class="paragraph">
 <p><code><a href="../api/org.junit.jupiter.params/org/junit/jupiter/params/provider/FieldSource.html" class="xref attachment">@FieldSource</a></code> allows you to refer to one or more fields of the test class or external
 classes.</p>
@@ -1180,7 +1180,7 @@ a single argument.</p>
 <td class="content">
 <div class="paragraph">
 <p>In contrast to the supported return types for
-<a href="#tests-sources-MethodSource"><code>@MethodSource</code></a> factory
+<a href="#sources-MethodSource"><code>@MethodSource</code></a> factory
 methods, the value of a <code>@FieldSource</code> field cannot be an instance of <code>Stream</code>,
 <code>DoubleStream</code>, <code>LongStream</code>, <code>IntStream</code>, or <code>Iterator</code>, since the values of such types
 are <em>consumed</em> the first time they are processed. However, if you wish to use one of
@@ -1348,7 +1348,7 @@ void testWithExternalFieldSource(String tropicalFruit) {
 </div>
 </div>
 <div class="sect2">
-<h3 id="tests-sources-CsvSource"><a class="anchor" href="#tests-sources-CsvSource"></a>@CsvSource</h3>
+<h3 id="sources-CsvSource"><a class="anchor" href="#sources-CsvSource"></a>@CsvSource</h3>
 <div class="paragraph">
 <p><code>@CsvSource</code> allows you to express argument lists as comma-separated values (i.e., CSV
 <code>String</code> literals). Each string provided via the <code>value</code> attribute in <code>@CsvSource</code>
@@ -1536,7 +1536,7 @@ your text block.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="tests-sources-CsvFileSource"><a class="anchor" href="#tests-sources-CsvFileSource"></a>@CsvFileSource</h3>
+<h3 id="sources-CsvFileSource"><a class="anchor" href="#sources-CsvFileSource"></a>@CsvFileSource</h3>
 <div class="paragraph">
 <p><code>@CsvFileSource</code> lets you use comma-separated value (CSV) files from the classpath or the
 local file system. Each record from a CSV file results in one invocation of the
@@ -1654,7 +1654,7 @@ by default. This behavior can be changed by setting the
 </div>
 </div>
 <div class="sect2">
-<h3 id="tests-sources-ArgumentsSource"><a class="anchor" href="#tests-sources-ArgumentsSource"></a>@ArgumentsSource</h3>
+<h3 id="sources-ArgumentsSource"><a class="anchor" href="#sources-ArgumentsSource"></a>@ArgumentsSource</h3>
 <div class="paragraph">
 <p><code>@ArgumentsSource</code> can be used to specify a custom, reusable <code>ArgumentsProvider</code>. Note
 that an implementation of <code>ArgumentsProvider</code> must be declared as either a top-level
@@ -1776,7 +1776,7 @@ static Stream&lt;String&gt; otherProvider() {
 </div>
 </div>
 <div class="sect1">
-<h2 id="tests-argument-count-validation"><a class="anchor" href="#tests-argument-count-validation"></a>Argument Count Validation</h2>
+<h2 id="argument-count-validation"><a class="anchor" href="#argument-count-validation"></a>Argument Count Validation</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>By default, when an arguments source provides more arguments than the test method needs,
@@ -1808,10 +1808,10 @@ void testWithArgumentCountValidation(int number) {
 </div>
 </div>
 <div class="sect1">
-<h2 id="tests-argument-conversion"><a class="anchor" href="#tests-argument-conversion"></a>Argument Conversion</h2>
+<h2 id="argument-conversion"><a class="anchor" href="#argument-conversion"></a>Argument Conversion</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="tests-argument-conversion-widening"><a class="anchor" href="#tests-argument-conversion-widening"></a>Widening Conversion</h3>
+<h3 id="argument-conversion-widening"><a class="anchor" href="#argument-conversion-widening"></a>Widening Conversion</h3>
 <div class="paragraph">
 <p>JUnit Jupiter supports
 <a href="https://docs.oracle.com/javase/specs/jls/se8/html/jls-5.html#jls-5.1.2">Widening Primitive
@@ -1822,7 +1822,7 @@ For example, a parameterized class or test method annotated with
 </div>
 </div>
 <div class="sect2">
-<h3 id="tests-argument-conversion-implicit"><a class="anchor" href="#tests-argument-conversion-implicit"></a>Implicit Conversion</h3>
+<h3 id="argument-conversion-implicit"><a class="anchor" href="#argument-conversion-implicit"></a>Implicit Conversion</h3>
 <div class="paragraph">
 <p>To support use cases like <code>@CsvSource</code>, JUnit Jupiter provides a number of built-in
 implicit type converters. The conversion process depends on the declared type of each
@@ -1858,7 +1858,7 @@ integral types: <code>byte</code>, <code>short</code>, <code>int</code>, <code>l
 </tr>
 </table>
 </div>
-<table id="tests-argument-conversion-implicit-table" class="tableblock frame-none grid-rows stripes-odd stretch">
+<table id="argument-conversion-implicit-table" class="tableblock frame-none grid-rows stripes-odd stretch">
 <colgroup>
 <col style="width: 10%;">
 <col style="width: 90%;">
@@ -2017,7 +2017,7 @@ integral types: <code>byte</code>, <code>short</code>, <code>int</code>, <code>l
 </tbody>
 </table>
 <div class="sect3">
-<h4 id="tests-argument-conversion-implicit-fallback"><a class="anchor" href="#tests-argument-conversion-implicit-fallback"></a>Fallback String-to-Object Conversion</h4>
+<h4 id="argument-conversion-implicit-fallback"><a class="anchor" href="#argument-conversion-implicit-fallback"></a>Fallback String-to-Object Conversion</h4>
 <div class="paragraph">
 <p>In addition to implicit conversion from strings to the target types listed in the above
 table, JUnit Jupiter also provides a fallback mechanism for automatic conversion from a
@@ -2104,7 +2104,7 @@ void testWithImplicitFallbackArgumentConversion(Book book) {
 </div>
 </div>
 <div class="sect2">
-<h3 id="tests-argument-conversion-explicit"><a class="anchor" href="#tests-argument-conversion-explicit"></a>Explicit Conversion</h3>
+<h3 id="argument-conversion-explicit"><a class="anchor" href="#argument-conversion-explicit"></a>Explicit Conversion</h3>
 <div class="paragraph">
 <p>Instead of relying on implicit argument conversion, you may explicitly specify an
 <code>ArgumentConverter</code> to use for a certain parameter using the <code>@ConvertWith</code> annotation
@@ -2183,7 +2183,7 @@ void testWithExplicitJavaTimeConverter(
 </div>
 </div>
 <div class="sect1">
-<h2 id="tests-argument-aggregation"><a class="anchor" href="#tests-argument-aggregation"></a>Argument Aggregation</h2>
+<h2 id="argument-aggregation"><a class="anchor" href="#argument-aggregation"></a>Argument Aggregation</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>By default, each <em>argument</em> provided to a <code>@ParameterizedClass</code> or <code>@ParameterizedTest</code>
@@ -2195,7 +2195,7 @@ signatures, respectively.</p>
 <p>In such cases, an <code><a href="../api/org.junit.jupiter.params/org/junit/jupiter/params/aggregator/ArgumentsAccessor.html" class="xref attachment">ArgumentsAccessor</a></code> can be used instead of multiple parameters. Using
 this API, you can access the provided arguments through a single argument passed to your
 test method. In addition, type conversion is supported as discussed in
-<a href="#tests-argument-conversion-implicit">Implicit Conversion</a>.</p>
+<a href="#argument-conversion-implicit">Implicit Conversion</a>.</p>
 </div>
 <div class="paragraph">
 <p>Besides, you can retrieve the current test invocation index with
@@ -2231,7 +2231,7 @@ void testWithArgumentsAccessor(ArgumentsAccessor arguments) {
 <code>ArgumentsAccessor</code>.</em></p>
 </div>
 <div class="sect2">
-<h3 id="tests-argument-aggregation-custom"><a class="anchor" href="#tests-argument-aggregation-custom"></a>Custom Aggregators</h3>
+<h3 id="argument-aggregation-custom"><a class="anchor" href="#argument-aggregation-custom"></a>Custom Aggregators</h3>
 <div class="paragraph">
 <p>Apart from direct access to the arguments of a <code>@ParameterizedClass</code> or
 <code>@ParameterizedTest</code> using an <code>ArgumentsAccessor</code>, JUnit Jupiter also supports the usage
@@ -2304,7 +2304,7 @@ public @interface CsvToPerson {
 </div>
 </div>
 <div class="sect1">
-<h2 id="tests-display-names"><a class="anchor" href="#tests-display-names"></a>Customizing Display Names</h2>
+<h2 id="display-names"><a class="anchor" href="#display-names"></a>Customizing Display Names</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>By default, the display name of a parameterized class or test invocation contains the
@@ -2542,7 +2542,7 @@ the following.</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="tests-display-names-quoted-text"><a class="anchor" href="#tests-display-names-quoted-text"></a>Quoted Text-based Arguments</h3>
+<h3 id="display-names-quoted-text"><a class="anchor" href="#display-names-quoted-text"></a>Quoted Text-based Arguments</h3>
 <div class="paragraph">
 <p>As of JUnit Jupiter 6.0, text-based arguments in display names for parameterized tests are
 quoted by default. In this context, any <code>CharSequence</code> (such as a <code>String</code>) or <code>Character</code>
@@ -2579,7 +2579,7 @@ in the display name would be <code>"'\\t'"</code> which is printed as <code>'\t'
 <div class="paragraph">
 <p>For a concrete example, if you run the first <code>nullEmptyAndBlankStrings(String text)</code>
 parameterized test method from the
-<a href="#tests-sources-null-and-empty">Null and Empty Sources</a> section above, the following
+<a href="#sources-null-and-empty">Null and Empty Sources</a> section above, the following
 display names are generated.</p>
 </div>
 <div class="listingblock">
@@ -2594,7 +2594,7 @@ display names are generated.</p>
 </div>
 <div class="paragraph">
 <p>If you run the first <code>testWithCsvSource(String fruit, int rank)</code> parameterized test method
-from the <a href="#tests-sources-CsvSource">@CsvSource</a> section above, the
+from the <a href="#sources-CsvSource">@CsvSource</a> section above, the
 following display names are generated.</p>
 </div>
 <div class="listingblock">
@@ -2628,7 +2628,7 @@ example.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="tests-display-names-default-pattern"><a class="anchor" href="#tests-display-names-default-pattern"></a>Default Display Name Pattern</h3>
+<h3 id="display-names-default-pattern"><a class="anchor" href="#display-names-default-pattern"></a>Default Display Name Pattern</h3>
 <div class="paragraph">
 <p>If you&#8217;d like to set a default name pattern for all parameterized classes and tests in
 your project, you can declare the <code>junit.jupiter.params.displayname.default</code> configuration
@@ -2642,7 +2642,7 @@ parameter in the <code>junit-platform.properties</code> file as demonstrated in 
 </div>
 </div>
 <div class="sect2">
-<h3 id="tests-display-names-precedence-rules"><a class="anchor" href="#tests-display-names-precedence-rules"></a>Precedence Rules</h3>
+<h3 id="display-names-precedence-rules"><a class="anchor" href="#display-names-precedence-rules"></a>Precedence Rules</h3>
 <div class="paragraph">
 <p>The display name for a parameterized class or test is determined according to the
 following precedence rules:</p>
@@ -2665,10 +2665,10 @@ following precedence rules:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="tests-lifecycle-interop"><a class="anchor" href="#tests-lifecycle-interop"></a>Lifecycle and Interoperability</h2>
+<h2 id="lifecycle-interop"><a class="anchor" href="#lifecycle-interop"></a>Lifecycle and Interoperability</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="tests-lifecycle-interop-methods"><a class="anchor" href="#tests-lifecycle-interop-methods"></a>Parameterized Tests</h3>
+<h3 id="lifecycle-interop-methods"><a class="anchor" href="#lifecycle-interop-methods"></a>Parameterized Tests</h3>
 <div class="paragraph">
 <p>Each invocation of a parameterized test has the same lifecycle as a regular <code>@Test</code>
 method. For example, <code>@BeforeEach</code> methods will be executed before each invocation.
@@ -2704,7 +2704,7 @@ void afterEach(TestInfo testInfo) {
 </div>
 </div>
 <div class="sect2">
-<h3 id="tests-lifecycle-interop-classes"><a class="anchor" href="#tests-lifecycle-interop-classes"></a>Parameterized Classes</h3>
+<h3 id="lifecycle-interop-classes"><a class="anchor" href="#lifecycle-interop-classes"></a>Parameterized Classes</h3>
 <div class="paragraph">
 <p>Each invocation of a parameterized class has the same lifecycle as a regular test class.
 For example, <code>@BeforeAll</code> methods will be executed <em>once</em> before all invocations and
