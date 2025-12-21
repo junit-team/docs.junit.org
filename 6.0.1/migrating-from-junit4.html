@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Migrating from JUnit 4 :: JUnit User Guide</title>
+    <link rel="prev" href="writing-tests/built-in-extensions.html">
+    <link rel="next" href="running-tests/intro.html">
+    <meta name="generator" content="Antora 3.2.0-alpha.11">
+    <link rel="stylesheet" href="../_/css/site.css">
+<link rel="icon" type="image/png" href="../_/img/junit-diamond.png">
+<link rel="stylesheet" href="../_/css/fonts.css">
+<link rel="stylesheet" href="../_/css/site-extra.css">
+<link rel="stylesheet" href="../_/css/vendor/highlightjs/github.min.css">
+
+<meta name="theme-color" content="#25a162">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item title" href="..">
+          <img class="logo" src="../_/img/junit-diamond-white.png" alt="✔️"/>
+          JUnit User Guide<span class="version">6.0.1</span>
+      </a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search the docs">
+        </div>
+      </div>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+          <a class="navbar-item" href="https://junit.org/">Home</a>
+          <a class="navbar-item" href="https://github.com/junit-team/junit-framework/">Repo</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="junit" data-version="6.0.1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="index.html">JUnit</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="writing-tests/intro.html">Writing Tests</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-tests/annotations.html">Annotations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-tests/definitions.html">Definitions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-tests/test-classes-and-methods.html">Test Classes and Methods</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-tests/display-names.html">Display Names</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-tests/assertions.html">Assertions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-tests/assumptions.html">Assumptions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-tests/exception-handling.html">Exception Handling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-tests/disabling-tests.html">Disabling Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-tests/conditional-test-execution.html">Conditional Test Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-tests/tagging-and-filtering.html">Tagging and Filtering</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-tests/test-execution-order.html">Test Execution Order</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-tests/test-instance-lifecycle.html">Test Instance Lifecycle</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-tests/nested-tests.html">Nested Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-tests/dependency-injection-for-constructors-and-methods.html">Dependency Injection for Constructors and Methods</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-tests/test-interfaces-and-default-methods.html">Test Interfaces and Default Methods</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-tests/repeated-tests.html">Repeated Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-tests/parameterized-classes-and-tests.html">Parameterized Classes and Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-tests/class-templates.html">Class Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-tests/test-templates.html">Test Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-tests/dynamic-tests.html">Dynamic Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-tests/timeouts.html">Timeouts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-tests/parallel-execution.html">Parallel Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-tests/built-in-extensions.html">Built-in Extensions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="migrating-from-junit4.html">Migrating from JUnit 4</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="running-tests/intro.html">Running Tests</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="running-tests/ide-support.html">IDE Support</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="running-tests/build-support.html">Build Support</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="running-tests/console-launcher.html">Console Launcher</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="running-tests/discovery-selectors.html">Discovery Selectors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="running-tests/configuration-parameters.html">Configuration Parameters</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="running-tests/tags.html">Tags</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="running-tests/capturing-standard-output-error.html">Capturing Standard Output/Error</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="running-tests/using-listeners-and-interceptors.html">Using Listeners and Interceptors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="running-tests/stack-trace-pruning.html">Stack Trace Pruning</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="running-tests/discovery-issues.html">Discovery Issues</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="extensions/overview.html">Extension Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="extensions/registering-extensions.html">Registering Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="extensions/conditional-test-execution.html">Conditional Test Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="extensions/test-instance-pre-construct-callback.html">Test Instance Pre-construct Callback</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="extensions/test-instance-factories.html">Test Instance Factories</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="extensions/test-instance-post-processing.html">Test Instance Post-processing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="extensions/test-instance-pre-destroy-callback.html">Test Instance Pre-destroy Callback</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="extensions/parameter-resolution.html">Parameter Resolution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="extensions/test-result-processing.html">Test Result Processing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="extensions/test-lifecycle-callbacks.html">Test Lifecycle Callbacks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="extensions/exception-handling.html">Exception Handling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="extensions/pre-interrupt-callback.html">Pre-Interrupt Callback</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="extensions/intercepting-invocations.html">Intercepting Invocations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="extensions/providing-invocation-contexts-for-class-templates.html">Providing Invocation Contexts for Class Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="extensions/providing-invocation-contexts-for-test-templates.html">Providing Invocation Contexts for Test Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="extensions/keeping-state-in-extensions.html">Keeping State in Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="extensions/supported-utilities-in-extensions.html">Supported Utilities in Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="extensions/relative-execution-order-of-user-code-and-extensions.html">Relative Execution Order of User Code and Extensions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced Topics</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanced-topics/junit-platform-reporting.html">JUnit Platform Reporting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanced-topics/junit-platform-suite-engine.html">JUnit Platform Suite Engine</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanced-topics/testkit.html">JUnit Platform Test Kit</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanced-topics/launcher-api.html">JUnit Platform Launcher API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanced-topics/engines.html">Test Engines</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="api-evolution.html">API Evolution</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="release-notes.html">Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">JUnit</span>
+    <span class="version">6.0.1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="index.html">JUnit</a></div>
+      <ul class="versions">
+        <li class="version">
+          <a href="../6.1.0/index.html">6.1.0-SNAPSHOT</a>
+        </li>
+        <li class="version">
+          <a href="../6.1.0-M1/index.html">6.1.0-M1</a>
+        </li>
+        <li class="version is-current is-latest">
+          <a href="index.html">6.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../6.0.0/index.html">6.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../5.14.1/index.html">5.14.1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="overview.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">JUnit</a></li>
+    <li><a href="migrating-from-junit4.html">Migrating from JUnit 4</a></li>
+  </ul>
+</nav>
+            <div class="pdf-link">
+                <a href="_exports/junit-user-guide-6.0.1.pdf#migrating-from-junit4">PDF</a>
+            </div>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">6.0.1</button>
+  <div class="version-menu">
+    <a class="version" href="../6.1.0/migrating-from-junit4.html">6.1.0-SNAPSHOT</a>
+    <a class="version" href="../6.1.0-M1/migrating-from-junit4.html">6.1.0-M1</a>
+    <a class="version is-current" href="migrating-from-junit4.html">6.0.1</a>
+    <a class="version" href="../6.0.0/migrating-from-junit4.html">6.0.0</a>
+    <a class="version" href="../5.14.1/migrating-from-junit4.html">5.14.1</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/junit-team/junit-framework/edit/antora/6.0.1/documentation/modules/ROOT/pages/migrating-from-junit4.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Migrating from JUnit 4</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Although the JUnit Jupiter programming model and extension model do not support JUnit 4
+features such as <code>Rules</code> and <code>Runners</code> natively, it is not expected that source code
+maintainers will need to update all of their existing tests, test extensions, and custom
+build test infrastructure to migrate to JUnit Jupiter.</p>
+</div>
+<div class="paragraph">
+<p>Instead, JUnit provides a gentle migration path via a <em>JUnit Vintage test engine</em> which
+allows existing tests based on JUnit 3 and JUnit 4 to be executed using the JUnit Platform
+infrastructure. Since all classes and annotations specific to JUnit Jupiter reside under
+the <code>org.junit.jupiter</code> base package, having both JUnit 4 and JUnit Jupiter in the
+classpath does not lead to any conflicts. It is therefore safe to maintain existing JUnit
+4 tests alongside JUnit Jupiter tests and migrate them gradually.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="running"><a class="anchor" href="#running"></a>Running JUnit 4 Tests on the JUnit Platform</h2>
+<div class="sectionbody">
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The JUnit Vintage engine is deprecated and should only be used temporarily while
+migrating tests to JUnit Jupiter or another testing framework with native JUnit Platform
+support.</p>
+</div>
+<div class="paragraph">
+<p>By default, if the JUnit Vintage engine is registered and discovers at least one test
+class, it reports a <a href="running-tests/discovery-issues.html" class="xref page">discovery issue</a> of INFO severity.
+You can prevent this discovery issue from being reported by setting the
+<code>junit.vintage.discovery.issue.reporting.enabled</code>
+<a href="running-tests/configuration-parameters.html" class="xref page">configuration parameter</a> to <code>false</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Make sure that the <code>junit-vintage-engine</code> artifact is in your test runtime path. In that
+case JUnit 3 and JUnit 4 tests will automatically be picked up by the JUnit Platform
+launcher.</p>
+</div>
+<div class="paragraph">
+<p>See the example projects in the <a href="https://github.com/junit-team/junit-examples"><code>junit-examples</code></a> repository to
+find out how this is done with Gradle and Maven.</p>
+</div>
+<div class="sect2">
+<h3 id="categories-support"><a class="anchor" href="#categories-support"></a>Categories Support</h3>
+<div class="paragraph">
+<p>For test classes or methods that are annotated with <code>@Category</code>, the <em>JUnit Vintage test
+engine</em> exposes the category&#8217;s fully qualified class name as a <a href="running-tests/tags.html" class="xref page">tag</a>
+for the corresponding test class or test method. For example, if a test method is
+annotated with <code>@Category(Example.class)</code>, it will be tagged with <code>"com.acme.Example"</code>.
+Similar to the <code>Categories</code> runner in JUnit 4, this information can be used to filter the
+discovered tests before executing them (see <a href="running-tests/intro.html" class="xref page">Running Tests</a> for details).</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="parallel-execution"><a class="anchor" href="#parallel-execution"></a>Parallel Execution</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The JUnit Vintage test engine supports parallel execution of top-level test classes and test methods,
+allowing existing JUnit 3 and JUnit 4 tests to benefit from improved performance through
+concurrent test execution. It can be enabled and configured using the following
+<a href="running-tests/configuration-parameters.html" class="xref page">configuration parameters</a>:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>junit.vintage.execution.parallel.enabled=true|false</code></dt>
+<dd>
+<p>Enable/disable parallel execution (defaults to <code>false</code>). Requires opt-in for <code>classes</code>
+or <code>methods</code> to be executed in parallel using the configuration parameters below.</p>
+</dd>
+<dt class="hdlist1"><code>junit.vintage.execution.parallel.classes=true|false</code></dt>
+<dd>
+<p>Enable/disable parallel execution of test classes (defaults to <code>false</code>).</p>
+</dd>
+<dt class="hdlist1"><code>junit.vintage.execution.parallel.methods=true|false</code></dt>
+<dd>
+<p>Enable/disable parallel execution of test methods (defaults to <code>false</code>).</p>
+</dd>
+<dt class="hdlist1"><code>junit.vintage.execution.parallel.pool-size=&lt;number&gt;</code></dt>
+<dd>
+<p>Specifies the size of the thread pool to be used for parallel execution. By default, the
+number of available processors is used.</p>
+</dd>
+</dl>
+</div>
+<div class="sect2">
+<h3 id="parallel-execution-class-level"><a class="anchor" href="#parallel-execution-class-level"></a>Parallelization at Class Level</h3>
+<div class="paragraph">
+<p>Let&#8217;s assume we have two test classes <code>FooTest</code> and <code>BarTest</code> with each class containing
+three unit tests. Now, let&#8217;s enable parallel execution of test classes:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">junit.vintage.execution.parallel.enabled=true
+junit.vintage.execution.parallel.classes=true</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>With this setup, the <code>VintageTestEngine</code> will use two different threads,
+one for each test class:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-plaintext hljs" data-lang="plaintext">ForkJoinPool-1-worker-1 - BarTest::test1
+ForkJoinPool-1-worker-2 - FooTest::test1
+ForkJoinPool-1-worker-1 - BarTest::test2
+ForkJoinPool-1-worker-2 - FooTest::test2
+ForkJoinPool-1-worker-1 - BarTest::test3
+ForkJoinPool-1-worker-2 - FooTest::test3</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="parallel-execution-method-level"><a class="anchor" href="#parallel-execution-method-level"></a>Parallelization at Method Level</h3>
+<div class="paragraph">
+<p>Alternatively, we can enable parallel test execution at a method level,
+rather than the class level:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">junit.vintage.execution.parallel.enabled=true
+junit.vintage.execution.parallel.methods=true</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Therefore, the test methods within each class will be executed in parallel, while
+different test classes will be executed sequentially:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-plaintext hljs" data-lang="plaintext">ForkJoinPool-1-worker-1 - BarTest::test1
+ForkJoinPool-1-worker-2 - BarTest::test2
+ForkJoinPool-1-worker-3 - BarTest::test3
+
+ForkJoinPool-1-worker-3 - FooTest::test1
+ForkJoinPool-1-worker-2 - FooTest::test2
+ForkJoinPool-1-worker-1 - FooTest::test3</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="parallel-execution-class-and-method-level"><a class="anchor" href="#parallel-execution-class-and-method-level"></a>Full Parallelization</h3>
+<div class="paragraph">
+<p>Finally, we can also enable parallelization at both class and method level:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">junit.vintage.execution.parallel.enabled=true
+junit.vintage.execution.parallel.classes=true
+junit.vintage.execution.parallel.methods=true</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>With these properties set, the <code>VintageTestEngine</code> will execute all tests classes and
+methods in parallel, potentially significantly reducing the overall test suite execution time:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-plaintext hljs" data-lang="plaintext">ForkJoinPool-1-worker-6 - FooTest::test2
+ForkJoinPool-1-worker-7 - BarTest::test3
+ForkJoinPool-1-worker-3 - FooTest::test1
+ForkJoinPool-1-worker-8 - FooTest::test3
+ForkJoinPool-1-worker-5 - BarTest::test2
+ForkJoinPool-1-worker-4 - BarTest::test1</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="parallel-execution-pool-size"><a class="anchor" href="#parallel-execution-pool-size"></a>Configuring the Pool Size</h3>
+<div class="paragraph">
+<p>The default thread pool size is equal to the number of available processors. However, we
+can also configure the pool size explicitly:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">junit.vintage.execution.parallel.enabled=true
+junit.vintage.execution.parallel.classes=true
+junit.vintage.execution.parallel.methods=true
+junit.vintage.execution.parallel.pool-size=4</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For instance, if we update our previous example that uses full parallelization and
+configure the pool size to four, we can expect to see our six test methods executed with
+a parallelism of four:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-plaintext hljs" data-lang="plaintext">ForkJoinPool-1-worker-2 - FooTest::test1
+ForkJoinPool-1-worker-4 - BarTest::test2
+ForkJoinPool-1-worker-3 - BarTest::test1
+ForkJoinPool-1-worker-4 - BarTest::test3
+ForkJoinPool-1-worker-2 - FooTest::test2
+ForkJoinPool-1-worker-3 - FooTest::test3</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>As we can see, even though we set the thread pool size was four, only three threads were
+used in this case. This happens because the pool adjusts the number of active threads
+based on workload and system needs.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="parallel-execution-disabled"><a class="anchor" href="#parallel-execution-disabled"></a>Sequential Execution</h3>
+<div class="paragraph">
+<p>On the other hand, if we disable parallel execution, the <code>VintageTestEngine</code>
+will execute all tests sequentially, regardless of the other properties:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">junit.vintage.execution.parallel.enabled=false
+junit.vintage.execution.parallel.classes=true
+junit.vintage.execution.parallel.methods=true</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Similarly, tests will be executed sequentially if you enable parallel execution in general
+but enable neither class-level nor method-level parallelization.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="tips"><a class="anchor" href="#tips"></a>Migration Tips</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following are topics that you should be aware of when migrating existing JUnit 4
+tests to JUnit Jupiter.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Annotations reside in the <code>org.junit.jupiter.api</code> package.</p>
+</li>
+<li>
+<p>Assertions reside in <code>org.junit.jupiter.api.Assertions</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Note that you may continue to use assertion methods from <code>org.junit.Assert</code> or any
+other assertion library such as <a href="https://assertj.github.io/doc/">AssertJ</a>, <a href="https://hamcrest.org/JavaHamcrest/">Hamcrest</a>, <a href="https://truth.dev/">Truth</a>, etc.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Assumptions reside in <code>org.junit.jupiter.api.Assumptions</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Note that JUnit Jupiter supports methods from JUnit 4&#8217;s <code>org.junit.Assume</code> class for
+assumptions. Specifically, JUnit Jupiter supports JUnit 4&#8217;s
+<code>AssumptionViolatedException</code> to signal that a test should be aborted instead of
+marked as a failure.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>@Before</code> and <code>@After</code> no longer exist; use <code>@BeforeEach</code> and <code>@AfterEach</code> instead.</p>
+</li>
+<li>
+<p><code>@BeforeClass</code> and <code>@AfterClass</code> no longer exist; use <code>@BeforeAll</code> and <code>@AfterAll</code>
+instead.</p>
+</li>
+<li>
+<p><code>@Ignore</code> no longer exists: use <code>@Disabled</code> or one of the other built-in
+<a href="writing-tests/conditional-test-execution.html" class="xref page">execution conditions</a> instead</p>
+<div class="ulist">
+<ul>
+<li>
+<p>See also <a href="#ignore-annotation-support">JUnit 4 @Ignore Support</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>@Category</code> no longer exists; use <code>@Tag</code> instead.</p>
+</li>
+<li>
+<p><code>@RunWith</code> no longer exists; superseded by <code>@ExtendWith</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>For <code>@RunWith(Enclosed.class)</code> use <code>@Nested</code>.</p>
+</li>
+<li>
+<p>For <code>@RunWith(Parameterized.class)</code> see <a href="#tips-parameterized">Parameterized test classes</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>@Rule</code> and <code>@ClassRule</code> no longer exist; superseded by <code>@ExtendWith</code> and
+<code>@RegisterExtension</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>See also <a href="#rule-support">Limited JUnit 4 Rule Support</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>@Test(expected = &#8230;&#8203;)</code> and the <code>ExpectedException</code> rule no longer exist; use
+<code>Assertions.assertThrows(&#8230;&#8203;)</code> instead.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>See <a href="#rule-support">Limited JUnit 4 Rule Support</a> if you still need to use
+<code>ExpectedException</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Assertions and assumptions in JUnit Jupiter accept the failure message as their last
+argument instead of the first one.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>See <a href="#failure-message-arguments">Failure Message Arguments</a> for details.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="tips-parameterized"><a class="anchor" href="#tips-parameterized"></a>Parameterized test classes</h3>
+<div class="paragraph">
+<p>Unless <code>@UseParametersRunnerFactory</code> is used, a JUnit 4 parameterized test class can be
+converted into a JUnit Jupiter
+<a href="writing-tests/parameterized-classes-and-tests.html" class="xref page"><code>@ParameterizedClass</code></a> by following these steps:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Replace <code>@RunWith(Parameterized.class)</code> with <code>@ParameterizedClass</code>.</p>
+</li>
+<li>
+<p>Add a class-level <code>@MethodSource("methodName")</code> annotation where <code>methodName</code> is the
+name of the method annotated with <code>@Parameters</code> and remove the <code>@Parameters</code> annotation
+from the method.</p>
+</li>
+<li>
+<p>Replace <code>@BeforeParam</code> and <code>@AfterParam</code> with <code>@BeforeParameterizedClassInvocation</code> and
+<code>@AfterParameterizedClassInvocation</code>, respectively, if there are any methods with such
+annotations.</p>
+</li>
+<li>
+<p>Change the imports of the <code>@Test</code> and <code>@Parameter</code> annotations to use the
+<code>org.junit.jupiter.params</code> package.</p>
+</li>
+<li>
+<p>Change assertions etc. to use the <code>org.junit.jupiter.api</code> package as usual.</p>
+</li>
+<li>
+<p>Optionally, remove all <code>public</code> modifiers from the class and its methods and fields.</p>
+</li>
+</ol>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="listingblock">
+<div class="title">Before</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@RunWith(Parameterized.class)
+public class JUnit4ParameterizedClassTests {
+
+	@Parameterized.Parameters
+	public static Iterable&lt;Object[]&gt; data() {
+		return Arrays.asList(new Object[][] { { 1, "foo" }, { 2, "bar" } });
+	}
+
+	@Parameterized.Parameter(0)
+	public int number;
+
+	@Parameterized.Parameter(1)
+	public String text;
+
+	@Parameterized.BeforeParam
+	public static void before(int number, String text) {
+	}
+
+	@Parameterized.AfterParam
+	public static void after() {
+	}
+
+	@org.junit.Test
+	public void someTest() {
+	}
+
+	@org.junit.Test
+	public void anotherTest() {
+	}
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">After</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@ParameterizedClass
+@MethodSource("data")
+class JupiterParameterizedClassTests {
+
+	static Iterable&lt;Object[]&gt; data() {
+		return Arrays.asList(new Object[][] { { 1, "foo" }, { 2, "bar" } });
+	}
+
+	@org.junit.jupiter.params.Parameter(0)
+	int number;
+
+	@org.junit.jupiter.params.Parameter(1)
+	String text;
+
+	@BeforeParameterizedClassInvocation
+	static void before(int number, String text) {
+	}
+
+	@AfterParameterizedClassInvocation
+	static void after() {
+	}
+
+	@org.junit.jupiter.api.Test
+	void someTest() {
+	}
+
+	@org.junit.jupiter.api.Test
+	void anotherTest() {
+	}
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="rule-support"><a class="anchor" href="#rule-support"></a>Limited JUnit 4 Rule Support</h2>
+<div class="sectionbody">
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<em>JUnit 4 rule support</em> is deprecated for removal since version 6.0.0. Please
+migrate to the corresponding APIs and extensions provided by JUnit Jupiter.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>As stated above, JUnit Jupiter does not and will not support JUnit 4 rules natively. The
+JUnit team realizes, however, that many organizations, especially large ones, are likely
+to have large JUnit 4 code bases that make use of custom rules. To serve these
+organizations and enable a gradual migration path the JUnit team has decided to support a
+selection of JUnit 4 rules verbatim within JUnit Jupiter. This support is based on
+adapters and is limited to those rules that are semantically compatible to the JUnit
+Jupiter extension model, i.e. those that do not completely change the overall execution
+flow of the test.</p>
+</div>
+<div class="paragraph">
+<p>The <code>junit-jupiter-migrationsupport</code> module from JUnit Jupiter currently supports the
+following three <code>Rule</code> types including subclasses of these types:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>org.junit.rules.ExternalResource</code> (including <code>org.junit.rules.TemporaryFolder</code>)</p>
+</li>
+<li>
+<p><code>org.junit.rules.Verifier</code> (including <code>org.junit.rules.ErrorCollector</code>)</p>
+</li>
+<li>
+<p><code>org.junit.rules.ExpectedException</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>As in JUnit 4, Rule-annotated fields as well as methods are supported. By using these
+class-level extensions on a test class such <code>Rule</code> implementations in legacy code bases
+can be <em>left unchanged</em> including the JUnit 4 rule import statements.</p>
+</div>
+<div class="paragraph">
+<p>This limited form of <code>Rule</code> support can be switched on by the class-level annotation
+<code><a href="api/org.junit.jupiter.migrationsupport/org/junit/jupiter/migrationsupport/rules/EnableRuleMigrationSupport.html" class="xref attachment">@EnableRuleMigrationSupport</a></code>. This annotation is a <em>composed annotation</em> which enables
+all rule migration support extensions: <code>VerifierSupport</code>, <code>ExternalResourceSupport</code>, and
+<code>ExpectedExceptionSupport</code>. You may alternatively choose to annotate your test class with
+<code>@EnableJUnit4MigrationSupport</code> which registers migration support for rules <em>and</em> JUnit
+4&#8217;s <code>@Ignore</code> annotation (see <a href="#ignore-annotation-support">JUnit 4 @Ignore Support</a>).</p>
+</div>
+<div class="paragraph">
+<p>However, if you intend to develop a new extension for JUnit Jupiter please use the new
+extension model of JUnit Jupiter instead of the rule-based model of JUnit 4.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="ignore-annotation-support"><a class="anchor" href="#ignore-annotation-support"></a>JUnit 4 @Ignore Support</h2>
+<div class="sectionbody">
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<em>JUnit 4 <code>@Ignore</code> support</em> is deprecated for removal since version 6.0.0. Please
+use JUnit Jupiter&#8217;s <code>@Disabled</code> annotation instead.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>In order to provide a smooth migration path from JUnit 4 to JUnit Jupiter, the
+<code>junit-jupiter-migrationsupport</code> module provides support for JUnit 4&#8217;s <code>@Ignore</code>
+annotation analogous to Jupiter&#8217;s <code><a href="api/org.junit.jupiter.api/org/junit/jupiter/api/Disabled.html" class="xref attachment">@Disabled</a></code> annotation.</p>
+</div>
+<div class="paragraph">
+<p>To use <code>@Ignore</code> with JUnit Jupiter based tests, configure a <em>test</em> dependency on the
+<code>junit-jupiter-migrationsupport</code> module in your build and then annotate your test class
+with <code>@ExtendWith(IgnoreCondition.class)</code> or <code><a href="api/org.junit.jupiter.migrationsupport/org/junit/jupiter/migrationsupport/EnableJUnit4MigrationSupport.html" class="xref attachment">@EnableJUnit4MigrationSupport</a></code> (which
+automatically registers the <code>IgnoreCondition</code> along with
+<a href="#rule-support">Limited JUnit 4 Rule Support</a>). The <code>IgnoreCondition</code> is an
+<code><a href="api/org.junit.jupiter.api/org/junit/jupiter/api/extension/ExecutionCondition.html" class="xref attachment">ExecutionCondition</a></code> that disables test classes or test methods that are annotated with
+<code>@Ignore</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import org.junit.Ignore;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.migrationsupport.EnableJUnit4MigrationSupport;
+
+// @ExtendWith(IgnoreCondition.class)
+@SuppressWarnings("removal")
+@EnableJUnit4MigrationSupport
+class IgnoredTestsDemo {
+
+	@Ignore
+	@Test
+	void testWillBeIgnored() {
+	}
+
+	@Test
+	void testWillBeExecuted() {
+	}
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="failure-message-arguments"><a class="anchor" href="#failure-message-arguments"></a>Failure Message Arguments</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>Assumptions</code> and <code>Assertions</code> classes in JUnit Jupiter declare arguments in a
+different order than in JUnit 4. In JUnit 4 assertion and assumption methods accept the
+failure message as the first argument; whereas, in JUnit Jupiter assertion and assumption
+methods accept the failure message as the last argument.</p>
+</div>
+<div class="paragraph">
+<p>For instance, the method <code>assertEquals</code> in JUnit 4 is declared as <code>assertEquals(String
+message, Object expected, Object actual)</code>, but in JUnit Jupiter it is declared as
+<code>assertEquals(Object expected, Object actual, String message)</code>. The rationale for this is
+that a failure message is <em>optional</em>, and optional arguments should be declared after
+required arguments in a method signature.</p>
+</div>
+<div class="paragraph">
+<p>The methods affected by this change are the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Assertions</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>assertTrue</code></p>
+</li>
+<li>
+<p><code>assertFalse</code></p>
+</li>
+<li>
+<p><code>assertNull</code></p>
+</li>
+<li>
+<p><code>assertNotNull</code></p>
+</li>
+<li>
+<p><code>assertEquals</code></p>
+</li>
+<li>
+<p><code>assertNotEquals</code></p>
+</li>
+<li>
+<p><code>assertArrayEquals</code></p>
+</li>
+<li>
+<p><code>assertSame</code></p>
+</li>
+<li>
+<p><code>assertNotSame</code></p>
+</li>
+<li>
+<p><code>assertThrows</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Assumptions</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>assumeTrue</code></p>
+</li>
+<li>
+<p><code>assumeFalse</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="writing-tests/built-in-extensions.html">Built-in Extensions</a></span>
+  <span class="next"><a href="running-tests/intro.html">Running Tests</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+    <p>
+        &copy; Copyright 2015-2025 the original author or authors.
+        All rights reserved.
+        The content of this page is made available under the terms of the <a href="https://www.eclipse.org/legal/epl-v20.html">Eclipse Public License v2.0</a>.
+    </p>
+    <p>
+        This page was built using an adapted version of the Antora default UI.
+        The source code for this UI is licensed under the terms of the <a href="https://www.mozilla.org/en-US/MPL/2.0/">Mozilla Public License v2.0</a>.
+    </p>
+</footer>
+<script id="site-script" src="../_/js/site.js" data-ui-root-path="../_"></script>
+<script async src="../_/js/vendor/highlight.js"></script>
+<script src="../_/js/vendor/lunr.js"></script>
+<script src="../_/js/search-ui.js" id="search-ui-script" data-site-root-path=".." data-snippet-length="100" data-stylesheet="../_/css/search.css"></script>
+<script async src="../search-index.js"></script>
+  </body>
+</html>
