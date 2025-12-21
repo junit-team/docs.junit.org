@@ -934,6 +934,119 @@ documentation for the
 </div>
 </div>
 <div class="sect1">
+<h2 id="bazel"><a class="anchor" href="#bazel"></a>Bazel</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>For Bazel, add dependencies on
+<a href="https://github.com/bazel-contrib/rules_jvm_external">rules_jvm_external</a> and
+<a href="https://github.com/bazel-contrib/rules_jvm">contrib_rules_jvm</a> to your module&#8217;s manifest
+and install JUnit&#8217;s artifacts.</p>
+</div>
+<div class="listingblock">
+<div class="title">MODULE.bazel</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-skylark hljs" data-lang="skylark">bazel_dep(name = "rules_jvm_external", version = "6.9")
+bazel_dep(name = "contrib_rules_jvm", version = "0.31.1")
+
+maven = use_extension("@rules_jvm_external//:extensions.bzl", "maven")
+
+maven.install(
+    artifacts = [
+        "org.junit.jupiter:junit-jupiter-api:6.1.0-SNAPSHOT",
+        "org.junit.jupiter:junit-jupiter-params:6.1.0-SNAPSHOT",
+        "org.junit.jupiter:junit-jupiter-engine:6.1.0-SNAPSHOT",
+        "org.junit.platform:junit-platform-launcher:6.1.0-SNAPSHOT",
+        "org.junit.platform:junit-platform-reporting:6.1.0-SNAPSHOT",
+    ],
+    repositories = [
+        "https://repo1.maven.org/maven2",
+    ],
+)
+
+use_repo(maven, "maven")</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Next, in your <code>BUILD</code> file, define a <code>java_test_suite</code> for your tests.</p>
+</div>
+<div class="listingblock">
+<div class="title">BUILD</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-skylark hljs" data-lang="skylark">load("@rules_jvm_external//:defs.bzl", "artifact")
+load("@contrib_rules_jvm//java:defs.bzl", "java_test_suite")
+
+java_library(
+    name = "your-library-name",
+    srcs = glob(["src/main/java/**/*.java"]),
+)
+
+java_test_suite(
+    name = "your-library-name-tests",
+    size = "small",
+    srcs = glob(["src/test/java/**/*.java"]),
+    runner = "junit5",
+    test_suffixes = ["Test.java", "Tests.java"],
+    runtime_deps = runtime_deps = [
+        artifact("org.junit.jupiter:junit-jupiter-engine"),
+        artifact("org.junit.platform:junit-platform-launcher"),
+        artifact("org.junit.platform:junit-platform-reporting"),
+    ],
+    deps = [
+        ":your-library-name",
+        artifact("org.junit.jupiter:junit-jupiter-api"),
+        artifact("org.junit.jupiter:junit-jupiter-params"),
+    ],
+)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To execute your tests, run <code>bazel test //&#8230;&#8203;</code>. For a full example, please check out the
+<code><a href="https://github.com/junit-team/junit-examples/tree/HEAD/junit-jupiter-starter-bazel">junit-jupiter-starter-bazel</a></code> example project.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="sbt"><a class="anchor" href="#sbt"></a>sbt</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>For sbt, you first need to declare a dependency on the
+<a href="https://github.com/sbt/sbt-jupiter-interface">sbt-jupiter-interface</a> plugin. Despite its
+name, it supports running any class-based JUnit Platform test engine.</p>
+</div>
+<div class="listingblock">
+<div class="title">project/plugins.sbt</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-scala hljs" data-lang="scala">addSbtPlugin("com.github.sbt.junit" % "sbt-jupiter-interface" % "0.17.0")</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In your build definition, add dependencies on the corresponding <code>jupiter-interface</code> along
+JUnit&#8217;s artifacts. Moreover, you should configure the <code>jupiterTestFramework</code> and its
+<a href="https://github.com/sbt/sbt-jupiter-interface#framework-options">options</a>.</p>
+</div>
+<div class="listingblock">
+<div class="title">build.sbt</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-scala hljs" data-lang="scala">lazy val root = project
+  .in(file("."))
+  .settings(
+    name := "junit-jupiter-starter-sbt",
+    libraryDependencies ++= Seq(
+      "com.github.sbt.junit" % "jupiter-interface" % JupiterKeys.jupiterVersion.value % Test,
+      "org.junit.jupiter" % "junit-jupiter" % "6.1.0-SNAPSHOT" % Test,
+      "org.junit.platform" % "junit-platform-launcher" % "6.1.0-SNAPSHOT" % Test,
+    ),
+    testOptions += Tests.Argument(jupiterTestFramework, "--display-mode=tree")
+  )</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Finally, execute your tests by running <code>sbt test</code>. For a full example, please check out
+the <code><a href="https://github.com/junit-team/junit-examples/tree/HEAD/junit-jupiter-starter-sbt">junit-jupiter-starter-sbt</a></code> example project.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="spring-boot"><a class="anchor" href="#spring-boot"></a>Spring Boot</h2>
 <div class="sectionbody">
 <div class="paragraph">
