@@ -363,6 +363,10 @@ repository on GitHub.</p>
 <li>
 <p>Clarify <code>TestDescriptor</code> implementation requirements.</p>
 </li>
+<li>
+<p>Enable recursive updates when using <code>NamespacedHierarchicalStore.computeIfAbsent(N, K, Function)</code>.
+This provides parity with the deprecated <code>NamespacedHierarchicalStore.getOrComputeIfAbsent(N, K, Function)</code></p>
+</li>
 </ul>
 </div>
 </div>
@@ -395,7 +399,8 @@ objects.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>❓</p>
+<p>Enable recursive updates when using <code>ExtensionContext.Store.computeIfAbsent(K, Function, Class)</code>.
+This provides parity with the deprecated <code>ExtensionContext.Store.getOrComputeIfAbsent(K, Function, Class)</code></p>
 </li>
 </ul>
 </div>
@@ -634,6 +639,9 @@ repository on GitHub.</p>
 <ul>
 <li>
 <p>Make <code>ConsoleLauncher</code> compatible with JDK 26 by avoiding final field mutations.</p>
+</li>
+<li>
+<p>Recheck done condition before rejecting extraneous worker in <code>WorkerThreadPoolHierarchicalTestExecutorService</code></p>
 </li>
 </ul>
 </div>
