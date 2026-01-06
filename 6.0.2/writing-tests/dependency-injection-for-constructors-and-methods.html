@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Dependency Injection for Constructors and Methods :: JUnit User Guide</title>
+    <link rel="prev" href="nested-tests.html">
+    <link rel="next" href="test-interfaces-and-default-methods.html">
+    <meta name="generator" content="Antora 3.2.0-alpha.11">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<link rel="icon" type="image/png" href="../../_/img/junit-diamond.png">
+<link rel="icon" type="image/svg+xml" href="../../_/img/junit-diamond-adaptive.svg" sizes="any">
+
+<link rel="stylesheet" href="../../_/css/fonts.css">
+<link rel="stylesheet" href="../../_/css/site-extra.css">
+<link rel="stylesheet" href="../../_/css/vendor/highlightjs/github.min.css">
+
+<meta name="theme-color" content="#25a162">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item title" href="../..">
+          <img class="logo" src="../../_/img/junit-diamond-white.png" alt="✔️"/>
+          JUnit User Guide<span class="version">6.0.2</span>
+      </a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search the docs">
+        </div>
+      </div>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+          <a class="navbar-item" href="https://junit.org/">Home</a>
+          <a class="navbar-item" href="https://github.com/junit-team/junit-framework/">Repo</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="junit" data-version="6.0.2">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">JUnit</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="intro.html">Writing Tests</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="annotations.html">Annotations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="definitions.html">Definitions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-classes-and-methods.html">Test Classes and Methods</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="display-names.html">Display Names</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="assertions.html">Assertions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="assumptions.html">Assumptions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="exception-handling.html">Exception Handling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="disabling-tests.html">Disabling Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="conditional-test-execution.html">Conditional Test Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="tagging-and-filtering.html">Tagging and Filtering</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-execution-order.html">Test Execution Order</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-instance-lifecycle.html">Test Instance Lifecycle</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="nested-tests.html">Nested Tests</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="dependency-injection-for-constructors-and-methods.html">Dependency Injection for Constructors and Methods</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-interfaces-and-default-methods.html">Test Interfaces and Default Methods</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="repeated-tests.html">Repeated Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="parameterized-classes-and-tests.html">Parameterized Classes and Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="class-templates.html">Class Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-templates.html">Test Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dynamic-tests.html">Dynamic Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="timeouts.html">Timeouts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="parallel-execution.html">Parallel Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="built-in-extensions.html">Built-in Extensions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../migrating-from-junit4.html">Migrating from JUnit 4</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../running-tests/intro.html">Running Tests</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/ide-support.html">IDE Support</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/build-support.html">Build Support</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/console-launcher.html">Console Launcher</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/discovery-selectors.html">Discovery Selectors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/configuration-parameters.html">Configuration Parameters</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/tags.html">Tags</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/capturing-standard-output-error.html">Capturing Standard Output/Error</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/using-listeners-and-interceptors.html">Using Listeners and Interceptors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/stack-trace-pruning.html">Stack Trace Pruning</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/discovery-issues.html">Discovery Issues</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../extensions/overview.html">Extension Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/registering-extensions.html">Registering Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/conditional-test-execution.html">Conditional Test Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-instance-pre-construct-callback.html">Test Instance Pre-construct Callback</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-instance-factories.html">Test Instance Factories</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-instance-post-processing.html">Test Instance Post-processing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-instance-pre-destroy-callback.html">Test Instance Pre-destroy Callback</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/parameter-resolution.html">Parameter Resolution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-result-processing.html">Test Result Processing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-lifecycle-callbacks.html">Test Lifecycle Callbacks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/exception-handling.html">Exception Handling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/pre-interrupt-callback.html">Pre-Interrupt Callback</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/intercepting-invocations.html">Intercepting Invocations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/providing-invocation-contexts-for-class-templates.html">Providing Invocation Contexts for Class Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/providing-invocation-contexts-for-test-templates.html">Providing Invocation Contexts for Test Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/keeping-state-in-extensions.html">Keeping State in Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/supported-utilities-in-extensions.html">Supported Utilities in Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/relative-execution-order-of-user-code-and-extensions.html">Relative Execution Order of User Code and Extensions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced Topics</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/junit-platform-reporting.html">JUnit Platform Reporting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/junit-platform-suite-engine.html">JUnit Platform Suite Engine</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/testkit.html">JUnit Platform Test Kit</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/launcher-api.html">JUnit Platform Launcher API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/engines.html">Test Engines</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../api-evolution.html">API Evolution</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../release-notes.html">Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix.html">Appendix</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../api/index.html">Javadoc</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">JUnit</span>
+    <span class="version">6.0.2</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../index.html">JUnit</a></div>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../6.1.0/index.html">6.1.0-SNAPSHOT</a>
+        </li>
+        <li class="version">
+          <a href="../../6.1.0-M1/index.html">6.1.0-M1</a>
+        </li>
+        <li class="version is-current is-latest">
+          <a href="../index.html">6.0.2</a>
+        </li>
+        <li class="version">
+          <a href="../../6.0.1/index.html">6.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../6.0.0/index.html">6.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.2/index.html">5.14.2</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.1/index.html">5.14.1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../overview.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">JUnit</a></li>
+    <li><a href="intro.html">Writing Tests</a></li>
+    <li><a href="dependency-injection-for-constructors-and-methods.html">Dependency Injection for Constructors and Methods</a></li>
+  </ul>
+</nav>
+            <div class="pdf-link">
+                <a href="../_exports/junit-user-guide-6.0.2.pdf#writing-tests-dependency-injection-for-constructors-and-methods">PDF</a>
+            </div>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">6.0.2</button>
+  <div class="version-menu">
+    <a class="version" href="../../6.1.0/writing-tests/dependency-injection-for-constructors-and-methods.html">6.1.0-SNAPSHOT</a>
+    <a class="version" href="../../6.1.0-M1/writing-tests/dependency-injection-for-constructors-and-methods.html">6.1.0-M1</a>
+    <a class="version is-current" href="dependency-injection-for-constructors-and-methods.html">6.0.2</a>
+    <a class="version" href="../../6.0.1/writing-tests/dependency-injection-for-constructors-and-methods.html">6.0.1</a>
+    <a class="version" href="../../6.0.0/writing-tests/dependency-injection-for-constructors-and-methods.html">6.0.0</a>
+    <a class="version" href="../../5.14.2/writing-tests/dependency-injection-for-constructors-and-methods.html">5.14.2</a>
+    <a class="version" href="../../5.14.1/writing-tests/dependency-injection-for-constructors-and-methods.html">5.14.1</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/junit-team/junit-framework/blob/r6.0.2/documentation/modules/ROOT/pages/writing-tests/dependency-injection-for-constructors-and-methods.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Dependency Injection for Constructors and Methods</h1>
+<div class="paragraph">
+<p>In all prior JUnit versions, test constructors or methods were not allowed to have
+parameters (at least not with the standard <code>Runner</code> implementations). As one of the major
+changes in JUnit Jupiter, both test constructors and methods are now permitted to have
+parameters. This allows for greater flexibility and enables <em>Dependency Injection</em> for
+constructors and methods.</p>
+</div>
+<div class="paragraph">
+<p><code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/ParameterResolver.html" class="xref attachment">ParameterResolver</a></code> defines the API for test extensions that wish to <em>dynamically</em>
+resolve parameters at runtime. If a <em>test class</em> constructor, a <em>test method</em>, or a
+<em>lifecycle method</em> (see <a href="definitions.html" class="xref page">Definitions</a>) accepts a parameter, the parameter
+must be resolved at runtime by a registered <code>ParameterResolver</code>.</p>
+</div>
+<div class="paragraph">
+<p>There are currently three built-in resolvers that are registered automatically.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code><a href="https://github.com/junit-team/junit-framework/tree/r6.0.2/junit-jupiter-engine/src/main/java/org/junit/jupiter/engine/extension/TestInfoParameterResolver.java">TestInfoParameterResolver</a></code>: if a constructor or method parameter is of type
+<code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/TestInfo.html" class="xref attachment">TestInfo</a></code>, the <code>TestInfoParameterResolver</code> will supply an instance of <code>TestInfo</code>
+corresponding to the current container or test as the value for the parameter. The
+<code>TestInfo</code> can then be used to retrieve information about the current container or test
+such as the display name, the test class, the test method, and associated tags. The
+display name is either a technical name, such as the name of the test class or test
+method, or a custom name configured via <code>@DisplayName</code>.</p>
+<div class="paragraph">
+<p><code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/TestInfo.html" class="xref attachment">TestInfo</a></code> acts as a drop-in replacement for the <code>TestName</code> rule from JUnit 4. The
+following demonstrates how to have <code>TestInfo</code> injected into a <code>@BeforeAll</code> method, test
+class constructor, <code>@BeforeEach</code> method, and <code>@Test</code> method.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInfo;
+
+@DisplayName("TestInfo Demo")
+class TestInfoDemo {
+
+	@BeforeAll
+	static void beforeAll(TestInfo testInfo) {
+		assertEquals("TestInfo Demo", testInfo.getDisplayName());
+	}
+
+	TestInfoDemo(TestInfo testInfo) {
+		String displayName = testInfo.getDisplayName();
+		assertTrue(displayName.equals("TEST 1") || displayName.equals("test2()"));
+	}
+
+	@BeforeEach
+	void init(TestInfo testInfo) {
+		String displayName = testInfo.getDisplayName();
+		assertTrue(displayName.equals("TEST 1") || displayName.equals("test2()"));
+	}
+
+	@Test
+	@DisplayName("TEST 1")
+	@Tag("my-tag")
+	void test1(TestInfo testInfo) {
+		assertEquals("TEST 1", testInfo.getDisplayName());
+		assertTrue(testInfo.getTags().contains("my-tag"));
+	}
+
+	@Test
+	void test2() {
+	}
+
+}</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code><a href="https://github.com/junit-team/junit-framework/tree/r6.0.2/junit-jupiter-engine/src/main/java/org/junit/jupiter/engine/extension/RepetitionExtension.java">RepetitionExtension</a></code>: if a method parameter in a <code>@RepeatedTest</code>, <code>@BeforeEach</code>, or
+<code>@AfterEach</code> method is of type <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/RepetitionInfo.html" class="xref attachment">RepetitionInfo</a></code>, the <code>RepetitionExtension</code> will supply
+an instance of <code>RepetitionInfo</code>. <code>RepetitionInfo</code> can then be used to retrieve
+information about the current repetition, the total number of repetitions, the number of
+repetitions that have failed, and the failure threshold for the corresponding
+<code>@RepeatedTest</code>. Note, however, that <code>RepetitionExtension</code> is not registered outside the
+context of a <code>@RepeatedTest</code>. See <a href="repeated-tests.html#examples" class="xref page">Repeated Test Examples</a>.</p>
+</li>
+<li>
+<p><code><a href="https://github.com/junit-team/junit-framework/tree/r6.0.2/junit-jupiter-engine/src/main/java/org/junit/jupiter/engine/extension/TestReporterParameterResolver.java">TestReporterParameterResolver</a></code>: if a constructor or method parameter is of type
+<code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/TestReporter.html" class="xref attachment">TestReporter</a></code>, the <code>TestReporterParameterResolver</code> will supply an instance of
+<code>TestReporter</code>. The <code>TestReporter</code> can be used to publish additional data about the
+current test run or attach files to it. The data can be consumed in a
+<code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/TestExecutionListener.html" class="xref attachment">TestExecutionListener</a></code> via the <code>reportingEntryPublished()</code> or <code>fileEntryPublished()</code>
+method, respectively. This allows them to be viewed in IDEs or included in reports.</p>
+<div class="paragraph">
+<p>In JUnit Jupiter you should use <code>TestReporter</code> where you used to print information to
+<code>stdout</code> or <code>stderr</code> in JUnit 4. Some IDEs print report entries to <code>stdout</code> or display
+them in the user interface for test results.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">class TestReporterDemo {
+
+	@Test
+	void reportSingleValue(TestReporter testReporter) {
+		testReporter.publishEntry("a status message");
+	}
+
+	@Test
+	void reportKeyValuePair(TestReporter testReporter) {
+		testReporter.publishEntry("a key", "a value");
+	}
+
+	@Test
+	void reportMultipleKeyValuePairs(TestReporter testReporter) {
+		Map&lt;String, String&gt; values = new HashMap&lt;&gt;();
+		values.put("user name", "dk38");
+		values.put("award year", "1974");
+
+		testReporter.publishEntry(values);
+	}
+
+	@Test
+	void reportFiles(TestReporter testReporter, @TempDir Path tempDir) throws Exception {
+
+		testReporter.publishFile("test1.txt", MediaType.TEXT_PLAIN_UTF_8, file -&gt; Files.write(file, List.of("Test 1")));
+
+		Path existingFile = Files.write(tempDir.resolve("test2.txt"), List.of("Test 2"));
+		testReporter.publishFile(existingFile, MediaType.TEXT_PLAIN_UTF_8);
+
+		testReporter.publishDirectory("test3", dir -&gt; {
+			Files.write(dir.resolve("nested1.txt"), List.of("Nested content 1"));
+			Files.write(dir.resolve("nested2.txt"), List.of("Nested content 2"));
+		});
+
+		Path existingDir = Files.createDirectory(tempDir.resolve("test4"));
+		Files.write(existingDir.resolve("nested1.txt"), List.of("Nested content 1"));
+		Files.write(existingDir.resolve("nested2.txt"), List.of("Nested content 2"));
+		testReporter.publishDirectory(existingDir);
+	}
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Other parameter resolvers must be explicitly enabled by registering appropriate
+<a href="../extensions/overview.html" class="xref page">extensions</a> via <code>@ExtendWith</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Check out the <code><a href="https://github.com/junit-team/junit-examples/tree/r6.0.2/junit-jupiter-extensions/src/main/java/com/example/random/RandomParametersExtension.java">RandomParametersExtension</a></code> for an example of a custom
+<code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/ParameterResolver.html" class="xref attachment">ParameterResolver</a></code>. While not intended to be production-ready, it demonstrates the
+simplicity and expressiveness of both the extension model and the parameter resolution
+process. <code>MyRandomParametersTest</code> demonstrates how to inject random values into <code>@Test</code>
+methods.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@ExtendWith(RandomParametersExtension.class)
+class MyRandomParametersTest {
+
+	@Test
+	void injectsInteger(@Random int i, @Random int j) {
+		assertNotEquals(i, j);
+	}
+
+	@Test
+	void injectsDouble(@Random double d) {
+		assertEquals(0.0, d, 1.0);
+	}
+
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For real-world use cases, check out the source code for the <code><a href="https://github.com/mockito/mockito/blob/release/2.x/subprojects/junit-jupiter/src/main/java/org/mockito/junit/jupiter/MockitoExtension.java">MockitoExtension</a></code> and the
+<code><a href="https://github.com/spring-projects/spring-framework/tree/HEAD/spring-test/src/main/java/org/springframework/test/context/junit/jupiter/SpringExtension.java">SpringExtension</a></code>.</p>
+</div>
+<div class="paragraph">
+<p>When the type of the parameter to inject is the only condition for your
+<code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/ParameterResolver.html" class="xref attachment">ParameterResolver</a></code>, you can use the generic <code><a href="https://github.com/junit-team/junit-framework/tree/r6.0.2/junit-jupiter-api/src/main/java/org/junit/jupiter/api/extension/support/TypeBasedParameterResolver.java">TypeBasedParameterResolver</a></code> base class.
+The <code>supportsParameters</code> method is implemented behind the scenes and supports
+parameterized types.</p>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="nested-tests.html">Nested Tests</a></span>
+  <span class="next"><a href="test-interfaces-and-default-methods.html">Test Interfaces and Default Methods</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+    <p>
+        &copy; Copyright 2015-2026 the original author or authors.
+        All rights reserved.
+        The content of this page is made available under the terms of the <a href="https://www.eclipse.org/legal/epl-v20.html">Eclipse Public License v2.0</a>.
+    </p>
+    <p>
+        This page was built using an adapted version of the Antora default UI.
+        The source code for this UI is licensed under the terms of the <a href="https://www.mozilla.org/en-US/MPL/2.0/">Mozilla Public License v2.0</a>.
+    </p>
+</footer>
+<script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="100" data-stylesheet="../../_/css/search.css"></script>
+<script async src="../../search-index.js"></script>
+  </body>
+</html>
