@@ -344,6 +344,8 @@
 </strong><br/>
 For the latest stable release, please see <a href="../../6.0.2/writing-tests/test-classes-and-methods.html">JUnit 6.0.2</a>!
 </div>
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
 <p>Test methods and lifecycle methods may be declared locally within the current test class,
 inherited from superclasses, or inherited from interfaces (see
@@ -486,8 +488,13 @@ record MyFirstJUnitJupiterRecordTests() {
 }</code></pre>
 </div>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="kotlin-coroutines"><a class="anchor" href="#kotlin-coroutines"></a>Kotlin Coroutines</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>Test and lifecycle methods may be written in Kotlin and may optionally use the <code>suspend</code>
+<p>Test methods and lifecycle methods may be written in Kotlin and may optionally use the <code>suspend</code>
 keyword for testing code using coroutines.</p>
 </div>
 <div class="listingblock">
@@ -531,6 +538,34 @@ to be present on the classpath or module path.
 </td>
 </tr>
 </table>
+</div>
+<div class="paragraph">
+<p>When using <code>suspend</code> test or lifecycle methods, JUnit internally uses <code>runBlocking</code> to execute them.
+This is sufficient for simple coroutine-based tests.</p>
+</div>
+<div class="paragraph">
+<p>However, <code>runBlocking</code> does not support skipping calls to <code>delay</code> and does not provide control over
+virtual time or dispatchers.</p>
+</div>
+<div class="paragraph">
+<p>As an alternative, tests can be written as regular <code>@Test</code> methods and wrapped in <code>runTest</code> from
+<a href="https://central.sonatype.com/artifact/org.jetbrains.kotlinx/kotlinx-coroutines-test"><code>kotlinx-coroutines-test</code></a>
+to support skipping delays during tests and gain control over virtual time and dispatchers.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import kotlinx.coroutines.test.runTest
+import org.junit.jupiter.api.Test
+
+class KotlinCoroutinesRunTestDemo {
+    @Test
+    fun coroutineTestUsingRunTest() = runTest {
+        // ...
+    }
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 <nav class="pagination">
   <span class="prev"><a href="definitions.html">Definitions</a></span>
