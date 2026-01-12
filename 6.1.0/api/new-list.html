@@ -1689,29 +1689,53 @@ test class or test interface.</div>
 <div class="block"><code>@Timeout</code> is used to define a timeout for a method or all testable
 methods within one class and its <a href="org.junit.jupiter.api/org/junit/jupiter/api/Nested.html" title="annotation interface in org.junit.jupiter.api"><code>@Nested</code></a> classes.</div>
 </div>
-<div class="col-summary-item-name even-row-color annotation-interface annotation-interface-tab46"><a href="org.junit.jupiter.api/org/junit/jupiter/api/util/DefaultLocale.html" title="annotation interface in org.junit.jupiter.api.util">org.junit.jupiter.api.util.DefaultLocale</a></div>
+<div class="col-summary-item-name even-row-color annotation-interface annotation-interface-tab46"><a href="org.junit.jupiter.api/org/junit/jupiter/api/util/ClearSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util">org.junit.jupiter.api.util.ClearSystemProperty</a></div>
 <div class="col-second even-row-color annotation-interface annotation-interface-tab46">6.1</div>
 <div class="col-last even-row-color annotation-interface annotation-interface-tab46">
+<div class="block"><code>@ClearSystemProperty</code> is a JUnit Jupiter extension to clear the value
+of a system property for a test execution.</div>
+</div>
+<div class="col-summary-item-name odd-row-color annotation-interface annotation-interface-tab46"><a href="org.junit.jupiter.api/org/junit/jupiter/api/util/DefaultLocale.html" title="annotation interface in org.junit.jupiter.api.util">org.junit.jupiter.api.util.DefaultLocale</a></div>
+<div class="col-second odd-row-color annotation-interface annotation-interface-tab46">6.1</div>
+<div class="col-last odd-row-color annotation-interface annotation-interface-tab46">
 <div class="block"><code>@DefaultLocale</code> is a JUnit Jupiter extension for changing the value
 returned by <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Locale.html#getDefault()" title="class or interface in java.util" class="external-link"><code>Locale.getDefault()</code></a> for a test execution.</div>
 </div>
-<div class="col-summary-item-name odd-row-color annotation-interface annotation-interface-tab46"><a href="org.junit.jupiter.api/org/junit/jupiter/api/util/DefaultTimeZone.html" title="annotation interface in org.junit.jupiter.api.util">org.junit.jupiter.api.util.DefaultTimeZone</a></div>
-<div class="col-second odd-row-color annotation-interface annotation-interface-tab46">6.1</div>
-<div class="col-last odd-row-color annotation-interface annotation-interface-tab46">
+<div class="col-summary-item-name even-row-color annotation-interface annotation-interface-tab46"><a href="org.junit.jupiter.api/org/junit/jupiter/api/util/DefaultTimeZone.html" title="annotation interface in org.junit.jupiter.api.util">org.junit.jupiter.api.util.DefaultTimeZone</a></div>
+<div class="col-second even-row-color annotation-interface annotation-interface-tab46">6.1</div>
+<div class="col-last even-row-color annotation-interface annotation-interface-tab46">
 <div class="block"><code>@DefaultTimeZone</code> is a JUnit Jupiter extension for changing the value
 returned by <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/TimeZone.html#getDefault()" title="class or interface in java.util" class="external-link"><code>TimeZone.getDefault()</code></a> for a test execution.</div>
 </div>
-<div class="col-summary-item-name even-row-color annotation-interface annotation-interface-tab46"><a href="org.junit.jupiter.api/org/junit/jupiter/api/util/ReadsDefaultLocale.html" title="annotation interface in org.junit.jupiter.api.util">org.junit.jupiter.api.util.ReadsDefaultLocale</a></div>
-<div class="col-second even-row-color annotation-interface annotation-interface-tab46">6.1</div>
-<div class="col-last even-row-color annotation-interface annotation-interface-tab46">
+<div class="col-summary-item-name odd-row-color annotation-interface annotation-interface-tab46"><a href="org.junit.jupiter.api/org/junit/jupiter/api/util/ReadsDefaultLocale.html" title="annotation interface in org.junit.jupiter.api.util">org.junit.jupiter.api.util.ReadsDefaultLocale</a></div>
+<div class="col-second odd-row-color annotation-interface annotation-interface-tab46">6.1</div>
+<div class="col-last odd-row-color annotation-interface annotation-interface-tab46">
 <div class="block">Marks tests that <em>read</em> the default locale but don't use the
 <a href="org.junit.jupiter.api/org/junit/jupiter/api/util/DefaultLocale.html" title="annotation interface in org.junit.jupiter.api.util"><code>@DefaultLocale</code></a> extension themselves.</div>
 </div>
-<div class="col-summary-item-name odd-row-color annotation-interface annotation-interface-tab46"><a href="org.junit.jupiter.api/org/junit/jupiter/api/util/ReadsDefaultTimeZone.html" title="annotation interface in org.junit.jupiter.api.util">org.junit.jupiter.api.util.ReadsDefaultTimeZone</a></div>
-<div class="col-second odd-row-color annotation-interface annotation-interface-tab46">6.1</div>
-<div class="col-last odd-row-color annotation-interface annotation-interface-tab46">
+<div class="col-summary-item-name even-row-color annotation-interface annotation-interface-tab46"><a href="org.junit.jupiter.api/org/junit/jupiter/api/util/ReadsDefaultTimeZone.html" title="annotation interface in org.junit.jupiter.api.util">org.junit.jupiter.api.util.ReadsDefaultTimeZone</a></div>
+<div class="col-second even-row-color annotation-interface annotation-interface-tab46">6.1</div>
+<div class="col-last even-row-color annotation-interface annotation-interface-tab46">
 <div class="block">Marks tests that <em>read</em> the default time zone but don't use the
 <a href="org.junit.jupiter.api/org/junit/jupiter/api/util/DefaultTimeZone.html" title="annotation interface in org.junit.jupiter.api.util"><code>@DefaultTimeZone</code></a> extension themselves.</div>
+</div>
+<div class="col-summary-item-name odd-row-color annotation-interface annotation-interface-tab46"><a href="org.junit.jupiter.api/org/junit/jupiter/api/util/ReadsSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util">org.junit.jupiter.api.util.ReadsSystemProperty</a></div>
+<div class="col-second odd-row-color annotation-interface annotation-interface-tab46">6.1</div>
+<div class="col-last odd-row-color annotation-interface annotation-interface-tab46">
+<div class="block">Marks tests that read system properties but don't use the system property extension themselves.</div>
+</div>
+<div class="col-summary-item-name even-row-color annotation-interface annotation-interface-tab46"><a href="org.junit.jupiter.api/org/junit/jupiter/api/util/RestoreSystemProperties.html" title="annotation interface in org.junit.jupiter.api.util">org.junit.jupiter.api.util.RestoreSystemProperties</a></div>
+<div class="col-second even-row-color annotation-interface annotation-interface-tab46">6.1</div>
+<div class="col-last even-row-color annotation-interface annotation-interface-tab46">
+<div class="block"><code>@RestoreSystemProperties</code> is a JUnit Jupiter extension to restore the entire set of
+system properties to the original value, or the value of the higher-level container, after the
+annotated element is complete.</div>
+</div>
+<div class="col-summary-item-name odd-row-color annotation-interface annotation-interface-tab46"><a href="org.junit.jupiter.api/org/junit/jupiter/api/util/SetSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util">org.junit.jupiter.api.util.SetSystemProperty</a></div>
+<div class="col-second odd-row-color annotation-interface annotation-interface-tab46">6.1</div>
+<div class="col-last odd-row-color annotation-interface annotation-interface-tab46">
+<div class="block"><code>@SetSystemProperty</code> is a JUnit Jupiter extension to set the value of a
+system property for a test execution.</div>
 </div>
 <div class="col-summary-item-name even-row-color annotation-interface annotation-interface-tab46"><a href="org.junit.jupiter.api/org/junit/jupiter/api/util/WritesDefaultLocale.html" title="annotation interface in org.junit.jupiter.api.util">org.junit.jupiter.api.util.WritesDefaultLocale</a></div>
 <div class="col-second even-row-color annotation-interface annotation-interface-tab46">6.1</div>
@@ -1725,240 +1749,245 @@ returned by <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.bas
 <div class="block">Marks tests that <em>write</em> the default time zone but don't use the
 <a href="org.junit.jupiter.api/org/junit/jupiter/api/util/DefaultTimeZone.html" title="annotation interface in org.junit.jupiter.api.util"><code>@DefaultTimeZone</code></a> extension themselves.</div>
 </div>
-<div class="col-summary-item-name even-row-color annotation-interface annotation-interface-tab24"><a href="org.junit.jupiter.migrationsupport/org/junit/jupiter/migrationsupport/EnableJUnit4MigrationSupport.html" title="annotation interface in org.junit.jupiter.migrationsupport">org.junit.jupiter.migrationsupport.EnableJUnit4MigrationSupport</a></div>
-<div class="col-second even-row-color annotation-interface annotation-interface-tab24">5.4</div>
-<div class="col-last even-row-color annotation-interface annotation-interface-tab24">
+<div class="col-summary-item-name even-row-color annotation-interface annotation-interface-tab46"><a href="org.junit.jupiter.api/org/junit/jupiter/api/util/WritesSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util">org.junit.jupiter.api.util.WritesSystemProperty</a></div>
+<div class="col-second even-row-color annotation-interface annotation-interface-tab46">6.1</div>
+<div class="col-last even-row-color annotation-interface annotation-interface-tab46">
+<div class="block">Marks tests that write system properties but don't use the system property extension themselves.</div>
+</div>
+<div class="col-summary-item-name odd-row-color annotation-interface annotation-interface-tab24"><a href="org.junit.jupiter.migrationsupport/org/junit/jupiter/migrationsupport/EnableJUnit4MigrationSupport.html" title="annotation interface in org.junit.jupiter.migrationsupport">org.junit.jupiter.migrationsupport.EnableJUnit4MigrationSupport</a></div>
+<div class="col-second odd-row-color annotation-interface annotation-interface-tab24">5.4</div>
+<div class="col-last odd-row-color annotation-interface annotation-interface-tab24">
 <div class="block"><code>EnableJUnit4MigrationSupport</code> is a class-level annotation that
 enables all JUnit 4 migration support within JUnit Jupiter.</div>
 </div>
-<div class="col-summary-item-name odd-row-color annotation-interface annotation-interface-tab40"><a href="org.junit.jupiter.params/org/junit/jupiter/params/AfterParameterizedClassInvocation.html" title="annotation interface in org.junit.jupiter.params">org.junit.jupiter.params.AfterParameterizedClassInvocation</a></div>
-<div class="col-second odd-row-color annotation-interface annotation-interface-tab40">5.13</div>
-<div class="col-last odd-row-color annotation-interface annotation-interface-tab40">
+<div class="col-summary-item-name even-row-color annotation-interface annotation-interface-tab40"><a href="org.junit.jupiter.params/org/junit/jupiter/params/AfterParameterizedClassInvocation.html" title="annotation interface in org.junit.jupiter.params">org.junit.jupiter.params.AfterParameterizedClassInvocation</a></div>
+<div class="col-second even-row-color annotation-interface annotation-interface-tab40">5.13</div>
+<div class="col-last even-row-color annotation-interface annotation-interface-tab40">
 <div class="block"><code>@AfterParameterizedClassInvocation</code> is used to signal that the
 annotated method should be executed <em>before</em> <strong>each</strong>
 invocation of the current <a href="org.junit.jupiter.params/org/junit/jupiter/params/ParameterizedClass.html" title="annotation interface in org.junit.jupiter.params"><code>@ParameterizedClass</code></a>.</div>
 </div>
-<div class="col-summary-item-name even-row-color annotation-interface annotation-interface-tab22"><a href="org.junit.jupiter.params/org/junit/jupiter/params/aggregator/AggregateWith.html" title="annotation interface in org.junit.jupiter.params.aggregator">org.junit.jupiter.params.aggregator.AggregateWith</a></div>
-<div class="col-second even-row-color annotation-interface annotation-interface-tab22">5.2</div>
-<div class="col-last even-row-color annotation-interface annotation-interface-tab22">
+<div class="col-summary-item-name odd-row-color annotation-interface annotation-interface-tab22"><a href="org.junit.jupiter.params/org/junit/jupiter/params/aggregator/AggregateWith.html" title="annotation interface in org.junit.jupiter.params.aggregator">org.junit.jupiter.params.aggregator.AggregateWith</a></div>
+<div class="col-second odd-row-color annotation-interface annotation-interface-tab22">5.2</div>
+<div class="col-last odd-row-color annotation-interface annotation-interface-tab22">
 <div class="block"><code>@AggregateWith</code> is an annotation that allows one to specify an
 <a href="org.junit.jupiter.params/org/junit/jupiter/params/aggregator/ArgumentsAggregator.html" title="interface in org.junit.jupiter.params.aggregator"><code>ArgumentsAggregator</code></a>.</div>
 </div>
-<div class="col-summary-item-name odd-row-color annotation-interface annotation-interface-tab40"><a href="org.junit.jupiter.params/org/junit/jupiter/params/BeforeParameterizedClassInvocation.html" title="annotation interface in org.junit.jupiter.params">org.junit.jupiter.params.BeforeParameterizedClassInvocation</a></div>
-<div class="col-second odd-row-color annotation-interface annotation-interface-tab40">5.13</div>
-<div class="col-last odd-row-color annotation-interface annotation-interface-tab40">
+<div class="col-summary-item-name even-row-color annotation-interface annotation-interface-tab40"><a href="org.junit.jupiter.params/org/junit/jupiter/params/BeforeParameterizedClassInvocation.html" title="annotation interface in org.junit.jupiter.params">org.junit.jupiter.params.BeforeParameterizedClassInvocation</a></div>
+<div class="col-second even-row-color annotation-interface annotation-interface-tab40">5.13</div>
+<div class="col-last even-row-color annotation-interface annotation-interface-tab40">
 <div class="block"><code>@BeforeParameterizedClassInvocation</code> is used to signal that the
 annotated method should be executed <em>before</em> <strong>each</strong>
 invocation of the current <a href="org.junit.jupiter.params/org/junit/jupiter/params/ParameterizedClass.html" title="annotation interface in org.junit.jupiter.params"><code>@ParameterizedClass</code></a>.</div>
 </div>
-<div class="col-summary-item-name even-row-color annotation-interface annotation-interface-tab40"><a href="org.junit.jupiter.params/org/junit/jupiter/params/Parameter.html" title="annotation interface in org.junit.jupiter.params">org.junit.jupiter.params.Parameter</a></div>
-<div class="col-second even-row-color annotation-interface annotation-interface-tab40">5.13</div>
-<div class="col-last even-row-color annotation-interface annotation-interface-tab40">
+<div class="col-summary-item-name odd-row-color annotation-interface annotation-interface-tab40"><a href="org.junit.jupiter.params/org/junit/jupiter/params/Parameter.html" title="annotation interface in org.junit.jupiter.params">org.junit.jupiter.params.Parameter</a></div>
+<div class="col-second odd-row-color annotation-interface annotation-interface-tab40">5.13</div>
+<div class="col-last odd-row-color annotation-interface annotation-interface-tab40">
 <div class="block"><code>@Parameter</code> is used to signal that a field in a
 <code>@ParameterizedClass</code> constitutes a <em>parameter</em> and marks it for
 field injection.</div>
 </div>
-<div class="col-summary-item-name odd-row-color annotation-interface annotation-interface-tab40"><a href="org.junit.jupiter.params/org/junit/jupiter/params/ParameterizedClass.html" title="annotation interface in org.junit.jupiter.params">org.junit.jupiter.params.ParameterizedClass</a></div>
-<div class="col-second odd-row-color annotation-interface annotation-interface-tab40">5.13</div>
-<div class="col-last odd-row-color annotation-interface annotation-interface-tab40">
+<div class="col-summary-item-name even-row-color annotation-interface annotation-interface-tab40"><a href="org.junit.jupiter.params/org/junit/jupiter/params/ParameterizedClass.html" title="annotation interface in org.junit.jupiter.params">org.junit.jupiter.params.ParameterizedClass</a></div>
+<div class="col-second even-row-color annotation-interface annotation-interface-tab40">5.13</div>
+<div class="col-last even-row-color annotation-interface annotation-interface-tab40">
 <div class="block"><code>@ParameterizedClass</code> is used to signal that the annotated class is
 a <em>parameterized test class</em>.</div>
 </div>
-<div class="col-summary-item-name even-row-color annotation-interface annotation-interface-tab36"><a href="org.junit.jupiter.params/org/junit/jupiter/params/provider/CsvFileSources.html" title="annotation interface in org.junit.jupiter.params.provider">org.junit.jupiter.params.provider.CsvFileSources</a></div>
-<div class="col-second even-row-color annotation-interface annotation-interface-tab36">5.11</div>
-<div class="col-last even-row-color annotation-interface annotation-interface-tab36">
+<div class="col-summary-item-name odd-row-color annotation-interface annotation-interface-tab36"><a href="org.junit.jupiter.params/org/junit/jupiter/params/provider/CsvFileSources.html" title="annotation interface in org.junit.jupiter.params.provider">org.junit.jupiter.params.provider.CsvFileSources</a></div>
+<div class="col-second odd-row-color annotation-interface annotation-interface-tab36">5.11</div>
+<div class="col-last odd-row-color annotation-interface annotation-interface-tab36">
 <div class="block"><code>@CsvFileSources</code> is a simple container for one or more
 <a href="org.junit.jupiter.params/org/junit/jupiter/params/provider/CsvFileSource.html" title="annotation interface in org.junit.jupiter.params.provider"><code>@CsvFileSource</code></a> annotations.</div>
 </div>
-<div class="col-summary-item-name odd-row-color annotation-interface annotation-interface-tab36"><a href="org.junit.jupiter.params/org/junit/jupiter/params/provider/CsvSources.html" title="annotation interface in org.junit.jupiter.params.provider">org.junit.jupiter.params.provider.CsvSources</a></div>
-<div class="col-second odd-row-color annotation-interface annotation-interface-tab36">5.11</div>
-<div class="col-last odd-row-color annotation-interface annotation-interface-tab36">
+<div class="col-summary-item-name even-row-color annotation-interface annotation-interface-tab36"><a href="org.junit.jupiter.params/org/junit/jupiter/params/provider/CsvSources.html" title="annotation interface in org.junit.jupiter.params.provider">org.junit.jupiter.params.provider.CsvSources</a></div>
+<div class="col-second even-row-color annotation-interface annotation-interface-tab36">5.11</div>
+<div class="col-last even-row-color annotation-interface annotation-interface-tab36">
 <div class="block"><code>@CsvSources</code> is a simple container for one or more
 <a href="org.junit.jupiter.params/org/junit/jupiter/params/provider/CsvSource.html" title="annotation interface in org.junit.jupiter.params.provider"><code>@CsvSource</code></a> annotations.</div>
 </div>
-<div class="col-summary-item-name even-row-color annotation-interface annotation-interface-tab24"><a href="org.junit.jupiter.params/org/junit/jupiter/params/provider/EmptySource.html" title="annotation interface in org.junit.jupiter.params.provider">org.junit.jupiter.params.provider.EmptySource</a></div>
-<div class="col-second even-row-color annotation-interface annotation-interface-tab24">5.4</div>
-<div class="col-last even-row-color annotation-interface annotation-interface-tab24">
+<div class="col-summary-item-name odd-row-color annotation-interface annotation-interface-tab24"><a href="org.junit.jupiter.params/org/junit/jupiter/params/provider/EmptySource.html" title="annotation interface in org.junit.jupiter.params.provider">org.junit.jupiter.params.provider.EmptySource</a></div>
+<div class="col-second odd-row-color annotation-interface annotation-interface-tab24">5.4</div>
+<div class="col-last odd-row-color annotation-interface annotation-interface-tab24">
 <div class="block"><code>@EmptySource</code> is an <a href="org.junit.jupiter.params/org/junit/jupiter/params/provider/ArgumentsSource.html" title="annotation interface in org.junit.jupiter.params.provider"><code>ArgumentsSource</code></a> which provides a single
 <em>empty</em> argument to the annotated <code>@ParameterizedClass</code>
 or <code>@ParameterizedTest</code>.</div>
 </div>
-<div class="col-summary-item-name odd-row-color annotation-interface annotation-interface-tab36"><a href="org.junit.jupiter.params/org/junit/jupiter/params/provider/EnumSources.html" title="annotation interface in org.junit.jupiter.params.provider">org.junit.jupiter.params.provider.EnumSources</a></div>
-<div class="col-second odd-row-color annotation-interface annotation-interface-tab36">5.11</div>
-<div class="col-last odd-row-color annotation-interface annotation-interface-tab36">
+<div class="col-summary-item-name even-row-color annotation-interface annotation-interface-tab36"><a href="org.junit.jupiter.params/org/junit/jupiter/params/provider/EnumSources.html" title="annotation interface in org.junit.jupiter.params.provider">org.junit.jupiter.params.provider.EnumSources</a></div>
+<div class="col-second even-row-color annotation-interface annotation-interface-tab36">5.11</div>
+<div class="col-last even-row-color annotation-interface annotation-interface-tab36">
 <div class="block"><code>@EnumSources</code> is a simple container for one or more
 <a href="org.junit.jupiter.params/org/junit/jupiter/params/provider/EnumSource.html" title="annotation interface in org.junit.jupiter.params.provider"><code>@EnumSource</code></a> annotations.</div>
 </div>
-<div class="col-summary-item-name even-row-color annotation-interface annotation-interface-tab36"><a href="org.junit.jupiter.params/org/junit/jupiter/params/provider/FieldSource.html" title="annotation interface in org.junit.jupiter.params.provider">org.junit.jupiter.params.provider.FieldSource</a></div>
-<div class="col-second even-row-color annotation-interface annotation-interface-tab36">5.11</div>
-<div class="col-last even-row-color annotation-interface annotation-interface-tab36">
+<div class="col-summary-item-name odd-row-color annotation-interface annotation-interface-tab36"><a href="org.junit.jupiter.params/org/junit/jupiter/params/provider/FieldSource.html" title="annotation interface in org.junit.jupiter.params.provider">org.junit.jupiter.params.provider.FieldSource</a></div>
+<div class="col-second odd-row-color annotation-interface annotation-interface-tab36">5.11</div>
+<div class="col-last odd-row-color annotation-interface annotation-interface-tab36">
 <div class="block"><code>@FieldSource</code> is a <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/annotation/Repeatable.html" title="class or interface in java.lang.annotation" class="external-link">repeatable</a>
 <a href="org.junit.jupiter.params/org/junit/jupiter/params/provider/ArgumentsSource.html" title="annotation interface in org.junit.jupiter.params.provider"><code>ArgumentsSource</code></a> which provides access to values of
 <a href="org.junit.jupiter.params/org/junit/jupiter/params/provider/FieldSource.html#value()">fields</a> of the class in which this annotation is declared
 or from static fields in external classes referenced by <em>fully qualified
 field name</em>.</div>
 </div>
-<div class="col-summary-item-name odd-row-color annotation-interface annotation-interface-tab36"><a href="org.junit.jupiter.params/org/junit/jupiter/params/provider/FieldSources.html" title="annotation interface in org.junit.jupiter.params.provider">org.junit.jupiter.params.provider.FieldSources</a></div>
-<div class="col-second odd-row-color annotation-interface annotation-interface-tab36">5.11</div>
-<div class="col-last odd-row-color annotation-interface annotation-interface-tab36">
+<div class="col-summary-item-name even-row-color annotation-interface annotation-interface-tab36"><a href="org.junit.jupiter.params/org/junit/jupiter/params/provider/FieldSources.html" title="annotation interface in org.junit.jupiter.params.provider">org.junit.jupiter.params.provider.FieldSources</a></div>
+<div class="col-second even-row-color annotation-interface annotation-interface-tab36">5.11</div>
+<div class="col-last even-row-color annotation-interface annotation-interface-tab36">
 <div class="block"><code>@FieldSources</code> is a simple container for one or more
 <a href="org.junit.jupiter.params/org/junit/jupiter/params/provider/FieldSource.html" title="annotation interface in org.junit.jupiter.params.provider"><code>@FieldSource</code></a> annotations.</div>
 </div>
-<div class="col-summary-item-name even-row-color annotation-interface annotation-interface-tab36"><a href="org.junit.jupiter.params/org/junit/jupiter/params/provider/MethodSources.html" title="annotation interface in org.junit.jupiter.params.provider">org.junit.jupiter.params.provider.MethodSources</a></div>
-<div class="col-second even-row-color annotation-interface annotation-interface-tab36">5.11</div>
-<div class="col-last even-row-color annotation-interface annotation-interface-tab36">
+<div class="col-summary-item-name odd-row-color annotation-interface annotation-interface-tab36"><a href="org.junit.jupiter.params/org/junit/jupiter/params/provider/MethodSources.html" title="annotation interface in org.junit.jupiter.params.provider">org.junit.jupiter.params.provider.MethodSources</a></div>
+<div class="col-second odd-row-color annotation-interface annotation-interface-tab36">5.11</div>
+<div class="col-last odd-row-color annotation-interface annotation-interface-tab36">
 <div class="block"><code>@MethodSources</code> is a simple container for one or more
 <a href="org.junit.jupiter.params/org/junit/jupiter/params/provider/MethodSource.html" title="annotation interface in org.junit.jupiter.params.provider"><code>@MethodSource</code></a> annotations.</div>
 </div>
-<div class="col-summary-item-name odd-row-color annotation-interface annotation-interface-tab24"><a href="org.junit.jupiter.params/org/junit/jupiter/params/provider/NullAndEmptySource.html" title="annotation interface in org.junit.jupiter.params.provider">org.junit.jupiter.params.provider.NullAndEmptySource</a></div>
-<div class="col-second odd-row-color annotation-interface annotation-interface-tab24">5.4</div>
-<div class="col-last odd-row-color annotation-interface annotation-interface-tab24">
+<div class="col-summary-item-name even-row-color annotation-interface annotation-interface-tab24"><a href="org.junit.jupiter.params/org/junit/jupiter/params/provider/NullAndEmptySource.html" title="annotation interface in org.junit.jupiter.params.provider">org.junit.jupiter.params.provider.NullAndEmptySource</a></div>
+<div class="col-second even-row-color annotation-interface annotation-interface-tab24">5.4</div>
+<div class="col-last even-row-color annotation-interface annotation-interface-tab24">
 <div class="block"><code>@NullAndEmptySource</code> is a <em>composed annotation</em> that combines
 the functionality of <a href="org.junit.jupiter.params/org/junit/jupiter/params/provider/NullSource.html" title="annotation interface in org.junit.jupiter.params.provider"><code>@NullSource</code></a> and
 <a href="org.junit.jupiter.params/org/junit/jupiter/params/provider/EmptySource.html" title="annotation interface in org.junit.jupiter.params.provider"><code>@EmptySource</code></a>.</div>
 </div>
-<div class="col-summary-item-name even-row-color annotation-interface annotation-interface-tab24"><a href="org.junit.jupiter.params/org/junit/jupiter/params/provider/NullSource.html" title="annotation interface in org.junit.jupiter.params.provider">org.junit.jupiter.params.provider.NullSource</a></div>
-<div class="col-second even-row-color annotation-interface annotation-interface-tab24">5.4</div>
-<div class="col-last even-row-color annotation-interface annotation-interface-tab24">
+<div class="col-summary-item-name odd-row-color annotation-interface annotation-interface-tab24"><a href="org.junit.jupiter.params/org/junit/jupiter/params/provider/NullSource.html" title="annotation interface in org.junit.jupiter.params.provider">org.junit.jupiter.params.provider.NullSource</a></div>
+<div class="col-second odd-row-color annotation-interface annotation-interface-tab24">5.4</div>
+<div class="col-last odd-row-color annotation-interface annotation-interface-tab24">
 <div class="block"><code>@NullSource</code> is an <a href="org.junit.jupiter.params/org/junit/jupiter/params/provider/ArgumentsSource.html" title="annotation interface in org.junit.jupiter.params.provider"><code>ArgumentsSource</code></a> which provides a single
 <code>null</code> argument to the annotated <code>@ParameterizedClass</code> or
 <code>@ParameterizedTest</code>.</div>
 </div>
-<div class="col-summary-item-name odd-row-color annotation-interface annotation-interface-tab36"><a href="org.junit.jupiter.params/org/junit/jupiter/params/provider/ValueSources.html" title="annotation interface in org.junit.jupiter.params.provider">org.junit.jupiter.params.provider.ValueSources</a></div>
-<div class="col-second odd-row-color annotation-interface annotation-interface-tab36">5.11</div>
-<div class="col-last odd-row-color annotation-interface annotation-interface-tab36">
+<div class="col-summary-item-name even-row-color annotation-interface annotation-interface-tab36"><a href="org.junit.jupiter.params/org/junit/jupiter/params/provider/ValueSources.html" title="annotation interface in org.junit.jupiter.params.provider">org.junit.jupiter.params.provider.ValueSources</a></div>
+<div class="col-second even-row-color annotation-interface annotation-interface-tab36">5.11</div>
+<div class="col-last even-row-color annotation-interface annotation-interface-tab36">
 <div class="block"><code>@ValueSources</code> is a simple container for one or more
 <a href="org.junit.jupiter.params/org/junit/jupiter/params/provider/ValueSource.html" title="annotation interface in org.junit.jupiter.params.provider"><code>@ValueSource</code></a> annotations.</div>
 </div>
-<div class="col-summary-item-name even-row-color annotation-interface annotation-interface-tab44"><a href="org.junit.platform.commons/org/junit/platform/commons/annotation/Contract.html" title="annotation interface in org.junit.platform.commons.annotation">org.junit.platform.commons.annotation.Contract</a></div>
-<div class="col-second even-row-color annotation-interface annotation-interface-tab44">6.0</div>
-<div class="col-last even-row-color annotation-interface annotation-interface-tab44">
+<div class="col-summary-item-name odd-row-color annotation-interface annotation-interface-tab44"><a href="org.junit.platform.commons/org/junit/platform/commons/annotation/Contract.html" title="annotation interface in org.junit.platform.commons.annotation">org.junit.platform.commons.annotation.Contract</a></div>
+<div class="col-second odd-row-color annotation-interface annotation-interface-tab44">6.0</div>
+<div class="col-last odd-row-color annotation-interface annotation-interface-tab44">
 <div class="block">Specifies some aspects of the annotated method's behavior to be used by tools
 for data flow analysis.</div>
 </div>
-<div class="col-summary-item-name odd-row-color annotation-interface annotation-interface-tab14"><a href="org.junit.platform.suite.api/org/junit/platform/suite/api/AfterSuite.html" title="annotation interface in org.junit.platform.suite.api">org.junit.platform.suite.api.AfterSuite</a></div>
-<div class="col-second odd-row-color annotation-interface annotation-interface-tab14">1.11</div>
-<div class="col-last odd-row-color annotation-interface annotation-interface-tab14">
+<div class="col-summary-item-name even-row-color annotation-interface annotation-interface-tab14"><a href="org.junit.platform.suite.api/org/junit/platform/suite/api/AfterSuite.html" title="annotation interface in org.junit.platform.suite.api">org.junit.platform.suite.api.AfterSuite</a></div>
+<div class="col-second even-row-color annotation-interface annotation-interface-tab14">1.11</div>
+<div class="col-last even-row-color annotation-interface annotation-interface-tab14">
 <div class="block"><code>@AfterSuite</code> is used to signal that the annotated method should be
 executed <em>after</em> <strong>all</strong> tests in the current test suite.</div>
 </div>
-<div class="col-summary-item-name even-row-color annotation-interface annotation-interface-tab14"><a href="org.junit.platform.suite.api/org/junit/platform/suite/api/BeforeSuite.html" title="annotation interface in org.junit.platform.suite.api">org.junit.platform.suite.api.BeforeSuite</a></div>
-<div class="col-second even-row-color annotation-interface annotation-interface-tab14">1.11</div>
-<div class="col-last even-row-color annotation-interface annotation-interface-tab14">
+<div class="col-summary-item-name odd-row-color annotation-interface annotation-interface-tab14"><a href="org.junit.platform.suite.api/org/junit/platform/suite/api/BeforeSuite.html" title="annotation interface in org.junit.platform.suite.api">org.junit.platform.suite.api.BeforeSuite</a></div>
+<div class="col-second odd-row-color annotation-interface annotation-interface-tab14">1.11</div>
+<div class="col-last odd-row-color annotation-interface annotation-interface-tab14">
 <div class="block"><code>@BeforeSuite</code> is used to signal that the annotated method should be
 executed <em>before</em> <strong>all</strong> tests in the current test suite.</div>
 </div>
-<div class="col-summary-item-name odd-row-color annotation-interface annotation-interface-tab10"><a href="org.junit.platform.suite.api/org/junit/platform/suite/api/ConfigurationParameter.html" title="annotation interface in org.junit.platform.suite.api">org.junit.platform.suite.api.ConfigurationParameter</a></div>
-<div class="col-second odd-row-color annotation-interface annotation-interface-tab10">1.8</div>
-<div class="col-last odd-row-color annotation-interface annotation-interface-tab10">
+<div class="col-summary-item-name even-row-color annotation-interface annotation-interface-tab10"><a href="org.junit.platform.suite.api/org/junit/platform/suite/api/ConfigurationParameter.html" title="annotation interface in org.junit.platform.suite.api">org.junit.platform.suite.api.ConfigurationParameter</a></div>
+<div class="col-second even-row-color annotation-interface annotation-interface-tab10">1.8</div>
+<div class="col-last even-row-color annotation-interface annotation-interface-tab10">
 <div class="block"><code>@ConfigurationParameter</code> is a <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/annotation/Repeatable.html" title="class or interface in java.lang.annotation" class="external-link">repeatable</a>
 annotation that specifies a configuration <a href="org.junit.platform.suite.api/org/junit/platform/suite/api/ConfigurationParameter.html#key()"><code>key</code></a> and
 <a href="org.junit.platform.suite.api/org/junit/platform/suite/api/ConfigurationParameter.html#value()"><code>value</code></a> pair to be added to the discovery request when running
 a test suite on the JUnit Platform.</div>
 </div>
-<div class="col-summary-item-name even-row-color annotation-interface annotation-interface-tab10"><a href="org.junit.platform.suite.api/org/junit/platform/suite/api/ConfigurationParameters.html" title="annotation interface in org.junit.platform.suite.api">org.junit.platform.suite.api.ConfigurationParameters</a></div>
-<div class="col-second even-row-color annotation-interface annotation-interface-tab10">1.8</div>
-<div class="col-last even-row-color annotation-interface annotation-interface-tab10">
+<div class="col-summary-item-name odd-row-color annotation-interface annotation-interface-tab10"><a href="org.junit.platform.suite.api/org/junit/platform/suite/api/ConfigurationParameters.html" title="annotation interface in org.junit.platform.suite.api">org.junit.platform.suite.api.ConfigurationParameters</a></div>
+<div class="col-second odd-row-color annotation-interface annotation-interface-tab10">1.8</div>
+<div class="col-last odd-row-color annotation-interface annotation-interface-tab10">
 <div class="block"><code>@ConfigurationParameters</code> is a container for one or more
 <a href="org.junit.platform.suite.api/org/junit/platform/suite/api/ConfigurationParameter.html" title="annotation interface in org.junit.platform.suite.api"><code>@ConfigurationParameter</code></a> declarations.</div>
 </div>
-<div class="col-summary-item-name odd-row-color annotation-interface annotation-interface-tab14"><a href="org.junit.platform.suite.api/org/junit/platform/suite/api/ConfigurationParametersResource.html" title="annotation interface in org.junit.platform.suite.api">org.junit.platform.suite.api.ConfigurationParametersResource</a></div>
-<div class="col-second odd-row-color annotation-interface annotation-interface-tab14">1.11</div>
-<div class="col-last odd-row-color annotation-interface annotation-interface-tab14">
+<div class="col-summary-item-name even-row-color annotation-interface annotation-interface-tab14"><a href="org.junit.platform.suite.api/org/junit/platform/suite/api/ConfigurationParametersResource.html" title="annotation interface in org.junit.platform.suite.api">org.junit.platform.suite.api.ConfigurationParametersResource</a></div>
+<div class="col-second even-row-color annotation-interface annotation-interface-tab14">1.11</div>
+<div class="col-last even-row-color annotation-interface annotation-interface-tab14">
 <div class="block"><code>@ConfigurationParametersResource</code> is a
 <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/annotation/Repeatable.html" title="class or interface in java.lang.annotation" class="external-link">repeatable</a> annotation that specifies a configuration
 file in Java's properties format on the classpath to be added to the
 discovery request when running a test suite on the JUnit Platform.</div>
 </div>
-<div class="col-summary-item-name even-row-color annotation-interface annotation-interface-tab14"><a href="org.junit.platform.suite.api/org/junit/platform/suite/api/ConfigurationParametersResources.html" title="annotation interface in org.junit.platform.suite.api">org.junit.platform.suite.api.ConfigurationParametersResources</a></div>
-<div class="col-second even-row-color annotation-interface annotation-interface-tab14">1.11</div>
-<div class="col-last even-row-color annotation-interface annotation-interface-tab14">
+<div class="col-summary-item-name odd-row-color annotation-interface annotation-interface-tab14"><a href="org.junit.platform.suite.api/org/junit/platform/suite/api/ConfigurationParametersResources.html" title="annotation interface in org.junit.platform.suite.api">org.junit.platform.suite.api.ConfigurationParametersResources</a></div>
+<div class="col-second odd-row-color annotation-interface annotation-interface-tab14">1.11</div>
+<div class="col-last odd-row-color annotation-interface annotation-interface-tab14">
 <div class="block"><code>@ConfigurationParametersResources</code> is a container for one or more
 <a href="org.junit.platform.suite.api/org/junit/platform/suite/api/ConfigurationParametersResource.html" title="annotation interface in org.junit.platform.suite.api"><code>@ConfigurationParametersResource</code></a> declarations.</div>
 </div>
-<div class="col-summary-item-name odd-row-color annotation-interface annotation-interface-tab10"><a href="org.junit.platform.suite.api/org/junit/platform/suite/api/DisableParentConfigurationParameters.html" title="annotation interface in org.junit.platform.suite.api">org.junit.platform.suite.api.DisableParentConfigurationParameters</a></div>
-<div class="col-second odd-row-color annotation-interface annotation-interface-tab10">1.8</div>
-<div class="col-last odd-row-color annotation-interface annotation-interface-tab10">
+<div class="col-summary-item-name even-row-color annotation-interface annotation-interface-tab10"><a href="org.junit.platform.suite.api/org/junit/platform/suite/api/DisableParentConfigurationParameters.html" title="annotation interface in org.junit.platform.suite.api">org.junit.platform.suite.api.DisableParentConfigurationParameters</a></div>
+<div class="col-second even-row-color annotation-interface annotation-interface-tab10">1.8</div>
+<div class="col-last even-row-color annotation-interface annotation-interface-tab10">
 <div class="block">Disable parent configuration parameters.</div>
 </div>
-<div class="col-summary-item-name even-row-color annotation-interface annotation-interface-tab14"><a href="org.junit.platform.suite.api/org/junit/platform/suite/api/Select.html" title="annotation interface in org.junit.platform.suite.api">org.junit.platform.suite.api.Select</a></div>
-<div class="col-second even-row-color annotation-interface annotation-interface-tab14">1.11</div>
-<div class="col-last even-row-color annotation-interface annotation-interface-tab14">
+<div class="col-summary-item-name odd-row-color annotation-interface annotation-interface-tab14"><a href="org.junit.platform.suite.api/org/junit/platform/suite/api/Select.html" title="annotation interface in org.junit.platform.suite.api">org.junit.platform.suite.api.Select</a></div>
+<div class="col-second odd-row-color annotation-interface annotation-interface-tab14">1.11</div>
+<div class="col-last odd-row-color annotation-interface annotation-interface-tab14">
 <div class="block"><code>@Select</code> is a <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/annotation/Repeatable.html" title="class or interface in java.lang.annotation" class="external-link">repeatable</a> annotation that
 specifies which tests to <em>select</em> based on prefixed
 <a href="org.junit.platform.engine/org/junit/platform/engine/DiscoverySelectorIdentifier.html" title="class in org.junit.platform.engine">selector identifiers</a>.</div>
 </div>
-<div class="col-summary-item-name odd-row-color annotation-interface annotation-interface-tab10"><a href="org.junit.platform.suite.api/org/junit/platform/suite/api/SelectClasspathResource.html" title="annotation interface in org.junit.platform.suite.api">org.junit.platform.suite.api.SelectClasspathResource</a></div>
-<div class="col-second odd-row-color annotation-interface annotation-interface-tab10">1.8</div>
-<div class="col-last odd-row-color annotation-interface annotation-interface-tab10">
+<div class="col-summary-item-name even-row-color annotation-interface annotation-interface-tab10"><a href="org.junit.platform.suite.api/org/junit/platform/suite/api/SelectClasspathResource.html" title="annotation interface in org.junit.platform.suite.api">org.junit.platform.suite.api.SelectClasspathResource</a></div>
+<div class="col-second even-row-color annotation-interface annotation-interface-tab10">1.8</div>
+<div class="col-last even-row-color annotation-interface annotation-interface-tab10">
 <div class="block"><code>@SelectClasspathResource</code> is a <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/annotation/Repeatable.html" title="class or interface in java.lang.annotation" class="external-link">repeatable</a>
 annotation that specifies a classpath resource to <em>select</em> when running
 a test suite on the JUnit Platform.</div>
 </div>
-<div class="col-summary-item-name even-row-color annotation-interface annotation-interface-tab10"><a href="org.junit.platform.suite.api/org/junit/platform/suite/api/SelectClasspathResources.html" title="annotation interface in org.junit.platform.suite.api">org.junit.platform.suite.api.SelectClasspathResources</a></div>
-<div class="col-second even-row-color annotation-interface annotation-interface-tab10">1.8</div>
-<div class="col-last even-row-color annotation-interface annotation-interface-tab10">
+<div class="col-summary-item-name odd-row-color annotation-interface annotation-interface-tab10"><a href="org.junit.platform.suite.api/org/junit/platform/suite/api/SelectClasspathResources.html" title="annotation interface in org.junit.platform.suite.api">org.junit.platform.suite.api.SelectClasspathResources</a></div>
+<div class="col-second odd-row-color annotation-interface annotation-interface-tab10">1.8</div>
+<div class="col-last odd-row-color annotation-interface annotation-interface-tab10">
 <div class="block"><code>@SelectClasspathResources</code> is a container for one or more
 <a href="org.junit.platform.suite.api/org/junit/platform/suite/api/SelectClasspathResource.html" title="annotation interface in org.junit.platform.suite.api"><code>@SelectClasspathResource</code></a> declarations.</div>
 </div>
-<div class="col-summary-item-name odd-row-color annotation-interface annotation-interface-tab10"><a href="org.junit.platform.suite.api/org/junit/platform/suite/api/SelectDirectories.html" title="annotation interface in org.junit.platform.suite.api">org.junit.platform.suite.api.SelectDirectories</a></div>
-<div class="col-second odd-row-color annotation-interface annotation-interface-tab10">1.8</div>
-<div class="col-last odd-row-color annotation-interface annotation-interface-tab10">
+<div class="col-summary-item-name even-row-color annotation-interface annotation-interface-tab10"><a href="org.junit.platform.suite.api/org/junit/platform/suite/api/SelectDirectories.html" title="annotation interface in org.junit.platform.suite.api">org.junit.platform.suite.api.SelectDirectories</a></div>
+<div class="col-second even-row-color annotation-interface annotation-interface-tab10">1.8</div>
+<div class="col-last even-row-color annotation-interface annotation-interface-tab10">
 <div class="block"><code>@SelectDirectories</code> specifies the directories to <em>select</em> when
 running a test suite on the JUnit Platform.</div>
 </div>
-<div class="col-summary-item-name even-row-color annotation-interface annotation-interface-tab10"><a href="org.junit.platform.suite.api/org/junit/platform/suite/api/SelectFile.html" title="annotation interface in org.junit.platform.suite.api">org.junit.platform.suite.api.SelectFile</a></div>
-<div class="col-second even-row-color annotation-interface annotation-interface-tab10">1.8</div>
-<div class="col-last even-row-color annotation-interface annotation-interface-tab10">
+<div class="col-summary-item-name odd-row-color annotation-interface annotation-interface-tab10"><a href="org.junit.platform.suite.api/org/junit/platform/suite/api/SelectFile.html" title="annotation interface in org.junit.platform.suite.api">org.junit.platform.suite.api.SelectFile</a></div>
+<div class="col-second odd-row-color annotation-interface annotation-interface-tab10">1.8</div>
+<div class="col-last odd-row-color annotation-interface annotation-interface-tab10">
 <div class="block"><code>@SelectFile</code> is a <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/annotation/Repeatable.html" title="class or interface in java.lang.annotation" class="external-link">repeatable</a> annotation that
 specifies a file to <em>select</em> when running a test suite on the JUnit
 Platform.</div>
 </div>
-<div class="col-summary-item-name odd-row-color annotation-interface annotation-interface-tab10"><a href="org.junit.platform.suite.api/org/junit/platform/suite/api/SelectFiles.html" title="annotation interface in org.junit.platform.suite.api">org.junit.platform.suite.api.SelectFiles</a></div>
-<div class="col-second odd-row-color annotation-interface annotation-interface-tab10">1.8</div>
-<div class="col-last odd-row-color annotation-interface annotation-interface-tab10">
+<div class="col-summary-item-name even-row-color annotation-interface annotation-interface-tab10"><a href="org.junit.platform.suite.api/org/junit/platform/suite/api/SelectFiles.html" title="annotation interface in org.junit.platform.suite.api">org.junit.platform.suite.api.SelectFiles</a></div>
+<div class="col-second even-row-color annotation-interface annotation-interface-tab10">1.8</div>
+<div class="col-last even-row-color annotation-interface annotation-interface-tab10">
 <div class="block"><code>@SelectFiles</code> is a container for one or more
 <a href="org.junit.platform.suite.api/org/junit/platform/suite/api/SelectFile.html" title="annotation interface in org.junit.platform.suite.api"><code>@SelectFile</code></a> declarations.</div>
 </div>
-<div class="col-summary-item-name even-row-color annotation-interface annotation-interface-tab13"><a href="org.junit.platform.suite.api/org/junit/platform/suite/api/SelectMethod.html" title="annotation interface in org.junit.platform.suite.api">org.junit.platform.suite.api.SelectMethod</a></div>
-<div class="col-second even-row-color annotation-interface annotation-interface-tab13">1.10</div>
-<div class="col-last even-row-color annotation-interface annotation-interface-tab13">
+<div class="col-summary-item-name odd-row-color annotation-interface annotation-interface-tab13"><a href="org.junit.platform.suite.api/org/junit/platform/suite/api/SelectMethod.html" title="annotation interface in org.junit.platform.suite.api">org.junit.platform.suite.api.SelectMethod</a></div>
+<div class="col-second odd-row-color annotation-interface annotation-interface-tab13">1.10</div>
+<div class="col-last odd-row-color annotation-interface annotation-interface-tab13">
 <div class="block"><code>@SelectMethod</code> is a <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/annotation/Repeatable.html" title="class or interface in java.lang.annotation" class="external-link">repeatable</a> annotation that
 specifies a method to <em>select</em> when running a test suite on the JUnit
 Platform.</div>
 </div>
-<div class="col-summary-item-name odd-row-color annotation-interface annotation-interface-tab13"><a href="org.junit.platform.suite.api/org/junit/platform/suite/api/SelectMethods.html" title="annotation interface in org.junit.platform.suite.api">org.junit.platform.suite.api.SelectMethods</a></div>
-<div class="col-second odd-row-color annotation-interface annotation-interface-tab13">1.10</div>
-<div class="col-last odd-row-color annotation-interface annotation-interface-tab13">
+<div class="col-summary-item-name even-row-color annotation-interface annotation-interface-tab13"><a href="org.junit.platform.suite.api/org/junit/platform/suite/api/SelectMethods.html" title="annotation interface in org.junit.platform.suite.api">org.junit.platform.suite.api.SelectMethods</a></div>
+<div class="col-second even-row-color annotation-interface annotation-interface-tab13">1.10</div>
+<div class="col-last even-row-color annotation-interface annotation-interface-tab13">
 <div class="block"><code>@SelectMethods</code> is a container for one or more
 <a href="org.junit.platform.suite.api/org/junit/platform/suite/api/SelectMethod.html" title="annotation interface in org.junit.platform.suite.api"><code>@SelectMethod</code></a> declarations.</div>
 </div>
-<div class="col-summary-item-name even-row-color annotation-interface annotation-interface-tab10"><a href="org.junit.platform.suite.api/org/junit/platform/suite/api/SelectModules.html" title="annotation interface in org.junit.platform.suite.api">org.junit.platform.suite.api.SelectModules</a></div>
-<div class="col-second even-row-color annotation-interface annotation-interface-tab10">1.8</div>
-<div class="col-last even-row-color annotation-interface annotation-interface-tab10">
+<div class="col-summary-item-name odd-row-color annotation-interface annotation-interface-tab10"><a href="org.junit.platform.suite.api/org/junit/platform/suite/api/SelectModules.html" title="annotation interface in org.junit.platform.suite.api">org.junit.platform.suite.api.SelectModules</a></div>
+<div class="col-second odd-row-color annotation-interface annotation-interface-tab10">1.8</div>
+<div class="col-last odd-row-color annotation-interface annotation-interface-tab10">
 <div class="block"><code>@SelectModules</code> specifies the modules to <em>select</em> when running
 a test suite on the JUnit Platform.</div>
 </div>
-<div class="col-summary-item-name odd-row-color annotation-interface annotation-interface-tab14"><a href="org.junit.platform.suite.api/org/junit/platform/suite/api/Selects.html" title="annotation interface in org.junit.platform.suite.api">org.junit.platform.suite.api.Selects</a></div>
-<div class="col-second odd-row-color annotation-interface annotation-interface-tab14">1.11</div>
-<div class="col-last odd-row-color annotation-interface annotation-interface-tab14">
+<div class="col-summary-item-name even-row-color annotation-interface annotation-interface-tab14"><a href="org.junit.platform.suite.api/org/junit/platform/suite/api/Selects.html" title="annotation interface in org.junit.platform.suite.api">org.junit.platform.suite.api.Selects</a></div>
+<div class="col-second even-row-color annotation-interface annotation-interface-tab14">1.11</div>
+<div class="col-last even-row-color annotation-interface annotation-interface-tab14">
 <div class="block"><code>@Selects</code> is a container for one or more
 <a href="org.junit.platform.suite.api/org/junit/platform/suite/api/Select.html" title="annotation interface in org.junit.platform.suite.api"><code>@Select</code></a> declarations.</div>
 </div>
-<div class="col-summary-item-name even-row-color annotation-interface annotation-interface-tab10"><a href="org.junit.platform.suite.api/org/junit/platform/suite/api/SelectUris.html" title="annotation interface in org.junit.platform.suite.api">org.junit.platform.suite.api.SelectUris</a></div>
-<div class="col-second even-row-color annotation-interface annotation-interface-tab10">1.8</div>
-<div class="col-last even-row-color annotation-interface annotation-interface-tab10">
+<div class="col-summary-item-name odd-row-color annotation-interface annotation-interface-tab10"><a href="org.junit.platform.suite.api/org/junit/platform/suite/api/SelectUris.html" title="annotation interface in org.junit.platform.suite.api">org.junit.platform.suite.api.SelectUris</a></div>
+<div class="col-second odd-row-color annotation-interface annotation-interface-tab10">1.8</div>
+<div class="col-last odd-row-color annotation-interface annotation-interface-tab10">
 <div class="block"><code>@SelectUris</code> specifies the URIs to <em>select</em> when running a test
 suite on the JUnit Platform.</div>
 </div>
-<div class="col-summary-item-name odd-row-color annotation-interface annotation-interface-tab10"><a href="org.junit.platform.suite.api/org/junit/platform/suite/api/Suite.html" title="annotation interface in org.junit.platform.suite.api">org.junit.platform.suite.api.Suite</a></div>
-<div class="col-second odd-row-color annotation-interface annotation-interface-tab10">1.8</div>
-<div class="col-last odd-row-color annotation-interface annotation-interface-tab10">
+<div class="col-summary-item-name even-row-color annotation-interface annotation-interface-tab10"><a href="org.junit.platform.suite.api/org/junit/platform/suite/api/Suite.html" title="annotation interface in org.junit.platform.suite.api">org.junit.platform.suite.api.Suite</a></div>
+<div class="col-second even-row-color annotation-interface annotation-interface-tab10">1.8</div>
+<div class="col-last even-row-color annotation-interface annotation-interface-tab10">
 <div class="block"><code>@Suite</code> marks a class as a test suite on the JUnit Platform.</div>
 </div>
-<div class="col-summary-item-name even-row-color annotation-interface annotation-interface-tab2"><a href="org.junit.platform.suite.api/org/junit/platform/suite/api/SuiteDisplayName.html" title="annotation interface in org.junit.platform.suite.api">org.junit.platform.suite.api.SuiteDisplayName</a></div>
-<div class="col-second even-row-color annotation-interface annotation-interface-tab2">1.1</div>
-<div class="col-last even-row-color annotation-interface annotation-interface-tab2">
+<div class="col-summary-item-name odd-row-color annotation-interface annotation-interface-tab2"><a href="org.junit.platform.suite.api/org/junit/platform/suite/api/SuiteDisplayName.html" title="annotation interface in org.junit.platform.suite.api">org.junit.platform.suite.api.SuiteDisplayName</a></div>
+<div class="col-second odd-row-color annotation-interface annotation-interface-tab2">1.1</div>
+<div class="col-last odd-row-color annotation-interface annotation-interface-tab2">
 <div class="block"><code>@SuiteDisplayName</code> is used to declare a <a href="org.junit.platform.suite.api/org/junit/platform/suite/api/SuiteDisplayName.html#value()">custom
 display name</a> for the annotated test class that is executed as a test suite
 on the JUnit Platform.</div>

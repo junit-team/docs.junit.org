@@ -116,6 +116,10 @@ that do not pass the supplied <code>predicate</code>.</div>
 <div class="block">Marks tests that <em>read</em> the default time zone but don't use the
 <a href="../org.junit.jupiter.api/org/junit/jupiter/api/util/DefaultTimeZone.html" title="annotation interface in org.junit.jupiter.api.util"><code>@DefaultTimeZone</code></a> extension themselves.</div>
 </dd>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/util/ReadsSystemProperty.html" class="type-name-link" title="annotation interface in org.junit.jupiter.api.util">ReadsSystemProperty</a> - Annotation Interface in <a href="../org.junit.jupiter.api/org/junit/jupiter/api/util/package-summary.html">org.junit.jupiter.api.util</a></dt>
+<dd>
+<div class="block">Marks tests that read system properties but don't use the system property extension themselves.</div>
+</dd>
 <dt><a href="../org.junit.platform.commons/org/junit/platform/commons/util/ExceptionUtils.html#readStackTrace(java.lang.Throwable)" class="member-name-link">readStackTrace(Throwable)</a> - Static method in class org.junit.platform.commons.util.<a href="../org.junit.platform.commons/org/junit/platform/commons/util/ExceptionUtils.html" title="class in org.junit.platform.commons.util">ExceptionUtils</a></dt>
 <dd>
 <div class="block">Read the stacktrace of the supplied <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link"><code>Throwable</code></a> into a String.</div>
@@ -561,6 +565,12 @@ or module path.</div>
 <dt><a href="../org.junit.platform.commons/org/junit/platform/commons/util/ResourceUtils.html" class="type-name-link" title="class in org.junit.platform.commons.util">ResourceUtils</a> - Class in <a href="../org.junit.platform.commons/org/junit/platform/commons/util/package-summary.html">org.junit.platform.commons.util</a></dt>
 <dd>
 <div class="block">Collection of static utility methods for working with resources.</div>
+</dd>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/util/RestoreSystemProperties.html" class="type-name-link" title="annotation interface in org.junit.jupiter.api.util">RestoreSystemProperties</a> - Annotation Interface in <a href="../org.junit.jupiter.api/org/junit/jupiter/api/util/package-summary.html">org.junit.jupiter.api.util</a></dt>
+<dd>
+<div class="block"><code>@RestoreSystemProperties</code> is a JUnit Jupiter extension to restore the entire set of
+system properties to the original value, or the value of the higher-level container, after the
+annotated element is complete.</div>
 </dd>
 <dt><a href="../org.junit.platform.commons/org/junit/platform/commons/annotation/Testable.html#restrictions-for-testengine-implementations-heading" class="search-tag-link">Restrictions for TestEngine Implementations</a> - Section in annotation interface org.junit.platform.commons.annotation.Testable</dt>
 <dd>&nbsp;</dd>

@@ -481,6 +481,15 @@ of <a href="org.junit.jupiter.api/org/junit/jupiter/api/extension/ClassTemplateI
 <div class="col-last odd-row-color all-classes-table all-classes-table-tab3">
 <div class="block">Enumeration of cleanup modes for <a href="org.junit.jupiter.api/org/junit/jupiter/api/io/TempDir.html" title="annotation interface in org.junit.jupiter.api.io"><code>@TempDir</code></a>.</div>
 </div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab6"><a href="org.junit.jupiter.api/org/junit/jupiter/api/util/ClearSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util">ClearSystemProperty</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab6">
+<div class="block"><code>@ClearSystemProperty</code> is a JUnit Jupiter extension to clear the value
+of a system property for a test execution.</div>
+</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab6"><a href="org.junit.jupiter.api/org/junit/jupiter/api/util/ClearSystemProperty.ClearSystemProperties.html" title="annotation interface in org.junit.jupiter.api.util">ClearSystemProperty.ClearSystemProperties</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab6">
+<div class="block">Containing annotation of repeatable <code>@ClearSystemProperty</code>.</div>
+</div>
 <div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="org.junit.platform.commons/org/junit/platform/commons/util/CollectionUtils.html" title="class in org.junit.platform.commons.util">CollectionUtils</a></div>
 <div class="col-last even-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Collection of utilities for working with <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link"><code>Collections</code></a>.</div>
@@ -2008,106 +2017,116 @@ extension.</div>
 <div class="block">Marks tests that <em>read</em> the default time zone but don't use the
 <a href="org.junit.jupiter.api/org/junit/jupiter/api/util/DefaultTimeZone.html" title="annotation interface in org.junit.jupiter.api.util"><code>@DefaultTimeZone</code></a> extension themselves.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="org.junit.platform.commons/org/junit/platform/commons/support/ReflectionSupport.html" title="class in org.junit.platform.commons.support">ReflectionSupport</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab6"><a href="org.junit.jupiter.api/org/junit/jupiter/api/util/ReadsSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util">ReadsSystemProperty</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab6">
+<div class="block">Marks tests that read system properties but don't use the system property extension themselves.</div>
+</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="org.junit.platform.commons/org/junit/platform/commons/support/ReflectionSupport.html" title="class in org.junit.platform.commons.support">ReflectionSupport</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
 <div class="block"><code>ReflectionSupport</code> provides static utility methods for common
 reflection tasks &mdash; for example, scanning for classes in the class-path
 or module-path, loading classes, finding methods, invoking methods, etc.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="org.junit.platform.commons/org/junit/platform/commons/util/ReflectionUtils.html" title="class in org.junit.platform.commons.util">ReflectionUtils</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="org.junit.platform.commons/org/junit/platform/commons/util/ReflectionUtils.html" title="class in org.junit.platform.commons.util">ReflectionUtils</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Collection of utilities for working with the Java reflection APIs.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab3"><a href="org.junit.platform.commons/org/junit/platform/commons/util/ReflectionUtils.CycleErrorHandling.html" title="enum class in org.junit.platform.commons.util">ReflectionUtils.CycleErrorHandling</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab3">&nbsp;</div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab3"><a href="org.junit.platform.commons/org/junit/platform/commons/util/ReflectionUtils.HierarchyTraversalMode.html" title="enum class in org.junit.platform.commons.util">ReflectionUtils.HierarchyTraversalMode</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab3">
+<div class="col-first even-row-color all-classes-table all-classes-table-tab3"><a href="org.junit.platform.commons/org/junit/platform/commons/util/ReflectionUtils.CycleErrorHandling.html" title="enum class in org.junit.platform.commons.util">ReflectionUtils.CycleErrorHandling</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab3"><a href="org.junit.platform.commons/org/junit/platform/commons/util/ReflectionUtils.HierarchyTraversalMode.html" title="enum class in org.junit.platform.commons.util">ReflectionUtils.HierarchyTraversalMode</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab3">
 <div class="block">Modes in which a hierarchy can be traversed &mdash; for example, when
 searching for methods or fields within a class hierarchy.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab1"><a href="org.junit.jupiter.api/org/junit/jupiter/api/extension/ReflectiveInvocationContext.html" title="interface in org.junit.jupiter.api.extension">ReflectiveInvocationContext&lt;T&gt;</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab1">
+<div class="col-first even-row-color all-classes-table all-classes-table-tab1"><a href="org.junit.jupiter.api/org/junit/jupiter/api/extension/ReflectiveInvocationContext.html" title="interface in org.junit.jupiter.api.extension">ReflectiveInvocationContext&lt;T&gt;</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab1">
 <div class="block"><code>ReflectiveInvocationContext</code> encapsulates the <em>context</em> of
 a reflective invocation of an executable (method or constructor).</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab6"><a href="org.junit.jupiter.api/org/junit/jupiter/api/extension/RegisterExtension.html" title="annotation interface in org.junit.jupiter.api.extension">RegisterExtension</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab6">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab6"><a href="org.junit.jupiter.api/org/junit/jupiter/api/extension/RegisterExtension.html" title="annotation interface in org.junit.jupiter.api.extension">RegisterExtension</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab6">
 <div class="block"><code>@RegisterExtension</code> is used to register an <a href="org.junit.jupiter.api/org/junit/jupiter/api/extension/Extension.html" title="interface in org.junit.jupiter.api.extension"><code>Extension</code></a> via a
 field in a test class.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab6"><a href="org.junit.jupiter.api/org/junit/jupiter/api/RepeatedTest.html" title="annotation interface in org.junit.jupiter.api">RepeatedTest</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab6">
+<div class="col-first even-row-color all-classes-table all-classes-table-tab6"><a href="org.junit.jupiter.api/org/junit/jupiter/api/RepeatedTest.html" title="annotation interface in org.junit.jupiter.api">RepeatedTest</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab6">
 <div class="block"><code>@RepeatedTest</code> is used to signal that the annotated method is a
 <em>test template</em> method that should be repeated a <a href="org.junit.jupiter.api/org/junit/jupiter/api/RepeatedTest.html#value()">specified number of times</a> with a configurable <a href="org.junit.jupiter.api/org/junit/jupiter/api/RepeatedTest.html#name()">display
 name</a> and an optional <a href="org.junit.jupiter.api/org/junit/jupiter/api/RepeatedTest.html#failureThreshold()">failure threshold</a>.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab1"><a href="org.junit.jupiter.api/org/junit/jupiter/api/RepetitionInfo.html" title="interface in org.junit.jupiter.api">RepetitionInfo</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab1">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab1"><a href="org.junit.jupiter.api/org/junit/jupiter/api/RepetitionInfo.html" title="interface in org.junit.jupiter.api">RepetitionInfo</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab1">
 <div class="block"><code>RepetitionInfo</code> is used to inject information about the current
 repetition of a repeated test into <code>@RepeatedTest</code>, <code>@BeforeEach</code>,
 and <code>@AfterEach</code> methods.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="org.junit.platform.engine/org/junit/platform/engine/reporting/ReportEntry.html" title="class in org.junit.platform.engine.reporting">ReportEntry</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="org.junit.platform.engine/org/junit/platform/engine/reporting/ReportEntry.html" title="class in org.junit.platform.engine.reporting">ReportEntry</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
 <div class="block"><code>ReportEntry</code> encapsulates a time-stamped map of <code>String</code>-based
 key-value pairs to be published to the reporting infrastructure.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab1"><a href="org.junit.platform.commons/org/junit/platform/commons/io/Resource.html" title="interface in org.junit.platform.commons.io">Resource</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab1">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab1"><a href="org.junit.platform.commons/org/junit/platform/commons/io/Resource.html" title="interface in org.junit.platform.commons.io">Resource</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab1">
 <div class="block"><code>Resource</code> represents a resource on the classpath.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab1"><a href="org.junit.platform.commons/org/junit/platform/commons/support/Resource.html" title="interface in org.junit.platform.commons.support">Resource</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab1">Deprecated, for removal: This API element is subject to removal in a future version.
+<div class="col-first even-row-color all-classes-table all-classes-table-tab1"><a href="org.junit.platform.commons/org/junit/platform/commons/support/Resource.html" title="interface in org.junit.platform.commons.support">Resource</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab1">Deprecated, for removal: This API element is subject to removal in a future version.
 <div class="deprecation-comment">Please use <a href="org.junit.platform.commons/org/junit/platform/commons/io/Resource.html" title="interface in org.junit.platform.commons.io"><code>Resource</code></a> instead.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab3"><a href="org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceAccessMode.html" title="enum class in org.junit.jupiter.api.parallel">ResourceAccessMode</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab3">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab3"><a href="org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceAccessMode.html" title="enum class in org.junit.jupiter.api.parallel">ResourceAccessMode</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab3">
 <div class="block">The access mode required by a test class or method for a given resource.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="org.junit.platform.commons/org/junit/platform/commons/io/ResourceFilter.html" title="class in org.junit.platform.commons.io">ResourceFilter</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="org.junit.platform.commons/org/junit/platform/commons/io/ResourceFilter.html" title="class in org.junit.platform.commons.io">ResourceFilter</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Resource filter used by reflection and classpath scanning support.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab6"><a href="org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLock.html" title="annotation interface in org.junit.jupiter.api.parallel">ResourceLock</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab6">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab6"><a href="org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLock.html" title="annotation interface in org.junit.jupiter.api.parallel">ResourceLock</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab6">
 <div class="block"><code>@ResourceLock</code> is used to declare that the annotated test class or test
 method requires access to a shared resource identified by a key.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab1"><a href="org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/ResourceLock.html" title="interface in org.junit.platform.engine.support.hierarchical">ResourceLock</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab1">
+<div class="col-first even-row-color all-classes-table all-classes-table-tab1"><a href="org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/ResourceLock.html" title="interface in org.junit.platform.engine.support.hierarchical">ResourceLock</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab1">
 <div class="block">A lock for a one or more resources.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab6"><a href="org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLocks.html" title="annotation interface in org.junit.jupiter.api.parallel">ResourceLocks</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab6">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab6"><a href="org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLocks.html" title="annotation interface in org.junit.jupiter.api.parallel">ResourceLocks</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab6">
 <div class="block"><code>@ResourceLocks</code> is a container for one or more
 <a href="org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLock.html" title="annotation interface in org.junit.jupiter.api.parallel"><code>@ResourceLock</code></a> declarations.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab1"><a href="org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLocksProvider.html" title="interface in org.junit.jupiter.api.parallel">ResourceLocksProvider</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab1">
+<div class="col-first even-row-color all-classes-table all-classes-table-tab1"><a href="org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLocksProvider.html" title="interface in org.junit.jupiter.api.parallel">ResourceLocksProvider</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab1">
 <div class="block">A <code>ResourceLocksProvider</code> is used to programmatically add shared resources
 to a test class or its test methods dynamically at runtime.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLocksProvider.Lock.html" title="class in org.junit.jupiter.api.parallel">ResourceLocksProvider.Lock</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLocksProvider.Lock.html" title="class in org.junit.jupiter.api.parallel">ResourceLocksProvider.Lock</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
 <div class="block"><code>Lock</code> represents a shared resource.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab3"><a href="org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLockTarget.html" title="enum class in org.junit.jupiter.api.parallel">ResourceLockTarget</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab3">
+<div class="col-first even-row-color all-classes-table all-classes-table-tab3"><a href="org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLockTarget.html" title="enum class in org.junit.jupiter.api.parallel">ResourceLockTarget</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab3">
 <div class="block"><code>ResourceLockTarget</code> is used to define the target of a shared resource.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="org.junit.jupiter.api/org/junit/jupiter/api/parallel/Resources.html" title="class in org.junit.jupiter.api.parallel">Resources</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="org.junit.jupiter.api/org/junit/jupiter/api/parallel/Resources.html" title="class in org.junit.jupiter.api.parallel">Resources</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Common resource names for synchronizing test execution.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="org.junit.platform.commons/org/junit/platform/commons/support/ResourceSupport.html" title="class in org.junit.platform.commons.support">ResourceSupport</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="org.junit.platform.commons/org/junit/platform/commons/support/ResourceSupport.html" title="class in org.junit.platform.commons.support">ResourceSupport</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
 <div class="block"><code>ResourceSupport</code> provides static utility methods for common tasks
 dealing with resources; for example, scanning for resources on the class path
 or module path.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="org.junit.platform.commons/org/junit/platform/commons/util/ResourceUtils.html" title="class in org.junit.platform.commons.util">ResourceUtils</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="org.junit.platform.commons/org/junit/platform/commons/util/ResourceUtils.html" title="class in org.junit.platform.commons.util">ResourceUtils</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Collection of static utility methods for working with resources.</div>
+</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab6"><a href="org.junit.jupiter.api/org/junit/jupiter/api/util/RestoreSystemProperties.html" title="annotation interface in org.junit.jupiter.api.util">RestoreSystemProperties</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab6">
+<div class="block"><code>@RestoreSystemProperties</code> is a JUnit Jupiter extension to restore the entire set of
+system properties to the original value, or the value of the higher-level container, after the
+annotated element is complete.</div>
 </div>
 <div class="col-first odd-row-color all-classes-table all-classes-table-tab1"><a href="org.junit.vintage.engine/org/junit/vintage/engine/descriptor/RunnerDecorator.html" title="interface in org.junit.vintage.engine.descriptor">RunnerDecorator</a></div>
 <div class="col-last odd-row-color all-classes-table all-classes-table-tab1">&nbsp;</div>
@@ -2231,6 +2250,15 @@ suite on the JUnit Platform.</div>
 <div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="org.junit.platform.commons/org/junit/platform/commons/util/ServiceLoaderUtils.html" title="class in org.junit.platform.commons.util">ServiceLoaderUtils</a></div>
 <div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Collection of utilities for working with <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/ServiceLoader.html" title="class or interface in java.util" class="external-link"><code>ServiceLoader</code></a>.</div>
+</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab6"><a href="org.junit.jupiter.api/org/junit/jupiter/api/util/SetSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util">SetSystemProperty</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab6">
+<div class="block"><code>@SetSystemProperty</code> is a JUnit Jupiter extension to set the value of a
+system property for a test execution.</div>
+</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab6"><a href="org.junit.jupiter.api/org/junit/jupiter/api/util/SetSystemProperty.SetSystemProperties.html" title="annotation interface in org.junit.jupiter.api.util">SetSystemProperty.SetSystemProperties</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab6">
+<div class="block">Containing annotation of repeatable <code>@SetSystemProperty</code>.</div>
 </div>
 <div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="org.junit.jupiter.params/org/junit/jupiter/params/converter/SimpleArgumentConverter.html" title="class in org.junit.jupiter.params.converter">SimpleArgumentConverter</a></div>
 <div class="col-last even-row-color all-classes-table all-classes-table-tab2">
@@ -2744,6 +2772,10 @@ configured parallelism.</div>
 <div class="col-last even-row-color all-classes-table all-classes-table-tab6">
 <div class="block">Marks tests that <em>write</em> the default time zone but don't use the
 <a href="org.junit.jupiter.api/org/junit/jupiter/api/util/DefaultTimeZone.html" title="annotation interface in org.junit.jupiter.api.util"><code>@DefaultTimeZone</code></a> extension themselves.</div>
+</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab6"><a href="org.junit.jupiter.api/org/junit/jupiter/api/util/WritesSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util">WritesSystemProperty</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab6">
+<div class="block">Marks tests that write system properties but don't use the system property extension themselves.</div>
 </div>
 </div>
 </div>
