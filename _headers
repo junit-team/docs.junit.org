@@ -4,3 +4,5 @@
     Referrer-Policy: strict-origin-when-cross-origin
 /_/font/*
     Cache-Control: public, max-age=86400, must-revalidate
+/_/img/*
+    Cache-Control: public, max-age=600, must-revalidate
