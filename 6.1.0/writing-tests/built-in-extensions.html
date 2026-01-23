@@ -574,11 +574,13 @@ Such annotations and related attributes can be accessed via the <code>AnnotatedE
 parameter of the <code>createTempDirectory(&#8230;&#8203;)</code> method.</p>
 </div>
 <div class="paragraph">
-<p>You can use the <code>junit.jupiter.tempdir.factory.default</code> <a href="../running-tests/configuration-parameters.html" class="xref page">configuration parameter</a> to specify the fully qualified class name of the
-<code>TempDirFactory</code> you would like to use by default. Just like for factories configured via
-the <code>factory</code> attribute of the <code>@TempDir</code> annotation, the supplied class has to implement
-the <code>TempDirFactory</code> interface. The default factory will be used for all <code>@TempDir</code>
-annotations unless the <code>factory</code> attribute of the annotation specifies a different factory.</p>
+<p>You can use the <code>junit.jupiter.tempdir.factory.default</code>
+<a href="../running-tests/configuration-parameters.html" class="xref page">configuration parameter</a> to specify the
+fully qualified class name of the <code>TempDirFactory</code> you would like to use by default. Just
+like for factories configured via the <code>factory</code> attribute of the <code>@TempDir</code> annotation,
+the supplied class has to implement the <code>TempDirFactory</code> interface. The default factory
+will be used for all <code>@TempDir</code> annotations unless the <code>factory</code> attribute of the
+annotation specifies a different factory.</p>
 </div>
 <div class="paragraph">
 <p>In summary, the factory for a temporary directory is determined according to the following
@@ -715,10 +717,10 @@ can create an instance:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>language</code> or</p>
+<p><code>language</code></p>
 </li>
 <li>
-<p><code>language</code> and <code>country</code> or</p>
+<p><code>language</code> and <code>country</code></p>
 </li>
 <li>
 <p><code>language</code>, <code>country</code>, and <code>variant</code></p>
@@ -733,7 +735,7 @@ can create an instance:</p>
 </td>
 <td class="content">
 The variant needs to be a string which follows the
-<a href="https://www.rfc-editor.org/rfc/rfc5646.html">IETF BCP 47 / RFC 5646</a> syntax
+<a href="https://www.rfc-editor.org/rfc/rfc5646.html">IETF BCP 47 / RFC 5646</a> syntax.
 </td>
 </tr>
 </table>
@@ -761,13 +763,13 @@ void test_with_language_and_country_and_vairant() {
 </div>
 </div>
 <div class="paragraph">
-<p>Mixing language tag configuration (via the annotation&#8217;s <code>value</code> attributed) and
-attributed-based configuration will cause an exception to be thrown. Furthermore, a
+<p>Mixing language tag configuration (via the annotation&#8217;s <code>value</code> attribute) and
+attribute-based configuration will cause an exception to be thrown. Furthermore, a
 <code>variant</code> can only be specified if <code>country</code> is also specified. Otherwise, an exception
 will be thrown.</p>
 </div>
 <div class="paragraph">
-<p>Any method-level <code>@DefaultLocale</code> configurations will override class-level configurations.</p>
+<p>Method-level <code>@DefaultLocale</code> configuration overrides class-level configuration.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -795,8 +797,8 @@ class MyLocaleTests {
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-A class-level configuration means that the specified locale is set before and reset
-after each individual test in the annotated class.
+With class-level configuration, the specified locale is set before and reset after
+each individual test in the annotated class.
 </td>
 </tr>
 </table>
@@ -827,7 +829,7 @@ static class EnglishProvider implements LocaleProvider {
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The provider implementation must have a no-args (or the default) constructor.
+The provider implementation must have a no-args (or default) constructor.
 </td>
 </tr>
 </table>
@@ -856,7 +858,7 @@ void test_with_long_zone_id() {
 </div>
 </div>
 <div class="paragraph">
-<p>Any method level <code>@DefaultTimeZone</code> configurations will override class level configurations:</p>
+<p>Method-level <code>@DefaultTimeZone</code> configuration overrides class-level configuration.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -884,8 +886,8 @@ class MyTimeZoneTests {
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-A class-level configuration means that the specified time zone is set before and
-reset after each individual test in the annotated class.
+With class-level configuration, the specified time zone is set before and reset
+after each individual test in the annotated class.
 </td>
 </tr>
 </table>
@@ -916,7 +918,7 @@ static class UtcTimeZoneProvider implements TimeZoneProvider {
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The provider implementation must have a no-args (or the default) constructor.
+The provider implementation must have a no-args (or default) constructor.
 </td>
 </tr>
 </table>
@@ -932,11 +934,12 @@ prepared for that and tests annotated with them will never execute in parallel (
 <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLock.html" class="xref attachment">@ResourceLock</a></code>) to guarantee correct test results.</p>
 </div>
 <div class="paragraph">
-<p>However, this does not cover all possible cases. Tested code that reads or writes default
-locale and time zone <em>independently</em> of the extensions can still run in parallel to them
-and may thus behave erratically when, for example, it unexpectedly reads a locale set by
-the extension in another thread. Tests that cover code that reads or writes the default
-locale or time zone need to be annotated with the respective annotation:</p>
+<p>However, this does not cover all possible cases. Tested code that reads or writes the
+default locale or time zone <em>independently</em> of the extensions can still run in parallel
+and may thus behave erratically when, for example, such code unexpectedly reads a locale
+set by the extension in another thread. Consequently, tests that cover code that reads or
+writes the default locale or time zone need to be annotated with one of the following
+respective annotations.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -955,34 +958,33 @@ locale or time zone need to be annotated with the respective annotation:</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>Tests annotated in this way will never execute in parallel with tests annotated with
-<code>@DefaultLocale</code> or <code>@DefaultTimeZone</code>.</p>
+<p>Tests annotated with one of the above annotations will never execute in parallel with
+tests annotated with <code>@DefaultLocale</code> or <code>@DefaultTimeZone</code>.</p>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="SystemProperty"><a class="anchor" href="#SystemProperty"></a>The System Property Extensions</h2>
+<h2 id="SystemProperties"><a class="anchor" href="#SystemProperties"></a>The System Property Extensions</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The System Property extensions consists is a set of annotations that work together to
-clear, set and restore system properties.</p>
+<p>The system property extensions provide a set of annotations that work together to clear,
+set, and restore system properties.</p>
 </div>
 <div class="sect2">
-<h3 id="SystemProperty-clear-system-properties-and-set-system-properties"><a class="anchor" href="#SystemProperty-clear-system-properties-and-set-system-properties"></a>@ClearSystemProperty and @SetSystemProperty</h3>
+<h3 id="SystemProperties-clear-and-set"><a class="anchor" href="#SystemProperties-clear-and-set"></a>@ClearSystemProperty and @SetSystemProperty</h3>
 <div class="paragraph">
-<p>The <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/util/ClearSystemProperty.html" class="xref attachment">@ClearSystemProperty</a></code> and <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/util/SetSystemProperty.html" class="xref attachment">@SetSystemProperty</a></code> extensions can be used to clear and
-set, respectively, the values of system properties for a test execution. Both annotations
-work on the test method and class level, are repeatable, combinable, and inherited from
-higher-level containers. After the annotated method has been executed, the properties
-mentioned in the annotation will be restored to their original value or the value of the
-higher-level container, or will be cleared if they didn&#8217;t have one before. Other system
-properties that are changed during the test, are <em>not</em> restored (unless
-<a href="#SystemProperty-restore-system-properties">explicitly enabled</a> via
-<code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/util/RestoreSystemProperties.html" class="xref attachment">@RestoreSystemProperties</a></code>).</p>
+<p>The <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/util/ClearSystemProperty.html" class="xref attachment">@ClearSystemProperty</a></code> and <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/util/SetSystemProperty.html" class="xref attachment">@SetSystemProperty</a></code> annotations can be used to clear
+and set, respectively, the values of system properties for test execution. Both
+annotations work on the test method and class level and are repeatable, combinable, and
+inherited from higher-level containers. After the annotated method has been executed, the
+properties configured in the annotation will be restored to their original value or the
+value of the higher-level container, or will be cleared if they did not previously have a
+value. Other system properties that are changed during the test are <em>not</em> restored
+(unless <a href="#SystemProperties-restore">explicitly enabled</a> via <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/util/RestoreSystemProperties.html" class="xref attachment">@RestoreSystemProperties</a></code>).</p>
 </div>
 <div class="paragraph">
-<p>For example, clearing a system property for a test execution can be done as follows:</p>
+<p>For example, clearing a system property for test execution can be done as follows.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -994,7 +996,7 @@ void testClearingProperty() {
 </div>
 </div>
 <div class="paragraph">
-<p>And setting a system property for a test execution:</p>
+<p>The following demonstrates how to set a system property for test execution.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1006,7 +1008,7 @@ void testSettingProperty() {
 </div>
 </div>
 <div class="paragraph">
-<p>As mentioned before, both annotations are repeatable, and they can also be combined:</p>
+<p>As mentioned before, both annotations are repeatable, and they can also be combined.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1022,7 +1024,7 @@ void testClearingAndSettingProperty() {
 </div>
 </div>
 <div class="paragraph">
-<p>Note that class-level configurations are overwritten by method-level configurations:</p>
+<p>Note that class-level configuration is overridden by method-level configuration.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1046,14 +1048,14 @@ class MySystemPropertyTest {
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Method-level configurations are visible in both <code>@BeforeEach</code> setup methods and
-<code>@AfterEach</code> teardown methods (see
+<p>Method-level configuration is visible in both <code>@BeforeEach</code> methods and <code>@AfterEach</code>
+methods (see
 <a href="../extensions/relative-execution-order-of-user-code-and-extensions.html#overview" class="xref page">user
 code and extension code execution order</a>).</p>
 </div>
 <div class="paragraph">
-<p>A class-level configuration means that the specified system properties are cleared/set
-before and reset after each individual test in the annotated class.</p>
+<p>With class-level configuration, the specified system properties are cleared or set before
+and reset after each individual test in the annotated class.</p>
 </div>
 </td>
 </tr>
@@ -1061,15 +1063,16 @@ before and reset after each individual test in the annotated class.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="SystemProperty-restore-system-properties"><a class="anchor" href="#SystemProperty-restore-system-properties"></a>@RestoreSystemProperties</h3>
+<h3 id="SystemProperties-restore"><a class="anchor" href="#SystemProperties-restore"></a>@RestoreSystemProperties</h3>
 <div class="paragraph">
-<p>The <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/util/RestoreSystemProperties.html" class="xref attachment">@RestoreSystemProperties</a></code> extension can be used to restore changes to system
-properties made directly in code. While <code>@ClearSystemProperty</code> and <code>@SetSystemProperty</code>
-set or clear specific properties and values, they don&#8217;t allow property values to be
-calculated or parameterized, thus there are times you may want to directly set properties
-in your test code. <code>@RestoreSystemProperties</code> can be placed on test methods or test
-classes and will completely restore all system properties to their original state after a
-test or test class is complete.</p>
+<p>The <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/util/RestoreSystemProperties.html" class="xref attachment">@RestoreSystemProperties</a></code> annotation can be used to restore changes to system
+properties made directly in the test or in the code being tested. Although
+<code>@ClearSystemProperty</code> and <code>@SetSystemProperty</code> clear or set properties and values that
+are statically declared, they do not allow property values to be calculated dynamically.
+Thus, there are times you may want to directly set properties in your test code.
+<code>@RestoreSystemProperties</code> can be placed on test methods or test classes and will
+completely restore all system properties to their original state after the test or test
+class has finished.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1079,10 +1082,13 @@ test or test class is complete.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>During the execution of the annotated scope, the system properties are set to a clone of
-the original <code>Properties</code> object. The clone does not include
+<p>During the execution of the annotated scope, the JVM system properties are set to a clone
+of the original <code>Properties</code> object. However, the clone does not include
 <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Properties.html#defaults">the defaults</a> from the
-original. The extension will perform a best effort attempt to detect default properties
+original.</p>
+</div>
+<div class="paragraph">
+<p>Consequently, the extension will perform a best effort attempt to detect default properties
 and fail if any were detected. For classes that extend <code>Properties</code> it is assumed that
 <code>clone()</code> is implemented with sufficient fidelity.</p>
 </div>
@@ -1091,8 +1097,8 @@ and fail if any were detected. For classes that extend <code>Properties</code> i
 </table>
 </div>
 <div class="paragraph">
-<p>In this example, <code>@RestoreSystemProperties</code> is used on a test method, ensuring any changes
-made in that method are restored:</p>
+<p>In the following example, <code>@RestoreSystemProperties</code> is used on a test method, ensuring
+any changes made in that method are restored.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1106,20 +1112,20 @@ void parameterizedTest(String value) {
 </div>
 </div>
 <div class="paragraph">
-<p>When <code>@RestoreSystemProperties</code> is used on a test class, any system properties changes
-made during the entire lifecycle of the test class, including test methods, <code>@BeforeAll</code>,
-<code>@BeforeEach</code> and 'after' methods, are restored after the  lifecycle of the test class is
+<p>When <code>@RestoreSystemProperties</code> is used on a test class, any changes to system properties
+during the entire lifecycle of the test class, including test methods, <code>@BeforeAll</code>,
+<code>@BeforeEach</code>, and 'after' methods, are restored after the lifecycle of the test class is
 complete. In addition, the annotation is inherited by each test method just as if each one
-was annotated with <code>@RestoreSystemProperties</code>.</p>
+were annotated with <code>@RestoreSystemProperties</code>.</p>
 </div>
 <div class="paragraph">
 <p>In the following example, both test methods see the system property changes made in
-<code>@BeforeAll</code> and <code>@BeforeEach</code>, however, the test methods are isolated from each other
-(<code>isolatedTest2</code> does not 'see' changes made in <code>isolatedTest1</code>). As shown in the second
-example below, the class-level <code>@RestoreSystemProperties</code> ensures that system property
-changes made within the annotated class are completely restored after the class&#8217;s
+<code>@BeforeAll</code> and <code>@BeforeEach</code>; however, the test methods are isolated from each other
+(<code>isolatedTest2</code> does not <em>see</em> changes made in <code>isolatedTest1</code>). As shown in the second
+example below, the class-level <code>@RestoreSystemProperties</code> annotation ensures that system
+property changes made within the annotated class are completely restored after the class&#8217;s
 lifecycle, ensuring that changes are not visible to <code>SomeOtherTestClass</code>. Note that
-<code>SomeOtherTestClass</code> uses the <code>@ReadsSystemProperty</code> annotation: This ensures that JUnit
+<code>SomeOtherTestClass</code> uses the <code>@ReadsSystemProperty</code> annotation, which ensures that JUnit
 does not schedule the class to run during any test known to modify system properties (see
 <a href="#SystemProperties-thread-safety">Thread Safety</a>).</p>
 </div>
@@ -1175,12 +1181,13 @@ class SomeOtherTestClass {
 </div>
 </div>
 <div class="sect2">
-<h3 id="SystemProperty-using-together"><a class="anchor" href="#SystemProperty-using-together"></a>Using @ClearSystemProperty, @SetSystemProperty, and @RestoreSystemProperties together</h3>
+<h3 id="SystemProperties-combined-usage"><a class="anchor" href="#SystemProperties-combined-usage"></a>Combining @ClearSystemProperty, @SetSystemProperty, and @RestoreSystemProperties</h3>
 <div class="paragraph">
-<p>All three annotations can be combined, which could be used when some system properties are
-parameterized (i.e. need to be set in code) and others are not. For instance, imagine
-testing an image generation utility that takes configuration from system properties. Basic
-configuration can be specified using <code>Set</code> and <code>Clear</code> and the image size parameterized:</p>
+<p>The three system property annotations can be combined, which can be useful when some
+system properties are set dynamically in code and others are not. For instance, imagine
+you need to test an image generation utility that takes configuration from system
+properties. Basic configuration can be specified declaratively using the <code>Clear</code> and <code>Set</code>
+annotations, and the image size could be set programmatically.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1205,9 +1212,9 @@ void imageGenerationTest(int imageSize) {
 <td class="content">
 <div class="paragraph">
 <p>Using <code>@RestoreSystemProperties</code> is not necessary to restore system properties modified
-via <code>@ClearSystemProperty</code> or <code>@SetSystemProperty</code> - they each automatically restore the
-referenced properties. <code>Restore</code> is only needed if system properties are modified in some
-way <em>other than</em> <code>Clear</code> and <code>Set</code> during a test.</p>
+via <code>@ClearSystemProperty</code> or <code>@SetSystemProperty</code> since they both automatically restore
+the referenced properties. <code>@RestoreSystemProperties</code> is only needed if system properties
+are modified during a test in some way <em>other than</em> via the <code>Clear</code> and <code>Set</code> annotations.</p>
 </div>
 </td>
 </tr>
