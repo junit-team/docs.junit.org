@@ -408,16 +408,15 @@ method; must not be <code>null</code> but may contain <code>null</code></dd>
 <code>name</code> and <code>arguments</code>.
 
 <p>Favor this method over <a href="#of(java.lang.Object...)"><code>Arguments.of(...)</code></a> and
-<a href="#arguments(java.lang.Object...)"><code>arguments(...)</code></a> when you wish to assign a
-name to the entire set of arguments.
+<a href="#arguments(java.lang.Object...)"><code>arguments(...)</code></a> when you wish to assign a name
+to the entire set of arguments.
 
 <p>This method is well suited to be used as a static import &mdash; for
 example, via:
 <code>import static org.junit.jupiter.params.provider.Arguments.argumentSet;</code>.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>name</code> - the name of the argument set; must not be <code>null</code> or
- blank</dd>
+<dd><code>name</code> - the name of the argument set; must not be <code>null</code> or blank</dd>
 <dd><code>arguments</code> - the arguments to be used for an invocation of the test
 method; must not be <code>null</code> but may contain <code>null</code></dd>
 <dt>Returns:</dt>
@@ -448,9 +447,9 @@ method; must not be <code>null</code> but may contain <code>null</code></dd>
 <div class="block">Factory method for creating an <a href="Arguments.ArgumentSet.html" title="class in org.junit.jupiter.params.provider"><code>Arguments.ArgumentSet</code></a> based on the supplied
 <code>name</code> and <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Iterable.html" title="class or interface in java.lang" class="external-link"><code>Iterable</code></a> of <code>arguments</code>.
 
-<p>Favor this method over <a href="#from(java.lang.Iterable)"><code>Arguments.from(...)</code></a> and
-<a href="#argumentsFrom(java.lang.Iterable)"><code>argumentsFrom(...)</code></a> when you wish to assign a
-name to the entire set of arguments.
+<p>Favor this method over <a href="#from(java.lang.Iterable)"><code>Arguments.from(...)</code></a>
+and <a href="#argumentsFrom(java.lang.Iterable)"><code>argumentsFrom(...)</code></a> when you
+wish to assign a name to the entire set of arguments.
 
 <p>This method is well suited to be used as a static import &mdash; for
 example, via:
@@ -463,8 +462,7 @@ order to tests. It is therefore recommended that the iterable be a
 <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link"><code>List</code></a>, or similar.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>name</code> - the name of the argument set; must not be <code>null</code>
-or blank</dd>
+<dd><code>name</code> - the name of the argument set; must not be <code>null</code> or blank</dd>
 <dd><code>arguments</code> - the arguments to be used for an invocation of the test
 method; must not be <code>null</code> but may contain <code>null</code></dd>
 <dt>Returns:</dt>
