@@ -8389,21 +8389,22 @@ respective annotations.</p>
 <p>Tests annotated with one of the above annotations will never execute in parallel with
 tests annotated with <code>@DefaultLocale</code> or <code>@DefaultTimeZone</code>.</p>
 </div>
-<h4 id="writing-tests-built-in-extensions:::SystemProperties" class="discrete">The System Property Extensions</h4>
+<h4 id="writing-tests-built-in-extensions:::system-properties" class="discrete">The System Properties Extension</h4>
 <div class="paragraph">
-<p>The system property extensions provide a set of annotations that work together to clear,
-set, and restore system properties.</p>
+<p>The system properties extension supports a set of annotations that work together to clear,
+set, and restore JVM system properties.</p>
 </div>
-<h5 id="writing-tests-built-in-extensions:::SystemProperties-clear-and-set" class="discrete">@ClearSystemProperty and @SetSystemProperty</h5>
+<h5 id="writing-tests-built-in-extensions:::system-properties-clear-and-set" class="discrete">@ClearSystemProperty and @SetSystemProperty</h5>
 <div class="paragraph">
-<p>The <code><a href="attachment$api/org.junit.jupiter.api/org/junit/jupiter/api/util/ClearSystemProperty.html">@ClearSystemProperty</a></code> and <code><a href="attachment$api/org.junit.jupiter.api/org/junit/jupiter/api/util/SetSystemProperty.html">@SetSystemProperty</a></code> annotations can be used to clear
-and set, respectively, the values of system properties for test execution. Both
+<p>The <code><a href="attachment$api/org.junit.jupiter.api/org/junit/jupiter/api/util/ClearSystemProperty.html">@ClearSystemProperty</a></code> and <code><a href="attachment$api/org.junit.jupiter.api/org/junit/jupiter/api/util/SetSystemProperty.html">@SetSystemProperty</a></code> annotations can be used to clear and
+set, respectively, the values of JVM system properties for test execution. Both
 annotations work on the test method and class level and are repeatable, combinable, and
 inherited from higher-level containers. After the annotated method has been executed, the
 properties configured in the annotation will be restored to their original value or the
 value of the higher-level container, or will be cleared if they did not previously have a
-value. Other system properties that are changed during the test are <em>not</em> restored
-(unless <a href="#writing-tests-built-in-extensions:::SystemProperties-restore">explicitly enabled</a> via <code><a href="attachment$api/org.junit.jupiter.api/org/junit/jupiter/api/util/RestoreSystemProperties.html">@RestoreSystemProperties</a></code>).</p>
+value. Other system properties that are changed during the test are <em>not</em> restored (unless
+restoration is <a href="#writing-tests-built-in-extensions:::system-properties-restore">explicitly enabled</a> via
+<code><a href="attachment$api/org.junit.jupiter.api/org/junit/jupiter/api/util/RestoreSystemProperties.html">@RestoreSystemProperties</a></code>).</p>
 </div>
 <div class="paragraph">
 <p>For example, clearing a system property for test execution can be done as follows.</p>
@@ -8483,7 +8484,7 @@ and reset after each individual test in the annotated class.</p>
 </tr>
 </table>
 </div>
-<h5 id="writing-tests-built-in-extensions:::SystemProperties-restore" class="discrete">@RestoreSystemProperties</h5>
+<h5 id="writing-tests-built-in-extensions:::system-properties-restore" class="discrete">@RestoreSystemProperties</h5>
 <div class="paragraph">
 <p>The <code><a href="attachment$api/org.junit.jupiter.api/org/junit/jupiter/api/util/RestoreSystemProperties.html">@RestoreSystemProperties</a></code> annotation can be used to restore changes to system
 properties made directly in the test or in the code being tested. Although
@@ -8547,7 +8548,7 @@ property changes made within the annotated class are completely restored after t
 lifecycle, ensuring that changes are not visible to <code>SomeOtherTestClass</code>. Note that
 <code>SomeOtherTestClass</code> uses the <code>@ReadsSystemProperty</code> annotation, which ensures that JUnit
 does not schedule the class to run during any test known to modify system properties (see
-<a href="#writing-tests-built-in-extensions:::SystemProperties-thread-safety">Thread Safety</a>).</p>
+<a href="#writing-tests-built-in-extensions:::system-properties-thread-safety">Thread Safety</a>).</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -8599,7 +8600,7 @@ class SomeOtherTestClass {
 }</code></pre>
 </div>
 </div>
-<h5 id="writing-tests-built-in-extensions:::SystemProperties-combined-usage" class="discrete">Combining @ClearSystemProperty, @SetSystemProperty, and @RestoreSystemProperties</h5>
+<h5 id="writing-tests-built-in-extensions:::system-properties-combined-usage" class="discrete">Combining @ClearSystemProperty, @SetSystemProperty, and @RestoreSystemProperties</h5>
 <div class="paragraph">
 <p>The three system property annotations can be combined, which can be useful when some
 system properties are set dynamically in code and others are not. For instance, imagine
@@ -8638,7 +8639,7 @@ are modified during a test in some way <em>other than</em> via the <code>Clear</
 </tr>
 </table>
 </div>
-<h5 id="writing-tests-built-in-extensions:::SystemProperties-thread-safety" class="discrete">Thread Safety</h5>
+<h5 id="writing-tests-built-in-extensions:::system-properties-thread-safety" class="discrete">Thread Safety</h5>
 <div class="paragraph">
 <p>Since system properties are global state, reading and writing them during
 <a href="#writing-tests-parallel-execution">parallel execution</a> can lead to unpredictable
@@ -17941,7 +17942,7 @@ following <em>OpenTest4J</em> JAR.</p>
 <div id="footer">
 <div id="footer-text">
 Version 6.1.0<br>
-Last updated 2026-02-01 12:52:56 UTC
+Last updated 2026-02-01 14:24:42 UTC
 </div>
 </div>
 </body>

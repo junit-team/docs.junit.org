@@ -73,51 +73,68 @@ loadScripts(document, 'script');</script>
 <div class="type-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/annotation/Retention.html" title="class or interface in java.lang.annotation" class="external-link">@Retention</a>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/annotation/RetentionPolicy.html#RUNTIME" title="class or interface in java.lang.annotation" class="external-link">RUNTIME</a>)
 <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/annotation/Target.html" title="class or interface in java.lang.annotation" class="external-link">@Target</a>({<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/annotation/ElementType.html#METHOD" title="class or interface in java.lang.annotation" class="external-link">METHOD</a>,<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/annotation/ElementType.html#TYPE" title="class or interface in java.lang.annotation" class="external-link">TYPE</a>})
 <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/annotation/Inherited.html" title="class or interface in java.lang.annotation" class="external-link">@Inherited</a>
-<a href="../extension/ExtendWith.html" title="annotation interface in org.junit.jupiter.api.extension">@ExtendWith</a>(org.junit.jupiter.api.util.SystemPropertyExtension.class)
+<a href="../extension/ExtendWith.html" title="annotation interface in org.junit.jupiter.api.extension">@ExtendWith</a>(org.junit.jupiter.api.util.SystemPropertiesExtension.class)
 <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#EXPERIMENTAL" title="class or interface in org.apiguardian.api" class="external-link">EXPERIMENTAL</a>,
      <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.1")
 </span><span class="modifiers">public @interface </span><span class="element-name type-name-label">RestoreSystemProperties</span></div>
-<div class="block"><code>@RestoreSystemProperties</code> is a JUnit Jupiter extension to restore the entire set of
-system properties to the original value, or the value of the higher-level container, after the
-annotated element is complete.
+<div class="block"><code>@RestoreSystemProperties</code> is an annotation that is used to restore the
+entire set of JVM system properties to its original state, or the state of the
+higher-level container, after execution of the annotated element has completed.
 
-<p>Use this annotation when there is a need programmatically modify system properties in a test
-method or in <code>@BeforeAll</code> / <code>@BeforeEach</code> blocks.
-To set or clear a system property, consider <a href="SetSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util"><code>@SetSystemProperty</code></a> or
+<p>Use this annotation when there is a need to programmatically modify system
+properties in a test method or in <code>@BeforeAll</code> / <code>@BeforeEach</code>
+lifecycle methods. To set or clear a system property, consider
+<a href="SetSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util"><code>@SetSystemProperty</code></a> or
 <a href="ClearSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util"><code>@ClearSystemProperty</code></a> instead.
 
-<p><code>@RestoreSystemProperties</code> can be used on the method and on the class level.
-When placed on a test method, a snapshot of system properties is stored prior to that test.
-The snapshot is created before any <code>@BeforeEach</code> blocks in scope and before any
-<a href="SetSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util"><code>@SetSystemProperty</code></a> or <a href="ClearSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util"><code>@ClearSystemProperty</code></a>
-annotations on that method. After the test, system properties are restored from the
-snapshot after any <code>@AfterEach</code> have completed.
+<p><code>@RestoreSystemProperties</code> can be used on the method and on the class
+level.
 
-<p>When placed on a test class, a snapshot of system properties is stored prior to any
-<code>@BeforeAll</code> blocks in scope and before any <a href="SetSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util"><code>@SetSystemProperty</code></a>
-or <a href="ClearSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util"><code>@ClearSystemProperty</code></a> annotations on that class.
-After the test class completes, system properties are restored from the snapshot after any
-<code>@AfterAll</code> blocks have completed.
-In addition, a class level annotation is inherited by each test method just as if each one was
+<p>When declared on a test method, a snapshot of all JVM system properties is
+stored prior to that test. The snapshot is created before any <code>@BeforeEach</code>
+lifecycle methods in scope and before any <a href="SetSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util"><code>@SetSystemProperty</code></a>
+or <a href="ClearSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util"><code>@ClearSystemProperty</code></a> annotations on that method.
+After the test, system properties are restored from the snapshot after all
+<code>@AfterEach</code> lifecycle methods have completed.
+
+<p>When placed on a test class, a snapshot of all JVM system properties is stored
+prior to any <code>@BeforeAll</code> lifecycle methods in scope and before any
+<a href="SetSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util"><code>@SetSystemProperty</code></a> or
+<a href="ClearSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util"><code>@ClearSystemProperty</code></a> annotations on that class.
+After the test class completes, system properties are restored from the snapshot
+after any <code>@AfterAll</code> lifecycle methods have completed. In addition, a
+class-level annotation is inherited by each test method just as if each one were
 annotated with <code>RestoreSystemProperties</code>.
 
-<p>During
-<a href="https://docs.junit.org/current/writing-tests/parallel-execution.html">parallel test execution</a>,
-all tests annotated with <a href="RestoreSystemProperties.html" title="annotation interface in org.junit.jupiter.api.util"><code>RestoreSystemProperties</code></a>, <a href="SetSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util"><code>SetSystemProperty</code></a>,
-<a href="ReadsSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util"><code>ReadsSystemProperty</code></a>, and <a href="WritesSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util"><code>WritesSystemProperty</code></a>
-are scheduled in a way that guarantees correctness under mutation of shared global state.
+<p>During <a href="https://docs.junit.org/current/writing-tests/parallel-execution.html">
+parallel test execution</a>, all tests annotated with
+<a href="SetSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util"><code>@SetSystemProperty</code></a>,
+<a href="ClearSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util"><code>@ClearSystemProperty</code></a>,
+<a href="ReadsSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util"><code>@ReadsSystemProperty</code></a>, and
+<a href="WritesSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util"><code>@WritesSystemProperty</code></a> are scheduled in a way that
+guarantees correctness under mutation of shared global state.
 
-<p>For more details and examples, see
-<a href="https://docs.junit.org/current/writing-tests/built-in-extensions.html#SystemProperty">the documentation on
-<code>@ClearSystemProperty</code>, <code>@SetSystemProperty</code>, and <code>@RestoreSystemProperties</code></a>.</p>
+<p>For further details and examples, see the documentation on all JVM system
+property annotations in the
+<a href="https://docs.junit.org/current/writing-tests/built-in-extensions.html#system-properties">
+User Guide</a>.
 
-<p><em>Note:</em> The snapshot of the properties object is created using <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Properties.html#clone()" title="class or interface in java.util" class="external-link"><code>Properties.clone()</code></a>.
-This cloned value will not include any default values. This extension will make a best effort
-attempt to detect default values and fail if any are detected. For classes that extend
-<code>Properties</code>, it is assumed that <code>clone()</code> is implemented with sufficient fidelity.</div>
+<p><em>Note:</em> The snapshot of the properties object is created using
+<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Properties.html#clone()" title="class or interface in java.util" class="external-link"><code>Properties.clone()</code></a>. However, this cloned properties object will not
+include any default values from the original properties object. Consequently,
+this extension will make a best effort attempt to detect default values and
+fail if any are detected. For classes that extend <code>Properties</code>, it is
+assumed that <code>clone()</code> is implemented with sufficient fidelity.</div>
 <dl class="notes">
 <dt>Since:</dt>
 <dd>6.1</dd>
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="ClearSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util"><code>@ClearSystemProperty</code></a></li>
+<li><a href="SetSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util"><code>@SetSystemProperty</code></a></li>
+</ul>
+</dd>
 </dl>
 </div>
 </section>

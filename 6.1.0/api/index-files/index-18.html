@@ -118,7 +118,8 @@ that do not pass the supplied <code>predicate</code>.</div>
 </dd>
 <dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/util/ReadsSystemProperty.html" class="type-name-link" title="annotation interface in org.junit.jupiter.api.util">ReadsSystemProperty</a> - Annotation Interface in <a href="../org.junit.jupiter.api/org/junit/jupiter/api/util/package-summary.html">org.junit.jupiter.api.util</a></dt>
 <dd>
-<div class="block">Marks tests that read system properties but don't use the system property extension themselves.</div>
+<div class="block"><code>@ReadsSystemProperty</code> marks tests that read system properties but do
+not use the JVM system properties extensions themselves.</div>
 </dd>
 <dt><a href="../org.junit.platform.commons/org/junit/platform/commons/util/ExceptionUtils.html#readStackTrace(java.lang.Throwable)" class="member-name-link">readStackTrace(Throwable)</a> - Static method in class org.junit.platform.commons.util.<a href="../org.junit.platform.commons/org/junit/platform/commons/util/ExceptionUtils.html" title="class in org.junit.platform.commons.util">ExceptionUtils</a></dt>
 <dd>
@@ -568,9 +569,9 @@ or module path.</div>
 </dd>
 <dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/util/RestoreSystemProperties.html" class="type-name-link" title="annotation interface in org.junit.jupiter.api.util">RestoreSystemProperties</a> - Annotation Interface in <a href="../org.junit.jupiter.api/org/junit/jupiter/api/util/package-summary.html">org.junit.jupiter.api.util</a></dt>
 <dd>
-<div class="block"><code>@RestoreSystemProperties</code> is a JUnit Jupiter extension to restore the entire set of
-system properties to the original value, or the value of the higher-level container, after the
-annotated element is complete.</div>
+<div class="block"><code>@RestoreSystemProperties</code> is an annotation that is used to restore the
+entire set of JVM system properties to its original state, or the state of the
+higher-level container, after execution of the annotated element has completed.</div>
 </dd>
 <dt><a href="../org.junit.platform.commons/org/junit/platform/commons/annotation/Testable.html#restrictions-for-testengine-implementations-heading" class="search-tag-link">Restrictions for TestEngine Implementations</a> - Section in annotation interface org.junit.platform.commons.annotation.Testable</dt>
 <dd>&nbsp;</dd>

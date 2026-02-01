@@ -76,18 +76,30 @@ loadScripts(document, 'script');</script>
 <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#EXPERIMENTAL" title="class or interface in org.apiguardian.api" class="external-link">EXPERIMENTAL</a>,
      <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.1")
 </span><span class="modifiers">public @interface </span><span class="element-name type-name-label">WritesSystemProperty</span></div>
-<div class="block">Marks tests that write system properties but don't use the system property extension themselves.
+<div class="block"><code>@WritesSystemProperty</code> marks tests that write system properties but do
+not use the JVM system properties extensions themselves.
 
-<p>During
-<a href="https://docs.junit.org/current/writing-tests/parallel-execution.html">parallel test execution</a>,
-all tests annotated with <a href="ClearSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util"><code>ClearSystemProperty</code></a>, <a href="SetSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util"><code>SetSystemProperty</code></a>, <a href="ReadsSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util"><code>ReadsSystemProperty</code></a>, and <a href="WritesSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util"><code>WritesSystemProperty</code></a>
-are scheduled in a way that guarantees correctness under mutation of shared global state.</p>
+<p>During <a href="https://docs.junit.org/current/writing-tests/parallel-execution.html">
+parallel test execution</a>, all tests annotated with
+<a href="SetSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util"><code>@SetSystemProperty</code></a>,
+<a href="ClearSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util"><code>@ClearSystemProperty</code></a>,
+<a href="ReadsSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util"><code>@ReadsSystemProperty</code></a>, and
+<a href="WritesSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util"><code>@WritesSystemProperty</code></a> are scheduled in a way that
+guarantees correctness under mutation of shared global state.
 
-<p>For more details and examples, see
-<a href="https://docs.junit.org/current/writing-tests/built-in-extensions.html#SystemProperty">the documentation on <code>@ClearSystemProperty</code> and <code>@SetSystemProperty</code></a>.</p></div>
+<p>For further details and examples, see the documentation on all JVM system
+property annotations in the
+<a href="https://docs.junit.org/current/writing-tests/built-in-extensions.html#system-properties">
+User Guide</a>.</div>
 <dl class="notes">
 <dt>Since:</dt>
 <dd>6.1</dd>
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="ReadsSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util"><code>@ReadsSystemProperty</code></a></li>
+</ul>
+</dd>
 </dl>
 </div>
 </section>

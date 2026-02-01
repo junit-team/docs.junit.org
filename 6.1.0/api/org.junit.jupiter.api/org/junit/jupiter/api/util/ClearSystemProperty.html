@@ -81,32 +81,44 @@ loadScripts(document, 'script');</script>
 <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/annotation/Target.html" title="class or interface in java.lang.annotation" class="external-link">@Target</a>({<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/annotation/ElementType.html#METHOD" title="class or interface in java.lang.annotation" class="external-link">METHOD</a>,<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/annotation/ElementType.html#TYPE" title="class or interface in java.lang.annotation" class="external-link">TYPE</a>})
 <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/annotation/Inherited.html" title="class or interface in java.lang.annotation" class="external-link">@Inherited</a>
 <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/annotation/Repeatable.html" title="class or interface in java.lang.annotation" class="external-link">@Repeatable</a>(<a href="ClearSystemProperty.ClearSystemProperties.html" title="annotation interface in org.junit.jupiter.api.util">ClearSystemProperty.ClearSystemProperties</a>.class)
-<a href="../extension/ExtendWith.html" title="annotation interface in org.junit.jupiter.api.extension">@ExtendWith</a>(org.junit.jupiter.api.util.SystemPropertyExtension.class)
+<a href="../extension/ExtendWith.html" title="annotation interface in org.junit.jupiter.api.extension">@ExtendWith</a>(org.junit.jupiter.api.util.SystemPropertiesExtension.class)
 <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#EXPERIMENTAL" title="class or interface in org.apiguardian.api" class="external-link">EXPERIMENTAL</a>,
      <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.1")
 </span><span class="modifiers">public @interface </span><span class="element-name type-name-label">ClearSystemProperty</span></div>
-<div class="block"><code>@ClearSystemProperty</code> is a JUnit Jupiter extension to clear the value
-of a system property for a test execution.
+<div class="block"><code>@ClearSystemProperty</code> is an annotation that is used to clear the value
+of a JVM system property for test execution.
 
-<p>The key of the system property to be cleared must be specified via <a href="#key()"><code>key()</code></a>.
-After the annotated element has been executed, the original value or the value of the
-higher-level container is restored.</p>
+<p>The key of the system property must be specified via the <a href="#key()"><code>key</code></a>
+attribute.
 
 <p><code>@ClearSystemProperty</code> can be used on the method and on the class level.
-It is repeatable and inherited from higher-level containers. If a class is
-annotated, the configured property will be cleared before every test inside that
-class.</p>
+It is <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/annotation/Repeatable.html" title="class or interface in java.lang.annotation" class="external-link">repeatable</a> and <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/annotation/Inherited.html" title="class or interface in java.lang.annotation" class="external-link"><code>@Inherited</code></a> from
+higher-level containers. If a class is annotated, the configured property will
+be cleared before every test inside that class.  After a test has completed,
+the original value of the system property will be restored.
 
-<p>During
-<a href="https://docs.junit.org/current/writing-tests/parallel-execution.html">parallel test execution</a>,
-all tests annotated with <a href="ClearSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util"><code>ClearSystemProperty</code></a>, <a href="SetSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util"><code>SetSystemProperty</code></a>, <a href="ReadsSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util"><code>ReadsSystemProperty</code></a>, and <a href="WritesSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util"><code>WritesSystemProperty</code></a>
-are scheduled in a way that guarantees correctness under mutation of shared global state.</p>
+<p>During <a href="https://docs.junit.org/current/writing-tests/parallel-execution.html">
+parallel test execution</a>, all tests annotated with
+<a href="SetSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util"><code>@SetSystemProperty</code></a>,
+<a href="ClearSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util"><code>@ClearSystemProperty</code></a>,
+<a href="ReadsSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util"><code>@ReadsSystemProperty</code></a>, and
+<a href="WritesSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util"><code>@WritesSystemProperty</code></a> are scheduled in a way that
+guarantees correctness under mutation of shared global state.
 
-<p>For more details and examples, see
-<a href="https://docs.junit.org/current/writing-tests/built-in-extensions.html#SystemProperty">the documentation on <code>@ClearSystemProperty and @SetSystemProperty</code></a>.</p></div>
+<p>For further details and examples, see the documentation on all JVM system
+property annotations in the
+<a href="https://docs.junit.org/current/writing-tests/built-in-extensions.html#system-properties">
+User Guide</a>.</div>
 <dl class="notes">
 <dt>Since:</dt>
 <dd>6.1</dd>
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="SetSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util"><code>@SetSystemProperty</code></a></li>
+<li><a href="RestoreSystemProperties.html" title="annotation interface in org.junit.jupiter.api.util"><code>@RestoreSystemProperties</code></a></li>
+</ul>
+</dd>
 </dl>
 </div>
 </section>
@@ -124,7 +136,8 @@ are scheduled in a way that guarantees correctness under mutation of shared glob
 <div class="col-first even-row-color"><code>static @interface&nbsp;</code></div>
 <div class="col-second even-row-color"><code><a href="ClearSystemProperty.ClearSystemProperties.html" class="type-name-link" title="annotation interface in org.junit.jupiter.api.util">ClearSystemProperty.ClearSystemProperties</a></code></div>
 <div class="col-last even-row-color">
-<div class="block">Containing annotation of repeatable <code>@ClearSystemProperty</code>.</div>
+<div class="block"><code>@ClearSystemProperties</code> is a container for one or more
+<code>ClearSystemProperty</code> declarations.</div>
 </div>
 </div>
 </section>
@@ -141,7 +154,7 @@ are scheduled in a way that guarantees correctness under mutation of shared glob
 <div class="col-first even-row-color"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color"><code><a href="#key()" class="member-name-link">key</a></code></div>
 <div class="col-last even-row-color">
-<div class="block">The key of the system property to be cleared.</div>
+<div class="block">The key of the system property to clear.</div>
 </div>
 </div>
 </section>
@@ -160,7 +173,7 @@ are scheduled in a way that guarantees correctness under mutation of shared glob
 <h3>key</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">key</span></div>
-<div class="block">The key of the system property to be cleared.</div>
+<div class="block">The key of the system property to clear.</div>
 </div>
 </section>
 </li>

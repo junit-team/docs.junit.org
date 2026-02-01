@@ -82,35 +82,49 @@ loadScripts(document, 'script');</script>
 <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/annotation/Target.html" title="class or interface in java.lang.annotation" class="external-link">@Target</a>({<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/annotation/ElementType.html#METHOD" title="class or interface in java.lang.annotation" class="external-link">METHOD</a>,<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/annotation/ElementType.html#TYPE" title="class or interface in java.lang.annotation" class="external-link">TYPE</a>})
 <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/annotation/Inherited.html" title="class or interface in java.lang.annotation" class="external-link">@Inherited</a>
 <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/annotation/Repeatable.html" title="class or interface in java.lang.annotation" class="external-link">@Repeatable</a>(<a href="SetSystemProperty.SetSystemProperties.html" title="annotation interface in org.junit.jupiter.api.util">SetSystemProperty.SetSystemProperties</a>.class)
-<a href="../extension/ExtendWith.html" title="annotation interface in org.junit.jupiter.api.extension">@ExtendWith</a>(org.junit.jupiter.api.util.SystemPropertyExtension.class)
+<a href="../extension/ExtendWith.html" title="annotation interface in org.junit.jupiter.api.extension">@ExtendWith</a>(org.junit.jupiter.api.util.SystemPropertiesExtension.class)
 <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#EXPERIMENTAL" title="class or interface in org.apiguardian.api" class="external-link">EXPERIMENTAL</a>,
      <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.1")
 </span><span class="modifiers">public @interface </span><span class="element-name type-name-label">SetSystemProperty</span></div>
-<div class="block"><code>@SetSystemProperty</code> is a JUnit Jupiter extension to set the value of a
-system property for a test execution.
+<div class="block"><code>@SetSystemProperty</code> is an annotation that is used to set the value of
+a JVM system property for test execution.
 
-<p>The key and value of the system property to be set must be specified via
-<a href="#key()"><code>key()</code></a> and <a href="#value()"><code>value()</code></a>. After the annotated method has been
-executed, the original value or the value of the higher-level container is
-restored.</p>
+<p>The key and value of the system property must be specified via the
+<a href="#key()"><code>key</code></a> and <a href="#value()"><code>value</code></a> attributes.
 
-<p><code>@SetSystemProperty</code> can be used on the method and on the class level.
-It is repeatable and inherited from higher-level containers. If a class is
-annotated, the configured property will be set before every test inside that
-class. Any method-level configurations will override the class-level
-configurations.</p>
+<p>This annotation can be used both at the type level and the method level.
+It is <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/annotation/Repeatable.html" title="class or interface in java.lang.annotation" class="external-link">repeatable</a> and <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/annotation/Inherited.html" title="class or interface in java.lang.annotation" class="external-link"><code>@Inherited</code></a> from
+higher-level containers &mdash; for example, a test method inherits a
+<code>@SetSystemProperty</code> declaration from the test class in which the test
+is declared. If this annotation is declared on a test class (or implemented
+interface), the configured property will be set before every test inside that
+class. After a test has completed, the original value of the system property
+(or the value configured via <code>@SetSystemProperty</code> at a higher level) will
+be restored. Note that method-level configuration always overrides class-level
+configuration.
 
-<p>During
-<a href="https://docs.junit.org/current/writing-tests/parallel-execution.html">parallel test execution</a>,
-all tests annotated with <a href="ClearSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util"><code>ClearSystemProperty</code></a>, <a href="SetSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util"><code>SetSystemProperty</code></a>, <a href="ReadsSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util"><code>ReadsSystemProperty</code></a>,
-and <a href="WritesSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util"><code>WritesSystemProperty</code></a> are scheduled in a way that guarantees correctness under mutation of shared global
-state.</p>
+<p>During <a href="https://docs.junit.org/current/writing-tests/parallel-execution.html">
+parallel test execution</a>, all tests annotated with
+<a href="SetSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util"><code>@SetSystemProperty</code></a>,
+<a href="ClearSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util"><code>@ClearSystemProperty</code></a>,
+<a href="ReadsSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util"><code>@ReadsSystemProperty</code></a>, and
+<a href="WritesSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util"><code>@WritesSystemProperty</code></a> are scheduled in a way that
+guarantees correctness under mutation of shared global state.
 
-<p>For more details and examples, see
-<a href="https://docs.junit.org/current/writing-tests/built-in-extensions.html#SystemProperty">the documentation on <code>@ClearSystemProperty</code> and <code>@SetSystemProperty</code></a>.</p></div>
+<p>For further details and examples, see the documentation on all JVM system
+property annotations in the
+<a href="https://docs.junit.org/current/writing-tests/built-in-extensions.html#system-properties">
+User Guide</a>.</div>
 <dl class="notes">
 <dt>Since:</dt>
 <dd>6.1</dd>
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="ClearSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util"><code>@ClearSystemProperty</code></a></li>
+<li><a href="RestoreSystemProperties.html" title="annotation interface in org.junit.jupiter.api.util"><code>@RestoreSystemProperties</code></a></li>
+</ul>
+</dd>
 </dl>
 </div>
 </section>
@@ -128,7 +142,8 @@ state.</p>
 <div class="col-first even-row-color"><code>static @interface&nbsp;</code></div>
 <div class="col-second even-row-color"><code><a href="SetSystemProperty.SetSystemProperties.html" class="type-name-link" title="annotation interface in org.junit.jupiter.api.util">SetSystemProperty.SetSystemProperties</a></code></div>
 <div class="col-last even-row-color">
-<div class="block">Containing annotation of repeatable <code>@SetSystemProperty</code>.</div>
+<div class="block"><code>@SetSystemProperties</code> is a container for one or more
+<code>SetSystemProperty</code> declarations.</div>
 </div>
 </div>
 </section>
@@ -145,12 +160,12 @@ state.</p>
 <div class="col-first even-row-color"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color"><code><a href="#key()" class="member-name-link">key</a></code></div>
 <div class="col-last even-row-color">
-<div class="block">The key of the system property to be set.</div>
+<div class="block">The key of the system property to set.</div>
 </div>
 <div class="col-first odd-row-color"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color"><code><a href="#value()" class="member-name-link">value</a></code></div>
 <div class="col-last odd-row-color">
-<div class="block">The value of the system property to be set.</div>
+<div class="block">The value of the system property to set.</div>
 </div>
 </div>
 </section>
@@ -169,7 +184,7 @@ state.</p>
 <h3>key</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">key</span></div>
-<div class="block">The key of the system property to be set.</div>
+<div class="block">The key of the system property to set.</div>
 </div>
 </section>
 </li>
@@ -178,7 +193,7 @@ state.</p>
 <h3>value</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">value</span></div>
-<div class="block">The value of the system property to be set.</div>
+<div class="block">The value of the system property to set.</div>
 </div>
 </section>
 </li>

@@ -1692,8 +1692,8 @@ methods within one class and its <a href="org.junit.jupiter.api/org/junit/jupite
 <div class="col-summary-item-name even-row-color annotation-interface annotation-interface-tab46"><a href="org.junit.jupiter.api/org/junit/jupiter/api/util/ClearSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util">org.junit.jupiter.api.util.ClearSystemProperty</a></div>
 <div class="col-second even-row-color annotation-interface annotation-interface-tab46">6.1</div>
 <div class="col-last even-row-color annotation-interface annotation-interface-tab46">
-<div class="block"><code>@ClearSystemProperty</code> is a JUnit Jupiter extension to clear the value
-of a system property for a test execution.</div>
+<div class="block"><code>@ClearSystemProperty</code> is an annotation that is used to clear the value
+of a JVM system property for test execution.</div>
 </div>
 <div class="col-summary-item-name odd-row-color annotation-interface annotation-interface-tab46"><a href="org.junit.jupiter.api/org/junit/jupiter/api/util/DefaultLocale.html" title="annotation interface in org.junit.jupiter.api.util">org.junit.jupiter.api.util.DefaultLocale</a></div>
 <div class="col-second odd-row-color annotation-interface annotation-interface-tab46">6.1</div>
@@ -1722,20 +1722,21 @@ returned by <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.bas
 <div class="col-summary-item-name odd-row-color annotation-interface annotation-interface-tab46"><a href="org.junit.jupiter.api/org/junit/jupiter/api/util/ReadsSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util">org.junit.jupiter.api.util.ReadsSystemProperty</a></div>
 <div class="col-second odd-row-color annotation-interface annotation-interface-tab46">6.1</div>
 <div class="col-last odd-row-color annotation-interface annotation-interface-tab46">
-<div class="block">Marks tests that read system properties but don't use the system property extension themselves.</div>
+<div class="block"><code>@ReadsSystemProperty</code> marks tests that read system properties but do
+not use the JVM system properties extensions themselves.</div>
 </div>
 <div class="col-summary-item-name even-row-color annotation-interface annotation-interface-tab46"><a href="org.junit.jupiter.api/org/junit/jupiter/api/util/RestoreSystemProperties.html" title="annotation interface in org.junit.jupiter.api.util">org.junit.jupiter.api.util.RestoreSystemProperties</a></div>
 <div class="col-second even-row-color annotation-interface annotation-interface-tab46">6.1</div>
 <div class="col-last even-row-color annotation-interface annotation-interface-tab46">
-<div class="block"><code>@RestoreSystemProperties</code> is a JUnit Jupiter extension to restore the entire set of
-system properties to the original value, or the value of the higher-level container, after the
-annotated element is complete.</div>
+<div class="block"><code>@RestoreSystemProperties</code> is an annotation that is used to restore the
+entire set of JVM system properties to its original state, or the state of the
+higher-level container, after execution of the annotated element has completed.</div>
 </div>
 <div class="col-summary-item-name odd-row-color annotation-interface annotation-interface-tab46"><a href="org.junit.jupiter.api/org/junit/jupiter/api/util/SetSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util">org.junit.jupiter.api.util.SetSystemProperty</a></div>
 <div class="col-second odd-row-color annotation-interface annotation-interface-tab46">6.1</div>
 <div class="col-last odd-row-color annotation-interface annotation-interface-tab46">
-<div class="block"><code>@SetSystemProperty</code> is a JUnit Jupiter extension to set the value of a
-system property for a test execution.</div>
+<div class="block"><code>@SetSystemProperty</code> is an annotation that is used to set the value of
+a JVM system property for test execution.</div>
 </div>
 <div class="col-summary-item-name even-row-color annotation-interface annotation-interface-tab46"><a href="org.junit.jupiter.api/org/junit/jupiter/api/util/WritesDefaultLocale.html" title="annotation interface in org.junit.jupiter.api.util">org.junit.jupiter.api.util.WritesDefaultLocale</a></div>
 <div class="col-second even-row-color annotation-interface annotation-interface-tab46">6.1</div>
@@ -1752,7 +1753,8 @@ system property for a test execution.</div>
 <div class="col-summary-item-name even-row-color annotation-interface annotation-interface-tab46"><a href="org.junit.jupiter.api/org/junit/jupiter/api/util/WritesSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util">org.junit.jupiter.api.util.WritesSystemProperty</a></div>
 <div class="col-second even-row-color annotation-interface annotation-interface-tab46">6.1</div>
 <div class="col-last even-row-color annotation-interface annotation-interface-tab46">
-<div class="block">Marks tests that write system properties but don't use the system property extension themselves.</div>
+<div class="block"><code>@WritesSystemProperty</code> marks tests that write system properties but do
+not use the JVM system properties extensions themselves.</div>
 </div>
 <div class="col-summary-item-name odd-row-color annotation-interface annotation-interface-tab24"><a href="org.junit.jupiter.migrationsupport/org/junit/jupiter/migrationsupport/EnableJUnit4MigrationSupport.html" title="annotation interface in org.junit.jupiter.migrationsupport">org.junit.jupiter.migrationsupport.EnableJUnit4MigrationSupport</a></div>
 <div class="col-second odd-row-color annotation-interface annotation-interface-tab24">5.4</div>

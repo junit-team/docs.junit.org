@@ -484,12 +484,13 @@ of <a href="org.junit.jupiter.api/org/junit/jupiter/api/extension/ClassTemplateI
 </div>
 <div class="col-first even-row-color all-classes-table all-classes-table-tab6"><a href="org.junit.jupiter.api/org/junit/jupiter/api/util/ClearSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util">ClearSystemProperty</a></div>
 <div class="col-last even-row-color all-classes-table all-classes-table-tab6">
-<div class="block"><code>@ClearSystemProperty</code> is a JUnit Jupiter extension to clear the value
-of a system property for a test execution.</div>
+<div class="block"><code>@ClearSystemProperty</code> is an annotation that is used to clear the value
+of a JVM system property for test execution.</div>
 </div>
 <div class="col-first odd-row-color all-classes-table all-classes-table-tab6"><a href="org.junit.jupiter.api/org/junit/jupiter/api/util/ClearSystemProperty.ClearSystemProperties.html" title="annotation interface in org.junit.jupiter.api.util">ClearSystemProperty.ClearSystemProperties</a></div>
 <div class="col-last odd-row-color all-classes-table all-classes-table-tab6">
-<div class="block">Containing annotation of repeatable <code>@ClearSystemProperty</code>.</div>
+<div class="block"><code>@ClearSystemProperties</code> is a container for one or more
+<code>ClearSystemProperty</code> declarations.</div>
 </div>
 <div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="org.junit.platform.commons/org/junit/platform/commons/util/CollectionUtils.html" title="class in org.junit.platform.commons.util">CollectionUtils</a></div>
 <div class="col-last even-row-color all-classes-table all-classes-table-tab2">
@@ -2020,7 +2021,8 @@ extension.</div>
 </div>
 <div class="col-first odd-row-color all-classes-table all-classes-table-tab6"><a href="org.junit.jupiter.api/org/junit/jupiter/api/util/ReadsSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util">ReadsSystemProperty</a></div>
 <div class="col-last odd-row-color all-classes-table all-classes-table-tab6">
-<div class="block">Marks tests that read system properties but don't use the system property extension themselves.</div>
+<div class="block"><code>@ReadsSystemProperty</code> marks tests that read system properties but do
+not use the JVM system properties extensions themselves.</div>
 </div>
 <div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="org.junit.platform.commons/org/junit/platform/commons/support/ReflectionSupport.html" title="class in org.junit.platform.commons.support">ReflectionSupport</a></div>
 <div class="col-last even-row-color all-classes-table all-classes-table-tab2">
@@ -2125,9 +2127,9 @@ or module path.</div>
 </div>
 <div class="col-first even-row-color all-classes-table all-classes-table-tab6"><a href="org.junit.jupiter.api/org/junit/jupiter/api/util/RestoreSystemProperties.html" title="annotation interface in org.junit.jupiter.api.util">RestoreSystemProperties</a></div>
 <div class="col-last even-row-color all-classes-table all-classes-table-tab6">
-<div class="block"><code>@RestoreSystemProperties</code> is a JUnit Jupiter extension to restore the entire set of
-system properties to the original value, or the value of the higher-level container, after the
-annotated element is complete.</div>
+<div class="block"><code>@RestoreSystemProperties</code> is an annotation that is used to restore the
+entire set of JVM system properties to its original state, or the state of the
+higher-level container, after execution of the annotated element has completed.</div>
 </div>
 <div class="col-first odd-row-color all-classes-table all-classes-table-tab1"><a href="org.junit.vintage.engine/org/junit/vintage/engine/descriptor/RunnerDecorator.html" title="interface in org.junit.vintage.engine.descriptor">RunnerDecorator</a></div>
 <div class="col-last odd-row-color all-classes-table all-classes-table-tab1">&nbsp;</div>
@@ -2254,12 +2256,13 @@ suite on the JUnit Platform.</div>
 </div>
 <div class="col-first even-row-color all-classes-table all-classes-table-tab6"><a href="org.junit.jupiter.api/org/junit/jupiter/api/util/SetSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util">SetSystemProperty</a></div>
 <div class="col-last even-row-color all-classes-table all-classes-table-tab6">
-<div class="block"><code>@SetSystemProperty</code> is a JUnit Jupiter extension to set the value of a
-system property for a test execution.</div>
+<div class="block"><code>@SetSystemProperty</code> is an annotation that is used to set the value of
+a JVM system property for test execution.</div>
 </div>
 <div class="col-first odd-row-color all-classes-table all-classes-table-tab6"><a href="org.junit.jupiter.api/org/junit/jupiter/api/util/SetSystemProperty.SetSystemProperties.html" title="annotation interface in org.junit.jupiter.api.util">SetSystemProperty.SetSystemProperties</a></div>
 <div class="col-last odd-row-color all-classes-table all-classes-table-tab6">
-<div class="block">Containing annotation of repeatable <code>@SetSystemProperty</code>.</div>
+<div class="block"><code>@SetSystemProperties</code> is a container for one or more
+<code>SetSystemProperty</code> declarations.</div>
 </div>
 <div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="org.junit.jupiter.params/org/junit/jupiter/params/converter/SimpleArgumentConverter.html" title="class in org.junit.jupiter.params.converter">SimpleArgumentConverter</a></div>
 <div class="col-last even-row-color all-classes-table all-classes-table-tab2">
@@ -2776,7 +2779,8 @@ configured parallelism.</div>
 </div>
 <div class="col-first odd-row-color all-classes-table all-classes-table-tab6"><a href="org.junit.jupiter.api/org/junit/jupiter/api/util/WritesSystemProperty.html" title="annotation interface in org.junit.jupiter.api.util">WritesSystemProperty</a></div>
 <div class="col-last odd-row-color all-classes-table all-classes-table-tab6">
-<div class="block">Marks tests that write system properties but don't use the system property extension themselves.</div>
+<div class="block"><code>@WritesSystemProperty</code> marks tests that write system properties but do
+not use the JVM system properties extensions themselves.</div>
 </div>
 </div>
 </div>
