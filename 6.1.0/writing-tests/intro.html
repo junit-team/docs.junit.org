@@ -366,8 +366,21 @@ For the latest stable release, please see <a href="../../6.0.2/writing-tests/int
 JUnit Jupiter. Subsequent sections of this chapter will provide further details on all
 available features.</p>
 </div>
-<div class="listingblock">
+<div id="tabs-1" class="openblock tabs is-sync is-loading">
 <div class="title">A first test case</div>
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-1-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-1-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-1-java--panel" class="tabpanel" aria-labelledby="tabs-1-java">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -383,8 +396,28 @@ class MyFirstJUnitJupiterTests {
 	void addition() {
 		assertEquals(2, calculator.add(1, 1));
 	}
-
 }</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-1-kotlin--panel" class="tabpanel" aria-labelledby="tabs-1-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import example.util.Calculator
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Test
+
+class MyFirstJUnitJupiterTests {
+    private val calculator = Calculator()
+
+    @Test
+    fun addition() {
+        assertEquals(2, calculator.add(1, 1))
+    }
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <nav class="pagination">

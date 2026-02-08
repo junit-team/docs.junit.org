@@ -440,7 +440,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h1>JUnit</h1>
 <div class="details">
 <span id="revnumber">version 6.1.0,</span>
-<span id="revdate">2026-02-07</span>
+<span id="revdate">2026-02-08</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -667,8 +667,16 @@ of the combinations you can choose from.</p>
 JUnit Jupiter. Subsequent sections of this chapter will provide further details on all
 available features.</p>
 </div>
-<div class="listingblock">
+<div id="writing-tests-intro:::tabs-1" class="exampleblock">
 <div class="title">A first test case</div>
+<div class="content">
+<div id="writing-tests-intro:::tabs-1-java" class="dlist">
+<dl>
+<dt class="hdlist1">Java</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-java" data-lang="java">import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -684,8 +692,41 @@ class MyFirstJUnitJupiterTests {
 	void addition() {
 		assertEquals(2, calculator.add(1, 1));
 	}
-
 }</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+<div id="writing-tests-intro:::tabs-1-kotlin" class="dlist">
+<dl>
+<dt class="hdlist1">Kotlin</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">import example.util.Calculator
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Test
+
+class MyFirstJUnitJupiterTests {
+    private val calculator = Calculator()
+
+    @Test
+    fun addition() {
+        assertEquals(2, calculator.add(1, 1))
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -3461,6 +3502,14 @@ class constructor, <code>@BeforeEach</code> method, and <code>@Test</code> metho
 </li>
 </ul>
 </div>
+<div id="writing-tests-dependency-injection-for-constructors-and-methods:::tabs-1" class="exampleblock">
+<div class="content">
+<div id="writing-tests-dependency-injection-for-constructors-and-methods:::tabs-1-java" class="dlist">
+<dl>
+<dt class="hdlist1">Java</dt>
+<dd>
+<div class="openblock">
+<div class="content">
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-java" data-lang="java">import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -3507,6 +3556,70 @@ class TestInfoDemo {
 }</code></pre>
 </div>
 </div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+<div id="writing-tests-dependency-injection-for-constructors-and-methods:::tabs-1-kotlin" class="dlist">
+<dl>
+<dt class="hdlist1">Kotlin</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertTrue
+import org.junit.jupiter.api.BeforeAll
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.DisplayName
+import org.junit.jupiter.api.Tag
+import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.TestInfo
+
+@DisplayName("TestInfo Demo")
+class TestInfoDemo(
+    testInfo: TestInfo
+) {
+    companion object {
+        @JvmStatic
+        @BeforeAll
+        fun beforeAll(testInfo: TestInfo) {
+            assertEquals("TestInfo Demo", testInfo.displayName)
+        }
+    }
+
+    init {
+        assertTrue(testInfo.displayName in listOf("TEST 1", "test2()"))
+    }
+
+    @BeforeEach
+    fun init(testInfo: TestInfo) {
+        assertTrue(testInfo.displayName in listOf("TEST 1", "test2()"))
+    }
+
+    @Test
+    @DisplayName("TEST 1")
+    @Tag("my-tag")
+    fun test1(testInfo: TestInfo) {
+        assertEquals("TEST 1", testInfo.displayName)
+        assertTrue("my-tag" in testInfo.tags)
+    }
+
+    @Test
+    fun test2() {
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -3533,6 +3646,14 @@ them in the user interface for test results.</p>
 </li>
 </ul>
 </div>
+<div id="writing-tests-dependency-injection-for-constructors-and-methods:::tabs-2" class="exampleblock">
+<div class="content">
+<div id="writing-tests-dependency-injection-for-constructors-and-methods:::tabs-2-java" class="dlist">
+<dl>
+<dt class="hdlist1">Java</dt>
+<dd>
+<div class="openblock">
+<div class="content">
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-java" data-lang="java">class TestReporterDemo {
@@ -3577,6 +3698,72 @@ them in the user interface for test results.</p>
 }</code></pre>
 </div>
 </div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+<div id="writing-tests-dependency-injection-for-constructors-and-methods:::tabs-2-kotlin" class="dlist">
+<dl>
+<dt class="hdlist1">Kotlin</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">class TestReporterDemo {
+    @Test
+    fun reportSingleValue(testReporter: TestReporter) {
+        testReporter.publishEntry("a status message")
+    }
+
+    @Test
+    fun reportKeyValuePair(testReporter: TestReporter) {
+        testReporter.publishEntry("a key", "a value")
+    }
+
+    @Test
+    fun reportMultipleKeyValuePairs(testReporter: TestReporter) {
+        testReporter.publishEntry(
+            mapOf(
+                "user name" to "dk38",
+                "award year" to "1974"
+            )
+        )
+    }
+
+    @Test
+    fun reportFiles(
+        testReporter: TestReporter,
+        @TempDir tempDir: Path
+    ) {
+        testReporter.publishFile("test1.txt", MediaType.TEXT_PLAIN_UTF_8) { file -&gt;
+            Files.write(file, listOf("Test 1"))
+        }
+
+        val existingFile = Files.write(tempDir.resolve("test2.txt"), listOf("Test 2"))
+        testReporter.publishFile(existingFile, MediaType.TEXT_PLAIN_UTF_8)
+
+        testReporter.publishDirectory("test3") { dir -&gt;
+            Files.write(dir.resolve("nested1.txt"), listOf("Nested content 1"))
+            Files.write(dir.resolve("nested2.txt"), listOf("Nested content 2"))
+        }
+
+        val existingDir = Files.createDirectory(tempDir.resolve("test4"))
+        Files.write(existingDir.resolve("nested1.txt"), listOf("Nested content 1"))
+        Files.write(existingDir.resolve("nested2.txt"), listOf("Nested content 2"))
+        testReporter.publishDirectory(existingDir)
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -3591,28 +3778,66 @@ Other parameter resolvers must be explicitly enabled by registering appropriate
 </table>
 </div>
 <div class="paragraph">
-<p>Check out the <code><a href="https://github.com/junit-team/junit-examples/tree/HEAD/junit-jupiter-extensions/src/main/java/com/example/random/RandomParametersExtension.java">RandomParametersExtension</a></code> for an example of a custom
-<code><a href="attachment$api/org.junit.jupiter.api/org/junit/jupiter/api/extension/ParameterResolver.html">ParameterResolver</a></code>. While not intended to be production-ready, it demonstrates the
-simplicity and expressiveness of both the extension model and the parameter resolution
-process. <code>MyRandomParametersTest</code> demonstrates how to inject random values into <code>@Test</code>
-methods.</p>
+<p>Check out the <a href="#extensions-registering-extensions:::RandomNumberExtension"><code>RandomNumberExtension</code></a>
+for an example of a custom <code><a href="attachment$api/org.junit.jupiter.api/org/junit/jupiter/api/extension/ParameterResolver.html">ParameterResolver</a></code>. While not intended to be production-ready,
+it demonstrates the simplicity and expressiveness of both the extension model and the
+parameter resolution process. <code>MyRandomParametersTest</code> demonstrates how to inject random
+values into a constructor and a <code>@Test</code> method.</p>
 </div>
+<div id="writing-tests-dependency-injection-for-constructors-and-methods:::tabs-3" class="exampleblock">
+<div class="content">
+<div id="writing-tests-dependency-injection-for-constructors-and-methods:::tabs-3-java" class="dlist">
+<dl>
+<dt class="hdlist1">Java</dt>
+<dd>
+<div class="openblock">
+<div class="content">
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-java" data-lang="java">@ExtendWith(RandomParametersExtension.class)
-class MyRandomParametersTest {
+<pre class="highlight"><code class="language-java" data-lang="java">class MyRandomParametersTest {
+
+	MyRandomParametersTest(@Random int randomNumber) {
+		// Use randomNumber in constructor.
+	}
 
 	@Test
 	void injectsInteger(@Random int i, @Random int j) {
 		assertNotEquals(i, j);
 	}
-
-	@Test
-	void injectsDouble(@Random double d) {
-		assertEquals(0.0, d, 1.0);
-	}
-
 }</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+<div id="writing-tests-dependency-injection-for-constructors-and-methods:::tabs-3-kotlin" class="dlist">
+<dl>
+<dt class="hdlist1">Kotlin</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">class MyRandomParametersTest(
+    @Random randomNumber: Int
+) {
+    @Test
+    fun injectsInteger(
+        @Random i: Int,
+        @Random j: Int
+    ) {
+        assertNotEquals(i, j)
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
 </div>
 </div>
 <div class="paragraph">
