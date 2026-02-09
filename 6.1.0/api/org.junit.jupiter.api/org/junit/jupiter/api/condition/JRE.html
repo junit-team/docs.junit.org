@@ -339,10 +339,8 @@ the version is <a href="#OTHER"><code>OTHER</code></a>.</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isCurrentVersion(int)" class="member-name-link">isCurrentVersion</a><wbr>(int&nbsp;version)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Returns <code>true</code> if the supplied version number is known to be the
-Java Runtime Environment version for the currently executing JVM or if
-the supplied version number is <code>-1</code> and the current JVM version
-could not be determined.</div>
+<div class="block">Determine if the supplied version number is considered to be the current
+JRE version.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="JRE.html" title="enum class in org.junit.jupiter.api.condition">JRE</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#valueOf(java.lang.String)" class="member-name-link">valueOf</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</code></div>
@@ -930,22 +928,29 @@ if the current JVM version could not be determined</dd>
 <div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#MAINTAINED" title="class or interface in org.apiguardian.api" class="external-link">MAINTAINED</a>,
      <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="5.13.3")
 </span><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isCurrentVersion</span><wbr><span class="parameters">(int&nbsp;version)</span></div>
-<div class="block">Returns <code>true</code> if the supplied version number is known to be the
-Java Runtime Environment version for the currently executing JVM or if
-the supplied version number is <code>-1</code> and the current JVM version
-could not be determined.</div>
+<div class="block">Determine if the supplied version number is considered to be the current
+JRE version.
+
+<p>Returns <code>true</code> if either of the following is <code>true</code>.
+
+<ul>
+<li>The supplied version number is known to be the Java Runtime Environment
+version for the currently executing JVM.</li>
+<li>The supplied version number is <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Integer.html#MAX_VALUE" title="class or interface in java.lang" class="external-link"><code>Integer.MAX_VALUE</code></a> and the current
+<code>JRE</code> is <a href="#OTHER"><code>OTHER</code></a>.</li>
+</ul></div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd><code>true</code> if the supplied version number is known to be the
-Java Runtime Environment version for the currently executing JVM or if
-the supplied version number is <code>-1</code> and the current JVM version
-could not be determined</dd>
+<dd><code>true</code> if the supplied version number is considered to be
+the current JRE version</dd>
 <dt>Since:</dt>
 <dd>5.12</dd>
 <dt>See Also:</dt>
 <dd>
 <ul class="tag-list">
 <li><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Runtime.Version.html#feature()" title="class or interface in java.lang" class="external-link"><code>Runtime.Version.feature()</code></a></li>
+<li><a href="#isCurrentVersion()"><code>isCurrentVersion()</code></a></li>
+<li><a href="#currentJre()"><code>currentJre()</code></a></li>
 </ul>
 </dd>
 </dl>
