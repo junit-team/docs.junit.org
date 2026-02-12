@@ -440,7 +440,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h1>JUnit</h1>
 <div class="details">
 <span id="revnumber">version 6.1.0,</span>
-<span id="revdate">2026-02-11</span>
+<span id="revdate">2026-02-12</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -16714,6 +16714,14 @@ value of lower stability.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.0</code></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DiscoverySelectors.&ZeroWidthSpace;selectClasspathResources(List&lt;String&gt;)</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DiscoverySelectors.&ZeroWidthSpace;selectClasspathResources(String[])</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.1</code></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>DiscoverySelectors.&ZeroWidthSpace;selectModule(Module)</code> <em>(method)</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.1</code></p></td>
 </tr>
@@ -17489,6 +17497,9 @@ repository on GitHub.</p>
 <li>
 <p>Failures to resolve selectors are now forwarded by Suite Engine</p>
 </li>
+<li>
+<p>Fix deadlock in <code>NamespacedHierarchicalStore.computeIfAbsent(N, K, Function)</code></p>
+</li>
 </ul>
 </div>
 <h5 id="release-notes:::v6.1.0-M2-junit-platform-deprecations-and-breaking-changes" class="discrete 1 0-M2-junit-platform-deprecations-and-breaking-changes">Deprecations and Breaking Changes</h5>
@@ -17505,6 +17516,9 @@ repository on GitHub.</p>
 <li>
 <p>The <code>UniqueId.uniqueIdFormat</code> field has been removed, reducing the size of <code>UniqueId</code>
 objects.</p>
+</li>
+<li>
+<p>Add <code>DiscoverySelectors.selectClasspathResources(String&#8230;&#8203;)</code> and <code>DiscoverySelectors.selectClasspathResources(List&lt;String)</code></p>
 </li>
 </ul>
 </div>

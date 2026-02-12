@@ -78,6 +78,8 @@ loadScripts(document, 'script');</script>
 <li><a href="#containsNoNullElements(T%5B%5D,java.util.function.Supplier)" tabindex="0">containsNoNullElements(T[], Supplier)</a></li>
 <li><a href="#containsNoNullElements(T,java.lang.String)" tabindex="0">containsNoNullElements(T, String)</a></li>
 <li><a href="#containsNoNullElements(T,java.util.function.Supplier)" tabindex="0">containsNoNullElements(T, Supplier)</a></li>
+<li><a href="#containsNoBlankElements(T,java.lang.String)" tabindex="0">containsNoBlankElements(T, String)</a></li>
+<li><a href="#containsNoBlankElements(T,java.util.function.Supplier)" tabindex="0">containsNoBlankElements(T, Supplier)</a></li>
 <li><a href="#notBlank(java.lang.String,java.lang.String)" tabindex="0">notBlank(String, String)</a></li>
 <li><a href="#notBlank(java.lang.String,java.util.function.Supplier)" tabindex="0">notBlank(String, Supplier)</a></li>
 <li><a href="#condition(boolean,java.lang.String)" tabindex="0">condition(boolean, String)</a></li>
@@ -142,6 +144,18 @@ Use at your own risk!</div>
  <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;messageSupplier)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Assert that the supplied <code>predicate</code> is <code>true</code>.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;T extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&gt;<br><a href="https://jspecify.dev/docs/api/org/jspecify/annotations/Nullable.html" title="class or interface in org.jspecify.annotations" class="external-link">@Nullable</a> T</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#containsNoBlankElements(T,java.lang.String)" class="member-name-link">containsNoBlankElements</a><wbr>(<a href="https://jspecify.dev/docs/api/org/jspecify/annotations/Nullable.html" title="class or interface in org.jspecify.annotations" class="external-link">@Nullable</a> T&nbsp;collection,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;message)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Assert that the supplied collection contains no blank elements.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;T extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&gt;<br><a href="https://jspecify.dev/docs/api/org/jspecify/annotations/Nullable.html" title="class or interface in org.jspecify.annotations" class="external-link">@Nullable</a> T</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#containsNoBlankElements(T,java.util.function.Supplier)" class="member-name-link">containsNoBlankElements</a><wbr>(<a href="https://jspecify.dev/docs/api/org/jspecify/annotations/Nullable.html" title="class or interface in org.jspecify.annotations" class="external-link">@Nullable</a> T&nbsp;collection,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;messageSupplier)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Assert that the supplied collection contains no blank elements.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;T extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;?&gt;&gt;<br><a href="https://jspecify.dev/docs/api/org/jspecify/annotations/Nullable.html" title="class or interface in org.jspecify.annotations" class="external-link">@Nullable</a> T</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#containsNoNullElements(T,java.lang.String)" class="member-name-link">containsNoNullElements</a><wbr>(<a href="https://jspecify.dev/docs/api/org/jspecify/annotations/Nullable.html" title="class or interface in org.jspecify.annotations" class="external-link">@Nullable</a> T&nbsp;collection,
@@ -568,6 +582,78 @@ any <code>null</code> elements</dd>
 <dd>
 <ul class="tag-list-long">
 <li><a href="#notNull(T,java.lang.String)"><code>notNull(Object, String)</code></a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="containsNoBlankElements(T,java.lang.String)">
+<h3 id="containsNoBlankElements(java.util.Collection,java.lang.String)">containsNoBlankElements</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#INTERNAL" title="class or interface in org.apiguardian.api" class="external-link">INTERNAL</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.1")
+<a href="../annotation/Contract.html" title="annotation interface in org.junit.platform.commons.annotation">@Contract</a>("null, _ -&gt; null")
+</span><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;T extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&gt;</span>
+<span class="return-type"><a href="https://jspecify.dev/docs/api/org/jspecify/annotations/Nullable.html" title="class or interface in org.jspecify.annotations" class="external-link">@Nullable</a> T</span>&nbsp;<span class="element-name">containsNoBlankElements</span><wbr><span class="parameters">(<a href="https://jspecify.dev/docs/api/org/jspecify/annotations/Nullable.html" title="class or interface in org.jspecify.annotations" class="external-link">@Nullable</a> T&nbsp;collection,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;message)</span>
+                             throws <span class="exceptions"><a href="../PreconditionViolationException.html" title="class in org.junit.platform.commons">PreconditionViolationException</a></span></div>
+<div class="block">Assert that the supplied collection contains no blank elements.
+
+<p><strong>WARNING</strong>: this method does NOT check if the supplied
+collection is <code>null</code> or <em>empty</em>.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>collection</code> - the collection to check</dd>
+<dd><code>message</code> - precondition violation message</dd>
+<dt>Returns:</dt>
+<dd>the supplied collection as a convenience</dd>
+<dt>Throws:</dt>
+<dd><code><a href="../PreconditionViolationException.html" title="class in org.junit.platform.commons">PreconditionViolationException</a></code> - if the supplied collection contains
+any blank elements</dd>
+<dt>Since:</dt>
+<dd>6.1</dd>
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list-long">
+<li><a href="#notBlank(java.lang.String,java.lang.String)"><code>notBlank(String, String)</code></a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="containsNoBlankElements(T,java.util.function.Supplier)">
+<h3 id="containsNoBlankElements(java.util.Collection,java.util.function.Supplier)">containsNoBlankElements</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#INTERNAL" title="class or interface in org.apiguardian.api" class="external-link">INTERNAL</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.1")
+<a href="../annotation/Contract.html" title="annotation interface in org.junit.platform.commons.annotation">@Contract</a>("null, _ -&gt; null")
+</span><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;T extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&gt;</span>
+<span class="return-type"><a href="https://jspecify.dev/docs/api/org/jspecify/annotations/Nullable.html" title="class or interface in org.jspecify.annotations" class="external-link">@Nullable</a> T</span>&nbsp;<span class="element-name">containsNoBlankElements</span><wbr><span class="parameters">(<a href="https://jspecify.dev/docs/api/org/jspecify/annotations/Nullable.html" title="class or interface in org.jspecify.annotations" class="external-link">@Nullable</a> T&nbsp;collection,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;messageSupplier)</span>
+                             throws <span class="exceptions"><a href="../PreconditionViolationException.html" title="class in org.junit.platform.commons">PreconditionViolationException</a></span></div>
+<div class="block">Assert that the supplied collection contains no blank elements.
+
+<p><strong>WARNING</strong>: this method does NOT check if the supplied
+collection is <code>null</code> or <em>empty</em>.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>collection</code> - the collection to check</dd>
+<dd><code>messageSupplier</code> - precondition violation message supplier</dd>
+<dt>Returns:</dt>
+<dd>the supplied collection as a convenience</dd>
+<dt>Throws:</dt>
+<dd><code><a href="../PreconditionViolationException.html" title="class in org.junit.platform.commons">PreconditionViolationException</a></code> - if the supplied collection contains
+any blank elements</dd>
+<dt>Since:</dt>
+<dd>6.1</dd>
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list-long">
+<li><a href="#notBlank(java.lang.String,java.lang.String)"><code>notBlank(String, String)</code></a></li>
 </ul>
 </dd>
 </dl>

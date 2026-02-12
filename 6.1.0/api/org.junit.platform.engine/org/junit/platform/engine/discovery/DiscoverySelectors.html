@@ -76,6 +76,8 @@ loadScripts(document, 'script');</script>
 <li><a href="#selectClasspathResource(java.lang.String,org.junit.platform.engine.discovery.FilePosition)" tabindex="0">selectClasspathResource(String, FilePosition)</a></li>
 <li><a href="#selectClasspathResource(java.util.Set)" tabindex="0">selectClasspathResource(Set)</a></li>
 <li><a href="#selectClasspathResourceByName(java.util.Set)" tabindex="0">selectClasspathResourceByName(Set)</a></li>
+<li><a href="#selectClasspathResources(java.lang.String...)" tabindex="0">selectClasspathResources(String...)</a></li>
+<li><a href="#selectClasspathResources(java.util.List)" tabindex="0">selectClasspathResources(List)</a></li>
 <li><a href="#selectModule(java.lang.String)" tabindex="0">selectModule(String)</a></li>
 <li><a href="#selectModule(java.lang.Module)" tabindex="0">selectModule(Module)</a></li>
 <li><a href="#selectModules(java.util.Set)" tabindex="0">selectModules(Set)</a></li>
@@ -273,6 +275,18 @@ resource name.</div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Create a <code>ClasspathResourceSelector</code> for the supplied classpath
 resources.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="ClasspathResourceSelector.html" title="class in org.junit.platform.engine.discovery">ClasspathResourceSelector</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#selectClasspathResources(java.lang.String...)" class="member-name-link">selectClasspathResources</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>...&nbsp;classpathResourceNames)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Create a <code>ClasspathResourceSelector</code> for each supplied classpath
+resource name.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="ClasspathResourceSelector.html" title="class in org.junit.platform.engine.discovery">ClasspathResourceSelector</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#selectClasspathResources(java.util.List)" class="member-name-link">selectClasspathResources</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;classpathResourceNames)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Create a <code>ClasspathResourceSelector</code> for each supplied classpath
+resource name.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="ClasspathRootSelector.html" title="class in org.junit.platform.engine.discovery">ClasspathRootSelector</a>&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#selectClasspathRoots(java.util.Set)" class="member-name-link">selectClasspathRoots</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&gt;&nbsp;classpathRoots)</code></div>
@@ -836,6 +850,7 @@ on the classpath of the
 <dd>
 <ul class="tag-list-long">
 <li><a href="#selectClasspathResource(java.lang.String,org.junit.platform.engine.discovery.FilePosition)"><code>selectClasspathResource(String, FilePosition)</code></a></li>
+<li><a href="#selectClasspathResources(java.lang.String...)"><code>selectClasspathResources(String...)</code></a></li>
 <li><a href="#selectClasspathResourceByName(java.util.Set)"><code>selectClasspathResourceByName(Set)</code></a></li>
 <li><a href="ClasspathResourceSelector.html" title="class in org.junit.platform.engine.discovery"><code>ClasspathResourceSelector</code></a></li>
 <li><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/ClassLoader.html#getResource(java.lang.String)" title="class or interface in java.lang" class="external-link"><code>ClassLoader.getResource(String)</code></a></li>
@@ -876,6 +891,7 @@ on the classpath of the
 <dd>
 <ul class="tag-list-long">
 <li><a href="#selectClasspathResource(java.lang.String)"><code>selectClasspathResource(String)</code></a></li>
+<li><a href="#selectClasspathResources(java.lang.String...)"><code>selectClasspathResources(String...)</code></a></li>
 <li><a href="#selectClasspathResourceByName(java.util.Set)"><code>selectClasspathResourceByName(Set)</code></a></li>
 <li><a href="ClasspathResourceSelector.html" title="class in org.junit.platform.engine.discovery"><code>ClasspathResourceSelector</code></a></li>
 <li><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/ClassLoader.html#getResource(java.lang.String)" title="class or interface in java.lang" class="external-link"><code>ClassLoader.getResource(String)</code></a></li>
@@ -978,6 +994,60 @@ be <code>null</code> or blank.</dd>
 <li><a href="#selectClasspathResource(java.lang.String)"><code>selectClasspathResource(String)</code></a></li>
 <li><a href="ClasspathResourceSelector.html" title="class in org.junit.platform.engine.discovery"><code>ClasspathResourceSelector</code></a></li>
 <li><a href="../../../../../../org.junit.platform.commons/org/junit/platform/commons/support/ResourceSupport.html#tryToGetResources(java.lang.String)"><code>ResourceSupport.tryToGetResources(String)</code></a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="selectClasspathResources(java.lang.String...)">
+<h3>selectClasspathResources</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#EXPERIMENTAL" title="class or interface in org.apiguardian.api" class="external-link">EXPERIMENTAL</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.1")
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ClasspathResourceSelector.html" title="class in org.junit.platform.engine.discovery">ClasspathResourceSelector</a>&gt;</span>&nbsp;<span class="element-name">selectClasspathResources</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>...&nbsp;classpathResourceNames)</span></div>
+<div class="block">Create a <code>ClasspathResourceSelector</code> for each supplied classpath
+resource name.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>classpathResourceNames</code> - the names of the classpath resource; never
+<code>null</code> and never containing <code>null</code> or blank references.</dd>
+<dt>Since:</dt>
+<dd>6.1</dd>
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list-long">
+<li><a href="#selectClasspathResource(java.lang.String)"><code>selectClasspathResource(String)</code></a></li>
+<li><a href="#selectClasspathResources(java.lang.String...)"><code>selectClasspathResources(String...)</code></a></li>
+<li><a href="ClasspathResourceSelector.html" title="class in org.junit.platform.engine.discovery"><code>ClasspathResourceSelector</code></a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="selectClasspathResources(java.util.List)">
+<h3>selectClasspathResources</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#EXPERIMENTAL" title="class or interface in org.apiguardian.api" class="external-link">EXPERIMENTAL</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.1")
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ClasspathResourceSelector.html" title="class in org.junit.platform.engine.discovery">ClasspathResourceSelector</a>&gt;</span>&nbsp;<span class="element-name">selectClasspathResources</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;classpathResourceNames)</span></div>
+<div class="block">Create a <code>ClasspathResourceSelector</code> for each supplied classpath
+resource name.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>classpathResourceNames</code> - the names of the classpath resource; never
+<code>null</code> and never containing <code>null</code> or blank references.</dd>
+<dt>Since:</dt>
+<dd>6.1</dd>
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list-long">
+<li><a href="#selectClasspathResource(java.lang.String)"><code>selectClasspathResource(String)</code></a></li>
+<li><a href="#selectClasspathResources(java.lang.String...)"><code>selectClasspathResources(String...)</code></a></li>
+<li><a href="ClasspathResourceSelector.html" title="class in org.junit.platform.engine.discovery"><code>ClasspathResourceSelector</code></a></li>
 </ul>
 </dd>
 </dl>
