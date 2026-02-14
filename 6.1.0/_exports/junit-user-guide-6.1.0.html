@@ -440,7 +440,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h1>JUnit</h1>
 <div class="details">
 <span id="revnumber">version 6.1.0,</span>
-<span id="revdate">2026-02-13</span>
+<span id="revdate">2026-02-14</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -17536,7 +17536,10 @@ This provides parity with the deprecated <code>ExtensionContext.Store.getOrCompu
 <div class="ulist">
 <ul>
 <li>
-<p>❓</p>
+<p>Deprecate <code>OTHER</code> constant of <code><a href="attachment$api/org.junit.jupiter.api/org/junit/jupiter/api/condition/JRE.html">JRE</a></code> in favor of the <code>int</code>/<code>int[]</code> annotation
+attributes of <code><a href="attachment$api/org.junit.jupiter.api/org/junit/jupiter/api/condition/EnabledOnJre.html">@EnabledOnJre</a></code>, <code><a href="attachment$api/org.junit.jupiter.api/org/junit/jupiter/api/condition/DisabledOnJre.html">@DisabledOnJre</a></code>, <code><a href="attachment$api/org.junit.jupiter.api/org/junit/jupiter/api/condition/EnabledForJreRange.html">@EnabledForJreRange</a></code>, and
+<code><a href="attachment$api/org.junit.jupiter.api/org/junit/jupiter/api/condition/DisabledForJreRange.html">@DisabledForJreRange</a></code> that allow referencing JRE versions later than those supported
+by the <code>JRE</code> enum.</p>
 </li>
 </ul>
 </div>
