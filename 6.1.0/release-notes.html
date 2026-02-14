@@ -389,20 +389,18 @@ repository on GitHub.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Clarify <code>TestDescriptor</code> implementation requirements.</p>
+<p>A deadlock issue in <code>NamespacedHierarchicalStore.computeIfAbsent(N, K, Function)</code> has
+been fixed.</p>
 </li>
 <li>
-<p>Recheck done condition before rejecting extraneous worker in
-<code>WorkerThreadPoolHierarchicalTestExecutorService</code></p>
+<p><code>WorkerThreadPoolHierarchicalTestExecutorService</code> now rechecks the <em>done</em> condition
+before rejecting an extraneous worker.</p>
 </li>
 <li>
-<p>Add missing precondition checks to <code>Launcher</code> implementations</p>
+<p>Missing precondition checks have been added to <code>Launcher</code> implementations.</p>
 </li>
 <li>
-<p>Failures to resolve selectors are now forwarded by Suite Engine</p>
-</li>
-<li>
-<p>Fix deadlock in <code>NamespacedHierarchicalStore.computeIfAbsent(N, K, Function)</code></p>
+<p>Failures to resolve selectors are now forwarded by the Suite Engine.</p>
 </li>
 </ul>
 </div>
@@ -422,11 +420,16 @@ repository on GitHub.</p>
 <div class="ulist">
 <ul>
 <li>
+<p><code>TestDescriptor</code> implementation requirements have now been clarified in the
+corresponding Javadoc.</p>
+</li>
+<li>
 <p>The <code>UniqueId.uniqueIdFormat</code> field has been removed, reducing the size of <code>UniqueId</code>
 objects.</p>
 </li>
 <li>
-<p>Add <code>DiscoverySelectors.selectClasspathResources(String&#8230;&#8203;)</code> and <code>DiscoverySelectors.selectClasspathResources(List&lt;String)</code></p>
+<p>New <code>selectClasspathResources(String&#8230;&#8203;)</code> and <code>selectClasspathResources(List&lt;String)</code>
+methods in <code>DiscoverySelectors</code>.</p>
 </li>
 </ul>
 </div>
@@ -439,8 +442,9 @@ objects.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Enable recursive updates when using <code>ExtensionContext.Store.computeIfAbsent(K, Function, Class)</code>.
-This provides parity with the deprecated <code>ExtensionContext.Store.getOrComputeIfAbsent(K, Function, Class)</code></p>
+<p>Recursive updates are now supported when using <code>computeIfAbsent(K, Function, Class)</code> in
+the <code>ExtensionContext.Store</code>, providing parity with the deprecated
+<code>getOrComputeIfAbsent(K, Function, Class)</code> method.</p>
 </li>
 </ul>
 </div>
@@ -450,10 +454,10 @@ This provides parity with the deprecated <code>ExtensionContext.Store.getOrCompu
 <div class="ulist">
 <ul>
 <li>
-<p>Deprecate <code>OTHER</code> constant of <code><a href="api/org.junit.jupiter.api/org/junit/jupiter/api/condition/JRE.html" class="xref attachment">JRE</a></code> in favor of the <code>int</code>/<code>int[]</code> annotation
-attributes of <code><a href="api/org.junit.jupiter.api/org/junit/jupiter/api/condition/EnabledOnJre.html" class="xref attachment">@EnabledOnJre</a></code>, <code><a href="api/org.junit.jupiter.api/org/junit/jupiter/api/condition/DisabledOnJre.html" class="xref attachment">@DisabledOnJre</a></code>, <code><a href="api/org.junit.jupiter.api/org/junit/jupiter/api/condition/EnabledForJreRange.html" class="xref attachment">@EnabledForJreRange</a></code>, and
-<code><a href="api/org.junit.jupiter.api/org/junit/jupiter/api/condition/DisabledForJreRange.html" class="xref attachment">@DisabledForJreRange</a></code> that allow referencing JRE versions later than those supported
-by the <code>JRE</code> enum.</p>
+<p>The <code>OTHER</code> constant of <code><a href="api/org.junit.jupiter.api/org/junit/jupiter/api/condition/JRE.html" class="xref attachment">JRE</a></code> has been deprecated in favor of the <code>int</code>/<code>int[]</code>
+annotation attributes of <code><a href="api/org.junit.jupiter.api/org/junit/jupiter/api/condition/EnabledOnJre.html" class="xref attachment">@EnabledOnJre</a></code>, <code><a href="api/org.junit.jupiter.api/org/junit/jupiter/api/condition/DisabledOnJre.html" class="xref attachment">@DisabledOnJre</a></code>, <code><a href="api/org.junit.jupiter.api/org/junit/jupiter/api/condition/EnabledForJreRange.html" class="xref attachment">@EnabledForJreRange</a></code>,
+and <code><a href="api/org.junit.jupiter.api/org/junit/jupiter/api/condition/DisabledForJreRange.html" class="xref attachment">@DisabledForJreRange</a></code> which allow referencing JRE versions later than those
+supported by the <code>JRE</code> enum.</p>
 </li>
 </ul>
 </div>
@@ -467,27 +471,26 @@ by the <code>JRE</code> enum.</p>
 </li>
 <li>
 <p><a href="https://www.junit-pioneer.org/">JUnit Pioneer</a>'s <code>DefaultLocaleExtension</code> and
-<code>DefaultTimeZoneExtension</code> are now part of the JUnit Jupiter. Find examples in the
+<code>DefaultTimeZoneExtension</code> are now part of JUnit Jupiter. Find examples in the
 <a href="writing-tests/built-in-extensions.html#DefaultLocaleAndTimeZone" class="xref page">User Guide</a>.</p>
 </li>
 <li>
-<p><a href="https://www.junit-pioneer.org/">JUnit Pioneer</a>'s <code>SystemPropertyExtension</code> is now part of
-JUnit Jupiter. Find examples in the
-<a href="writing-tests/built-in-extensions.html#system-properties" class="xref page">User Guide</a>. Note: There are
-some implementation differences between JUnit Pioneer and Jupiter. For details, see the
-<a href="https://github.com/junit-team/junit-framework/pull/5258">corresponding pull request</a>.</p>
+<p>JUnit Pioneer&#8217;s <code>SystemPropertyExtension</code> is now part of JUnit Jupiter. Find examples in
+the <a href="writing-tests/built-in-extensions.html#system-properties" class="xref page">User Guide</a>. For
+details regarding implementation differences between JUnit Pioneer and Jupiter, see the
+corresponding <a href="https://github.com/junit-team/junit-framework/pull/5258">pull request</a>.</p>
 </li>
 <li>
-<p>Support the creation of <code>Arguments</code> from iterables. These additions make it
-easier to dynamically build arguments from collections when using
-<code>@ParameterizedTest</code>:</p>
+<p><code>Arguments</code> may now be created from instances of <code>Iterable</code> via the following new
+methods which make it easier to dynamically build arguments from collections when using
+<code>@ParameterizedTest</code>.</p>
 <div class="ulist">
 <ul>
 <li>
 <p><code>Arguments.of(Iterable&lt;?&gt;)</code></p>
 </li>
 <li>
-<p><code>Arguments.argumentsFrom(Iterable&lt;?&gt;)</code> (alias)</p>
+<p><code>Arguments.argumentsFrom(Iterable&lt;?&gt;)</code> (alias for <code>of(Iterable&lt;?&gt;)</code>)</p>
 </li>
 <li>
 <p><code>Arguments.argumentSetFrom(String, Iterable&lt;?&gt;)</code></p>
@@ -502,23 +505,22 @@ easier to dynamically build arguments from collections when using
 <p><code>@EmptySource</code> now supports <code>Iterable</code>, <code>Iterator</code>, and <code>ListIterator</code>.</p>
 </li>
 <li>
-<p>Exclude competing <code>@Deprecated</code> factory methods in
+<p><code>@Deprecated</code> factory methods are now excluded in the
 <a href="writing-tests/parameterized-classes-and-tests.html#argument-conversion-implicit-fallback" class="xref page">fallback String-to-Object</a>
-converter.</p>
+conversion algorithm.</p>
 </li>
 <li>
-<p>Trim internal stack frames from <code>AssertionFailedError</code> stack traces.</p>
+<p>Internal stack frames are now removed from <code>AssertionFailedError</code> stack traces.</p>
 </li>
 <li>
-<p>Introduce new <code>trimStacktrace(Class&lt;?&gt;)</code> and <code>retainStackTraceElements(int)</code>
-methods for <code>AssertionFailureBuilder</code>. These allow user defined assertions to
-trim their stacktrace.</p>
+<p>New <code>trimStacktrace(Class&lt;?&gt;)</code> and <code>retainStackTraceElements(int)</code> methods in
+<code>AssertionFailureBuilder</code> which allow user-defined assertions to trim their stack traces.</p>
 </li>
 <li>
 <p>Generic inline value classes (such as <code>kotlin.Result&lt;T&gt;</code>) can now be used as parameters
-in <code>@ParameterizedTest</code> methods when <code>kotlin-reflect</code> is on the classpath.
-Note: Primitive-wrapper inline value classes (e.g., <code>UInt</code>, custom value classes wrapping
-primitives) are not yet supported.</p>
+in <code>@ParameterizedTest</code> methods when <code>kotlin-reflect</code> is on the classpath. Note,
+however, that primitive-wrapper inline value classes (such as <code>UInt</code> or custom value
+classes wrapping primitives) are not yet supported.</p>
 </li>
 </ul>
 </div>
