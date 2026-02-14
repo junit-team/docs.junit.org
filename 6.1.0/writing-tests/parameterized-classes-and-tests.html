@@ -485,14 +485,13 @@ following.</p>
 <h3 id="consuming-arguments-methods"><a class="anchor" href="#consuming-arguments-methods"></a>Parameterized Tests</h3>
 <div class="paragraph">
 <p>Parameterized test methods <em>consume</em> arguments directly from the configured source (see
-<a href="#sources">Sources of Arguments</a>) following a one-to-one correlation between
-argument source index and method parameter index (see examples in
-<a href="#sources-CsvSource">@CsvSource</a>). However, a parameterized test
+<a href="#sources">Sources of Arguments</a>) following a one-to-one correlation between argument source index and method
+parameter index (see examples in <a href="#sources-CsvSource">@CsvSource</a>). However, a parameterized test
 method may also choose to <em>aggregate</em> arguments from the source into a single object
-passed to the method (see <a href="#argument-aggregation">Argument Aggregation</a>).
-Additional arguments may also be provided by a <code>ParameterResolver</code> (e.g., to obtain an
-instance of <code>TestInfo</code>, <code>TestReporter</code>, etc.). Specifically, a parameterized test method
-must declare formal parameters according to the following rules.</p>
+passed to the method (see <a href="#argument-aggregation">Argument Aggregation</a>). Additional arguments may also be
+provided by a <code>ParameterResolver</code> — for example, to obtain an instance of <code>TestInfo</code>,
+<code>TestReporter</code>, and so forth. Specifically, a parameterized test method must declare
+formal parameters according to the following rules.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -817,11 +816,12 @@ or <code>@ParameterizedTest</code>.</p>
 <li>
 <p><code><a href="../api/org.junit.jupiter.params/org/junit/jupiter/params/provider/EmptySource.html" class="xref attachment">@EmptySource</a></code>: provides a single <em>empty</em> argument to the annotated
 <code>@ParameterizedClass</code> or <code>@ParameterizedTest</code> for parameters of the following types:
-<code>java.lang.String</code>, <code>java.util.Collection</code> (and concrete subtypes with a <code>public</code> no-arg
-constructor), <code>java.util.List</code>, <code>java.util.Set</code>, <code>java.util.SortedSet</code>,
-<code>java.util.NavigableSet</code>, <code>java.util.Map</code> (and concrete subtypes with a <code>public</code> no-arg
-constructor), <code>java.util.SortedMap</code>, <code>java.util.NavigableMap</code>, primitive arrays (e.g.,
-<code>int[]</code>, <code>char[][]</code>, etc.), object arrays (e.g., <code>String[]</code>, <code>Integer[][]</code>, etc.).</p>
+<code>java.lang.String</code>, <code>java.lang.Iterable</code>, <code>java.util.Iterator</code>, <code>java.util.ListIterator</code>
+<code>java.util.Collection</code> (and concrete subtypes with a <code>public</code> no-arg constructor),
+<code>java.util.List</code>, <code>java.util.Set</code>, <code>java.util.SortedSet</code>, <code>java.util.NavigableSet</code>,
+<code>java.util.Map</code> (and concrete subtypes with a <code>public</code> no-arg constructor),
+<code>java.util.SortedMap</code>, <code>java.util.NavigableMap</code>, primitive arrays (for example, <code>int[]</code>,
+<code>char[][]</code>, etc.), object arrays (for example, <code>String[]</code>, <code>Integer[][]</code>, etc.).</p>
 </li>
 <li>
 <p><code><a href="../api/org.junit.jupiter.params/org/junit/jupiter/params/provider/NullAndEmptySource.html" class="xref attachment">@NullAndEmptySource</a></code>: a <em>composed annotation</em> that combines the functionality of
@@ -997,16 +997,16 @@ must always be <code>static</code>.</p>
 </div>
 <div class="paragraph">
 <p>Each factory method must generate a <em>stream</em> of <em>arguments</em>, and each set of arguments
-within the stream will be provided as the physical arguments for individual invocations
-of the annotated <code>@ParameterizedClass</code> or <code>@ParameterizedTest</code>. Generally speaking this
+within the stream will be provided as the physical arguments for individual invocations of
+the annotated <code>@ParameterizedClass</code> or <code>@ParameterizedTest</code>. Generally speaking this
 translates to a <code>Stream</code> of <code>Arguments</code> (i.e., <code>Stream&lt;Arguments&gt;</code>); however, the actual
 concrete return type can take on many forms. In this context, a "stream" is anything that
 JUnit can reliably convert into a <code>Stream</code>, such as <code>Stream</code>, <code>DoubleStream</code>,
 <code>LongStream</code>, <code>IntStream</code>, <code>Collection</code>, <code>Iterator</code>, <code>Iterable</code>, an array of objects or
 primitives, or any type that provides an <code>iterator(): Iterator</code> method (such as, for
 example, a <code>kotlin.sequences.Sequence</code>). The "arguments" within the stream can be supplied
-as an instance of <code>Arguments</code>, an array of objects (e.g., <code>Object[]</code>), or a single value
-if the parameterized class or test method accepts a single argument.</p>
+as an instance of <code>Arguments</code>, an array of objects (for example, <code>Object[]</code>), or a single
+value if the parameterized class or test method accepts a single argument.</p>
 </div>
 <div class="paragraph">
 <p>If the return type is <code>Stream</code> or one of the primitive streams,
@@ -1129,7 +1129,7 @@ factory method is referenced by its name since there is only one such method in 
 class. If there are several local methods with the same name, parameters can also be
 provided to differentiate them – for example, <code>@MethodSource("factoryMethod()")</code> or
 <code>@MethodSource("factoryMethod(java.lang.String)")</code>. Alternatively, the factory method
-can be referenced by its fully qualified method name, e.g.
+can be referenced by its fully qualified method name — for example,
 <code>@MethodSource("example.MyTests#factoryMethod(java.lang.String)")</code>.</p>
 </div>
 <div class="listingblock">
@@ -1938,7 +1938,7 @@ integral types: <code>byte</code>, <code>short</code>, <code>int</code>, <code>l
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>java.lang.Class</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"java.lang.Integer"</code>                    &#8594; <code>java.lang.Integer.class</code> <em>(use <code>$</code> for nested classes, e.g. <code>"java.lang.Thread$State"</code>)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"java.lang.Integer"</code>                    &#8594; <code>java.lang.Integer.class</code> <em>(use <code>$</code> for nested classes: <code>"java.lang.Thread$State"</code>)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>java.lang.Class</code></p></td>
@@ -2603,9 +2603,8 @@ character. The same applies for a character argument <code>'\t'</code>, whose ph
 in the display name would be <code>"'\\t'"</code> which is printed as <code>'\t'</code>.</p>
 </div>
 <div class="paragraph">
-<p>For a concrete example, if you run the first <code>nullEmptyAndBlankStrings(String text)</code>
-parameterized test method from the
-<a href="#sources-null-and-empty">Null and Empty Sources</a> section above, the following
+<p>For a concrete example, if you run the first <code>nullValuesAndBlankStrings(String text)</code>
+parameterized test method from the <a href="#sources-null-and-empty">Null and Empty Sources</a> section above, the following
 display names are generated.</p>
 </div>
 <div class="listingblock">
@@ -2620,8 +2619,7 @@ display names are generated.</p>
 </div>
 <div class="paragraph">
 <p>If you run the first <code>testWithCsvSource(String fruit, int rank)</code> parameterized test method
-from the <a href="#sources-CsvSource">@CsvSource</a> section above, the
-following display names are generated.</p>
+from the <a href="#sources-CsvSource">@CsvSource</a> section above, the following display names are generated.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2707,7 +2705,7 @@ methods within the same test class.</p>
 method parameters that are resolved by argument sources need to come first in the
 parameter list. Since a test class may contain regular tests as well as parameterized
 tests with different parameter lists, values from argument sources are not resolved for
-lifecycle methods (e.g. <code>@BeforeEach</code>) and test class constructors.</p>
+lifecycle methods (for example, <code>@BeforeEach</code>) and test class constructors.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2742,7 +2740,7 @@ IDE.</p>
 <p>You may use <code>ParameterResolver</code> extensions with <code>@ParameterizedClass</code> constructors.
 However, if constructor injection is used, constructor parameters that are resolved by
 argument sources need to come first in the parameter list. Values from argument sources
-are not resolved for regular lifecycle methods (e.g. <code>@BeforeEach</code>).</p>
+are not resolved for regular lifecycle methods (for example, <code>@BeforeEach</code>).</p>
 </div>
 <div class="paragraph">
 <p>In addition to regular lifecycle methods, parameterized classes may declare
