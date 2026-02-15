@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Release Notes :: JUnit User Guide</title>
+    <link rel="canonical" href="https://docs.junit.org/6.0.2/release-notes.html">
+    <link rel="prev" href="api-evolution.html">
+    <link rel="next" href="appendix.html">
+    <meta name="generator" content="Antora 3.2.0-alpha.11">
+    <link rel="stylesheet" href="../_/css/site.css">
+<link rel="icon" type="image/png" href="../_/img/junit-diamond.png">
+<link rel="icon" type="image/svg+xml" href="../_/img/junit-diamond-adaptive.svg" sizes="any">
+
+<link rel="stylesheet" href="../_/css/vendor/highlightjs/github.min.css">
+<link rel="stylesheet" href="../_/css/vendor/tabs.css">
+
+<link rel="preload" as="style" href="https://assets.junit.org/fonts/index.css">
+<link rel="preload" as="font" href="https://assets.junit.org/fonts/blinker-latin-600-normal.woff2" type="font/woff2" crossorigin/>
+<link rel="preload" as="font" href="https://assets.junit.org/fonts/inter-latin-wght-normal.woff2" type="font/woff2" crossorigin/>
+<link rel="preload" as="font" href="https://assets.junit.org/fonts/inter-latin-wght-italic.woff2" type="font/woff2" crossorigin/>
+<link rel="preload" as="font" href="https://assets.junit.org/fonts/jetbrains-mono-latin-wght-normal.woff2" type="font/woff2" crossorigin/>
+
+<link rel="preload" as="style" href="../_/css/site-extra.css">
+
+<link rel="stylesheet" href="https://assets.junit.org/fonts/index.css">
+<link rel="stylesheet" href="../_/css/site-extra.css">
+
+<meta name="theme-color" content="#25a162">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item title" href="https://docs.junit.org">
+          <img class="logo" src="../_/img/junit-diamond-white.png" alt="✔️"/>
+          JUnit User Guide<span class="version">5.14.3</span>
+      </a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search current version">
+          <label style="display: none">
+            <!-- restrict search to current version -->
+            <input type="checkbox" data-facet-filter="version:5.14.3" checked>
+          </label>
+        </div>
+      </div>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+          <a class="navbar-item" href="https://junit.org/">Home</a>
+          <a class="navbar-item" href="https://github.com/junit-team/junit-framework/">Repo</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="junit" data-version="5.14.3">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="index.html">JUnit</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="writing-tests/intro.html">Writing Tests</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-tests/annotations.html">Annotations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-tests/definitions.html">Definitions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-tests/test-classes-and-methods.html">Test Classes and Methods</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-tests/display-names.html">Display Names</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-tests/assertions.html">Assertions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-tests/assumptions.html">Assumptions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-tests/exception-handling.html">Exception Handling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-tests/disabling-tests.html">Disabling Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-tests/conditional-test-execution.html">Conditional Test Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-tests/tagging-and-filtering.html">Tagging and Filtering</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-tests/test-execution-order.html">Test Execution Order</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-tests/test-instance-lifecycle.html">Test Instance Lifecycle</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-tests/nested-tests.html">Nested Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-tests/dependency-injection-for-constructors-and-methods.html">Dependency Injection for Constructors and Methods</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-tests/test-interfaces-and-default-methods.html">Test Interfaces and Default Methods</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-tests/repeated-tests.html">Repeated Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-tests/parameterized-classes-and-tests.html">Parameterized Classes and Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-tests/class-templates.html">Class Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-tests/test-templates.html">Test Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-tests/dynamic-tests.html">Dynamic Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-tests/timeouts.html">Timeouts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-tests/parallel-execution.html">Parallel Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-tests/built-in-extensions.html">Built-in Extensions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="migrating-from-junit4.html">Migrating from JUnit 4</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="running-tests/intro.html">Running Tests</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="running-tests/ide-support.html">IDE Support</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="running-tests/build-support.html">Build Support</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="running-tests/console-launcher.html">Console Launcher</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="running-tests/using-junit-4-to-run-the-junit-platform.html">Using JUnit 4 to run the JUnit Platform</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="running-tests/discovery-selectors.html">Discovery Selectors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="running-tests/configuration-parameters.html">Configuration Parameters</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="running-tests/tags.html">Tags</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="running-tests/capturing-standard-output-error.html">Capturing Standard Output/Error</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="running-tests/using-listeners-and-interceptors.html">Using Listeners and Interceptors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="running-tests/stack-trace-pruning.html">Stack Trace Pruning</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="running-tests/discovery-issues.html">Discovery Issues</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="extensions/overview.html">Extension Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="extensions/registering-extensions.html">Registering Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="extensions/conditional-test-execution.html">Conditional Test Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="extensions/test-instance-pre-construct-callback.html">Test Instance Pre-construct Callback</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="extensions/test-instance-factories.html">Test Instance Factories</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="extensions/test-instance-post-processing.html">Test Instance Post-processing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="extensions/test-instance-pre-destroy-callback.html">Test Instance Pre-destroy Callback</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="extensions/parameter-resolution.html">Parameter Resolution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="extensions/test-result-processing.html">Test Result Processing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="extensions/test-lifecycle-callbacks.html">Test Lifecycle Callbacks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="extensions/exception-handling.html">Exception Handling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="extensions/pre-interrupt-callback.html">Pre-Interrupt Callback</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="extensions/intercepting-invocations.html">Intercepting Invocations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="extensions/providing-invocation-contexts-for-class-templates.html">Providing Invocation Contexts for Class Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="extensions/providing-invocation-contexts-for-test-templates.html">Providing Invocation Contexts for Test Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="extensions/keeping-state-in-extensions.html">Keeping State in Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="extensions/supported-utilities-in-extensions.html">Supported Utilities in Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="extensions/relative-execution-order-of-user-code-and-extensions.html">Relative Execution Order of User Code and Extensions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced Topics</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanced-topics/junit-platform-reporting.html">JUnit Platform Reporting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanced-topics/junit-platform-suite-engine.html">JUnit Platform Suite Engine</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanced-topics/testkit.html">JUnit Platform Test Kit</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanced-topics/launcher-api.html">JUnit Platform Launcher API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanced-topics/engines.html">Test Engines</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="api-evolution.html">API Evolution</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="release-notes.html">Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">JUnit</span>
+    <span class="version">5.14.3</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../6.0.2/index.html">JUnit</a></div>
+      <ul class="versions">
+        <li class="version">
+          <a href="../6.1.0/index.html">6.1.0-SNAPSHOT</a>
+        </li>
+        <li class="version">
+          <a href="../6.1.0-M1/index.html">6.1.0-M1</a>
+        </li>
+        <li class="version is-latest">
+          <a href="../6.0.2/index.html">6.0.2</a>
+        </li>
+        <li class="version">
+          <a href="../6.0.1/index.html">6.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../6.0.0/index.html">6.0.0</a>
+        </li>
+        <li class="version is-current">
+          <a href="index.html">5.14.3</a>
+        </li>
+        <li class="version">
+          <a href="../5.14.2/index.html">5.14.2</a>
+        </li>
+        <li class="version">
+          <a href="../5.14.1/index.html">5.14.1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../6.0.2/overview.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">JUnit</a></li>
+    <li><a href="release-notes.html">Release Notes</a></li>
+  </ul>
+</nav>
+        <div class="pdf-link">
+            <a href="_exports/junit-user-guide-5.14.3.pdf#release-notes">PDF</a>
+        </div>
+        <div class="html-link">
+            <a href="_exports/junit-user-guide-5.14.3.html#release-notes">Single page</a>
+        </div>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">5.14.3</button>
+  <div class="version-menu">
+    <a class="version" href="../6.1.0/release-notes.html">6.1.0-SNAPSHOT</a>
+    <a class="version" href="../6.1.0-M1/release-notes.html">6.1.0-M1</a>
+    <a class="version" href="../6.0.2/release-notes.html">6.0.2</a>
+    <a class="version" href="../6.0.1/release-notes.html">6.0.1</a>
+    <a class="version" href="../6.0.0/release-notes.html">6.0.0</a>
+    <a class="version is-current" href="release-notes.html">5.14.3</a>
+    <a class="version" href="../5.14.2/release-notes.html">5.14.2</a>
+    <a class="version" href="../5.14.1/release-notes.html">5.14.1</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/junit-team/junit-framework/blob/r5.14.3/documentation/modules/ROOT/pages/release-notes.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Release Notes</h1>
+<div class="version-banner">
+<strong>
+    There is a newer version available.
+</strong><br/>
+For the latest stable release, please see <a href="../6.0.2/release-notes.html">JUnit 6.0.2</a>!
+</div>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This document contains the <em>change log</em> for all JUnit 5 releases since 5.13 GA.</p>
+</div>
+<div class="paragraph">
+<p>Please refer to the <a href="overview.html" class="xref page">User Guide</a> for comprehensive
+reference documentation for programmers writing tests, extension authors, and engine
+authors as well as build tool and IDE vendors.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="v5.14.3"><a class="anchor" href="#v5.14.3"></a>5.14.3</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Date of Release:</strong> February 15, 2026</p>
+</div>
+<div class="paragraph">
+<p><strong>Scope:</strong> Bug fixes and enhancements since 5.14.2</p>
+</div>
+<div class="paragraph">
+<p>For a complete list of all <em>closed</em> issues and pull requests for this release, consult the
+<a href="https://github.com/junit-team/junit-framework/milestone/117?closed=1">5.14.3</a> milestone page in the JUnit
+repository on GitHub.</p>
+</div>
+<div class="sect2">
+<h3 id="v5.14.3-junit-platform"><a class="anchor" href="#v5.14.3-junit-platform"></a>JUnit Platform</h3>
+<div class="paragraph">
+<p>No changes.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="v5.14.3-junit-jupiter"><a class="anchor" href="#v5.14.3-junit-jupiter"></a>JUnit Jupiter</h3>
+<div class="sect3">
+<h4 id="v5.14.3-junit-jupiter-bug-fixes"><a class="anchor" href="#v5.14.3-junit-jupiter-bug-fixes"></a>Bug Fixes</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>@EnabledOnJre</code> and <code>@DisabledOnJre</code> once again work reliably when used with <code>JRE.OTHER</code>
+in a test running on a Java runtime whose version is higher than the version of the last
+<code>JAVA_*</code> constant in the <code>JRE</code> enum.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="v5.14.3-junit-vintage"><a class="anchor" href="#v5.14.3-junit-vintage"></a>JUnit Vintage</h3>
+<div class="paragraph">
+<p>No changes.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="v5.14.2"><a class="anchor" href="#v5.14.2"></a>5.14.2</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Date of Release:</strong> January 6, 2026</p>
+</div>
+<div class="paragraph">
+<p><strong>Scope:</strong> Bug fixes and enhancements since 5.14.1</p>
+</div>
+<div class="paragraph">
+<p>For a complete list of all <em>closed</em> issues and pull requests for this release, consult the
+<a href="https://github.com/junit-team/junit-framework/milestone/115?closed=1">5.14.2</a> milestone page in the JUnit
+repository on GitHub.</p>
+</div>
+<div class="sect2">
+<h3 id="v5.14.2-junit-platform"><a class="anchor" href="#v5.14.2-junit-platform"></a>JUnit Platform</h3>
+<div class="sect3">
+<h4 id="v5.14.2-junit-platform-bug-fixes"><a class="anchor" href="#v5.14.2-junit-platform-bug-fixes"></a>Bug Fixes</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Make <code>ConsoleLauncher</code> compatible with JDK 26 by avoiding final field mutations.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="v5.14.2-junit-jupiter"><a class="anchor" href="#v5.14.2-junit-jupiter"></a>JUnit Jupiter</h3>
+<div class="sect3">
+<h4 id="v5.14.2-junit-jupiter-bug-fixes"><a class="anchor" href="#v5.14.2-junit-jupiter-bug-fixes"></a>Bug Fixes</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Allow using <code>@ResourceLock</code> on classes annotated with <code>@ClassTemplate</code> (or
+<code>@ParameterizedClass</code>).</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="v5.14.2-junit-vintage"><a class="anchor" href="#v5.14.2-junit-vintage"></a>JUnit Vintage</h3>
+<div class="paragraph">
+<p>No changes.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="v5.14.1"><a class="anchor" href="#v5.14.1"></a>5.14.1</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Date of Release:</strong> October 31, 2025</p>
+</div>
+<div class="paragraph">
+<p><strong>Scope:</strong> Bug fixes and enhancements since 5.14.0</p>
+</div>
+<div class="paragraph">
+<p>For a complete list of all <em>closed</em> issues and pull requests for this release, consult the
+<a href="https://github.com/junit-team/junit-framework/milestone/111?closed=1">5.14.1</a> milestone page in the JUnit
+repository on GitHub.</p>
+</div>
+<div class="sect2">
+<h3 id="v5.14.1-junit-platform"><a class="anchor" href="#v5.14.1-junit-platform"></a>JUnit Platform</h3>
+<div class="paragraph">
+<p>No changes.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="v5.14.1-junit-jupiter"><a class="anchor" href="#v5.14.1-junit-jupiter"></a>JUnit Jupiter</h3>
+<div class="sect3">
+<h4 id="v5.14.1-junit-jupiter-bug-fixes"><a class="anchor" href="#v5.14.1-junit-jupiter-bug-fixes"></a>Bug Fixes</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Fix support for test methods with the same signature as a package-private methods
+declared in super classes in different packages.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="v5.14.1-junit-jupiter-new-features-and-improvements"><a class="anchor" href="#v5.14.1-junit-jupiter-new-features-and-improvements"></a>New Features and Improvements</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Improve error message when using <code>@ParameterizedClass</code> with field injection and not
+providing enough arguments.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="v5.14.1-junit-vintage"><a class="anchor" href="#v5.14.1-junit-vintage"></a>JUnit Vintage</h3>
+<div class="paragraph">
+<p>No changes.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="v5.14.0"><a class="anchor" href="#v5.14.0"></a>5.14.0</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Date of Release:</strong> September 30, 2025</p>
+</div>
+<div class="paragraph">
+<p><strong>Scope:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Bug fixes and enhancements since 5.13.x</p>
+</li>
+<li>
+<p>Deprecations along with new APIs to ease migration to JUnit 6</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For a complete list of all <em>closed</em> issues and pull requests for this release, consult the
+<a href="https://github.com/junit-team/junit-framework/milestone/108?closed=1">5.14.0-RC1</a> and
+<a href="https://github.com/junit-team/junit-framework/milestone/109?closed=1">5.14.0</a> milestone pages in the JUnit
+repository on GitHub.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="title">Migration Guide</div>
+<div class="paragraph">
+<p>Please refer to the
+<a href="https://github.com/junit-team/junit-framework/wiki/Upgrading-to-JUnit-5.14">wiki</a> for
+guidance on upgrading to JUnit 5.14.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="v5.14.0-junit-platform"><a class="anchor" href="#v5.14.0-junit-platform"></a>JUnit Platform</h3>
+<div class="sect3">
+<h4 id="v5.14.0-junit-platform-bug-fixes"><a class="anchor" href="#v5.14.0-junit-platform-bug-fixes"></a>Bug Fixes</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>Launcher</code> (specifically <code>LauncherDiscoveryResult</code>) now retains the original
+<code>TestEngine</code> registration order after pruning test engines without tests, thereby
+ensuring reliable test execution order of multiple test engines.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="v5.14.0-junit-platform-deprecations-and-breaking-changes"><a class="anchor" href="#v5.14.0-junit-platform-deprecations-and-breaking-changes"></a>Deprecations and Breaking Changes</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Deprecate <code>OutputDirectoryProvider</code> interface in favor of the new
+<code>OutputDirectoryCreator</code> interface to resolve a cyclic package dependency along
+with the following APIs (which all have replacements working with
+<code>OutputDirectoryCreator</code>):</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>EngineDiscoveryRequest.getOutputDirectoryProvider()</code></p>
+</li>
+<li>
+<p><code>ExecutionRequest.getOutputDirectoryProvider()</code></p>
+</li>
+<li>
+<p><code>LauncherDiscoveryRequestBuilder.outputDirectoryProvider(OutputDirectoryProvider)</code></p>
+</li>
+<li>
+<p><code>TestPlan.getOutputDirectoryProvider()</code></p>
+</li>
+<li>
+<p><code>EngineTestKit.Builder.outputDirectoryProvider(OutputDirectoryProvider)</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Deprecate <code>org.junit.platform.commons.support.Resource</code> interface in favor of the new
+<code>org.junit.platform.commons.io.Resource</code> interface.</p>
+</li>
+<li>
+<p>Deprecate <code>Resource</code>-related methods in <code>ReflectionSupport</code> in favor of corresponding
+methods in the new <code>ResourceSupport</code> class:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>findAllResourcesInClasspathRoot(URI, Predicate)</code></p>
+</li>
+<li>
+<p><code>findAllResourcesInModule(String, Predicate)</code></p>
+</li>
+<li>
+<p><code>findAllResourcesInPackage(String, Predicate)</code></p>
+</li>
+<li>
+<p><code>streamAllResourcesInClasspathRoot(URI, Predicate)</code></p>
+</li>
+<li>
+<p><code>streamAllResourcesInModule(String, Predicate)</code></p>
+</li>
+<li>
+<p><code>streamAllResourcesInPackage(String, Predicate)</code></p>
+</li>
+<li>
+<p><code>tryToGetResources(String)</code></p>
+</li>
+<li>
+<p><code>tryToGetResources(String, ClassLoader)</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Deprecate <code>DiscoverySelectors.selectClasspathResource(Set)</code> method in favor of
+<code>selectClasspathResourceByName(Set)</code>.</p>
+</li>
+<li>
+<p>Deprecate <code>ClasspathResourceSelector.getClasspathResources()</code> method in favor of
+<code>getResources()</code>.</p>
+</li>
+<li>
+<p>Deprecate the
+<code>EngineDiscoveryRequestResolver.Builder.addResourceContainerSelectorResolver(Predicate)</code>
+method in favor of <code>addResourceContainerSelectorResolver(ResourceFilter)</code>.</p>
+</li>
+<li>
+<p>Deprecate <code>Resource</code>-related methods in <code>ClasspathScanner</code> in favor of new methods using
+<code>org.junit.platform.commons.io.Resource</code> and <code>ResourceFilter</code>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>scanForResourcesInPackage(String, Predicate)</code></p>
+</li>
+<li>
+<p><code>scanForResourcesInClasspathRoot(URI, Predicate)</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="v5.14.0-junit-platform-new-features-and-improvements"><a class="anchor" href="#v5.14.0-junit-platform-new-features-and-improvements"></a>New Features and Improvements</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Emit discovery warning when <code>@SuiteDisplayName</code> is used with a blank string.</p>
+</li>
+<li>
+<p>To help diagnosing potentially invalid invocations, the Console Launcher now logs
+warnings for nonexistent classpath roots added via <code>--classpath</code> or <code>--scan-classpath</code>
+rather than silently ignoring them.</p>
+</li>
+<li>
+<p>New classpath resource abstraction in <code>org.junit.platform.commons.io.Resource</code> with
+support for loading resources or finding them on the classpath via static utility
+methods in the new <code>org.junit.platform.commons.support.ResourceSupport</code> class.</p>
+</li>
+<li>
+<p>New <code>Resource.of(String, URI)</code> static factory method for creating an
+<code>org.junit.platform.commons.support.Resource</code>.</p>
+</li>
+<li>
+<p>New <code>FileSource.withPosition(FilePosition)</code> method to avoid the overhead of redundant
+canonicalization of files when using <code>FileSource.from(File, FilePosition)</code> with many
+different <code>FilePosition</code> instances for the same <code>File</code>.</p>
+</li>
+<li>
+<p>New classpath resource abstraction in <code>org.junit.platform.commons.io.Resource</code> with
+support for loading resources or finding them on the classpath via static utility
+methods in the new <code>org.junit.platform.commons.support.ResourceSupport</code> class.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="v5.14.0-junit-jupiter"><a class="anchor" href="#v5.14.0-junit-jupiter"></a>JUnit Jupiter</h3>
+<div class="sect3">
+<h4 id="v5.14.0-junit-jupiter-deprecations-and-breaking-changes"><a class="anchor" href="#v5.14.0-junit-jupiter-deprecations-and-breaking-changes"></a>Deprecations and Breaking Changes</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>MediaType.APPLICATION_JSON_UTF_8</code> is now deprecated in favor of using
+<code>MediaType.APPLICATION_JSON</code>, since the industry considers UTF-8 to be the implicit
+default encoding for the <code>application/json</code> media type.</p>
+</li>
+<li>
+<p><code>org.junit.jupiter.api.extension.MediaType</code> is now deprecated in favor of the new
+<code>org.junit.jupiter.api.MediaType</code>.</p>
+</li>
+<li>
+<p>The <code>publishFile(&#8230;&#8203;)</code> methods in <code>TestReporter</code> which accept an
+<code>org.junit.jupiter.api.extension.MediaType</code> are now deprecated in favor of new variants
+which accept an <code>org.junit.jupiter.api.MediaType</code>.</p>
+</li>
+<li>
+<p>The <code>publishFile(&#8230;&#8203;)</code> method in <code>ExtensionContext</code> which accepts an
+<code>org.junit.jupiter.api.extension.MediaType</code> is now deprecated in favor of a new variant
+which accepts an <code>org.junit.jupiter.api.MediaType</code>.</p>
+</li>
+<li>
+<p><code>org.junit.jupiter.params.support.ParameterInfo</code> is now deprecated in favor of the new
+<code>org.junit.jupiter.params.ParameterInfo</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="v5.14.0-junit-jupiter-new-features-and-improvements"><a class="anchor" href="#v5.14.0-junit-jupiter-new-features-and-improvements"></a>New Features and Improvements</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>MediaType</code> now trims leading and trailing whitespace from a supplied <code>value</code>, <code>type</code>,
+or <code>subtype</code>.</p>
+</li>
+<li>
+<p><code>MediaType</code> now eagerly rejects a <em>blank</em> <code>value</code>, <code>type</code>, or <code>subtype</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="v5.14.0-junit-vintage"><a class="anchor" href="#v5.14.0-junit-vintage"></a>JUnit Vintage</h3>
+<div class="paragraph">
+<p>No changes.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="v5.13.4"><a class="anchor" href="#v5.13.4"></a>5.13.4</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Date of Release:</strong> July 21, 2025</p>
+</div>
+<div class="paragraph">
+<p><strong>Scope:</strong> Bug fixes and enhancements since 5.13.3</p>
+</div>
+<div class="paragraph">
+<p>For a complete list of all <em>closed</em> issues and pull requests for this release, consult the
+<a href="https://github.com/junit-team/junit-framework/milestone/101?closed=1">5.13.4</a> milestone page in the JUnit
+repository on GitHub.</p>
+</div>
+<div class="sect2">
+<h3 id="v5.13.4-overall-improvements"><a class="anchor" href="#v5.13.4-overall-improvements"></a>Overall Changes</h3>
+<div class="sect3">
+<h4 id="v5.13.4-overall-new-features-and-improvements"><a class="anchor" href="#v5.13.4-overall-new-features-and-improvements"></a>New Features and Improvements</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Remove <code>java.*</code> packages from <code>Import-Package</code> headers in all jar manifests to maximize
+compatibility with older OSGi runtimes.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="v5.13.4-junit-platform"><a class="anchor" href="#v5.13.4-junit-platform"></a>JUnit Platform</h3>
+<div class="sect3">
+<h4 id="v5.13.4-junit-platform-bug-fixes"><a class="anchor" href="#v5.13.4-junit-platform-bug-fixes"></a>Bug Fixes</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ClasspathResourceSelector</code> no longer allows to be constructed with a resource name that
+is blank after removing the leading slash.</p>
+</li>
+<li>
+<p><code>PackageSource.from(String)</code> now allows to be constructed with an empty string to
+indicate the default package.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="v5.13.4-junit-jupiter"><a class="anchor" href="#v5.13.4-junit-jupiter"></a>JUnit Jupiter</h3>
+<div class="sect3">
+<h4 id="v5.13.4-junit-jupiter-new-features-and-improvements"><a class="anchor" href="#v5.13.4-junit-jupiter-new-features-and-improvements"></a>New Features and Improvements</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Log only once per implementation type for <code>CloseableResource</code> implementations that do
+not implement <code>AutoCloseable</code> to avoid flooding console output with this warning.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="v5.13.4-junit-vintage"><a class="anchor" href="#v5.13.4-junit-vintage"></a>JUnit Vintage</h3>
+<div class="paragraph">
+<p>No changes.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="v5.13.3"><a class="anchor" href="#v5.13.3"></a>5.13.3</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Date of Release:</strong> July 4, 2025</p>
+</div>
+<div class="paragraph">
+<p><strong>Scope:</strong> Bug fixes and enhancements since 5.13.2</p>
+</div>
+<div class="paragraph">
+<p>For a complete list of all <em>closed</em> issues and pull requests for this release, consult the
+<a href="https://github.com/junit-team/junit-framework/milestone/100?closed=1">5.13.3</a> milestone page in the JUnit
+repository on GitHub.</p>
+</div>
+<div class="sect2">
+<h3 id="v5.13.3-overall-improvements"><a class="anchor" href="#v5.13.3-overall-improvements"></a>Overall Changes</h3>
+<div class="sect3">
+<h4 id="v5.13.3-overall-new-features-and-improvements"><a class="anchor" href="#v5.13.3-overall-new-features-and-improvements"></a>New Features and Improvements</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>All <em>experimental</em> APIs have been promoted to <em>maintained</em> to indicate that they won&#8217;t
+be removed in any future 5.x release.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="v5.13.3-junit-platform"><a class="anchor" href="#v5.13.3-junit-platform"></a>JUnit Platform</h3>
+<div class="paragraph">
+<p>No changes.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="v5.13.3-junit-jupiter"><a class="anchor" href="#v5.13.3-junit-jupiter"></a>JUnit Jupiter</h3>
+<div class="sect3">
+<h4 id="v5.13.3-junit-jupiter-bug-fixes"><a class="anchor" href="#v5.13.3-junit-jupiter-bug-fixes"></a>Bug Fixes</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Fix regression that caused top-level and static member classes annotated with <code>@Nested</code>
+to no longer be executed because they caused a discovery issue to be reported.</p>
+</li>
+<li>
+<p>Stop reporting discovery issues for composed annotation classes that are meta-annotated
+with <code>@Nested</code>.</p>
+</li>
+<li>
+<p>Stop reporting discovery issues for <code>DefaultImpls</code> classes generated by the Kotlin
+compiler for interfaces with non-abstract test methods.</p>
+</li>
+<li>
+<p>When a <code>customReason</code> is supplied along with a <code>null</code> value for the default <code>reason</code> to
+<code>ConditionEvaluationResult.disabled(String, String)</code>, the resulting reason is now
+<code>"my&nbsp;custom&nbsp;reason"</code> instead of
+<code>"null&nbsp;==&gt;&nbsp;my&nbsp;custom&nbsp;reason"</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="v5.13.3-junit-jupiter-new-features-and-improvements"><a class="anchor" href="#v5.13.3-junit-jupiter-new-features-and-improvements"></a>New Features and Improvements</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>A <em>blank</em> reason supplied to a <code>ConditionEvaluationResult</code> factory method is now treated
+the same as a <code>null</code> reason, resulting in an <em>empty</em> <code>Optional</code> returned from
+<code>ConditionEvaluationResult.getReason()</code>.</p>
+</li>
+<li>
+<p>The Javadoc for factory methods in <code>ConditionEvaluationResult</code> now explicitly states
+that both <code>null</code> and <em>blank</em> values are supported for reason strings and that such
+values will result in an <em>empty</em> <code>Optional</code> returned from
+<code>ConditionEvaluationResult.getReason()</code>.</p>
+</li>
+<li>
+<p>Improve message of discovery issues reported for ineffective <code>@Order</code> annotations.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="v5.13.3-junit-vintage"><a class="anchor" href="#v5.13.3-junit-vintage"></a>JUnit Vintage</h3>
+<div class="paragraph">
+<p>No changes.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="v5.13.2"><a class="anchor" href="#v5.13.2"></a>5.13.2</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Date of Release:</strong> June 24, 2025</p>
+</div>
+<div class="paragraph">
+<p><strong>Scope:</strong> Bug fixes and enhancements since 5.13.1</p>
+</div>
+<div class="paragraph">
+<p>For a complete list of all <em>closed</em> issues and pull requests for this release, consult the
+<a href="https://github.com/junit-team/junit-framework/milestone/98?closed=1">5.13.2</a> milestone page in the JUnit
+repository on GitHub.</p>
+</div>
+<div class="sect2">
+<h3 id="v5.13.2-junit-platform"><a class="anchor" href="#v5.13.2-junit-platform"></a>JUnit Platform</h3>
+<div class="sect3">
+<h4 id="v5.13.2-junit-platform-bug-fixes"><a class="anchor" href="#v5.13.2-junit-platform-bug-fixes"></a>Bug Fixes</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>If Git information is included in the Open Test Reporting XML format (see below), any
+credentials that may be configured as part the <code>remote.origin.url</code> setting in Git were
+previously written to the <code>originUrl</code> attribute of <code>&lt;git:repository&gt;</code> elements. For
+example, when cloning a GitHub repository using a URL like
+<code><a href="https://username:password@github.com/organization/repository.git" class="bare">username:password@github.com/organization/repository.git</a></code>, both username and
+password were included in the XML report. Since a report which includes this information
+may be shared, published, or archived (for example, on a CI server), this was reported
+as a potential security vulnerability (CVE-2025-53103). Any credentials are now replaced
+with <code>***</code> before writing them to the XML report.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="v5.13.2-junit-platform-deprecations-and-breaking-changes"><a class="anchor" href="#v5.13.2-junit-platform-deprecations-and-breaking-changes"></a>Deprecations and Breaking Changes</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Including information about the Git repository (such as the commit hash and branch name)
+in the Open Test Reporting XML format is now an opt-in feature that can be enabled via a
+configuration parameter. Please refer to the
+<a href="advanced-topics/junit-platform-reporting.html#open-test-reporting" class="xref page">User Guide</a>
+for details.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="v5.13.2-junit-jupiter"><a class="anchor" href="#v5.13.2-junit-jupiter"></a>JUnit Jupiter</h3>
+<div class="sect3">
+<h4 id="v5.13.2-junit-jupiter-bug-fixes"><a class="anchor" href="#v5.13.2-junit-jupiter-bug-fixes"></a>Bug Fixes</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Stop reporting discovery issues for cyclic inner class hierarchies not annotated with
+<code>@Nested</code>.</p>
+</li>
+<li>
+<p>Stop reporting discovery issues for <em>abstract</em> inner classes that contain test methods
+but are not annotated with <code>@Nested</code>.</p>
+</li>
+<li>
+<p>Stop reporting discovery issues for <em>abstract</em> test methods. Although they will not be
+executed, it is a valid pattern to annotate them with <code>@Test</code> for documentation purposes
+and override them in subclasses while re-declaring the <code>@Test</code> annotation.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="v5.13.2-junit-jupiter-new-features-and-improvements"><a class="anchor" href="#v5.13.2-junit-jupiter-new-features-and-improvements"></a>New Features and Improvements</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>JAVA_26</code> has been added to the <code>JRE</code> enum for use with JRE-based execution conditions.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="v5.13.2-junit-vintage"><a class="anchor" href="#v5.13.2-junit-vintage"></a>JUnit Vintage</h3>
+<div class="paragraph">
+<p>No changes.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="v5.13.1"><a class="anchor" href="#v5.13.1"></a>5.13.1</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Date of Release:</strong> June 7, 2025</p>
+</div>
+<div class="paragraph">
+<p><strong>Scope:</strong> Bug fixes and enhancements since 5.13.0</p>
+</div>
+<div class="paragraph">
+<p>For a complete list of all <em>closed</em> issues and pull requests for this release, consult the
+<a href="https://github.com/junit-team/junit-framework/milestone/97?closed=1">5.13.1</a> milestone page in the JUnit
+repository on GitHub.</p>
+</div>
+<div class="sect2">
+<h3 id="v5.13.1-junit-platform"><a class="anchor" href="#v5.13.1-junit-platform"></a>JUnit Platform</h3>
+<div class="paragraph">
+<p>No changes.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="v5.13.1-junit-jupiter"><a class="anchor" href="#v5.13.1-junit-jupiter"></a>JUnit Jupiter</h3>
+<div class="sect3">
+<h4 id="v5.13.1-junit-jupiter-bug-fixes"><a class="anchor" href="#v5.13.1-junit-jupiter-bug-fixes"></a>Bug Fixes</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>The 5.13.0 release introduced a regression regarding the execution order in test classes
+containing both test methods and <code>@Nested</code> test classes. When classpath scanning was
+used during test discovery&#8201;&#8212;&#8201;for example, when resolving a package selector for a
+<code>@Suite</code> class&#8201;&#8212;&#8201;test methods in <code>@Nested</code> classes were executed <em>before</em> test methods
+in their enclosing class. This undesired change in behavior has now been reverted so
+that tests in <code>@Nested</code> test classes are always executed <em>after</em> tests in enclosing test
+classes again.</p>
+</li>
+<li>
+<p>Fix support for <code>AnnotationBasedArgumentsProvider</code> implementations that override the
+deprecated <code>provideArguments(ExtensionContext, Annotation)</code> method.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="v5.13.1-junit-vintage"><a class="anchor" href="#v5.13.1-junit-vintage"></a>JUnit Vintage</h3>
+<div class="paragraph">
+<p>No changes</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="v5.13.0"><a class="anchor" href="#v5.13.0"></a>5.13.0</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Date of Release:</strong> May 30, 2025</p>
+</div>
+<div class="paragraph">
+<p><strong>Scope:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Introduce <code>@ClassTemplate</code> and <code>@ParameterizedClass</code> support in JUnit Jupiter</p>
+</li>
+<li>
+<p>Access to <code>ParameterInfo</code> for JUnit Jupiter extensions</p>
+</li>
+<li>
+<p>New <code>@SentenceFragment</code> annotation for use with <code>IndicativeSentences</code> display name generator</p>
+</li>
+<li>
+<p>Add <code>--redirect-stdout</code> and <code>--redirect-stderr</code> options to <code>ConsoleLauncher</code></p>
+</li>
+<li>
+<p>Introduce test <em>discovery</em> support in <code>EngineTestKit</code></p>
+</li>
+<li>
+<p>Reporting of discovery issues for test engines</p>
+</li>
+<li>
+<p>Resource management for launcher sessions and execution requests</p>
+</li>
+<li>
+<p>GraalVM: removal of <code>native-image.properties</code> files from JARs</p>
+</li>
+<li>
+<p>Bug fixes and other minor improvements</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For complete details consult the
+<a href="https://docs.junit.org/5.13.0/release-notes/index.html">5.13.0 Release Notes</a> online.</p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="api-evolution.html">API Evolution</a></span>
+  <span class="next"><a href="appendix.html">Appendix</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+    <p>
+        &copy; Copyright 2015-2026 the original author or authors.
+        All rights reserved.
+        The content of this page is made available under the terms of the <a href="https://www.eclipse.org/legal/epl-v20.html">Eclipse Public License v2.0</a>.
+    </p>
+    <p>
+        This page was built using an adapted version of the Antora default UI.
+        The source code for this UI is licensed under the terms of the <a href="https://www.mozilla.org/en-US/MPL/2.0/">Mozilla Public License v2.0</a>.
+    </p>
+    <p>
+        Built and hosted on <a href="https://statichost.eu">statichost.eu</a>.
+    </p>
+</footer>
+<script id="site-script" src="../_/js/site.js" data-ui-root-path="../_"></script>
+<script async src="../_/js/vendor/highlight.js"></script>
+<script async src="../_/js/vendor/tabs.js" data-sync-storage-key="preferred-code-language"></script>
+<script src="../_/js/vendor/lunr.js"></script>
+<script src="../_/js/search-ui.js" id="search-ui-script" data-site-root-path=".." data-snippet-length="100" data-stylesheet="../_/css/search.css"></script>
+<script async src="../search-index.js"></script>
+  </body>
+</html>
