@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>JUnit Platform Launcher API :: JUnit User Guide</title>
+    <link rel="canonical" href="https://docs.junit.org/6.0.3/advanced-topics/launcher-api.html">
+    <link rel="prev" href="testkit.html">
+    <link rel="next" href="engines.html">
+    <meta name="generator" content="Antora 3.2.0-alpha.11">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<link rel="icon" type="image/png" href="../../_/img/junit-diamond.png">
+<link rel="icon" type="image/svg+xml" href="../../_/img/junit-diamond-adaptive.svg" sizes="any">
+
+<link rel="stylesheet" href="../../_/css/vendor/highlightjs/github.min.css">
+<link rel="stylesheet" href="../../_/css/vendor/tabs.css">
+
+<link rel="preload" as="style" href="https://assets.junit.org/fonts/index.css">
+<link rel="preload" as="font" href="https://assets.junit.org/fonts/blinker-latin-600-normal.woff2" type="font/woff2" crossorigin/>
+<link rel="preload" as="font" href="https://assets.junit.org/fonts/inter-latin-wght-normal.woff2" type="font/woff2" crossorigin/>
+<link rel="preload" as="font" href="https://assets.junit.org/fonts/inter-latin-wght-italic.woff2" type="font/woff2" crossorigin/>
+<link rel="preload" as="font" href="https://assets.junit.org/fonts/jetbrains-mono-latin-wght-normal.woff2" type="font/woff2" crossorigin/>
+
+<link rel="preload" as="style" href="../../_/css/site-extra.css">
+
+<link rel="stylesheet" href="https://assets.junit.org/fonts/index.css">
+<link rel="stylesheet" href="../../_/css/site-extra.css">
+
+<meta name="theme-color" content="#25a162">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item title" href="https://docs.junit.org">
+          <img class="logo" src="../../_/img/junit-diamond-white.png" alt="✔️"/>
+          JUnit User Guide<span class="version">6.0.3</span>
+      </a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search current version">
+          <label style="display: none">
+            <!-- restrict search to current version -->
+            <input type="checkbox" data-facet-filter="version:6.0.3" checked>
+          </label>
+        </div>
+      </div>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+          <a class="navbar-item" href="https://junit.org/">Home</a>
+          <a class="navbar-item" href="https://github.com/junit-team/junit-framework/">Repo</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="junit" data-version="6.0.3">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">JUnit</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../writing-tests/intro.html">Writing Tests</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/annotations.html">Annotations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/definitions.html">Definitions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/test-classes-and-methods.html">Test Classes and Methods</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/display-names.html">Display Names</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/assertions.html">Assertions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/assumptions.html">Assumptions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/exception-handling.html">Exception Handling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/disabling-tests.html">Disabling Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/conditional-test-execution.html">Conditional Test Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/tagging-and-filtering.html">Tagging and Filtering</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/test-execution-order.html">Test Execution Order</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/test-instance-lifecycle.html">Test Instance Lifecycle</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/nested-tests.html">Nested Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/dependency-injection-for-constructors-and-methods.html">Dependency Injection for Constructors and Methods</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/test-interfaces-and-default-methods.html">Test Interfaces and Default Methods</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/repeated-tests.html">Repeated Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/parameterized-classes-and-tests.html">Parameterized Classes and Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/class-templates.html">Class Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/test-templates.html">Test Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/dynamic-tests.html">Dynamic Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/timeouts.html">Timeouts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/parallel-execution.html">Parallel Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/built-in-extensions.html">Built-in Extensions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../migrating-from-junit4.html">Migrating from JUnit 4</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../running-tests/intro.html">Running Tests</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/ide-support.html">IDE Support</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/build-support.html">Build Support</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/console-launcher.html">Console Launcher</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/discovery-selectors.html">Discovery Selectors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/configuration-parameters.html">Configuration Parameters</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/tags.html">Tags</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/capturing-standard-output-error.html">Capturing Standard Output/Error</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/using-listeners-and-interceptors.html">Using Listeners and Interceptors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/stack-trace-pruning.html">Stack Trace Pruning</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/discovery-issues.html">Discovery Issues</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../extensions/overview.html">Extension Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/registering-extensions.html">Registering Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/conditional-test-execution.html">Conditional Test Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-instance-pre-construct-callback.html">Test Instance Pre-construct Callback</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-instance-factories.html">Test Instance Factories</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-instance-post-processing.html">Test Instance Post-processing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-instance-pre-destroy-callback.html">Test Instance Pre-destroy Callback</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/parameter-resolution.html">Parameter Resolution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-result-processing.html">Test Result Processing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-lifecycle-callbacks.html">Test Lifecycle Callbacks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/exception-handling.html">Exception Handling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/pre-interrupt-callback.html">Pre-Interrupt Callback</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/intercepting-invocations.html">Intercepting Invocations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/providing-invocation-contexts-for-class-templates.html">Providing Invocation Contexts for Class Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/providing-invocation-contexts-for-test-templates.html">Providing Invocation Contexts for Test Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/keeping-state-in-extensions.html">Keeping State in Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/supported-utilities-in-extensions.html">Supported Utilities in Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/relative-execution-order-of-user-code-and-extensions.html">Relative Execution Order of User Code and Extensions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced Topics</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="junit-platform-reporting.html">JUnit Platform Reporting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="junit-platform-suite-engine.html">JUnit Platform Suite Engine</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="testkit.html">JUnit Platform Test Kit</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="launcher-api.html">JUnit Platform Launcher API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="engines.html">Test Engines</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../api-evolution.html">API Evolution</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../release-notes.html">Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix.html">Appendix</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../api/index.html">Javadoc</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">JUnit</span>
+    <span class="version">6.0.3</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../index.html">JUnit</a></div>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../6.1.0/index.html">6.1.0-SNAPSHOT</a>
+        </li>
+        <li class="version">
+          <a href="../../6.1.0-M1/index.html">6.1.0-M1</a>
+        </li>
+        <li class="version is-current is-latest">
+          <a href="../index.html">6.0.3</a>
+        </li>
+        <li class="version">
+          <a href="../../6.0.2/index.html">6.0.2</a>
+        </li>
+        <li class="version">
+          <a href="../../6.0.1/index.html">6.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../6.0.0/index.html">6.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.3/index.html">5.14.3</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.2/index.html">5.14.2</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.1/index.html">5.14.1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../overview.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">JUnit</a></li>
+    <li>Advanced Topics</li>
+    <li><a href="launcher-api.html">JUnit Platform Launcher API</a></li>
+  </ul>
+</nav>
+        <div class="pdf-link">
+            <a href="../_exports/junit-user-guide-6.0.3.pdf#advanced-topics-launcher-api">PDF</a>
+        </div>
+        <div class="html-link">
+            <a href="../_exports/junit-user-guide-6.0.3.html#advanced-topics-launcher-api">Single page</a>
+        </div>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">6.0.3</button>
+  <div class="version-menu">
+    <a class="version" href="../../6.1.0/advanced-topics/launcher-api.html">6.1.0-SNAPSHOT</a>
+    <a class="version" href="../../6.1.0-M1/advanced-topics/launcher-api.html">6.1.0-M1</a>
+    <a class="version is-current" href="launcher-api.html">6.0.3</a>
+    <a class="version" href="../../6.0.2/advanced-topics/launcher-api.html">6.0.2</a>
+    <a class="version" href="../../6.0.1/advanced-topics/launcher-api.html">6.0.1</a>
+    <a class="version" href="../../6.0.0/advanced-topics/launcher-api.html">6.0.0</a>
+    <a class="version" href="../../5.14.3/advanced-topics/launcher-api.html">5.14.3</a>
+    <a class="version" href="../../5.14.2/advanced-topics/launcher-api.html">5.14.2</a>
+    <a class="version" href="../../5.14.1/advanced-topics/launcher-api.html">5.14.1</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/junit-team/junit-framework/blob/r6.0.3/documentation/modules/ROOT/pages/advanced-topics/launcher-api.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">JUnit Platform Launcher API</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>One of the prominent goals of the JUnit Platform is to make the interface between JUnit
+and its programmatic clients – build tools and IDEs – more powerful and stable. The
+purpose is to decouple the internals of discovering and executing tests from all the
+filtering and configuration that is necessary from the outside.</p>
+</div>
+<div class="paragraph">
+<p>JUnit Platform provides a <code>Launcher</code> API that can be used to discover, filter, and execute
+tests. Moreover, third party test libraries – like Spock or Cucumber – can plug into the
+JUnit Platform&#8217;s launching infrastructure by providing a custom
+<a href="engines.html" class="xref page">TestEngine</a>.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../_images/launcher-api-diagram.svg" alt="launcher api diagram">
+</div>
+</div>
+<div class="paragraph">
+<p>The launcher API is in the <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/package-summary.html" class="xref attachment">junit-platform-launcher</a></code> module.</p>
+</div>
+<div class="paragraph">
+<p>An example consumer of the launcher API is the <code><a href="../api/org.junit.platform.console/org/junit/platform/console/ConsoleLauncher.html" class="xref attachment">ConsoleLauncher</a></code> in the
+<code><a href="../api/org.junit.platform.console/org/junit/platform/console/package-summary.html" class="xref attachment">junit-platform-console</a></code> project.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="discovery"><a class="anchor" href="#discovery"></a>Discovering Tests</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Having <em>test discovery</em> as a dedicated feature of the platform frees IDEs and build tools
+from most of the difficulties they had to go through to identify test classes and test
+methods in previous versions of JUnit.</p>
+</div>
+<div class="paragraph">
+<p>Usage Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static org.junit.platform.engine.discovery.ClassNameFilter.includeClassNamePatterns;
+import static org.junit.platform.engine.discovery.DiscoverySelectors.selectClass;
+import static org.junit.platform.engine.discovery.DiscoverySelectors.selectPackage;
+import static org.junit.platform.launcher.core.LauncherDiscoveryRequestBuilder.discoveryRequest;
+
+import org.junit.platform.launcher.LauncherDiscoveryRequest;
+import org.junit.platform.launcher.LauncherSession;
+import org.junit.platform.launcher.TestPlan;
+import org.junit.platform.launcher.core.LauncherFactory;</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">LauncherDiscoveryRequest discoveryRequest = discoveryRequest()
+	.selectors(
+		selectPackage("com.example.mytests"),
+		selectClass(MyTestClass.class)
+	)
+	.filters(
+		includeClassNamePatterns(".*Tests")
+	)
+	.build();
+
+try (LauncherSession session = LauncherFactory.openSession()) {
+	TestPlan testPlan = session.getLauncher().discover(discoveryRequest);
+
+	// ... discover additional test plans or execute tests
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can select classes, methods, and all classes in a package or even search for all tests
+in the class-path or module-path. Discovery takes place across all participating test
+engines.</p>
+</div>
+<div class="paragraph">
+<p>The resulting <code>TestPlan</code> is a hierarchical (and read-only) description of all engines,
+classes, and test methods that fit the <code>LauncherDiscoveryRequest</code>. The client can
+traverse the tree, retrieve details about a node, and get a link to the original source
+(like class, method, or file position). Every node in the test plan has a <em>unique ID</em>
+that can be used to invoke a particular test or group of tests.</p>
+</div>
+<div class="paragraph">
+<p>Clients can register one or more <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/LauncherDiscoveryListener.html" class="xref attachment">LauncherDiscoveryListener</a></code> implementations via the
+<code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherDiscoveryRequestBuilder.html" class="xref attachment">LauncherDiscoveryRequestBuilder</a></code> to gain insight into events that occur during test
+discovery. By default, the builder registers an "abort on failure" listener that aborts
+test discovery after the first discovery failure is encountered. The default
+<code>LauncherDiscoveryListener</code> can be changed via the
+<code>junit.platform.discovery.listener.default</code> <a href="../running-tests/configuration-parameters.html" class="xref page">configuration
+parameter</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="execution"><a class="anchor" href="#execution"></a>Executing Tests</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To execute tests, clients can use the same <code>LauncherDiscoveryRequest</code> as in the discovery
+phase or create a new request. Test progress and reporting can be achieved by registering
+one or more <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/TestExecutionListener.html" class="xref attachment">TestExecutionListener</a></code> implementations with the <code>Launcher</code> as in the
+following example.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">LauncherDiscoveryRequest discoveryRequest = LauncherDiscoveryRequestBuilder.request()
+	.selectors(
+		selectPackage("com.example.mytests"),
+		selectClass(MyTestClass.class)
+	)
+	.filters(
+		includeClassNamePatterns(".*Tests")
+	)
+	.build();
+
+SummaryGeneratingListener listener = new SummaryGeneratingListener();
+
+try (LauncherSession session = LauncherFactory.openSession()) {
+	Launcher launcher = session.getLauncher();
+	// Register one ore more listeners of your choice.
+	launcher.registerTestExecutionListeners(listener);
+	// Discover tests and build a test plan.
+	TestPlan testPlan = launcher.discover(discoveryRequest);
+	// Execute the test plan.
+	launcher.execute(testPlan);
+	// Alternatively, execute the discovery request directly.
+	launcher.execute(discoveryRequest);
+}
+
+TestExecutionSummary summary = listener.getSummary();
+// Do something with the summary...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>There is no return value for the <code>execute()</code> method, but you can use a
+<code>TestExecutionListener</code> to aggregate the results. For examples see the
+<code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/listeners/SummaryGeneratingListener.html" class="xref attachment">SummaryGeneratingListener</a></code>, <code><a href="../api/org.junit.platform.reporting/org/junit/platform/reporting/legacy/xml/LegacyXmlReportGeneratingListener.html" class="xref attachment">LegacyXmlReportGeneratingListener</a></code>, and
+<code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/listeners/UniqueIdTrackingListener.html" class="xref attachment">UniqueIdTrackingListener</a></code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+All <code>TestExecutionListener</code> methods are called sequentially. Methods for start
+events are called in registration order while methods for finish events are called in
+reverse order.
+Test case execution won&#8217;t start before all <code>executionStarted</code> calls have returned.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="engines-custom"><a class="anchor" href="#engines-custom"></a>Registering a TestEngine</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>See the dedicated section on <a href="engines.html#registration" class="xref page">TestEngine registration</a> for
+details.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="post-discovery-filters-custom"><a class="anchor" href="#post-discovery-filters-custom"></a>Registering a PostDiscoveryFilter</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In addition to specifying post-discovery filters as part of a <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/LauncherDiscoveryRequest.html" class="xref attachment">LauncherDiscoveryRequest</a></code>
+passed to the <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/Launcher.html" class="xref attachment">Launcher</a></code> API, <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/PostDiscoveryFilter.html" class="xref attachment">PostDiscoveryFilter</a></code> implementations will be discovered
+at runtime via Java&#8217;s <code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/ServiceLoader.html">ServiceLoader</a></code> mechanism and automatically applied by the
+<code>Launcher</code> in addition to those that are part of the request.</p>
+</div>
+<div class="paragraph">
+<p>For example, an <code>example.CustomTagFilter</code> class implementing <code>PostDiscoveryFilter</code> and
+declared within the <code>/META-INF/services/org.junit.platform.launcher.PostDiscoveryFilter</code>
+file is loaded and applied automatically.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="launcher-session-listeners-custom"><a class="anchor" href="#launcher-session-listeners-custom"></a>Registering a LauncherSessionListener</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Registered implementations of <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/LauncherSessionListener.html" class="xref attachment">LauncherSessionListener</a></code> are notified when a
+<code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/LauncherSession.html" class="xref attachment">LauncherSession</a></code> is opened (before a <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/Launcher.html" class="xref attachment">Launcher</a></code> first discovers and executes tests)
+and closed (when no more tests will be discovered or executed). They can be registered
+programmatically via the <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherConfig.html" class="xref attachment">LauncherConfig</a></code> that is passed to the <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherFactory.html" class="xref attachment">LauncherFactory</a></code>, or
+they can be discovered at runtime via Java&#8217;s <code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/ServiceLoader.html">ServiceLoader</a></code> mechanism and automatically
+registered with <code>LauncherSession</code> (unless automatic registration is disabled.)</p>
+</div>
+<div class="sect2">
+<h3 id="launcher-session-listeners-tool-support"><a class="anchor" href="#launcher-session-listeners-tool-support"></a>Tool Support</h3>
+<div class="paragraph">
+<p>The following build tools and IDEs are known to provide full support for <code>LauncherSession</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Gradle 4.6 and later</p>
+</li>
+<li>
+<p>Maven Surefire/Failsafe 3.0.0-M6 and later</p>
+</li>
+<li>
+<p>IntelliJ IDEA 2017.3 and later</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Other tools might also work but have not been tested explicitly.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="launcher-session-listeners-tool-example-usage"><a class="anchor" href="#launcher-session-listeners-tool-example-usage"></a>Example Usage</h3>
+<div class="paragraph">
+<p>A <code>LauncherSessionListener</code> is well suited for implementing once-per-JVM setup/teardown
+behavior since it&#8217;s called before the first and after the last test in a launcher session,
+respectively. The scope of a launcher session depends on the used IDE or build tool but
+usually corresponds to the lifecycle of the test JVM. A custom listener that starts an
+HTTP server before executing the first test and stops it after the last test has been
+executed, could look like this:</p>
+</div>
+<div class="listingblock">
+<div class="title">src/test/java/example/session/GlobalSetupTeardownListener.java</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package example.session;
+
+import static java.net.InetAddress.getLoopbackAddress;
+
+import java.io.IOException;
+import java.io.UncheckedIOException;
+import java.net.InetSocketAddress;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+import com.sun.net.httpserver.HttpServer;
+
+import org.junit.platform.engine.support.store.Namespace;
+import org.junit.platform.engine.support.store.NamespacedHierarchicalStore;
+import org.junit.platform.launcher.LauncherSession;
+import org.junit.platform.launcher.LauncherSessionListener;
+import org.junit.platform.launcher.TestExecutionListener;
+import org.junit.platform.launcher.TestPlan;
+
+public class GlobalSetupTeardownListener implements LauncherSessionListener {
+
+	@Override
+	public void launcherSessionOpened(LauncherSession session) {
+		// Avoid setup for test discovery by delaying it until tests are about to be executed
+		session.getLauncher().registerTestExecutionListeners(new TestExecutionListener() {
+			@Override
+			public void testPlanExecutionStarted(TestPlan testPlan) {
+				NamespacedHierarchicalStore&lt;Namespace&gt; store = session.getStore(); <i class="conum" data-value="1"></i><b>(1)</b>
+				store.computeIfAbsent(Namespace.GLOBAL, "httpServer", key -&gt; { <i class="conum" data-value="2"></i><b>(2)</b>
+					InetSocketAddress address = new InetSocketAddress(getLoopbackAddress(), 0);
+					HttpServer server;
+					try {
+						server = HttpServer.create(address, 0);
+					}
+					catch (IOException e) {
+						throw new UncheckedIOException("Failed to start HTTP server", e);
+					}
+					server.createContext("/test", exchange -&gt; {
+						exchange.sendResponseHeaders(204, -1);
+						exchange.close();
+					});
+					ExecutorService executorService = Executors.newCachedThreadPool();
+					server.setExecutor(executorService);
+					server.start(); <i class="conum" data-value="3"></i><b>(3)</b>
+
+					return new CloseableHttpServer(server, executorService);
+				});
+			}
+		});
+	}
+
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Get the store from the launcher session</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Lazily create the HTTP server and put it into the store</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Start the HTTP server</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>It uses a wrapper class to ensure the server is stopped when the launcher session is
+closed:</p>
+</div>
+<div class="listingblock">
+<div class="title">src/test/java/example/session/CloseableHttpServer.java</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package example.session;
+
+import java.util.concurrent.ExecutorService;
+
+import com.sun.net.httpserver.HttpServer;
+
+public class CloseableHttpServer implements AutoCloseable {
+
+	private final HttpServer server;
+	private final ExecutorService executorService;
+
+	CloseableHttpServer(HttpServer server, ExecutorService executorService) {
+		this.server = server;
+		this.executorService = executorService;
+	}
+
+	public HttpServer getServer() {
+		return server;
+	}
+
+	@Override
+	public void close() { <i class="conum" data-value="1"></i><b>(1)</b>
+		server.stop(0); <i class="conum" data-value="2"></i><b>(2)</b>
+		executorService.shutdownNow();
+	}
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The <code>close()</code> method is called when the launcher session is closed</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Stop the HTTP server</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>This sample uses the HTTP server implementation from the jdk.httpserver module that comes
+with the JDK but would work similarly with any other server or resource. In order for the
+listener to be picked up by JUnit Platform, you need to register it as a service by adding
+a resource file with the following name and contents to your test runtime classpath (e.g.
+by adding the file to <code>src/test/resources</code>):</p>
+</div>
+<div class="listingblock">
+<div class="title">src/test/resources/META-INF/services/org.junit.platform.launcher.LauncherSessionListener</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">example.session.GlobalSetupTeardownListener</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can now use the resource from your test:</p>
+</div>
+<div class="listingblock">
+<div class="title">src/test/java/example/session/HttpTests.java</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package example.session;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URI;
+import java.net.URL;
+
+import com.sun.net.httpserver.HttpServer;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.api.extension.ExtensionContext;
+import org.junit.jupiter.api.extension.ParameterContext;
+import org.junit.jupiter.api.extension.ParameterResolver;
+
+@ExtendWith(HttpServerParameterResolver.class)
+class HttpTests {
+
+	@Test
+	void respondsWith204(HttpServer server) throws IOException {
+		String host = server.getAddress().getHostString(); <i class="conum" data-value="2"></i><b>(2)</b>
+		int port = server.getAddress().getPort(); <i class="conum" data-value="3"></i><b>(3)</b>
+		URL url = URI.create("http://" + host + ":" + port + "/test").toURL();
+
+		HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+		connection.setRequestMethod("GET");
+		int responseCode = connection.getResponseCode(); <i class="conum" data-value="4"></i><b>(4)</b>
+
+		assertEquals(204, responseCode); <i class="conum" data-value="5"></i><b>(5)</b>
+	}
+}
+
+class HttpServerParameterResolver implements ParameterResolver {
+	@Override
+	public boolean supportsParameter(ParameterContext parameterContext, ExtensionContext extensionContext) {
+		return HttpServer.class.equals(parameterContext.getParameter().getType());
+	}
+
+	@Override
+	public Object resolveParameter(ParameterContext parameterContext, ExtensionContext extensionContext) {
+		return extensionContext
+				.getStore(ExtensionContext.Namespace.GLOBAL)
+				.get("httpServer", CloseableHttpServer.class) <i class="conum" data-value="1"></i><b>(1)</b>
+				.getServer();
+	}
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Retrieve the HTTP server instance from the store</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Get the host string directly from the injected HTTP server instance</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Get the port number directly from the injected HTTP server instance</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Send a request to the server</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Check the status code of the response</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="launcher-interceptors-custom"><a class="anchor" href="#launcher-interceptors-custom"></a>Registering a LauncherInterceptor</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In order to intercept the creation of instances of <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/Launcher.html" class="xref attachment">Launcher</a></code> and
+<code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/LauncherSessionListener.html" class="xref attachment">LauncherSessionListener</a></code> and calls to the <code>discover</code> and <code>execute</code> methods of the
+former, clients can register custom implementations of <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/LauncherInterceptor.html" class="xref attachment">LauncherInterceptor</a></code> via Java&#8217;s
+<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/ServiceLoader.html">ServiceLoader</a></code> mechanism by setting the
+<code>junit.platform.launcher.interceptors.enabled</code> <a href="../running-tests/configuration-parameters.html" class="xref page">configuration parameter</a> to <code>true</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Since interceptors are registered before the test run starts, the
+<code>junit.platform.launcher.interceptors.enabled</code> <em>configuration parameter</em> can only be
+supplied as a JVM system property or via the JUnit Platform configuration file (see
+<a href="../running-tests/configuration-parameters.html" class="xref page">Configuration Parameters</a> for details). This <em>configuration parameter</em> cannot be
+supplied in the <code>LauncherDiscoveryRequest</code> that is passed to the <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/Launcher.html" class="xref attachment">Launcher</a></code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>A typical use case is to create a custom interceptor to replace the <code>ClassLoader</code> used by
+the JUnit Platform to load test classes and engine implementations.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import java.io.IOException;
+import java.io.UncheckedIOException;
+import java.net.URI;
+import java.net.URL;
+import java.net.URLClassLoader;
+
+import org.junit.platform.launcher.LauncherInterceptor;
+
+public class CustomLauncherInterceptor implements LauncherInterceptor {
+
+	private final URLClassLoader customClassLoader;
+
+	public CustomLauncherInterceptor() throws Exception {
+		ClassLoader parent = Thread.currentThread().getContextClassLoader();
+		customClassLoader = new URLClassLoader(new URL[] { URI.create("some.jar").toURL() }, parent);
+	}
+
+	@Override
+	public &lt;T&gt; T intercept(Invocation&lt;T&gt; invocation) {
+		Thread currentThread = Thread.currentThread();
+		ClassLoader originalClassLoader = currentThread.getContextClassLoader();
+		currentThread.setContextClassLoader(customClassLoader);
+		try {
+			return invocation.proceed();
+		}
+		finally {
+			currentThread.setContextClassLoader(originalClassLoader);
+		}
+	}
+
+	@Override
+	public void close() {
+		try {
+			customClassLoader.close();
+		}
+		catch (IOException e) {
+			throw new UncheckedIOException("Failed to close custom class loader", e);
+		}
+	}
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="launcher-discovery-listeners-custom"><a class="anchor" href="#launcher-discovery-listeners-custom"></a>Registering a LauncherDiscoveryListener</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In addition to specifying discovery listeners as part of a <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/LauncherDiscoveryRequest.html" class="xref attachment">LauncherDiscoveryRequest</a></code> or
+registering them programmatically via the <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/Launcher.html" class="xref attachment">Launcher</a></code> API, custom
+<code>LauncherDiscoveryListener</code> implementations can be discovered at runtime via Java&#8217;s
+<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/ServiceLoader.html">ServiceLoader</a></code> mechanism and automatically registered with the <code>Launcher</code> created via
+the <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherFactory.html" class="xref attachment">LauncherFactory</a></code>.</p>
+</div>
+<div class="paragraph">
+<p>For example, an <code>example.CustomLauncherDiscoveryListener</code> class implementing
+<code>LauncherDiscoveryListener</code> and declared within the
+<code>/META-INF/services/org.junit.platform.launcher.LauncherDiscoveryListener</code> file is loaded
+and registered automatically.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="listeners-custom"><a class="anchor" href="#listeners-custom"></a>Registering a TestExecutionListener</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In addition to the public <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/Launcher.html" class="xref attachment">Launcher</a></code> API method for registering test execution listeners
+programmatically, custom <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/TestExecutionListener.html" class="xref attachment">TestExecutionListener</a></code> implementations will be discovered at
+runtime via Java&#8217;s <code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/ServiceLoader.html">ServiceLoader</a></code> mechanism and automatically registered with the
+<code>Launcher</code> created via the <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherFactory.html" class="xref attachment">LauncherFactory</a></code>.</p>
+</div>
+<div class="paragraph">
+<p>For example, an <code>example.CustomTestExecutionListener</code> class implementing
+<code>TestExecutionListener</code> and declared within the
+<code>/META-INF/services/org.junit.platform.launcher.TestExecutionListener</code> file is loaded and
+registered automatically.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="listeners-config"><a class="anchor" href="#listeners-config"></a>Configuring a TestExecutionListener</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When a <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/TestExecutionListener.html" class="xref attachment">TestExecutionListener</a></code> is registered programmatically via the <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/Launcher.html" class="xref attachment">Launcher</a></code> API,
+the listener may provide programmatic ways for it to be configured&#8201;&#8212;&#8201;for example, via its
+constructor, setter methods, etc. However, when a <code>TestExecutionListener</code> is registered
+automatically via Java&#8217;s <code>ServiceLoader</code> mechanism (see
+<a href="#listeners-custom">Registering a TestExecutionListener</a>), there is no way for the user to directly configure the
+listener. In such cases, the author of a <code>TestExecutionListener</code> may choose to make the
+listener configurable via <a href="../running-tests/configuration-parameters.html" class="xref page">configuration parameters</a>. The
+listener can then access the configuration parameters via the <code>TestPlan</code> supplied to the
+<code>testPlanExecutionStarted(TestPlan)</code> and <code>testPlanExecutionFinished(TestPlan)</code> callback
+methods. See the <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/listeners/UniqueIdTrackingListener.html" class="xref attachment">UniqueIdTrackingListener</a></code> for an example.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="listeners-custom-deactivation"><a class="anchor" href="#listeners-custom-deactivation"></a>Deactivating a TestExecutionListener</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Sometimes it can be useful to run a test suite <em>without</em> certain execution listeners being
+active. For example, you might have custom a <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/TestExecutionListener.html" class="xref attachment">TestExecutionListener</a></code> that sends the test
+results to an external system for reporting purposes, and while debugging you might not
+want these <em>debug</em> results to be reported. To do this, provide a pattern for the
+<code>junit.platform.execution.listeners.deactivate</code> <em>configuration parameter</em> to specify which
+execution listeners should be deactivated (i.e. not registered) for the current test run.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Only listeners registered via the <code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/ServiceLoader.html">ServiceLoader</a></code> mechanism within the
+<code>/META-INF/services/org.junit.platform.launcher.TestExecutionListener</code> file can be
+deactivated. In other words, any <code>TestExecutionListener</code> registered explicitly via the
+<code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/LauncherDiscoveryRequest.html" class="xref attachment">LauncherDiscoveryRequest</a></code> cannot be deactivated via the
+<code>junit.platform.execution.listeners.deactivate</code> <em>configuration parameter</em>.</p>
+</div>
+<div class="paragraph">
+<p>In addition, since execution listeners are registered before the test run starts, the
+<code>junit.platform.execution.listeners.deactivate</code> <em>configuration parameter</em> can only be
+supplied as a JVM system property or via the JUnit Platform configuration file (see
+<a href="../running-tests/configuration-parameters.html" class="xref page">Configuration Parameters</a> for details). This <em>configuration parameter</em> cannot be
+supplied in the <code>LauncherDiscoveryRequest</code> that is passed to the <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/Launcher.html" class="xref attachment">Launcher</a></code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="listeners-custom-deactivation-pattern"><a class="anchor" href="#listeners-custom-deactivation-pattern"></a>Pattern Matching Syntax</h3>
+<div class="paragraph">
+<p>Refer to <a href="../running-tests/configuration-parameters.html#pattern" class="xref page">Pattern Matching Syntax</a> for details.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="launcher-config"><a class="anchor" href="#launcher-config"></a>Configuring the Launcher</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you require fine-grained control over automatic detection and registration of test
+engines and listeners, you may create an instance of <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherConfig.html" class="xref attachment">LauncherConfig</a></code> and supply that to
+the <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherFactory.html" class="xref attachment">LauncherFactory</a></code>. Typically, an instance of <code>LauncherConfig</code> is created via the
+built-in fluent <em>builder</em> API, as demonstrated in the following example.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">LauncherConfig launcherConfig = LauncherConfig.builder()
+	.enableTestEngineAutoRegistration(false)
+	.enableLauncherSessionListenerAutoRegistration(false)
+	.enableLauncherDiscoveryListenerAutoRegistration(false)
+	.enablePostDiscoveryFilterAutoRegistration(false)
+	.enableTestExecutionListenerAutoRegistration(false)
+	.addTestEngines(new CustomTestEngine())
+	.addLauncherSessionListeners(new CustomLauncherSessionListener())
+	.addLauncherDiscoveryListeners(new CustomLauncherDiscoveryListener())
+	.addPostDiscoveryFilters(new CustomPostDiscoveryFilter())
+	.addTestExecutionListeners(new LegacyXmlReportGeneratingListener(reportsDir, out))
+	.addTestExecutionListeners(new CustomTestExecutionListener())
+	.build();
+
+LauncherDiscoveryRequest discoveryRequest = LauncherDiscoveryRequestBuilder.request()
+	.selectors(selectPackage("com.example.mytests"))
+	.build();
+
+try (LauncherSession session = LauncherFactory.openSession(launcherConfig)) {
+	session.getLauncher().execute(discoveryRequest);
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="dry-run-mode"><a class="anchor" href="#dry-run-mode"></a>Dry-Run Mode</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When running tests via the <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/Launcher.html" class="xref attachment">Launcher</a></code> API, you can enable <em>dry-run mode</em> by setting the
+<code>junit.platform.execution.dryRun.enabled</code> <a href="../running-tests/configuration-parameters.html" class="xref page">configuration parameter</a> to <code>true</code>. In this mode, the <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/Launcher.html" class="xref attachment">Launcher</a></code> will not actually
+execute any tests but will notify registered <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/TestExecutionListener.html" class="xref attachment">TestExecutionListener</a></code> instances as if all
+tests had been skipped and their containers had been successful. This can be useful to
+test changes in the configuration of a build or to verify a listener is called as expected
+without having to wait for all tests to be executed.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="managing-state-across-test-engines"><a class="anchor" href="#managing-state-across-test-engines"></a>Managing State Across Test Engines</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When running tests on the JUnit Platform, multiple test engines may need to access shared
+resources. Rather than initializing these resources multiple times, JUnit Platform
+provides mechanisms to share state across test engines efficiently. Test engines can use
+the Platform&#8217;s <code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/support/store/NamespacedHierarchicalStore.html" class="xref attachment">NamespacedHierarchicalStore</a></code> API to lazily initialize and share
+resources, ensuring they are created only once regardless of execution order. Any resource
+that is put into the store and implements <code>AutoCloseable</code> will be closed automatically when
+the execution is finished.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The Jupiter engine allows read and write access to such resources via its
+<code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Store.html" class="xref attachment">Store</a></code> API.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following example demonstrates two custom test engines sharing a <code>ServerSocket</code>
+resource. <code>FirstCustomEngine</code> attempts to retrieve an existing <code>ServerSocket</code> from the
+global store or creates a new one if it doesn&#8217;t exist:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static java.net.InetAddress.getLoopbackAddress;
+import static org.junit.platform.engine.TestExecutionResult.successful;
+
+import java.io.IOException;
+import java.io.UncheckedIOException;
+import java.net.ServerSocket;
+
+import org.jspecify.annotations.Nullable;
+import org.junit.platform.engine.EngineDiscoveryRequest;
+import org.junit.platform.engine.ExecutionRequest;
+import org.junit.platform.engine.TestDescriptor;
+import org.junit.platform.engine.TestEngine;
+import org.junit.platform.engine.UniqueId;
+import org.junit.platform.engine.support.descriptor.EngineDescriptor;
+import org.junit.platform.engine.support.store.Namespace;
+import org.junit.platform.engine.support.store.NamespacedHierarchicalStore;
+
+/**
+ * First custom test engine implementation.
+ */
+public class FirstCustomEngine implements TestEngine {
+
+	public ServerSocket socket;
+
+	@Override
+	public String getId() {
+		return "first-custom-test-engine";
+	}
+
+	public ServerSocket getSocket() {
+		return this.socket;
+	}
+
+	@Override
+	public TestDescriptor discover(EngineDiscoveryRequest discoveryRequest, UniqueId uniqueId) {
+		return new EngineDescriptor(uniqueId, "First Custom Test Engine");
+	}
+
+	@Override
+	public void execute(ExecutionRequest request) {
+		request.getEngineExecutionListener()
+				.executionStarted(request.getRootTestDescriptor());
+
+		NamespacedHierarchicalStore&lt;Namespace&gt; store = request.getStore();
+		socket = store.computeIfAbsent(Namespace.GLOBAL, "serverSocket", key -&gt; {
+			try {
+				return new ServerSocket(0, 50, getLoopbackAddress());
+			}
+			catch (IOException e) {
+				throw new UncheckedIOException("Failed to start ServerSocket", e);
+			}
+		}, ServerSocket.class);
+
+		request.getEngineExecutionListener()
+				.executionFinished(request.getRootTestDescriptor(), successful());
+	}
+
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>SecondCustomEngine</code> follows the same pattern, ensuring that regardless whether it runs
+before or after <code>FirstCustomEngine</code>, it will use the same socket instance:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">/**
+ * Second custom test engine implementation.
+ */
+public class SecondCustomEngine implements TestEngine {
+
+	public ServerSocket socket;
+
+	@Override
+	public String getId() {
+		return "second-custom-test-engine";
+	}
+
+	public ServerSocket getSocket() {
+		return this.socket;
+	}
+
+	@Override
+	public TestDescriptor discover(EngineDiscoveryRequest discoveryRequest, UniqueId uniqueId) {
+		return new EngineDescriptor(uniqueId, "Second Custom Test Engine");
+	}
+
+	@Override
+	public void execute(ExecutionRequest request) {
+		request.getEngineExecutionListener()
+				.executionStarted(request.getRootTestDescriptor());
+
+		NamespacedHierarchicalStore&lt;Namespace&gt; store = request.getStore();
+		socket = store.computeIfAbsent(Namespace.GLOBAL, "serverSocket", key -&gt; {
+			try {
+				return new ServerSocket(0, 50, getLoopbackAddress());
+			}
+			catch (IOException e) {
+				throw new UncheckedIOException("Failed to start ServerSocket", e);
+			}
+		}, ServerSocket.class);
+
+		request.getEngineExecutionListener()
+				.executionFinished(request.getRootTestDescriptor(), successful());
+	}
+
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+In this case, the <code>ServerSocket</code> can be stored directly in the global store while
+ensuring since it gets closed because it implements <code>AutoCloseable</code>. If you need to use a
+type that does not do so, you can wrap it in a custom class that implements
+<code>AutoCloseable</code> and delegates to the original type. This is important to ensure that the
+resource is closed properly when the test run is finished.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>For illustration, the following test verifies that both engines are sharing the same
+<code>ServerSocket</code> instance and that it&#8217;s closed after <code>Launcher.execute()</code> returns:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Test
+void runBothCustomEnginesTest() {
+	FirstCustomEngine firstCustomEngine = new FirstCustomEngine();
+	SecondCustomEngine secondCustomEngine = new SecondCustomEngine();
+
+	LauncherConfig launcherConfig = LauncherConfig.builder()
+			.addTestEngines(firstCustomEngine, secondCustomEngine)
+			.enableTestEngineAutoRegistration(false)
+			.build();
+
+	LauncherDiscoveryRequest discoveryRequest = discoveryRequest()
+			.selectors(selectPackage("com.example.mytests"))
+			.build();
+
+	Launcher launcher = LauncherFactory.create(launcherConfig);
+	launcher.execute(discoveryRequest);
+
+	assertSame(firstCustomEngine.getSocket(), secondCustomEngine.getSocket());
+	assertTrue(firstCustomEngine.getSocket().isClosed(), "socket should be closed");
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>By using the Platform&#8217;s <code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/support/store/NamespacedHierarchicalStore.html" class="xref attachment">NamespacedHierarchicalStore</a></code> API with shared namespaces in this
+way, test engines can coordinate resource creation and sharing without direct dependencies
+between them.</p>
+</div>
+<div class="paragraph">
+<p>Alternatively, it&#8217;s possible to inject resources into test engines by
+<a href="#launcher-session-listeners-custom">registering a <code>LauncherSessionListener</code></a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="launcher-cancellation"><a class="anchor" href="#launcher-cancellation"></a>Cancelling a Running Test Execution</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The launcher API provides the ability to cancel a running test execution mid-flight while
+allowing engines to clean up resources. To request an execution to be cancelled, you need
+to call <code>cancel()</code> on the <code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/CancellationToken.html" class="xref attachment">CancellationToken</a></code> that is passed to <code>Launcher.execute</code> as
+part of the <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/LauncherExecutionRequest.html" class="xref attachment">LauncherExecutionRequest</a></code>.</p>
+</div>
+<div class="paragraph">
+<p>For example, implementing a listener that cancels test execution after the first test
+failed can be achieved as follows.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">CancellationToken cancellationToken = CancellationToken.create(); <i class="conum" data-value="1"></i><b>(1)</b>
+
+TestExecutionListener failFastListener = new TestExecutionListener() {
+	@Override
+	public void executionFinished(TestIdentifier identifier, TestExecutionResult result) {
+		if (result.getStatus() == FAILED) {
+			cancellationToken.cancel(); <i class="conum" data-value="2"></i><b>(2)</b>
+		}
+	}
+};
+
+LauncherExecutionRequest executionRequest = LauncherDiscoveryRequestBuilder.request()
+		.selectors(selectClass(MyTestClass.class))
+		.forExecution()
+		.cancellationToken(cancellationToken) <i class="conum" data-value="3"></i><b>(3)</b>
+		.listeners(failFastListener) <i class="conum" data-value="4"></i><b>(4)</b>
+		.build();
+
+try (LauncherSession session = LauncherFactory.openSession()) {
+	session.getLauncher().execute(executionRequest); <i class="conum" data-value="5"></i><b>(5)</b>
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Create a <code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/CancellationToken.html" class="xref attachment">CancellationToken</a></code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Implement a <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/TestExecutionListener.html" class="xref attachment">TestExecutionListener</a></code> that calls <code>cancel()</code> when a test fails</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Register the cancellation token</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Register the listener</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Pass the <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/LauncherExecutionRequest.html" class="xref attachment">LauncherExecutionRequest</a></code> to <code>Launcher.execute</code></td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title">Test Engine Support for Cancellation</div>
+<div class="paragraph">
+<p>Cancelling tests relies on <a href="engines.html" class="xref page">Test Engines</a> checking and responding to the
+<code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/CancellationToken.html" class="xref attachment">CancellationToken</a></code> appropriately (see
+<a href="engines.html#requirements-cancellation" class="xref page">Test Engine Requirements</a> for details). The
+<code>Launcher</code> will also check the token and cancel test execution when multiple test engines
+are present at runtime.</p>
+</div>
+<div class="paragraph">
+<p>At the time of writing, the following test engines support cancellation:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code><a href="../api/org.junit.jupiter.engine/org/junit/jupiter/engine/package-summary.html" class="xref attachment">junit-jupiter-engine</a></code></p>
+</li>
+<li>
+<p><code><a href="../api/org.junit.vintage.engine/org/junit/vintage/engine/package-summary.html" class="xref attachment">junit-vintage-engine</a></code></p>
+</li>
+<li>
+<p><code><a href="../api/org.junit.platform.suite.engine/org/junit/platform/suite/engine/package-summary.html" class="xref attachment">junit-platform-suite-engine</a></code></p>
+</li>
+<li>
+<p><a href="https://github.com/junit-team/testng-engine"><code>testng-engine</code></a> (version 1.1.0 and later)</p>
+</li>
+<li>
+<p>Any <code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/TestEngine.html" class="xref attachment">TestEngine</a></code> extending <code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/HierarchicalTestEngine.html" class="xref attachment">HierarchicalTestEngine</a></code> such as Spock and Cucumber</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="launcher-cancellation-execution-request-from-discovery-request"><a class="anchor" href="#launcher-cancellation-execution-request-from-discovery-request"></a>Building a LauncherExecutionRequest from a LauncherDiscoveryRequest</h3>
+<div class="paragraph">
+<p>Rather than building a <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/LauncherExecutionRequest.html" class="xref attachment">LauncherExecutionRequest</a></code> by starting with a
+<code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherDiscoveryRequestBuilder.html" class="xref attachment">LauncherDiscoveryRequestBuilder</a></code> and calling <code>forExecution()</code>, you can create a
+<code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherExecutionRequestBuilder.html" class="xref attachment">LauncherExecutionRequestBuilder</a></code> from a previously built <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/LauncherDiscoveryRequest.html" class="xref attachment">LauncherDiscoveryRequest</a></code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">LauncherDiscoveryRequest discoveryRequest = LauncherDiscoveryRequestBuilder.request()
+		.selectors(selectClass(MyTestClass.class))
+		.build(); <i class="conum" data-value="1"></i><b>(1)</b>
+
+LauncherExecutionRequest executionRequest = LauncherExecutionRequestBuilder.request(discoveryRequest) <i class="conum" data-value="2"></i><b>(2)</b>
+		.cancellationToken(cancellationToken) <i class="conum" data-value="3"></i><b>(3)</b>
+		.listeners(failFastListener) <i class="conum" data-value="4"></i><b>(4)</b>
+		.build();
+
+try (LauncherSession session = LauncherFactory.openSession()) {
+	session.getLauncher().execute(executionRequest); <i class="conum" data-value="5"></i><b>(5)</b>
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Build a <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/LauncherDiscoveryRequest.html" class="xref attachment">LauncherDiscoveryRequest</a></code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Create a <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherExecutionRequestBuilder.html" class="xref attachment">LauncherExecutionRequestBuilder</a></code> with it</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Register the cancellation token</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Register the listener</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Pass the <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/LauncherExecutionRequest.html" class="xref attachment">LauncherExecutionRequest</a></code> to <code>Launcher.execute</code></td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="launcher-cancellation-execution-request-from-test-plan"><a class="anchor" href="#launcher-cancellation-execution-request-from-test-plan"></a>Building a LauncherExecutionRequest from a TestPlan</h3>
+<div class="paragraph">
+<p>Alternatively, a <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherExecutionRequestBuilder.html" class="xref attachment">LauncherExecutionRequestBuilder</a></code> can be created from a previously
+discovered <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/TestPlan.html" class="xref attachment">TestPlan</a></code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">LauncherDiscoveryRequest discoveryRequest = LauncherDiscoveryRequestBuilder.request()
+		.selectors(selectClass(MyTestClass.class))
+		.build(); <i class="conum" data-value="1"></i><b>(1)</b>
+
+try (LauncherSession session = LauncherFactory.openSession()) {
+	var launcher = session.getLauncher();
+	TestPlan testPlan = launcher.discover(discoveryRequest); <i class="conum" data-value="2"></i><b>(2)</b>
+	LauncherExecutionRequest executionRequest = LauncherExecutionRequestBuilder.request(testPlan) <i class="conum" data-value="3"></i><b>(3)</b>
+			.cancellationToken(cancellationToken) <i class="conum" data-value="4"></i><b>(4)</b>
+			.listeners(failFastListener) <i class="conum" data-value="5"></i><b>(5)</b>
+			.build();
+	launcher.execute(executionRequest); <i class="conum" data-value="6"></i><b>(6)</b>
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Build a <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/LauncherDiscoveryRequest.html" class="xref attachment">LauncherDiscoveryRequest</a></code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Discover a <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/TestPlan.html" class="xref attachment">TestPlan</a></code> via <code>Launcher.discover</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Create a <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherExecutionRequestBuilder.html" class="xref attachment">LauncherExecutionRequestBuilder</a></code> with it</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Register the cancellation token</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Register the listener</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>Pass the <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/LauncherExecutionRequest.html" class="xref attachment">LauncherExecutionRequest</a></code> to <code>Launcher.execute</code></td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="testkit.html">JUnit Platform Test Kit</a></span>
+  <span class="next"><a href="engines.html">Test Engines</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+    <p>
+        &copy; Copyright 2015-2026 the original author or authors.
+        All rights reserved.
+        The content of this page is made available under the terms of the <a href="https://www.eclipse.org/legal/epl-v20.html">Eclipse Public License v2.0</a>.
+    </p>
+    <p>
+        This page was built using an adapted version of the Antora default UI.
+        The source code for this UI is licensed under the terms of the <a href="https://www.mozilla.org/en-US/MPL/2.0/">Mozilla Public License v2.0</a>.
+    </p>
+    <p>
+        Built and hosted on <a href="https://statichost.eu">statichost.eu</a>.
+    </p>
+</footer>
+<script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script async src="../../_/js/vendor/tabs.js" data-sync-storage-key="preferred-code-language"></script>
+<script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="100" data-stylesheet="../../_/css/search.css"></script>
+<script async src="../../search-index.js"></script>
+  </body>
+</html>
