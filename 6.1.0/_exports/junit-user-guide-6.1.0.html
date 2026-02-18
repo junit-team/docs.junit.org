@@ -17029,6 +17029,26 @@ since such APIs will likely be removed in an upcoming release.</p>
 </tr>
 </tbody>
 </table>
+<h4 id="api-evolution:::module-org-junit-jupiter-engine" class="discrete">Module org.junit.jupiter.engine</h4>
+<h5 id="api-evolution:::package-org-junit-jupiter-engine" class="discrete">Package org.junit.jupiter.engine</h5>
+<table class="tableblock frame-none grid-rows stripes-odd stretch">
+<colgroup>
+<col style="width: 99%;">
+<col style="width: 1%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Since</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Constants</code> <em>(class)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.1</code></p></td>
+</tr>
+</tbody>
+</table>
 <h4 id="api-evolution:::module-org-junit-jupiter-migrationsupport" class="discrete">Module org.junit.jupiter.migrationsupport</h4>
 <h5 id="api-evolution:::package-org-junit-jupiter-migrationsupport" class="discrete">Package org.junit.jupiter.migrationsupport</h5>
 <table class="tableblock frame-none grid-rows stripes-odd stretch">
@@ -17543,6 +17563,10 @@ annotation attributes of <code><a href="attachment$api/org.junit.jupiter.api/org
 and <code><a href="attachment$api/org.junit.jupiter.api/org/junit/jupiter/api/condition/DisabledForJreRange.html">@DisabledForJreRange</a></code> which allow referencing JRE versions later than those
 supported by the <code>JRE</code> enum.</p>
 </li>
+<li>
+<p>The <code>org.junit.jupiter.engine.Constants</code> class and its constants are now deprecated in
+favor <code>org.junit.jupiter.api.Constants</code>.</p>
+</li>
 </ul>
 </div>
 <h5 id="release-notes:::v6.1.0-M2-junit-jupiter-new-features-and-improvements" class="discrete 1 0-M2-junit-jupiter-new-features-and-improvements">New Features and Improvements</h5>
@@ -17603,6 +17627,10 @@ conversion algorithm.</p>
 in <code>@ParameterizedTest</code> methods when <code>kotlin-reflect</code> is on the classpath. Note,
 however, that primitive-wrapper inline value classes (such as <code>UInt</code> or custom value
 classes wrapping primitives) are not yet supported.</p>
+</li>
+<li>
+<p>The new <code>org.junit.jupiter.api.Constants</code> class now provides for constants for
+<a href="#running-tests-configuration-parameters">Configuration Parameters</a> specific to the Jupiter engine.</p>
 </li>
 </ul>
 </div>

@@ -84,72 +84,134 @@ tests or containers based on packages.</div>
 <dt><a href="../org.junit.vintage.engine/org/junit/vintage/engine/Constants.html#PARALLEL_CLASS_EXECUTION" class="member-name-link">PARALLEL_CLASS_EXECUTION</a> - Static variable in class org.junit.vintage.engine.<a href="../org.junit.vintage.engine/org/junit/vintage/engine/Constants.html" title="class in org.junit.vintage.engine">Constants</a></dt>
 <dd>
 <div class="deprecation-block"><span class="deprecated-label">Deprecated.</span></div>
-<div class="block">Indicates whether parallel execution is enabled for test classes in the
-JUnit Vintage engine.</div>
+<div class="block">Property name used to indicate whether parallel execution is enabled for test classes in the
+JUnit Vintage engine: "junit.vintage.execution.parallel.classes"</div>
+</dd>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/Constants.html#PARALLEL_CONFIG_CUSTOM_CLASS_PROPERTY_NAME" class="member-name-link">PARALLEL_CONFIG_CUSTOM_CLASS_PROPERTY_NAME</a> - Static variable in class org.junit.jupiter.api.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/Constants.html" title="class in org.junit.jupiter.api">Constants</a></dt>
+<dd>
+<div class="block">Property name used to specify the fully qualified class name of the
+<code>custom</code> parallel execution configuration strategy to be used:
+"junit.jupiter.execution.parallel.config.custom.class"</div>
 </dd>
 <dt><a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/Constants.html#PARALLEL_CONFIG_CUSTOM_CLASS_PROPERTY_NAME" class="member-name-link">PARALLEL_CONFIG_CUSTOM_CLASS_PROPERTY_NAME</a> - Static variable in class org.junit.jupiter.engine.<a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/Constants.html" title="class in org.junit.jupiter.engine">Constants</a></dt>
 <dd>
-<div class="block">Property name used to specify the fully qualified class name of the
-<a href="../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/ParallelExecutionConfigurationStrategy.html" title="interface in org.junit.platform.engine.support.hierarchical"><code>ParallelExecutionConfigurationStrategy</code></a> to be used for the
-<code>custom</code> configuration strategy: "junit.jupiter.execution.parallel.config.custom.class"</div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
+<div class="deprecation-comment">Please use
+<a href="../org.junit.jupiter.api/org/junit/jupiter/api/Constants.html#PARALLEL_CONFIG_CUSTOM_CLASS_PROPERTY_NAME"><code>Constants.PARALLEL_CONFIG_CUSTOM_CLASS_PROPERTY_NAME</code></a>
+instead.</div>
+</div>
 </dd>
-<dt><a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/Constants.html#PARALLEL_CONFIG_DYNAMIC_FACTOR_PROPERTY_NAME" class="member-name-link">PARALLEL_CONFIG_DYNAMIC_FACTOR_PROPERTY_NAME</a> - Static variable in class org.junit.jupiter.engine.<a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/Constants.html" title="class in org.junit.jupiter.engine">Constants</a></dt>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/Constants.html#PARALLEL_CONFIG_DYNAMIC_FACTOR_PROPERTY_NAME" class="member-name-link">PARALLEL_CONFIG_DYNAMIC_FACTOR_PROPERTY_NAME</a> - Static variable in class org.junit.jupiter.api.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/Constants.html" title="class in org.junit.jupiter.api">Constants</a></dt>
 <dd>
 <div class="block">Property name used to set the factor to be multiplied with the number of
 available processors/cores to determine the desired parallelism for the
 <code>dynamic</code> configuration strategy: "junit.jupiter.execution.parallel.config.dynamic.factor"</div>
 </dd>
-<dt><a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/config/JupiterConfiguration.html#PARALLEL_CONFIG_EXECUTOR_SERVICE_PROPERTY_NAME" class="member-name-link">PARALLEL_CONFIG_EXECUTOR_SERVICE_PROPERTY_NAME</a> - Static variable in interface org.junit.jupiter.engine.config.<a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/config/JupiterConfiguration.html" title="interface in org.junit.jupiter.engine.config">JupiterConfiguration</a></dt>
-<dd>&nbsp;</dd>
+<dt><a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/Constants.html#PARALLEL_CONFIG_DYNAMIC_FACTOR_PROPERTY_NAME" class="member-name-link">PARALLEL_CONFIG_DYNAMIC_FACTOR_PROPERTY_NAME</a> - Static variable in class org.junit.jupiter.engine.<a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/Constants.html" title="class in org.junit.jupiter.engine">Constants</a></dt>
+<dd>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
+<div class="deprecation-comment">Please use
+<a href="../org.junit.jupiter.api/org/junit/jupiter/api/Constants.html#PARALLEL_CONFIG_DYNAMIC_FACTOR_PROPERTY_NAME"><code>Constants.PARALLEL_CONFIG_DYNAMIC_FACTOR_PROPERTY_NAME</code></a>
+instead.</div>
+</div>
+</dd>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/Constants.html#PARALLEL_CONFIG_EXECUTOR_SERVICE_PROPERTY_NAME" class="member-name-link">PARALLEL_CONFIG_EXECUTOR_SERVICE_PROPERTY_NAME</a> - Static variable in class org.junit.jupiter.api.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/Constants.html" title="class in org.junit.jupiter.api">Constants</a></dt>
+<dd>
+<div class="block">Property name used to determine the desired parallel executor service
+type: "junit.jupiter.execution.parallel.config.executor-service"</div>
+</dd>
 <dt><a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/Constants.html#PARALLEL_CONFIG_EXECUTOR_SERVICE_PROPERTY_NAME" class="member-name-link">PARALLEL_CONFIG_EXECUTOR_SERVICE_PROPERTY_NAME</a> - Static variable in class org.junit.jupiter.engine.<a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/Constants.html" title="class in org.junit.jupiter.engine">Constants</a></dt>
 <dd>
-<div class="block">Property name used to determine the desired
-<a href="../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/ParallelHierarchicalTestExecutorServiceFactory.ParallelExecutorServiceType.html" title="enum class in org.junit.platform.engine.support.hierarchical"><code>ParallelExecutorServiceType</code></a>:
-"junit.jupiter.execution.parallel.config.executor-service"</div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
+<div class="deprecation-comment">Please use
+<a href="../org.junit.jupiter.api/org/junit/jupiter/api/Constants.html#PARALLEL_CONFIG_EXECUTOR_SERVICE_PROPERTY_NAME"><code>Constants.PARALLEL_CONFIG_EXECUTOR_SERVICE_PROPERTY_NAME</code></a>
+instead.</div>
+</div>
 </dd>
-<dt><a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/Constants.html#PARALLEL_CONFIG_FIXED_MAX_POOL_SIZE_PROPERTY_NAME" class="member-name-link">PARALLEL_CONFIG_FIXED_MAX_POOL_SIZE_PROPERTY_NAME</a> - Static variable in class org.junit.jupiter.engine.<a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/Constants.html" title="class in org.junit.jupiter.engine">Constants</a></dt>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/Constants.html#PARALLEL_CONFIG_FIXED_MAX_POOL_SIZE_PROPERTY_NAME" class="member-name-link">PARALLEL_CONFIG_FIXED_MAX_POOL_SIZE_PROPERTY_NAME</a> - Static variable in class org.junit.jupiter.api.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/Constants.html" title="class in org.junit.jupiter.api">Constants</a></dt>
 <dd>
 <div class="block">Property name used to configure the maximum pool size of the underlying
 fork-join pool for the <code>fixed</code> configuration strategy: "junit.jupiter.execution.parallel.config.fixed.max-pool-size"</div>
 </dd>
-<dt><a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/Constants.html#PARALLEL_CONFIG_FIXED_PARALLELISM_PROPERTY_NAME" class="member-name-link">PARALLEL_CONFIG_FIXED_PARALLELISM_PROPERTY_NAME</a> - Static variable in class org.junit.jupiter.engine.<a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/Constants.html" title="class in org.junit.jupiter.engine">Constants</a></dt>
+<dt><a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/Constants.html#PARALLEL_CONFIG_FIXED_MAX_POOL_SIZE_PROPERTY_NAME" class="member-name-link">PARALLEL_CONFIG_FIXED_MAX_POOL_SIZE_PROPERTY_NAME</a> - Static variable in class org.junit.jupiter.engine.<a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/Constants.html" title="class in org.junit.jupiter.engine">Constants</a></dt>
+<dd>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
+<div class="deprecation-comment">Please use
+<a href="../org.junit.jupiter.api/org/junit/jupiter/api/Constants.html#PARALLEL_CONFIG_FIXED_MAX_POOL_SIZE_PROPERTY_NAME"><code>Constants.PARALLEL_CONFIG_FIXED_MAX_POOL_SIZE_PROPERTY_NAME</code></a>
+instead.</div>
+</div>
+</dd>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/Constants.html#PARALLEL_CONFIG_FIXED_PARALLELISM_PROPERTY_NAME" class="member-name-link">PARALLEL_CONFIG_FIXED_PARALLELISM_PROPERTY_NAME</a> - Static variable in class org.junit.jupiter.api.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/Constants.html" title="class in org.junit.jupiter.api">Constants</a></dt>
 <dd>
 <div class="block">Property name used to set the desired parallelism for the <code>fixed</code>
 configuration strategy: "junit.jupiter.execution.parallel.config.fixed.parallelism"</div>
 </dd>
-<dt><a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/Constants.html#PARALLEL_CONFIG_FIXED_SATURATE_PROPERTY_NAME" class="member-name-link">PARALLEL_CONFIG_FIXED_SATURATE_PROPERTY_NAME</a> - Static variable in class org.junit.jupiter.engine.<a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/Constants.html" title="class in org.junit.jupiter.engine">Constants</a></dt>
+<dt><a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/Constants.html#PARALLEL_CONFIG_FIXED_PARALLELISM_PROPERTY_NAME" class="member-name-link">PARALLEL_CONFIG_FIXED_PARALLELISM_PROPERTY_NAME</a> - Static variable in class org.junit.jupiter.engine.<a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/Constants.html" title="class in org.junit.jupiter.engine">Constants</a></dt>
+<dd>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
+<div class="deprecation-comment">Please use
+<a href="../org.junit.jupiter.api/org/junit/jupiter/api/Constants.html#PARALLEL_CONFIG_FIXED_PARALLELISM_PROPERTY_NAME"><code>Constants.PARALLEL_CONFIG_FIXED_PARALLELISM_PROPERTY_NAME</code></a>
+instead.</div>
+</div>
+</dd>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/Constants.html#PARALLEL_CONFIG_FIXED_SATURATE_PROPERTY_NAME" class="member-name-link">PARALLEL_CONFIG_FIXED_SATURATE_PROPERTY_NAME</a> - Static variable in class org.junit.jupiter.api.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/Constants.html" title="class in org.junit.jupiter.api">Constants</a></dt>
 <dd>
 <div class="block">Property name used to disable saturation of the underlying fork-join pool
 for the <code>fixed</code> configuration strategy: "junit.jupiter.execution.parallel.config.fixed.saturate"</div>
 </dd>
-<dt><a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/config/JupiterConfiguration.html#PARALLEL_CONFIG_PREFIX" class="member-name-link">PARALLEL_CONFIG_PREFIX</a> - Static variable in interface org.junit.jupiter.engine.config.<a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/config/JupiterConfiguration.html" title="interface in org.junit.jupiter.engine.config">JupiterConfiguration</a></dt>
-<dd>&nbsp;</dd>
+<dt><a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/Constants.html#PARALLEL_CONFIG_FIXED_SATURATE_PROPERTY_NAME" class="member-name-link">PARALLEL_CONFIG_FIXED_SATURATE_PROPERTY_NAME</a> - Static variable in class org.junit.jupiter.engine.<a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/Constants.html" title="class in org.junit.jupiter.engine">Constants</a></dt>
+<dd>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
+<div class="deprecation-comment">Please use
+<a href="../org.junit.jupiter.api/org/junit/jupiter/api/Constants.html#PARALLEL_CONFIG_FIXED_SATURATE_PROPERTY_NAME"><code>Constants.PARALLEL_CONFIG_FIXED_SATURATE_PROPERTY_NAME</code></a>
+instead.</div>
+</div>
+</dd>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/Constants.html#PARALLEL_CONFIG_PREFIX" class="member-name-link">PARALLEL_CONFIG_PREFIX</a> - Static variable in class org.junit.jupiter.api.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/Constants.html" title="class in org.junit.jupiter.api">Constants</a></dt>
+<dd>
+<div class="block">Internal prefix for all configuration parameters concerning parallel test
+execution.</div>
+</dd>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/Constants.html#PARALLEL_CONFIG_STRATEGY_PROPERTY_NAME" class="member-name-link">PARALLEL_CONFIG_STRATEGY_PROPERTY_NAME</a> - Static variable in class org.junit.jupiter.api.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/Constants.html" title="class in org.junit.jupiter.api">Constants</a></dt>
+<dd>
+<div class="block">Property name used to select the parallel execution configuration
+strategy: "junit.jupiter.execution.parallel.config.strategy"</div>
+</dd>
 <dt><a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/Constants.html#PARALLEL_CONFIG_STRATEGY_PROPERTY_NAME" class="member-name-link">PARALLEL_CONFIG_STRATEGY_PROPERTY_NAME</a> - Static variable in class org.junit.jupiter.engine.<a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/Constants.html" title="class in org.junit.jupiter.engine">Constants</a></dt>
 <dd>
-<div class="block">Property name used to select the
-<a href="../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/ParallelExecutionConfigurationStrategy.html" title="interface in org.junit.platform.engine.support.hierarchical"><code>ParallelExecutionConfigurationStrategy</code></a>: "junit.jupiter.execution.parallel.config.strategy"</div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
+<div class="deprecation-comment">Please use
+<a href="../org.junit.jupiter.api/org/junit/jupiter/api/Constants.html#PARALLEL_CONFIG_STRATEGY_PROPERTY_NAME"><code>Constants.PARALLEL_CONFIG_STRATEGY_PROPERTY_NAME</code></a>
+instead.</div>
+</div>
 </dd>
 <dt><a href="../org.junit.vintage.engine/org/junit/vintage/engine/Constants.html#PARALLEL_EXECUTION_ENABLED" class="member-name-link">PARALLEL_EXECUTION_ENABLED</a> - Static variable in class org.junit.vintage.engine.<a href="../org.junit.vintage.engine/org/junit/vintage/engine/Constants.html" title="class in org.junit.vintage.engine">Constants</a></dt>
 <dd>
 <div class="deprecation-block"><span class="deprecated-label">Deprecated.</span></div>
-<div class="block">Indicates whether parallel execution is enabled for the JUnit Vintage engine.</div>
+<div class="block">Property name used to indicate whether parallel execution is enabled for the JUnit Vintage engine: "junit.vintage.execution.parallel.enabled"</div>
 </dd>
-<dt><a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/config/JupiterConfiguration.html#PARALLEL_EXECUTION_ENABLED_PROPERTY_NAME" class="member-name-link">PARALLEL_EXECUTION_ENABLED_PROPERTY_NAME</a> - Static variable in interface org.junit.jupiter.engine.config.<a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/config/JupiterConfiguration.html" title="interface in org.junit.jupiter.engine.config">JupiterConfiguration</a></dt>
-<dd>&nbsp;</dd>
-<dt><a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/Constants.html#PARALLEL_EXECUTION_ENABLED_PROPERTY_NAME" class="member-name-link">PARALLEL_EXECUTION_ENABLED_PROPERTY_NAME</a> - Static variable in class org.junit.jupiter.engine.<a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/Constants.html" title="class in org.junit.jupiter.engine">Constants</a></dt>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/Constants.html#PARALLEL_EXECUTION_ENABLED_PROPERTY_NAME" class="member-name-link">PARALLEL_EXECUTION_ENABLED_PROPERTY_NAME</a> - Static variable in class org.junit.jupiter.api.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/Constants.html" title="class in org.junit.jupiter.api">Constants</a></dt>
 <dd>
 <div class="block">Property name used to enable parallel test execution: "junit.jupiter.execution.parallel.enabled"</div>
+</dd>
+<dt><a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/Constants.html#PARALLEL_EXECUTION_ENABLED_PROPERTY_NAME" class="member-name-link">PARALLEL_EXECUTION_ENABLED_PROPERTY_NAME</a> - Static variable in class org.junit.jupiter.engine.<a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/Constants.html" title="class in org.junit.jupiter.engine">Constants</a></dt>
+<dd>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
+<div class="deprecation-comment">Please use
+<a href="../org.junit.jupiter.api/org/junit/jupiter/api/Constants.html#PARALLEL_EXECUTION_ENABLED_PROPERTY_NAME"><code>Constants.PARALLEL_EXECUTION_ENABLED_PROPERTY_NAME</code></a>
+instead.</div>
+</div>
 </dd>
 <dt><a href="../org.junit.vintage.engine/org/junit/vintage/engine/Constants.html#PARALLEL_METHOD_EXECUTION" class="member-name-link">PARALLEL_METHOD_EXECUTION</a> - Static variable in class org.junit.vintage.engine.<a href="../org.junit.vintage.engine/org/junit/vintage/engine/Constants.html" title="class in org.junit.vintage.engine">Constants</a></dt>
 <dd>
 <div class="deprecation-block"><span class="deprecated-label">Deprecated.</span></div>
-<div class="block">Indicates whether parallel execution is enabled for test methods in the
-JUnit Vintage engine.</div>
+<div class="block">Property name used to indicate whether parallel execution is enabled for test methods in the
+JUnit Vintage engine: "junit.vintage.execution.parallel.methods"</div>
 </dd>
 <dt><a href="../org.junit.vintage.engine/org/junit/vintage/engine/Constants.html#PARALLEL_POOL_SIZE" class="member-name-link">PARALLEL_POOL_SIZE</a> - Static variable in class org.junit.vintage.engine.<a href="../org.junit.vintage.engine/org/junit/vintage/engine/Constants.html" title="class in org.junit.vintage.engine">Constants</a></dt>
 <dd>
 <div class="deprecation-block"><span class="deprecated-label">Deprecated.</span></div>
-<div class="block">Specifies the size of the thread pool to be used for parallel execution.</div>
+<div class="block">Property name used to specify the size of the thread pool to be used for parallel execution: "junit.vintage.execution.parallel.pool-size"</div>
 </dd>
 <dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/TestInstance.html#parallel-execution-heading" class="search-tag-link">Parallel Execution</a> - Section in annotation interface org.junit.jupiter.api.TestInstance</dt>
 <dd>&nbsp;</dd>
@@ -364,6 +426,12 @@ expression string</em>.</div>
 <dd>
 <div class="block">Factory for creating a partial match with potential children.</div>
 </dd>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/Constants.html#pattern-matching-syntax-heading2" class="search-tag-link">Pattern Matching Syntax</a> - Section in org.junit.jupiter.api.Constants.DEACTIVATE_CONDITIONS_PATTERN_PROPERTY_NAME</dt>
+<dd>&nbsp;</dd>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/Constants.html#pattern-matching-syntax-heading1" class="search-tag-link">Pattern Matching Syntax</a> - Section in org.junit.jupiter.api.Constants.EXTENSIONS_AUTODETECTION_EXCLUDE_PROPERTY_NAME</dt>
+<dd>&nbsp;</dd>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/Constants.html#pattern-matching-syntax-heading" class="search-tag-link">Pattern Matching Syntax</a> - Section in org.junit.jupiter.api.Constants.EXTENSIONS_AUTODETECTION_INCLUDE_PROPERTY_NAME</dt>
+<dd>&nbsp;</dd>
 <dt><a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/Constants.html#pattern-matching-syntax-heading2" class="search-tag-link">Pattern Matching Syntax</a> - Section in org.junit.jupiter.engine.Constants.DEACTIVATE_CONDITIONS_PATTERN_PROPERTY_NAME</dt>
 <dd>&nbsp;</dd>
 <dt><a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/Constants.html#pattern-matching-syntax-heading1" class="search-tag-link">Pattern Matching Syntax</a> - Section in org.junit.jupiter.engine.Constants.EXTENSIONS_AUTODETECTION_EXCLUDE_PROPERTY_NAME</dt>

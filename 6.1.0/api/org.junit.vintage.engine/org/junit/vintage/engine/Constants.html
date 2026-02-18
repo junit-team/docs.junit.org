@@ -112,33 +112,33 @@ Jupiter or another testing framework with native JUnit Platform support</div>
 <div class="col-last even-row-color">
 <div class="block"><span class="deprecated-label">Deprecated.</span></div>
 <div class="block">Property name used to configure whether the JUnit Vintage engine should
-report discovery issues such as deprecation notices.</div>
+report discovery issues such as deprecation notices: "junit.vintage.discovery.issue.reporting.enabled"</div>
 </div>
 <div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color"><code><a href="#PARALLEL_CLASS_EXECUTION" class="member-name-link">PARALLEL_CLASS_EXECUTION</a></code></div>
 <div class="col-last odd-row-color">
 <div class="block"><span class="deprecated-label">Deprecated.</span></div>
-<div class="block">Indicates whether parallel execution is enabled for test classes in the
-JUnit Vintage engine.</div>
+<div class="block">Property name used to indicate whether parallel execution is enabled for test classes in the
+JUnit Vintage engine: "junit.vintage.execution.parallel.classes"</div>
 </div>
 <div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color"><code><a href="#PARALLEL_EXECUTION_ENABLED" class="member-name-link">PARALLEL_EXECUTION_ENABLED</a></code></div>
 <div class="col-last even-row-color">
 <div class="block"><span class="deprecated-label">Deprecated.</span></div>
-<div class="block">Indicates whether parallel execution is enabled for the JUnit Vintage engine.</div>
+<div class="block">Property name used to indicate whether parallel execution is enabled for the JUnit Vintage engine: "junit.vintage.execution.parallel.enabled"</div>
 </div>
 <div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color"><code><a href="#PARALLEL_METHOD_EXECUTION" class="member-name-link">PARALLEL_METHOD_EXECUTION</a></code></div>
 <div class="col-last odd-row-color">
 <div class="block"><span class="deprecated-label">Deprecated.</span></div>
-<div class="block">Indicates whether parallel execution is enabled for test methods in the
-JUnit Vintage engine.</div>
+<div class="block">Property name used to indicate whether parallel execution is enabled for test methods in the
+JUnit Vintage engine: "junit.vintage.execution.parallel.methods"</div>
 </div>
 <div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color"><code><a href="#PARALLEL_POOL_SIZE" class="member-name-link">PARALLEL_POOL_SIZE</a></code></div>
 <div class="col-last even-row-color">
 <div class="block"><span class="deprecated-label">Deprecated.</span></div>
-<div class="block">Specifies the size of the thread pool to be used for parallel execution.</div>
+<div class="block">Property name used to specify the size of the thread pool to be used for parallel execution: "junit.vintage.execution.parallel.pool-size"</div>
 </div>
 </div>
 </section>
@@ -169,7 +169,7 @@ JUnit Vintage engine.</div>
      <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="5.13.3")
 </span><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">PARALLEL_EXECUTION_ENABLED</span></div>
 <div class="deprecation-block"><span class="deprecated-label">Deprecated.</span></div>
-<div class="block">Indicates whether parallel execution is enabled for the JUnit Vintage engine.
+<div class="block">Property name used to indicate whether parallel execution is enabled for the JUnit Vintage engine: "junit.vintage.execution.parallel.enabled"
 
 <p>Set this property to <code>true</code> to enable parallel execution of tests.
 Defaults to <code>false</code>.</div>
@@ -194,7 +194,7 @@ Defaults to <code>false</code>.</div>
      <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="5.13.3")
 </span><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">PARALLEL_POOL_SIZE</span></div>
 <div class="deprecation-block"><span class="deprecated-label">Deprecated.</span></div>
-<div class="block">Specifies the size of the thread pool to be used for parallel execution.
+<div class="block">Property name used to specify the size of the thread pool to be used for parallel execution: "junit.vintage.execution.parallel.pool-size"
 
 <p>Set this property to an integer value to specify the number of threads
 to be used for parallel execution. Defaults to the number of available
@@ -220,8 +220,8 @@ processors.</div>
      <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="5.13.3")
 </span><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">PARALLEL_CLASS_EXECUTION</span></div>
 <div class="deprecation-block"><span class="deprecated-label">Deprecated.</span></div>
-<div class="block">Indicates whether parallel execution is enabled for test classes in the
-JUnit Vintage engine.
+<div class="block">Property name used to indicate whether parallel execution is enabled for test classes in the
+JUnit Vintage engine: "junit.vintage.execution.parallel.classes"
 
 <p>Set this property to <code>true</code> to enable parallel execution of test
 classes. Defaults to <code>false</code>.</div>
@@ -246,8 +246,8 @@ classes. Defaults to <code>false</code>.</div>
      <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="5.13.3")
 </span><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">PARALLEL_METHOD_EXECUTION</span></div>
 <div class="deprecation-block"><span class="deprecated-label">Deprecated.</span></div>
-<div class="block">Indicates whether parallel execution is enabled for test methods in the
-JUnit Vintage engine.
+<div class="block">Property name used to indicate whether parallel execution is enabled for test methods in the
+JUnit Vintage engine: "junit.vintage.execution.parallel.methods"
 
 <p>Set this property to <code>true</code> to enable parallel execution of test
 methods. Defaults to <code>false</code>.</div>
@@ -273,7 +273,7 @@ methods. Defaults to <code>false</code>.</div>
 </span><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">DISCOVERY_ISSUE_REPORTING_ENABLED_PROPERTY_NAME</span></div>
 <div class="deprecation-block"><span class="deprecated-label">Deprecated.</span></div>
 <div class="block">Property name used to configure whether the JUnit Vintage engine should
-report discovery issues such as deprecation notices.
+report discovery issues such as deprecation notices: "junit.vintage.discovery.issue.reporting.enabled"
 
 <p>Set this property to <code>false</code> to disable reporting of discovery
 issues. Defaults to <code>true</code>.</div>
