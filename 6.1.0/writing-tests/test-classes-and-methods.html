@@ -440,8 +440,21 @@ lifecycle methods. For further information on runtime semantics, see
 <a href="test-execution-order.html" class="xref page">Test Execution Order</a> and
 <a href="../extensions/relative-execution-order-of-user-code-and-extensions.html#wrapping-behavior" class="xref page">Wrapping Behavior of Callbacks</a>.</p>
 </div>
+<div id="tabs-1" class="openblock tabs is-sync is-loading">
+<div class="title">A standard test class</div>
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-1-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-1-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-1-java--panel" class="tabpanel" aria-labelledby="tabs-1-java">
 <div class="listingblock">
-<div class="title">A standard Java test class</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static org.junit.jupiter.api.Assertions.fail;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
@@ -493,6 +506,66 @@ class StandardTests {
 	}
 
 }</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-1-kotlin--panel" class="tabpanel" aria-labelledby="tabs-1-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import org.junit.jupiter.api.AfterAll
+import org.junit.jupiter.api.AfterEach
+import org.junit.jupiter.api.Assumptions.assumeTrue
+import org.junit.jupiter.api.BeforeAll
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Disabled
+import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.fail
+
+class StandardTests {
+    @BeforeEach
+    fun init() {
+    }
+
+    @Test
+    fun succeedingTest() {
+    }
+
+    @Test
+    fun failingTest() {
+        fail("a failing test")
+    }
+
+    @Test
+    @Disabled("for demonstration purposes")
+    fun skippedTest() {
+        // not executed
+    }
+
+    @Test
+    fun abortedTest() {
+        assumeTrue("abc".contains("Z"))
+        fail("test should have been aborted")
+    }
+
+    @AfterEach
+    fun tearDown() {
+    }
+
+    companion object {
+        @JvmStatic
+        @BeforeAll
+        fun initAll() {
+        }
+
+        @JvmStatic
+        @AfterAll
+        fun tearDownAll() {
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="paragraph">

@@ -65,6 +65,9 @@ loadScripts(document, 'script');</script>
 <li><a href="#method-summary" tabindex="0">Method Summary</a></li>
 <li><a href="#method-detail" tabindex="0">Method Details</a>
 <ol class="toc-list">
+<li><a href="#getLegacyReportingName()" tabindex="0">getLegacyReportingName()</a></li>
+<li><a href="#getLegacyReportingBaseName()" tabindex="0">getLegacyReportingBaseName()</a></li>
+<li><a href="#getLegacyReportingIndex()" tabindex="0">getLegacyReportingIndex()</a></li>
 <li><a href="#getExecutionMode()" tabindex="0">getExecutionMode()</a></li>
 <li><a href="#toExecutionMode(org.junit.jupiter.api.parallel.ExecutionMode)" tabindex="0">toExecutionMode(ExecutionMode)</a></li>
 <li><a href="#getExclusiveResources()" tabindex="0">getExclusiveResources()</a></li>
@@ -165,24 +168,37 @@ required to execute this node.</div>
 <div class="block">Get the preferred of <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/Node.ExecutionMode.html" title="enum class in org.junit.platform.engine.support.hierarchical">execution mode</a> for
 parallel execution of this node.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>abstract <a href="../execution/JupiterEngineExecutionContext.html" title="class in org.junit.jupiter.engine.execution">JupiterEngineExecutionContext</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#prepare(org.junit.jupiter.engine.execution.JupiterEngineExecutionContext)" class="member-name-link">prepare</a><wbr>(<a href="../execution/JupiterEngineExecutionContext.html" title="class in org.junit.jupiter.engine.execution">JupiterEngineExecutionContext</a>&nbsp;context)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getLegacyReportingBaseName()" class="member-name-link">getLegacyReportingBaseName</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/OptionalInt.html" title="class or interface in java.util" class="external-link">OptionalInt</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getLegacyReportingIndex()" class="member-name-link">getLegacyReportingIndex</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getLegacyReportingName()" class="member-name-link">getLegacyReportingName</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Get the name of this descriptor in a format that is suitable for legacy
+reporting infrastructure &mdash; for example, for reporting systems built
+on the Ant-based XML reporting format for JUnit 4.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>abstract <a href="../execution/JupiterEngineExecutionContext.html" title="class in org.junit.jupiter.engine.execution">JupiterEngineExecutionContext</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#prepare(org.junit.jupiter.engine.execution.JupiterEngineExecutionContext)" class="member-name-link">prepare</a><wbr>(<a href="../execution/JupiterEngineExecutionContext.html" title="class in org.junit.jupiter.engine.execution">JupiterEngineExecutionContext</a>&nbsp;context)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Must be overridden and return a new context with a new <a href="../../../../../../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.html" title="interface in org.junit.jupiter.api.extension"><code>ExtensionContext</code></a>
 so cleanUp() does not accidentally close the parent context.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/Node.SkipResult.html" title="class in org.junit.platform.engine.support.hierarchical">Node.SkipResult</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldBeSkipped(org.junit.jupiter.engine.execution.JupiterEngineExecutionContext)" class="member-name-link">shouldBeSkipped</a><wbr>(<a href="../execution/JupiterEngineExecutionContext.html" title="class in org.junit.jupiter.engine.execution">JupiterEngineExecutionContext</a>&nbsp;context)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/Node.SkipResult.html" title="class in org.junit.platform.engine.support.hierarchical">Node.SkipResult</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldBeSkipped(org.junit.jupiter.engine.execution.JupiterEngineExecutionContext)" class="member-name-link">shouldBeSkipped</a><wbr>(<a href="../execution/JupiterEngineExecutionContext.html" title="class in org.junit.jupiter.engine.execution">JupiterEngineExecutionContext</a>&nbsp;context)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Determine if the execution of the supplied <code>context</code> should be
 <em>skipped</em>.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/Node.ExecutionMode.html" title="enum class in org.junit.platform.engine.support.hierarchical">Node.ExecutionMode</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#toExecutionMode(org.junit.jupiter.api.parallel.ExecutionMode)" class="member-name-link">toExecutionMode</a><wbr>(<a href="../../../../../../org.junit.jupiter.api/org/junit/jupiter/api/parallel/ExecutionMode.html" title="enum class in org.junit.jupiter.api.parallel">ExecutionMode</a>&nbsp;mode)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>protected abstract <a href="JupiterTestDescriptor.html" title="class in org.junit.jupiter.engine.descriptor">JupiterTestDescriptor</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#withUniqueId(java.util.function.UnaryOperator)" class="member-name-link">withUniqueId</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/UnaryOperator.html" title="class or interface in java.util.function" class="external-link">UnaryOperator</a>&lt;<a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/UniqueId.html" title="class in org.junit.platform.engine">UniqueId</a>&gt;&nbsp;uniqueIdTransformer)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/Node.ExecutionMode.html" title="enum class in org.junit.platform.engine.support.hierarchical">Node.ExecutionMode</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#toExecutionMode(org.junit.jupiter.api.parallel.ExecutionMode)" class="member-name-link">toExecutionMode</a><wbr>(<a href="../../../../../../org.junit.jupiter.api/org/junit/jupiter/api/parallel/ExecutionMode.html" title="enum class in org.junit.jupiter.api.parallel">ExecutionMode</a>&nbsp;mode)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>protected abstract <a href="JupiterTestDescriptor.html" title="class in org.junit.jupiter.engine.descriptor">JupiterTestDescriptor</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#withUniqueId(java.util.function.UnaryOperator)" class="member-name-link">withUniqueId</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/UnaryOperator.html" title="class or interface in java.util.function" class="external-link">UnaryOperator</a>&lt;<a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/UniqueId.html" title="class in org.junit.platform.engine">UniqueId</a>&gt;&nbsp;uniqueIdTransformer)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Returns shallow copy (without children) of this descriptor with the supplied unique ID.</div>
 </div>
 </div>
@@ -199,7 +215,7 @@ so cleanUp() does not accidentally close the parent context.</div>
 <code><a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/Node.html#after(C)" title="after(JupiterEngineExecutionContext)">after</a>, <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/Node.html#around(C,org.junit.platform.engine.support.hierarchical.Node.Invocation)" title="around(JupiterEngineExecutionContext, Node.Invocation)">around</a>, <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/Node.html#before(C)" title="before(JupiterEngineExecutionContext)">before</a>, <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/Node.html#execute(C,org.junit.platform.engine.support.hierarchical.Node.DynamicTestExecutor)" title="execute(JupiterEngineExecutionContext, Node.DynamicTestExecutor)">execute</a>, <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/Node.html#isGlobalReadLockRequired()" title="isGlobalReadLockRequired()">isGlobalReadLockRequired</a>, <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/Node.html#nodeFinished(C,org.junit.platform.engine.TestDescriptor,org.junit.platform.engine.TestExecutionResult)" title="nodeFinished(JupiterEngineExecutionContext, TestDescriptor, TestExecutionResult)">nodeFinished</a>, <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/Node.html#nodeSkipped(C,org.junit.platform.engine.TestDescriptor,org.junit.platform.engine.support.hierarchical.Node.SkipResult)" title="nodeSkipped(JupiterEngineExecutionContext, TestDescriptor, Node.SkipResult)">nodeSkipped</a></code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-org.junit.platform.engine.TestDescriptor">Methods inherited from interface&nbsp;<a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/TestDescriptor.html#method-summary" title="interface in org.junit.platform.engine">TestDescriptor</a></h3>
-<code><a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/TestDescriptor.html#accept(org.junit.platform.engine.TestDescriptor.Visitor)" title="accept(TestDescriptor.Visitor)">accept</a>, <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/TestDescriptor.html#getAncestors()" title="getAncestors()">getAncestors</a>, <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/TestDescriptor.html#getDescendants()" title="getDescendants()">getDescendants</a>, <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/TestDescriptor.html#getLegacyReportingName()" title="getLegacyReportingName()">getLegacyReportingName</a>, <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/TestDescriptor.html#getType()" title="getType()">getType</a>, <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/TestDescriptor.html#isContainer()" title="isContainer()">isContainer</a>, <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/TestDescriptor.html#isRoot()" title="isRoot()">isRoot</a>, <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/TestDescriptor.html#isTest()" title="isTest()">isTest</a>, <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/TestDescriptor.html#mayRegisterTests()" title="mayRegisterTests()">mayRegisterTests</a>, <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/TestDescriptor.html#prune()" title="prune()">prune</a></code></div>
+<code><a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/TestDescriptor.html#accept(org.junit.platform.engine.TestDescriptor.Visitor)" title="accept(TestDescriptor.Visitor)">accept</a>, <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/TestDescriptor.html#getAncestors()" title="getAncestors()">getAncestors</a>, <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/TestDescriptor.html#getDescendants()" title="getDescendants()">getDescendants</a>, <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/TestDescriptor.html#getType()" title="getType()">getType</a>, <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/TestDescriptor.html#isContainer()" title="isContainer()">isContainer</a>, <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/TestDescriptor.html#isRoot()" title="isRoot()">isRoot</a>, <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/TestDescriptor.html#isTest()" title="isTest()">isTest</a>, <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/TestDescriptor.html#mayRegisterTests()" title="mayRegisterTests()">mayRegisterTests</a>, <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/TestDescriptor.html#prune()" title="prune()">prune</a></code></div>
 </section>
 </li>
 </ul>
@@ -211,6 +227,42 @@ so cleanUp() does not accidentally close the parent context.</div>
 <section class="method-details" id="method-detail">
 <h2>Method Details</h2>
 <ul class="member-list">
+<li>
+<section class="detail" id="getLegacyReportingName()">
+<h3>getLegacyReportingName</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getLegacyReportingName</span>()</div>
+<div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/TestDescriptor.html#getLegacyReportingName()">TestDescriptor</a></code></span></div>
+<div class="block">Get the name of this descriptor in a format that is suitable for legacy
+reporting infrastructure &mdash; for example, for reporting systems built
+on the Ant-based XML reporting format for JUnit 4.
+
+<p>The default implementation delegates to <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/TestDescriptor.html#getDisplayName()"><code>TestDescriptor.getDisplayName()</code></a>.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/TestDescriptor.html#getLegacyReportingName()">getLegacyReportingName</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/TestDescriptor.html" title="interface in org.junit.platform.engine">TestDescriptor</a></code></dd>
+<dt>Returns:</dt>
+<dd>the legacy reporting name; never <code>null</code> or blank</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getLegacyReportingBaseName()">
+<h3>getLegacyReportingBaseName</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getLegacyReportingBaseName</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getLegacyReportingIndex()">
+<h3>getLegacyReportingIndex</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/OptionalInt.html" title="class or interface in java.util" class="external-link">OptionalInt</a></span>&nbsp;<span class="element-name">getLegacyReportingIndex</span>()</div>
+</div>
+</section>
+</li>
 <li>
 <section class="detail" id="getExecutionMode()">
 <h3>getExecutionMode</h3>

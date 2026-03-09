@@ -400,6 +400,19 @@ references.</p>
 <div class="paragraph">
 <p>All JUnit Jupiter assumptions are static methods in the <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/Assumptions.html" class="xref attachment">org.junit.jupiter.api.Assumptions</a></code> class.</p>
 </div>
+<div id="tabs-1" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-1-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-1-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-1-java--panel" class="tabpanel" aria-labelledby="tabs-1-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -440,6 +453,49 @@ class AssumptionsDemo {
 	}
 
 }</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-1-kotlin--panel" class="tabpanel" aria-labelledby="tabs-1-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import example.util.Calculator
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assumptions.assumeTrue
+import org.junit.jupiter.api.Assumptions.assumingThat
+import org.junit.jupiter.api.Test
+
+class AssumptionsDemo {
+    private val calculator = Calculator()
+
+    @Test
+    fun testOnlyOnCiServer() {
+        assumeTrue(System.getenv("ENV") == "CI")
+        // remainder of test
+    }
+
+    @Test
+    fun testOnlyOnDeveloperWorkstation() {
+        assumeTrue(System.getenv("ENV") == "DEV") {
+            "Aborting test: not on developer workstation"
+        }
+        // remainder of test
+    }
+
+    @Test
+    fun testInAllEnvironments() {
+        assumingThat(System.getenv("ENV") == "CI") {
+            // perform these assertions only on the CI server
+            assertEquals(2, calculator.divide(4, 2))
+        }
+
+        // perform these assertions in all environments
+        assertEquals(42, calculator.multiply(6, 7))
+    }
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="admonitionblock note">

@@ -418,6 +418,19 @@ rather, a failed assumption results in a test being aborted.</p>
 <code>ArithmeticException</code>. Since the exception is not caught within the test method, JUnit
 Jupiter will mark the test as failed.</p>
 </div>
+<div id="tabs-1" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-1-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-1-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-1-java--panel" class="tabpanel" aria-labelledby="tabs-1-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">private final Calculator calculator = new Calculator();
@@ -428,6 +441,23 @@ void failsDueToUncaughtException() {
 	// zero, which causes a test failure.
 	calculator.divide(1, 0);
 }</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-1-kotlin--panel" class="tabpanel" aria-labelledby="tabs-1-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">private val calculator = Calculator()
+
+@Test
+fun failsDueToUncaughtException() {
+    // The following throws an ArithmeticException due to division by
+    // zero, which causes a test failure.
+    calculator.divide(1, 0)
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -492,6 +522,19 @@ is an instance of <code>AssertionError</code>.
 <code>AssertionError</code>. Since the exception is not caught within the test method, JUnit Jupiter
 will mark the test as failed.</p>
 </div>
+<div id="tabs-2" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-2-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-2-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-2-java--panel" class="tabpanel" aria-labelledby="tabs-2-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">private final Calculator calculator = new Calculator();
@@ -502,6 +545,23 @@ void failsDueToUncaughtAssertionError() {
 	// The expected value should be 2 instead of 99.
 	assertEquals(99, calculator.add(1, 1));
 }</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-2-kotlin--panel" class="tabpanel" aria-labelledby="tabs-2-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">private val calculator = Calculator()
+
+@Test
+fun failsDueToUncaughtAssertionError() {
+    // The following incorrect assertion will cause a test failure.
+    // The expected value should be 2 instead of 99.
+    assertEquals(99, calculator.add(1, 1))
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -524,6 +584,19 @@ type of the thrown exception but also its subclasses, making it suitable for mor
 generalized exception handling tests. The <code>assertThrows()</code> assertion method returns the
 thrown exception object to allow performing additional assertions on it.</p>
 </div>
+<div id="tabs-3" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-3-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-3-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-3-java--panel" class="tabpanel" aria-labelledby="tabs-3-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Test
@@ -547,6 +620,33 @@ void testExpectedExceptionIsThrown() {
 </div>
 </div>
 </div>
+<div id="tabs-3-kotlin--panel" class="tabpanel" aria-labelledby="tabs-3-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Test
+fun testExpectedExceptionIsThrown() {
+    // The following assertion succeeds because the code under assertion
+    // throws the expected IllegalArgumentException.
+    // The assertion also returns the thrown exception which can be used for
+    // further assertions like asserting the exception message.
+    val exception =
+        assertThrows&lt;IllegalArgumentException&gt; {
+            throw IllegalArgumentException("expected message")
+        }
+    assertEquals("expected message", exception.message)
+
+    // The following assertion also succeeds because the code under assertion
+    // throws IllegalArgumentException which is a subclass of RuntimeException.
+    assertThrows&lt;RuntimeException&gt; {
+        throw IllegalArgumentException("expected message")
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="sect2">
 <h3 id="expected-assertThrowsExactly"><a class="anchor" href="#expected-assertThrowsExactly"></a>Using <code>assertThrowsExactly()</code></h3>
 <div class="paragraph">
@@ -556,6 +656,19 @@ exception type. This is useful when precise exception handling behavior needs to
 validated. Similar to <code>assertThrows()</code>, the <code>assertThrowsExactly()</code> assertion method also
 returns the thrown exception object to allow performing additional assertions on it.</p>
 </div>
+<div id="tabs-4" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-4-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-4-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-4-java--panel" class="tabpanel" aria-labelledby="tabs-4-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Test
@@ -579,6 +692,33 @@ void testExpectedExceptionIsThrown() {
 </div>
 </div>
 </div>
+<div id="tabs-4-kotlin--panel" class="tabpanel" aria-labelledby="tabs-4-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Test
+fun testExpectedExceptionIsThrown() {
+    // The following assertion succeeds because the code under assertion throws
+    // IllegalArgumentException which is exactly equal to the expected type.
+    // The assertion also returns the thrown exception which can be used for
+    // further assertions like asserting the exception message.
+    val exception =
+        assertThrowsExactly&lt;IllegalArgumentException&gt; {
+            throw IllegalArgumentException("expected message")
+        }
+    assertEquals("expected message", exception.message)
+
+    // The following assertion fails because the assertion expects exactly
+    // RuntimeException to be thrown, not subclasses of RuntimeException.
+    assertThrowsExactly&lt;RuntimeException&gt; {
+        throw IllegalArgumentException("expected message")
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -591,6 +731,19 @@ certain use cases where it can be beneficial to explicitly assert that an except
 assertion can be used when you want to verify that a particular piece of code does not
 throw any exceptions.</p>
 </div>
+<div id="tabs-5" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-5-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-5-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-5-java--panel" class="tabpanel" aria-labelledby="tabs-5-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Test
@@ -602,6 +755,24 @@ void testExceptionIsNotThrown() {
 
 void shouldNotThrowException() {
 }</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-5-kotlin--panel" class="tabpanel" aria-labelledby="tabs-5-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Test
+fun testExceptionIsNotThrown() {
+    assertDoesNotThrow {
+        shouldNotThrowException()
+    }
+}
+
+fun shouldNotThrowException() {
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="admonitionblock note">

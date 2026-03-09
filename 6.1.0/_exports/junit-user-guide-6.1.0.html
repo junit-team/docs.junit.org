@@ -1214,8 +1214,16 @@ lifecycle methods. For further information on runtime semantics, see
 <a href="#writing-tests-test-execution-order">Test Execution Order</a> and
 <a href="#extensions-relative-execution-order-of-user-code-and-extensions:::wrapping-behavior">Wrapping Behavior of Callbacks</a>.</p>
 </div>
+<div id="writing-tests-test-classes-and-methods:::tabs-1" class="exampleblock">
+<div class="title">A standard test class</div>
+<div class="content">
+<div id="writing-tests-test-classes-and-methods:::tabs-1-java" class="dlist">
+<dl>
+<dt class="hdlist1">Java</dt>
+<dd>
+<div class="openblock">
+<div class="content">
 <div class="listingblock">
-<div class="title">A standard Java test class</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static org.junit.jupiter.api.Assertions.fail;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
@@ -1267,6 +1275,79 @@ class StandardTests {
 	}
 
 }</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+<div id="writing-tests-test-classes-and-methods:::tabs-1-kotlin" class="dlist">
+<dl>
+<dt class="hdlist1">Kotlin</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import org.junit.jupiter.api.AfterAll
+import org.junit.jupiter.api.AfterEach
+import org.junit.jupiter.api.Assumptions.assumeTrue
+import org.junit.jupiter.api.BeforeAll
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Disabled
+import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.fail
+
+class StandardTests {
+    @BeforeEach
+    fun init() {
+    }
+
+    @Test
+    fun succeedingTest() {
+    }
+
+    @Test
+    fun failingTest() {
+        fail("a failing test")
+    }
+
+    @Test
+    @Disabled("for demonstration purposes")
+    fun skippedTest() {
+        // not executed
+    }
+
+    @Test
+    fun abortedTest() {
+        assumeTrue("abc".contains("Z"))
+        fail("test should have been aborted")
+    }
+
+    @AfterEach
+    fun tearDown() {
+    }
+
+    companion object {
+        @JvmStatic
+        @BeforeAll
+        fun initAll() {
+        }
+
+        @JvmStatic
+        @AfterAll
+        fun tearDownAll() {
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
 </div>
 </div>
 <div class="paragraph">
@@ -2077,6 +2158,14 @@ references.</p>
 <div class="paragraph">
 <p>All JUnit Jupiter assumptions are static methods in the <code><a href="../../../6.1.0/api/org.junit.jupiter.api/org/junit/jupiter/api/Assumptions.html">org.junit.jupiter.api.Assumptions</a></code> class.</p>
 </div>
+<div id="writing-tests-assumptions:::tabs-1" class="exampleblock">
+<div class="content">
+<div id="writing-tests-assumptions:::tabs-1-java" class="dlist">
+<dl>
+<dt class="hdlist1">Java</dt>
+<dd>
+<div class="openblock">
+<div class="content">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -2117,6 +2206,62 @@ class AssumptionsDemo {
 	}
 
 }</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+<div id="writing-tests-assumptions:::tabs-1-kotlin" class="dlist">
+<dl>
+<dt class="hdlist1">Kotlin</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import example.util.Calculator
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assumptions.assumeTrue
+import org.junit.jupiter.api.Assumptions.assumingThat
+import org.junit.jupiter.api.Test
+
+class AssumptionsDemo {
+    private val calculator = Calculator()
+
+    @Test
+    fun testOnlyOnCiServer() {
+        assumeTrue(System.getenv("ENV") == "CI")
+        // remainder of test
+    }
+
+    @Test
+    fun testOnlyOnDeveloperWorkstation() {
+        assumeTrue(System.getenv("ENV") == "DEV") {
+            "Aborting test: not on developer workstation"
+        }
+        // remainder of test
+    }
+
+    @Test
+    fun testInAllEnvironments() {
+        assumingThat(System.getenv("ENV") == "CI") {
+            // perform these assertions only on the CI server
+            assertEquals(2, calculator.divide(4, 2))
+        }
+
+        // perform these assertions in all environments
+        assertEquals(42, calculator.multiply(6, 7))
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -2189,6 +2334,14 @@ rather, a failed assumption results in a test being aborted.</p>
 <code>ArithmeticException</code>. Since the exception is not caught within the test method, JUnit
 Jupiter will mark the test as failed.</p>
 </div>
+<div id="writing-tests-exception-handling:::tabs-1" class="exampleblock">
+<div class="content">
+<div id="writing-tests-exception-handling:::tabs-1-java" class="dlist">
+<dl>
+<dt class="hdlist1">Java</dt>
+<dd>
+<div class="openblock">
+<div class="content">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">private final Calculator calculator = new Calculator();
@@ -2199,6 +2352,36 @@ void failsDueToUncaughtException() {
 	// zero, which causes a test failure.
 	calculator.divide(1, 0);
 }</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+<div id="writing-tests-exception-handling:::tabs-1-kotlin" class="dlist">
+<dl>
+<dt class="hdlist1">Kotlin</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">private val calculator = Calculator()
+
+@Test
+fun failsDueToUncaughtException() {
+    // The following throws an ArithmeticException due to division by
+    // zero, which causes a test failure.
+    calculator.divide(1, 0)
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -2259,6 +2442,14 @@ is an instance of <code>AssertionError</code>.
 <code>AssertionError</code>. Since the exception is not caught within the test method, JUnit Jupiter
 will mark the test as failed.</p>
 </div>
+<div id="writing-tests-exception-handling:::tabs-2" class="exampleblock">
+<div class="content">
+<div id="writing-tests-exception-handling:::tabs-2-java" class="dlist">
+<dl>
+<dt class="hdlist1">Java</dt>
+<dd>
+<div class="openblock">
+<div class="content">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">private final Calculator calculator = new Calculator();
@@ -2269,6 +2460,36 @@ void failsDueToUncaughtAssertionError() {
 	// The expected value should be 2 instead of 99.
 	assertEquals(99, calculator.add(1, 1));
 }</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+<div id="writing-tests-exception-handling:::tabs-2-kotlin" class="dlist">
+<dl>
+<dt class="hdlist1">Kotlin</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">private val calculator = Calculator()
+
+@Test
+fun failsDueToUncaughtAssertionError() {
+    // The following incorrect assertion will cause a test failure.
+    // The expected value should be 2 instead of 99.
+    assertEquals(99, calculator.add(1, 1))
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
 </div>
 </div>
 <h4 id="writing-tests-exception-handling:::expected" class="discrete">Asserting Expected Exceptions</h4>
@@ -2286,6 +2507,14 @@ type of the thrown exception but also its subclasses, making it suitable for mor
 generalized exception handling tests. The <code>assertThrows()</code> assertion method returns the
 thrown exception object to allow performing additional assertions on it.</p>
 </div>
+<div id="writing-tests-exception-handling:::tabs-3" class="exampleblock">
+<div class="content">
+<div id="writing-tests-exception-handling:::tabs-3-java" class="dlist">
+<dl>
+<dt class="hdlist1">Java</dt>
+<dd>
+<div class="openblock">
+<div class="content">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Test
@@ -2308,6 +2537,46 @@ void testExpectedExceptionIsThrown() {
 }</code></pre>
 </div>
 </div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+<div id="writing-tests-exception-handling:::tabs-3-kotlin" class="dlist">
+<dl>
+<dt class="hdlist1">Kotlin</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Test
+fun testExpectedExceptionIsThrown() {
+    // The following assertion succeeds because the code under assertion
+    // throws the expected IllegalArgumentException.
+    // The assertion also returns the thrown exception which can be used for
+    // further assertions like asserting the exception message.
+    val exception =
+        assertThrows&lt;IllegalArgumentException&gt; {
+            throw IllegalArgumentException("expected message")
+        }
+    assertEquals("expected message", exception.message)
+
+    // The following assertion also succeeds because the code under assertion
+    // throws IllegalArgumentException which is a subclass of RuntimeException.
+    assertThrows&lt;RuntimeException&gt; {
+        throw IllegalArgumentException("expected message")
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
 <h5 id="writing-tests-exception-handling:::expected-assertThrowsExactly" class="discrete">Using <code>assertThrowsExactly()</code></h5>
 <div class="paragraph">
 <p>The <code>assertThrowsExactly()</code> method is used when you need to assert that the exception
@@ -2316,6 +2585,14 @@ exception type. This is useful when precise exception handling behavior needs to
 validated. Similar to <code>assertThrows()</code>, the <code>assertThrowsExactly()</code> assertion method also
 returns the thrown exception object to allow performing additional assertions on it.</p>
 </div>
+<div id="writing-tests-exception-handling:::tabs-4" class="exampleblock">
+<div class="content">
+<div id="writing-tests-exception-handling:::tabs-4-java" class="dlist">
+<dl>
+<dt class="hdlist1">Java</dt>
+<dd>
+<div class="openblock">
+<div class="content">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Test
@@ -2338,6 +2615,46 @@ void testExpectedExceptionIsThrown() {
 }</code></pre>
 </div>
 </div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+<div id="writing-tests-exception-handling:::tabs-4-kotlin" class="dlist">
+<dl>
+<dt class="hdlist1">Kotlin</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Test
+fun testExpectedExceptionIsThrown() {
+    // The following assertion succeeds because the code under assertion throws
+    // IllegalArgumentException which is exactly equal to the expected type.
+    // The assertion also returns the thrown exception which can be used for
+    // further assertions like asserting the exception message.
+    val exception =
+        assertThrowsExactly&lt;IllegalArgumentException&gt; {
+            throw IllegalArgumentException("expected message")
+        }
+    assertEquals("expected message", exception.message)
+
+    // The following assertion fails because the assertion expects exactly
+    // RuntimeException to be thrown, not subclasses of RuntimeException.
+    assertThrowsExactly&lt;RuntimeException&gt; {
+        throw IllegalArgumentException("expected message")
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
 <h4 id="writing-tests-exception-handling:::not-expected" class="discrete">Asserting That no Exception is Expected</h4>
 <div class="paragraph">
 <p>Although any exception thrown from a test method will cause the test to fail, there are
@@ -2346,6 +2663,14 @@ certain use cases where it can be beneficial to explicitly assert that an except
 assertion can be used when you want to verify that a particular piece of code does not
 throw any exceptions.</p>
 </div>
+<div id="writing-tests-exception-handling:::tabs-5" class="exampleblock">
+<div class="content">
+<div id="writing-tests-exception-handling:::tabs-5-java" class="dlist">
+<dl>
+<dt class="hdlist1">Java</dt>
+<dd>
+<div class="openblock">
+<div class="content">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Test
@@ -2357,6 +2682,37 @@ void testExceptionIsNotThrown() {
 
 void shouldNotThrowException() {
 }</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+<div id="writing-tests-exception-handling:::tabs-5-kotlin" class="dlist">
+<dl>
+<dt class="hdlist1">Kotlin</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Test
+fun testExceptionIsNotThrown() {
+    assertDoesNotThrow {
+        shouldNotThrowException()
+    }
+}
+
+fun shouldNotThrowException() {
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -3385,8 +3741,16 @@ several groups of tests. Such nested tests make use of Java&#8217;s nested class
 facilitate hierarchical thinking about the test structure. Here&#8217;s an elaborate example,
 both as source code and as a screenshot of the execution within an IDE.</p>
 </div>
-<div class="listingblock">
+<div id="writing-tests-nested-tests:::tabs-1" class="exampleblock">
 <div class="title">Nested test suite for testing a stack</div>
+<div class="content">
+<div id="writing-tests-nested-tests:::tabs-1-java" class="dlist">
+<dl>
+<dt class="hdlist1">Java</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -3474,6 +3838,107 @@ class TestingAStackDemo {
 }</code></pre>
 </div>
 </div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+<div id="writing-tests-nested-tests:::tabs-1-kotlin" class="dlist">
+<dl>
+<dt class="hdlist1">Kotlin</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertFalse
+import org.junit.jupiter.api.Assertions.assertTrue
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.DisplayName
+import org.junit.jupiter.api.Nested
+import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
+import java.util.EmptyStackException
+import java.util.Stack
+
+@DisplayName("A stack")
+class TestingAStackDemo {
+    @Test
+    @DisplayName("is instantiated with new Stack()")
+    fun isInstantiatedWithNew() {
+        Stack&lt;Any&gt;()
+    }
+
+    @Nested
+    @DisplayName("when new")
+    inner class WhenNew {
+        lateinit var stack: Stack&lt;Any&gt;
+
+        @BeforeEach
+        fun createNewStack() {
+            stack = Stack()
+        }
+
+        @Test
+        @DisplayName("is empty")
+        fun isEmpty() {
+            assertTrue(stack.isEmpty())
+        }
+
+        @Test
+        @DisplayName("throws EmptyStackException when popped")
+        fun throwsExceptionWhenPopped() {
+            assertThrows&lt;EmptyStackException&gt; { stack.pop() }
+        }
+
+        @Test
+        @DisplayName("throws EmptyStackException when peeked")
+        fun throwsExceptionWhenPeeked() {
+            assertThrows&lt;EmptyStackException&gt; { stack.peek() }
+        }
+
+        @Nested
+        @DisplayName("after pushing an element")
+        inner class AfterPushing {
+            val anElement = "an element"
+
+            @BeforeEach
+            fun pushAnElement() {
+                stack.push(anElement)
+            }
+
+            @Test
+            @DisplayName("it is no longer empty")
+            fun isNotEmpty() {
+                assertFalse(stack.isEmpty())
+            }
+
+            @Test
+            @DisplayName("returns the element when popped and is empty")
+            fun returnElementWhenPopped() {
+                assertEquals(anElement, stack.pop())
+                assertTrue(stack.isEmpty())
+            }
+
+            @Test
+            @DisplayName("returns the element when peeked but remains not empty")
+            fun returnElementWhenPeeked() {
+                assertEquals(anElement, stack.peek())
+                assertFalse(stack.isEmpty())
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>When executing this example in an IDE, the test execution tree in the GUI will look
 similar to the following image.</p>
@@ -3519,6 +3984,14 @@ class is parameterized.</p>
 <p>The following example illustrates how to combine <code>@Nested</code> with <code>@ParameterizedClass</code> and
 <code>@ParameterizedTest</code>.</p>
 </div>
+<div id="writing-tests-nested-tests:::tabs-2" class="exampleblock">
+<div class="content">
+<div id="writing-tests-nested-tests:::tabs-2-java" class="dlist">
+<dl>
+<dt class="hdlist1">Java</dt>
+<dd>
+<div class="openblock">
+<div class="content">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Execution(SAME_THREAD)
@@ -3546,6 +4019,51 @@ class FruitTests {
 		}
 	}
 }</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+<div id="writing-tests-nested-tests:::tabs-2-kotlin" class="dlist">
+<dl>
+<dt class="hdlist1">Kotlin</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Execution(SAME_THREAD)
+@ParameterizedClass
+@ValueSource(strings = ["apple", "banana"])
+inner class FruitTests {
+    @Parameter
+    lateinit var fruit: String
+
+    @Nested
+    @ParameterizedClass
+    @ValueSource(ints = [23, 42])
+    inner class QuantityTests {
+        @Parameter
+        var quantity: Int = 0
+
+        @ParameterizedTest
+        @ValueSource(strings = ["PT1H", "PT2H"])
+        fun test(duration: Duration) {
+            assertFruit(fruit)
+            assertQuantity(quantity)
+            assertFalse(duration.isNegative)
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
 </div>
 </div>
 <div class="paragraph">
@@ -4185,12 +4703,46 @@ desired. Each invocation of a repeated test behaves like the execution of a regu
 <p>The following example demonstrates how to declare a test named <code>repeatedTest()</code> that
 will be automatically repeated 10 times.</p>
 </div>
+<div id="writing-tests-repeated-tests:::tabs-1" class="exampleblock">
+<div class="content">
+<div id="writing-tests-repeated-tests:::tabs-1-java" class="dlist">
+<dl>
+<dt class="hdlist1">Java</dt>
+<dd>
+<div class="openblock">
+<div class="content">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@RepeatedTest(10)
 void repeatedTest() {
 	// ...
 }</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+<div id="writing-tests-repeated-tests:::tabs-1-kotlin" class="dlist">
+<dl>
+<dt class="hdlist1">Kotlin</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@RepeatedTest(10)
+fun repeatedTest() {
+    // ...
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
 </div>
 </div>
 <div class="paragraph">
@@ -4332,6 +4884,14 @@ INFO: About to execute repetition 4 of 5 for repeatedTestInGerman
 INFO: About to execute repetition 5 of 5 for repeatedTestInGerman</pre>
 </div>
 </div>
+<div id="writing-tests-repeated-tests:::tabs-2" class="exampleblock">
+<div class="content">
+<div id="writing-tests-repeated-tests:::tabs-2-java" class="dlist">
+<dl>
+<dt class="hdlist1">Java</dt>
+<dd>
+<div class="openblock">
+<div class="content">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -4394,6 +4954,89 @@ class RepeatedTestsDemo {
 	}
 
 }</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+<div id="writing-tests-repeated-tests:::tabs-2-kotlin" class="dlist">
+<dl>
+<dt class="hdlist1">Kotlin</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.DisplayName
+import org.junit.jupiter.api.RepeatedTest
+import org.junit.jupiter.api.RepetitionInfo
+import org.junit.jupiter.api.TestInfo
+import org.junit.jupiter.api.fail
+import org.junit.jupiter.api.parallel.Execution
+import org.junit.jupiter.api.parallel.ExecutionMode.SAME_THREAD
+import java.util.logging.Logger
+
+@Execution(SAME_THREAD)
+class RepeatedTestsDemo {
+    private val logger = // ...
+
+    @BeforeEach
+    fun beforeEach(
+        testInfo: TestInfo,
+        repetitionInfo: RepetitionInfo
+    ) {
+        val currentRepetition = repetitionInfo.currentRepetition
+        val totalRepetitions = repetitionInfo.totalRepetitions
+        val methodName = testInfo.testMethod.get().name
+        logger.info("About to execute repetition $currentRepetition of $totalRepetitions for $methodName")
+    }
+
+    @RepeatedTest(10)
+    fun repeatedTest() {
+        // ...
+    }
+
+    @RepeatedTest(5)
+    fun repeatedTestWithRepetitionInfo(repetitionInfo: RepetitionInfo) {
+        assertEquals(5, repetitionInfo.totalRepetitions)
+    }
+
+    @RepeatedTest(value = 8, failureThreshold = 2)
+    fun repeatedTestWithFailureThreshold(repetitionInfo: RepetitionInfo) {
+        // Simulate unexpected failure every second repetition
+        if (repetitionInfo.currentRepetition % 2 == 0) {
+            fail("Boom!")
+        }
+    }
+
+    @RepeatedTest(value = 1, name = "{displayName} {currentRepetition}/{totalRepetitions}")
+    @DisplayName("Repeat!")
+    fun customDisplayName(testInfo: TestInfo) {
+        assertEquals("Repeat! 1/1", testInfo.displayName)
+    }
+
+    @RepeatedTest(value = 1, name = RepeatedTest.LONG_DISPLAY_NAME)
+    @DisplayName("Details...")
+    fun customDisplayNameWithLongPattern(testInfo: TestInfo) {
+        assertEquals("Details... :: repetition 1 of 1", testInfo.displayName)
+    }
+
+    @RepeatedTest(value = 5, name = "Wiederholung {currentRepetition} von {totalRepetitions}")
+    fun repeatedTestInGerman() {
+        // ...
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
 </div>
 </div>
 <div class="paragraph">
@@ -6988,6 +7631,14 @@ an existing <code>Stream</code> via the <code>DynamicTest.stream()</code> factor
 <code>DynamicTest</code> instead of a stream, and the <code>dynamicNodeSingleContainer()</code> method generates
 a nested hierarchy of dynamic tests utilizing <code>DynamicContainer</code>.</p>
 </div>
+<div id="writing-tests-dynamic-tests:::tabs-1" class="exampleblock">
+<div class="content">
+<div id="writing-tests-dynamic-tests:::tabs-1-java" class="dlist">
+<dl>
+<dt class="hdlist1">Java</dt>
+<dd>
+<div class="openblock">
+<div class="content">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static example.util.StringUtils.isPalindrome;
@@ -7147,6 +7798,177 @@ class DynamicTestsDemo {
 }</code></pre>
 </div>
 </div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+<div id="writing-tests-dynamic-tests:::tabs-1-kotlin" class="dlist">
+<dl>
+<dt class="hdlist1">Kotlin</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import example.util.Calculator
+import example.util.StringUtils.isPalindrome
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertFalse
+import org.junit.jupiter.api.Assertions.assertNotNull
+import org.junit.jupiter.api.Assertions.assertTrue
+import org.junit.jupiter.api.DynamicContainer.dynamicContainer
+import org.junit.jupiter.api.DynamicNode
+import org.junit.jupiter.api.DynamicTest
+import org.junit.jupiter.api.DynamicTest.dynamicTest
+import org.junit.jupiter.api.Tag
+import org.junit.jupiter.api.TestFactory
+import org.junit.jupiter.api.parallel.Execution
+import org.junit.jupiter.api.parallel.ExecutionMode.CONCURRENT
+import org.junit.jupiter.api.parallel.ExecutionMode.SAME_THREAD
+import java.util.Random
+import java.util.stream.IntStream
+import java.util.stream.Stream
+
+class DynamicTestsDemo {
+    private val calculator = Calculator()
+
+    // This method will not be executed but produce a warning
+    @TestFactory
+    fun dynamicTestsWithInvalidReturnType(): List&lt;String&gt; = listOf("Hello")
+
+    @TestFactory
+    fun dynamicTestsFromCollection(): Collection&lt;DynamicTest&gt; =
+        listOf(
+            dynamicTest("1st dynamic test") { assertTrue(isPalindrome("madam")) },
+            dynamicTest("2nd dynamic test") { assertEquals(4, calculator.multiply(2, 2)) }
+        )
+
+    @TestFactory
+    fun dynamicTestsFromIterable(): Iterable&lt;DynamicTest&gt; =
+        listOf(
+            dynamicTest("3rd dynamic test") { assertTrue(isPalindrome("madam")) },
+            dynamicTest("4th dynamic test") { assertEquals(4, calculator.multiply(2, 2)) }
+        )
+
+    @TestFactory
+    fun dynamicTestsFromIterator(): Iterator&lt;DynamicTest&gt; =
+        listOf(
+            dynamicTest("5th dynamic test") { assertTrue(isPalindrome("madam")) },
+            dynamicTest("6th dynamic test") { assertEquals(4, calculator.multiply(2, 2)) }
+        ).iterator()
+
+    @TestFactory
+    fun dynamicTestsFromArray(): Array&lt;DynamicTest&gt; =
+        arrayOf(
+            dynamicTest("7th dynamic test") { assertTrue(isPalindrome("madam")) },
+            dynamicTest("8th dynamic test") { assertEquals(4, calculator.multiply(2, 2)) }
+        )
+
+    @TestFactory
+    fun dynamicTestsFromStream(): Stream&lt;DynamicTest&gt; =
+        Stream
+            .of("racecar", "radar", "mom", "dad")
+            .map { text -&gt; dynamicTest(text) { assertTrue(isPalindrome(text)) } }
+
+    @TestFactory
+    fun dynamicTestsFromSequence(): Sequence&lt;DynamicTest&gt; =
+        sequenceOf("racecar", "radar", "mom", "dad")
+            .map { text -&gt; dynamicTest(text) { assertTrue(isPalindrome(text)) } }
+
+    @TestFactory
+    fun dynamicTestsFromIntStream(): Stream&lt;DynamicTest&gt; {
+        // Generates tests for the first 10 even integers.
+        return IntStream
+            .iterate(0) { n -&gt; n + 2 }
+            .limit(10)
+            .mapToObj { n -&gt; dynamicTest("test$n") { assertEquals(0, n % 2) } }
+    }
+
+    @TestFactory
+    fun generateRandomNumberOfTests(): Stream&lt;DynamicTest&gt; {
+        // Generates random positive integers between 0 and 100 until
+        // a number evenly divisible by 7 is encountered.
+        val inputGenerator =
+            object : Iterator&lt;Int&gt; {
+                var random = Random()
+
+                var current = 0
+
+                override fun hasNext(): Boolean {
+                    current = random.nextInt(100)
+                    return current % 7 != 0
+                }
+
+                override fun next(): Int = current
+            }
+
+        // Generates display names like: input:5, input:37, input:85, etc.
+        val displayNameGenerator = { input: Int -&gt; "input:$input" }
+
+        // Executes tests based on the current input value.
+        val testExecutor = { input: Int -&gt; assertTrue(input % 7 != 0) }
+
+        // Returns a stream of dynamic tests.
+        return DynamicTest.stream(inputGenerator, displayNameGenerator, testExecutor)
+    }
+
+    @TestFactory
+    fun dynamicTestsFromStreamFactoryMethod(): Stream&lt;DynamicTest&gt; {
+        // Stream of palindromes to check
+        val inputStream = Stream.of("racecar", "radar", "mom", "dad")
+
+        // Generates display names like: racecar is a palindrome
+        val displayNameGenerator = { text: String -&gt; "$text is a palindrome" }
+
+        // Executes tests based on the current input value.
+        val testExecutor = { text: String -&gt; assertTrue(isPalindrome(text)) }
+
+        // Returns a stream of dynamic tests.
+        return DynamicTest.stream(inputStream, displayNameGenerator, testExecutor)
+    }
+
+    @TestFactory
+    fun dynamicTestsWithContainers(): Stream&lt;DynamicNode&gt; =
+        Stream
+            .of("A", "B", "C")
+            .map { input -&gt;
+                dynamicContainer(
+                    "Container $input",
+                    Stream.of(
+                        dynamicTest("not null") { assertNotNull(input) },
+                        dynamicContainer(
+                            "properties",
+                            Stream.of(
+                                dynamicTest("length &gt; 0") { assertTrue(input.length &gt; 0) },
+                                dynamicTest("not empty") { assertFalse(input.isEmpty()) }
+                            )
+                        )
+                    )
+                )
+            }
+
+    @TestFactory
+    fun dynamicNodeSingleTest(): DynamicNode = dynamicTest("'pop' is a palindrome") { assertTrue(isPalindrome("pop")) }
+
+    @TestFactory
+    fun dynamicNodeSingleContainer(): DynamicNode =
+        dynamicContainer(
+            "palindromes",
+            Stream
+                .of("racecar", "radar", "mom", "dad")
+                .map { text -&gt; dynamicTest(text) { assertTrue(isPalindrome(text)) } }
+        )
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
 <h4 id="writing-tests-dynamic-tests:::named-support" class="discrete">Dynamic Tests and Named</h4>
 <div class="paragraph">
 <p>In some cases, it can be more natural to specify inputs together with a descriptive name
@@ -7155,6 +7977,14 @@ shown in the first example below. The second example takes it one step further a
 to provide the code block that should be executed by implementing the <code>Executable</code>
 interface along with <code>Named</code> via the <code>NamedExecutable</code> base class.</p>
 </div>
+<div id="writing-tests-dynamic-tests:::tabs-2" class="exampleblock">
+<div class="content">
+<div id="writing-tests-dynamic-tests:::tabs-2-java" class="dlist">
+<dl>
+<dt class="hdlist1">Java</dt>
+<dd>
+<div class="openblock">
+<div class="content">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static example.util.StringUtils.isPalindrome;
@@ -7208,6 +8038,74 @@ public class DynamicTestsNamedDemo {
 }</code></pre>
 </div>
 </div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+<div id="writing-tests-dynamic-tests:::tabs-2-kotlin" class="dlist">
+<dl>
+<dt class="hdlist1">Kotlin</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import example.util.StringUtils.isPalindrome
+import org.junit.jupiter.api.Assertions.assertTrue
+import org.junit.jupiter.api.DynamicTest
+import org.junit.jupiter.api.Named.named
+import org.junit.jupiter.api.NamedExecutable
+import org.junit.jupiter.api.TestFactory
+import java.util.stream.Stream
+
+class DynamicTestsNamedDemo {
+    @TestFactory
+    fun dynamicTestsFromStreamFactoryMethodWithNames(): Stream&lt;DynamicTest&gt; {
+        // Stream of palindromes to check
+        val inputStream =
+            Stream.of(
+                named("racecar is a palindrome", "racecar"),
+                named("radar is also a palindrome", "radar"),
+                named("mom also seems to be a palindrome", "mom"),
+                named("dad is yet another palindrome", "dad")
+            )
+
+        // Returns a stream of dynamic tests.
+        return DynamicTest.stream(inputStream) { text -&gt; assertTrue(isPalindrome(text)) }
+    }
+
+    @TestFactory
+    fun dynamicTestsFromStreamFactoryMethodWithNamedExecutables(): Stream&lt;DynamicTest&gt; {
+        // Stream of palindromes to check
+        val inputStream =
+            Stream
+                .of("racecar", "radar", "mom", "dad")
+                .map { PalindromeNamedExecutable(it) }
+
+        // Returns a stream of dynamic tests based on NamedExecutables.
+        return DynamicTest.stream(inputStream)
+    }
+
+    class PalindromeNamedExecutable(
+        private val text: String
+    ) : NamedExecutable {
+        override fun getName(): String = "'$text' is a palindrome"
+
+        override fun execute() {
+            assertTrue(isPalindrome(text))
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
 <h4 id="writing-tests-dynamic-tests:::uri-test-source" class="discrete">URI Test Sources for Dynamic Tests</h4>
 <div class="paragraph">
 <p>The JUnit Platform provides <code>TestSource</code>, a representation of the source of a test or
@@ -7258,6 +8156,14 @@ supported formats for a FQMN.</p>
 <code>ExecutionMode</code> by using the <code>dynamicTest(Consumer)</code> and <code>dynamicContainer(Consumer)</code>
 factory methods as illustrated by the following example.</p>
 </div>
+<div id="writing-tests-dynamic-tests:::tabs-3" class="exampleblock">
+<div class="content">
+<div id="writing-tests-dynamic-tests:::tabs-3-java" class="dlist">
+<dl>
+<dt class="hdlist1">Java</dt>
+<dd>
+<div class="openblock">
+<div class="content">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@TestFactory
@@ -7293,6 +8199,66 @@ Stream&lt;DynamicNode&gt; dynamicTestsWithConfiguredExecutionMode() {
 				)
 			);
 }</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+<div id="writing-tests-dynamic-tests:::tabs-3-kotlin" class="dlist">
+<dl>
+<dt class="hdlist1">Kotlin</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@TestFactory
+@Execution(CONCURRENT) <i class="conum" data-value="1"></i><b>(1)</b>
+fun dynamicTestsWithConfiguredExecutionMode(): Stream&lt;DynamicNode&gt; =
+    Stream
+        .of("A", "B", "C")
+        .map { input -&gt;
+            dynamicContainer { outer -&gt;
+                outer
+                    .displayName("Container $input")
+                    .children(
+                        dynamicTest { config -&gt;
+                            config
+                                .displayName("not null")
+                                .executionMode(SAME_THREAD) <i class="conum" data-value="2"></i><b>(2)</b>
+                                .executable { assertNotNull(input) }
+                        },
+                        dynamicContainer { inner -&gt;
+                            inner
+                                .displayName("properties")
+                                .executionMode(CONCURRENT) <i class="conum" data-value="3"></i><b>(3)</b>
+                                .childExecutionMode(SAME_THREAD) <i class="conum" data-value="4"></i><b>(4)</b>
+                                .children(
+                                    dynamicTest { config -&gt;
+                                        config
+                                            .displayName("length &gt; 0")
+                                            .executionMode(CONCURRENT) <i class="conum" data-value="5"></i><b>(5)</b>
+                                            .executable { assertTrue(input.length &gt; 0) }
+                                    },
+                                    dynamicTest { config -&gt;
+                                        config
+                                            .displayName("not empty")
+                                            .executable { assertFalse(input.isEmpty()) }
+                                    }
+                                )
+                        }
+                    )
+            }
+        }</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
 </div>
 </div>
 <div class="paragraph">
@@ -17662,6 +18628,10 @@ methods in <code>DiscoverySelectors</code>.</p>
 <p>Recursive updates are now supported when using <code>computeIfAbsent(K, Function, Class)</code> in
 the <code>ExtensionContext.Store</code>, providing parity with the deprecated
 <code>getOrComputeIfAbsent(K, Function, Class)</code> method.</p>
+</li>
+<li>
+<p>Include index of <code>@ClassTemplate</code>/<code>@ParameterizedClass</code> invocations in test names in
+legacy XML reports to make them unique</p>
 </li>
 </ul>
 </div>

@@ -382,8 +382,21 @@ several groups of tests. Such nested tests make use of Java&#8217;s nested class
 facilitate hierarchical thinking about the test structure. Here&#8217;s an elaborate example,
 both as source code and as a screenshot of the execution within an IDE.</p>
 </div>
-<div class="listingblock">
+<div id="tabs-1" class="openblock tabs is-sync is-loading">
 <div class="title">Nested test suite for testing a stack</div>
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-1-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-1-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-1-java--panel" class="tabpanel" aria-labelledby="tabs-1-java">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -471,6 +484,94 @@ class TestingAStackDemo {
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-1-kotlin--panel" class="tabpanel" aria-labelledby="tabs-1-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertFalse
+import org.junit.jupiter.api.Assertions.assertTrue
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.DisplayName
+import org.junit.jupiter.api.Nested
+import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
+import java.util.EmptyStackException
+import java.util.Stack
+
+@DisplayName("A stack")
+class TestingAStackDemo {
+    @Test
+    @DisplayName("is instantiated with new Stack()")
+    fun isInstantiatedWithNew() {
+        Stack&lt;Any&gt;()
+    }
+
+    @Nested
+    @DisplayName("when new")
+    inner class WhenNew {
+        lateinit var stack: Stack&lt;Any&gt;
+
+        @BeforeEach
+        fun createNewStack() {
+            stack = Stack()
+        }
+
+        @Test
+        @DisplayName("is empty")
+        fun isEmpty() {
+            assertTrue(stack.isEmpty())
+        }
+
+        @Test
+        @DisplayName("throws EmptyStackException when popped")
+        fun throwsExceptionWhenPopped() {
+            assertThrows&lt;EmptyStackException&gt; { stack.pop() }
+        }
+
+        @Test
+        @DisplayName("throws EmptyStackException when peeked")
+        fun throwsExceptionWhenPeeked() {
+            assertThrows&lt;EmptyStackException&gt; { stack.peek() }
+        }
+
+        @Nested
+        @DisplayName("after pushing an element")
+        inner class AfterPushing {
+            val anElement = "an element"
+
+            @BeforeEach
+            fun pushAnElement() {
+                stack.push(anElement)
+            }
+
+            @Test
+            @DisplayName("it is no longer empty")
+            fun isNotEmpty() {
+                assertFalse(stack.isEmpty())
+            }
+
+            @Test
+            @DisplayName("returns the element when popped and is empty")
+            fun returnElementWhenPopped() {
+                assertEquals(anElement, stack.pop())
+                assertTrue(stack.isEmpty())
+            }
+
+            @Test
+            @DisplayName("returns the element when peeked but remains not empty")
+            fun returnElementWhenPeeked() {
+                assertEquals(anElement, stack.peek())
+                assertFalse(stack.isEmpty())
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>When executing this example in an IDE, the test execution tree in the GUI will look
 similar to the following image.</p>
@@ -520,6 +621,19 @@ class is parameterized.</p>
 <p>The following example illustrates how to combine <code>@Nested</code> with <code>@ParameterizedClass</code> and
 <code>@ParameterizedTest</code>.</p>
 </div>
+<div id="tabs-2" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-2-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-2-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-2-java--panel" class="tabpanel" aria-labelledby="tabs-2-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Execution(SAME_THREAD)
@@ -547,6 +661,38 @@ class FruitTests {
 		}
 	}
 }</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-2-kotlin--panel" class="tabpanel" aria-labelledby="tabs-2-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Execution(SAME_THREAD)
+@ParameterizedClass
+@ValueSource(strings = ["apple", "banana"])
+inner class FruitTests {
+    @Parameter
+    lateinit var fruit: String
+
+    @Nested
+    @ParameterizedClass
+    @ValueSource(ints = [23, 42])
+    inner class QuantityTests {
+        @Parameter
+        var quantity: Int = 0
+
+        @ParameterizedTest
+        @ValueSource(strings = ["PT1H", "PT2H"])
+        fun test(duration: Duration) {
+            assertFruit(fruit)
+            assertQuantity(quantity)
+            assertFalse(duration.isNegative)
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="paragraph">
