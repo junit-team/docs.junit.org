@@ -18522,6 +18522,10 @@ since such APIs will likely be removed in an upcoming release.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>EngineTestKit.&ZeroWidthSpace;Builder.&ZeroWidthSpace;outputDirectoryProvider(OutputDirectoryProvider)</code> <em>(method)</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.14</code></p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Executions.&ZeroWidthSpace;started()</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.1</code></p></td>
+</tr>
 </tbody>
 </table>
 <h4 id="api-evolution:::module-org-junit-vintage-engine" class="discrete">Module org.junit.vintage.engine</h4>
@@ -18599,7 +18603,8 @@ before rejecting an extraneous worker.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>❓</p>
+<p>Deprecate <code>Executions.started()</code> in favor of <code>Executions.finished()</code>. Started executions are
+always finished.</p>
 </li>
 </ul>
 </div>

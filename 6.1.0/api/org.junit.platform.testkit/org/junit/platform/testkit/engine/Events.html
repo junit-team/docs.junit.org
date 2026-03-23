@@ -354,7 +354,12 @@ it should be included in the filtered stream; never <code>null</code></dd>
 <h3>executions</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Executions.html" title="class in org.junit.platform.testkit.engine">Executions</a></span>&nbsp;<span class="element-name">executions</span>()</div>
-<div class="block">Get the <a href="Executions.html" title="class in org.junit.platform.testkit.engine"><code>Executions</code></a> for the current set of <a href="Event.html" title="class in org.junit.platform.testkit.engine">events</a>.</div>
+<div class="block">Get the <a href="Executions.html" title="class in org.junit.platform.testkit.engine"><code>Executions</code></a> for the current set of <a href="Event.html" title="class in org.junit.platform.testkit.engine">events</a>.
+<p>
+The set of executions is derived from the current set of events by
+taking single <a href="Event.html#executionSkipped(org.junit.platform.engine.TestDescriptor,java.lang.String)">execution skipped</a> events and pairs of <a href="Event.html#executionStarted(org.junit.platform.engine.TestDescriptor)">execution started</a> and <a href="Event.html#executionFinished(org.junit.platform.engine.TestDescriptor,org.junit.platform.engine.TestExecutionResult)">execution finished</a> events. As a consequence, executions for which either
+the started or finished event is not included in the current set of
+events are not included.</div>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>an instance of <code>Executions</code> for the current set of events;
