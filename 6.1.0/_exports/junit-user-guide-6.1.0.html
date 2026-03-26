@@ -18595,7 +18595,7 @@ before rejecting an extraneous worker.</p>
 <p>Missing precondition checks have been added to <code>Launcher</code> implementations.</p>
 </li>
 <li>
-<p>Failures to resolve selectors are now forwarded by the Suite Engine.</p>
+<p>Failures to resolve selectors are now propagated by the Suite Engine.</p>
 </li>
 </ul>
 </div>
@@ -18603,8 +18603,8 @@ before rejecting an extraneous worker.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Deprecate <code>Executions.started()</code> in favor of <code>Executions.finished()</code>. Started executions are
-always finished.</p>
+<p>In the <code>EngineTestKit</code>, <code>Executions.started()</code> has been deprecated in favor of
+<code>Executions.finished()</code>, since started executions are always finished.</p>
 </li>
 </ul>
 </div>
@@ -18636,11 +18636,11 @@ the <code>ExtensionContext.Store</code>, providing parity with the deprecated
 </li>
 <li>
 <p>Legacy XML reports now include the index of <code>@ClassTemplate</code>/<code>@ParameterizedClass</code>
-invocations in test names in legacy XML reports to make them unique</p>
+invocations in test names to make them unique.</p>
 </li>
 <li>
 <p>Legacy XML reports now include parent display names to make it easier to distinguish
-between invocations for different parameters</p>
+between invocations for different parameters.</p>
 </li>
 </ul>
 </div>
@@ -18655,7 +18655,7 @@ supported by the <code>JRE</code> enum.</p>
 </li>
 <li>
 <p>The <code>org.junit.jupiter.engine.Constants</code> class and its constants are now deprecated in
-favor <code>org.junit.jupiter.api.Constants</code>.</p>
+favor of <code>org.junit.jupiter.api.Constants</code>.</p>
 </li>
 </ul>
 </div>
@@ -18719,12 +18719,12 @@ however, that primitive-wrapper inline value classes (such as <code>UInt</code> 
 classes wrapping primitives) are not yet supported.</p>
 </li>
 <li>
-<p>The new <code>org.junit.jupiter.api.Constants</code> class provides constants for
-<a href="#running-tests-configuration-parameters">Configuration Parameters</a> specific to the Jupiter engine.</p>
-</li>
-<li>
 <p>Kotlin-specific assertions now include a variant of <code>assertThrowsExactly</code> with reified
 generics.</p>
+</li>
+<li>
+<p>The new <code>org.junit.jupiter.api.Constants</code> class provides constants for
+<a href="#running-tests-configuration-parameters">Configuration Parameters</a> specific to the Jupiter engine.</p>
 </li>
 </ul>
 </div>
