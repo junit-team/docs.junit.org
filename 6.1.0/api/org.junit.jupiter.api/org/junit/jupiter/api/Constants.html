@@ -99,6 +99,8 @@ loadScripts(document, 'script');</script>
 <li><a href="#DEFAULT_TEST_CLASS_ORDER_PROPERTY_NAME" tabindex="0">DEFAULT_TEST_CLASS_ORDER_PROPERTY_NAME</a></li>
 <li><a href="#DEFAULT_TIMEOUT_THREAD_MODE_PROPERTY_NAME" tabindex="0">DEFAULT_TIMEOUT_THREAD_MODE_PROPERTY_NAME</a></li>
 <li><a href="#DEFAULT_TEMP_DIR_FACTORY_PROPERTY_NAME" tabindex="0">DEFAULT_TEMP_DIR_FACTORY_PROPERTY_NAME</a></li>
+<li><a href="#DEFAULT_TEMP_DIR_CLEANUP_MODE_PROPERTY_NAME" tabindex="0">DEFAULT_TEMP_DIR_CLEANUP_MODE_PROPERTY_NAME</a></li>
+<li><a href="#DEFAULT_TEMP_DIR_DELETION_STRATEGY_PROPERTY_NAME" tabindex="0">DEFAULT_TEMP_DIR_DELETION_STRATEGY_PROPERTY_NAME</a></li>
 <li><a href="#DEFAULT_TEST_CLASS_INSTANCE_CONSTRUCTION_EXTENSION_CONTEXT_SCOPE_PROPERTY_NAME" tabindex="0">DEFAULT_TEST_CLASS_INSTANCE_CONSTRUCTION_EXTENSION_CONTEXT_SCOPE_PROPERTY_NAME</a></li>
 </ol>
 </li>
@@ -205,10 +207,24 @@ classes: "junit.jupiter.execution.parallel.mode.classes.default"</div>
 <div class="block">Property name used to set the default timeout for all lifecycle methods: "junit.jupiter.execution.timeout.lifecycle.method.default"</div>
 </div>
 <div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#DEFAULT_TEMP_DIR_CLEANUP_MODE_PROPERTY_NAME" class="member-name-link">DEFAULT_TEMP_DIR_CLEANUP_MODE_PROPERTY_NAME</a></code></div>
+<div class="col-last odd-row-color">
+<div class="block">Property name used to configure the default <a href="io/CleanupMode.html" title="enum class in org.junit.jupiter.api.io"><code>CleanupMode</code></a> for
+temporary directories created via the <a href="io/TempDir.html" title="annotation interface in org.junit.jupiter.api.io"><code>@TempDir</code></a>
+annotation: "junit.jupiter.tempdir.cleanup.mode.default"</div>
+</div>
+<div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="#DEFAULT_TEMP_DIR_DELETION_STRATEGY_PROPERTY_NAME" class="member-name-link">DEFAULT_TEMP_DIR_DELETION_STRATEGY_PROPERTY_NAME</a></code></div>
+<div class="col-last even-row-color">
+<div class="block">Property name used to set the default deletion strategy class name for
+temporary directories created via the <a href="io/TempDir.html" title="annotation interface in org.junit.jupiter.api.io"><code>@TempDir</code></a>
+annotation: "junit.jupiter.tempdir.deletion.strategy.default"</div>
+</div>
+<div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color"><code><a href="#DEFAULT_TEMP_DIR_FACTORY_PROPERTY_NAME" class="member-name-link">DEFAULT_TEMP_DIR_FACTORY_PROPERTY_NAME</a></code></div>
 <div class="col-last odd-row-color">
-<div class="block">Property name used to set the default factory for temporary directories created via
-the <a href="io/TempDir.html" title="annotation interface in org.junit.jupiter.api.io"><code>@TempDir</code></a> annotation: "junit.jupiter.tempdir.factory.default"</div>
+<div class="block">Property name used to set the default factory for temporary directories
+created via the <a href="io/TempDir.html" title="annotation interface in org.junit.jupiter.api.io"><code>@TempDir</code></a> annotation: "junit.jupiter.tempdir.factory.default"</div>
 </div>
 <div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color"><code><a href="#DEFAULT_TEST_CLASS_INSTANCE_CONSTRUCTION_EXTENSION_CONTEXT_SCOPE_PROPERTY_NAME" class="member-name-link">DEFAULT_TEST_CLASS_INSTANCE_CONSTRUCTION_EXTENSION_CONTEXT_SCOPE_PROPERTY_NAME</a></code></div>
@@ -1113,14 +1129,56 @@ lifecycle methods: "junit.jupiter.execution.timeout.default"</div>
 <h3>DEFAULT_TEMP_DIR_FACTORY_PROPERTY_NAME</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">DEFAULT_TEMP_DIR_FACTORY_PROPERTY_NAME</span></div>
-<div class="block">Property name used to set the default factory for temporary directories created via
-the <a href="io/TempDir.html" title="annotation interface in org.junit.jupiter.api.io"><code>@TempDir</code></a> annotation: "junit.jupiter.tempdir.factory.default"</div>
+<div class="block">Property name used to set the default factory for temporary directories
+created via the <a href="io/TempDir.html" title="annotation interface in org.junit.jupiter.api.io"><code>@TempDir</code></a> annotation: "junit.jupiter.tempdir.factory.default"</div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
 <ul class="tag-list-long">
 <li><a href="io/TempDir.html#DEFAULT_FACTORY_PROPERTY_NAME"><code>TempDir.DEFAULT_FACTORY_PROPERTY_NAME</code></a></li>
 <li><a href="../../../../../constant-values.html#org.junit.jupiter.api.Constants.DEFAULT_TEMP_DIR_FACTORY_PROPERTY_NAME">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="DEFAULT_TEMP_DIR_CLEANUP_MODE_PROPERTY_NAME">
+<h3>DEFAULT_TEMP_DIR_CLEANUP_MODE_PROPERTY_NAME</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">DEFAULT_TEMP_DIR_CLEANUP_MODE_PROPERTY_NAME</span></div>
+<div class="block">Property name used to configure the default <a href="io/CleanupMode.html" title="enum class in org.junit.jupiter.api.io"><code>CleanupMode</code></a> for
+temporary directories created via the <a href="io/TempDir.html" title="annotation interface in org.junit.jupiter.api.io"><code>@TempDir</code></a>
+annotation: "junit.jupiter.tempdir.cleanup.mode.default"</div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list-long">
+<li><a href="io/TempDir.html#DEFAULT_CLEANUP_MODE_PROPERTY_NAME"><code>TempDir.DEFAULT_CLEANUP_MODE_PROPERTY_NAME</code></a></li>
+<li><a href="../../../../../constant-values.html#org.junit.jupiter.api.Constants.DEFAULT_TEMP_DIR_CLEANUP_MODE_PROPERTY_NAME">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="DEFAULT_TEMP_DIR_DELETION_STRATEGY_PROPERTY_NAME">
+<h3>DEFAULT_TEMP_DIR_DELETION_STRATEGY_PROPERTY_NAME</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#EXPERIMENTAL" title="class or interface in org.apiguardian.api" class="external-link">EXPERIMENTAL</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.1")
+</span><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">DEFAULT_TEMP_DIR_DELETION_STRATEGY_PROPERTY_NAME</span></div>
+<div class="block">Property name used to set the default deletion strategy class name for
+temporary directories created via the <a href="io/TempDir.html" title="annotation interface in org.junit.jupiter.api.io"><code>@TempDir</code></a>
+annotation: "junit.jupiter.tempdir.deletion.strategy.default"</div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list-long">
+<li><a href="io/TempDir.html#DEFAULT_DELETION_STRATEGY_PROPERTY_NAME"><code>TempDir.DEFAULT_DELETION_STRATEGY_PROPERTY_NAME</code></a></li>
+<li><a href="../../../../../constant-values.html#org.junit.jupiter.api.Constants.DEFAULT_TEMP_DIR_DELETION_STRATEGY_PROPERTY_NAME">Constant Field Values</a></li>
 </ul>
 </dd>
 </dl>

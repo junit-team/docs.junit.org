@@ -92,7 +92,7 @@ loadScripts(document, 'script');</script>
 </li>
 <li>
 <div id="class-summary">
-<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="class-summary-tab0" role="tab" aria-selected="true" aria-controls="class-summary.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('class-summary', 'class-summary', 2)" class="active-table-tab">All Classes and Interfaces</button><button id="class-summary-tab1" role="tab" aria-selected="false" aria-controls="class-summary.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('class-summary', 'class-summary-tab1', 2)" class="table-tab">Interfaces</button><button id="class-summary-tab2" role="tab" aria-selected="false" aria-controls="class-summary.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('class-summary', 'class-summary-tab2', 2)" class="table-tab">Classes</button><button id="class-summary-tab3" role="tab" aria-selected="false" aria-controls="class-summary.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('class-summary', 'class-summary-tab3', 2)" class="table-tab">Enum Classes</button><button id="class-summary-tab6" role="tab" aria-selected="false" aria-controls="class-summary.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('class-summary', 'class-summary-tab6', 2)" class="table-tab">Annotation Interfaces</button></div>
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="class-summary-tab0" role="tab" aria-selected="true" aria-controls="class-summary.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('class-summary', 'class-summary', 2)" class="active-table-tab">All Classes and Interfaces</button><button id="class-summary-tab1" role="tab" aria-selected="false" aria-controls="class-summary.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('class-summary', 'class-summary-tab1', 2)" class="table-tab">Interfaces</button><button id="class-summary-tab2" role="tab" aria-selected="false" aria-controls="class-summary.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('class-summary', 'class-summary-tab2', 2)" class="table-tab">Classes</button><button id="class-summary-tab3" role="tab" aria-selected="false" aria-controls="class-summary.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('class-summary', 'class-summary-tab3', 2)" class="table-tab">Enum Classes</button><button id="class-summary-tab5" role="tab" aria-selected="false" aria-controls="class-summary.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('class-summary', 'class-summary-tab5', 2)" class="table-tab">Exception Classes</button><button id="class-summary-tab6" role="tab" aria-selected="false" aria-controls="class-summary.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('class-summary', 'class-summary-tab6', 2)" class="table-tab">Annotation Interfaces</button></div>
 <div id="class-summary.tabpanel" role="tabpanel" aria-labelledby="class-summary-tab0">
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Class</div>
@@ -107,13 +107,48 @@ loadScripts(document, 'script');</script>
 in a test class constructor, lifecycle method, or test method of type
 <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link"><code>Path</code></a> or <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/File.html" title="class or interface in java.io" class="external-link"><code>File</code></a> that should be resolved into a temporary directory.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab1"><a href="TempDirFactory.html" title="interface in org.junit.jupiter.api.io">TempDirFactory</a></div>
+<div class="col-first even-row-color class-summary class-summary-tab1"><a href="TempDirDeletionStrategy.html" title="interface in org.junit.jupiter.api.io">TempDirDeletionStrategy</a></div>
 <div class="col-last even-row-color class-summary class-summary-tab1">
+<div class="block"><code>TempDirDeletionStrategy</code> defines the SPI for deleting temporary
+directories programmatically.</div>
+</div>
+<div class="col-first odd-row-color class-summary class-summary-tab5"><a href="TempDirDeletionStrategy.DeletionException.html" title="class in org.junit.jupiter.api.io">TempDirDeletionStrategy.DeletionException</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab5">
+<div class="block">Exception thrown when one or more paths in a temporary directory could
+not be deleted by a <a href="TempDirDeletionStrategy.html" title="interface in org.junit.jupiter.api.io"><code>TempDirDeletionStrategy</code></a>.</div>
+</div>
+<div class="col-first even-row-color class-summary class-summary-tab1"><a href="TempDirDeletionStrategy.DeletionFailure.html" title="interface in org.junit.jupiter.api.io">TempDirDeletionStrategy.DeletionFailure</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab1">
+<div class="block">Represents a single failure that occurred while attempting to delete a
+path during a <a href="TempDirDeletionStrategy.html#delete(java.nio.file.Path,org.junit.jupiter.api.extension.AnnotatedElementContext,org.junit.jupiter.api.extension.ExtensionContext)"><code>TempDirDeletionStrategy.delete(Path, AnnotatedElementContext, ExtensionContext)</code></a> operation.</div>
+</div>
+<div class="col-first odd-row-color class-summary class-summary-tab1"><a href="TempDirDeletionStrategy.DeletionResult.html" title="interface in org.junit.jupiter.api.io">TempDirDeletionStrategy.DeletionResult</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab1">
+<div class="block">Represents the result of a <a href="TempDirDeletionStrategy.html#delete(java.nio.file.Path,org.junit.jupiter.api.extension.AnnotatedElementContext,org.junit.jupiter.api.extension.ExtensionContext)"><code>TempDirDeletionStrategy.delete(Path, AnnotatedElementContext, ExtensionContext)</code></a> operation,
+including any paths that could not be deleted.</div>
+</div>
+<div class="col-first even-row-color class-summary class-summary-tab1"><a href="TempDirDeletionStrategy.DeletionResult.Builder.html" title="interface in org.junit.jupiter.api.io">TempDirDeletionStrategy.DeletionResult.Builder</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab1">
+<div class="block">Builder for <a href="TempDirDeletionStrategy.DeletionResult.html" title="interface in org.junit.jupiter.api.io"><code>TempDirDeletionStrategy.DeletionResult</code></a>.</div>
+</div>
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="TempDirDeletionStrategy.IgnoreFailures.html" title="class in org.junit.jupiter.api.io">TempDirDeletionStrategy.IgnoreFailures</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="block">A <a href="TempDirDeletionStrategy.html" title="interface in org.junit.jupiter.api.io"><code>TempDirDeletionStrategy</code></a> that delegates to <a href="TempDirDeletionStrategy.Standard.html" title="class in org.junit.jupiter.api.io"><code>TempDirDeletionStrategy.Standard</code></a> but
+suppresses deletion failures by logging a warning instead of propagating
+them.</div>
+</div>
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="TempDirDeletionStrategy.Standard.html" title="class in org.junit.jupiter.api.io">TempDirDeletionStrategy.Standard</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
+<div class="block">Standard <a href="TempDirDeletionStrategy.html" title="interface in org.junit.jupiter.api.io"><code>TempDirDeletionStrategy</code></a> implementation that recursively
+deletes all files and directories within the temporary directory.</div>
+</div>
+<div class="col-first odd-row-color class-summary class-summary-tab1"><a href="TempDirFactory.html" title="interface in org.junit.jupiter.api.io">TempDirFactory</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab1">
 <div class="block"><code>TempDirFactory</code> defines the SPI for creating temporary directories
 programmatically.</div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="TempDirFactory.Standard.html" title="class in org.junit.jupiter.api.io">TempDirFactory.Standard</a></div>
-<div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="TempDirFactory.Standard.html" title="class in org.junit.jupiter.api.io">TempDirFactory.Standard</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
 <div class="block">Standard <a href="TempDirFactory.html" title="interface in org.junit.jupiter.api.io"><code>TempDirFactory</code></a> implementation which delegates to
 <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Files.html#createTempDirectory(java.nio.file.Path,java.lang.String,java.nio.file.attribute.FileAttribute...)" title="class or interface in java.nio.file" class="external-link"><code>Files.createTempDirectory(Path, String, FileAttribute...)</code></a> using <code>"junit-"</code> as prefix.</div>
 </div>

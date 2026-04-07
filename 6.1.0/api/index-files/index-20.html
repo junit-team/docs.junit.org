@@ -103,6 +103,41 @@ based on <em>included</em> and <em>excluded</em> tags or tag expressions.</div>
 in a test class constructor, lifecycle method, or test method of type
 <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link"><code>Path</code></a> or <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/File.html" title="class or interface in java.io" class="external-link"><code>File</code></a> that should be resolved into a temporary directory.</div>
 </dd>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/io/TempDirDeletionStrategy.html" class="type-name-link" title="interface in org.junit.jupiter.api.io">TempDirDeletionStrategy</a> - Interface in <a href="../org.junit.jupiter.api/org/junit/jupiter/api/io/package-summary.html">org.junit.jupiter.api.io</a></dt>
+<dd>
+<div class="block"><code>TempDirDeletionStrategy</code> defines the SPI for deleting temporary
+directories programmatically.</div>
+</dd>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/io/TempDirDeletionStrategy.DeletionException.html" class="type-name-link" title="class in org.junit.jupiter.api.io">TempDirDeletionStrategy.DeletionException</a> - Exception Class in <a href="../org.junit.jupiter.api/org/junit/jupiter/api/io/package-summary.html">org.junit.jupiter.api.io</a></dt>
+<dd>
+<div class="block">Exception thrown when one or more paths in a temporary directory could
+not be deleted by a <a href="../org.junit.jupiter.api/org/junit/jupiter/api/io/TempDirDeletionStrategy.html" title="interface in org.junit.jupiter.api.io"><code>TempDirDeletionStrategy</code></a>.</div>
+</dd>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/io/TempDirDeletionStrategy.DeletionFailure.html" class="type-name-link" title="interface in org.junit.jupiter.api.io">TempDirDeletionStrategy.DeletionFailure</a> - Interface in <a href="../org.junit.jupiter.api/org/junit/jupiter/api/io/package-summary.html">org.junit.jupiter.api.io</a></dt>
+<dd>
+<div class="block">Represents a single failure that occurred while attempting to delete a
+path during a <a href="../org.junit.jupiter.api/org/junit/jupiter/api/io/TempDirDeletionStrategy.html#delete(java.nio.file.Path,org.junit.jupiter.api.extension.AnnotatedElementContext,org.junit.jupiter.api.extension.ExtensionContext)"><code>TempDirDeletionStrategy.delete(Path, AnnotatedElementContext, ExtensionContext)</code></a> operation.</div>
+</dd>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/io/TempDirDeletionStrategy.DeletionResult.html" class="type-name-link" title="interface in org.junit.jupiter.api.io">TempDirDeletionStrategy.DeletionResult</a> - Interface in <a href="../org.junit.jupiter.api/org/junit/jupiter/api/io/package-summary.html">org.junit.jupiter.api.io</a></dt>
+<dd>
+<div class="block">Represents the result of a <a href="../org.junit.jupiter.api/org/junit/jupiter/api/io/TempDirDeletionStrategy.html#delete(java.nio.file.Path,org.junit.jupiter.api.extension.AnnotatedElementContext,org.junit.jupiter.api.extension.ExtensionContext)"><code>TempDirDeletionStrategy.delete(Path, AnnotatedElementContext, ExtensionContext)</code></a> operation,
+including any paths that could not be deleted.</div>
+</dd>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/io/TempDirDeletionStrategy.DeletionResult.Builder.html" class="type-name-link" title="interface in org.junit.jupiter.api.io">TempDirDeletionStrategy.DeletionResult.Builder</a> - Interface in <a href="../org.junit.jupiter.api/org/junit/jupiter/api/io/package-summary.html">org.junit.jupiter.api.io</a></dt>
+<dd>
+<div class="block">Builder for <a href="../org.junit.jupiter.api/org/junit/jupiter/api/io/TempDirDeletionStrategy.DeletionResult.html" title="interface in org.junit.jupiter.api.io"><code>TempDirDeletionStrategy.DeletionResult</code></a>.</div>
+</dd>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/io/TempDirDeletionStrategy.IgnoreFailures.html" class="type-name-link" title="class in org.junit.jupiter.api.io">TempDirDeletionStrategy.IgnoreFailures</a> - Class in <a href="../org.junit.jupiter.api/org/junit/jupiter/api/io/package-summary.html">org.junit.jupiter.api.io</a></dt>
+<dd>
+<div class="block">A <a href="../org.junit.jupiter.api/org/junit/jupiter/api/io/TempDirDeletionStrategy.html" title="interface in org.junit.jupiter.api.io"><code>TempDirDeletionStrategy</code></a> that delegates to <a href="../org.junit.jupiter.api/org/junit/jupiter/api/io/TempDirDeletionStrategy.Standard.html" title="class in org.junit.jupiter.api.io"><code>TempDirDeletionStrategy.Standard</code></a> but
+suppresses deletion failures by logging a warning instead of propagating
+them.</div>
+</dd>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/io/TempDirDeletionStrategy.Standard.html" class="type-name-link" title="class in org.junit.jupiter.api.io">TempDirDeletionStrategy.Standard</a> - Class in <a href="../org.junit.jupiter.api/org/junit/jupiter/api/io/package-summary.html">org.junit.jupiter.api.io</a></dt>
+<dd>
+<div class="block">Standard <a href="../org.junit.jupiter.api/org/junit/jupiter/api/io/TempDirDeletionStrategy.html" title="interface in org.junit.jupiter.api.io"><code>TempDirDeletionStrategy</code></a> implementation that recursively
+deletes all files and directories within the temporary directory.</div>
+</dd>
 <dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/io/TempDirFactory.html" class="type-name-link" title="interface in org.junit.jupiter.api.io">TempDirFactory</a> - Interface in <a href="../org.junit.jupiter.api/org/junit/jupiter/api/io/package-summary.html">org.junit.jupiter.api.io</a></dt>
 <dd>
 <div class="block"><code>TempDirFactory</code> defines the SPI for creating temporary directories
@@ -680,6 +715,11 @@ in the thread of the calling code or in a separate thread.</div>
 <dt><a href="../org.junit.platform.engine/org/junit/platform/engine/support/discovery/DiscoveryIssueReporter.Condition.html#toConsumer()" class="member-name-link">toConsumer()</a> - Method in interface org.junit.platform.engine.support.discovery.<a href="../org.junit.platform.engine/org/junit/platform/engine/support/discovery/DiscoveryIssueReporter.Condition.html" title="interface in org.junit.platform.engine.support.discovery">DiscoveryIssueReporter.Condition</a></dt>
 <dd>
 <div class="block">Returns this condition as a <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link"><code>Consumer</code></a>.</div>
+</dd>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/io/TempDirDeletionStrategy.DeletionResult.html#toException()" class="member-name-link">toException()</a> - Method in interface org.junit.jupiter.api.io.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/io/TempDirDeletionStrategy.DeletionResult.html" title="interface in org.junit.jupiter.api.io">TempDirDeletionStrategy.DeletionResult</a></dt>
+<dd>
+<div class="block">Convert this result to a <a href="../org.junit.jupiter.api/org/junit/jupiter/api/io/TempDirDeletionStrategy.DeletionException.html" title="class in org.junit.jupiter.api.io"><code>TempDirDeletionStrategy.DeletionException</code></a> summarizing all
+failures.</div>
 </dd>
 <dt><a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/descriptor/JupiterTestDescriptor.html#toExecutionMode(org.junit.jupiter.api.parallel.ExecutionMode)" class="member-name-link">toExecutionMode(ExecutionMode)</a> - Static method in class org.junit.jupiter.engine.descriptor.<a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/descriptor/JupiterTestDescriptor.html" title="class in org.junit.jupiter.engine.descriptor">JupiterTestDescriptor</a></dt>
 <dd>&nbsp;</dd>

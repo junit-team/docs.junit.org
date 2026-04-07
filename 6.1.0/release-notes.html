@@ -506,6 +506,13 @@ details regarding implementation differences between JUnit Pioneer and Jupiter, 
 corresponding <a href="https://github.com/junit-team/junit-framework/pull/5258">pull request</a>.</p>
 </li>
 <li>
+<p><code>@TempDir</code> now allows configuring a deletion strategy for temporary directories. This is
+typically used to gain control over what happens when deletion of a file or directory
+fails (see
+<a href="writing-tests/built-in-extensions.html#TempDirDeletionStrategy" class="xref page">User Guide</a> for
+details).</p>
+</li>
+<li>
 <p><code>Arguments</code> may now be created from instances of <code>Iterable</code> via the following new
 methods which make it easier to dynamically build arguments from collections when using
 <code>@ParameterizedTest</code>.</p>

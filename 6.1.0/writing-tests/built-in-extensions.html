@@ -486,13 +486,15 @@ temporary directory will only be deleted after the test if the test completed su
 }</code></pre>
 </div>
 </div>
+<div class="sect2">
+<h3 id="TempDirFactory"><a class="anchor" href="#TempDirFactory"></a>Factories</h3>
 <div class="paragraph">
 <p><code>@TempDir</code> supports the programmatic creation of temporary directories via the optional
 <code>factory</code> attribute. This is typically used to gain control over the temporary directory
 creation, like defining the parent directory or the file system that should be used.</p>
 </div>
 <div class="paragraph">
-<p>Factories can be created by implementing <code>TempDirFactory</code>. Implementations must provide a
+<p>Factories can be created by implementing <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/io/TempDirFactory.html" class="xref attachment">TempDirFactory</a></code>. Implementations must provide a
 no-args constructor and should not make any assumptions regarding when and how many times
 they are instantiated, but they can assume that their <code>createTempDirectory(&#8230;&#8203;)</code> and
 <code>close()</code> methods will both be called once per instance, in this order, and from the same
@@ -606,9 +608,9 @@ parameter of the <code>createTempDirectory(&#8230;&#8203;)</code> method.</p>
 <div class="paragraph">
 <p>You can use the <code>junit.jupiter.tempdir.factory.default</code>
 <a href="../running-tests/configuration-parameters.html" class="xref page">configuration parameter</a> to specify the
-fully qualified class name of the <code>TempDirFactory</code> you would like to use by default. Just
+fully qualified class name of the <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/io/TempDirFactory.html" class="xref attachment">TempDirFactory</a></code> you would like to use by default. Just
 like for factories configured via the <code>factory</code> attribute of the <code>@TempDir</code> annotation,
-the supplied class has to implement the <code>TempDirFactory</code> interface. The default factory
+the supplied class has to implement the <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/io/TempDirFactory.html" class="xref attachment">TempDirFactory</a></code> interface. The default factory
 will be used for all <code>@TempDir</code> annotations unless the <code>factory</code> attribute of the
 annotation specifies a different factory.</p>
 </div>
@@ -622,13 +624,87 @@ precedence rules:</p>
 <p>The <code>factory</code> attribute of the <code>@TempDir</code> annotation, if present</p>
 </li>
 <li>
-<p>The default <code>TempDirFactory</code> configured via the configuration
+<p>The default <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/io/TempDirFactory.html" class="xref attachment">TempDirFactory</a></code> configured via the configuration
 parameter, if present</p>
 </li>
 <li>
 <p>Otherwise, <code>org.junit.jupiter.api.io.TempDirFactory$Standard</code> will be used.</p>
 </li>
 </ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="TempDirDeletionStrategy"><a class="anchor" href="#TempDirDeletionStrategy"></a>Deletion</h3>
+<div class="paragraph">
+<p><code>@TempDir</code> supports the programmatic deletion of temporary directories via the optional
+<code>deletionStrategy</code> attribute. This is typically used to gain control over what happens
+when deletion of a file or directory fails.</p>
+</div>
+<div class="paragraph">
+<p>Deletion strategies can be created by implementing <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/io/TempDirDeletionStrategy.html" class="xref attachment">TempDirDeletionStrategy</a></code>.
+Implementations must provide a no-args constructor.</p>
+</div>
+<div class="paragraph">
+<p>Jupiter ships with two built-in deletion strategies:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/io/TempDirDeletionStrategy.Standard.html" class="xref attachment">Standard</a></code> (the default): attempts to delete all files and
+directories recursively, retrying with permission resets on failure. Paths that still
+cannot be deleted are scheduled for deletion on JVM exit, if possible. Additionally,
+the test is failed.</p>
+</li>
+<li>
+<p><code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/io/TempDirDeletionStrategy.IgnoreFailures.html" class="xref attachment">IgnoreFailures</a></code>: delegates to <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/io/TempDirDeletionStrategy.Standard.html" class="xref attachment">Standard</a></code>
+but suppresses deletion failures by logging a warning instead of failing the test.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following example uses <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/io/TempDirDeletionStrategy.IgnoreFailures.html" class="xref attachment">IgnoreFailures</a></code> so that any deletion
+failures are only logged.</p>
+</div>
+<div class="listingblock">
+<div class="title">A test class with a temporary directory that ignores deletion failures</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">class DeletionStrategyDemo {
+
+	@Test
+	void test(@TempDir(deletionStrategy = TempDirDeletionStrategy.IgnoreFailures.class) Path tempDir) {
+		// perform test
+	}
+
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can use the <code>junit.jupiter.tempdir.deletion.strategy.default</code>
+<a href="../running-tests/configuration-parameters.html" class="xref page">configuration parameter</a> to specify the
+fully qualified class name of the <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/io/TempDirDeletionStrategy.html" class="xref attachment">TempDirDeletionStrategy</a></code> you would like to use by
+default. Just like for strategies configured via the <code>deletionStrategy</code> attribute of the
+<code>@TempDir</code> annotation, the supplied class has to implement the <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/io/TempDirDeletionStrategy.html" class="xref attachment">TempDirDeletionStrategy</a></code>
+interface. The default strategy will be used for all <code>@TempDir</code> annotations unless the
+<code>deletionStrategy</code> attribute of the annotation specifies a different strategy.</p>
+</div>
+<div class="paragraph">
+<p>In summary, the deletion strategy for a temporary directory is determined according to the
+following precedence rules:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <code>deletionStrategy</code> attribute of the <code>@TempDir</code> annotation, if present</p>
+</li>
+<li>
+<p>The default <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/io/TempDirDeletionStrategy.html" class="xref attachment">TempDirDeletionStrategy</a></code> configured via the configuration parameter,
+if present</p>
+</li>
+<li>
+<p>Otherwise, <code>org.junit.jupiter.api.io.TempDirDeletionStrategy$Standard</code> will be used.</p>
+</li>
+</ol>
+</div>
 </div>
 </div>
 </div>
