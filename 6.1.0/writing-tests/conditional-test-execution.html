@@ -469,8 +469,21 @@ the <code>org.junit.jupiter.api.condition</code> package.</p>
 architecture, or combination of both via the <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/condition/EnabledOnOs.html" class="xref attachment">@EnabledOnOs</a></code> and <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/condition/DisabledOnOs.html" class="xref attachment">@DisabledOnOs</a></code>
 annotations.</p>
 </div>
-<div id="os-demo" class="listingblock">
+<div id="os-demo" class="openblock tabs is-sync is-loading">
 <div class="title">Conditional execution based on operating system</div>
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="os-demo-java" class="tab">
+<p>Java</p>
+</li>
+<li id="os-demo-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="os-demo-java--panel" class="tabpanel" aria-labelledby="os-demo-java">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Test
 @EnabledOnOs(MAC)
@@ -503,8 +516,58 @@ void notOnWindows() {
 }</code></pre>
 </div>
 </div>
-<div id="architectures-demo" class="listingblock">
+</div>
+<div id="os-demo-kotlin--panel" class="tabpanel" aria-labelledby="os-demo-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Test
+@EnabledOnOs(MAC)
+fun onlyOnMacOs() {
+    // ...
+}
+
+@TestOnMac
+fun testOnMac() {
+    // ...
+}
+
+@Test
+@EnabledOnOs(LINUX, MAC)
+fun onLinuxOrMac() {
+    // ...
+}
+
+@Test
+@DisabledOnOs(WINDOWS)
+fun notOnWindows() {
+    // ...
+}
+
+@Target(AnnotationTarget.FUNCTION)
+@Retention(AnnotationRetention.RUNTIME)
+@Test
+@EnabledOnOs(MAC)
+annotation class TestOnMac</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="architectures-demo" class="openblock tabs is-sync is-loading">
 <div class="title">Conditional execution based on architecture</div>
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="architectures-demo-java" class="tab">
+<p>Java</p>
+</li>
+<li id="architectures-demo-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="architectures-demo-java--panel" class="tabpanel" aria-labelledby="architectures-demo-java">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Test
 @EnabledOnOs(architectures = "aarch64")
@@ -532,6 +595,38 @@ void notOnNewMacs() {
 </div>
 </div>
 </div>
+<div id="architectures-demo-kotlin--panel" class="tabpanel" aria-labelledby="architectures-demo-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Test
+@EnabledOnOs(architectures = ["aarch64"])
+fun onAarch64() {
+    // ...
+}
+
+@Test
+@DisabledOnOs(architectures = ["x86_64"])
+fun notOnX86_64() {
+    // ...
+}
+
+@Test
+@EnabledOnOs(value = [MAC], architectures = ["aarch64"])
+fun onNewMacs() {
+    // ...
+}
+
+@Test
+@DisabledOnOs(value = [MAC], architectures = ["aarch64"])
+fun notOnNewMacs() {
+    // ...
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div class="sect1">
 <h2 id="jre"><a class="anchor" href="#jre"></a>Java Runtime Environment Conditions</h2>
@@ -547,6 +642,19 @@ lower bound and <code>JRE.OTHER</code> as the upper bound, which allows usage of
 <p>The following listing demonstrates the use of these annotations with predefined <a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/condition/JRE.html" class="xref attachment">JRE</a> enum
 constants.</p>
 </div>
+<div id="tabs-3" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-3-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-3-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-3-java--panel" class="tabpanel" aria-labelledby="tabs-3-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Test
@@ -604,6 +712,68 @@ void notFromJava17To18() {
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-3-kotlin--panel" class="tabpanel" aria-labelledby="tabs-3-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Test
+@EnabledOnJre(JAVA_17)
+fun onlyOnJava17() {
+    // ...
+}
+
+@Test
+@EnabledOnJre(JAVA_17, JAVA_21)
+fun onJava17And21() {
+    // ...
+}
+
+@Test
+@EnabledForJreRange(min = JAVA_21, max = JAVA_25)
+fun fromJava21To25() {
+    // ...
+}
+
+@Test
+@EnabledForJreRange(min = JAVA_21)
+fun onJava21ndHigher() {
+    // ...
+}
+
+@Test
+@EnabledForJreRange(max = JAVA_18)
+fun fromJava17To18() {
+    // ...
+}
+
+@Test
+@DisabledOnJre(JAVA_19)
+fun notOnJava19() {
+    // ...
+}
+
+@Test
+@DisabledForJreRange(min = JAVA_17, max = JAVA_17)
+fun notFromJava17To19() {
+    // ...
+}
+
+@Test
+@DisabledForJreRange(min = JAVA_19)
+fun notOnJava19AndHigher() {
+    // ...
+}
+
+@Test
+@DisabledForJreRange(max = JAVA_18)
+fun notFromJava17To18() {
+    // ...
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>Since the enum constants defined in <a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/condition/JRE.html" class="xref attachment">JRE</a> are static for any given JUnit release, you
 might find that you need to configure a Java version that is not supported by the <code>JRE</code>
@@ -618,6 +788,19 @@ via the <code>versions</code> attributes in <code>@EnabledOnJre</code> and <code
 <p>The following listing demonstrates the use of these annotations with arbitrary Java
 versions.</p>
 </div>
+<div id="tabs-4" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-4-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-4-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-4-java--panel" class="tabpanel" aria-labelledby="tabs-4-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Test
@@ -678,6 +861,70 @@ void notFromJava25To27() {
 </div>
 </div>
 </div>
+<div id="tabs-4-kotlin--panel" class="tabpanel" aria-labelledby="tabs-4-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Test
+@EnabledOnJre(versions = [26])
+fun onlyOnJava26() {
+    // ...
+}
+
+// Can also be expressed as follows.
+// @EnabledOnJre(value = [JAVA_25], versions = [26])
+@Test
+@EnabledOnJre(versions = [25, 26])
+fun onJava25And26() {
+    // ...
+}
+
+@Test
+@EnabledForJreRange(minVersion = 26)
+fun onJava26AndHigher() {
+    // ...
+}
+
+// Can also be expressed as follows.
+// @EnabledForJreRange(min = JAVA_25, maxVersion = 27)
+@Test
+@EnabledForJreRange(minVersion = 25, maxVersion = 27)
+fun fromJava25To27() {
+    // ...
+}
+
+@Test
+@DisabledOnJre(versions = [26])
+fun notOnJava26() {
+    // ...
+}
+
+// Can also be expressed as follows.
+// @DisabledOnJre(value = [JAVA_25], versions = [26])
+@Test
+@DisabledOnJre(versions = [25, 26])
+fun notOnJava25And26() {
+    // ...
+}
+
+@Test
+@DisabledForJreRange(minVersion = 26)
+fun notOnJava26AndHigher() {
+    // ...
+}
+
+// Can also be expressed as follows.
+// @DisabledForJreRange(min = JAVA_25, maxVersion = 27)
+@Test
+@DisabledForJreRange(minVersion = 25, maxVersion = 27)
+fun notFromJava25To27() {
+    // ...
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div class="sect1">
 <h2 id="native"><a class="anchor" href="#native"></a>Native Image Conditions</h2>
@@ -690,6 +937,19 @@ typically used when running tests within a native image using the Gradle and Mav
 plug-ins from the GraalVM <a href="https://graalvm.github.io/native-build-tools/latest/">Native
 Build Tools</a> project.</p>
 </div>
+<div id="tabs-5" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-5-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-5-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-5-java--panel" class="tabpanel" aria-labelledby="tabs-5-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Test
@@ -706,6 +966,26 @@ void neverWithinNativeImage() {
 </div>
 </div>
 </div>
+<div id="tabs-5-kotlin--panel" class="tabpanel" aria-labelledby="tabs-5-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Test
+@EnabledInNativeImage
+fun onlyWithinNativeImage() {
+    // ...
+}
+
+@Test
+@DisabledInNativeImage
+fun neverWithinNativeImage() {
+    // ...
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div class="sect1">
 <h2 id="system-properties"><a class="anchor" href="#system-properties"></a>System Property Conditions</h2>
@@ -716,6 +996,19 @@ system property via the <code><a href="../api/org.junit.jupiter.api/org/junit/ju
 annotations. The value supplied via the <code>matches</code> attribute will be interpreted as a
 regular expression.</p>
 </div>
+<div id="tabs-6" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-6-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-6-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-6-java--panel" class="tabpanel" aria-labelledby="tabs-6-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Test
@@ -729,6 +1022,26 @@ void onlyOn64BitArchitectures() {
 void notOnCiServer() {
 	// ...
 }</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-6-kotlin--panel" class="tabpanel" aria-labelledby="tabs-6-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Test
+@EnabledIfSystemProperty(named = "os.arch", matches = ".*64.*")
+fun onlyOn64BitArchitectures() {
+    // ...
+}
+
+@Test
+@DisabledIfSystemProperty(named = "ci-server", matches = "true")
+fun notOnCiServer() {
+    // ...
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="admonitionblock tip">
@@ -759,6 +1072,19 @@ environment variable from the underlying operating system via the
 <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/condition/EnabledIfEnvironmentVariable.html" class="xref attachment">@EnabledIfEnvironmentVariable</a></code> and <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/condition/DisabledIfEnvironmentVariable.html" class="xref attachment">@DisabledIfEnvironmentVariable</a></code> annotations. The
 value supplied via the <code>matches</code> attribute will be interpreted as a regular expression.</p>
 </div>
+<div id="tabs-7" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-7-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-7-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-7-java--panel" class="tabpanel" aria-labelledby="tabs-7-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Test
@@ -772,6 +1098,26 @@ void onlyOnStagingServer() {
 void notOnDeveloperWorkstation() {
 	// ...
 }</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-7-kotlin--panel" class="tabpanel" aria-labelledby="tabs-7-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Test
+@EnabledIfEnvironmentVariable(named = "ENV", matches = "staging-server")
+fun onlyOnStagingServer() {
+    // ...
+}
+
+@Test
+@DisabledIfEnvironmentVariable(named = "ENV", matches = ".*development.*")
+fun notOnDeveloperWorkstation() {
+    // ...
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="admonitionblock tip">
@@ -806,6 +1152,19 @@ return type and may accept either no arguments or a single <code>ExtensionContex
 <p>The following test class demonstrates how to configure a local method named
 <code>customCondition</code> via <code>@EnabledIf</code> and <code>@DisabledIf</code>.</p>
 </div>
+<div id="tabs-8" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-8-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-8-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-8-java--panel" class="tabpanel" aria-labelledby="tabs-8-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Test
@@ -825,11 +1184,46 @@ boolean customCondition() {
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-8-kotlin--panel" class="tabpanel" aria-labelledby="tabs-8-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Test
+@EnabledIf("customCondition")
+fun enabled() {
+    // ...
+}
+
+@Test
+@DisabledIf("customCondition")
+fun disabled() {
+    // ...
+}
+
+fun customCondition(): Boolean = true</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>Alternatively, the condition method can be located outside the test class. In this case,
 it must be referenced by its <em>fully qualified name</em> as demonstrated in the following
 example.</p>
 </div>
+<div id="tabs-9" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-9-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-9-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-9-java--panel" class="tabpanel" aria-labelledby="tabs-9-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package example;
@@ -854,6 +1248,34 @@ class ExternalCondition {
 	}
 
 }</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-9-kotlin--panel" class="tabpanel" aria-labelledby="tabs-9-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">package example.kotlin
+
+import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.condition.EnabledIf
+
+class ExternalCustomConditionDemo {
+    @Test
+    @EnabledIf("example.kotlin.ExternalCondition#customCondition")
+    fun enabled() {
+        // ...
+    }
+}
+
+class ExternalCondition {
+    companion object {
+        @JvmStatic
+        fun customCondition(): Boolean = true
+    }
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -905,10 +1327,34 @@ method that can be used to determine if the current environment does not support
 graphical display. Thus, if you have a test that depends on graphical support you can
 disable it when such support is unavailable as follows.</p>
 </div>
+<div id="tabs-10" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-10-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-10-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-10-java--panel" class="tabpanel" aria-labelledby="tabs-10-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@DisabledIf(value = "java.awt.GraphicsEnvironment#isHeadless",
 	disabledReason = "headless environment")</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-10-kotlin--panel" class="tabpanel" aria-labelledby="tabs-10-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@DisabledIf(value = "java.awt.GraphicsEnvironment#isHeadless",
+    disabledReason = "headless environment")</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 </td>

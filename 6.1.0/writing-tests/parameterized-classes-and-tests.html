@@ -2145,7 +2145,7 @@ void testWithImplicitFallbackArgumentConversion(Book book) {
 <h3 id="argument-conversion-explicit"><a class="anchor" href="#argument-conversion-explicit"></a>Explicit Conversion</h3>
 <div class="paragraph">
 <p>Instead of relying on implicit argument conversion, you may explicitly specify an
-<code>ArgumentConverter</code> to use for a certain parameter using the <code>@ConvertWith</code> annotation
+<code><a href="../api/org.junit.jupiter.params/org/junit/jupiter/params/converter/ArgumentConverter.html" class="xref attachment">ArgumentConverter</a></code> to use for a certain parameter using the <code>@ConvertWith</code> annotation
 like in the following example. Note that an implementation of <code>ArgumentConverter</code> must be
 declared as either a top-level class or as a <code>static</code> nested class.</p>
 </div>
@@ -2213,7 +2213,7 @@ void testWithExplicitJavaTimeConverter(
 </div>
 </div>
 <div class="paragraph">
-<p>If you wish to implement a custom <code>ArgumentConverter</code> that also consumes an annotation
+<p>If you wish to implement a custom <code><a href="../api/org.junit.jupiter.params/org/junit/jupiter/params/converter/ArgumentConverter.html" class="xref attachment">ArgumentConverter</a></code> that also consumes an annotation
 (like <code>JavaTimeArgumentConverter</code>), you have the possibility to extend the
 <code><a href="../api/org.junit.jupiter.params/org/junit/jupiter/params/converter/AnnotationBasedArgumentConverter.html" class="xref attachment">AnnotationBasedArgumentConverter</a></code> class.</p>
 </div>

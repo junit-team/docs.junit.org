@@ -456,8 +456,21 @@ callbacks that are invoked <em>around</em> <code>@BeforeEach</code> and <code>@A
 time of a test method. <code>TimingExtension</code> implements both <code>BeforeTestExecutionCallback</code>
 and <code>AfterTestExecutionCallback</code> in order to time and log the test execution.</p>
 </div>
-<div id="timing-extension" class="listingblock">
+<div id="timing-extension" class="openblock tabs is-sync is-loading">
 <div class="title">An extension that times and logs the execution of test methods</div>
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="timing-extension-java" class="tab">
+<p>Java</p>
+</li>
+<li id="timing-extension-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="timing-extension-java--panel" class="tabpanel" aria-labelledby="timing-extension-java">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import java.lang.reflect.Method;
 import java.util.logging.Logger;
@@ -496,12 +509,63 @@ public class TimingExtension implements BeforeTestExecutionCallback, AfterTestEx
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="timing-extension-kotlin--panel" class="tabpanel" aria-labelledby="timing-extension-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import org.junit.jupiter.api.extension.AfterTestExecutionCallback
+import org.junit.jupiter.api.extension.BeforeTestExecutionCallback
+import org.junit.jupiter.api.extension.ExtensionContext
+import org.junit.jupiter.api.extension.ExtensionContext.Namespace
+import org.junit.jupiter.api.extension.ExtensionContext.Store
+import java.util.logging.Logger
+
+class TimingExtension :
+    BeforeTestExecutionCallback,
+    AfterTestExecutionCallback {
+    override fun beforeTestExecution(context: ExtensionContext) {
+        getStore(context).put(START_TIME, System.currentTimeMillis())
+    }
+
+    override fun afterTestExecution(context: ExtensionContext) {
+        val testMethod = context.requiredTestMethod
+        val startTime = getStore(context).remove(START_TIME, Long::class.javaObjectType)!!
+        val duration = System.currentTimeMillis() - startTime
+
+        logger.info { "Method [${testMethod.name}] took $duration ms." }
+    }
+
+    private fun getStore(context: ExtensionContext): Store = context.getStore(Namespace.create(javaClass, context.requiredTestMethod))
+
+    companion object {
+        private val logger: Logger = Logger.getLogger(TimingExtension::class.java.name)
+        private const val START_TIME = "start time"
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>Since the <code>TimingExtensionTests</code> class registers the <code>TimingExtension</code> via <code>@ExtendWith</code>,
 its tests will have this timing applied when they execute.</p>
 </div>
-<div class="listingblock">
+<div id="tabs-2" class="openblock tabs is-sync is-loading">
 <div class="title">A test class that uses the example TimingExtension</div>
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-2-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-2-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-2-java--panel" class="tabpanel" aria-labelledby="tabs-2-java">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@ExtendWith(TimingExtension.class)
 class TimingExtensionTests {
@@ -517,6 +581,27 @@ class TimingExtensionTests {
 	}
 
 }</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-2-kotlin--panel" class="tabpanel" aria-labelledby="tabs-2-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@ExtendWith(TimingExtension::class)
+class TimingExtensionTests {
+    @Test
+    fun sleep20ms() {
+        Thread.sleep(20)
+    }
+
+    @Test
+    fun sleep50ms() {
+        Thread.sleep(50)
+    }
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="paragraph">

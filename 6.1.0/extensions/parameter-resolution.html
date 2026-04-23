@@ -480,8 +480,21 @@ registered for a test, a <code>ParameterResolutionException</code> will be throw
 message to indicate that competing resolvers have been discovered. See the following
 example:</p>
 </div>
-<div class="listingblock">
+<div id="tabs-1" class="openblock tabs is-sync is-loading">
 <div class="title">Conflicting parameter resolution due to multiple resolvers claiming support for integers</div>
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-1-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-1-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-1-java--panel" class="tabpanel" aria-labelledby="tabs-1-java">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class ParameterResolverConflictDemo {
 
@@ -520,12 +533,66 @@ example:</p>
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-1-kotlin--panel" class="tabpanel" aria-labelledby="tabs-1-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class ParameterResolverConflictDemo {
+    @Test
+    @ExtendWith(FirstIntegerResolver::class, SecondIntegerResolver::class)
+    fun testInt(i: Int) {
+        // Test will not run due to ParameterResolutionException
+        assertEquals(1, i)
+    }
+
+    class FirstIntegerResolver : ParameterResolver {
+        override fun supportsParameter(
+            parameterContext: ParameterContext,
+            extensionContext: ExtensionContext
+        ): Boolean = parameterContext.parameter.type == Int::class.javaPrimitiveType
+
+        override fun resolveParameter(
+            parameterContext: ParameterContext,
+            extensionContext: ExtensionContext
+        ): Any = 1
+    }
+
+    class SecondIntegerResolver : ParameterResolver {
+        override fun supportsParameter(
+            parameterContext: ParameterContext,
+            extensionContext: ExtensionContext
+        ): Boolean = parameterContext.parameter.type == Int::class.javaPrimitiveType
+
+        override fun resolveParameter(
+            parameterContext: ParameterContext,
+            extensionContext: ExtensionContext
+        ): Any = 2
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>If the conflicting <code>ParameterResolver</code> implementations are applied to different test
 methods as shown in the following example, no conflict occurs.</p>
 </div>
-<div class="listingblock">
+<div id="tabs-2" class="openblock tabs is-sync is-loading">
 <div class="title">Fine-grained registration to avoid conflict</div>
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-2-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-2-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-2-java--panel" class="tabpanel" aria-labelledby="tabs-2-java">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class ParameterResolverNoConflictDemo {
 
@@ -569,13 +636,72 @@ methods as shown in the following example, no conflict occurs.</p>
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-2-kotlin--panel" class="tabpanel" aria-labelledby="tabs-2-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class ParameterResolverNoConflictDemo {
+    @Test
+    @ExtendWith(FirstIntegerResolver::class)
+    fun firstResolution(i: Int) {
+        assertEquals(1, i)
+    }
+
+    @Test
+    @ExtendWith(SecondIntegerResolver::class)
+    fun secondResolution(i: Int) {
+        assertEquals(2, i)
+    }
+
+    class FirstIntegerResolver : ParameterResolver {
+        override fun supportsParameter(
+            parameterContext: ParameterContext,
+            extensionContext: ExtensionContext
+        ): Boolean = parameterContext.parameter.type == Int::class.javaPrimitiveType
+
+        override fun resolveParameter(
+            parameterContext: ParameterContext,
+            extensionContext: ExtensionContext
+        ): Any = 1
+    }
+
+    class SecondIntegerResolver : ParameterResolver {
+        override fun supportsParameter(
+            parameterContext: ParameterContext,
+            extensionContext: ExtensionContext
+        ): Boolean = parameterContext.parameter.type == Int::class.javaPrimitiveType
+
+        override fun resolveParameter(
+            parameterContext: ParameterContext,
+            extensionContext: ExtensionContext
+        ): Any = 2
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>If the conflicting <code>ParameterResolver</code> implementations need to be applied to the same test
 method, you can implement a custom type or custom annotation as illustrated by
 <code><a href="https://github.com/junit-team/junit-framework/tree/HEAD/jupiter-tests/src/test/java/org/junit/jupiter/engine/execution/injection/sample/CustomTypeParameterResolver.java">CustomTypeParameterResolver</a></code> and <code><a href="https://github.com/junit-team/junit-framework/tree/HEAD/jupiter-tests/src/test/java/org/junit/jupiter/engine/execution/injection/sample/CustomAnnotationParameterResolver.java">CustomAnnotationParameterResolver</a></code>, respectively.</p>
 </div>
-<div class="listingblock">
+<div id="tabs-3" class="openblock tabs is-sync is-loading">
 <div class="title">Custom type to resolve duplicate types</div>
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-3-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-3-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-3-java--panel" class="tabpanel" aria-labelledby="tabs-3-java">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class ParameterResolverCustomTypeDemo {
 
@@ -624,11 +750,72 @@ method, you can implement a custom type or custom annotation as illustrated by
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-3-kotlin--panel" class="tabpanel" aria-labelledby="tabs-3-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class ParameterResolverCustomTypeDemo {
+    @Test
+    @ExtendWith(FirstIntegerResolver::class, SecondIntegerResolver::class)
+    fun testInt(
+        i: Int,
+        wrappedInteger: WrappedInteger
+    ) {
+        assertEquals(1, i)
+        assertEquals(2, wrappedInteger.value)
+    }
+
+    class FirstIntegerResolver : ParameterResolver {
+        override fun supportsParameter(
+            parameterContext: ParameterContext,
+            extensionContext: ExtensionContext
+        ): Boolean = parameterContext.parameter.type == Int::class.javaPrimitiveType
+
+        override fun resolveParameter(
+            parameterContext: ParameterContext,
+            extensionContext: ExtensionContext
+        ): Any = 1
+    }
+
+    class SecondIntegerResolver : ParameterResolver {
+        override fun supportsParameter(
+            parameterContext: ParameterContext,
+            extensionContext: ExtensionContext
+        ): Boolean = parameterContext.parameter.type == WrappedInteger::class.java
+
+        override fun resolveParameter(
+            parameterContext: ParameterContext,
+            extensionContext: ExtensionContext
+        ): Any = WrappedInteger(2)
+    }
+
+    data class WrappedInteger(
+        val value: Int
+    )
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>A custom annotation makes the duplicate type distinguishable from its counterpart:</p>
 </div>
-<div class="listingblock">
+<div id="tabs-4" class="openblock tabs is-sync is-loading">
 <div class="title">Custom annotation to resolve duplicate types</div>
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-4-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-4-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-4-java--panel" class="tabpanel" aria-labelledby="tabs-4-java">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class ParameterResolverCustomAnnotationDemo {
 
@@ -677,6 +864,61 @@ method, you can implement a custom type or custom annotation as illustrated by
 		}
 	}
 }</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-4-kotlin--panel" class="tabpanel" aria-labelledby="tabs-4-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class ParameterResolverCustomAnnotationDemo {
+    @Test
+    fun testInt(
+        @FirstInteger first: Int,
+        @SecondInteger second: Int
+    ) {
+        assertEquals(1, first)
+        assertEquals(2, second)
+    }
+
+    @Target(AnnotationTarget.VALUE_PARAMETER)
+    @Retention(AnnotationRetention.RUNTIME)
+    @ExtendWith(FirstIntegerExtension::class)
+    annotation class FirstInteger
+
+    class FirstIntegerExtension : ParameterResolver {
+        override fun supportsParameter(
+            parameterContext: ParameterContext,
+            extensionContext: ExtensionContext
+        ): Boolean =
+            parameterContext.parameter.type == Int::class.javaPrimitiveType &amp;&amp;
+                !parameterContext.isAnnotated(SecondInteger::class.java)
+
+        override fun resolveParameter(
+            parameterContext: ParameterContext,
+            extensionContext: ExtensionContext
+        ): Any = 1
+    }
+
+    @Target(AnnotationTarget.VALUE_PARAMETER)
+    @Retention(AnnotationRetention.RUNTIME)
+    @ExtendWith(SecondIntegerExtension::class)
+    annotation class SecondInteger
+
+    class SecondIntegerExtension : ParameterResolver {
+        override fun supportsParameter(
+            parameterContext: ParameterContext,
+            extensionContext: ExtensionContext
+        ): Boolean = parameterContext.isAnnotated(SecondInteger::class.java)
+
+        override fun resolveParameter(
+            parameterContext: ParameterContext,
+            extensionContext: ExtensionContext
+        ): Any = 2
+    }
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="paragraph">

@@ -384,9 +384,23 @@ unit for the duration defaults to seconds but is configurable.</p>
 <div class="paragraph">
 <p>The following example shows how <code>@Timeout</code> is applied to lifecycle and test methods.</p>
 </div>
+<div id="tabs-1" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-1-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-1-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-1-java--panel" class="tabpanel" aria-labelledby="tabs-1-java">
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">class TimeoutDemo {
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Tag("timeout")
+class TimeoutDemo {
 
 	@BeforeEach
 	@Timeout(5)
@@ -407,6 +421,35 @@ unit for the duration defaults to seconds but is configurable.</p>
 	}
 
 }</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-1-kotlin--panel" class="tabpanel" aria-labelledby="tabs-1-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Tag("timeout")
+class TimeoutDemo {
+    @BeforeEach
+    @Timeout(5)
+    fun setUp() {
+        // fails if execution time exceeds 5 seconds
+    }
+
+    @Test
+    @Timeout(value = 500, unit = TimeUnit.MILLISECONDS)
+    fun failsIfExecutionTimeExceeds500Milliseconds() {
+        // fails if execution time exceeds 500 milliseconds
+    }
+
+    @Test
+    @Timeout(value = 500, unit = TimeUnit.MILLISECONDS, threadMode = ThreadMode.SEPARATE_THREAD)
+    fun failsIfExecutionTimeExceeds500MillisecondsInSeparateThread() {
+        // fails if execution time exceeds 500 milliseconds, the test code is executed in a separate thread
+    }
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="paragraph">
@@ -587,6 +630,19 @@ does not execute indefinitely. The following example demonstrates how to achieve
 JUnit Jupiter&#8217;s <code>@Timeout</code> annotation. This technique can be used to implement "poll
 until" logic very easily.</p>
 </div>
+<div id="tabs-2" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-2-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-2-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-2-java--panel" class="tabpanel" aria-labelledby="tabs-2-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Test
@@ -597,6 +653,23 @@ void pollUntil() throws InterruptedException {
 	}
 	// Obtain the asynchronous result and perform assertions
 }</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-2-kotlin--panel" class="tabpanel" aria-labelledby="tabs-2-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Test
+@Timeout(5) // Poll at most 5 seconds
+fun pollUntil() {
+    while (asynchronousResultNotAvailable()) {
+        Thread.sleep(250) // custom poll interval
+    }
+    // Obtain the asynchronous result and perform assertions
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="admonitionblock note">

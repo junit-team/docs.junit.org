@@ -443,8 +443,21 @@ available for backward compatibility.</p>
 <p>An example implementation of <code>AutoCloseable</code> is shown below, using an <code>HttpServer</code>
 resource.</p>
 </div>
-<div class="listingblock">
+<div id="tabs-1" class="openblock tabs is-sync is-loading">
 <div class="title"><code><em>HttpServer</em></code> resource implementing <code><em>AutoCloseable</em></code></div>
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-1-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-1-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-1-java--panel" class="tabpanel" aria-labelledby="tabs-1-java">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">class HttpServerResource implements AutoCloseable {
 
@@ -479,6 +492,42 @@ resource.</p>
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-1-kotlin--panel" class="tabpanel" aria-labelledby="tabs-1-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class HttpServerResource(
+    port: Int
+) : AutoCloseable {
+    val httpServer: HttpServer
+
+    init {
+        val loopbackAddress = InetAddress.getLoopbackAddress()
+        httpServer = HttpServer.create(InetSocketAddress(loopbackAddress, port), 0)
+    }
+
+    fun start() {
+        // Example handler
+        httpServer.createContext("/example") { exchange -&gt;
+            val body = "This is a test"
+            exchange.sendResponseHeaders(200, body.length.toLong())
+            exchange.responseBody.use { os -&gt;
+                os.write(body.toByteArray(Charsets.UTF_8))
+            }
+        }
+        httpServer.executor = null
+        httpServer.start()
+    }
+
+    override fun close() {
+        httpServer.stop(0)
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>This resource can then be stored in the desired <code>ExtensionContext</code>. It may be stored at
 class or method level, if desired, but this may add unnecessary overhead for this type of
@@ -486,8 +535,21 @@ resource. For this example it might be prudent to store it at root level and ins
 it lazily to ensure it&#8217;s only created once per test run and reused across different test
 classes and methods.</p>
 </div>
-<div class="listingblock">
+<div id="tabs-2" class="openblock tabs is-sync is-loading">
 <div class="title">Lazily storing in root context with <code><em>Store.computeIfAbsent</em></code></div>
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-2-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-2-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-2-java--panel" class="tabpanel" aria-labelledby="tabs-2-java">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class HttpServerExtension implements ParameterResolver {
 
@@ -517,8 +579,54 @@ classes and methods.</p>
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-2-kotlin--panel" class="tabpanel" aria-labelledby="tabs-2-kotlin">
 <div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class HttpServerExtension : ParameterResolver {
+    override fun supportsParameter(
+        parameterContext: ParameterContext,
+        extensionContext: ExtensionContext
+    ): Boolean = HttpServer::class.java == parameterContext.parameter.type
+
+    override fun resolveParameter(
+        parameterContext: ParameterContext,
+        extensionContext: ExtensionContext
+    ): Any {
+        val rootContext = extensionContext.root
+        val store = rootContext.getStore(Namespace.GLOBAL)
+        val key = HttpServerResource::class.java
+        val resource =
+            store.computeIfAbsent(key, {
+                try {
+                    HttpServerResource(0).apply { start() }
+                } catch (e: IOException) {
+                    throw UncheckedIOException("Failed to create HttpServerResource", e)
+                }
+            }, HttpServerResource::class.java)
+        return resource.httpServer
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabs-3" class="openblock tabs is-sync is-loading">
 <div class="title">A test case using the <code><em>HttpServerExtension</em></code></div>
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-3-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-3-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-3-java--panel" class="tabpanel" aria-labelledby="tabs-3-java">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@ExtendWith(HttpServerExtension.class)
 public class HttpServerDemo {
@@ -547,6 +655,37 @@ public class HttpServerDemo {
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-3-kotlin--panel" class="tabpanel" aria-labelledby="tabs-3-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@ExtendWith(HttpServerExtension::class)
+class HttpServerDemo {
+    @Test
+    fun httpCall(server: HttpServer) {
+        val address = server.address
+        val requestUrl = URI("http://${address.hostName}:${address.port}/example").toURL()
+
+        val responseBody = sendRequest(requestUrl)
+
+        assertEquals("This is a test", responseBody)
+    }
+
+    private fun sendRequest(url: URL): String {
+        val connection = url.openConnection() as HttpURLConnection
+        val contentLength = connection.contentLength
+        url.openStream().use { response -&gt;
+            val content = ByteArray(contentLength)
+            assertEquals(contentLength, response.read(content))
+            return String(content, Charsets.UTF_8)
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div id="migration" class="admonitionblock tip">
 <table>
 <tr>
@@ -565,6 +704,19 @@ implement <code>AutoCloseable</code>. In versions prior to 5.13, only resources 
 earlier versions and your extension stores resources that need to be cleaned up, you
 should implement both interfaces:</p>
 </div>
+<div id="tabs-4" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-4-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-4-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-4-java--panel" class="tabpanel" aria-labelledby="tabs-4-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class MyResource implements Store.CloseableResource, AutoCloseable {
@@ -573,6 +725,20 @@ should implement both interfaces:</p>
         // Resource cleanup code
     }
 }</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-4-kotlin--panel" class="tabpanel" aria-labelledby="tabs-4-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MyResource : Store.CloseableResource, AutoCloseable {
+    override fun close() {
+        // Resource cleanup code
+    }
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="paragraph">

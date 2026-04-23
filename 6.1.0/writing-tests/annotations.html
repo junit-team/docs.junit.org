@@ -584,6 +584,19 @@ its meta-annotations.</p>
 named <code>@Fast</code> as follows. <code>@Fast</code> can then be used as a drop-in replacement for
 <code>@Tag("fast")</code>.</p>
 </div>
+<div id="tabs-1" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-1-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-1-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-1-java--panel" class="tabpanel" aria-labelledby="tabs-1-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import java.lang.annotation.ElementType;
@@ -600,9 +613,37 @@ public @interface Fast {
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-1-kotlin--panel" class="tabpanel" aria-labelledby="tabs-1-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import org.junit.jupiter.api.Tag
+
+@Target(AnnotationTarget.TYPE, AnnotationTarget.FUNCTION)
+@Retention(AnnotationRetention.RUNTIME)
+@Tag("fast")
+annotation class Fast</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>The following <code>@Test</code> method demonstrates usage of the <code>@Fast</code> annotation.</p>
 </div>
+<div id="tabs-2" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-2-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-2-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-2-java--panel" class="tabpanel" aria-labelledby="tabs-2-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Fast
@@ -612,10 +653,37 @@ void myFastTest() {
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-2-kotlin--panel" class="tabpanel" aria-labelledby="tabs-2-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Fast
+@Test
+fun myFastTest() {
+    // ...
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>You can even take that one step further by introducing a custom <code>@FastTest</code> annotation
 that can be used as a drop-in replacement for <code>@Tag("fast")</code> <em>and</em> <code>@Test</code>.</p>
 </div>
+<div id="tabs-3" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-3-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-3-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-3-java--panel" class="tabpanel" aria-labelledby="tabs-3-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import java.lang.annotation.ElementType;
@@ -634,16 +702,59 @@ public @interface FastTest {
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-3-kotlin--panel" class="tabpanel" aria-labelledby="tabs-3-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import org.junit.jupiter.api.Tag
+import org.junit.jupiter.api.Test
+
+@Target(AnnotationTarget.FUNCTION)
+@Retention(AnnotationRetention.RUNTIME)
+@Tag("fast")
+@Test
+annotation class FastTest</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>JUnit automatically recognizes the following as a <code>@Test</code> method that is tagged with
 "fast".</p>
 </div>
+<div id="tabs-4" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-4-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-4-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-4-java--panel" class="tabpanel" aria-labelledby="tabs-4-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@FastTest
 void myFastTest() {
     // ...
 }</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-4-kotlin--panel" class="tabpanel" aria-labelledby="tabs-4-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@FastTest
+fun myFastTest() {
+    // ...
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>

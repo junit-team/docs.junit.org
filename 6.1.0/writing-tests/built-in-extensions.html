@@ -400,8 +400,21 @@ test method.</p>
 single test method, creates and writes to a file in the temporary directory, and checks
 its content.</p>
 </div>
-<div class="listingblock">
+<div id="tabs-1" class="openblock tabs is-sync is-loading">
 <div class="title">A test method that requires a temporary directory</div>
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-1-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-1-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-1-java--panel" class="tabpanel" aria-labelledby="tabs-1-java">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Test
 void writeItemsToFile(@TempDir Path tempDir) throws IOException {
@@ -413,11 +426,43 @@ void writeItemsToFile(@TempDir Path tempDir) throws IOException {
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-1-kotlin--panel" class="tabpanel" aria-labelledby="tabs-1-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Test
+fun writeItemsToFile(
+    @TempDir tempDir: Path
+) {
+    val file = tempDir.resolve("test.txt")
+
+    ListWriter(file).write("a", "b", "c")
+
+    assertEquals(listOf("a,b,c"), Files.readAllLines(file))
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>You can inject multiple temporary directories by specifying multiple annotated parameters.</p>
 </div>
-<div class="listingblock">
+<div id="tabs-2" class="openblock tabs is-sync is-loading">
 <div class="title">A test method that requires multiple temporary directories</div>
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-2-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-2-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-2-java--panel" class="tabpanel" aria-labelledby="tabs-2-java">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Test
 void copyFileFromSourceToTarget(@TempDir Path source, @TempDir Path target) throws IOException {
@@ -431,14 +476,49 @@ void copyFileFromSourceToTarget(@TempDir Path source, @TempDir Path target) thro
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-2-kotlin--panel" class="tabpanel" aria-labelledby="tabs-2-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Test
+fun copyFileFromSourceToTarget(
+    @TempDir source: Path,
+    @TempDir target: Path
+) {
+    val sourceFile = source.resolve("test.txt")
+    ListWriter(sourceFile).write("a", "b", "c")
+
+    val targetFile = Files.copy(sourceFile, target.resolve("test.txt"))
+
+    assertNotEquals(sourceFile, targetFile)
+    assertEquals(listOf("a,b,c"), Files.readAllLines(targetFile))
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>The following example stores a <em>shared</em> temporary directory in a <code>static</code> field. This
 allows the same <code>sharedTempDir</code> to be used in all lifecycle methods and test methods of
 the test class. For better isolation, you should use an instance field or constructor
 injection so that each test method uses a separate directory.</p>
 </div>
-<div class="listingblock">
+<div id="tabs-3" class="openblock tabs is-sync is-loading">
 <div class="title">A test class that shares a temporary directory across test methods</div>
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-3-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-3-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-3-java--panel" class="tabpanel" aria-labelledby="tabs-3-java">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">class SharedTempDirectoryDemo {
 
@@ -462,6 +542,36 @@ injection so that each test method uses a separate directory.</p>
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-3-kotlin--panel" class="tabpanel" aria-labelledby="tabs-3-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class SharedTempDirectoryDemo {
+    @Test
+    fun writeItemsToFile() {
+        val file = sharedTempDir.resolve("test.txt")
+
+        ListWriter(file).write("a", "b", "c")
+
+        assertEquals(listOf("a,b,c"), Files.readAllLines(file))
+    }
+
+    @Test
+    fun anotherTestThatUsesTheSameTempDir() {
+        // use sharedTempDir
+    }
+
+    companion object {
+        @TempDir
+        @JvmStatic
+        lateinit var sharedTempDir: Path
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>The <code>@TempDir</code> annotation has an optional <code>cleanup</code> attribute that can be set to either
 <code>NEVER</code>, <code>ON_SUCCESS</code>, or <code>ALWAYS</code>. If the cleanup mode is set to <code>NEVER</code>, the temporary
@@ -473,8 +583,21 @@ temporary directory will only be deleted after the test if the test completed su
 <code>junit.jupiter.tempdir.cleanup.mode.default</code>
 <a href="../running-tests/configuration-parameters.html" class="xref page">configuration parameter</a> to override this default.</p>
 </div>
-<div class="listingblock">
+<div id="tabs-4" class="openblock tabs is-sync is-loading">
 <div class="title">A test class with a temporary directory that doesn&#8217;t get cleaned up</div>
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-4-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-4-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-4-java--panel" class="tabpanel" aria-labelledby="tabs-4-java">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">class CleanupModeDemo {
 
@@ -484,6 +607,23 @@ temporary directory will only be deleted after the test if the test completed su
 	}
 
 }</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-4-kotlin--panel" class="tabpanel" aria-labelledby="tabs-4-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class CleanupModeDemo {
+    @Test
+    fun fileTest(
+        @TempDir(cleanup = ON_SUCCESS) tempDir: Path
+    ) {
+        // perform test
+    }
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -510,8 +650,21 @@ string of the generated directory name to help identify it as a created by JUnit
 <p>The following example defines a factory that uses the test name as the directory name
 prefix instead of the <code>junit</code> constant value.</p>
 </div>
-<div class="listingblock">
+<div id="tabs-5" class="openblock tabs is-sync is-loading">
 <div class="title">A test class with a temporary directory having the test name as the directory name prefix</div>
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-5-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-5-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-5-java--panel" class="tabpanel" aria-labelledby="tabs-5-java">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">class TempDirFactoryDemo {
 
@@ -533,12 +686,49 @@ prefix instead of the <code>junit</code> constant value.</p>
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-5-kotlin--panel" class="tabpanel" aria-labelledby="tabs-5-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class TempDirFactoryDemo {
+    @Test
+    fun factoryTest(
+        @TempDir(factory = Factory::class) tempDir: Path
+    ) {
+        assertTrue(tempDir.fileName.toString().startsWith("factoryTest"))
+    }
+
+    class Factory : TempDirFactory {
+        override fun createTempDirectory(
+            elementContext: AnnotatedElementContext,
+            extensionContext: ExtensionContext
+        ): Path = Files.createTempDirectory(extensionContext.requiredTestMethod.name)
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>It is also possible to use an in-memory file system like <code><a href="https://google.github.io/jimfs/">Jimfs</a></code> for the creation of the
 temporary directory. The following example demonstrates how to achieve that.</p>
 </div>
-<div class="listingblock">
+<div id="tabs-6" class="openblock tabs is-sync is-loading">
 <div class="title">A test class with a temporary directory created with the Jimfs in-memory file system</div>
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-6-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-6-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-6-java--panel" class="tabpanel" aria-labelledby="tabs-6-java">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">class InMemoryTempDirDemo {
 
@@ -567,14 +757,57 @@ temporary directory. The following example demonstrates how to achieve that.</p>
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-6-kotlin--panel" class="tabpanel" aria-labelledby="tabs-6-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class InMemoryTempDirDemo {
+    @Test
+    fun test(
+        @TempDir(factory = JimfsTempDirFactory::class) tempDir: Path
+    ) {
+        // perform test
+    }
+
+    class JimfsTempDirFactory : TempDirFactory {
+        private val fileSystem: FileSystem = Jimfs.newFileSystem(Configuration.unix())
+
+        override fun createTempDirectory(
+            elementContext: AnnotatedElementContext,
+            extensionContext: ExtensionContext
+        ): Path = Files.createTempDirectory(fileSystem.getPath("/"), "junit-")
+
+        override fun close() {
+            fileSystem.close()
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p><code>@TempDir</code> can also be used as a <a href="annotations.html#annotations" class="xref page">meta-annotation</a> to
 reduce repetition. The following code listing shows how to create a custom <code>@JimfsTempDir</code>
 annotation that can be used as a drop-in replacement for
 <code>@TempDir(factory = JimfsTempDirFactory.class)</code>.</p>
 </div>
-<div class="listingblock">
+<div id="tabs-7" class="openblock tabs is-sync is-loading">
 <div class="title">A custom annotation meta-annotated with <code>@TempDir</code></div>
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-7-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-7-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-7-java--panel" class="tabpanel" aria-labelledby="tabs-7-java">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Target({ ElementType.ANNOTATION_TYPE, ElementType.FIELD, ElementType.PARAMETER })
 @Retention(RetentionPolicy.RUNTIME)
@@ -583,11 +816,37 @@ annotation that can be used as a drop-in replacement for
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-7-kotlin--panel" class="tabpanel" aria-labelledby="tabs-7-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Target(AnnotationTarget.ANNOTATION_CLASS, AnnotationTarget.FIELD, AnnotationTarget.VALUE_PARAMETER)
+@Retention(AnnotationRetention.RUNTIME)
+@TempDir(factory = JimfsTempDirFactory::class)
+annotation class JimfsTempDir</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>The following example demonstrates how to use the custom <code>@JimfsTempDir</code> annotation.</p>
 </div>
-<div class="listingblock">
+<div id="tabs-8" class="openblock tabs is-sync is-loading">
 <div class="title">A test class using the custom annotation</div>
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-8-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-8-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-8-java--panel" class="tabpanel" aria-labelledby="tabs-8-java">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">class JimfsTempDirAnnotationDemo {
 
@@ -597,6 +856,23 @@ annotation that can be used as a drop-in replacement for
 	}
 
 }</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-8-kotlin--panel" class="tabpanel" aria-labelledby="tabs-8-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class JimfsTempDirAnnotationDemo {
+    @Test
+    fun test(
+        @JimfsTempDir tempDir: Path
+    ) {
+        // perform test
+    }
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="paragraph">
@@ -665,8 +941,21 @@ but suppresses deletion failures by logging a warning instead of failing the tes
 <p>The following example uses <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/io/TempDirDeletionStrategy.IgnoreFailures.html" class="xref attachment">IgnoreFailures</a></code> so that any deletion
 failures are only logged.</p>
 </div>
-<div class="listingblock">
+<div id="tabs-9" class="openblock tabs is-sync is-loading">
 <div class="title">A test class with a temporary directory that ignores deletion failures</div>
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-9-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-9-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-9-java--panel" class="tabpanel" aria-labelledby="tabs-9-java">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">class DeletionStrategyDemo {
 
@@ -676,6 +965,24 @@ failures are only logged.</p>
 	}
 
 }</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-9-kotlin--panel" class="tabpanel" aria-labelledby="tabs-9-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class DeletionStrategyDemo {
+    @Test
+    fun test(
+        @TempDir(deletionStrategy = TempDirDeletionStrategy.IgnoreFailures::class)
+        tempDir: Path
+    ) {
+        // perform test
+    }
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="paragraph">
@@ -755,8 +1062,21 @@ be closed until the current test class instance is no longer needed, which means
 that the resource is automatically closed after test execution. In this example, we assume
 that the default <code>@TestInstance(Lifecycle.PER_METHOD)</code> semantics apply.</p>
 </div>
-<div class="listingblock">
+<div id="tabs-10" class="openblock tabs is-sync is-loading">
 <div class="title">A test class using <code>@AutoClose</code> to close a resource</div>
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-10-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-10-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-10-java--panel" class="tabpanel" aria-labelledby="tabs-10-java">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">class AutoCloseDemo {
 
@@ -772,6 +1092,27 @@ that the default <code>@TestInstance(Lifecycle.PER_METHOD)</code> semantics appl
 	}
 
 }</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-10-kotlin--panel" class="tabpanel" aria-labelledby="tabs-10-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class AutoCloseDemo {
+    @AutoClose <i class="conum" data-value="1"></i><b>(1)</b>
+    val webClient = WebClient() <i class="conum" data-value="2"></i><b>(2)</b>
+
+    val serverUrl = // specify server URL ...
+
+    @Test
+    fun getProductList() {
+        // Use WebClient to connect to web server and verify response
+        assertEquals(200, webClient.get("$serverUrl/products").responseStatus)
+    }
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="colist arabic">
@@ -806,6 +1147,19 @@ default value is restored.</p>
 <p>The default <code>Locale</code> can be specified using an
 <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Locale.html#forLanguageTag-java.lang.String-">IETF BCP 47 language tag string</a>.</p>
 </div>
+<div id="tabs-11" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-11-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-11-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-11-java--panel" class="tabpanel" aria-labelledby="tabs-11-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Test
@@ -813,6 +1167,20 @@ default value is restored.</p>
 void test_with_language() {
 	assertThat(Locale.getDefault()).isEqualTo(Locale.forLanguageTag("zh-Hant-TW"));
 }</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-11-kotlin--panel" class="tabpanel" aria-labelledby="tabs-11-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Test
+@DefaultLocale("zh-Hant-TW")
+fun test_with_language() {
+    assertThat(Locale.getDefault()).isEqualTo(Locale.forLanguageTag("zh-Hant-TW"))
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="paragraph">
@@ -846,6 +1214,19 @@ The variant needs to be a string which follows the
 </tr>
 </table>
 </div>
+<div id="tabs-12" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-12-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-12-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-12-java--panel" class="tabpanel" aria-labelledby="tabs-12-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Test
@@ -868,6 +1249,45 @@ void test_with_language_and_country_and_vairant() {
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-12-kotlin--panel" class="tabpanel" aria-labelledby="tabs-12-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Test
+@DefaultLocale(language = "en")
+fun test_with_language_only() {
+    assertThat(Locale.getDefault()).isEqualTo(Locale.Builder().setLanguage("en").build())
+}
+
+@Test
+@DefaultLocale(language = "en", country = "EN")
+fun test_with_language_and_country() {
+    assertThat(Locale.getDefault()).isEqualTo(
+        Locale
+            .Builder()
+            .setLanguage("en")
+            .setRegion("EN")
+            .build()
+    )
+}
+
+@Test
+@DefaultLocale(language = "ja", country = "JP", variant = "japanese")
+fun test_with_language_and_country_and_vairant() {
+    assertThat(Locale.getDefault()).isEqualTo(
+        Locale
+            .Builder()
+            .setLanguage("ja")
+            .setRegion("JP")
+            .setVariant("japanese")
+            .build()
+    )
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>Mixing language tag configuration (via the annotation&#8217;s <code>value</code> attribute) and
 attribute-based configuration will cause an exception to be thrown. Furthermore, a
@@ -877,6 +1297,19 @@ will be thrown.</p>
 <div class="paragraph">
 <p>Method-level <code>@DefaultLocale</code> configuration overrides class-level configuration.</p>
 </div>
+<div id="tabs-13" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-13-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-13-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-13-java--panel" class="tabpanel" aria-labelledby="tabs-13-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@DefaultLocale(language = "fr")
@@ -896,6 +1329,28 @@ class MyLocaleTests {
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-13-kotlin--panel" class="tabpanel" aria-labelledby="tabs-13-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@DefaultLocale(language = "fr")
+class MyLocaleTests {
+    @Test
+    fun test_with_class_level_configuration() {
+        assertThat(Locale.getDefault()).isEqualTo(Locale.Builder().setLanguage("fr").build())
+    }
+
+    @Test
+    @DefaultLocale(language = "en")
+    fun test_with_method_level_configuration() {
+        assertThat(Locale.getDefault()).isEqualTo(Locale.Builder().setLanguage("en").build())
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -912,6 +1367,19 @@ each individual test in the annotated class.
 <div class="paragraph">
 <p>If your use case is not covered, you can implement the <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/util/LocaleProvider.html" class="xref attachment">LocaleProvider</a></code> interface.</p>
 </div>
+<div id="tabs-14" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-14-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-14-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-14-java--panel" class="tabpanel" aria-labelledby="tabs-14-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Test
@@ -926,6 +1394,24 @@ static class EnglishProvider implements LocaleProvider {
 		return Locale.ENGLISH;
 	}
 }</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-14-kotlin--panel" class="tabpanel" aria-labelledby="tabs-14-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Test
+@DefaultLocale(localeProvider = EnglishProvider::class)
+fun test_with_locale_provider() {
+    assertThat(Locale.getDefault()).isEqualTo(Locale.Builder().setLanguage("en").build())
+}
+
+class EnglishProvider : LocaleProvider {
+    override fun get(): Locale = Locale.ENGLISH
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -948,6 +1434,19 @@ The provider implementation must have a no-args (or default) constructor.
 <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/TimeZone.html#getTimeZone(java.lang.String)">TimeZone.getTimeZone(String)</a>
 method.</p>
 </div>
+<div id="tabs-15" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-15-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-15-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-15-java--panel" class="tabpanel" aria-labelledby="tabs-15-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Test
@@ -963,9 +1462,42 @@ void test_with_long_zone_id() {
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-15-kotlin--panel" class="tabpanel" aria-labelledby="tabs-15-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Test
+@DefaultTimeZone("CET")
+fun test_with_short_zone_id() {
+    assertThat(TimeZone.getDefault()).isEqualTo(TimeZone.getTimeZone("CET"))
+}
+
+@Test
+@DefaultTimeZone("Africa/Juba")
+fun test_with_long_zone_id() {
+    assertThat(TimeZone.getDefault()).isEqualTo(TimeZone.getTimeZone("Africa/Juba"))
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>Method-level <code>@DefaultTimeZone</code> configuration overrides class-level configuration.</p>
 </div>
+<div id="tabs-16" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-16-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-16-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-16-java--panel" class="tabpanel" aria-labelledby="tabs-16-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@DefaultTimeZone("CET")
@@ -985,6 +1517,29 @@ class MyTimeZoneTests {
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-16-kotlin--panel" class="tabpanel" aria-labelledby="tabs-16-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@DefaultTimeZone("CET")
+class MyTimeZoneTests {
+
+    @Test
+    fun test_with_class_level_configuration() {
+        assertThat(TimeZone.getDefault()).isEqualTo(TimeZone.getTimeZone("CET"))
+    }
+
+    @Test
+    @DefaultTimeZone("Africa/Juba")
+    fun test_with_method_level_configuration() {
+        assertThat(TimeZone.getDefault()).isEqualTo(TimeZone.getTimeZone("Africa/Juba"))
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -1001,6 +1556,19 @@ after each individual test in the annotated class.
 <div class="paragraph">
 <p>If your use case is not covered, you can implement the <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/util/TimeZoneProvider.html" class="xref attachment">TimeZoneProvider</a></code> interface.</p>
 </div>
+<div id="tabs-17" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-17-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-17-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-17-java--panel" class="tabpanel" aria-labelledby="tabs-17-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Test
@@ -1015,6 +1583,24 @@ static class UtcTimeZoneProvider implements TimeZoneProvider {
 		return TimeZone.getTimeZone(ZoneOffset.UTC);
 	}
 }</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-17-kotlin--panel" class="tabpanel" aria-labelledby="tabs-17-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Test
+@DefaultTimeZone(timeZoneProvider = UtcTimeZoneProvider::class)
+fun test_with_time_zone_provider() {
+    assertThat(TimeZone.getDefault()).isEqualTo(TimeZone.getTimeZone("UTC"))
+}
+
+class UtcTimeZoneProvider : TimeZoneProvider {
+    override fun get(): TimeZone = TimeZone.getTimeZone(ZoneOffset.UTC)
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -1093,6 +1679,19 @@ restoration is <a href="#system-properties-restore">explicitly enabled</a> via
 <div class="paragraph">
 <p>For example, clearing a system property for test execution can be done as follows.</p>
 </div>
+<div id="tabs-18" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-18-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-18-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-18-java--panel" class="tabpanel" aria-labelledby="tabs-18-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Test
@@ -1102,9 +1701,36 @@ void testClearingProperty() {
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-18-kotlin--panel" class="tabpanel" aria-labelledby="tabs-18-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Test
+@ClearSystemProperty(key = "some property")
+fun testClearingProperty() {
+    assertThat(System.getProperty("some property")).isNull()
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>The following demonstrates how to set a system property for test execution.</p>
 </div>
+<div id="tabs-19" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-19-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-19-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-19-java--panel" class="tabpanel" aria-labelledby="tabs-19-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Test
@@ -1114,9 +1740,36 @@ void testSettingProperty() {
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-19-kotlin--panel" class="tabpanel" aria-labelledby="tabs-19-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Test
+@SetSystemProperty(key = "some property", value = "new value")
+fun testSettingProperty() {
+    assertThat(System.getProperty("some property")).isEqualTo("new value")
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>As mentioned before, both annotations are repeatable, and they can also be combined.</p>
 </div>
+<div id="tabs-20" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-20-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-20-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-20-java--panel" class="tabpanel" aria-labelledby="tabs-20-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Test
@@ -1130,9 +1783,40 @@ void testClearingAndSettingProperty() {
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-20-kotlin--panel" class="tabpanel" aria-labelledby="tabs-20-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Test
+@ClearSystemProperty(key = "1st property")
+@ClearSystemProperty(key = "2nd property")
+@SetSystemProperty(key = "3rd property", value = "new value")
+fun testClearingAndSettingProperty() {
+    assertThat(System.getProperty("1st property")).isNull()
+    assertThat(System.getProperty("2nd property")).isNull()
+    assertThat(System.getProperty("3rd property")).isEqualTo("new value")
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>Note that class-level configuration is overridden by method-level configuration.</p>
 </div>
+<div id="tabs-21" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-21-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-21-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-21-java--panel" class="tabpanel" aria-labelledby="tabs-21-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@ClearSystemProperty(key = "some property")
@@ -1145,6 +1829,24 @@ class MySystemPropertyTest {
 	}
 
 }</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-21-kotlin--panel" class="tabpanel" aria-labelledby="tabs-21-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@ClearSystemProperty(key = "some property")
+class MySystemPropertyTest {
+
+    @Test
+    @SetSystemProperty(key = "some property", value = "new value")
+    fun clearedAtClasslevel() {
+        assertThat(System.getProperty("some property")).isEqualTo("new value")
+    }
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -1207,6 +1909,19 @@ and fail if any were detected. For classes that extend <code>Properties</code> i
 <p>In the following example, <code>@RestoreSystemProperties</code> is used on a test method, ensuring
 any changes made in that method are restored.</p>
 </div>
+<div id="tabs-22" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-22-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-22-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-22-java--panel" class="tabpanel" aria-labelledby="tabs-22-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@ParameterizedTest
@@ -1216,6 +1931,22 @@ void parameterizedTest(String value) {
 	System.setProperty("some parameterized property", value);
 	System.setProperty("some other dynamic property", "my code calculates somehow");
 }</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-22-kotlin--panel" class="tabpanel" aria-labelledby="tabs-22-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@ParameterizedTest
+@ValueSource(strings = ["foo", "bar"])
+@RestoreSystemProperties
+fun parameterizedTest(value: String) {
+    System.setProperty("some parameterized property", value)
+    System.setProperty("some other dynamic property", "my code calculates somehow")
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="paragraph">
@@ -1236,9 +1967,23 @@ lifecycle, ensuring that changes are not visible to <code>SomeOtherTestClass</co
 does not schedule the class to run during any test known to modify system properties (see
 <a href="#system-properties-thread-safety">Thread Safety</a>).</p>
 </div>
+<div id="tabs-23" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-23-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-23-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-23-java--panel" class="tabpanel" aria-labelledby="tabs-23-java">
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@RestoreSystemProperties
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@RestoreSystemProperties
 class MySystemPropertyRestoreTest {
 
 	@BeforeAll
@@ -1268,9 +2013,58 @@ class MySystemPropertyRestoreTest {
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-23-kotlin--panel" class="tabpanel" aria-labelledby="tabs-23-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@RestoreSystemProperties
+class MySystemPropertyRestoreTest {
+    @BeforeAll
+    fun beforeAll() {
+        System.setProperty("A", "A value")
+    }
+
+    @BeforeEach
+    fun beforeEach() {
+        System.setProperty("B", "B value")
+    }
+
+    @Test
+    fun isolatedTest1() {
+        System.setProperty("C", "C value")
+    }
+
+    @Test
+    fun isolatedTest2() {
+        assertThat(System.getProperty("A")).isEqualTo("A value")
+        assertThat(System.getProperty("B")).isEqualTo("B value")
+
+        // Class-level @RestoreSystemProperties restores "C" to original state
+        assertThat(System.getProperty("C")).isNull()
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>Some other test class, running later:</p>
 </div>
+<div id="tabs-24" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-24-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-24-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-24-java--panel" class="tabpanel" aria-labelledby="tabs-24-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@ReadsSystemProperty
@@ -1287,6 +2081,24 @@ class SomeOtherTestClass {
 </div>
 </div>
 </div>
+<div id="tabs-24-kotlin--panel" class="tabpanel" aria-labelledby="tabs-24-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@ReadsSystemProperty
+class SomeOtherTestClass {
+    @Test
+    fun isolatedTest() {
+        assertThat(System.getProperty("A")).isNull()
+        assertThat(System.getProperty("B")).isNull()
+        assertThat(System.getProperty("C")).isNull()
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="sect2">
 <h3 id="system-properties-combined-usage"><a class="anchor" href="#system-properties-combined-usage"></a>Combining @ClearSystemProperty, @SetSystemProperty, and @RestoreSystemProperties</h3>
 <div class="paragraph">
@@ -1296,6 +2108,19 @@ you need to test an image generation utility that takes configuration from syste
 properties. Basic configuration can be specified declaratively using the <code>Clear</code> and <code>Set</code>
 annotations, and the image size could be set programmatically.</p>
 </div>
+<div id="tabs-25" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-25-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-25-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-25-java--panel" class="tabpanel" aria-labelledby="tabs-25-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@ParameterizedTest
@@ -1308,6 +2133,25 @@ void imageGenerationTest(int imageSize) {
 
 	// Test your image generation utility with the current system properties
 }</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-25-kotlin--panel" class="tabpanel" aria-labelledby="tabs-25-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@ParameterizedTest
+@ValueSource(ints = [100, 500, 1000])
+@RestoreSystemProperties
+@SetSystemProperty(key = "DISABLE_CACHE", value = "TRUE")
+@ClearSystemProperty(key = "COPYWRITE_OVERLAY_TEXT")
+fun imageGenerationTest(imageSize: Int) {
+    System.setProperty("IMAGE_SIZE", "$imageSize") // Requires restore
+
+    // Test your image generation utility with the current system properties
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="admonitionblock note">

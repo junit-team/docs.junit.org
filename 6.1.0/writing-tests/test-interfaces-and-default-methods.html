@@ -382,6 +382,19 @@ test interface or on interface <code>default</code> methods <em>if</em> the test
 annotated with <code>@TestInstance(Lifecycle.PER_CLASS)</code> (see
 <a href="test-instance-lifecycle.html" class="xref page">Test Instance Lifecycle</a>). Here are some examples.</p>
 </div>
+<div id="tabs-1" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-1-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-1-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-1-java--panel" class="tabpanel" aria-labelledby="tabs-1-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@TestInstance(Lifecycle.PER_CLASS)
@@ -414,6 +427,54 @@ interface TestLifecycleLogger {
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-1-kotlin--panel" class="tabpanel" aria-labelledby="tabs-1-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@TestInstance(Lifecycle.PER_CLASS)
+interface TestLifecycleLogger {
+    @BeforeAll
+    fun beforeAllTests() {
+        logger.info("Before all tests")
+    }
+
+    @AfterAll
+    fun afterAllTests() {
+        logger.info("After all tests")
+    }
+
+    @BeforeEach
+    fun beforeEachTest(testInfo: TestInfo) {
+        logger.info { "About to execute [${testInfo.displayName}]" }
+    }
+
+    @AfterEach
+    fun afterEachTest(testInfo: TestInfo) {
+        logger.info { "Finished executing [${testInfo.displayName}]" }
+    }
+
+    companion object {
+        private val logger: Logger = Logger.getLogger(TestLifecycleLogger::class.java.name)
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabs-2" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-2-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-2-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-2-java--panel" class="tabpanel" aria-labelledby="tabs-2-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">interface TestInterfaceDynamicTestsDemo {
@@ -427,12 +488,40 @@ interface TestLifecycleLogger {
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-2-kotlin--panel" class="tabpanel" aria-labelledby="tabs-2-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">interface TestInterfaceDynamicTestsDemo {
+    @TestFactory
+    fun dynamicTestsForPalindromes(): Sequence&lt;DynamicTest&gt; =
+        sequenceOf("racecar", "radar", "mom", "dad")
+            .map { text -&gt; dynamicTest(text) { assertTrue(isPalindrome(text)) } }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p><code>@ExtendWith</code> and <code>@Tag</code> can be declared on a test interface so that classes that
 implement the interface automatically inherit its tags and extensions. See
 <a href="../extensions/test-lifecycle-callbacks.html#before-after-execution" class="xref page">Before and After Test Execution Callbacks</a> for the source code of the
 <a href="../extensions/test-lifecycle-callbacks.html#timing-extension" class="xref page">TimingExtension</a>.</p>
 </div>
+<div id="tabs-3" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-3-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-3-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-3-java--panel" class="tabpanel" aria-labelledby="tabs-3-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Tag("timed")
@@ -441,9 +530,34 @@ interface TimeExecutionLogger {
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-3-kotlin--panel" class="tabpanel" aria-labelledby="tabs-3-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Tag("timed")
+@ExtendWith(TimingExtension::class)
+interface TimeExecutionLogger</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>In your test class you can then implement these test interfaces to have them applied.</p>
 </div>
+<div id="tabs-4" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-4-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-4-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-4-java--panel" class="tabpanel" aria-labelledby="tabs-4-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">class TestInterfaceDemo implements TestLifecycleLogger,
@@ -455,6 +569,24 @@ interface TimeExecutionLogger {
 	}
 
 }</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-4-kotlin--panel" class="tabpanel" aria-labelledby="tabs-4-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class TestInterfaceDemo :
+    TestLifecycleLogger,
+    TimeExecutionLogger,
+    TestInterfaceDynamicTestsDemo {
+    @Test
+    fun isEqualValue() {
+        assertEquals(1, "a".length, "is always equal")
+    }
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="paragraph">
@@ -477,6 +609,19 @@ INFO  example.TestLifecycleLogger - After all tests</pre>
 For example, you can write tests for how implementations of <code>Object.equals</code> or
 <code>Comparable.compareTo</code> should behave as follows.</p>
 </div>
+<div id="tabs-5" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-5-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-5-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-5-java--panel" class="tabpanel" aria-labelledby="tabs-5-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public interface Testable&lt;T&gt; {
@@ -486,6 +631,31 @@ For example, you can write tests for how implementations of <code>Object.equals<
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-5-kotlin--panel" class="tabpanel" aria-labelledby="tabs-5-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">interface Testable&lt;T&gt; {
+    fun createValue(): T
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabs-6" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-6-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-6-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-6-java--panel" class="tabpanel" aria-labelledby="tabs-6-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public interface EqualsContract&lt;T&gt; extends Testable&lt;T&gt; {
@@ -515,6 +685,51 @@ For example, you can write tests for how implementations of <code>Object.equals<
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-6-kotlin--panel" class="tabpanel" aria-labelledby="tabs-6-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">interface EqualsContract&lt;T&gt; : Testable&lt;T&gt; {
+    fun createNotEqualValue(): T
+
+    @Test
+    fun valueEqualsItself() {
+        val value = createValue()
+        assertEquals(value, value)
+    }
+
+    @Test
+    fun valueDoesNotEqualNull() {
+        val value = createValue()
+        assertNotEquals(null, value)
+    }
+
+    @Test
+    fun valueDoesNotEqualDifferentValue() {
+        val value = createValue()
+        val differentValue = createNotEqualValue()
+        assertNotEquals(value, differentValue)
+        assertNotEquals(differentValue, value)
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabs-7" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-7-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-7-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-7-java--panel" class="tabpanel" aria-labelledby="tabs-7-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public interface ComparableContract&lt;T extends Comparable&lt;T&gt;&gt; extends Testable&lt;T&gt; {
@@ -544,10 +759,55 @@ For example, you can write tests for how implementations of <code>Object.equals<
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-7-kotlin--panel" class="tabpanel" aria-labelledby="tabs-7-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">interface ComparableContract&lt;T : Comparable&lt;T&gt;&gt; : Testable&lt;T&gt; {
+    fun createSmallerValue(): T
+
+    @Test
+    fun returnsZeroWhenComparedToItself() {
+        val value = createValue()
+        assertEquals(0, value.compareTo(value))
+    }
+
+    @Test
+    fun returnsPositiveNumberWhenComparedToSmallerValue() {
+        val value = createValue()
+        val smallerValue = createSmallerValue()
+        assertTrue(value &gt; smallerValue)
+    }
+
+    @Test
+    fun returnsNegativeNumberWhenComparedToLargerValue() {
+        val value = createValue()
+        val smallerValue = createSmallerValue()
+        assertTrue(smallerValue &lt; value)
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>In your test class you can then implement both contract interfaces thereby inheriting the
 corresponding tests. Of course you&#8217;ll have to implement the abstract methods.</p>
 </div>
+<div id="tabs-8" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-8-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-8-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-8-java--panel" class="tabpanel" aria-labelledby="tabs-8-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">class StringTests implements ComparableContract&lt;String&gt;, EqualsContract&lt;String&gt; {
@@ -568,6 +828,24 @@ corresponding tests. Of course you&#8217;ll have to implement the abstract metho
 	}
 
 }</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-8-kotlin--panel" class="tabpanel" aria-labelledby="tabs-8-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class StringTests :
+    ComparableContract&lt;String&gt;,
+    EqualsContract&lt;String&gt; {
+    override fun createValue() = "banana"
+
+    override fun createSmallerValue() = "apple" // 'a' &lt; 'b' in "banana"
+
+    override fun createNotEqualValue() = "cherry"
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="admonitionblock note">
