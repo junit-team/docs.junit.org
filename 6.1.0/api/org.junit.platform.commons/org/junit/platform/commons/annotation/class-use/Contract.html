@@ -227,31 +227,36 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color">
 <div class="block">Validate the given assumption.</div>
 </div>
-<div class="col-first even-row-color"><code>static &lt;V&gt;&nbsp;V</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">Assertions.</span><code><a href="../../../../../../../org.junit.jupiter.api/org/junit/jupiter/api/Assertions.html#fail()" class="member-name-link">fail</a>()</code></div>
+<div class="col-first even-row-color"><code>void</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">AssertionFailureBuilder.</span><code><a href="../../../../../../../org.junit.jupiter.api/org/junit/jupiter/api/AssertionFailureBuilder.html#buildAndThrow()" class="member-name-link">buildAndThrow</a>()</code></div>
 <div class="col-last even-row-color">
-<div class="block"><em>Fail</em> the test <em>without</em> a failure message.</div>
+<div class="block">Build the <a href="https://ota4j-team.github.io/opentest4j/docs/1.3.0/api/org/opentest4j/AssertionFailedError.html" title="class or interface in org.opentest4j" class="external-link"><code>AssertionFailedError</code></a> and throw it.</div>
 </div>
 <div class="col-first odd-row-color"><code>static &lt;V&gt;&nbsp;V</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">Assertions.</span><code><a href="../../../../../../../org.junit.jupiter.api/org/junit/jupiter/api/Assertions.html#fail(java.lang.String)" class="member-name-link">fail</a><wbr>(<a href="https://jspecify.dev/docs/api/org/jspecify/annotations/Nullable.html" title="class or interface in org.jspecify.annotations" class="external-link">@Nullable</a> <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;message)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">Assertions.</span><code><a href="../../../../../../../org.junit.jupiter.api/org/junit/jupiter/api/Assertions.html#fail()" class="member-name-link">fail</a>()</code></div>
 <div class="col-last odd-row-color">
-<div class="block"><em>Fail</em> the test with the given failure <code>message</code>.</div>
+<div class="block"><em>Fail</em> the test <em>without</em> a failure message.</div>
 </div>
 <div class="col-first even-row-color"><code>static &lt;V&gt;&nbsp;V</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">Assertions.</span><code><a href="../../../../../../../org.junit.jupiter.api/org/junit/jupiter/api/Assertions.html#fail(java.lang.String,java.lang.Throwable)" class="member-name-link">fail</a><wbr>(<a href="https://jspecify.dev/docs/api/org/jspecify/annotations/Nullable.html" title="class or interface in org.jspecify.annotations" class="external-link">@Nullable</a> <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;message,
- <a href="https://jspecify.dev/docs/api/org/jspecify/annotations/Nullable.html" title="class or interface in org.jspecify.annotations" class="external-link">@Nullable</a> <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&nbsp;cause)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">Assertions.</span><code><a href="../../../../../../../org.junit.jupiter.api/org/junit/jupiter/api/Assertions.html#fail(java.lang.String)" class="member-name-link">fail</a><wbr>(<a href="https://jspecify.dev/docs/api/org/jspecify/annotations/Nullable.html" title="class or interface in org.jspecify.annotations" class="external-link">@Nullable</a> <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;message)</code></div>
 <div class="col-last even-row-color">
+<div class="block"><em>Fail</em> the test with the given failure <code>message</code>.</div>
+</div>
+<div class="col-first odd-row-color"><code>static &lt;V&gt;&nbsp;V</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">Assertions.</span><code><a href="../../../../../../../org.junit.jupiter.api/org/junit/jupiter/api/Assertions.html#fail(java.lang.String,java.lang.Throwable)" class="member-name-link">fail</a><wbr>(<a href="https://jspecify.dev/docs/api/org/jspecify/annotations/Nullable.html" title="class or interface in org.jspecify.annotations" class="external-link">@Nullable</a> <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;message,
+ <a href="https://jspecify.dev/docs/api/org/jspecify/annotations/Nullable.html" title="class or interface in org.jspecify.annotations" class="external-link">@Nullable</a> <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&nbsp;cause)</code></div>
+<div class="col-last odd-row-color">
 <div class="block"><em>Fail</em> the test with the given failure <code>message</code> as well
 as the underlying <code>cause</code>.</div>
 </div>
-<div class="col-first odd-row-color"><code>static &lt;V&gt;&nbsp;V</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">Assertions.</span><code><a href="../../../../../../../org.junit.jupiter.api/org/junit/jupiter/api/Assertions.html#fail(java.lang.Throwable)" class="member-name-link">fail</a><wbr>(<a href="https://jspecify.dev/docs/api/org/jspecify/annotations/Nullable.html" title="class or interface in org.jspecify.annotations" class="external-link">@Nullable</a> <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&nbsp;cause)</code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code>static &lt;V&gt;&nbsp;V</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">Assertions.</span><code><a href="../../../../../../../org.junit.jupiter.api/org/junit/jupiter/api/Assertions.html#fail(java.lang.Throwable)" class="member-name-link">fail</a><wbr>(<a href="https://jspecify.dev/docs/api/org/jspecify/annotations/Nullable.html" title="class or interface in org.jspecify.annotations" class="external-link">@Nullable</a> <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&nbsp;cause)</code></div>
+<div class="col-last even-row-color">
 <div class="block"><em>Fail</em> the test with the given underlying <code>cause</code>.</div>
 </div>
-<div class="col-first even-row-color"><code>static &lt;V&gt;&nbsp;V</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">Assertions.</span><code><a href="../../../../../../../org.junit.jupiter.api/org/junit/jupiter/api/Assertions.html#fail(java.util.function.Supplier)" class="member-name-link">fail</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;<a href="https://jspecify.dev/docs/api/org/jspecify/annotations/Nullable.html" title="class or interface in org.jspecify.annotations" class="external-link">@Nullable</a> <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;messageSupplier)</code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code>static &lt;V&gt;&nbsp;V</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">Assertions.</span><code><a href="../../../../../../../org.junit.jupiter.api/org/junit/jupiter/api/Assertions.html#fail(java.util.function.Supplier)" class="member-name-link">fail</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;<a href="https://jspecify.dev/docs/api/org/jspecify/annotations/Nullable.html" title="class or interface in org.jspecify.annotations" class="external-link">@Nullable</a> <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;messageSupplier)</code></div>
+<div class="col-last odd-row-color">
 <div class="block"><em>Fail</em> the test with the failure message retrieved from the
 given <code>messageSupplier</code>.</div>
 </div>
