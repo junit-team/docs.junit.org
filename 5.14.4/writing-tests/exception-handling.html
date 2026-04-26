@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Exception Handling :: JUnit User Guide</title>
+    <link rel="canonical" href="https://docs.junit.org/6.0.3/writing-tests/exception-handling.html">
+    <link rel="prev" href="assumptions.html">
+    <link rel="next" href="disabling-tests.html">
+    <meta name="generator" content="Antora 3.2.0-alpha.11">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<link rel="icon" type="image/png" href="../../_/img/junit-diamond.png">
+<link rel="icon" type="image/svg+xml" href="../../_/img/junit-diamond-adaptive.svg" sizes="any">
+
+<link rel="stylesheet" href="../../_/css/vendor/highlightjs/github.min.css">
+<link rel="stylesheet" href="../../_/css/vendor/tabs.css">
+
+<link rel="preload" as="style" href="https://assets.junit.org/fonts/index.css">
+<link rel="preload" as="font" href="https://assets.junit.org/fonts/blinker-latin-600-normal.woff2" type="font/woff2" crossorigin/>
+<link rel="preload" as="font" href="https://assets.junit.org/fonts/inter-latin-wght-normal.woff2" type="font/woff2" crossorigin/>
+<link rel="preload" as="font" href="https://assets.junit.org/fonts/inter-latin-wght-italic.woff2" type="font/woff2" crossorigin/>
+<link rel="preload" as="font" href="https://assets.junit.org/fonts/jetbrains-mono-latin-wght-normal.woff2" type="font/woff2" crossorigin/>
+
+<link rel="preload" as="style" href="../../_/css/site-extra.css">
+
+<link rel="stylesheet" href="https://assets.junit.org/fonts/index.css">
+<link rel="stylesheet" href="../../_/css/site-extra.css">
+
+<meta name="theme-color" content="#25a162">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item title" href="https://docs.junit.org">
+          <img class="logo" src="../../_/img/junit-diamond-white.png" alt="✔️"/>
+          JUnit User Guide<span class="version">5.14.4</span>
+      </a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search current version">
+          <label style="display: none">
+            <!-- restrict search to current version -->
+            <input type="checkbox" data-facet-filter="version:5.14.4" checked>
+          </label>
+        </div>
+      </div>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+          <a class="navbar-item" href="https://junit.org/">Home</a>
+          <a class="navbar-item" href="https://github.com/junit-team/junit-framework/">Repo</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="junit" data-version="5.14.4">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">JUnit</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="intro.html">Writing Tests</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="annotations.html">Annotations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="definitions.html">Definitions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-classes-and-methods.html">Test Classes and Methods</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="display-names.html">Display Names</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="assertions.html">Assertions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="assumptions.html">Assumptions</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="exception-handling.html">Exception Handling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="disabling-tests.html">Disabling Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="conditional-test-execution.html">Conditional Test Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="tagging-and-filtering.html">Tagging and Filtering</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-execution-order.html">Test Execution Order</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-instance-lifecycle.html">Test Instance Lifecycle</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="nested-tests.html">Nested Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dependency-injection-for-constructors-and-methods.html">Dependency Injection for Constructors and Methods</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-interfaces-and-default-methods.html">Test Interfaces and Default Methods</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="repeated-tests.html">Repeated Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="parameterized-classes-and-tests.html">Parameterized Classes and Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="class-templates.html">Class Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-templates.html">Test Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dynamic-tests.html">Dynamic Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="timeouts.html">Timeouts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="parallel-execution.html">Parallel Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="built-in-extensions.html">Built-in Extensions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../migrating-from-junit4.html">Migrating from JUnit 4</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../running-tests/intro.html">Running Tests</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/ide-support.html">IDE Support</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/build-support.html">Build Support</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/console-launcher.html">Console Launcher</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/using-junit-4-to-run-the-junit-platform.html">Using JUnit 4 to run the JUnit Platform</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/discovery-selectors.html">Discovery Selectors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/configuration-parameters.html">Configuration Parameters</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/tags.html">Tags</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/capturing-standard-output-error.html">Capturing Standard Output/Error</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/using-listeners-and-interceptors.html">Using Listeners and Interceptors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/stack-trace-pruning.html">Stack Trace Pruning</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/discovery-issues.html">Discovery Issues</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../extensions/overview.html">Extension Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/registering-extensions.html">Registering Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/conditional-test-execution.html">Conditional Test Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-instance-pre-construct-callback.html">Test Instance Pre-construct Callback</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-instance-factories.html">Test Instance Factories</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-instance-post-processing.html">Test Instance Post-processing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-instance-pre-destroy-callback.html">Test Instance Pre-destroy Callback</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/parameter-resolution.html">Parameter Resolution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-result-processing.html">Test Result Processing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-lifecycle-callbacks.html">Test Lifecycle Callbacks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/exception-handling.html">Exception Handling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/pre-interrupt-callback.html">Pre-Interrupt Callback</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/intercepting-invocations.html">Intercepting Invocations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/providing-invocation-contexts-for-class-templates.html">Providing Invocation Contexts for Class Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/providing-invocation-contexts-for-test-templates.html">Providing Invocation Contexts for Test Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/keeping-state-in-extensions.html">Keeping State in Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/supported-utilities-in-extensions.html">Supported Utilities in Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/relative-execution-order-of-user-code-and-extensions.html">Relative Execution Order of User Code and Extensions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced Topics</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/junit-platform-reporting.html">JUnit Platform Reporting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/junit-platform-suite-engine.html">JUnit Platform Suite Engine</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/testkit.html">JUnit Platform Test Kit</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/launcher-api.html">JUnit Platform Launcher API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/engines.html">Test Engines</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../api-evolution.html">API Evolution</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../release-notes.html">Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../api/index.html">Javadoc</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">JUnit</span>
+    <span class="version">5.14.4</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../../6.0.3/index.html">JUnit</a></div>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../6.1.0/index.html">6.1.0-SNAPSHOT</a>
+        </li>
+        <li class="version">
+          <a href="../../6.1.0-RC1/index.html">6.1.0-RC1</a>
+        </li>
+        <li class="version">
+          <a href="../../6.1.0-M1/index.html">6.1.0-M1</a>
+        </li>
+        <li class="version is-latest">
+          <a href="../../6.0.3/index.html">6.0.3</a>
+        </li>
+        <li class="version">
+          <a href="../../6.0.2/index.html">6.0.2</a>
+        </li>
+        <li class="version">
+          <a href="../../6.0.1/index.html">6.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../6.0.0/index.html">6.0.0</a>
+        </li>
+        <li class="version is-current">
+          <a href="../index.html">5.14.4</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.3/index.html">5.14.3</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.2/index.html">5.14.2</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.1/index.html">5.14.1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../6.0.3/overview.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">JUnit</a></li>
+    <li><a href="intro.html">Writing Tests</a></li>
+    <li><a href="exception-handling.html">Exception Handling</a></li>
+  </ul>
+</nav>
+        <div class="pdf-link">
+            <a href="../_exports/junit-user-guide-5.14.4.pdf#writing-tests-exception-handling">PDF</a>
+        </div>
+        <div class="html-link">
+            <a href="../_exports/junit-user-guide-5.14.4.html#writing-tests-exception-handling">Single page</a>
+        </div>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">5.14.4</button>
+  <div class="version-menu">
+    <a class="version" href="../../6.1.0/writing-tests/exception-handling.html">6.1.0-SNAPSHOT</a>
+    <a class="version" href="../../6.1.0-RC1/writing-tests/exception-handling.html">6.1.0-RC1</a>
+    <a class="version" href="../../6.1.0-M1/writing-tests/exception-handling.html">6.1.0-M1</a>
+    <a class="version" href="../../6.0.3/writing-tests/exception-handling.html">6.0.3</a>
+    <a class="version" href="../../6.0.2/writing-tests/exception-handling.html">6.0.2</a>
+    <a class="version" href="../../6.0.1/writing-tests/exception-handling.html">6.0.1</a>
+    <a class="version" href="../../6.0.0/writing-tests/exception-handling.html">6.0.0</a>
+    <a class="version is-current" href="exception-handling.html">5.14.4</a>
+    <a class="version" href="../../5.14.3/writing-tests/exception-handling.html">5.14.3</a>
+    <a class="version" href="../../5.14.2/writing-tests/exception-handling.html">5.14.2</a>
+    <a class="version" href="../../5.14.1/writing-tests/exception-handling.html">5.14.1</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/junit-team/junit-framework/blob/r5.14.4/documentation/modules/ROOT/pages/writing-tests/exception-handling.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Exception Handling</h1>
+<div class="version-banner">
+<strong>
+    There is a newer version available.
+</strong><br/>
+For the latest stable release, please see <a href="../../6.0.3/writing-tests/exception-handling.html">JUnit 6.0.3</a>!
+</div>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>JUnit Jupiter provides robust support for handling test exceptions. This includes the
+built-in mechanisms for managing test failures due to exceptions, the role of exceptions
+in implementing assertions and assumptions, and how to specifically assert non-throwing
+conditions in code.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="uncaught"><a class="anchor" href="#uncaught"></a>Uncaught Exceptions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In JUnit Jupiter, if an exception is thrown from a test method, a lifecycle method, or an
+extension and not caught within that test method, lifecycle method, or extension, the
+framework will mark the test or test class as failed.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Failed assumptions deviate from this general rule.</p>
+</div>
+<div class="paragraph">
+<p>In contrast to failed assertions, failed assumptions do not result in a test failure;
+rather, a failed assumption results in a test being aborted.</p>
+</div>
+<div class="paragraph">
+<p>See <a href="assumptions.html" class="xref page">Assumptions</a> for further details and examples.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>In the following example, the <code>failsDueToUncaughtException()</code> method throws an
+<code>ArithmeticException</code>. Since the exception is not caught within the test method, JUnit
+Jupiter will mark the test as failed.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">private final Calculator calculator = new Calculator();
+
+@Test
+void failsDueToUncaughtException() {
+	// The following throws an ArithmeticException due to division by
+	// zero, which causes a test failure.
+	calculator.divide(1, 0);
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+It&#8217;s important to note that specifying a <code>throws</code> clause in the test method has
+no effect on the outcome of the test. JUnit Jupiter does not interpret a <code>throws</code> clause
+as an expectation or assertion about what exceptions the test method should throw. A test
+fails only if an exception is thrown unexpectedly or if an assertion fails.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="failed-assertions"><a class="anchor" href="#failed-assertions"></a>Failed Assertions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Assertions in JUnit Jupiter are implemented using exceptions. The framework provides a set
+of assertion methods in the <code>org.junit.jupiter.api.Assertions</code> class, which throw
+<code>AssertionError</code> when an assertion fails. This mechanism is a core aspect of how JUnit
+handles assertion failures as exceptions. See the <a href="assertions.html" class="xref page">Assertions</a> section for
+further information about JUnit Jupiter&#8217;s assertion support.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Third-party assertion libraries may choose to throw an <code>AssertionError</code> to signal a
+failed assertion; however, they may also choose to throw different types of exceptions to
+signal failures. See also: <a href="assertions.html#third-party" class="xref page">Third-party Assertion Libraries</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+JUnit Jupiter itself does not differentiate between failed assertions
+(<code>AssertionError</code>) and other types of exceptions. All uncaught exceptions lead to a test
+failure. However, Integrated Development Environments (IDEs) and other tools may
+distinguish between these two types of failures by checking whether the thrown exception
+is an instance of <code>AssertionError</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>In the following example, the <code>failsDueToUncaughtAssertionError()</code> method throws an
+<code>AssertionError</code>. Since the exception is not caught within the test method, JUnit Jupiter
+will mark the test as failed.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">private final Calculator calculator = new Calculator();
+
+@Test
+void failsDueToUncaughtAssertionError() {
+	// The following incorrect assertion will cause a test failure.
+	// The expected value should be 2 instead of 99.
+	assertEquals(99, calculator.add(1, 1));
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="expected"><a class="anchor" href="#expected"></a>Asserting Expected Exceptions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>JUnit Jupiter offers specialized assertions for testing that specific exceptions are
+thrown under expected conditions. The <code>assertThrows()</code> and <code>assertThrowsExactly()</code>
+assertions are critical tools for validating that your code responds correctly to error
+conditions by throwing the appropriate exceptions.</p>
+</div>
+<div class="sect2">
+<h3 id="expected-assertThrows"><a class="anchor" href="#expected-assertThrows"></a>Using <code>assertThrows()</code></h3>
+<div class="paragraph">
+<p>The <code>assertThrows()</code> method is used to verify that a particular type of exception is
+thrown during the execution of a provided executable block. It not only checks for the
+type of the thrown exception but also its subclasses, making it suitable for more
+generalized exception handling tests. The <code>assertThrows()</code> assertion method returns the
+thrown exception object to allow performing additional assertions on it.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Test
+void testExpectedExceptionIsThrown() {
+	// The following assertion succeeds because the code under assertion
+	// throws the expected IllegalArgumentException.
+	// The assertion also returns the thrown exception which can be used for
+	// further assertions like asserting the exception message.
+	IllegalArgumentException exception =
+		assertThrows(IllegalArgumentException.class, () -&gt; {
+			throw new IllegalArgumentException("expected message");
+		});
+	assertEquals("expected message", exception.getMessage());
+
+	// The following assertion also succeeds because the code under assertion
+	// throws IllegalArgumentException which is a subclass of RuntimeException.
+	assertThrows(RuntimeException.class, () -&gt; {
+		throw new IllegalArgumentException("expected message");
+	});
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="expected-assertThrowsExactly"><a class="anchor" href="#expected-assertThrowsExactly"></a>Using <code>assertThrowsExactly()</code></h3>
+<div class="paragraph">
+<p>The <code>assertThrowsExactly()</code> method is used when you need to assert that the exception
+thrown is exactly of a specific type, not allowing for subclasses of the expected
+exception type. This is useful when precise exception handling behavior needs to be
+validated. Similar to <code>assertThrows()</code>, the <code>assertThrowsExactly()</code> assertion method also
+returns the thrown exception object to allow performing additional assertions on it.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Test
+void testExpectedExceptionIsThrown() {
+	// The following assertion succeeds because the code under assertion throws
+	// IllegalArgumentException which is exactly equal to the expected type.
+	// The assertion also returns the thrown exception which can be used for
+	// further assertions like asserting the exception message.
+	IllegalArgumentException exception =
+		assertThrowsExactly(IllegalArgumentException.class, () -&gt; {
+			throw new IllegalArgumentException("expected message");
+		});
+	assertEquals("expected message", exception.getMessage());
+
+	// The following assertion fails because the assertion expects exactly
+	// RuntimeException to be thrown, not subclasses of RuntimeException.
+	assertThrowsExactly(RuntimeException.class, () -&gt; {
+		throw new IllegalArgumentException("expected message");
+	});
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="not-expected"><a class="anchor" href="#not-expected"></a>Asserting That no Exception is Expected</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Although any exception thrown from a test method will cause the test to fail, there are
+certain use cases where it can be beneficial to explicitly assert that an exception is
+<em>not</em> thrown for a given code block within a test method. The <code>assertDoesNotThrow()</code>
+assertion can be used when you want to verify that a particular piece of code does not
+throw any exceptions.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Test
+void testExceptionIsNotThrown() {
+	assertDoesNotThrow(() -&gt; {
+		shouldNotThrowException();
+	});
+}
+
+void shouldNotThrowException() {
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Third-party assertion libraries often provide similar support. For example, AssertJ
+has <code>assertThatNoException().isThrownBy(() &#8594; &#8230;&#8203;)</code>. See also:
+<a href="assertions.html#third-party" class="xref page">Third-party Assertion Libraries</a>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="assumptions.html">Assumptions</a></span>
+  <span class="next"><a href="disabling-tests.html">Disabling Tests</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+    <p>
+        &copy; Copyright 2015-2026 the original author or authors.
+        All rights reserved.
+        The content of this page is made available under the terms of the <a href="https://www.eclipse.org/legal/epl-v20.html">Eclipse Public License v2.0</a>.
+    </p>
+    <p>
+        This page was built using an adapted version of the Antora default UI.
+        The source code for this UI is licensed under the terms of the <a href="https://www.mozilla.org/en-US/MPL/2.0/">Mozilla Public License v2.0</a>.
+    </p>
+    <p>
+        Built and hosted on <a href="https://statichost.eu">statichost.eu</a>.
+    </p>
+</footer>
+<script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script async src="../../_/js/vendor/tabs.js" data-sync-storage-key="preferred-code-language"></script>
+<script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="100" data-stylesheet="../../_/css/search.css"></script>
+<script async src="../../search-index.js"></script>
+  </body>
+</html>

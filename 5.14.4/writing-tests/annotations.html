@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Annotations :: JUnit User Guide</title>
+    <link rel="canonical" href="https://docs.junit.org/6.0.3/writing-tests/annotations.html">
+    <link rel="prev" href="intro.html">
+    <link rel="next" href="definitions.html">
+    <meta name="generator" content="Antora 3.2.0-alpha.11">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<link rel="icon" type="image/png" href="../../_/img/junit-diamond.png">
+<link rel="icon" type="image/svg+xml" href="../../_/img/junit-diamond-adaptive.svg" sizes="any">
+
+<link rel="stylesheet" href="../../_/css/vendor/highlightjs/github.min.css">
+<link rel="stylesheet" href="../../_/css/vendor/tabs.css">
+
+<link rel="preload" as="style" href="https://assets.junit.org/fonts/index.css">
+<link rel="preload" as="font" href="https://assets.junit.org/fonts/blinker-latin-600-normal.woff2" type="font/woff2" crossorigin/>
+<link rel="preload" as="font" href="https://assets.junit.org/fonts/inter-latin-wght-normal.woff2" type="font/woff2" crossorigin/>
+<link rel="preload" as="font" href="https://assets.junit.org/fonts/inter-latin-wght-italic.woff2" type="font/woff2" crossorigin/>
+<link rel="preload" as="font" href="https://assets.junit.org/fonts/jetbrains-mono-latin-wght-normal.woff2" type="font/woff2" crossorigin/>
+
+<link rel="preload" as="style" href="../../_/css/site-extra.css">
+
+<link rel="stylesheet" href="https://assets.junit.org/fonts/index.css">
+<link rel="stylesheet" href="../../_/css/site-extra.css">
+
+<meta name="theme-color" content="#25a162">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item title" href="https://docs.junit.org">
+          <img class="logo" src="../../_/img/junit-diamond-white.png" alt="✔️"/>
+          JUnit User Guide<span class="version">5.14.4</span>
+      </a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search current version">
+          <label style="display: none">
+            <!-- restrict search to current version -->
+            <input type="checkbox" data-facet-filter="version:5.14.4" checked>
+          </label>
+        </div>
+      </div>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+          <a class="navbar-item" href="https://junit.org/">Home</a>
+          <a class="navbar-item" href="https://github.com/junit-team/junit-framework/">Repo</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="junit" data-version="5.14.4">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">JUnit</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="intro.html">Writing Tests</a>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="annotations.html">Annotations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="definitions.html">Definitions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-classes-and-methods.html">Test Classes and Methods</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="display-names.html">Display Names</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="assertions.html">Assertions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="assumptions.html">Assumptions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="exception-handling.html">Exception Handling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="disabling-tests.html">Disabling Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="conditional-test-execution.html">Conditional Test Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="tagging-and-filtering.html">Tagging and Filtering</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-execution-order.html">Test Execution Order</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-instance-lifecycle.html">Test Instance Lifecycle</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="nested-tests.html">Nested Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dependency-injection-for-constructors-and-methods.html">Dependency Injection for Constructors and Methods</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-interfaces-and-default-methods.html">Test Interfaces and Default Methods</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="repeated-tests.html">Repeated Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="parameterized-classes-and-tests.html">Parameterized Classes and Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="class-templates.html">Class Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-templates.html">Test Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dynamic-tests.html">Dynamic Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="timeouts.html">Timeouts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="parallel-execution.html">Parallel Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="built-in-extensions.html">Built-in Extensions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../migrating-from-junit4.html">Migrating from JUnit 4</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../running-tests/intro.html">Running Tests</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/ide-support.html">IDE Support</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/build-support.html">Build Support</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/console-launcher.html">Console Launcher</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/using-junit-4-to-run-the-junit-platform.html">Using JUnit 4 to run the JUnit Platform</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/discovery-selectors.html">Discovery Selectors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/configuration-parameters.html">Configuration Parameters</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/tags.html">Tags</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/capturing-standard-output-error.html">Capturing Standard Output/Error</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/using-listeners-and-interceptors.html">Using Listeners and Interceptors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/stack-trace-pruning.html">Stack Trace Pruning</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/discovery-issues.html">Discovery Issues</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../extensions/overview.html">Extension Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/registering-extensions.html">Registering Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/conditional-test-execution.html">Conditional Test Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-instance-pre-construct-callback.html">Test Instance Pre-construct Callback</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-instance-factories.html">Test Instance Factories</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-instance-post-processing.html">Test Instance Post-processing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-instance-pre-destroy-callback.html">Test Instance Pre-destroy Callback</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/parameter-resolution.html">Parameter Resolution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-result-processing.html">Test Result Processing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-lifecycle-callbacks.html">Test Lifecycle Callbacks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/exception-handling.html">Exception Handling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/pre-interrupt-callback.html">Pre-Interrupt Callback</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/intercepting-invocations.html">Intercepting Invocations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/providing-invocation-contexts-for-class-templates.html">Providing Invocation Contexts for Class Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/providing-invocation-contexts-for-test-templates.html">Providing Invocation Contexts for Test Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/keeping-state-in-extensions.html">Keeping State in Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/supported-utilities-in-extensions.html">Supported Utilities in Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/relative-execution-order-of-user-code-and-extensions.html">Relative Execution Order of User Code and Extensions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced Topics</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/junit-platform-reporting.html">JUnit Platform Reporting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/junit-platform-suite-engine.html">JUnit Platform Suite Engine</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/testkit.html">JUnit Platform Test Kit</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/launcher-api.html">JUnit Platform Launcher API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/engines.html">Test Engines</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../api-evolution.html">API Evolution</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../release-notes.html">Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../api/index.html">Javadoc</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">JUnit</span>
+    <span class="version">5.14.4</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../../6.0.3/index.html">JUnit</a></div>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../6.1.0/index.html">6.1.0-SNAPSHOT</a>
+        </li>
+        <li class="version">
+          <a href="../../6.1.0-RC1/index.html">6.1.0-RC1</a>
+        </li>
+        <li class="version">
+          <a href="../../6.1.0-M1/index.html">6.1.0-M1</a>
+        </li>
+        <li class="version is-latest">
+          <a href="../../6.0.3/index.html">6.0.3</a>
+        </li>
+        <li class="version">
+          <a href="../../6.0.2/index.html">6.0.2</a>
+        </li>
+        <li class="version">
+          <a href="../../6.0.1/index.html">6.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../6.0.0/index.html">6.0.0</a>
+        </li>
+        <li class="version is-current">
+          <a href="../index.html">5.14.4</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.3/index.html">5.14.3</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.2/index.html">5.14.2</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.1/index.html">5.14.1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../6.0.3/overview.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">JUnit</a></li>
+    <li><a href="intro.html">Writing Tests</a></li>
+    <li><a href="annotations.html">Annotations</a></li>
+  </ul>
+</nav>
+        <div class="pdf-link">
+            <a href="../_exports/junit-user-guide-5.14.4.pdf#writing-tests-annotations">PDF</a>
+        </div>
+        <div class="html-link">
+            <a href="../_exports/junit-user-guide-5.14.4.html#writing-tests-annotations">Single page</a>
+        </div>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">5.14.4</button>
+  <div class="version-menu">
+    <a class="version" href="../../6.1.0/writing-tests/annotations.html">6.1.0-SNAPSHOT</a>
+    <a class="version" href="../../6.1.0-RC1/writing-tests/annotations.html">6.1.0-RC1</a>
+    <a class="version" href="../../6.1.0-M1/writing-tests/annotations.html">6.1.0-M1</a>
+    <a class="version" href="../../6.0.3/writing-tests/annotations.html">6.0.3</a>
+    <a class="version" href="../../6.0.2/writing-tests/annotations.html">6.0.2</a>
+    <a class="version" href="../../6.0.1/writing-tests/annotations.html">6.0.1</a>
+    <a class="version" href="../../6.0.0/writing-tests/annotations.html">6.0.0</a>
+    <a class="version is-current" href="annotations.html">5.14.4</a>
+    <a class="version" href="../../5.14.3/writing-tests/annotations.html">5.14.3</a>
+    <a class="version" href="../../5.14.2/writing-tests/annotations.html">5.14.2</a>
+    <a class="version" href="../../5.14.1/writing-tests/annotations.html">5.14.1</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/junit-team/junit-framework/blob/r5.14.4/documentation/modules/ROOT/pages/writing-tests/annotations.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Annotations</h1>
+<div class="version-banner">
+<strong>
+    There is a newer version available.
+</strong><br/>
+For the latest stable release, please see <a href="../../6.0.3/writing-tests/annotations.html">JUnit 6.0.3</a>!
+</div>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>JUnit Jupiter supports the following annotations for configuring tests and extending the
+framework.</p>
+</div>
+<div class="paragraph">
+<p>Unless otherwise stated, all core annotations are located in the <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/package-summary.html" class="xref attachment">org.junit.jupiter.api</a></code> package
+in the <code>junit-jupiter-api</code> module.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code><strong>@Test</strong></code></dt>
+<dd>
+<p>Denotes that a method is a test method. Unlike JUnit 4&#8217;s <code>@Test</code> annotation,
+this annotation does not declare any attributes, since test extensions in JUnit Jupiter
+operate based on their own dedicated annotations. Such methods are inherited unless they
+are overridden.</p>
+</dd>
+<dt class="hdlist1"><code><strong>@ParameterizedTest</strong></code></dt>
+<dd>
+<p>Denotes that a method is a
+<a href="parameterized-classes-and-tests.html" class="xref page">parameterized test</a>. Such methods are inherited
+unless they are overridden.</p>
+</dd>
+<dt class="hdlist1"><code><strong>@RepeatedTest</strong></code></dt>
+<dd>
+<p>Denotes that a method is a test template for a
+<a href="repeated-tests.html" class="xref page">repeated test</a>. Such methods are inherited unless they
+are overridden.</p>
+</dd>
+<dt class="hdlist1"><code><strong>@TestFactory</strong></code></dt>
+<dd>
+<p>Denotes that a method is a test factory for
+<a href="dynamic-tests.html" class="xref page">dynamic tests</a>. Such methods are inherited unless they are
+overridden.</p>
+</dd>
+<dt class="hdlist1"><code><strong>@TestTemplate</strong></code></dt>
+<dd>
+<p>Denotes that a method is a
+<a href="test-templates.html" class="xref page">template for a test case</a> designed to be invoked multiple
+times depending on the number of invocation contexts returned by the registered
+<a href="../extensions/providing-invocation-contexts-for-test-templates.html" class="xref page">providers</a>. Such methods are inherited unless they are
+overridden.</p>
+</dd>
+<dt class="hdlist1"><code><strong>@TestClassOrder</strong></code></dt>
+<dd>
+<p>Used to configure the
+<a href="test-execution-order.html#classes" class="xref page">test class execution order</a> for <code>@Nested</code>
+test classes in the annotated test class. Such annotations are inherited.</p>
+</dd>
+<dt class="hdlist1"><code><strong>@TestMethodOrder</strong></code></dt>
+<dd>
+<p>Used to configure the
+<a href="test-execution-order.html#methods" class="xref page">test method execution order</a> for the
+annotated test class; similar to JUnit 4&#8217;s <code>@FixMethodOrder</code>. Such annotations are
+inherited.</p>
+</dd>
+<dt class="hdlist1"><code><strong>@TestInstance</strong></code></dt>
+<dd>
+<p>Used to configure the
+<a href="test-instance-lifecycle.html" class="xref page">test instance lifecycle</a> for the annotated test
+class. Such annotations are inherited.</p>
+</dd>
+<dt class="hdlist1"><code><strong>@DisplayName</strong></code></dt>
+<dd>
+<p>Declares a custom <a href="display-names.html" class="xref page">display name</a> for the
+test class or test method. Such annotations are not inherited.</p>
+</dd>
+<dt class="hdlist1"><code><strong>@DisplayNameGeneration</strong></code></dt>
+<dd>
+<p>Declares a custom
+<a href="display-names.html#generator" class="xref page">display name generator</a> for the test class. Such
+annotations are inherited.</p>
+</dd>
+<dt class="hdlist1"><code><strong>@BeforeEach</strong></code></dt>
+<dd>
+<p>Denotes that the annotated method should be executed <em>before</em> <strong>each</strong>
+<code>@Test</code>, <code>@RepeatedTest</code>, <code>@ParameterizedTest</code>, or <code>@TestFactory</code> method in the current
+class; analogous to JUnit 4&#8217;s <code>@Before</code>. Such methods are inherited unless they are
+overridden.</p>
+</dd>
+<dt class="hdlist1"><code><strong>@AfterEach</strong></code></dt>
+<dd>
+<p>Denotes that the annotated method should be executed <em>after</em> <strong>each</strong>
+<code>@Test</code>, <code>@RepeatedTest</code>, <code>@ParameterizedTest</code>, or <code>@TestFactory</code> method in the current
+class; analogous to JUnit 4&#8217;s <code>@After</code>. Such methods are inherited unless they are
+overridden.</p>
+</dd>
+<dt class="hdlist1"><code><strong>@BeforeAll</strong></code></dt>
+<dd>
+<p>Denotes that the annotated method should be executed <em>before</em> <strong>all</strong>
+<code>@Test</code>, <code>@RepeatedTest</code>, <code>@ParameterizedTest</code>, and <code>@TestFactory</code> methods in the current
+class; analogous to JUnit 4&#8217;s <code>@BeforeClass</code>. Such methods are inherited unless they are
+overridden and must be <code>static</code> unless the "per-class"
+<a href="test-instance-lifecycle.html" class="xref page">test instance lifecycle</a> is used.</p>
+</dd>
+<dt class="hdlist1"><code><strong>@AfterAll</strong></code></dt>
+<dd>
+<p>Denotes that the annotated method should be executed <em>after</em> <strong>all</strong>
+<code>@Test</code>, <code>@RepeatedTest</code>, <code>@ParameterizedTest</code>, and <code>@TestFactory</code> methods in the current
+class; analogous to JUnit 4&#8217;s <code>@AfterClass</code>. Such methods are inherited unless they are
+overridden and must be <code>static</code> unless the "per-class"
+<a href="test-instance-lifecycle.html" class="xref page">test instance lifecycle</a> is used.</p>
+</dd>
+<dt class="hdlist1"><code><strong>@ParameterizedClass</strong></code></dt>
+<dd>
+<p>Denotes that the annotated class is a
+<a href="parameterized-classes-and-tests.html" class="xref page">parameterized class</a>. Such annotations are
+inherited.</p>
+</dd>
+<dt class="hdlist1"><code><strong>@BeforeParameterizedClassInvocation</strong></code></dt>
+<dd>
+<p>Denotes that the annotated method should be
+executed once <em>before</em> each invocation of a
+<a href="parameterized-classes-and-tests.html" class="xref page">parameterized class</a>. Such methods are inherited
+unless they are overridden.</p>
+</dd>
+<dt class="hdlist1"><code><strong>@AfterParameterizedClassInvocation</strong></code></dt>
+<dd>
+<p>Denotes that the annotated method should be
+executed once <em>after</em> each invocation of a
+<a href="parameterized-classes-and-tests.html" class="xref page">parameterized class</a>. Such methods are inherited
+unless they are overridden.</p>
+</dd>
+<dt class="hdlist1"><code><strong>@ClassTemplate</strong></code></dt>
+<dd>
+<p>Denotes that the annotated class is a
+<a href="class-templates.html" class="xref page">template for a test class</a> designed to be executed
+multiple times depending on the number of invocation contexts returned by the registered
+<a href="../extensions/providing-invocation-contexts-for-class-templates.html" class="xref page">providers</a>. Such annotations are inherited.</p>
+</dd>
+<dt class="hdlist1"><code><strong>@Nested</strong></code></dt>
+<dd>
+<p>Denotes that the annotated class is a non-static
+<a href="nested-tests.html" class="xref page">nested test class</a>. On Java 8 through Java 15, <code>@BeforeAll</code> and
+<code>@AfterAll</code> methods cannot be used directly in a <code>@Nested</code> test class unless the
+"per-class" <a href="test-instance-lifecycle.html" class="xref page">test instance lifecycle</a> is used.
+Beginning with Java 16, <code>@BeforeAll</code> and <code>@AfterAll</code> methods can be declared as <code>static</code>
+in a <code>@Nested</code> test class with either test instance lifecycle mode. Such annotations are
+not inherited.</p>
+</dd>
+<dt class="hdlist1"><code><strong>@Tag</strong></code></dt>
+<dd>
+<p>Used to declare
+<a href="tagging-and-filtering.html" class="xref page">tags for filtering tests</a>, either at the class or
+method level; analogous to test groups in TestNG or Categories in JUnit 4. Such
+annotations are inherited at the class level but not at the method level.</p>
+</dd>
+<dt class="hdlist1"><code><strong>@Disabled</strong></code></dt>
+<dd>
+<p>Used to <a href="disabling-tests.html" class="xref page">disable</a> a test class or test method;
+analogous to JUnit 4&#8217;s <code>@Ignore</code>. Such annotations are not inherited.</p>
+</dd>
+<dt class="hdlist1"><code><strong>@AutoClose</strong></code></dt>
+<dd>
+<p>Denotes that the annotated field represents a resource that will be
+<a href="built-in-extensions.html#AutoClose" class="xref page">automatically closed</a> after test
+execution. Such fields are inherited.</p>
+</dd>
+<dt class="hdlist1"><code><strong>@Timeout</strong></code></dt>
+<dd>
+<p>Used to fail a test, test factory, test template, or lifecycle method if
+its execution exceeds a given duration. Such annotations are inherited.</p>
+</dd>
+<dt class="hdlist1"><code><strong>@TempDir</strong></code></dt>
+<dd>
+<p>Used to supply a
+<a href="built-in-extensions.html#TempDirectory" class="xref page">temporary directory</a> via field
+injection or parameter injection in a test class constructor, lifecycle method, or test
+method; located in the <code>org.junit.jupiter.api.io</code> package. Such fields are inherited.</p>
+</dd>
+<dt class="hdlist1"><code><strong>@ExtendWith</strong></code></dt>
+<dd>
+<p>Used to
+<a href="../extensions/registering-extensions.html#registration-declarative" class="xref page">register extensions declaratively</a>. Such
+annotations are inherited.</p>
+</dd>
+<dt class="hdlist1"><code><strong>@RegisterExtension</strong></code></dt>
+<dd>
+<p>Used to
+<a href="../extensions/registering-extensions.html#registration-programmatic" class="xref page">register extensions programmatically</a> via fields.
+Such fields are inherited.</p>
+</dd>
+</dl>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Some annotations may currently be <em>experimental</em>. Consult the table in
+<a href="../api-evolution.html#experimental-apis" class="xref page">Experimental APIs</a> for details.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="annotations"><a class="anchor" href="#annotations"></a>Meta-Annotations and Composed Annotations</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>JUnit Jupiter annotations can be used as <em>meta-annotations</em>. That means that you can
+define your own <em>composed annotation</em> that will automatically <em>inherit</em> the semantics of
+its meta-annotations.</p>
+</div>
+<div class="paragraph">
+<p>For example, instead of copying and pasting <code>@Tag("fast")</code> throughout your code base (see
+<a href="tagging-and-filtering.html" class="xref page">Tagging and Filtering</a>), you can create a custom <em>composed annotation</em>
+named <code>@Fast</code> as follows. <code>@Fast</code> can then be used as a drop-in replacement for
+<code>@Tag("fast")</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+import org.junit.jupiter.api.Tag;
+
+@Target({ ElementType.TYPE, ElementType.METHOD })
+@Retention(RetentionPolicy.RUNTIME)
+@Tag("fast")
+public @interface Fast {
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following <code>@Test</code> method demonstrates usage of the <code>@Fast</code> annotation.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Fast
+@Test
+void myFastTest() {
+    // ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can even take that one step further by introducing a custom <code>@FastTest</code> annotation
+that can be used as a drop-in replacement for <code>@Tag("fast")</code> <em>and</em> <code>@Test</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.RUNTIME)
+@Tag("fast")
+@Test
+public @interface FastTest {
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>JUnit automatically recognizes the following as a <code>@Test</code> method that is tagged with
+"fast".</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@FastTest
+void myFastTest() {
+    // ...
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="intro.html">Writing Tests</a></span>
+  <span class="next"><a href="definitions.html">Definitions</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+    <p>
+        &copy; Copyright 2015-2026 the original author or authors.
+        All rights reserved.
+        The content of this page is made available under the terms of the <a href="https://www.eclipse.org/legal/epl-v20.html">Eclipse Public License v2.0</a>.
+    </p>
+    <p>
+        This page was built using an adapted version of the Antora default UI.
+        The source code for this UI is licensed under the terms of the <a href="https://www.mozilla.org/en-US/MPL/2.0/">Mozilla Public License v2.0</a>.
+    </p>
+    <p>
+        Built and hosted on <a href="https://statichost.eu">statichost.eu</a>.
+    </p>
+</footer>
+<script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script async src="../../_/js/vendor/tabs.js" data-sync-storage-key="preferred-code-language"></script>
+<script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="100" data-stylesheet="../../_/css/search.css"></script>
+<script async src="../../search-index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Relative Execution Order of User Code and Extensions :: JUnit User Guide</title>
+    <link rel="canonical" href="https://docs.junit.org/6.0.3/extensions/relative-execution-order-of-user-code-and-extensions.html">
+    <link rel="prev" href="supported-utilities-in-extensions.html">
+    <link rel="next" href="../advanced-topics/junit-platform-reporting.html">
+    <meta name="generator" content="Antora 3.2.0-alpha.11">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<link rel="icon" type="image/png" href="../../_/img/junit-diamond.png">
+<link rel="icon" type="image/svg+xml" href="../../_/img/junit-diamond-adaptive.svg" sizes="any">
+
+<link rel="stylesheet" href="../../_/css/vendor/highlightjs/github.min.css">
+<link rel="stylesheet" href="../../_/css/vendor/tabs.css">
+
+<link rel="preload" as="style" href="https://assets.junit.org/fonts/index.css">
+<link rel="preload" as="font" href="https://assets.junit.org/fonts/blinker-latin-600-normal.woff2" type="font/woff2" crossorigin/>
+<link rel="preload" as="font" href="https://assets.junit.org/fonts/inter-latin-wght-normal.woff2" type="font/woff2" crossorigin/>
+<link rel="preload" as="font" href="https://assets.junit.org/fonts/inter-latin-wght-italic.woff2" type="font/woff2" crossorigin/>
+<link rel="preload" as="font" href="https://assets.junit.org/fonts/jetbrains-mono-latin-wght-normal.woff2" type="font/woff2" crossorigin/>
+
+<link rel="preload" as="style" href="../../_/css/site-extra.css">
+
+<link rel="stylesheet" href="https://assets.junit.org/fonts/index.css">
+<link rel="stylesheet" href="../../_/css/site-extra.css">
+
+<meta name="theme-color" content="#25a162">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item title" href="https://docs.junit.org">
+          <img class="logo" src="../../_/img/junit-diamond-white.png" alt="✔️"/>
+          JUnit User Guide<span class="version">5.14.4</span>
+      </a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search current version">
+          <label style="display: none">
+            <!-- restrict search to current version -->
+            <input type="checkbox" data-facet-filter="version:5.14.4" checked>
+          </label>
+        </div>
+      </div>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+          <a class="navbar-item" href="https://junit.org/">Home</a>
+          <a class="navbar-item" href="https://github.com/junit-team/junit-framework/">Repo</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="junit" data-version="5.14.4">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">JUnit</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../writing-tests/intro.html">Writing Tests</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/annotations.html">Annotations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/definitions.html">Definitions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/test-classes-and-methods.html">Test Classes and Methods</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/display-names.html">Display Names</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/assertions.html">Assertions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/assumptions.html">Assumptions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/exception-handling.html">Exception Handling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/disabling-tests.html">Disabling Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/conditional-test-execution.html">Conditional Test Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/tagging-and-filtering.html">Tagging and Filtering</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/test-execution-order.html">Test Execution Order</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/test-instance-lifecycle.html">Test Instance Lifecycle</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/nested-tests.html">Nested Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/dependency-injection-for-constructors-and-methods.html">Dependency Injection for Constructors and Methods</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/test-interfaces-and-default-methods.html">Test Interfaces and Default Methods</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/repeated-tests.html">Repeated Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/parameterized-classes-and-tests.html">Parameterized Classes and Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/class-templates.html">Class Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/test-templates.html">Test Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/dynamic-tests.html">Dynamic Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/timeouts.html">Timeouts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/parallel-execution.html">Parallel Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/built-in-extensions.html">Built-in Extensions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../migrating-from-junit4.html">Migrating from JUnit 4</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../running-tests/intro.html">Running Tests</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/ide-support.html">IDE Support</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/build-support.html">Build Support</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/console-launcher.html">Console Launcher</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/using-junit-4-to-run-the-junit-platform.html">Using JUnit 4 to run the JUnit Platform</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/discovery-selectors.html">Discovery Selectors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/configuration-parameters.html">Configuration Parameters</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/tags.html">Tags</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/capturing-standard-output-error.html">Capturing Standard Output/Error</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/using-listeners-and-interceptors.html">Using Listeners and Interceptors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/stack-trace-pruning.html">Stack Trace Pruning</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/discovery-issues.html">Discovery Issues</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="overview.html">Extension Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="registering-extensions.html">Registering Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="conditional-test-execution.html">Conditional Test Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-instance-pre-construct-callback.html">Test Instance Pre-construct Callback</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-instance-factories.html">Test Instance Factories</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-instance-post-processing.html">Test Instance Post-processing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-instance-pre-destroy-callback.html">Test Instance Pre-destroy Callback</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="parameter-resolution.html">Parameter Resolution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-result-processing.html">Test Result Processing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-lifecycle-callbacks.html">Test Lifecycle Callbacks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="exception-handling.html">Exception Handling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="pre-interrupt-callback.html">Pre-Interrupt Callback</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="intercepting-invocations.html">Intercepting Invocations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="providing-invocation-contexts-for-class-templates.html">Providing Invocation Contexts for Class Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="providing-invocation-contexts-for-test-templates.html">Providing Invocation Contexts for Test Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="keeping-state-in-extensions.html">Keeping State in Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="supported-utilities-in-extensions.html">Supported Utilities in Extensions</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="relative-execution-order-of-user-code-and-extensions.html">Relative Execution Order of User Code and Extensions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced Topics</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/junit-platform-reporting.html">JUnit Platform Reporting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/junit-platform-suite-engine.html">JUnit Platform Suite Engine</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/testkit.html">JUnit Platform Test Kit</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/launcher-api.html">JUnit Platform Launcher API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/engines.html">Test Engines</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../api-evolution.html">API Evolution</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../release-notes.html">Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../api/index.html">Javadoc</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">JUnit</span>
+    <span class="version">5.14.4</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../../6.0.3/index.html">JUnit</a></div>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../6.1.0/index.html">6.1.0-SNAPSHOT</a>
+        </li>
+        <li class="version">
+          <a href="../../6.1.0-RC1/index.html">6.1.0-RC1</a>
+        </li>
+        <li class="version">
+          <a href="../../6.1.0-M1/index.html">6.1.0-M1</a>
+        </li>
+        <li class="version is-latest">
+          <a href="../../6.0.3/index.html">6.0.3</a>
+        </li>
+        <li class="version">
+          <a href="../../6.0.2/index.html">6.0.2</a>
+        </li>
+        <li class="version">
+          <a href="../../6.0.1/index.html">6.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../6.0.0/index.html">6.0.0</a>
+        </li>
+        <li class="version is-current">
+          <a href="../index.html">5.14.4</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.3/index.html">5.14.3</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.2/index.html">5.14.2</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.1/index.html">5.14.1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../6.0.3/overview.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">JUnit</a></li>
+    <li><a href="overview.html">Extension Model</a></li>
+    <li><a href="relative-execution-order-of-user-code-and-extensions.html">Relative Execution Order of User Code and Extensions</a></li>
+  </ul>
+</nav>
+        <div class="pdf-link">
+            <a href="../_exports/junit-user-guide-5.14.4.pdf#extensions-relative-execution-order-of-user-code-and-extensions">PDF</a>
+        </div>
+        <div class="html-link">
+            <a href="../_exports/junit-user-guide-5.14.4.html#extensions-relative-execution-order-of-user-code-and-extensions">Single page</a>
+        </div>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">5.14.4</button>
+  <div class="version-menu">
+    <a class="version" href="../../6.1.0/extensions/relative-execution-order-of-user-code-and-extensions.html">6.1.0-SNAPSHOT</a>
+    <a class="version" href="../../6.1.0-RC1/extensions/relative-execution-order-of-user-code-and-extensions.html">6.1.0-RC1</a>
+    <a class="version" href="../../6.1.0-M1/extensions/relative-execution-order-of-user-code-and-extensions.html">6.1.0-M1</a>
+    <a class="version" href="../../6.0.3/extensions/relative-execution-order-of-user-code-and-extensions.html">6.0.3</a>
+    <a class="version" href="../../6.0.2/extensions/relative-execution-order-of-user-code-and-extensions.html">6.0.2</a>
+    <a class="version" href="../../6.0.1/extensions/relative-execution-order-of-user-code-and-extensions.html">6.0.1</a>
+    <a class="version" href="../../6.0.0/extensions/relative-execution-order-of-user-code-and-extensions.html">6.0.0</a>
+    <a class="version is-current" href="relative-execution-order-of-user-code-and-extensions.html">5.14.4</a>
+    <a class="version" href="../../5.14.3/extensions/relative-execution-order-of-user-code-and-extensions.html">5.14.3</a>
+    <a class="version" href="../../5.14.2/extensions/relative-execution-order-of-user-code-and-extensions.html">5.14.2</a>
+    <a class="version" href="../../5.14.1/extensions/relative-execution-order-of-user-code-and-extensions.html">5.14.1</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/junit-team/junit-framework/blob/r5.14.4/documentation/modules/ROOT/pages/extensions/relative-execution-order-of-user-code-and-extensions.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Relative Execution Order of User Code and Extensions</h1>
+<div class="version-banner">
+<strong>
+    There is a newer version available.
+</strong><br/>
+For the latest stable release, please see <a href="../../6.0.3/extensions/relative-execution-order-of-user-code-and-extensions.html">JUnit 6.0.3</a>!
+</div>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>When executing a test class that contains one or more test methods, a number of extension
+callbacks are called in addition to the user-supplied test and lifecycle methods.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+See also: <a href="../writing-tests/test-execution-order.html" class="xref page">Test Execution Order</a>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="anchor" href="#overview"></a>User and Extension Code</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following diagram illustrates the relative order of user-supplied code and extension
+code. User-supplied test and lifecycle methods are shown in orange, with callback code
+implemented by extensions shown in blue. The grey box denotes the execution of a single
+test method and will be repeated for every test method in the test class.</p>
+</div>
+<div id="diagram" class="imageblock">
+<div class="content">
+<img src="../_images/extensions_lifecycle.png" alt="extensions lifecycle">
+</div>
+<div class="title">User code and extension code</div>
+</div>
+<div class="paragraph">
+<p>The following table further explains the sixteen steps in the
+<a href="#diagram">User code and extension code</a> diagram.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>interface</strong> <code><strong>org.junit.jupiter.api.extension.BeforeAllCallback</strong></code><br>
+extension code executed before all tests of the container are executed</p>
+</li>
+<li>
+<p><strong>annotation</strong> <code><strong>org.junit.jupiter.api.BeforeAll</strong></code><br>
+user code executed before all tests of the container are executed</p>
+</li>
+<li>
+<p><strong>interface</strong> <code><strong>org.junit.jupiter.api.extension.LifecycleMethodExecutionExceptionHandler
+#handleBeforeAllMethodExecutionException</strong></code><br>
+extension code for handling exceptions thrown from <code>@BeforeAll</code> methods</p>
+</li>
+<li>
+<p><strong>interface</strong> <code><strong>org.junit.jupiter.api.extension.BeforeClassTemplateInvocationCallback</strong></code><br>
+extension code executed before each class template invocation is executed (only applicable
+if the test class is a <a href="../writing-tests/class-templates.html" class="xref page">class template</a>)</p>
+</li>
+<li>
+<p><strong>interface</strong> <code><strong>org.junit.jupiter.api.extension.BeforeEachCallback</strong></code><br>
+extension code executed before each test is executed</p>
+</li>
+<li>
+<p><strong>annotation</strong> <code><strong>org.junit.jupiter.api.BeforeEach</strong></code><br>
+user code executed before each test is executed</p>
+</li>
+<li>
+<p><strong>interface</strong> <code><strong>org.junit.jupiter.api.extension.LifecycleMethodExecutionExceptionHandler
+#handleBeforeEachMethodExecutionException</strong></code><br>
+extension code for handling exceptions thrown from <code>@BeforeEach</code> methods</p>
+</li>
+<li>
+<p><strong>interface</strong> <code><strong>org.junit.jupiter.api.extension.BeforeTestExecutionCallback</strong></code><br>
+extension code executed immediately before a test is executed</p>
+</li>
+<li>
+<p><strong>annotation</strong> <code><strong>org.junit.jupiter.api.Test</strong></code><br>
+user code of the actual test method</p>
+</li>
+<li>
+<p><strong>interface</strong> <code><strong>org.junit.jupiter.api.extension.TestExecutionExceptionHandler</strong></code><br>
+extension code for handling exceptions thrown during a test</p>
+</li>
+<li>
+<p><strong>interface</strong> <code><strong>org.junit.jupiter.api.extension.AfterTestExecutionCallback</strong></code><br>
+extension code executed immediately after test execution and its corresponding exception handlers</p>
+</li>
+<li>
+<p><strong>annotation</strong> <code><strong>org.junit.jupiter.api.AfterEach</strong></code><br>
+user code executed after each test is executed</p>
+</li>
+<li>
+<p><strong>interface</strong> <code><strong>org.junit.jupiter.api.extension.LifecycleMethodExecutionExceptionHandler
+#handleAfterEachMethodExecutionException</strong></code><br>
+extension code for handling exceptions thrown from <code>@AfterEach</code> methods</p>
+</li>
+<li>
+<p><strong>interface</strong> <code><strong>org.junit.jupiter.api.extension.AfterEachCallback</strong></code><br>
+extension code executed after each test is executed</p>
+</li>
+<li>
+<p><strong>interface</strong> <code><strong>org.junit.jupiter.api.extension.AfterClassTemplateInvocationCallback</strong></code><br>
+extension code executed after each class template invocation is executed (only applicable
+if the test class is a <a href="../writing-tests/class-templates.html" class="xref page">class template</a>)</p>
+</li>
+<li>
+<p><strong>annotation</strong> <code><strong>org.junit.jupiter.api.AfterAll</strong></code><br>
+user code executed after all tests of the container are executed</p>
+</li>
+<li>
+<p><strong>interface</strong> <code><strong>org.junit.jupiter.api.extension.LifecycleMethodExecutionExceptionHandler
+#handleAfterAllMethodExecutionException</strong></code><br>
+extension code for handling exceptions thrown from <code>@AfterAll</code> methods</p>
+</li>
+<li>
+<p><strong>interface</strong> <code><strong>org.junit.jupiter.api.extension.AfterAllCallback</strong></code><br>
+extension code executed after all tests of the container are executed</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>In the simplest case only the actual test method will be executed (step 9); all other
+steps are optional depending on the presence of user code or extension support for the
+corresponding lifecycle callback. For further details on the various lifecycle callbacks
+please consult the respective Javadoc for each annotation and extension.</p>
+</div>
+<div class="paragraph">
+<p>All invocations of user code methods in the above table can additionally be intercepted
+by implementing <a href="intercepting-invocations.html" class="xref page"><code>InvocationInterceptor</code></a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="wrapping-behavior"><a class="anchor" href="#wrapping-behavior"></a>Wrapping Behavior of Callbacks</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>JUnit Jupiter always guarantees <em>wrapping</em> behavior for multiple registered extensions
+that implement lifecycle callbacks such as <code>BeforeAllCallback</code>, <code>AfterAllCallback</code>,
+<code>BeforeClassTemplateInvocationCallback</code>, <code>AfterClassTemplateInvocationCallback</code>,
+<code>BeforeEachCallback</code>, <code>AfterEachCallback</code>, <code>BeforeTestExecutionCallback</code>, and
+<code>AfterTestExecutionCallback</code>.</p>
+</div>
+<div class="paragraph">
+<p>That means that, given two extensions <code>Extension1</code> and <code>Extension2</code> with <code>Extension1</code>
+registered before <code>Extension2</code>, any "before" callbacks implemented by <code>Extension1</code> are
+guaranteed to execute <strong>before</strong> any "before" callbacks implemented by <code>Extension2</code>.
+Similarly, given the two same two extensions registered in the same order, any "after"
+callbacks implemented by <code>Extension1</code> are guaranteed to execute <strong>after</strong> any "after"
+callbacks implemented by <code>Extension2</code>. <code>Extension1</code> is therefore said to <em>wrap</em>
+<code>Extension2</code>.</p>
+</div>
+<div class="paragraph">
+<p>JUnit Jupiter also guarantees <em>wrapping</em> behavior within class and interface hierarchies
+for user-supplied <em>lifecycle methods</em> (see <a href="../writing-tests/definitions.html" class="xref page">Definitions</a>).</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>@BeforeAll</code> methods are inherited from superclasses as long as they are not
+<em>overridden</em>. Furthermore, <code>@BeforeAll</code> methods from superclasses will be executed
+<strong>before</strong> <code>@BeforeAll</code> methods in subclasses.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Similarly, <code>@BeforeAll</code> methods declared in an interface are inherited as long as they
+are not <em>overridden</em>, and <code>@BeforeAll</code> methods from an interface will be executed
+<strong>before</strong> <code>@BeforeAll</code> methods in the class that implements the interface.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>@AfterAll</code> methods are inherited from superclasses as long as they are not
+<em>overridden</em>. Furthermore, <code>@AfterAll</code> methods from superclasses will be executed
+<strong>after</strong> <code>@AfterAll</code> methods in subclasses.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Similarly, <code>@AfterAll</code> methods declared in an interface are inherited as long as they
+are not <em>overridden</em>, and <code>@AfterAll</code> methods from an interface will be executed
+<strong>after</strong> <code>@AfterAll</code> methods in the class that implements the interface.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>@BeforeEach</code> methods are inherited from superclasses as long as they are not
+<em>overridden</em>. Furthermore, <code>@BeforeEach</code> methods from superclasses will be executed
+<strong>before</strong> <code>@BeforeEach</code> methods in subclasses.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Similarly, <code>@BeforeEach</code> methods declared as interface default methods are inherited as
+long as they are not <em>overridden</em>, and <code>@BeforeEach</code> default methods will be executed
+<strong>before</strong> <code>@BeforeEach</code> methods in the class that implements the interface.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>@AfterEach</code> methods are inherited from superclasses as long as they are not
+<em>overridden</em>. Furthermore, <code>@AfterEach</code> methods from superclasses will be executed
+<strong>after</strong> <code>@AfterEach</code> methods in subclasses.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Similarly, <code>@AfterEach</code> methods declared as interface default methods are inherited as
+long as they are not <em>overridden</em>, and <code>@AfterEach</code> default methods will be executed
+<strong>after</strong> <code>@AfterEach</code> methods in the class that implements the interface.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following examples demonstrate this behavior. Please note that the examples do not
+actually do anything realistic. Instead, they mimic common scenarios for testing
+interactions with the database. All methods imported statically from the <code>Logger</code> class
+log contextual information in order to help us better understand the execution order of
+user-supplied callback methods and callback methods in extensions.</p>
+</div>
+<div class="listingblock">
+<div class="title">Extension1</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static example.callbacks.Logger.afterEachCallback;
+import static example.callbacks.Logger.beforeEachCallback;
+
+import org.junit.jupiter.api.extension.AfterEachCallback;
+import org.junit.jupiter.api.extension.BeforeEachCallback;
+import org.junit.jupiter.api.extension.ExtensionContext;
+
+public class Extension1 implements BeforeEachCallback, AfterEachCallback {
+
+	@Override
+	public void beforeEach(ExtensionContext context) {
+		beforeEachCallback(this);
+	}
+
+	@Override
+	public void afterEach(ExtensionContext context) {
+		afterEachCallback(this);
+	}
+
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Extension2</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static example.callbacks.Logger.afterEachCallback;
+import static example.callbacks.Logger.beforeEachCallback;
+
+import org.junit.jupiter.api.extension.AfterEachCallback;
+import org.junit.jupiter.api.extension.BeforeEachCallback;
+import org.junit.jupiter.api.extension.ExtensionContext;
+
+public class Extension2 implements BeforeEachCallback, AfterEachCallback {
+
+	@Override
+	public void beforeEach(ExtensionContext context) {
+		beforeEachCallback(this);
+	}
+
+	@Override
+	public void afterEach(ExtensionContext context) {
+		afterEachCallback(this);
+	}
+
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">AbstractDatabaseTests</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static example.callbacks.Logger.afterAllMethod;
+import static example.callbacks.Logger.afterEachMethod;
+import static example.callbacks.Logger.beforeAllMethod;
+import static example.callbacks.Logger.beforeEachMethod;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+
+/**
+ * Abstract base class for tests that use the database.
+ */
+abstract class AbstractDatabaseTests {
+
+	@BeforeAll
+	static void createDatabase() {
+		beforeAllMethod(AbstractDatabaseTests.class.getSimpleName() + ".createDatabase()");
+	}
+
+	@BeforeEach
+	void connectToDatabase() {
+		beforeEachMethod(AbstractDatabaseTests.class.getSimpleName() + ".connectToDatabase()");
+	}
+
+	@AfterEach
+	void disconnectFromDatabase() {
+		afterEachMethod(AbstractDatabaseTests.class.getSimpleName() + ".disconnectFromDatabase()");
+	}
+
+	@AfterAll
+	static void destroyDatabase() {
+		afterAllMethod(AbstractDatabaseTests.class.getSimpleName() + ".destroyDatabase()");
+	}
+
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">DatabaseTestsDemo</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static example.callbacks.Logger.afterEachMethod;
+import static example.callbacks.Logger.beforeAllMethod;
+import static example.callbacks.Logger.beforeEachMethod;
+import static example.callbacks.Logger.testMethod;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+
+/**
+ * Extension of {@link AbstractDatabaseTests} that inserts test data
+ * into the database (after the database connection has been opened)
+ * and deletes test data (before the database connection is closed).
+ */
+@ExtendWith({ Extension1.class, Extension2.class })
+class DatabaseTestsDemo extends AbstractDatabaseTests {
+
+	@BeforeAll
+	static void beforeAll() {
+		beforeAllMethod(DatabaseTestsDemo.class.getSimpleName() + ".beforeAll()");
+	}
+
+	@BeforeEach
+	void insertTestDataIntoDatabase() {
+		beforeEachMethod(getClass().getSimpleName() + ".insertTestDataIntoDatabase()");
+	}
+
+	@Test
+	void testDatabaseFunctionality() {
+		testMethod(getClass().getSimpleName() + ".testDatabaseFunctionality()");
+	}
+
+	@AfterEach
+	void deleteTestDataFromDatabase() {
+		afterEachMethod(getClass().getSimpleName() + ".deleteTestDataFromDatabase()");
+	}
+
+	@AfterAll
+	static void afterAll() {
+		beforeAllMethod(DatabaseTestsDemo.class.getSimpleName() + ".afterAll()");
+	}
+
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When the <code>DatabaseTestsDemo</code> test class is executed, the following is logged.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>@BeforeAll AbstractDatabaseTests.createDatabase()
+@BeforeAll DatabaseTestsDemo.beforeAll()
+  Extension1.beforeEach()
+  Extension2.beforeEach()
+    @BeforeEach AbstractDatabaseTests.connectToDatabase()
+    @BeforeEach DatabaseTestsDemo.insertTestDataIntoDatabase()
+      @Test DatabaseTestsDemo.testDatabaseFunctionality()
+    @AfterEach DatabaseTestsDemo.deleteTestDataFromDatabase()
+    @AfterEach AbstractDatabaseTests.disconnectFromDatabase()
+  Extension2.afterEach()
+  Extension1.afterEach()
+@BeforeAll DatabaseTestsDemo.afterAll()
+@AfterAll AbstractDatabaseTests.destroyDatabase()</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram helps to shed further light on what actually goes on within
+the <code>JupiterTestEngine</code> when the <code>DatabaseTestsDemo</code> test class is executed.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/extensions_DatabaseTestsDemo.png" alt="extensions DatabaseTestsDemo">
+</div>
+<div class="title">DatabaseTestsDemo</div>
+</div>
+<div class="paragraph">
+<p>JUnit Jupiter does <strong>not</strong> guarantee the execution order of multiple lifecycle methods
+that are declared within a <em>single</em> test class or test interface. It may at times appear
+that JUnit Jupiter invokes such methods in alphabetical order. However, that is not
+precisely true. The ordering is analogous to the ordering for <code>@Test</code> methods within a
+single test class.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Lifecycle methods that are declared within a <em>single</em> test class or test interface will be
+ordered using an algorithm that is deterministic but intentionally non-obvious. This
+ensures that subsequent runs of a test suite execute lifecycle methods in the same order,
+thereby allowing for repeatable builds.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>In addition, JUnit Jupiter does <strong>not</strong> support <em>wrapping</em> behavior for multiple lifecycle
+methods declared within a single test class or test interface.</p>
+</div>
+<div class="paragraph">
+<p>The following example demonstrates this behavior. Specifically, the lifecycle method
+configuration is <em>broken</em> due to the order in which the locally declared lifecycle methods
+are executed.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Test data is inserted <em>before</em> the database connection has been opened, which results in
+a failure to connect to the database.</p>
+</li>
+<li>
+<p>The database connection is closed <em>before</em> deleting the test data, which results in a
+failure to connect to the database.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">BrokenLifecycleMethodConfigDemo</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static example.callbacks.Logger.afterEachMethod;
+import static example.callbacks.Logger.beforeEachMethod;
+import static example.callbacks.Logger.testMethod;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+
+/**
+ * Example of "broken" lifecycle method configuration.
+ *
+ * &lt;p&gt;Test data is inserted before the database connection has been opened.
+ *
+ * &lt;p&gt;Database connection is closed before deleting test data.
+ */
+@ExtendWith({ Extension1.class, Extension2.class })
+class BrokenLifecycleMethodConfigDemo {
+
+	@BeforeEach
+	void connectToDatabase() {
+		beforeEachMethod(getClass().getSimpleName() + ".connectToDatabase()");
+	}
+
+	@BeforeEach
+	void insertTestDataIntoDatabase() {
+		beforeEachMethod(getClass().getSimpleName() + ".insertTestDataIntoDatabase()");
+	}
+
+	@Test
+	void testDatabaseFunctionality() {
+		testMethod(getClass().getSimpleName() + ".testDatabaseFunctionality()");
+	}
+
+	@AfterEach
+	void deleteTestDataFromDatabase() {
+		afterEachMethod(getClass().getSimpleName() + ".deleteTestDataFromDatabase()");
+	}
+
+	@AfterEach
+	void disconnectFromDatabase() {
+		afterEachMethod(getClass().getSimpleName() + ".disconnectFromDatabase()");
+	}
+
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When the <code>BrokenLifecycleMethodConfigDemo</code> test class is executed, the following is logged.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Extension1.beforeEach()
+Extension2.beforeEach()
+  @BeforeEach BrokenLifecycleMethodConfigDemo.insertTestDataIntoDatabase()
+  @BeforeEach BrokenLifecycleMethodConfigDemo.connectToDatabase()
+    @Test BrokenLifecycleMethodConfigDemo.testDatabaseFunctionality()
+  @AfterEach BrokenLifecycleMethodConfigDemo.disconnectFromDatabase()
+  @AfterEach BrokenLifecycleMethodConfigDemo.deleteTestDataFromDatabase()
+Extension2.afterEach()
+Extension1.afterEach()</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram helps to shed further light on what actually goes on within
+the <code>JupiterTestEngine</code> when the <code>BrokenLifecycleMethodConfigDemo</code> test class is executed.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/extensions_BrokenLifecycleMethodConfigDemo.png" alt="extensions BrokenLifecycleMethodConfigDemo">
+</div>
+<div class="title">BrokenLifecycleMethodConfigDemo</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Due to the aforementioned behavior, the JUnit Team recommends that developers declare at
+most one of each type of <em>lifecycle method</em> (see <a href="../writing-tests/definitions.html" class="xref page">Definitions</a>) per test
+class or test interface unless there are no dependencies between such lifecycle methods.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="supported-utilities-in-extensions.html">Supported Utilities in Extensions</a></span>
+  <span class="next"><a href="../advanced-topics/junit-platform-reporting.html">JUnit Platform Reporting</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+    <p>
+        &copy; Copyright 2015-2026 the original author or authors.
+        All rights reserved.
+        The content of this page is made available under the terms of the <a href="https://www.eclipse.org/legal/epl-v20.html">Eclipse Public License v2.0</a>.
+    </p>
+    <p>
+        This page was built using an adapted version of the Antora default UI.
+        The source code for this UI is licensed under the terms of the <a href="https://www.mozilla.org/en-US/MPL/2.0/">Mozilla Public License v2.0</a>.
+    </p>
+    <p>
+        Built and hosted on <a href="https://statichost.eu">statichost.eu</a>.
+    </p>
+</footer>
+<script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script async src="../../_/js/vendor/tabs.js" data-sync-storage-key="preferred-code-language"></script>
+<script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="100" data-stylesheet="../../_/css/search.css"></script>
+<script async src="../../search-index.js"></script>
+  </body>
+</html>
