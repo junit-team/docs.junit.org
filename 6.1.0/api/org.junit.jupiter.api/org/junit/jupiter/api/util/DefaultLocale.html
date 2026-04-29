@@ -98,8 +98,8 @@ configured in several ways:
     <li>using a <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Locale.Builder.html" title="class or interface in java.util" class="external-link"><code>Locale.Builder</code></a> together with
         <ul>
            <li>a language</li>
-           <li>a language and a county</li>
-           <li>a language, a county, and a variant</li>
+           <li>a language and a country</li>
+           <li>a language, a country, and a variant</li>
         </ul>
     </li>
 </ul>
@@ -126,7 +126,7 @@ configurations will override the class level default <code>Locale</code>.
 <a href="https://docs.junit.org/6.1.0/writing-tests/parallel-execution.html">parallel test execution</a>,
 all tests annotated with <a href="DefaultLocale.html" title="annotation interface in org.junit.jupiter.api.util"><code>@DefaultLocale</code></a>,
 <a href="ReadsDefaultLocale.html" title="annotation interface in org.junit.jupiter.api.util"><code>@ReadsDefaultLocale</code></a>, and
-<a href="WritesDefaultLocale.html" title="annotation interface in org.junit.jupiter.api.util"><code>WritesDefaultLocale</code></a> are scheduled in a way that guarantees
+<a href="WritesDefaultLocale.html" title="annotation interface in org.junit.jupiter.api.util"><code>@WritesDefaultLocale</code></a> are scheduled in a way that guarantees
 correctness under mutation of shared global state.
 
 <p>For more details and examples, see the
