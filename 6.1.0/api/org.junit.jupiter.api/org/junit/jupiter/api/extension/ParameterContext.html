@@ -130,7 +130,7 @@ a <a href="ParameterResolver.html" title="interface in org.junit.jupiter.api.ext
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#findAnnotation(java.lang.Class)" class="member-name-link">findAnnotation</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;A&gt;&nbsp;annotationType)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
 <div class="block">Find the first annotation of <code>annotationType</code> that is either
-<em>present</em> or <em>meta-present</em> on the <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/reflect/AnnotatedElement.html" title="class or interface in java.lang.reflect" class="external-link"><code>AnnotatedElement</code></a> for
+<em>present</em> or <em>meta-present</em> on the <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/reflect/Parameter.html" title="class or interface in java.lang.reflect" class="external-link"><code>Parameter</code></a> for
 this context.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default &lt;A extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/annotation/Annotation.html" title="class or interface in java.lang.annotation" class="external-link">Annotation</a>&gt;<br><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;A&gt;</code></div>
@@ -138,7 +138,7 @@ this context.</div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
 <div class="block">Find all <em>repeatable</em> <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/annotation/Annotation.html" title="class or interface in java.lang.annotation" class="external-link">annotations</a> of
 <code>annotationType</code> that are either <em>present</em> or
-<em>meta-present</em> on the <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/reflect/AnnotatedElement.html" title="class or interface in java.lang.reflect" class="external-link"><code>AnnotatedElement</code></a> for this context.</div>
+<em>meta-present</em> on the <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/reflect/Parameter.html" title="class or interface in java.lang.reflect" class="external-link"><code>Parameter</code></a> for this context.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/reflect/AnnotatedElement.html" title="class or interface in java.lang.reflect" class="external-link">AnnotatedElement</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#getAnnotatedElement()" class="member-name-link">getAnnotatedElement</a>()</code></div>
@@ -175,7 +175,7 @@ be invoked, if available.</div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#isAnnotated(java.lang.Class)" class="member-name-link">isAnnotated</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;? extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/annotation/Annotation.html" title="class or interface in java.lang.annotation" class="external-link">Annotation</a>&gt;&nbsp;annotationType)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
 <div class="block">Determine if an annotation of <code>annotationType</code> is either
-<em>present</em> or <em>meta-present</em> on the <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/reflect/AnnotatedElement.html" title="class or interface in java.lang.reflect" class="external-link"><code>AnnotatedElement</code></a> for
+<em>present</em> or <em>meta-present</em> on the <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/reflect/Parameter.html" title="class or interface in java.lang.reflect" class="external-link"><code>Parameter</code></a> for
 this context.</div>
 </div>
 </div>
@@ -313,12 +313,8 @@ to JDK 9.</div>
      <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="5.10")
 </span><span class="modifiers">default</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isAnnotated</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;? extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/annotation/Annotation.html" title="class or interface in java.lang.annotation" class="external-link">Annotation</a>&gt;&nbsp;annotationType)</span></div>
 <div class="block">Determine if an annotation of <code>annotationType</code> is either
-<em>present</em> or <em>meta-present</em> on the <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/reflect/AnnotatedElement.html" title="class or interface in java.lang.reflect" class="external-link"><code>AnnotatedElement</code></a> for
+<em>present</em> or <em>meta-present</em> on the <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/reflect/Parameter.html" title="class or interface in java.lang.reflect" class="external-link"><code>Parameter</code></a> for
 this context.
-
-<p><strong>Note:</strong> This method does not find repeatable annotations.
-To check for repeatable annotations, use <a href="AnnotatedElementContext.html#findRepeatableAnnotations(java.lang.Class)"><code>AnnotatedElementContext.findRepeatableAnnotations(Class)</code></a>
-and verify that the returned list is not empty.
 
 <h4 id="warning-heading2">WARNING</h4>
 <p>Favor the use of this method over directly invoking
@@ -336,8 +332,8 @@ on JDK versions prior to JDK 9.</div>
 <dt>See Also:</dt>
 <dd>
 <ul class="tag-list-long">
-<li><a href="AnnotatedElementContext.html#findAnnotation(java.lang.Class)"><code>AnnotatedElementContext.findAnnotation(Class)</code></a></li>
-<li><a href="AnnotatedElementContext.html#findRepeatableAnnotations(java.lang.Class)"><code>AnnotatedElementContext.findRepeatableAnnotations(Class)</code></a></li>
+<li><a href="#findAnnotation(java.lang.Class)"><code>findAnnotation(Class)</code></a></li>
+<li><a href="#findRepeatableAnnotations(java.lang.Class)"><code>findRepeatableAnnotations(Class)</code></a></li>
 </ul>
 </dd>
 </dl>
@@ -352,12 +348,12 @@ on JDK versions prior to JDK 9.</div>
      <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="5.10")
 </span><span class="modifiers">default</span>&nbsp;<span class="type-parameters">&lt;A extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/annotation/Annotation.html" title="class or interface in java.lang.annotation" class="external-link">Annotation</a>&gt;</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;A&gt;</span>&nbsp;<span class="element-name">findAnnotation</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;A&gt;&nbsp;annotationType)</span></div>
 <div class="block">Find the first annotation of <code>annotationType</code> that is either
-<em>present</em> or <em>meta-present</em> on the <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/reflect/AnnotatedElement.html" title="class or interface in java.lang.reflect" class="external-link"><code>AnnotatedElement</code></a> for
+<em>present</em> or <em>meta-present</em> on the <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/reflect/Parameter.html" title="class or interface in java.lang.reflect" class="external-link"><code>Parameter</code></a> for
 this context.
 
 <h4 id="warning-heading3">WARNING</h4>
 <p>Favor the use of this method over directly invoking annotation lookup
-methods in the <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/reflect/AnnotatedElement.html" title="class or interface in java.lang.reflect" class="external-link"><code>AnnotatedElement</code></a> API due to a bug in <code>javac</code> on JDK
+methods in the <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/reflect/Parameter.html" title="class or interface in java.lang.reflect" class="external-link"><code>Parameter</code></a> API due to a bug in <code>javac</code> on JDK
 versions prior to JDK 9.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
@@ -374,8 +370,8 @@ potentially empty</dd>
 <dt>See Also:</dt>
 <dd>
 <ul class="tag-list-long">
-<li><a href="AnnotatedElementContext.html#isAnnotated(java.lang.Class)"><code>AnnotatedElementContext.isAnnotated(Class)</code></a></li>
-<li><a href="AnnotatedElementContext.html#findRepeatableAnnotations(java.lang.Class)"><code>AnnotatedElementContext.findRepeatableAnnotations(Class)</code></a></li>
+<li><a href="#isAnnotated(java.lang.Class)"><code>isAnnotated(Class)</code></a></li>
+<li><a href="#findRepeatableAnnotations(java.lang.Class)"><code>findRepeatableAnnotations(Class)</code></a></li>
 </ul>
 </dd>
 </dl>
@@ -391,11 +387,11 @@ potentially empty</dd>
 </span><span class="modifiers">default</span>&nbsp;<span class="type-parameters">&lt;A extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/annotation/Annotation.html" title="class or interface in java.lang.annotation" class="external-link">Annotation</a>&gt;</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;A&gt;</span>&nbsp;<span class="element-name">findRepeatableAnnotations</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;A&gt;&nbsp;annotationType)</span></div>
 <div class="block">Find all <em>repeatable</em> <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/annotation/Annotation.html" title="class or interface in java.lang.annotation" class="external-link">annotations</a> of
 <code>annotationType</code> that are either <em>present</em> or
-<em>meta-present</em> on the <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/reflect/AnnotatedElement.html" title="class or interface in java.lang.reflect" class="external-link"><code>AnnotatedElement</code></a> for this context.
+<em>meta-present</em> on the <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/reflect/Parameter.html" title="class or interface in java.lang.reflect" class="external-link"><code>Parameter</code></a> for this context.
 
 <h4 id="warning-heading4">WARNING</h4>
 <p>Favor the use of this method over directly invoking annotation lookup
-methods in the <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/reflect/AnnotatedElement.html" title="class or interface in java.lang.reflect" class="external-link"><code>AnnotatedElement</code></a> API due to a bug in <code>javac</code> on JDK
+methods in the <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/reflect/Parameter.html" title="class or interface in java.lang.reflect" class="external-link"><code>Parameter</code></a> API due to a bug in <code>javac</code> on JDK
 versions prior to JDK 9.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
@@ -412,9 +408,9 @@ mutable, but potentially empty</dd>
 <dd>5.1.1</dd>
 <dt>See Also:</dt>
 <dd>
-<ul class="tag-list-long">
-<li><a href="AnnotatedElementContext.html#isAnnotated(java.lang.Class)"><code>AnnotatedElementContext.isAnnotated(Class)</code></a></li>
-<li><a href="AnnotatedElementContext.html#findAnnotation(java.lang.Class)"><code>AnnotatedElementContext.findAnnotation(Class)</code></a></li>
+<ul class="tag-list">
+<li><a href="#isAnnotated(java.lang.Class)"><code>isAnnotated(Class)</code></a></li>
+<li><a href="#findAnnotation(java.lang.Class)"><code>findAnnotation(Class)</code></a></li>
 <li><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/annotation/Repeatable.html" title="class or interface in java.lang.annotation" class="external-link"><code>Repeatable</code></a></li>
 </ul>
 </dd>
