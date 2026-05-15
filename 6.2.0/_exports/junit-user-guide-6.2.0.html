@@ -22030,7 +22030,9 @@ repository on GitHub.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>❓</p>
+<p>When using <code>ConsoleLauncher</code> with the <code>-cp</code>/<code>--classpath</code> option, it now creates a
+custom <code>ClassLoader</code> that does <em>not</em> implement <code>AutoCloseable</code> to avoid accidentally
+closing it in test code which can lead to test failures that are hard to diagnose.</p>
 </li>
 </ul>
 </div>
@@ -22055,7 +22057,8 @@ repository on GitHub.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>❓</p>
+<p>Failures caused by <code>@Timeout</code> expirations now include a hint about enabling
+<a href="#writing-tests-timeouts:::debugging-thread-dump">thread dumps</a>.</p>
 </li>
 </ul>
 </div>
