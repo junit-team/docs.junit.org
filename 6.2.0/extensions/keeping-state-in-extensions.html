@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Keeping State in Extensions :: JUnit User Guide</title>
+    <link rel="canonical" href="https://docs.junit.org/6.0.3/extensions/keeping-state-in-extensions.html">
+    <link rel="prev" href="providing-invocation-contexts-for-test-templates.html">
+    <link rel="next" href="supported-utilities-in-extensions.html">
+    <meta name="generator" content="Antora 3.2.0-alpha.11">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<link rel="icon" type="image/png" href="../../_/img/junit-diamond.png">
+<link rel="icon" type="image/svg+xml" href="../../_/img/junit-diamond-adaptive.svg" sizes="any">
+
+<link rel="stylesheet" href="../../_/css/vendor/highlightjs/github.min.css">
+<link rel="stylesheet" href="../../_/css/vendor/tabs.css">
+
+<link rel="preload" as="style" href="https://assets.junit.org/fonts/index.css">
+<link rel="preload" as="font" href="https://assets.junit.org/fonts/blinker-latin-600-normal.woff2" type="font/woff2" crossorigin/>
+<link rel="preload" as="font" href="https://assets.junit.org/fonts/inter-latin-wght-normal.woff2" type="font/woff2" crossorigin/>
+<link rel="preload" as="font" href="https://assets.junit.org/fonts/inter-latin-wght-italic.woff2" type="font/woff2" crossorigin/>
+<link rel="preload" as="font" href="https://assets.junit.org/fonts/jetbrains-mono-latin-wght-normal.woff2" type="font/woff2" crossorigin/>
+
+<link rel="preload" as="style" href="../../_/css/site-extra.css">
+
+<link rel="stylesheet" href="https://assets.junit.org/fonts/index.css">
+<link rel="stylesheet" href="../../_/css/site-extra.css">
+
+<meta name="theme-color" content="#25a162">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item title" href="https://docs.junit.org">
+          <img class="logo" src="../../_/img/junit-diamond-white.png" alt="✔️"/>
+          JUnit User Guide<span class="version">6.2.0-SNAPSHOT</span>
+      </a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search current version">
+          <label style="display: none">
+            <!-- restrict search to current version -->
+            <input type="checkbox" data-facet-filter="version:6.2.0" checked>
+          </label>
+        </div>
+      </div>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+          <a class="navbar-item" href="https://junit.org/">Home</a>
+          <a class="navbar-item" href="https://github.com/junit-team/junit-framework/">Repo</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="junit" data-version="6.2.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">JUnit</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../writing-tests/intro.html">Writing Tests</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/annotations.html">Annotations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/definitions.html">Definitions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/test-classes-and-methods.html">Test Classes and Methods</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/display-names.html">Display Names</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/assertions.html">Assertions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/assumptions.html">Assumptions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/exception-handling.html">Exception Handling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/disabling-tests.html">Disabling Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/conditional-test-execution.html">Conditional Test Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/tagging-and-filtering.html">Tagging and Filtering</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/test-execution-order.html">Test Execution Order</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/test-instance-lifecycle.html">Test Instance Lifecycle</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/nested-tests.html">Nested Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/dependency-injection-for-constructors-and-methods.html">Dependency Injection for Constructors and Methods</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/test-interfaces-and-default-methods.html">Test Interfaces and Default Methods</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/repeated-tests.html">Repeated Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/parameterized-classes-and-tests.html">Parameterized Classes and Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/class-templates.html">Class Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/test-templates.html">Test Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/dynamic-tests.html">Dynamic Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/timeouts.html">Timeouts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/parallel-execution.html">Parallel Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/built-in-extensions.html">Built-in Extensions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../migrating-from-junit4.html">Migrating from JUnit 4</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../running-tests/intro.html">Running Tests</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/ide-support.html">IDE Support</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/build-support.html">Build Support</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/console-launcher.html">Console Launcher</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/source-launcher.html">Source Launcher</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/discovery-selectors.html">Discovery Selectors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/configuration-parameters.html">Configuration Parameters</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/tags.html">Tags</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/capturing-standard-output-error.html">Capturing Standard Output/Error</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/using-listeners-and-interceptors.html">Using Listeners and Interceptors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/stack-trace-pruning.html">Stack Trace Pruning</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/discovery-issues.html">Discovery Issues</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="overview.html">Extension Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="registering-extensions.html">Registering Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="conditional-test-execution.html">Conditional Test Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-instance-pre-construct-callback.html">Test Instance Pre-construct Callback</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-instance-factories.html">Test Instance Factories</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-instance-post-processing.html">Test Instance Post-processing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-instance-pre-destroy-callback.html">Test Instance Pre-destroy Callback</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="parameter-resolution.html">Parameter Resolution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-result-processing.html">Test Result Processing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-lifecycle-callbacks.html">Test Lifecycle Callbacks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="exception-handling.html">Exception Handling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="pre-interrupt-callback.html">Pre-Interrupt Callback</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="intercepting-invocations.html">Intercepting Invocations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="providing-invocation-contexts-for-class-templates.html">Providing Invocation Contexts for Class Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="providing-invocation-contexts-for-test-templates.html">Providing Invocation Contexts for Test Templates</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="keeping-state-in-extensions.html">Keeping State in Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="supported-utilities-in-extensions.html">Supported Utilities in Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="relative-execution-order-of-user-code-and-extensions.html">Relative Execution Order of User Code and Extensions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced Topics</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/junit-platform-reporting.html">JUnit Platform Reporting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/junit-platform-suite-engine.html">JUnit Platform Suite Engine</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/testkit.html">JUnit Platform Test Kit</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/launcher-api.html">JUnit Platform Launcher API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/engines.html">Test Engines</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../api-evolution.html">API Evolution</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../release-notes.html">Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../api/index.html">Javadoc</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">JUnit</span>
+    <span class="version">6.2.0-SNAPSHOT</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../../6.0.3/index.html">JUnit</a></div>
+      <ul class="versions">
+        <li class="version is-current">
+          <a href="../index.html">6.2.0-SNAPSHOT</a>
+        </li>
+        <li class="version">
+          <a href="../../6.1.0-RC1/index.html">6.1.0-RC1</a>
+        </li>
+        <li class="version">
+          <a href="../../6.1.0-M1/index.html">6.1.0-M1</a>
+        </li>
+        <li class="version is-latest">
+          <a href="../../6.0.3/index.html">6.0.3</a>
+        </li>
+        <li class="version">
+          <a href="../../6.0.2/index.html">6.0.2</a>
+        </li>
+        <li class="version">
+          <a href="../../6.0.1/index.html">6.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../6.0.0/index.html">6.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.4/index.html">5.14.4</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.3/index.html">5.14.3</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.2/index.html">5.14.2</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.1/index.html">5.14.1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../6.0.3/overview.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">JUnit</a></li>
+    <li><a href="overview.html">Extension Model</a></li>
+    <li><a href="keeping-state-in-extensions.html">Keeping State in Extensions</a></li>
+  </ul>
+</nav>
+        <div class="html-link">
+            <a href="../_exports/junit-user-guide-6.2.0.html#extensions-keeping-state-in-extensions">Single page</a>
+        </div>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">6.2.0-SNAPSHOT</button>
+  <div class="version-menu">
+    <a class="version is-current" href="keeping-state-in-extensions.html">6.2.0-SNAPSHOT</a>
+    <a class="version" href="../../6.1.0-RC1/extensions/keeping-state-in-extensions.html">6.1.0-RC1</a>
+    <a class="version" href="../../6.1.0-M1/extensions/keeping-state-in-extensions.html">6.1.0-M1</a>
+    <a class="version" href="../../6.0.3/extensions/keeping-state-in-extensions.html">6.0.3</a>
+    <a class="version" href="../../6.0.2/extensions/keeping-state-in-extensions.html">6.0.2</a>
+    <a class="version" href="../../6.0.1/extensions/keeping-state-in-extensions.html">6.0.1</a>
+    <a class="version" href="../../6.0.0/extensions/keeping-state-in-extensions.html">6.0.0</a>
+    <a class="version" href="../../5.14.4/extensions/keeping-state-in-extensions.html">5.14.4</a>
+    <a class="version" href="../../5.14.3/extensions/keeping-state-in-extensions.html">5.14.3</a>
+    <a class="version" href="../../5.14.2/extensions/keeping-state-in-extensions.html">5.14.2</a>
+    <a class="version" href="../../5.14.1/extensions/keeping-state-in-extensions.html">5.14.1</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/junit-team/junit-framework/edit/main/documentation/modules/ROOT/pages/extensions/keeping-state-in-extensions.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Keeping State in Extensions</h1>
+<div class="version-banner">
+<strong>
+        This version is still in development and not considered stable yet.
+</strong><br/>
+For the latest stable release, please see <a href="../../6.0.3/extensions/keeping-state-in-extensions.html">JUnit 6.0.3</a>!
+</div>
+<div class="paragraph">
+<p>Usually, an extension is instantiated only once. So the question becomes relevant: How do
+you keep the state from one invocation of an extension to the next? The
+<code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.html" class="xref attachment">ExtensionContext</a></code> API provides a <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Store.html" class="xref attachment">Store</a></code> exactly for this purpose.
+Extensions may put values into a store for later retrieval.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+See the <code><a href="test-lifecycle-callbacks.html#timing-extension" class="xref page">TimingExtension</a></code> for an
+example of using the <code>Store</code> with a method-level scope.
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="../_images/extensions_StoreHierarchy.svg" alt="UML diagram">
+</div>
+<div class="title">The <code>ExtensionContext</code> and <code>Store</code> hierarchy</div>
+</div>
+<div class="paragraph">
+<p>As illustrated by the diagram above, stores are hierarchical in nature. When looking up a
+value, if no value is stored in the current <code>ExtensionContext</code> for the supplied key, the
+stores of the context&#8217;s ancestors will be queried for a value with the same key in the
+<code>Namespace</code> used to create this store. The root <code>ExtensionContext</code> represents the engine
+level so its <code>Store</code> may be used to store or cache values that are used by multiple test
+classes or extension. The <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.StoreScope.html" class="xref attachment">StoreScope</a></code> enum allows to go beyond even
+that and access the stores on the level of the current <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/LauncherExecutionRequest.html" class="xref attachment">LauncherExecutionRequest</a></code> or
+<code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/LauncherSession.html" class="xref attachment">LauncherSession</a></code> which can be used to share data across test engines or inject data
+from a registered
+<a href="../advanced-topics/launcher-api.html#launcher-session-listeners-custom" class="xref page"><code>LauncherSessionListener</code></a>,
+respectively. Please consult the Javadoc of <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.html" class="xref attachment">ExtensionContext</a></code>,
+<code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Store.html" class="xref attachment">Store</a></code>, and <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.StoreScope.html" class="xref attachment">StoreScope</a></code> for details.</p>
+</div>
+<div id="support" class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title">Resource management via <code><em>AutoCloseable</em></code></div>
+<div class="paragraph">
+<p>An extension context store is bound to its extension context lifecycle. When an extension
+context lifecycle ends it closes its associated store.</p>
+</div>
+<div class="paragraph">
+<p>All stored values that are instances of <code>AutoCloseable</code> are notified by an invocation of
+their <code>close()</code> method in the inverse order they were added in (unless the
+<code>junit.jupiter.extensions.store.close.autocloseable.enabled</code>
+<a href="../running-tests/configuration-parameters.html" class="xref page">configuration parameter</a> is set to <code>false</code>).</p>
+</div>
+<div class="paragraph">
+<p>Versions prior to 5.13 only supported <code>CloseableResource</code>, which is deprecated but still
+available for backward compatibility.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>An example implementation of <code>AutoCloseable</code> is shown below, using an <code>HttpServer</code>
+resource.</p>
+</div>
+<div id="tabs-1" class="openblock tabs is-sync is-loading">
+<div class="title"><code><em>HttpServer</em></code> resource implementing <code><em>AutoCloseable</em></code></div>
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-1-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-1-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-1-java--panel" class="tabpanel" aria-labelledby="tabs-1-java">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">class HttpServerResource implements AutoCloseable {
+
+	private final HttpServer httpServer;
+
+	HttpServerResource(int port) throws IOException {
+		InetAddress loopbackAddress = InetAddress.getLoopbackAddress();
+		this.httpServer = HttpServer.create(new InetSocketAddress(loopbackAddress, port), 0);
+	}
+
+	HttpServer getHttpServer() {
+		return httpServer;
+	}
+
+	void start() {
+		// Example handler
+		httpServer.createContext("/example", exchange -&gt; {
+			String body = "This is a test";
+			exchange.sendResponseHeaders(200, body.length());
+			try (OutputStream os = exchange.getResponseBody()) {
+				os.write(body.getBytes(UTF_8));
+			}
+		});
+		httpServer.setExecutor(null);
+		httpServer.start();
+	}
+
+	@Override
+	public void close() {
+		httpServer.stop(0);
+	}
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-1-kotlin--panel" class="tabpanel" aria-labelledby="tabs-1-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class HttpServerResource(
+    port: Int
+) : AutoCloseable {
+    val httpServer: HttpServer
+
+    init {
+        val loopbackAddress = InetAddress.getLoopbackAddress()
+        httpServer = HttpServer.create(InetSocketAddress(loopbackAddress, port), 0)
+    }
+
+    fun start() {
+        // Example handler
+        httpServer.createContext("/example") { exchange -&gt;
+            val body = "This is a test"
+            exchange.sendResponseHeaders(200, body.length.toLong())
+            exchange.responseBody.use { os -&gt;
+                os.write(body.toByteArray(Charsets.UTF_8))
+            }
+        }
+        httpServer.executor = null
+        httpServer.start()
+    }
+
+    override fun close() {
+        httpServer.stop(0)
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>This resource can then be stored in the desired <code>ExtensionContext</code>. It may be stored at
+class or method level, if desired, but this may add unnecessary overhead for this type of
+resource. For this example it might be prudent to store it at root level and instantiate
+it lazily to ensure it&#8217;s only created once per test run and reused across different test
+classes and methods.</p>
+</div>
+<div id="tabs-2" class="openblock tabs is-sync is-loading">
+<div class="title">Lazily storing in root context with <code><em>Store.computeIfAbsent</em></code></div>
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-2-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-2-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-2-java--panel" class="tabpanel" aria-labelledby="tabs-2-java">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class HttpServerExtension implements ParameterResolver {
+
+	@Override
+	public boolean supportsParameter(ParameterContext parameterContext, ExtensionContext extensionContext) {
+		return HttpServer.class.equals(parameterContext.getParameter().getType());
+	}
+
+	@Override
+	public Object resolveParameter(ParameterContext parameterContext, ExtensionContext extensionContext) {
+
+		ExtensionContext rootContext = extensionContext.getRoot();
+		ExtensionContext.Store store = rootContext.getStore(Namespace.GLOBAL);
+		Class&lt;HttpServerResource&gt; key = HttpServerResource.class;
+		HttpServerResource resource = store.computeIfAbsent(key, __ -&gt; {
+			try {
+				HttpServerResource serverResource = new HttpServerResource(0);
+				serverResource.start();
+				return serverResource;
+			}
+			catch (IOException e) {
+				throw new UncheckedIOException("Failed to create HttpServerResource", e);
+			}
+		}, HttpServerResource.class);
+		return resource.getHttpServer();
+	}
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-2-kotlin--panel" class="tabpanel" aria-labelledby="tabs-2-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class HttpServerExtension : ParameterResolver {
+    override fun supportsParameter(
+        parameterContext: ParameterContext,
+        extensionContext: ExtensionContext
+    ): Boolean = HttpServer::class.java == parameterContext.parameter.type
+
+    override fun resolveParameter(
+        parameterContext: ParameterContext,
+        extensionContext: ExtensionContext
+    ): Any {
+        val rootContext = extensionContext.root
+        val store = rootContext.getStore(Namespace.GLOBAL)
+        val key = HttpServerResource::class.java
+        val resource =
+            store.computeIfAbsent(key, {
+                try {
+                    HttpServerResource(0).apply { start() }
+                } catch (e: IOException) {
+                    throw UncheckedIOException("Failed to create HttpServerResource", e)
+                }
+            }, HttpServerResource::class.java)
+        return resource.httpServer
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabs-3" class="openblock tabs is-sync is-loading">
+<div class="title">A test case using the <code><em>HttpServerExtension</em></code></div>
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-3-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-3-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-3-java--panel" class="tabpanel" aria-labelledby="tabs-3-java">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@ExtendWith(HttpServerExtension.class)
+public class HttpServerDemo {
+
+	@Test
+	void httpCall(HttpServer server) throws Exception {
+		String hostName = server.getAddress().getHostName();
+		int port = server.getAddress().getPort();
+		String rawUrl = "http://%s:%d/example".formatted(hostName, port);
+		URL requestUrl = URI.create(rawUrl).toURL();
+
+		String responseBody = sendRequest(requestUrl);
+
+		assertEquals("This is a test", responseBody);
+	}
+
+	private static String sendRequest(URL url) throws IOException {
+		HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+		int contentLength = connection.getContentLength();
+		try (InputStream response = url.openStream()) {
+			byte[] content = new byte[contentLength];
+			assertEquals(contentLength, response.read(content));
+			return new String(content, UTF_8);
+		}
+	}
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-3-kotlin--panel" class="tabpanel" aria-labelledby="tabs-3-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@ExtendWith(HttpServerExtension::class)
+class HttpServerDemo {
+    @Test
+    fun httpCall(server: HttpServer) {
+        val address = server.address
+        val requestUrl = URI("http://${address.hostName}:${address.port}/example").toURL()
+
+        val responseBody = sendRequest(requestUrl)
+
+        assertEquals("This is a test", responseBody)
+    }
+
+    private fun sendRequest(url: URL): String {
+        val connection = url.openConnection() as HttpURLConnection
+        val contentLength = connection.contentLength
+        url.openStream().use { response -&gt;
+            val content = ByteArray(contentLength)
+            assertEquals(contentLength, response.read(content))
+            return String(content, Charsets.UTF_8)
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="migration" class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="title">Migration Note for Resource Cleanup</div>
+<div class="paragraph">
+<p>The framework automatically closes resources stored in the <code>ExtensionContext.Store</code> that
+implement <code>AutoCloseable</code>. In versions prior to 5.13, only resources implementing
+<code>Store.CloseableResource</code> were automatically closed.</p>
+</div>
+<div class="paragraph">
+<p>If you&#8217;re developing an extension that needs to support both JUnit Jupiter 5.13+ and
+earlier versions and your extension stores resources that need to be cleaned up, you
+should implement both interfaces:</p>
+</div>
+<div id="tabs-4" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-4-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-4-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-4-java--panel" class="tabpanel" aria-labelledby="tabs-4-java">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class MyResource implements Store.CloseableResource, AutoCloseable {
+    @Override
+    public void close() throws Exception {
+        // Resource cleanup code
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-4-kotlin--panel" class="tabpanel" aria-labelledby="tabs-4-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class MyResource : Store.CloseableResource, AutoCloseable {
+    override fun close() {
+        // Resource cleanup code
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>This ensures that your resource will be properly closed regardless of which JUnit Jupiter
+version is being used.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="providing-invocation-contexts-for-test-templates.html">Providing Invocation Contexts for Test Templates</a></span>
+  <span class="next"><a href="supported-utilities-in-extensions.html">Supported Utilities in Extensions</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+    <p>
+        &copy; Copyright 2015-2026 the original author or authors.
+        All rights reserved.
+        The content of this page is made available under the terms of the <a href="https://www.eclipse.org/legal/epl-v20.html">Eclipse Public License v2.0</a>.
+    </p>
+    <p>
+        This page was built using an adapted version of the Antora default UI.
+        The source code for this UI is licensed under the terms of the <a href="https://www.mozilla.org/en-US/MPL/2.0/">Mozilla Public License v2.0</a>.
+    </p>
+    <p>
+        Built and hosted on <a href="https://statichost.eu">statichost.eu</a>.
+    </p>
+</footer>
+<script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script async src="../../_/js/vendor/tabs.js" data-sync-storage-key="preferred-code-language"></script>
+<script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="100" data-stylesheet="../../_/css/search.css"></script>
+<script async src="../../search-index.js"></script>
+  </body>
+</html>
