@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Parallel Execution :: JUnit User Guide</title>
+    <link rel="canonical" href="https://docs.junit.org/6.1.0/writing-tests/parallel-execution.html">
+    <link rel="prev" href="timeouts.html">
+    <link rel="next" href="built-in-extensions.html">
+    <meta name="generator" content="Antora 3.2.0-alpha.12">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<link rel="icon" type="image/png" href="../../_/img/junit-diamond.png">
+<link rel="icon" type="image/svg+xml" href="../../_/img/junit-diamond-adaptive.svg" sizes="any">
+
+<link rel="stylesheet" href="../../_/css/vendor/highlightjs/github.min.css">
+<link rel="stylesheet" href="../../_/css/vendor/tabs.css">
+
+<link rel="preload" as="style" href="https://assets.junit.org/fonts/index.css">
+<link rel="preload" as="font" href="https://assets.junit.org/fonts/blinker-latin-600-normal.woff2" type="font/woff2" crossorigin/>
+<link rel="preload" as="font" href="https://assets.junit.org/fonts/inter-latin-wght-normal.woff2" type="font/woff2" crossorigin/>
+<link rel="preload" as="font" href="https://assets.junit.org/fonts/inter-latin-wght-italic.woff2" type="font/woff2" crossorigin/>
+<link rel="preload" as="font" href="https://assets.junit.org/fonts/jetbrains-mono-latin-wght-normal.woff2" type="font/woff2" crossorigin/>
+
+<link rel="preload" as="style" href="../../_/css/site-extra.css">
+
+<link rel="stylesheet" href="https://assets.junit.org/fonts/index.css">
+<link rel="stylesheet" href="../../_/css/site-extra.css">
+
+<meta name="theme-color" content="#25a162">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item title" href="https://docs.junit.org">
+          <img class="logo" src="../../_/img/junit-diamond-white.png" alt="✔️"/>
+          JUnit User Guide<span class="version">6.1.0</span>
+      </a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search current version">
+          <label style="display: none">
+            <!-- restrict search to current version -->
+            <input type="checkbox" data-facet-filter="version:6.1.0" checked>
+          </label>
+        </div>
+      </div>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+          <a class="navbar-item" href="https://junit.org/">Home</a>
+          <a class="navbar-item" href="https://github.com/junit-team/junit-framework/">Repo</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="junit" data-version="6.1.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">JUnit</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="intro.html">Writing Tests</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="annotations.html">Annotations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="definitions.html">Definitions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-classes-and-methods.html">Test Classes and Methods</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="display-names.html">Display Names</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="assertions.html">Assertions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="assumptions.html">Assumptions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="exception-handling.html">Exception Handling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="disabling-tests.html">Disabling Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="conditional-test-execution.html">Conditional Test Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="tagging-and-filtering.html">Tagging and Filtering</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-execution-order.html">Test Execution Order</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-instance-lifecycle.html">Test Instance Lifecycle</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="nested-tests.html">Nested Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dependency-injection-for-constructors-and-methods.html">Dependency Injection for Constructors and Methods</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-interfaces-and-default-methods.html">Test Interfaces and Default Methods</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="repeated-tests.html">Repeated Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="parameterized-classes-and-tests.html">Parameterized Classes and Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="class-templates.html">Class Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-templates.html">Test Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dynamic-tests.html">Dynamic Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="timeouts.html">Timeouts</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="parallel-execution.html">Parallel Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="built-in-extensions.html">Built-in Extensions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../migrating-from-junit4.html">Migrating from JUnit 4</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../running-tests/intro.html">Running Tests</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/ide-support.html">IDE Support</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/build-support.html">Build Support</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/console-launcher.html">Console Launcher</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/source-launcher.html">Source Launcher</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/discovery-selectors.html">Discovery Selectors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/configuration-parameters.html">Configuration Parameters</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/tags.html">Tags</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/capturing-standard-output-error.html">Capturing Standard Output/Error</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/using-listeners-and-interceptors.html">Using Listeners and Interceptors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/stack-trace-pruning.html">Stack Trace Pruning</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/discovery-issues.html">Discovery Issues</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../extensions/overview.html">Extension Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/registering-extensions.html">Registering Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/conditional-test-execution.html">Conditional Test Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-instance-pre-construct-callback.html">Test Instance Pre-construct Callback</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-instance-factories.html">Test Instance Factories</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-instance-post-processing.html">Test Instance Post-processing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-instance-pre-destroy-callback.html">Test Instance Pre-destroy Callback</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/parameter-resolution.html">Parameter Resolution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-result-processing.html">Test Result Processing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-lifecycle-callbacks.html">Test Lifecycle Callbacks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/exception-handling.html">Exception Handling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/pre-interrupt-callback.html">Pre-Interrupt Callback</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/intercepting-invocations.html">Intercepting Invocations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/providing-invocation-contexts-for-class-templates.html">Providing Invocation Contexts for Class Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/providing-invocation-contexts-for-test-templates.html">Providing Invocation Contexts for Test Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/keeping-state-in-extensions.html">Keeping State in Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/supported-utilities-in-extensions.html">Supported Utilities in Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/relative-execution-order-of-user-code-and-extensions.html">Relative Execution Order of User Code and Extensions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced Topics</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/junit-platform-reporting.html">JUnit Platform Reporting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/junit-platform-suite-engine.html">JUnit Platform Suite Engine</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/testkit.html">JUnit Platform Test Kit</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/launcher-api.html">JUnit Platform Launcher API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/engines.html">Test Engines</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../api-evolution.html">API Evolution</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../release-notes.html">Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../api/index.html">Javadoc</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">JUnit</span>
+    <span class="version">6.1.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../index.html">JUnit</a></div>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../6.2.0/index.html">6.2.0-SNAPSHOT</a>
+        </li>
+        <li class="version is-current is-latest">
+          <a href="../index.html">6.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../6.1.0-RC1/index.html">6.1.0-RC1</a>
+        </li>
+        <li class="version">
+          <a href="../../6.1.0-M1/index.html">6.1.0-M1</a>
+        </li>
+        <li class="version">
+          <a href="../../6.0.3/index.html">6.0.3</a>
+        </li>
+        <li class="version">
+          <a href="../../6.0.2/index.html">6.0.2</a>
+        </li>
+        <li class="version">
+          <a href="../../6.0.1/index.html">6.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../6.0.0/index.html">6.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.4/index.html">5.14.4</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.3/index.html">5.14.3</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.2/index.html">5.14.2</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.1/index.html">5.14.1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../overview.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">JUnit</a></li>
+    <li><a href="intro.html">Writing Tests</a></li>
+    <li><a href="parallel-execution.html">Parallel Execution</a></li>
+  </ul>
+</nav>
+        <div class="pdf-link">
+            <a href="../_exports/junit-user-guide-6.1.0.pdf#writing-tests-parallel-execution">PDF</a>
+        </div>
+        <div class="html-link">
+            <a href="../_exports/junit-user-guide-6.1.0.html#writing-tests-parallel-execution">Single page</a>
+        </div>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">6.1.0</button>
+  <div class="version-menu">
+    <a class="version" href="../../6.2.0/writing-tests/parallel-execution.html">6.2.0-SNAPSHOT</a>
+    <a class="version is-current" href="parallel-execution.html">6.1.0</a>
+    <a class="version" href="../../6.1.0-RC1/writing-tests/parallel-execution.html">6.1.0-RC1</a>
+    <a class="version" href="../../6.1.0-M1/writing-tests/parallel-execution.html">6.1.0-M1</a>
+    <a class="version" href="../../6.0.3/writing-tests/parallel-execution.html">6.0.3</a>
+    <a class="version" href="../../6.0.2/writing-tests/parallel-execution.html">6.0.2</a>
+    <a class="version" href="../../6.0.1/writing-tests/parallel-execution.html">6.0.1</a>
+    <a class="version" href="../../6.0.0/writing-tests/parallel-execution.html">6.0.0</a>
+    <a class="version" href="../../5.14.4/writing-tests/parallel-execution.html">5.14.4</a>
+    <a class="version" href="../../5.14.3/writing-tests/parallel-execution.html">5.14.3</a>
+    <a class="version" href="../../5.14.2/writing-tests/parallel-execution.html">5.14.2</a>
+    <a class="version" href="../../5.14.1/writing-tests/parallel-execution.html">5.14.1</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/junit-team/junit-framework/blob/r6.1.0/documentation/modules/ROOT/pages/writing-tests/parallel-execution.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Parallel Execution</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>By default, JUnit Jupiter tests are run sequentially in a single thread; however, running
+tests in parallel&#8201;&#8212;&#8201;for example, to speed up execution&#8201;&#8212;&#8201;is available as an opt-in
+feature. To enable parallel execution, set the <code>junit.jupiter.execution.parallel.enabled</code>
+configuration parameter to <code>true</code>&#8201;&#8212;&#8201;for example, in <code>junit-platform.properties</code> (see
+<a href="../running-tests/configuration-parameters.html" class="xref page">Configuration Parameters</a> for other options).</p>
+</div>
+<div class="paragraph">
+<p>Please note that enabling this property is only the first step required to execute tests
+in parallel. If enabled, test classes and methods will still be executed sequentially by
+default. Whether or not a node in the test tree is executed concurrently is controlled by
+its execution mode. The following two modes are available.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>SAME_THREAD</code></dt>
+<dd>
+<p>Force execution in the same thread used by the parent. For example, when used on a test
+method, the test method will be executed in the same thread as any <code>@BeforeAll</code> or
+<code>@AfterAll</code> methods of the containing test class.</p>
+</dd>
+<dt class="hdlist1"><code>CONCURRENT</code></dt>
+<dd>
+<p>Execute concurrently unless a resource lock forces execution in the same thread.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>By default, nodes in the test tree use the <code>SAME_THREAD</code> execution mode. You can change
+the default by setting the <code>junit.jupiter.execution.parallel.mode.default</code> configuration
+parameter. Alternatively, you can use the <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/parallel/Execution.html" class="xref attachment">@Execution</a></code> annotation to change the
+execution mode for the annotated element and its subelements (if any) which allows you to
+activate parallel execution for individual test classes, one by one.</p>
+</div>
+<div class="listingblock">
+<div class="title">Configuration parameters to execute all tests in parallel</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">junit.jupiter.execution.parallel.enabled = true
+junit.jupiter.execution.parallel.mode.default = concurrent</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The default execution mode is applied to all nodes of the test tree with a few notable
+exceptions, namely test classes that use the <code>Lifecycle.PER_CLASS</code> mode or a
+<code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/MethodOrderer.html" class="xref attachment">MethodOrderer</a></code>. In the former case, test authors have to ensure that the test class is
+thread-safe; in the latter, concurrent execution might conflict with the configured
+execution order. Thus, in both cases, test methods in such test classes are only executed
+concurrently if the <code>@Execution(CONCURRENT)</code> annotation is present on the test class or
+method.</p>
+</div>
+<div class="paragraph">
+<p>You can use the <code>@Execution</code> annotation to explicitly configure the execution mode for a
+test class or method:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Execution(ExecutionMode.CONCURRENT)
+class ExplicitExecutionModeDemo {
+
+	@Test
+	void testA() {
+		// concurrent
+	}
+
+	@Test
+	@Execution(ExecutionMode.SAME_THREAD)
+	void testB() {
+		// overrides to same_thread
+	}
+
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This allows test classes or methods to opt in or out of concurrent execution regardless of
+the globally configured default.</p>
+</div>
+<div class="paragraph">
+<p>When parallel execution is enabled and a default <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/ClassOrderer.html" class="xref attachment">ClassOrderer</a></code> is registered (see
+<a href="test-execution-order.html#classes" class="xref page">Class Order</a> for details), top-level test classes will
+initially be sorted accordingly and scheduled in that order. However, they are not
+guaranteed to be started in exactly that order since the threads they are executed on are
+not controlled directly by JUnit.</p>
+</div>
+<div class="paragraph">
+<p>All nodes of the test tree that are configured with the <code>CONCURRENT</code> execution mode will
+be executed fully in parallel according to the provided
+<a href="#config">configuration</a> while observing the
+declarative <a href="#synchronization">synchronization</a>
+mechanism. Please note that <a href="../running-tests/capturing-standard-output-error.html" class="xref page">Capturing Standard Output/Error</a> needs to be enabled
+separately.</p>
+</div>
+<div class="paragraph">
+<p>In addition, you can configure the default execution mode for top-level classes by setting
+the <code>junit.jupiter.execution.parallel.mode.classes.default</code> configuration parameter. By
+combining both configuration parameters, you can configure classes to run in parallel but
+their methods in the same thread:</p>
+</div>
+<div class="listingblock">
+<div class="title">Configuration parameters to execute top-level classes in parallel but methods in same thread</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">junit.jupiter.execution.parallel.enabled = true
+junit.jupiter.execution.parallel.mode.default = same_thread
+junit.jupiter.execution.parallel.mode.classes.default = concurrent</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The opposite combination will run all methods within one class in parallel, but top-level
+classes will run sequentially:</p>
+</div>
+<div class="listingblock">
+<div class="title">Configuration parameters to execute top-level classes sequentially but their methods in parallel</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">junit.jupiter.execution.parallel.enabled = true
+junit.jupiter.execution.parallel.mode.default = concurrent
+junit.jupiter.execution.parallel.mode.classes.default = same_thread</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following diagram illustrates how the execution of two top-level test classes <code>A</code> and
+<code>B</code> with two test methods per class behaves for all four combinations of
+<code>junit.jupiter.execution.parallel.mode.default</code> and
+<code>junit.jupiter.execution.parallel.mode.classes.default</code> (see labels in first column).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/writing-tests_execution_mode.svg" alt="writing tests execution mode">
+</div>
+<div class="title">Default execution mode configuration combinations</div>
+</div>
+<div class="paragraph">
+<p>If the <code>junit.jupiter.execution.parallel.mode.classes.default</code> configuration parameter is
+not explicitly set, the value for <code>junit.jupiter.execution.parallel.mode.default</code> will be
+used instead.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="config"><a class="anchor" href="#config"></a>Configuration</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="config-executor-service"><a class="anchor" href="#config-executor-service"></a>Executor Service</h3>
+<div class="paragraph">
+<p>If parallel execution is enabled, a thread pool is used behind the scenes to execute tests
+concurrently. You can configure which implementation of <code>HierarchicalTestExecutorService</code>
+is used be setting the <code>junit.jupiter.execution.parallel.config.executor-service</code>
+configuration parameter to one of the following options:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>fork_join_pool</code> (default)</dt>
+<dd>
+<p>Use an executor service that is backed by a <code>ForkJoinPool</code> from the JDK. This will cause
+tests to be executed in a <code>ForkJoinWorkerThread</code>. In some cases, usages of
+<code>ForkJoinPool</code> in test or production code or calls to blocking JDK APIs may cause the
+number of concurrently executing tests to increase. To avoid this situation, please use
+<code>worker_thread_pool</code>.</p>
+</dd>
+<dt class="hdlist1"><code>worker_thread_pool</code> (experimental)</dt>
+<dd>
+<p>Use an executor service that is backed by a regular thread pool and does not create
+additional threads if test or production code uses <code>ForkJoinPool</code> or calls a blocking
+API in the JDK.</p>
+</dd>
+</dl>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Using <code>worker_thread_pool</code> is currently an <em>experimental</em> feature. You&#8217;re invited
+to give it a try and provide feedback to the JUnit team so they can improve and eventually
+<a href="../api-evolution.html" class="xref page">promote</a> this feature.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="config-strategies"><a class="anchor" href="#config-strategies"></a>Strategies</h3>
+<div class="paragraph">
+<p>Properties such as the desired parallelism and the maximum pool size can be configured
+using a <code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/ParallelExecutionConfigurationStrategy.html" class="xref attachment">ParallelExecutionConfigurationStrategy</a></code>. The JUnit Platform provides two
+implementations out of the box: <code>dynamic</code> and <code>fixed</code>. Alternatively, you may implement a
+<code>custom</code> strategy.</p>
+</div>
+<div class="paragraph">
+<p>To select a strategy, set the <code>junit.jupiter.execution.parallel.config.strategy</code>
+configuration parameter to one of the following options.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>dynamic</code></dt>
+<dd>
+<p>Computes the desired parallelism based on the number of available processors/cores
+multiplied by the <code>junit.jupiter.execution.parallel.config.dynamic.factor</code>
+configuration parameter (defaults to <code>1</code>).
+The optional <code>junit.jupiter.execution.parallel.config.dynamic.max-pool-size-factor</code>
+configuration parameter can be used to limit the maximum number of threads.</p>
+</dd>
+<dt class="hdlist1"><code>fixed</code></dt>
+<dd>
+<p>Uses the mandatory <code>junit.jupiter.execution.parallel.config.fixed.parallelism</code>
+configuration parameter as the desired parallelism.
+The optional <code>junit.jupiter.execution.parallel.config.fixed.max-pool-size</code>
+configuration parameter can be used to limit the maximum number of threads.</p>
+</dd>
+<dt class="hdlist1"><code>custom</code></dt>
+<dd>
+<p>Allows you to specify a custom <code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/ParallelExecutionConfigurationStrategy.html" class="xref attachment">ParallelExecutionConfigurationStrategy</a></code>
+implementation via the mandatory <code>junit.jupiter.execution.parallel.config.custom.class</code>
+configuration parameter to determine the desired configuration.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>If no configuration strategy is set, JUnit Jupiter uses the <code>dynamic</code> configuration
+strategy with a factor of <code>1</code>. Consequently, the desired parallelism will be equal to the
+number of available processors/cores.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title">Parallelism alone does not imply maximum number of concurrent threads</div>
+By default, JUnit Jupiter does not guarantee that the number of threads used to
+execute test will not exceed the configured parallelism. For example, when using one
+of the synchronization mechanisms described in the next section, the executor service
+implementation may spawn additional threads to ensure execution continues with sufficient
+parallelism. If you require such guarantees, it is possible to limit the maximum number of
+threads by configuring the maximum pool size of the <code>dynamic</code>, <code>fixed</code> and <code>custom</code>
+strategies.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="config-properties"><a class="anchor" href="#config-properties"></a>Relevant properties</h3>
+<div class="paragraph">
+<p>The following table lists relevant properties for configuring parallel execution. See
+<a href="../running-tests/configuration-parameters.html" class="xref page">Configuration Parameters</a> for details on how to set such properties.</p>
+</div>
+<div class="sect3">
+<h4 id="general"><a class="anchor" href="#general"></a>General</h4>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>junit.jupiter.execution.parallel.enabled=true|false</code></dt>
+<dd>
+<p>Enable/disable parallel test execution (defaults to <code>false</code>).</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.execution.parallel.mode.default=concurrent|same_thread</code></dt>
+<dd>
+<p>Default execution mode of nodes in the test tree (defaults to <code>same_thread</code>).</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.execution.parallel.mode.classes.default=concurrent|same_thread</code></dt>
+<dd>
+<p>Default execution mode of top-level classes (defaults to <code>same_thread</code>).</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.execution.parallel.config.executor-service=fork_join_pool|worker_thread_pool</code></dt>
+<dd>
+<p>Type of <code>HierarchicalTestExecutorService</code> to use for parallel execution (defaults to
+<code>fork_join_pool</code>).</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.execution.parallel.config.strategy=dynamic|fixed|custom</code></dt>
+<dd>
+<p>Execution strategy for desired parallelism, maximum pool size, etc. (defaults to <code>dynamic</code>).</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect3">
+<h4 id="dynamic-strategy"><a class="anchor" href="#dynamic-strategy"></a>Dynamic strategy</h4>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>junit.jupiter.execution.parallel.config.dynamic.factor=decimal</code></dt>
+<dd>
+<p>Factor to be multiplied by the number of available processors/cores to determine the
+desired parallelism for the <code><code>dynamic</code></code> configuration strategy.
+Must be a positive decimal number (defaults to <code>1.0</code>).</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.execution.parallel.config.dynamic.max-pool-size-factor=decimal</code></dt>
+<dd>
+<p>Factor to be multiplied by the number of available processors/cores and the value of
+<code>junit.jupiter.execution.parallel.config.dynamic.factor</code> to determine the desired
+parallelism for the <code><code>dynamic</code></code> configuration strategy.
+Must be a positive decimal number greater than or equal to <code>1.0</code> (defaults to 256 plus
+the value of <code>junit.jupiter.execution.parallel.config.dynamic.factor</code> multiplied by the
+number of available processors/cores)</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.execution.parallel.config.dynamic.saturate=true|false</code></dt>
+<dd>
+<p>Enable/disable saturation of the underlying <code>ForkJoinPool</code> for the <code><code>dynamic</code></code>
+configuration strategy (defaults to <code>true</code>). Only used if
+<code>junit.jupiter.execution.parallel.config.executor-service</code> is set to <code>fork_join_pool</code>.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect3">
+<h4 id="fixed-strategy"><a class="anchor" href="#fixed-strategy"></a>Fixed strategy</h4>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>junit.jupiter.execution.parallel.config.fixed.parallelism=integer</code></dt>
+<dd>
+<p>Desired parallelism for the <code><code>fixed</code></code> configuration strategy (no default value). Must
+be a positive integer.</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.execution.parallel.config.fixed.max-pool-size=integer</code></dt>
+<dd>
+<p>Desired maximum pool size of the underlying fork-join pool for the <code><code>fixed</code></code>
+configuration strategy. Must be a positive integer greater than or equal to
+<code>junit.jupiter.execution.parallel.config.fixed.parallelism</code> (defaults to 256 plus the
+value of <code>junit.jupiter.execution.parallel.config.fixed.parallelism</code>).</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.execution.parallel.config.fixed.saturate=true|false</code></dt>
+<dd>
+<p>Enable/disable saturation of the underlying <code>ForkJoinPool</code> for the <code><code>fixed</code></code>
+configuration strategy (defaults to <code>true</code>). Only used if
+<code>junit.jupiter.execution.parallel.config.executor-service</code> is set to <code>fork_join_pool</code>.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect3">
+<h4 id="custom-strategy"><a class="anchor" href="#custom-strategy"></a>Custom strategy</h4>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>junit.jupiter.execution.parallel.config.custom.class=classname</code></dt>
+<dd>
+<p>Fully qualified class name of the <code>ParallelExecutionConfigurationStrategy</code> to be used
+for the <code><code>custom</code></code> configuration strategy (no default value).</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="synchronization"><a class="anchor" href="#synchronization"></a>Synchronization</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In addition to controlling the execution mode using the <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/parallel/Execution.html" class="xref attachment">@Execution</a></code> annotation, JUnit
+Jupiter provides another annotation-based declarative synchronization mechanism. The
+<code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLock.html" class="xref attachment">@ResourceLock</a></code> annotation allows you to declare that a test class or method uses a
+specific shared resource that requires synchronized access to ensure reliable test
+execution. The shared resource is identified by a unique name which is a <code>String</code>. The
+name can be user-defined or one of the predefined constants in <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/parallel/Resources.html" class="xref attachment">Resources</a></code>:
+<code>SYSTEM_PROPERTIES</code>, <code>SYSTEM_OUT</code>, <code>SYSTEM_ERR</code>, <code>LOCALE</code>, or <code>TIME_ZONE</code>.</p>
+</div>
+<div class="paragraph">
+<p>In addition to declaring these shared resources statically, the <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLock.html" class="xref attachment">@ResourceLock</a></code>
+annotation has a <code>providers</code> attribute that allows registering implementations of the
+<code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLocksProvider.html" class="xref attachment">ResourceLocksProvider</a></code> interface that can add shared resources dynamically at runtime.
+Note that resources declared statically with <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLock.html" class="xref attachment">@ResourceLock</a></code> annotation are combined with
+resources added dynamically by <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLocksProvider.html" class="xref attachment">ResourceLocksProvider</a></code> implementations.</p>
+</div>
+<div class="paragraph">
+<p>If the tests in the following example were run in parallel <em>without</em> the use of
+<code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLock.html" class="xref attachment">@ResourceLock</a></code>, they would be <em>flaky</em>. Sometimes they would pass, and at other times they
+would fail due to the inherent race condition of writing and then reading the same JVM
+System Property.</p>
+</div>
+<div class="paragraph">
+<p>When access to shared resources is declared using the <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLock.html" class="xref attachment">@ResourceLock</a></code> annotation, the
+JUnit Jupiter engine uses this information to ensure that no conflicting tests are run in
+parallel. This guarantee extends to lifecycle methods of a test class or method. For
+example, if a test method is annotated with a <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLock.html" class="xref attachment">@ResourceLock</a></code> annotation, the "lock" will
+be acquired before any <code>@BeforeEach</code> methods are executed and released after all
+<code>@AfterEach</code> methods have been executed.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title">Running tests in isolation</div>
+<div class="paragraph">
+<p>If most of your test classes can be run in parallel without any synchronization but you
+have some test classes that need to run in isolation, you can mark the latter with the
+<code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/parallel/Isolated.html" class="xref attachment">@Isolated</a></code> annotation. Tests in such classes are executed sequentially without any other
+tests running at the same time.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>In addition to the <code>String</code> that uniquely identifies the shared resource, you may specify
+an access mode. Two tests that require <code>READ</code> access to a shared resource may run in
+parallel with each other but not while any other test that requires <code>READ_WRITE</code> access
+to the same shared resource is running.</p>
+</div>
+<div class="listingblock">
+<div class="title">Declaring shared resources "statically" with <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLock.html" class="xref attachment">@ResourceLock</a></code> annotation</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Execution(CONCURRENT)
+class StaticSharedResourcesDemo {
+
+	private Properties backup;
+
+	@BeforeEach
+	void backup() {
+		backup = new Properties();
+		backup.putAll(System.getProperties());
+	}
+
+	@AfterEach
+	void restore() {
+		System.setProperties(backup);
+	}
+
+	@Test
+	@ResourceLock(value = SYSTEM_PROPERTIES, mode = READ)
+	void customPropertyIsNotSetByDefault() {
+		assertNull(System.getProperty("my.prop"));
+	}
+
+	@Test
+	@ResourceLock(value = SYSTEM_PROPERTIES, mode = READ_WRITE)
+	void canSetCustomPropertyToApple() {
+		System.setProperty("my.prop", "apple");
+		assertEquals("apple", System.getProperty("my.prop"));
+	}
+
+	@Test
+	@ResourceLock(value = SYSTEM_PROPERTIES, mode = READ_WRITE)
+	void canSetCustomPropertyToBanana() {
+		System.setProperty("my.prop", "banana");
+		assertEquals("banana", System.getProperty("my.prop"));
+	}
+
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Adding shared resources "dynamically" with <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLocksProvider.html" class="xref attachment">ResourceLocksProvider</a></code> implementation</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Execution(CONCURRENT)
+@ResourceLock(providers = DynamicSharedResourcesDemo.Provider.class)
+class DynamicSharedResourcesDemo {
+
+	private Properties backup;
+
+	@BeforeEach
+	void backup() {
+		backup = new Properties();
+		backup.putAll(System.getProperties());
+	}
+
+	@AfterEach
+	void restore() {
+		System.setProperties(backup);
+	}
+
+	@Test
+	void customPropertyIsNotSetByDefault() {
+		assertNull(System.getProperty("my.prop"));
+	}
+
+	@Test
+	void canSetCustomPropertyToApple() {
+		System.setProperty("my.prop", "apple");
+		assertEquals("apple", System.getProperty("my.prop"));
+	}
+
+	@Test
+	void canSetCustomPropertyToBanana() {
+		System.setProperty("my.prop", "banana");
+		assertEquals("banana", System.getProperty("my.prop"));
+	}
+
+	static class Provider implements ResourceLocksProvider {
+
+		@Override
+		public Set&lt;Lock&gt; provideForMethod(List&lt;Class&lt;?&gt;&gt; enclosingInstanceTypes, Class&lt;?&gt; testClass,
+				Method testMethod) {
+			ResourceAccessMode mode = testMethod.getName().startsWith("canSet") ? READ_WRITE : READ;
+			return Set.of(new Lock(SYSTEM_PROPERTIES, mode));
+		}
+	}
+
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Also, "static" shared resources can be declared for <em>direct</em> child nodes via the <code>target</code>
+attribute in the <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLock.html" class="xref attachment">@ResourceLock</a></code> annotation, the attribute accepts a value from
+the <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLockTarget.html" class="xref attachment">ResourceLockTarget</a></code> enum.</p>
+</div>
+<div class="paragraph">
+<p>Specifying <code>target = CHILDREN</code> in a class-level <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLock.html" class="xref attachment">@ResourceLock</a></code> annotation
+has the same semantics as adding an annotation with the same <code>value</code> and <code>mode</code>
+to each test method and nested test class declared in this class.</p>
+</div>
+<div class="paragraph">
+<p>This may improve parallelization when a test class declares a <code>READ</code> lock,
+but only a few methods hold a <code>READ_WRITE</code> lock.</p>
+</div>
+<div class="paragraph">
+<p>Tests in the following example would run in the <code>SAME_THREAD</code> if the <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLock.html" class="xref attachment">@ResourceLock</a></code>
+didn&#8217;t have <code>target = CHILDREN</code>. This is because the test class declares a <code>READ</code>
+shared resource, but one test method holds a <code>READ_WRITE</code> lock,
+which would force the <code>SAME_THREAD</code> execution mode for all the test methods.</p>
+</div>
+<div class="listingblock">
+<div class="title">Declaring shared resources for child nodes with <code>target</code> attribute</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Execution(CONCURRENT)
+@ResourceLock(value = "a", mode = READ, target = CHILDREN)
+public class ChildrenSharedResourcesDemo {
+
+	@ResourceLock(value = "a", mode = READ_WRITE)
+	@Test
+	void test1() throws InterruptedException {
+		Thread.sleep(2000L);
+	}
+
+	@Test
+	void test2() throws InterruptedException {
+		Thread.sleep(2000L);
+	}
+
+	@Test
+	void test3() throws InterruptedException {
+		Thread.sleep(2000L);
+	}
+
+	@Test
+	void test4() throws InterruptedException {
+		Thread.sleep(2000L);
+	}
+
+	@Test
+	void test5() throws InterruptedException {
+		Thread.sleep(2000L);
+	}
+
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="timeouts.html">Timeouts</a></span>
+  <span class="next"><a href="built-in-extensions.html">Built-in Extensions</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+    <p>
+        &copy; Copyright 2015-2026 the original author or authors.
+        All rights reserved.
+        The content of this page is made available under the terms of the <a href="https://www.eclipse.org/legal/epl-v20.html">Eclipse Public License v2.0</a>.
+    </p>
+    <p>
+        This page was built using an adapted version of the Antora default UI.
+        The source code for this UI is licensed under the terms of the <a href="https://www.mozilla.org/en-US/MPL/2.0/">Mozilla Public License v2.0</a>.
+    </p>
+    <p>
+        Built and hosted on <a href="https://statichost.eu">statichost.eu</a>.
+    </p>
+</footer>
+<script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script async src="../../_/js/vendor/tabs.js" data-sync-storage-key="preferred-code-language"></script>
+<script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="100" data-stylesheet="../../_/css/search.css"></script>
+<script async src="../../search-index.js"></script>
+  </body>
+</html>

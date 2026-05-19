@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Nested Tests :: JUnit User Guide</title>
+    <link rel="canonical" href="https://docs.junit.org/6.1.0/writing-tests/nested-tests.html">
+    <link rel="prev" href="test-instance-lifecycle.html">
+    <link rel="next" href="dependency-injection-for-constructors-and-methods.html">
+    <meta name="generator" content="Antora 3.2.0-alpha.12">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<link rel="icon" type="image/png" href="../../_/img/junit-diamond.png">
+<link rel="icon" type="image/svg+xml" href="../../_/img/junit-diamond-adaptive.svg" sizes="any">
+
+<link rel="stylesheet" href="../../_/css/vendor/highlightjs/github.min.css">
+<link rel="stylesheet" href="../../_/css/vendor/tabs.css">
+
+<link rel="preload" as="style" href="https://assets.junit.org/fonts/index.css">
+<link rel="preload" as="font" href="https://assets.junit.org/fonts/blinker-latin-600-normal.woff2" type="font/woff2" crossorigin/>
+<link rel="preload" as="font" href="https://assets.junit.org/fonts/inter-latin-wght-normal.woff2" type="font/woff2" crossorigin/>
+<link rel="preload" as="font" href="https://assets.junit.org/fonts/inter-latin-wght-italic.woff2" type="font/woff2" crossorigin/>
+<link rel="preload" as="font" href="https://assets.junit.org/fonts/jetbrains-mono-latin-wght-normal.woff2" type="font/woff2" crossorigin/>
+
+<link rel="preload" as="style" href="../../_/css/site-extra.css">
+
+<link rel="stylesheet" href="https://assets.junit.org/fonts/index.css">
+<link rel="stylesheet" href="../../_/css/site-extra.css">
+
+<meta name="theme-color" content="#25a162">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item title" href="https://docs.junit.org">
+          <img class="logo" src="../../_/img/junit-diamond-white.png" alt="✔️"/>
+          JUnit User Guide<span class="version">6.1.0</span>
+      </a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search current version">
+          <label style="display: none">
+            <!-- restrict search to current version -->
+            <input type="checkbox" data-facet-filter="version:6.1.0" checked>
+          </label>
+        </div>
+      </div>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+          <a class="navbar-item" href="https://junit.org/">Home</a>
+          <a class="navbar-item" href="https://github.com/junit-team/junit-framework/">Repo</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="junit" data-version="6.1.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">JUnit</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="intro.html">Writing Tests</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="annotations.html">Annotations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="definitions.html">Definitions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-classes-and-methods.html">Test Classes and Methods</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="display-names.html">Display Names</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="assertions.html">Assertions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="assumptions.html">Assumptions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="exception-handling.html">Exception Handling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="disabling-tests.html">Disabling Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="conditional-test-execution.html">Conditional Test Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="tagging-and-filtering.html">Tagging and Filtering</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-execution-order.html">Test Execution Order</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-instance-lifecycle.html">Test Instance Lifecycle</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="nested-tests.html">Nested Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dependency-injection-for-constructors-and-methods.html">Dependency Injection for Constructors and Methods</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-interfaces-and-default-methods.html">Test Interfaces and Default Methods</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="repeated-tests.html">Repeated Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="parameterized-classes-and-tests.html">Parameterized Classes and Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="class-templates.html">Class Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-templates.html">Test Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dynamic-tests.html">Dynamic Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="timeouts.html">Timeouts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="parallel-execution.html">Parallel Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="built-in-extensions.html">Built-in Extensions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../migrating-from-junit4.html">Migrating from JUnit 4</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../running-tests/intro.html">Running Tests</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/ide-support.html">IDE Support</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/build-support.html">Build Support</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/console-launcher.html">Console Launcher</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/source-launcher.html">Source Launcher</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/discovery-selectors.html">Discovery Selectors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/configuration-parameters.html">Configuration Parameters</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/tags.html">Tags</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/capturing-standard-output-error.html">Capturing Standard Output/Error</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/using-listeners-and-interceptors.html">Using Listeners and Interceptors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/stack-trace-pruning.html">Stack Trace Pruning</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/discovery-issues.html">Discovery Issues</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../extensions/overview.html">Extension Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/registering-extensions.html">Registering Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/conditional-test-execution.html">Conditional Test Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-instance-pre-construct-callback.html">Test Instance Pre-construct Callback</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-instance-factories.html">Test Instance Factories</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-instance-post-processing.html">Test Instance Post-processing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-instance-pre-destroy-callback.html">Test Instance Pre-destroy Callback</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/parameter-resolution.html">Parameter Resolution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-result-processing.html">Test Result Processing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-lifecycle-callbacks.html">Test Lifecycle Callbacks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/exception-handling.html">Exception Handling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/pre-interrupt-callback.html">Pre-Interrupt Callback</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/intercepting-invocations.html">Intercepting Invocations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/providing-invocation-contexts-for-class-templates.html">Providing Invocation Contexts for Class Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/providing-invocation-contexts-for-test-templates.html">Providing Invocation Contexts for Test Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/keeping-state-in-extensions.html">Keeping State in Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/supported-utilities-in-extensions.html">Supported Utilities in Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/relative-execution-order-of-user-code-and-extensions.html">Relative Execution Order of User Code and Extensions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced Topics</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/junit-platform-reporting.html">JUnit Platform Reporting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/junit-platform-suite-engine.html">JUnit Platform Suite Engine</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/testkit.html">JUnit Platform Test Kit</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/launcher-api.html">JUnit Platform Launcher API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/engines.html">Test Engines</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../api-evolution.html">API Evolution</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../release-notes.html">Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../api/index.html">Javadoc</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">JUnit</span>
+    <span class="version">6.1.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../index.html">JUnit</a></div>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../6.2.0/index.html">6.2.0-SNAPSHOT</a>
+        </li>
+        <li class="version is-current is-latest">
+          <a href="../index.html">6.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../6.1.0-RC1/index.html">6.1.0-RC1</a>
+        </li>
+        <li class="version">
+          <a href="../../6.1.0-M1/index.html">6.1.0-M1</a>
+        </li>
+        <li class="version">
+          <a href="../../6.0.3/index.html">6.0.3</a>
+        </li>
+        <li class="version">
+          <a href="../../6.0.2/index.html">6.0.2</a>
+        </li>
+        <li class="version">
+          <a href="../../6.0.1/index.html">6.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../6.0.0/index.html">6.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.4/index.html">5.14.4</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.3/index.html">5.14.3</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.2/index.html">5.14.2</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.1/index.html">5.14.1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../overview.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">JUnit</a></li>
+    <li><a href="intro.html">Writing Tests</a></li>
+    <li><a href="nested-tests.html">Nested Tests</a></li>
+  </ul>
+</nav>
+        <div class="pdf-link">
+            <a href="../_exports/junit-user-guide-6.1.0.pdf#writing-tests-nested-tests">PDF</a>
+        </div>
+        <div class="html-link">
+            <a href="../_exports/junit-user-guide-6.1.0.html#writing-tests-nested-tests">Single page</a>
+        </div>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">6.1.0</button>
+  <div class="version-menu">
+    <a class="version" href="../../6.2.0/writing-tests/nested-tests.html">6.2.0-SNAPSHOT</a>
+    <a class="version is-current" href="nested-tests.html">6.1.0</a>
+    <a class="version" href="../../6.1.0-RC1/writing-tests/nested-tests.html">6.1.0-RC1</a>
+    <a class="version" href="../../6.1.0-M1/writing-tests/nested-tests.html">6.1.0-M1</a>
+    <a class="version" href="../../6.0.3/writing-tests/nested-tests.html">6.0.3</a>
+    <a class="version" href="../../6.0.2/writing-tests/nested-tests.html">6.0.2</a>
+    <a class="version" href="../../6.0.1/writing-tests/nested-tests.html">6.0.1</a>
+    <a class="version" href="../../6.0.0/writing-tests/nested-tests.html">6.0.0</a>
+    <a class="version" href="../../5.14.4/writing-tests/nested-tests.html">5.14.4</a>
+    <a class="version" href="../../5.14.3/writing-tests/nested-tests.html">5.14.3</a>
+    <a class="version" href="../../5.14.2/writing-tests/nested-tests.html">5.14.2</a>
+    <a class="version" href="../../5.14.1/writing-tests/nested-tests.html">5.14.1</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/junit-team/junit-framework/blob/r6.1.0/documentation/modules/ROOT/pages/writing-tests/nested-tests.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Nested Tests</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>@Nested</code> tests give the test writer more capabilities to express the relationship among
+several groups of tests. Such nested tests make use of Java&#8217;s nested classes and
+facilitate hierarchical thinking about the test structure. Here&#8217;s an elaborate example,
+both as source code and as a screenshot of the execution within an IDE.</p>
+</div>
+<div id="tabs-1" class="openblock tabs is-sync is-loading">
+<div class="title">Nested test suite for testing a stack</div>
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-1-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-1-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-1-java--panel" class="tabpanel" aria-labelledby="tabs-1-java">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.EmptyStackException;
+import java.util.Stack;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
+
+@DisplayName("A stack")
+class TestingAStackDemo {
+
+	@Test
+	@DisplayName("is instantiated with new Stack()")
+	void isInstantiatedWithNew() {
+		new Stack&lt;&gt;();
+	}
+
+	@Nested
+	@DisplayName("when new")
+	class WhenNew {
+
+		Stack&lt;Object&gt; stack;
+
+		@BeforeEach
+		void createNewStack() {
+			stack = new Stack&lt;&gt;();
+		}
+
+		@Test
+		@DisplayName("is empty")
+		void isEmpty() {
+			assertTrue(stack.isEmpty());
+		}
+
+		@Test
+		@DisplayName("throws EmptyStackException when popped")
+		void throwsExceptionWhenPopped() {
+			assertThrows(EmptyStackException.class, stack::pop);
+		}
+
+		@Test
+		@DisplayName("throws EmptyStackException when peeked")
+		void throwsExceptionWhenPeeked() {
+			assertThrows(EmptyStackException.class, stack::peek);
+		}
+
+		@Nested
+		@DisplayName("after pushing an element")
+		class AfterPushing {
+
+			String anElement = "an element";
+
+			@BeforeEach
+			void pushAnElement() {
+				stack.push(anElement);
+			}
+
+			@Test
+			@DisplayName("it is no longer empty")
+			void isNotEmpty() {
+				assertFalse(stack.isEmpty());
+			}
+
+			@Test
+			@DisplayName("returns the element when popped and is empty")
+			void returnElementWhenPopped() {
+				assertEquals(anElement, stack.pop());
+				assertTrue(stack.isEmpty());
+			}
+
+			@Test
+			@DisplayName("returns the element when peeked but remains not empty")
+			void returnElementWhenPeeked() {
+				assertEquals(anElement, stack.peek());
+				assertFalse(stack.isEmpty());
+			}
+		}
+	}
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-1-kotlin--panel" class="tabpanel" aria-labelledby="tabs-1-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertFalse
+import org.junit.jupiter.api.Assertions.assertTrue
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.DisplayName
+import org.junit.jupiter.api.Nested
+import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
+import java.util.EmptyStackException
+import java.util.Stack
+
+@DisplayName("A stack")
+class TestingAStackDemo {
+    @Test
+    @DisplayName("is instantiated with new Stack()")
+    fun isInstantiatedWithNew() {
+        Stack&lt;Any&gt;()
+    }
+
+    @Nested
+    @DisplayName("when new")
+    inner class WhenNew {
+        lateinit var stack: Stack&lt;Any&gt;
+
+        @BeforeEach
+        fun createNewStack() {
+            stack = Stack()
+        }
+
+        @Test
+        @DisplayName("is empty")
+        fun isEmpty() {
+            assertTrue(stack.isEmpty())
+        }
+
+        @Test
+        @DisplayName("throws EmptyStackException when popped")
+        fun throwsExceptionWhenPopped() {
+            assertThrows&lt;EmptyStackException&gt; { stack.pop() }
+        }
+
+        @Test
+        @DisplayName("throws EmptyStackException when peeked")
+        fun throwsExceptionWhenPeeked() {
+            assertThrows&lt;EmptyStackException&gt; { stack.peek() }
+        }
+
+        @Nested
+        @DisplayName("after pushing an element")
+        inner class AfterPushing {
+            val anElement = "an element"
+
+            @BeforeEach
+            fun pushAnElement() {
+                stack.push(anElement)
+            }
+
+            @Test
+            @DisplayName("it is no longer empty")
+            fun isNotEmpty() {
+                assertFalse(stack.isEmpty())
+            }
+
+            @Test
+            @DisplayName("returns the element when popped and is empty")
+            fun returnElementWhenPopped() {
+                assertEquals(anElement, stack.pop())
+                assertTrue(stack.isEmpty())
+            }
+
+            @Test
+            @DisplayName("returns the element when peeked but remains not empty")
+            fun returnElementWhenPeeked() {
+                assertEquals(anElement, stack.peek())
+                assertFalse(stack.isEmpty())
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>When executing this example in an IDE, the test execution tree in the GUI will look
+similar to the following image.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/writing-tests_nested_test_ide.png" alt="writing tests nested test ide">
+</div>
+<div class="title">Executing a nested test in an IDE</div>
+</div>
+<div class="paragraph">
+<p>In this example, preconditions from outer tests are used in inner tests by defining
+hierarchical lifecycle methods for the setup code. For example, <code>createNewStack()</code> is a
+<code>@BeforeEach</code> lifecycle method that is used in the test class in which it is defined and
+in all levels in the nesting tree below the class in which it is defined.</p>
+</div>
+<div class="paragraph">
+<p>The fact that setup code from outer tests is run before inner tests are executed gives you
+the ability to run all tests independently. You can even run inner tests alone without
+running the outer tests, because the setup code from the outer tests is always executed.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<em>Only non-static nested classes</em> (i.e. <em>inner classes</em>) can serve as <code>@Nested</code> test
+classes. Nesting can be arbitrarily deep, and those inner classes are subject to full
+lifecycle support, including <code>@BeforeAll</code> and <code>@AfterAll</code> methods on each level.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="interoperability"><a class="anchor" href="#interoperability"></a>Interoperability</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>@Nested</code> may be combined with
+<a href="parameterized-classes-and-tests.html" class="xref page"><code>@ParameterizedClass</code></a> in which case the nested test
+class is parameterized.</p>
+</div>
+<div class="paragraph">
+<p>The following example illustrates how to combine <code>@Nested</code> with <code>@ParameterizedClass</code> and
+<code>@ParameterizedTest</code>.</p>
+</div>
+<div id="tabs-2" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-2-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-2-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-2-java--panel" class="tabpanel" aria-labelledby="tabs-2-java">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Execution(SAME_THREAD)
+@ParameterizedClass
+@ValueSource(strings = { "apple", "banana" })
+class FruitTests {
+
+	@Parameter
+	String fruit;
+
+	@Nested
+	@ParameterizedClass
+	@ValueSource(ints = { 23, 42 })
+	class QuantityTests {
+
+		@Parameter
+		int quantity;
+
+		@ParameterizedTest
+		@ValueSource(strings = { "PT1H", "PT2H" })
+		void test(Duration duration) {
+			assertFruit(fruit);
+			assertQuantity(quantity);
+			assertFalse(duration.isNegative());
+		}
+	}
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-2-kotlin--panel" class="tabpanel" aria-labelledby="tabs-2-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Execution(SAME_THREAD)
+@ParameterizedClass
+@ValueSource(strings = ["apple", "banana"])
+class FruitTests {
+    @Parameter
+    lateinit var fruit: String
+
+    @Nested
+    @ParameterizedClass
+    @ValueSource(ints = [23, 42])
+    inner class QuantityTests {
+        @Parameter
+        var quantity: Int = 0
+
+        @ParameterizedTest
+        @ValueSource(strings = ["PT1H", "PT2H"])
+        fun test(duration: Duration) {
+            assertFruit(fruit)
+            assertQuantity(quantity)
+            assertFalse(duration.isNegative)
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Executing the above test class yields the following output:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>FruitTests ✔
+├─ [1] fruit = "apple" ✔
+│  └─ QuantityTests ✔
+│     ├─ [1] quantity = 23 ✔
+│     │  └─ test(Duration) ✔
+│     │     ├─ [1] duration = "PT1H" ✔
+│     │     └─ [2] duration = "PT2H" ✔
+│     └─ [2] quantity = 42 ✔
+│        └─ test(Duration) ✔
+│           ├─ [1] duration = "PT1H" ✔
+│           └─ [2] duration = "PT2H" ✔
+└─ [2] fruit = "banana" ✔
+   └─ QuantityTests ✔
+      ├─ [1] quantity = 23 ✔
+      │  └─ test(Duration) ✔
+      │     ├─ [1] duration = "PT1H" ✔
+      │     └─ [2] duration = "PT2H" ✔
+      └─ [2] quantity = 42 ✔
+         └─ test(Duration) ✔
+            ├─ [1] duration = "PT1H" ✔
+            └─ [2] duration = "PT2H" ✔</pre>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="test-instance-lifecycle.html">Test Instance Lifecycle</a></span>
+  <span class="next"><a href="dependency-injection-for-constructors-and-methods.html">Dependency Injection for Constructors and Methods</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+    <p>
+        &copy; Copyright 2015-2026 the original author or authors.
+        All rights reserved.
+        The content of this page is made available under the terms of the <a href="https://www.eclipse.org/legal/epl-v20.html">Eclipse Public License v2.0</a>.
+    </p>
+    <p>
+        This page was built using an adapted version of the Antora default UI.
+        The source code for this UI is licensed under the terms of the <a href="https://www.mozilla.org/en-US/MPL/2.0/">Mozilla Public License v2.0</a>.
+    </p>
+    <p>
+        Built and hosted on <a href="https://statichost.eu">statichost.eu</a>.
+    </p>
+</footer>
+<script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script async src="../../_/js/vendor/tabs.js" data-sync-storage-key="preferred-code-language"></script>
+<script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="100" data-stylesheet="../../_/css/search.css"></script>
+<script async src="../../search-index.js"></script>
+  </body>
+</html>
