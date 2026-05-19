@@ -20527,8 +20527,8 @@ by the JUnit Team may use the <code>junit-</code> prefix for their <code>TestEng
 exception will be thrown, immediately halting execution of the JUnit Platform.</p>
 </li>
 <li>
-<p>If any third-party <code>TestEngine</code> uses the <code>junit-</code> prefix for its ID, a warning message
-will be logged. Later releases of the JUnit Platform will throw an exception for such
+<p>If any third-party <code>TestEngine</code> uses the <code>junit-</code> prefix for its ID, a discovery issue
+will be created. Later releases of the JUnit Platform will throw an exception for such
 violations.</p>
 </li>
 </ul>
@@ -22033,6 +22033,10 @@ repository on GitHub.</p>
 <p>When using <code>ConsoleLauncher</code> with the <code>-cp</code>/<code>--classpath</code> option, it now creates a
 custom <code>ClassLoader</code> that does <em>not</em> implement <code>AutoCloseable</code> to avoid accidentally
 closing it in test code which can lead to test failures that are hard to diagnose.</p>
+</li>
+<li>
+<p>When using a third-party engine that uses the <code>junit-</code> prefix a discovery issue is
+emitted.</p>
 </li>
 </ul>
 </div>
