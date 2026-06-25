@@ -21179,6 +21179,10 @@ value of lower stability.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>TestDescriptor.&ZeroWidthSpace;Visitor.&ZeroWidthSpace;composite(Visitor[])</code> <em>(method)</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.0</code></p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>UniqueId.&ZeroWidthSpace;Segment.&ZeroWidthSpace;isEngine()</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.1.1</code></p></td>
+</tr>
 </tbody>
 </table>
 <h5 id="api-evolution:::package-org-junit-platform-engine-discovery" class="discrete">Package org.junit.platform.engine.discovery</h5>
@@ -22131,7 +22135,9 @@ repository on GitHub.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>❓</p>
+<p>Allow excluding engines from memory cleanup mode (in case it&#8217;s enabled) via new
+<code>junit.platform.execution.memory.cleanup.engines.excluded</code> configuration parameter that
+takes a comma-separated list of engine IDs (for example, <code>junit-vintage,junit-jupiter</code>).</p>
 </li>
 </ul>
 </div>

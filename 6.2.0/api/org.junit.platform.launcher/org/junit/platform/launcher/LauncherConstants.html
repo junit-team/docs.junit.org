@@ -80,6 +80,7 @@ loadScripts(document, 'script');</script>
 <li><a href="#CRITICAL_DISCOVERY_ISSUE_SEVERITY_PROPERTY_NAME" tabindex="0">CRITICAL_DISCOVERY_ISSUE_SEVERITY_PROPERTY_NAME</a></li>
 <li><a href="#DISCOVERY_ISSUE_FAILURE_PHASE_PROPERTY_NAME" tabindex="0">DISCOVERY_ISSUE_FAILURE_PHASE_PROPERTY_NAME</a></li>
 <li><a href="#MEMORY_CLEANUP_ENABLED_PROPERTY_NAME" tabindex="0">MEMORY_CLEANUP_ENABLED_PROPERTY_NAME</a></li>
+<li><a href="#MEMORY_CLEANUP_EXCLUDED_ENGINES_PROPERTY_NAME" tabindex="0">MEMORY_CLEANUP_EXCLUDED_ENGINES_PROPERTY_NAME</a></li>
 </ol>
 </li>
 </ol>
@@ -193,30 +194,36 @@ should cause a failure</div>
 mode.</div>
 </div>
 <div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color"><code><a href="#OUTPUT_DIR_PROPERTY_NAME" class="member-name-link">OUTPUT_DIR_PROPERTY_NAME</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#MEMORY_CLEANUP_EXCLUDED_ENGINES_PROPERTY_NAME" class="member-name-link">MEMORY_CLEANUP_EXCLUDED_ENGINES_PROPERTY_NAME</a></code></div>
 <div class="col-last odd-row-color">
-<div class="block">Property name used to configure the output directory for reporting.</div>
+<div class="block">Property name used to configure which test engines should be excluded from
+memory cleanup in case it's enabled.</div>
 </div>
 <div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color"><code><a href="#OUTPUT_DIR_UNIQUE_NUMBER_PLACEHOLDER" class="member-name-link">OUTPUT_DIR_UNIQUE_NUMBER_PLACEHOLDER</a></code></div>
+<div class="col-second even-row-color"><code><a href="#OUTPUT_DIR_PROPERTY_NAME" class="member-name-link">OUTPUT_DIR_PROPERTY_NAME</a></code></div>
 <div class="col-last even-row-color">
+<div class="block">Property name used to configure the output directory for reporting.</div>
+</div>
+<div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#OUTPUT_DIR_UNIQUE_NUMBER_PLACEHOLDER" class="member-name-link">OUTPUT_DIR_UNIQUE_NUMBER_PLACEHOLDER</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">Placeholder for use in <a href="#OUTPUT_DIR_PROPERTY_NAME"><code>OUTPUT_DIR_PROPERTY_NAME</code></a> that will be
 replaced with a unique number.</div>
 </div>
-<div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color"><code><a href="#STACKTRACE_PRUNING_ENABLED_PROPERTY_NAME" class="member-name-link">STACKTRACE_PRUNING_ENABLED_PROPERTY_NAME</a></code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="#STACKTRACE_PRUNING_ENABLED_PROPERTY_NAME" class="member-name-link">STACKTRACE_PRUNING_ENABLED_PROPERTY_NAME</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">Property name used to enable or disable stack trace pruning.</div>
 </div>
-<div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color"><code><a href="#STDERR_REPORT_ENTRY_KEY" class="member-name-link">STDERR_REPORT_ENTRY_KEY</a></code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#STDERR_REPORT_ENTRY_KEY" class="member-name-link">STDERR_REPORT_ENTRY_KEY</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">Key used to publish captured output to <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/System.html#err" title="class or interface in java.lang" class="external-link"><code>System.err</code></a> as part of a
 <a href="../../../../../org.junit.platform.engine/org/junit/platform/engine/reporting/ReportEntry.html" title="class in org.junit.platform.engine.reporting"><code>ReportEntry</code></a>: "stderr"</div>
 </div>
-<div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color"><code><a href="#STDOUT_REPORT_ENTRY_KEY" class="member-name-link">STDOUT_REPORT_ENTRY_KEY</a></code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="#STDOUT_REPORT_ENTRY_KEY" class="member-name-link">STDOUT_REPORT_ENTRY_KEY</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">Key used to publish captured output to <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/System.html#out" title="class or interface in java.lang" class="external-link"><code>System.out</code></a> as part of a
 <a href="../../../../../org.junit.platform.engine/org/junit/platform/engine/reporting/ReportEntry.html" title="class in org.junit.platform.engine.reporting"><code>ReportEntry</code></a>: "stdout"</div>
 </div>
@@ -691,8 +698,44 @@ maintainers of the affected listeners or engines.</div>
 <dd>6.1</dd>
 <dt>See Also:</dt>
 <dd>
-<ul class="tag-list">
+<ul class="tag-list-long">
+<li><a href="#MEMORY_CLEANUP_EXCLUDED_ENGINES_PROPERTY_NAME"><code>MEMORY_CLEANUP_EXCLUDED_ENGINES_PROPERTY_NAME</code></a></li>
 <li><a href="../../../../../constant-values.html#org.junit.platform.launcher.LauncherConstants.MEMORY_CLEANUP_ENABLED_PROPERTY_NAME">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="MEMORY_CLEANUP_EXCLUDED_ENGINES_PROPERTY_NAME">
+<h3>MEMORY_CLEANUP_EXCLUDED_ENGINES_PROPERTY_NAME</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#EXPERIMENTAL" title="class or interface in org.apiguardian.api" class="external-link">EXPERIMENTAL</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.1.1")
+</span><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">MEMORY_CLEANUP_EXCLUDED_ENGINES_PROPERTY_NAME</span></div>
+<div class="block">Property name used to configure which test engines should be excluded from
+memory cleanup in case it's enabled.
+
+<p>If set, value must be a comma-separated list of test engine IDs.
+If an engine is excluded, it's <a href="TestIdentifier.html" title="class in org.junit.platform.launcher"><code>TestIdentifiers</code></a>
+will still be removed from the <a href="TestPlan.html" title="class in org.junit.platform.launcher"><code>TestPlan</code></a> but it's
+<a href="../../../../../org.junit.platform.engine/org/junit/platform/engine/TestDescriptor.html" title="interface in org.junit.platform.engine"><code>TestDescriptors</code></a> will not be removed from their
+parents by calling <a href="../../../../../org.junit.platform.engine/org/junit/platform/engine/TestDescriptor.html#removeFromHierarchy()"><code>TestDescriptor.removeFromHierarchy()</code></a>.
+
+<p>This can be useful to work around performance issues with specific engines
+when memory cleanup is enabled. For example, to exclude the Vintage engine:
+<code>junit-vintage</code>.
+
+<p>If not specified, all engines are subject to memory cleanup when enabled.</div>
+<dl class="notes">
+<dt>Since:</dt>
+<dd>6.1.1</dd>
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list-long">
+<li><a href="#MEMORY_CLEANUP_ENABLED_PROPERTY_NAME"><code>MEMORY_CLEANUP_ENABLED_PROPERTY_NAME</code></a></li>
+<li><a href="../../../../../constant-values.html#org.junit.platform.launcher.LauncherConstants.MEMORY_CLEANUP_EXCLUDED_ENGINES_PROPERTY_NAME">Constant Field Values</a></li>
 </ul>
 </dd>
 </dl>
