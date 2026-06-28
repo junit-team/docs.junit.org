@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Registering Extensions :: JUnit User Guide</title>
+    <link rel="canonical" href="https://docs.junit.org/6.1.1/extensions/registering-extensions.html">
+    <link rel="prev" href="overview.html">
+    <link rel="next" href="conditional-test-execution.html">
+    <meta name="generator" content="Antora 3.2.0-rc.2">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<link rel="icon" type="image/png" href="../../_/img/junit-diamond.png">
+<link rel="icon" type="image/svg+xml" href="../../_/img/junit-diamond-adaptive.svg" sizes="any">
+
+<link rel="stylesheet" href="../../_/css/vendor/highlightjs/github.min.css">
+<link rel="stylesheet" href="../../_/css/vendor/tabs.css">
+
+<link rel="preload" as="style" href="https://assets.junit.org/fonts/index.css">
+<link rel="preload" as="font" href="https://assets.junit.org/fonts/blinker-latin-600-normal.woff2" type="font/woff2" crossorigin/>
+<link rel="preload" as="font" href="https://assets.junit.org/fonts/inter-latin-wght-normal.woff2" type="font/woff2" crossorigin/>
+<link rel="preload" as="font" href="https://assets.junit.org/fonts/inter-latin-wght-italic.woff2" type="font/woff2" crossorigin/>
+<link rel="preload" as="font" href="https://assets.junit.org/fonts/jetbrains-mono-latin-wght-normal.woff2" type="font/woff2" crossorigin/>
+
+<link rel="preload" as="style" href="../../_/css/site-extra.css">
+
+<link rel="stylesheet" href="https://assets.junit.org/fonts/index.css">
+<link rel="stylesheet" href="../../_/css/site-extra.css">
+
+<meta name="theme-color" content="#25a162">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item title" href="https://docs.junit.org">
+          <img class="logo" src="../../_/img/junit-diamond-white.png" alt="✔️"/>
+          JUnit User Guide<span class="version">6.1.1</span>
+      </a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search current version">
+          <label style="display: none">
+            <!-- restrict search to current version -->
+            <input type="checkbox" data-facet-filter="version:6.1.1" checked>
+          </label>
+        </div>
+      </div>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+          <a class="navbar-item" href="https://junit.org/">Home</a>
+          <a class="navbar-item" href="https://github.com/junit-team/junit-framework/">Repo</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="junit" data-version="6.1.1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">JUnit</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../writing-tests/intro.html">Writing Tests</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/annotations.html">Annotations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/definitions.html">Definitions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/test-classes-and-methods.html">Test Classes and Methods</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/display-names.html">Display Names</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/assertions.html">Assertions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/assumptions.html">Assumptions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/exception-handling.html">Exception Handling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/disabling-tests.html">Disabling Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/conditional-test-execution.html">Conditional Test Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/tagging-and-filtering.html">Tagging and Filtering</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/test-execution-order.html">Test Execution Order</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/test-instance-lifecycle.html">Test Instance Lifecycle</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/nested-tests.html">Nested Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/dependency-injection-for-constructors-and-methods.html">Dependency Injection for Constructors and Methods</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/test-interfaces-and-default-methods.html">Test Interfaces and Default Methods</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/repeated-tests.html">Repeated Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/parameterized-classes-and-tests.html">Parameterized Classes and Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/class-templates.html">Class Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/test-templates.html">Test Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/dynamic-tests.html">Dynamic Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/timeouts.html">Timeouts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/parallel-execution.html">Parallel Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing-tests/built-in-extensions.html">Built-in Extensions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../migrating-from-junit4.html">Migrating from JUnit 4</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../running-tests/intro.html">Running Tests</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/ide-support.html">IDE Support</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/build-support.html">Build Support</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/console-launcher.html">Console Launcher</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/source-launcher.html">Source Launcher</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/discovery-selectors.html">Discovery Selectors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/configuration-parameters.html">Configuration Parameters</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/tags.html">Tags</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/capturing-standard-output-error.html">Capturing Standard Output/Error</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/using-listeners-and-interceptors.html">Using Listeners and Interceptors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/stack-trace-pruning.html">Stack Trace Pruning</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/discovery-issues.html">Discovery Issues</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="overview.html">Extension Model</a>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="registering-extensions.html">Registering Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="conditional-test-execution.html">Conditional Test Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-instance-pre-construct-callback.html">Test Instance Pre-construct Callback</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-instance-factories.html">Test Instance Factories</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-instance-post-processing.html">Test Instance Post-processing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-instance-pre-destroy-callback.html">Test Instance Pre-destroy Callback</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="parameter-resolution.html">Parameter Resolution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-result-processing.html">Test Result Processing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-lifecycle-callbacks.html">Test Lifecycle Callbacks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="exception-handling.html">Exception Handling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="pre-interrupt-callback.html">Pre-Interrupt Callback</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="intercepting-invocations.html">Intercepting Invocations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="providing-invocation-contexts-for-class-templates.html">Providing Invocation Contexts for Class Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="providing-invocation-contexts-for-test-templates.html">Providing Invocation Contexts for Test Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="keeping-state-in-extensions.html">Keeping State in Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="supported-utilities-in-extensions.html">Supported Utilities in Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="relative-execution-order-of-user-code-and-extensions.html">Relative Execution Order of User Code and Extensions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced Topics</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/junit-platform-reporting.html">JUnit Platform Reporting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/junit-platform-suite-engine.html">JUnit Platform Suite Engine</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/testkit.html">JUnit Platform Test Kit</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/launcher-api.html">JUnit Platform Launcher API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/engines.html">Test Engines</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../api-evolution.html">API Evolution</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../release-notes.html">Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../api/index.html">Javadoc</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">JUnit</span>
+    <span class="version">6.1.1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../index.html">JUnit</a></div>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../6.2.0/index.html">6.2.0-SNAPSHOT</a>
+        </li>
+        <li class="version is-current is-latest">
+          <a href="../index.html">6.1.1</a>
+        </li>
+        <li class="version">
+          <a href="../../6.1.0/index.html">6.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../6.1.0-RC1/index.html">6.1.0-RC1</a>
+        </li>
+        <li class="version">
+          <a href="../../6.1.0-M1/index.html">6.1.0-M1</a>
+        </li>
+        <li class="version">
+          <a href="../../6.0.3/index.html">6.0.3</a>
+        </li>
+        <li class="version">
+          <a href="../../6.0.2/index.html">6.0.2</a>
+        </li>
+        <li class="version">
+          <a href="../../6.0.1/index.html">6.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../6.0.0/index.html">6.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.4/index.html">5.14.4</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.3/index.html">5.14.3</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.2/index.html">5.14.2</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.1/index.html">5.14.1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../overview.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">JUnit</a></li>
+    <li><a href="overview.html">Extension Model</a></li>
+    <li><a href="registering-extensions.html">Registering Extensions</a></li>
+  </ul>
+</nav>
+        <div class="pdf-link">
+            <a href="../_exports/junit-user-guide-6.1.1.pdf#extensions-registering-extensions">PDF</a>
+        </div>
+        <div class="html-link">
+            <a href="../_exports/junit-user-guide-6.1.1.html#extensions-registering-extensions">Single page</a>
+        </div>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">6.1.1</button>
+  <div class="version-menu">
+    <a class="version" href="../../6.2.0/extensions/registering-extensions.html">6.2.0-SNAPSHOT</a>
+    <a class="version is-current" href="registering-extensions.html">6.1.1</a>
+    <a class="version" href="../../6.1.0/extensions/registering-extensions.html">6.1.0</a>
+    <a class="version" href="../../6.1.0-RC1/extensions/registering-extensions.html">6.1.0-RC1</a>
+    <a class="version" href="../../6.1.0-M1/extensions/registering-extensions.html">6.1.0-M1</a>
+    <a class="version" href="../../6.0.3/extensions/registering-extensions.html">6.0.3</a>
+    <a class="version" href="../../6.0.2/extensions/registering-extensions.html">6.0.2</a>
+    <a class="version" href="../../6.0.1/extensions/registering-extensions.html">6.0.1</a>
+    <a class="version" href="../../6.0.0/extensions/registering-extensions.html">6.0.0</a>
+    <a class="version" href="../../5.14.4/extensions/registering-extensions.html">5.14.4</a>
+    <a class="version" href="../../5.14.3/extensions/registering-extensions.html">5.14.3</a>
+    <a class="version" href="../../5.14.2/extensions/registering-extensions.html">5.14.2</a>
+    <a class="version" href="../../5.14.1/extensions/registering-extensions.html">5.14.1</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/junit-team/junit-framework/blob/r6.1.1/documentation/modules/ROOT/pages/extensions/registering-extensions.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Registering Extensions</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Extensions can be registered <em>declaratively</em> via
+<a href="#registration-declarative"><code>@ExtendWith</code></a>, <em>programmatically</em> via
+<a href="#registration-programmatic"><code>@RegisterExtension</code></a>, or <em>automatically</em> via
+Java&#8217;s <a href="#registration-automatic"><code>ServiceLoader</code></a> mechanism.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="registration-declarative"><a class="anchor" href="#registration-declarative"></a>Declarative Extension Registration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Developers can register one or more extensions <em>declaratively</em> by annotating a test
+interface, test class, test method, or custom <em><a href="../writing-tests/annotations.html#annotations" class="xref page">composed
+annotation</a></em> with <code>@ExtendWith(&#8230;&#8203;)</code> and supplying class references for the extensions to
+register. <code>@ExtendWith</code> may also be declared on fields or on parameters in test class
+constructors, in test methods, and in <code>@BeforeAll</code>, <code>@AfterAll</code>, <code>@BeforeEach</code>, and
+<code>@AfterEach</code> lifecycle methods.</p>
+</div>
+<div class="paragraph">
+<p>For example, to register a <code>WebServerExtension</code> for a particular test method, you would
+annotate the test method as follows. We assume the <code>WebServerExtension</code> starts a local web
+server and injects the server&#8217;s URL into parameters annotated with <code>@WebServerUrl</code>.</p>
+</div>
+<div id="tabs-1" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-1-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-1-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-1-java--panel" class="tabpanel" aria-labelledby="tabs-1-java">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Test
+@ExtendWith(WebServerExtension.class)
+void getProductList(@WebServerUrl String serverUrl) {
+	WebClient webClient = new WebClient();
+	// Use WebClient to connect to web server using serverUrl and verify response
+	assertEquals(200, webClient.get(serverUrl + "/products").getResponseStatus());
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-1-kotlin--panel" class="tabpanel" aria-labelledby="tabs-1-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Test
+@ExtendWith(WebServerExtension::class)
+fun getProductList(@WebServerUrl serverUrl: String) {
+    val webClient = WebClient()
+    // Use WebClient to connect to web server using serverUrl and verify response
+    assertEquals(200, webClient.get("$serverUrl/products").responseStatus)
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>To register the <code>WebServerExtension</code> for all tests in a particular class and its
+subclasses, you would annotate the test class as follows.</p>
+</div>
+<div id="tabs-2" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-2-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-2-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-2-java--panel" class="tabpanel" aria-labelledby="tabs-2-java">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@ExtendWith(WebServerExtension.class)
+class MyTests {
+	// ...
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-2-kotlin--panel" class="tabpanel" aria-labelledby="tabs-2-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@ExtendWith(WebServerExtension::class)
+class MyTests {
+    // ...
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Multiple extensions can be registered together like this:</p>
+</div>
+<div id="tabs-3" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-3-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-3-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-3-java--panel" class="tabpanel" aria-labelledby="tabs-3-java">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@ExtendWith({ DatabaseExtension.class, WebServerExtension.class })
+class MyFirstTests {
+	// ...
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-3-kotlin--panel" class="tabpanel" aria-labelledby="tabs-3-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@ExtendWith(DatabaseExtension::class, WebServerExtension::class)
+class MyFirstTests {
+    // ...
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>As an alternative, multiple extensions can be registered separately like this:</p>
+</div>
+<div id="tabs-4" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-4-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-4-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-4-java--panel" class="tabpanel" aria-labelledby="tabs-4-java">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@ExtendWith(DatabaseExtension.class)
+@ExtendWith(WebServerExtension.class)
+class MySecondTests {
+	// ...
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-4-kotlin--panel" class="tabpanel" aria-labelledby="tabs-4-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@ExtendWith(DatabaseExtension::class)
+@ExtendWith(WebServerExtension::class)
+class MySecondTests {
+    // ...
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="title">Extension Registration Order</div>
+<div class="paragraph">
+<p>Extensions registered declaratively via <code>@ExtendWith</code> at the class level, method level, or
+parameter level will be executed in the order in which they are declared in the source
+code. For example, the execution of tests in both <code>MyFirstTests</code> and <code>MySecondTests</code> will
+be extended by the <code>DatabaseExtension</code> and <code>WebServerExtension</code>, <strong>in exactly that order</strong>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>If you wish to combine multiple extensions in a reusable way, you can define a custom
+<em><a href="../writing-tests/annotations.html#annotations" class="xref page">composed annotation</a></em> and use <code>@ExtendWith</code> as a
+<em>meta-annotation</em> as in the following code listing. Then <code>@DatabaseAndWebServerExtension</code>
+can be used in place of <code>@ExtendWith({ DatabaseExtension.class, WebServerExtension.class })</code>.</p>
+</div>
+<div id="tabs-5" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-5-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-5-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-5-java--panel" class="tabpanel" aria-labelledby="tabs-5-java">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Target({ ElementType.TYPE, ElementType.METHOD })
+@Retention(RetentionPolicy.RUNTIME)
+@ExtendWith({ DatabaseExtension.class, WebServerExtension.class })
+public @interface DatabaseAndWebServerExtension {
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-5-kotlin--panel" class="tabpanel" aria-labelledby="tabs-5-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Target(AnnotationTarget.CLASS, AnnotationTarget.FUNCTION)
+@Retention(AnnotationRetention.RUNTIME)
+@ExtendWith(DatabaseExtension::class, WebServerExtension::class)
+annotation class DatabaseAndWebServerExtension</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>The above examples demonstrate how <code>@ExtendWith</code> can be applied at the class level or at
+the method level; however, for certain use cases it makes sense for an extension to be
+registered declaratively at the field or parameter level. Consider a
+<code>RandomNumberExtension</code> which generates random numbers that can be injected into a field or
+via a parameter in a constructor, test method, or lifecycle method. If the extension
+provides a <code>@Random</code> annotation that is meta-annotated with
+<code>@ExtendWith(RandomNumberExtension.class)</code> (see listing below), the extension can be used
+transparently as in the following <code>RandomNumberDemo</code> example.</p>
+</div>
+<div id="tabs-6" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-6-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-6-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-6-java--panel" class="tabpanel" aria-labelledby="tabs-6-java">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Target({ ElementType.FIELD, ElementType.PARAMETER })
+@Retention(RetentionPolicy.RUNTIME)
+@ExtendWith(RandomNumberExtension.class)
+public @interface Random {
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-6-kotlin--panel" class="tabpanel" aria-labelledby="tabs-6-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Target(AnnotationTarget.FIELD, AnnotationTarget.VALUE_PARAMETER)
+@Retention(AnnotationRetention.RUNTIME)
+@ExtendWith(RandomNumberExtension::class)
+annotation class Random</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabs-7" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-7-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-7-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-7-java--panel" class="tabpanel" aria-labelledby="tabs-7-java">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">class RandomNumberDemo {
+
+	// Use static randomNumber0 field anywhere in the test class,
+	// including @BeforeAll or @AfterEach lifecycle methods.
+	@Random
+	private static Integer randomNumber0;
+
+	// Use randomNumber1 field in test methods and @BeforeEach
+	// or @AfterEach lifecycle methods.
+	@Random
+	private int randomNumber1;
+
+	RandomNumberDemo(@Random int randomNumber2) {
+		// Use randomNumber2 in constructor.
+	}
+
+	@BeforeEach
+	void beforeEach(@Random int randomNumber3) {
+		// Use randomNumber3 in @BeforeEach method.
+	}
+
+	@Test
+	void test(@Random int randomNumber4) {
+		// Use randomNumber4 in test method.
+	}
+
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-7-kotlin--panel" class="tabpanel" aria-labelledby="tabs-7-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class RandomNumberDemo(
+    @Random randomNumber2: Int
+) {
+    // Use randomNumber1 field in test methods and @BeforeEach
+    // or @AfterEach lifecycle methods.
+    @Random
+    var randomNumber1: Int = 0
+
+    // randomNumber2 is available in the constructor via primary constructor above.
+
+    @BeforeEach
+    fun beforeEach(
+        @Random randomNumber3: Int
+    ) {
+        // Use randomNumber3 in @BeforeEach method.
+    }
+
+    @Test
+    fun test(
+        @Random randomNumber4: Int
+    ) {
+        // Use randomNumber4 in test method.
+    }
+
+    companion object {
+        // Use static randomNumber0 field anywhere in the test class,
+        // including @BeforeAll or @AfterAll lifecycle methods.
+        @Random
+        @JvmStatic
+        var randomNumber0: Int = 0
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="RandomNumberExtension" class="paragraph">
+<p>The following code listing provides an example of how one might choose to implement such a
+<code>RandomNumberExtension</code>. This implementation works for the use cases in
+<code>RandomNumberDemo</code>; however, it may not prove robust enough to cover all use cases&#8201;&#8212;&#8201;for
+example, the random number generation support is limited to integers; it uses
+<code>java.util.Random</code> instead of <code>java.security.SecureRandom</code>; etc. In any case, it is
+important to note which extension APIs are implemented and for what reasons.</p>
+</div>
+<div class="paragraph">
+<p>Specifically, <code>RandomNumberExtension</code> implements the following extension APIs:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>BeforeAllCallback</code>: to support static field injection</p>
+</li>
+<li>
+<p><code>TestInstancePostProcessor</code>: to support non-static field injection</p>
+</li>
+<li>
+<p><code>ParameterResolver</code>: to support constructor and method injection</p>
+</li>
+</ul>
+</div>
+<div id="tabs-8" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-8-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-8-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-8-java--panel" class="tabpanel" aria-labelledby="tabs-8-java">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static org.junit.platform.commons.support.AnnotationSupport.findAnnotatedFields;
+
+import java.lang.reflect.Field;
+import java.util.function.Predicate;
+
+import org.jspecify.annotations.Nullable;
+import org.junit.jupiter.api.extension.BeforeAllCallback;
+import org.junit.jupiter.api.extension.ExtensionContext;
+import org.junit.jupiter.api.extension.ParameterContext;
+import org.junit.jupiter.api.extension.ParameterResolver;
+import org.junit.jupiter.api.extension.TestInstancePostProcessor;
+import org.junit.platform.commons.support.ModifierSupport;
+
+class RandomNumberExtension
+		implements BeforeAllCallback, TestInstancePostProcessor, ParameterResolver {
+
+	private final java.util.Random random = new java.util.Random(System.nanoTime());
+
+	/**
+	 * Inject a random integer into static fields that are annotated with
+	 * {@code @Random} and can be assigned an integer value.
+	 */
+	@Override
+	public void beforeAll(ExtensionContext context) {
+		Class&lt;?&gt; testClass = context.getRequiredTestClass();
+		injectFields(testClass, null, ModifierSupport::isStatic);
+	}
+
+	/**
+	 * Inject a random integer into non-static fields that are annotated with
+	 * {@code @Random} and can be assigned an integer value.
+	 */
+	@Override
+	public void postProcessTestInstance(Object testInstance, ExtensionContext context) {
+		Class&lt;?&gt; testClass = context.getRequiredTestClass();
+		injectFields(testClass, testInstance, ModifierSupport::isNotStatic);
+	}
+
+	/**
+	 * Determine if the parameter is annotated with {@code @Random} and can be
+	 * assigned an integer value.
+	 */
+	@Override
+	public boolean supportsParameter(ParameterContext pc, ExtensionContext ec) {
+		return pc.isAnnotated(Random.class) &amp;&amp; isInteger(pc.getParameter().getType());
+	}
+
+	/**
+	 * Resolve a random integer.
+	 */
+	@Override
+	public Integer resolveParameter(ParameterContext pc, ExtensionContext ec) {
+		return this.random.nextInt();
+	}
+
+	private void injectFields(Class&lt;?&gt; testClass, @Nullable Object testInstance,
+			Predicate&lt;Field&gt; predicate) {
+
+		predicate = predicate.and(field -&gt; isInteger(field.getType()));
+		findAnnotatedFields(testClass, Random.class, predicate)
+			.forEach(field -&gt; {
+				try {
+					field.setAccessible(true);
+					field.set(testInstance, this.random.nextInt());
+				}
+				catch (Exception ex) {
+					throw new RuntimeException(ex);
+				}
+			});
+	}
+
+	private static boolean isInteger(Class&lt;?&gt; type) {
+		return type == Integer.class || type == int.class;
+	}
+
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-8-kotlin--panel" class="tabpanel" aria-labelledby="tabs-8-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import org.junit.jupiter.api.extension.BeforeAllCallback
+import org.junit.jupiter.api.extension.ExtensionContext
+import org.junit.jupiter.api.extension.ParameterContext
+import org.junit.jupiter.api.extension.ParameterResolver
+import org.junit.jupiter.api.extension.TestInstancePostProcessor
+import org.junit.platform.commons.support.AnnotationSupport.findAnnotatedFields
+import org.junit.platform.commons.support.ModifierSupport
+import java.lang.reflect.Field
+import java.util.function.Predicate
+
+class RandomNumberExtension :
+    BeforeAllCallback,
+    TestInstancePostProcessor,
+    ParameterResolver {
+    private val random = java.util.Random(System.nanoTime())
+
+    /**
+     * Inject a random integer into static fields that are annotated with
+     * `@Random` and can be assigned an integer value.
+     */
+    override fun beforeAll(context: ExtensionContext) {
+        val testClass = context.requiredTestClass
+        injectFields(testClass, null, ModifierSupport::isStatic)
+    }
+
+    /**
+     * Inject a random integer into non-static fields that are annotated with
+     * `@Random` and can be assigned an integer value.
+     */
+    override fun postProcessTestInstance(
+        testInstance: Any,
+        context: ExtensionContext
+    ) {
+        val testClass = context.requiredTestClass
+        injectFields(testClass, testInstance, ModifierSupport::isNotStatic)
+    }
+
+    /**
+     * Determine if the parameter is annotated with `@Random` and can be
+     * assigned an integer value.
+     */
+    override fun supportsParameter(
+        pc: ParameterContext,
+        ec: ExtensionContext
+    ): Boolean = pc.isAnnotated(Random::class.java) &amp;&amp; isInteger(pc.parameter.type)
+
+    /**
+     * Resolve a random integer.
+     */
+    override fun resolveParameter(
+        pc: ParameterContext,
+        ec: ExtensionContext
+    ): Int = random.nextInt()
+
+    private fun injectFields(
+        testClass: Class&lt;*&gt;,
+        testInstance: Any?,
+        predicate: Predicate&lt;Field&gt;
+    ) {
+        val combined = predicate.and { field -&gt; isInteger(field.type) }
+        findAnnotatedFields(testClass, Random::class.java, combined)
+            .forEach { field -&gt;
+                field.isAccessible = true
+                field.set(testInstance, random.nextInt())
+            }
+    }
+
+    private fun isInteger(type: Class&lt;*&gt;): Boolean = type == Int::class.javaObjectType || type == Int::class.javaPrimitiveType
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="title">Extension Registration Order for <code>@ExtendWith</code> on Fields</div>
+<div class="paragraph">
+<p>Extensions registered declaratively via <code>@ExtendWith</code> on fields will be ordered relative
+to <code>@RegisterExtension</code> fields and other <code>@ExtendWith</code> fields using an algorithm that is
+deterministic but intentionally nonobvious. However, <code>@ExtendWith</code> fields can be ordered
+using the <code>@Order</code> annotation. See the <a href="#registration-programmatic-order">Extension Registration Order</a> tip for <code>@RegisterExtension</code> fields for details.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="title">Extension Inheritance</div>
+<div class="paragraph">
+<p>Extensions registered declaratively via <code>@ExtendWith</code> on fields in superclasses will be
+inherited.</p>
+</div>
+<div class="paragraph">
+<p>See <a href="#registration-inheritance">Extension Inheritance</a> for details.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>@ExtendWith</code> fields may be either <code>static</code> or non-static. The documentation on
+<a href="#registration-programmatic-static-fields">Static Fields</a> and
+<a href="#registration-programmatic-instance-fields">Instance Fields</a> for
+<code>@RegisterExtension</code> fields also applies to <code>@ExtendWith</code> fields.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="registration-programmatic"><a class="anchor" href="#registration-programmatic"></a>Programmatic Extension Registration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Developers can register extensions <em>programmatically</em> by annotating fields in test classes
+with <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/RegisterExtension.html" class="xref attachment">@RegisterExtension</a></code>.</p>
+</div>
+<div class="paragraph">
+<p>When an extension is registered <em>declaratively</em> via
+<a href="#registration-declarative"><code>@ExtendWith</code></a>, it can typically only be configured
+via annotations. In contrast, when an extension is registered via <code>@RegisterExtension</code>, it
+can be configured <em>programmatically</em>&#8201;&#8212;&#8201;for example, in order to pass arguments to the
+extension&#8217;s constructor, a static factory method, or a builder API.</p>
+</div>
+<div id="registration-programmatic-order" class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="title">Extension Registration Order</div>
+<div class="paragraph">
+<p>By default, extensions registered programmatically via <code>@RegisterExtension</code> or
+declaratively via <code>@ExtendWith</code> on fields will be ordered using an algorithm that is
+deterministic but intentionally nonobvious. This ensures that subsequent runs of a test
+suite execute extensions in the same order, thereby allowing for repeatable builds.
+However, there are times when extensions need to be registered in an explicit order. To
+achieve that, annotate <code>@RegisterExtension</code> fields or <code>@ExtendWith</code> fields with <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/Order.html" class="xref attachment">@Order</a></code>.</p>
+</div>
+<div class="paragraph">
+<p>Any <code>@RegisterExtension</code> field or <code>@ExtendWith</code> field not annotated with <code>@Order</code> will be
+ordered using the <em>default</em> order which has a value of <code>Integer.MAX_VALUE / 2</code>. This
+allows <code>@Order</code> annotated extension fields to be explicitly ordered before or after
+non-annotated extension fields. Extensions with an explicit order value less than the
+default order value will be registered before non-annotated extensions. Similarly,
+extensions with an explicit order value greater than the default order value will be
+registered after non-annotated extensions. For example, assigning an extension an explicit
+order value that is greater than the default order value allows <em>before</em> callback
+extensions to be registered last and <em>after</em> callback extensions to be registered first,
+relative to other programmatically registered extensions.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="title">Extension Inheritance</div>
+<div class="paragraph">
+<p>Extensions registered via <code>@RegisterExtension</code> or <code>@ExtendWith</code> on fields in superclasses
+will be inherited.</p>
+</div>
+<div class="paragraph">
+<p>See <a href="#registration-inheritance">Extension Inheritance</a> for details.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>@RegisterExtension</code> fields must not be <code>null</code> (at evaluation time) but may be
+either <code>static</code> or non-static.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="registration-programmatic-static-fields"><a class="anchor" href="#registration-programmatic-static-fields"></a>Static Fields</h3>
+<div class="paragraph">
+<p>If a <code>@RegisterExtension</code> field is <code>static</code>, the extension will be registered after
+extensions that are registered at the class level via <code>@ExtendWith</code>. Such <em>static
+extensions</em> are not limited in which extension APIs they can implement. Extensions
+registered via static fields may therefore implement class-level and instance-level
+extension APIs such as <code>BeforeAllCallback</code>, <code>AfterAllCallback</code>,
+<code>TestInstancePostProcessor</code>, and <code>TestInstancePreDestroyCallback</code> as well as method-level
+extension APIs such as <code>BeforeEachCallback</code>, etc.</p>
+</div>
+<div class="paragraph">
+<p>In the following example, the <code>server</code> field in the test class is initialized
+programmatically by using a builder pattern supported by the <code>WebServerExtension</code>. The
+configured <code>WebServerExtension</code> will be automatically registered as an extension at the
+class level&#8201;&#8212;&#8201;for example, in order to start the server before all tests in the class
+and then stop the server after all tests in the class have completed. In addition, static
+lifecycle methods annotated with <code>@BeforeAll</code> or <code>@AfterAll</code> as well as <code>@BeforeEach</code>,
+<code>@AfterEach</code>, and <code>@Test</code> methods can access the instance of the extension via the
+<code>server</code> field if necessary.</p>
+</div>
+<div class="listingblock">
+<div class="title">Registering an extension via a static field in Java</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">class WebServerDemo {
+
+	@RegisterExtension
+	static WebServerExtension server = WebServerExtension.builder()
+		.enableSecurity(false)
+		.build();
+
+	@Test
+	void getProductList() {
+		WebClient webClient = new WebClient();
+		String serverUrl = server.getServerUrl();
+		// Use WebClient to connect to web server using serverUrl and verify response
+		assertEquals(200, webClient.get(serverUrl + "/products").getResponseStatus());
+	}
+
+}</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="registration-programmatic-static-fields-kotlin"><a class="anchor" href="#registration-programmatic-static-fields-kotlin"></a>Static Fields in Kotlin</h4>
+<div class="paragraph">
+<p>The Kotlin programming language does not have the concept of a <code>static</code> field. However,
+the compiler can be instructed to generate a <code>private static</code> field using the <code>@JvmStatic</code>
+annotation in Kotlin. If you want the Kotlin compiler to generate a <code>public static</code> field,
+you can use the <code>@JvmField</code> annotation instead.</p>
+</div>
+<div class="paragraph">
+<p>The following example is a version of the <code>WebServerDemo</code> from the previous section that
+has been ported to Kotlin.</p>
+</div>
+<div class="listingblock">
+<div class="title">Registering an extension via a static field in Kotlin</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class KotlinWebServerDemo {
+    companion object {
+        @JvmField
+        @RegisterExtension
+        val server =
+            WebServerExtension
+                .builder()
+                .enableSecurity(false)
+                .build()!!
+    }
+
+    @Test
+    fun getProductList() {
+        // Use WebClient to connect to web server using serverUrl and verify response
+        val webClient = WebClient()
+        val serverUrl = server.serverUrl
+        assertEquals(200, webClient.get("$serverUrl/products").responseStatus)
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="registration-programmatic-instance-fields"><a class="anchor" href="#registration-programmatic-instance-fields"></a>Instance Fields</h3>
+<div class="paragraph">
+<p>If a <code>@RegisterExtension</code> field is non-static (i.e., an instance field), the extension
+will be registered after the test class has been instantiated and after each registered
+<code>TestInstancePostProcessor</code> has been given a chance to post-process the test instance
+(potentially injecting the instance of the extension to be used into the annotated
+field). Thus, if such an <em>instance extension</em> implements class-level or instance-level
+extension APIs such as <code>BeforeAllCallback</code>, <code>AfterAllCallback</code>, or
+<code>TestInstancePostProcessor</code>, those APIs will not be honored. Instance extensions will be
+registered <em>before</em> extensions that are registered at the method level via <code>@ExtendWith</code>.</p>
+</div>
+<div class="paragraph">
+<p>In the following example, the <code>docs</code> field in the test class is initialized
+programmatically by invoking a custom <code>lookUpDocsDir()</code> method and supplying the result
+to the static <code>forPath()</code> factory method in the <code>DocumentationExtension</code>. The configured
+<code>DocumentationExtension</code> will be automatically registered as an extension at the method
+level. In addition, <code>@BeforeEach</code>, <code>@AfterEach</code>, and <code>@Test</code> methods can access the
+instance of the extension via the <code>docs</code> field if necessary.</p>
+</div>
+<div id="tabs-9" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-9-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-9-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-9-java--panel" class="tabpanel" aria-labelledby="tabs-9-java">
+<div class="listingblock">
+<div class="title">An extension registered via an instance field</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">class DocumentationDemo {
+
+	static Path lookUpDocsDir() {
+		// return path to docs dir
+	}
+
+	@RegisterExtension
+	DocumentationExtension docs = DocumentationExtension.forPath(lookUpDocsDir());
+
+	@Test
+	void generateDocumentation() {
+		// use this.docs ...
+	}
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-9-kotlin--panel" class="tabpanel" aria-labelledby="tabs-9-kotlin">
+<div class="listingblock">
+<div class="title">An extension registered via an instance field</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class DocumentationDemo {
+    @JvmField
+    @RegisterExtension
+    val docs: DocumentationExtension =
+        DocumentationExtension.forPath(lookUpDocsDir())
+
+    @Test
+    fun generateDocumentation() {
+        // use this.docs ...
+    }
+
+    companion object {
+        fun lookUpDocsDir(): Path? {
+            // return path to docs dir
+            return null
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="registration-automatic"><a class="anchor" href="#registration-automatic"></a>Automatic Extension Registration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In addition to <a href="#registration-declarative">declarative extension registration</a>
+and <a href="#registration-programmatic">programmatic extension registration</a> support
+using annotations, JUnit Jupiter also supports <em>global extension registration</em> via Java&#8217;s
+<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/ServiceLoader.html">ServiceLoader</a></code> mechanism, allowing third-party extensions to be auto-detected and
+automatically registered based on what is available in the classpath.</p>
+</div>
+<div class="paragraph">
+<p>Specifically, a custom extension can be registered by supplying its fully qualified class
+name in a file named <code>org.junit.jupiter.api.extension.Extension</code> within the
+<code>/META-INF/services</code> folder in its enclosing JAR file.</p>
+</div>
+<div class="sect2">
+<h3 id="registration-automatic-enabling"><a class="anchor" href="#registration-automatic-enabling"></a>Enabling Automatic Extension Detection</h3>
+<div class="paragraph">
+<p>Auto-detection is an advanced feature and is therefore not enabled by default. To enable
+it, set the <code>junit.jupiter.extensions.autodetection.enabled</code> <em>configuration parameter</em> to
+<code>true</code>. This can be supplied as a JVM system property, as a <em>configuration parameter</em> in
+the <code>LauncherDiscoveryRequest</code> that is passed to the <code>Launcher</code>, or via the JUnit Platform
+configuration file (see <a href="../running-tests/configuration-parameters.html" class="xref page">Configuration Parameters</a> for details).</p>
+</div>
+<div class="paragraph">
+<p>For example, to enable auto-detection of extensions, you can start your JVM with the
+following system property.</p>
+</div>
+<div class="paragraph">
+<p><code>-Djunit.jupiter.extensions.autodetection.enabled=true</code></p>
+</div>
+<div class="paragraph">
+<p>When auto-detection is enabled, extensions discovered via the <code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/ServiceLoader.html">ServiceLoader</a></code> mechanism
+will be added to the extension registry after JUnit Jupiter&#8217;s global extensions (e.g.,
+support for <code>TestInfo</code>, <code>TestReporter</code>, etc.).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="registration-automatic-filtering"><a class="anchor" href="#registration-automatic-filtering"></a>Filtering Auto-detected Extensions</h3>
+<div class="paragraph">
+<p>The list of auto-detected extensions can be filtered using include and exclude patterns
+via the following <a href="../running-tests/configuration-parameters.html" class="xref page">configuration parameters</a>:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>junit.jupiter.extensions.autodetection.include=&lt;patterns&gt;</code></dt>
+<dd>
+<p>Comma-separated list of <em>include</em> patterns for auto-detected extensions.</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.extensions.autodetection.exclude=&lt;patterns&gt;</code></dt>
+<dd>
+<p>Comma-separated list of <em>exclude</em> patterns for auto-detected extensions.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Include patterns are applied <em>before</em> exclude patterns. If both include and exclude
+patterns are provided, only extensions that match at least one include pattern and do not
+match any exclude pattern will be auto-detected.</p>
+</div>
+<div class="paragraph">
+<p>See <a href="../running-tests/configuration-parameters.html#pattern" class="xref page">Pattern Matching Syntax</a> for details on the pattern syntax.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="registration-inheritance"><a class="anchor" href="#registration-inheritance"></a>Extension Inheritance</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Registered extensions are inherited within test class hierarchies with top-down semantics.
+Similarly, extensions registered at the class-level are inherited at the method-level.
+This applies to all extensions, independent of how they are registered (declaratively or
+programmatically).</p>
+</div>
+<div class="paragraph">
+<p>This means that extensions registered declaratively via <code>@ExtendWith</code> on a superclass will
+be registered before extensions registered declaratively via <code>@ExtendWith</code> on a subclass.</p>
+</div>
+<div class="paragraph">
+<p>Similarly, extensions registered programmatically via <code>@RegisterExtension</code> or
+<code>@ExtendWith</code> on fields in a superclass will be registered before extensions registered
+programmatically via <code>@RegisterExtension</code> or <code>@ExtendWith</code> on fields in a subclass, unless
+<code>@Order</code> is used to alter that behavior (see <a href="#registration-programmatic-order">Extension Registration Order</a> for details).</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+A specific extension implementation can only be registered once for a given
+extension context and its parent contexts. Consequently, any attempt to register a
+duplicate extension implementation will be ignored.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="overview.html">Extension Model</a></span>
+  <span class="next"><a href="conditional-test-execution.html">Conditional Test Execution</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+    <p>
+        &copy; Copyright 2015-2026 the original author or authors.
+        All rights reserved.
+        The content of this page is made available under the terms of the <a href="https://www.eclipse.org/legal/epl-v20.html">Eclipse Public License v2.0</a>.
+    </p>
+    <p>
+        This page was built using an adapted version of the Antora default UI.
+        The source code for this UI is licensed under the terms of the <a href="https://www.mozilla.org/en-US/MPL/2.0/">Mozilla Public License v2.0</a>.
+    </p>
+    <p>
+        Built and hosted on <a href="https://statichost.eu">statichost.eu</a>.
+    </p>
+</footer>
+<script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script async src="../../_/js/vendor/tabs.js" data-sync-storage-key="preferred-code-language"></script>
+<script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="100" data-stylesheet="../../_/css/search.css"></script>
+<script async src="../../search-index.js"></script>
+  </body>
+</html>
