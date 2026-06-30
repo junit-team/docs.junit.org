@@ -21372,6 +21372,26 @@ value of lower stability.</p>
 </tr>
 </tbody>
 </table>
+<h4 id="api-evolution:::module-org-junit-platform-suite-api" class="discrete">Module org.junit.platform.suite.api</h4>
+<h5 id="api-evolution:::package-org-junit-platform-suite-api" class="discrete">Package org.junit.platform.suite.api</h5>
+<table class="tableblock frame-none grid-rows stripes-odd stretch">
+<colgroup>
+<col style="width: 99%;">
+<col style="width: 1%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Since</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@Disabled</code> <em>(annotation)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>5.0</code></p></td>
+</tr>
+</tbody>
+</table>
 <h4 id="api-evolution:::module-org-junit-platform-testkit" class="discrete">Module org.junit.platform.testkit</h4>
 <h5 id="api-evolution:::package-org-junit-platform-testkit-engine" class="discrete">Package org.junit.platform.testkit.engine</h5>
 <table class="tableblock frame-none grid-rows stripes-odd stretch">
@@ -22045,6 +22065,10 @@ emitted.</p>
 <li>
 <p><code>junit-platform-console-standalone</code> is now part of the <code>junit-bom</code></p>
 </li>
+<li>
+<p><code>@org.junit.platform.suite.api.Disabled</code> can be used annotate a <code>@Suite</code>-annotated
+class. If so annotated, the suite will not be executed.</p>
+</li>
 </ul>
 </div>
 <h4 id="release-notes:::v6.2.0-M1-junit-jupiter" class="discrete 2 0-M1-junit-jupiter">JUnit Jupiter</h4>
@@ -22069,6 +22093,10 @@ of causing parameterized tests to fail with an internal exception.</p>
 <h5 id="release-notes:::v6.2.0-M1-junit-jupiter-new-features-and-improvements" class="discrete 2 0-M1-junit-jupiter-new-features-and-improvements">New Features and Improvements</h5>
 <div class="ulist">
 <ul>
+<li>
+<p>Added <code>OS.NETBSD</code> and <code>OS.DRAGONFLYBSD</code> enum constants for use with <code>@EnabledOnOs</code>
+and <code>@DisabledOnOs</code>.</p>
+</li>
 <li>
 <p>Failures caused by <code>@Timeout</code> expirations now include a hint about enabling
 <a href="#writing-tests-timeouts:::debugging-thread-dump">thread dumps</a>.</p>

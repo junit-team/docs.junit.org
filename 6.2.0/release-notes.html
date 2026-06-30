@@ -448,6 +448,10 @@ emitted.</p>
 <li>
 <p><code>junit-platform-console-standalone</code> is now part of the <code>junit-bom</code></p>
 </li>
+<li>
+<p><code>@org.junit.platform.suite.api.Disabled</code> can be used annotate a <code>@Suite</code>-annotated
+class. If so annotated, the suite will not be executed.</p>
+</li>
 </ul>
 </div>
 </div>
@@ -480,6 +484,10 @@ of causing parameterized tests to fail with an internal exception.</p>
 <h4 id="v6.2.0-M1-junit-jupiter-new-features-and-improvements"><a class="anchor" href="#v6.2.0-M1-junit-jupiter-new-features-and-improvements"></a>New Features and Improvements</h4>
 <div class="ulist">
 <ul>
+<li>
+<p>Added <code>OS.NETBSD</code> and <code>OS.DRAGONFLYBSD</code> enum constants for use with <code>@EnabledOnOs</code>
+and <code>@DisabledOnOs</code>.</p>
+</li>
 <li>
 <p>Failures caused by <code>@Timeout</code> expirations now include a hint about enabling
 <a href="writing-tests/timeouts.html#debugging-thread-dump" class="xref page">thread dumps</a>.</p>
