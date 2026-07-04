@@ -689,7 +689,10 @@ that signals abortion or failure.</div>
 service</a>; create an initial <a href="../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/HierarchicalTestEngine.html#createExecutionContext(org.junit.platform.engine.ExecutionRequest)">execution
 context</a>; execute the behavior of all <a href="../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/Node.html" title="interface in org.junit.platform.engine.support.hierarchical">nodes</a> in the
 hierarchy starting with the supplied <code>request</code>'s
-<a href="../org.junit.platform.engine/org/junit/platform/engine/ExecutionRequest.html#getRootTestDescriptor()">root</a> and notify
+<a href="../org.junit.platform.engine/org/junit/platform/engine/ExecutionRequest.html#getRootTestDescriptor()">root</a>, collecting
+every thrown throwable using the
+<a href="../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/ThrowableCollector.html" title="class in org.junit.platform.engine.support.hierarchical">throwable collector</a> returned by
+<a href="../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/HierarchicalTestEngine.html#createThrowableCollectorFactory(org.junit.platform.engine.ExecutionRequest)">HierarchicalTestEngine.createThrowableCollectorFactory(ExecutionRequest)</a>; and notify
 its <a href="../org.junit.platform.engine/org/junit/platform/engine/ExecutionRequest.html#getEngineExecutionListener()">execution
 listener</a> of test execution events.</div>
 </dd>
@@ -994,11 +997,31 @@ class, test interface, test method, parameter, or field.</div>
 <dd>&nbsp;</dd>
 <dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/Assertions.html#extensibility-heading" class="search-tag-link">Extensibility</a> - Section in class org.junit.jupiter.api.Assertions</dt>
 <dd>&nbsp;</dd>
+<dt><a href="../org.junit.jupiter.params/org/junit/jupiter/params/aggregator/SimpleArgumentsAggregator.html#extensibility-heading" class="search-tag-link">Extensibility</a> - Section in class org.junit.jupiter.params.aggregator.SimpleArgumentsAggregator</dt>
+<dd>&nbsp;</dd>
 <dt><a href="../org.junit.jupiter.params/org/junit/jupiter/params/provider/AnnotationBasedArgumentsProvider.html#extensibility-heading" class="search-tag-link">Extensibility</a> - Section in class org.junit.jupiter.params.provider.AnnotationBasedArgumentsProvider</dt>
+<dd>&nbsp;</dd>
+<dt><a href="../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/ExclusiveResource.html#extensibility-heading" class="search-tag-link">Extensibility</a> - Section in class org.junit.platform.engine.support.hierarchical.ExclusiveResource</dt>
+<dd>&nbsp;</dd>
+<dt><a href="../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/HierarchicalTestEngine.html#extensibility-heading" class="search-tag-link">Extensibility</a> - Section in class org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine</dt>
+<dd>&nbsp;</dd>
+<dt><a href="../org.junit.platform.launcher/org/junit/platform/launcher/listeners/SummaryGeneratingListener.html#extensibility-heading" class="search-tag-link">Extensibility</a> - Section in class org.junit.platform.launcher.listeners.SummaryGeneratingListener</dt>
+<dd>&nbsp;</dd>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionConfigurationException.html#extensibility-heading" class="search-tag-link">Extensibility</a> - Section in exception class org.junit.jupiter.api.extension.ExtensionConfigurationException</dt>
+<dd>&nbsp;</dd>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContextException.html#extensibility-heading" class="search-tag-link">Extensibility</a> - Section in exception class org.junit.jupiter.api.extension.ExtensionContextException</dt>
+<dd>&nbsp;</dd>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ParameterResolutionException.html#extensibility-heading" class="search-tag-link">Extensibility</a> - Section in exception class org.junit.jupiter.api.extension.ParameterResolutionException</dt>
 <dd>&nbsp;</dd>
 <dt><a href="../org.junit.jupiter.params/org/junit/jupiter/params/aggregator/ArgumentAccessException.html#extensibility-heading" class="search-tag-link">Extensibility</a> - Section in exception class org.junit.jupiter.params.aggregator.ArgumentAccessException</dt>
 <dd>&nbsp;</dd>
 <dt><a href="../org.junit.jupiter.params/org/junit/jupiter/params/aggregator/ArgumentsAggregationException.html#extensibility-heading" class="search-tag-link">Extensibility</a> - Section in exception class org.junit.jupiter.params.aggregator.ArgumentsAggregationException</dt>
+<dd>&nbsp;</dd>
+<dt><a href="../org.junit.jupiter.params/org/junit/jupiter/params/provider/CsvParsingException.html#extensibility-heading" class="search-tag-link">Extensibility</a> - Section in exception class org.junit.jupiter.params.provider.CsvParsingException</dt>
+<dd>&nbsp;</dd>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/DisplayNameGenerator.html#extensibility-heading" class="search-tag-link">Extensibility</a> - Section in interface org.junit.jupiter.api.DisplayNameGenerator</dt>
+<dd>&nbsp;</dd>
+<dt><a href="../org.junit.jupiter.params/org/junit/jupiter/params/aggregator/ArgumentsAggregator.html#extensibility-heading" class="search-tag-link">Extensibility</a> - Section in interface org.junit.jupiter.params.aggregator.ArgumentsAggregator</dt>
 <dd>&nbsp;</dd>
 <dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/Extension.html" class="type-name-link" title="interface in org.junit.jupiter.api.extension">Extension</a> - Interface in <a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/package-summary.html">org.junit.jupiter.api.extension</a></dt>
 <dd>

@@ -61,6 +61,8 @@ loadScripts(document, 'script');</script>
 <ol class="toc-list" tabindex="-1">
 <li><a href="#" tabindex="0">Description</a>
 <ol class="toc-list">
+<li><a href="#extensibility-heading" tabindex="0">Extensibility</a></li>
+<li><a href="#configuration-heading" tabindex="0">Configuration</a></li>
 <li><a href="#built-in-implementations-heading" tabindex="0">Built-in Implementations</a></li>
 </ol>
 </li>
@@ -106,7 +108,13 @@ programmatically.
 <p>Display names are typically used for test reporting in IDEs and build
 tools and may contain spaces, special characters, and even emoji.
 
+<h2 id="extensibility-heading">Extensibility</h2>
+
+<p>This interface is designed to be implemented by clients.
+
 <p>Concrete implementations must have a <em>default constructor</em>.
+
+<h2 id="configuration-heading">Configuration</h2>
 
 <p>A <a href="DisplayNameGenerator.html" title="interface in org.junit.jupiter.api"><code>DisplayNameGenerator</code></a> can be configured <em>globally</em> for the
 entire test suite via the <a href="#DEFAULT_GENERATOR_PROPERTY_NAME">"junit.jupiter.displayname.generator.default"</a>

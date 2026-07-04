@@ -59,7 +59,11 @@ loadScripts(document, 'script');</script>
 <nav role="navigation" class="toc" aria-label="Table of contents">
 <div class="toc-header">Contents&nbsp;<input type="text" class="filter-input" disabled placeholder="Filter contents (type .)" aria-label="Filter table of contents" autocomplete="off" spellcheck="false"><input type="reset" class="reset-filter" disabled tabindex="-1" value="Reset"></div>
 <ol class="toc-list" tabindex="-1">
-<li><a href="#" tabindex="0">Description</a></li>
+<li><a href="#" tabindex="0">Description</a>
+<ol class="toc-list">
+<li><a href="#extensibility-heading" tabindex="0">Extensibility</a></li>
+</ol>
+</li>
 <li><a href="#constructor-summary" tabindex="0">Constructor Summary</a></li>
 <li><a href="#method-summary" tabindex="0">Method Summary</a></li>
 <li><a href="#constructor-detail" tabindex="0">Constructor Details</a>
@@ -98,7 +102,11 @@ loadScripts(document, 'script');</script>
 implements <a href="ArgumentsAggregator.html" title="interface in org.junit.jupiter.params.aggregator">ArgumentsAggregator</a></span></div>
 <div class="block"><code>SimpleArgumentsAggregator</code> is an abstract base class for
 <a href="ArgumentsAggregator.html" title="interface in org.junit.jupiter.params.aggregator"><code>ArgumentsAggregator</code></a> implementations that do not need to distinguish
-between fields and method/constructor parameters.</div>
+between fields and method/constructor parameters.
+
+<h2 id="extensibility-heading">Extensibility</h2>
+
+<p>This class is designed for extension.</div>
 <dl class="notes">
 <dt>Since:</dt>
 <dd>5.0</dd>
@@ -147,15 +155,13 @@ between fields and method/constructor parameters.</div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#aggregateArguments(org.junit.jupiter.params.aggregator.ArgumentsAccessor,org.junit.jupiter.api.extension.ParameterContext)" class="member-name-link">aggregateArguments</a><wbr>(<a href="ArgumentsAccessor.html" title="interface in org.junit.jupiter.params.aggregator">ArgumentsAccessor</a>&nbsp;accessor,
  <a href="../../../../../../org.junit.jupiter.api/org/junit/jupiter/api/extension/ParameterContext.html" title="interface in org.junit.jupiter.api.extension">ParameterContext</a>&nbsp;context)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Aggregate the arguments contained in the supplied <code>accessor</code> into a
-single object.</div>
+<div class="block">By default, this method delegates to <a href="#aggregateArguments(org.junit.jupiter.params.aggregator.ArgumentsAccessor,java.lang.Class,org.junit.jupiter.api.extension.AnnotatedElementContext,int)"><code>aggregateArguments(ArgumentsAccessor, Class, AnnotatedElementContext, int)</code></a>.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://jspecify.dev/docs/api/org/jspecify/annotations/Nullable.html" title="class or interface in org.jspecify.annotations" class="external-link">@Nullable</a> <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#aggregateArguments(org.junit.jupiter.params.aggregator.ArgumentsAccessor,org.junit.jupiter.params.support.FieldContext)" class="member-name-link">aggregateArguments</a><wbr>(<a href="ArgumentsAccessor.html" title="interface in org.junit.jupiter.params.aggregator">ArgumentsAccessor</a>&nbsp;accessor,
  <a href="../support/FieldContext.html" title="interface in org.junit.jupiter.params.support">FieldContext</a>&nbsp;context)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Aggregate the arguments contained in the supplied <code>accessor</code> into a
-single object.</div>
+<div class="block">By default, this method delegates to <a href="#aggregateArguments(org.junit.jupiter.params.aggregator.ArgumentsAccessor,java.lang.Class,org.junit.jupiter.api.extension.AnnotatedElementContext,int)"><code>aggregateArguments(ArgumentsAccessor, Class, AnnotatedElementContext, int)</code></a>.</div>
 </div>
 </div>
 </div>
@@ -197,9 +203,7 @@ single object.</div>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://jspecify.dev/docs/api/org/jspecify/annotations/Nullable.html" title="class or interface in org.jspecify.annotations" class="external-link">@Nullable</a> <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span>&nbsp;<span class="element-name">aggregateArguments</span><wbr><span class="parameters">(<a href="ArgumentsAccessor.html" title="interface in org.junit.jupiter.params.aggregator">ArgumentsAccessor</a>&nbsp;accessor,
  <a href="../../../../../../org.junit.jupiter.api/org/junit/jupiter/api/extension/ParameterContext.html" title="interface in org.junit.jupiter.api.extension">ParameterContext</a>&nbsp;context)</span>
                                     throws <span class="exceptions"><a href="ArgumentsAggregationException.html" title="class in org.junit.jupiter.params.aggregator">ArgumentsAggregationException</a></span></div>
-<div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="ArgumentsAggregator.html#aggregateArguments(org.junit.jupiter.params.aggregator.ArgumentsAccessor,org.junit.jupiter.api.extension.ParameterContext)">ArgumentsAggregator</a></code></span></div>
-<div class="block">Aggregate the arguments contained in the supplied <code>accessor</code> into a
-single object.</div>
+<div class="block">By default, this method delegates to <a href="#aggregateArguments(org.junit.jupiter.params.aggregator.ArgumentsAccessor,java.lang.Class,org.junit.jupiter.api.extension.AnnotatedElementContext,int)"><code>aggregateArguments(ArgumentsAccessor, Class, AnnotatedElementContext, int)</code></a>.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="ArgumentsAggregator.html#aggregateArguments(org.junit.jupiter.params.aggregator.ArgumentsAccessor,org.junit.jupiter.api.extension.ParameterContext)">aggregateArguments</a></code>&nbsp;in interface&nbsp;<code><a href="ArgumentsAggregator.html" title="interface in org.junit.jupiter.params.aggregator">ArgumentsAggregator</a></code></dd>
@@ -225,9 +229,7 @@ aggregation</dd>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://jspecify.dev/docs/api/org/jspecify/annotations/Nullable.html" title="class or interface in org.jspecify.annotations" class="external-link">@Nullable</a> <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span>&nbsp;<span class="element-name">aggregateArguments</span><wbr><span class="parameters">(<a href="ArgumentsAccessor.html" title="interface in org.junit.jupiter.params.aggregator">ArgumentsAccessor</a>&nbsp;accessor,
  <a href="../support/FieldContext.html" title="interface in org.junit.jupiter.params.support">FieldContext</a>&nbsp;context)</span>
                                     throws <span class="exceptions"><a href="ArgumentsAggregationException.html" title="class in org.junit.jupiter.params.aggregator">ArgumentsAggregationException</a></span></div>
-<div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="ArgumentsAggregator.html#aggregateArguments(org.junit.jupiter.params.aggregator.ArgumentsAccessor,org.junit.jupiter.params.support.FieldContext)">ArgumentsAggregator</a></code></span></div>
-<div class="block">Aggregate the arguments contained in the supplied <code>accessor</code> into a
-single object.</div>
+<div class="block">By default, this method delegates to <a href="#aggregateArguments(org.junit.jupiter.params.aggregator.ArgumentsAccessor,java.lang.Class,org.junit.jupiter.api.extension.AnnotatedElementContext,int)"><code>aggregateArguments(ArgumentsAccessor, Class, AnnotatedElementContext, int)</code></a>.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="ArgumentsAggregator.html#aggregateArguments(org.junit.jupiter.params.aggregator.ArgumentsAccessor,org.junit.jupiter.params.support.FieldContext)">aggregateArguments</a></code>&nbsp;in interface&nbsp;<code><a href="ArgumentsAggregator.html" title="interface in org.junit.jupiter.params.aggregator">ArgumentsAggregator</a></code></dd>

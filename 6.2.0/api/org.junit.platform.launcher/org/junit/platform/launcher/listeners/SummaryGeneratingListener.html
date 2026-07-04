@@ -59,7 +59,11 @@ loadScripts(document, 'script');</script>
 <nav role="navigation" class="toc" aria-label="Table of contents">
 <div class="toc-header">Contents&nbsp;<input type="text" class="filter-input" disabled placeholder="Filter contents (type .)" aria-label="Filter table of contents" autocomplete="off" spellcheck="false"><input type="reset" class="reset-filter" disabled tabindex="-1" value="Reset"></div>
 <ol class="toc-list" tabindex="-1">
-<li><a href="#" tabindex="0">Description</a></li>
+<li><a href="#" tabindex="0">Description</a>
+<ol class="toc-list">
+<li><a href="#extensibility-heading" tabindex="0">Extensibility</a></li>
+</ol>
+</li>
 <li><a href="#constructor-summary" tabindex="0">Constructor Summary</a></li>
 <li><a href="#method-summary" tabindex="0">Method Summary</a></li>
 <li><a href="#constructor-detail" tabindex="0">Constructor Details</a>
@@ -101,7 +105,12 @@ loadScripts(document, 'script');</script>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
 implements <a href="../TestExecutionListener.html" title="interface in org.junit.platform.launcher">TestExecutionListener</a></span></div>
 <div class="block">Simple <a href="../TestExecutionListener.html" title="interface in org.junit.platform.launcher"><code>TestExecutionListener</code></a> that generates a
-<a href="TestExecutionSummary.html" title="interface in org.junit.platform.launcher.listeners">summary</a> of the test execution.</div>
+<a href="TestExecutionSummary.html" title="interface in org.junit.platform.launcher.listeners">summary</a> of the test execution.
+
+<h2 id="extensibility-heading">Extensibility</h2>
+
+<p>Although it is technically possible to extend this class, extension is
+strongly discouraged.</div>
 <dl class="notes">
 <dt>Since:</dt>
 <dd>1.0</dd>
