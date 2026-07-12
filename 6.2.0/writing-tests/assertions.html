@@ -640,6 +640,16 @@ class KotlinAssertionsDemo {
     }
 
     @Test
+    fun `expected exception testing with class parameter`() {
+        val calculator = Calculator()
+        val exception =
+            assertThrows(ArithmeticException::class, "Should throw an exception") {
+                calculator.divide(1, 0)
+            }
+        assertEquals("/ by zero", exception.message)
+    }
+
+    @Test
     fun `grouped assertions`() {
         assertAll(
             "Person properties",
