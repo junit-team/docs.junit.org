@@ -1,0 +1,2268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Built-in Extensions :: JUnit User Guide</title>
+    <link rel="canonical" href="https://docs.junit.org/6.1.2/writing-tests/built-in-extensions.html">
+    <link rel="prev" href="parallel-execution.html">
+    <link rel="next" href="../migrating-from-junit4.html">
+    <meta name="generator" content="Antora 3.2.0-rc.2">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<link rel="icon" type="image/png" href="../../_/img/junit-diamond.png">
+<link rel="icon" type="image/svg+xml" href="../../_/img/junit-diamond-adaptive.svg" sizes="any">
+
+<link rel="stylesheet" href="../../_/css/vendor/highlightjs/github.min.css">
+<link rel="stylesheet" href="../../_/css/vendor/tabs.css">
+
+<link rel="preload" as="style" href="https://assets.junit.org/fonts/index.css">
+<link rel="preload" as="font" href="https://assets.junit.org/fonts/blinker-latin-600-normal.woff2" type="font/woff2" crossorigin/>
+<link rel="preload" as="font" href="https://assets.junit.org/fonts/inter-latin-wght-normal.woff2" type="font/woff2" crossorigin/>
+<link rel="preload" as="font" href="https://assets.junit.org/fonts/inter-latin-wght-italic.woff2" type="font/woff2" crossorigin/>
+<link rel="preload" as="font" href="https://assets.junit.org/fonts/jetbrains-mono-latin-wght-normal.woff2" type="font/woff2" crossorigin/>
+
+<link rel="preload" as="style" href="../../_/css/site-extra.css">
+
+<link rel="stylesheet" href="https://assets.junit.org/fonts/index.css">
+<link rel="stylesheet" href="../../_/css/site-extra.css">
+
+<meta name="theme-color" content="#25a162">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item title" href="https://docs.junit.org">
+          <img class="logo" src="../../_/img/junit-diamond-white.png" alt="✔️"/>
+          JUnit User Guide<span class="version">6.1.2</span>
+      </a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search current version">
+          <label style="display: none">
+            <!-- restrict search to current version -->
+            <input type="checkbox" data-facet-filter="version:6.1.2" checked>
+          </label>
+        </div>
+      </div>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+          <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link" href="#">Repo</a>
+              <div class="navbar-dropdown">
+                  <a class="navbar-item" href="https://github.com/junit-team/junit-framework">
+                      <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg>
+                      GitHub
+                  </a>
+                  <a class="navbar-item" href="https://codeberg.org/junit-team/junit-framework">
+                      <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Codeberg</title><path d="M11.999.747A11.974 11.974 0 0 0 0 12.75c0 2.254.635 4.465 1.833 6.376L11.837 6.19c.072-.092.251-.092.323 0l4.178 5.402h-2.992l.065.239h3.113l.882 1.138h-3.674l.103.374h3.86l.777 1.003h-4.358l.135.483h4.593l.695.894h-5.038l.165.589h5.326l.609.785h-5.717l.182.65h6.038l.562.727h-6.397l.183.65h6.717A12.003 12.003 0 0 0 24 12.75 11.977 11.977 0 0 0 11.999.747zm3.654 19.104.182.65h5.326c.173-.204.353-.433.513-.65zm.385 1.377.18.65h3.563c.233-.198.485-.428.712-.65zm.383 1.377.182.648h1.203c.356-.204.685-.412 1.042-.648zz"></path></svg>
+                      Codeberg
+                  </a>
+              </div>
+          </div>
+          <a class="navbar-item" href="https://junit.org/">Home</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="junit" data-version="6.1.2">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">JUnit</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="intro.html">Writing Tests</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="annotations.html">Annotations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="definitions.html">Definitions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-classes-and-methods.html">Test Classes and Methods</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="display-names.html">Display Names</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="assertions.html">Assertions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="assumptions.html">Assumptions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="exception-handling.html">Exception Handling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="disabling-tests.html">Disabling Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="conditional-test-execution.html">Conditional Test Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="tagging-and-filtering.html">Tagging and Filtering</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-execution-order.html">Test Execution Order</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-instance-lifecycle.html">Test Instance Lifecycle</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="nested-tests.html">Nested Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dependency-injection-for-constructors-and-methods.html">Dependency Injection for Constructors and Methods</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-interfaces-and-default-methods.html">Test Interfaces and Default Methods</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="repeated-tests.html">Repeated Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="parameterized-classes-and-tests.html">Parameterized Classes and Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="class-templates.html">Class Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="test-templates.html">Test Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dynamic-tests.html">Dynamic Tests</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="timeouts.html">Timeouts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="parallel-execution.html">Parallel Execution</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="built-in-extensions.html">Built-in Extensions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../migrating-from-junit4.html">Migrating from JUnit 4</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../running-tests/intro.html">Running Tests</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/ide-support.html">IDE Support</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/build-support.html">Build Support</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/console-launcher.html">Console Launcher</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/source-launcher.html">Source Launcher</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/discovery-selectors.html">Discovery Selectors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/configuration-parameters.html">Configuration Parameters</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/tags.html">Tags</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/capturing-standard-output-error.html">Capturing Standard Output/Error</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/using-listeners-and-interceptors.html">Using Listeners and Interceptors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/stack-trace-pruning.html">Stack Trace Pruning</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../running-tests/discovery-issues.html">Discovery Issues</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../extensions/overview.html">Extension Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/registering-extensions.html">Registering Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/conditional-test-execution.html">Conditional Test Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-instance-pre-construct-callback.html">Test Instance Pre-construct Callback</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-instance-factories.html">Test Instance Factories</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-instance-post-processing.html">Test Instance Post-processing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-instance-pre-destroy-callback.html">Test Instance Pre-destroy Callback</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/parameter-resolution.html">Parameter Resolution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-result-processing.html">Test Result Processing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/test-lifecycle-callbacks.html">Test Lifecycle Callbacks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/exception-handling.html">Exception Handling</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/pre-interrupt-callback.html">Pre-Interrupt Callback</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/intercepting-invocations.html">Intercepting Invocations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/providing-invocation-contexts-for-class-templates.html">Providing Invocation Contexts for Class Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/providing-invocation-contexts-for-test-templates.html">Providing Invocation Contexts for Test Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/keeping-state-in-extensions.html">Keeping State in Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/supported-utilities-in-extensions.html">Supported Utilities in Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../extensions/relative-execution-order-of-user-code-and-extensions.html">Relative Execution Order of User Code and Extensions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced Topics</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/junit-platform-reporting.html">JUnit Platform Reporting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/junit-platform-suite-engine.html">JUnit Platform Suite Engine</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/testkit.html">JUnit Platform Test Kit</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/launcher-api.html">JUnit Platform Launcher API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/engines.html">Test Engines</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../api-evolution.html">API Evolution</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../release-notes.html">Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../api/index.html">Javadoc</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">JUnit</span>
+    <span class="version">6.1.2</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../index.html">JUnit</a></div>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../6.2.0/index.html">6.2.0-SNAPSHOT</a>
+        </li>
+        <li class="version is-current is-latest">
+          <a href="../index.html">6.1.2</a>
+        </li>
+        <li class="version">
+          <a href="../../6.1.1/index.html">6.1.1</a>
+        </li>
+        <li class="version">
+          <a href="../../6.1.0/index.html">6.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../6.1.0-RC1/index.html">6.1.0-RC1</a>
+        </li>
+        <li class="version">
+          <a href="../../6.1.0-M1/index.html">6.1.0-M1</a>
+        </li>
+        <li class="version">
+          <a href="../../6.0.3/index.html">6.0.3</a>
+        </li>
+        <li class="version">
+          <a href="../../6.0.2/index.html">6.0.2</a>
+        </li>
+        <li class="version">
+          <a href="../../6.0.1/index.html">6.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../6.0.0/index.html">6.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.4/index.html">5.14.4</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.3/index.html">5.14.3</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.2/index.html">5.14.2</a>
+        </li>
+        <li class="version">
+          <a href="../../5.14.1/index.html">5.14.1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../overview.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">JUnit</a></li>
+    <li><a href="intro.html">Writing Tests</a></li>
+    <li><a href="built-in-extensions.html">Built-in Extensions</a></li>
+  </ul>
+</nav>
+        <div class="pdf-link">
+            <a href="../_exports/junit-user-guide-6.1.2.pdf#writing-tests-built-in-extensions">PDF</a>
+        </div>
+        <div class="html-link">
+            <a href="../_exports/junit-user-guide-6.1.2.html#writing-tests-built-in-extensions">Single page</a>
+        </div>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">6.1.2</button>
+  <div class="version-menu">
+    <a class="version" href="../../6.2.0/writing-tests/built-in-extensions.html">6.2.0-SNAPSHOT</a>
+    <a class="version is-current" href="built-in-extensions.html">6.1.2</a>
+    <a class="version" href="../../6.1.1/writing-tests/built-in-extensions.html">6.1.1</a>
+    <a class="version" href="../../6.1.0/writing-tests/built-in-extensions.html">6.1.0</a>
+    <a class="version" href="../../6.1.0-RC1/writing-tests/built-in-extensions.html">6.1.0-RC1</a>
+    <a class="version" href="../../6.1.0-M1/writing-tests/built-in-extensions.html">6.1.0-M1</a>
+    <a class="version" href="../../6.0.3/writing-tests/built-in-extensions.html">6.0.3</a>
+    <a class="version" href="../../6.0.2/writing-tests/built-in-extensions.html">6.0.2</a>
+    <a class="version" href="../../6.0.1/writing-tests/built-in-extensions.html">6.0.1</a>
+    <a class="version" href="../../6.0.0/writing-tests/built-in-extensions.html">6.0.0</a>
+    <a class="version" href="../../5.14.4/writing-tests/built-in-extensions.html">5.14.4</a>
+    <a class="version" href="../../5.14.3/writing-tests/built-in-extensions.html">5.14.3</a>
+    <a class="version" href="../../5.14.2/writing-tests/built-in-extensions.html">5.14.2</a>
+    <a class="version" href="../../5.14.1/writing-tests/built-in-extensions.html">5.14.1</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/junit-team/junit-framework/blob/r6.1.2/documentation/modules/ROOT/pages/writing-tests/built-in-extensions.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Built-in Extensions</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>While the JUnit team encourages reusable extensions to be packaged and maintained in
+separate libraries, JUnit Jupiter includes a few user-facing extension implementations
+that are considered so generally useful that users shouldn&#8217;t have to add another
+dependency.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="TempDirectory"><a class="anchor" href="#TempDirectory"></a>The @TempDir Extension</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code><a href="https://github.com/junit-team/junit-framework/tree/r6.1.2/junit-jupiter-engine/src/main/java/org/junit/jupiter/engine/extension/TempDirectory.java">TempDirectory</a></code> extension is used to create and clean up a temporary
+directory for an individual test or all tests in a test class. It is registered by
+default. To use it, annotate a non-final, unassigned field of type <code>java.nio.file.Path</code> or
+<code>java.io.File</code> with <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/io/TempDir.html" class="xref attachment">@TempDir</a></code> or add a parameter of type <code>java.nio.file.Path</code> or
+<code>java.io.File</code> annotated with <code>@TempDir</code> to a test class constructor, lifecycle method, or
+test method.</p>
+</div>
+<div class="paragraph">
+<p>For example, the following test declares a parameter annotated with <code>@TempDir</code> for a
+single test method, creates and writes to a file in the temporary directory, and checks
+its content.</p>
+</div>
+<div id="tabs-1" class="openblock tabs is-sync is-loading">
+<div class="title">A test method that requires a temporary directory</div>
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-1-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-1-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-1-java--panel" class="tabpanel" aria-labelledby="tabs-1-java">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Test
+void writeItemsToFile(@TempDir Path tempDir) throws IOException {
+	Path file = tempDir.resolve("test.txt");
+
+	new ListWriter(file).write("a", "b", "c");
+
+	assertEquals(List.of("a,b,c"), Files.readAllLines(file));
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-1-kotlin--panel" class="tabpanel" aria-labelledby="tabs-1-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Test
+fun writeItemsToFile(
+    @TempDir tempDir: Path
+) {
+    val file = tempDir.resolve("test.txt")
+
+    ListWriter(file).write("a", "b", "c")
+
+    assertEquals(listOf("a,b,c"), Files.readAllLines(file))
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>You can inject multiple temporary directories by specifying multiple annotated parameters.</p>
+</div>
+<div id="tabs-2" class="openblock tabs is-sync is-loading">
+<div class="title">A test method that requires multiple temporary directories</div>
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-2-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-2-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-2-java--panel" class="tabpanel" aria-labelledby="tabs-2-java">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Test
+void copyFileFromSourceToTarget(@TempDir Path source, @TempDir Path target) throws IOException {
+	Path sourceFile = source.resolve("test.txt");
+	new ListWriter(sourceFile).write("a", "b", "c");
+
+	Path targetFile = Files.copy(sourceFile, target.resolve("test.txt"));
+
+	assertNotEquals(sourceFile, targetFile);
+	assertEquals(List.of("a,b,c"), Files.readAllLines(targetFile));
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-2-kotlin--panel" class="tabpanel" aria-labelledby="tabs-2-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Test
+fun copyFileFromSourceToTarget(
+    @TempDir source: Path,
+    @TempDir target: Path
+) {
+    val sourceFile = source.resolve("test.txt")
+    ListWriter(sourceFile).write("a", "b", "c")
+
+    val targetFile = Files.copy(sourceFile, target.resolve("test.txt"))
+
+    assertNotEquals(sourceFile, targetFile)
+    assertEquals(listOf("a,b,c"), Files.readAllLines(targetFile))
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>The following example stores a <em>shared</em> temporary directory in a <code>static</code> field. This
+allows the same <code>sharedTempDir</code> to be used in all lifecycle methods and test methods of
+the test class. For better isolation, you should use an instance field or constructor
+injection so that each test method uses a separate directory.</p>
+</div>
+<div id="tabs-3" class="openblock tabs is-sync is-loading">
+<div class="title">A test class that shares a temporary directory across test methods</div>
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-3-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-3-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-3-java--panel" class="tabpanel" aria-labelledby="tabs-3-java">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">class SharedTempDirectoryDemo {
+
+	@TempDir
+	static Path sharedTempDir;
+
+	@Test
+	void writeItemsToFile() throws IOException {
+		Path file = sharedTempDir.resolve("test.txt");
+
+		new ListWriter(file).write("a", "b", "c");
+
+		assertEquals(List.of("a,b,c"), Files.readAllLines(file));
+	}
+
+	@Test
+	void anotherTestThatUsesTheSameTempDir() {
+		// use sharedTempDir
+	}
+
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-3-kotlin--panel" class="tabpanel" aria-labelledby="tabs-3-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class SharedTempDirectoryDemo {
+    @Test
+    fun writeItemsToFile() {
+        val file = sharedTempDir.resolve("test.txt")
+
+        ListWriter(file).write("a", "b", "c")
+
+        assertEquals(listOf("a,b,c"), Files.readAllLines(file))
+    }
+
+    @Test
+    fun anotherTestThatUsesTheSameTempDir() {
+        // use sharedTempDir
+    }
+
+    companion object {
+        @TempDir
+        @JvmStatic
+        lateinit var sharedTempDir: Path
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>@TempDir</code> annotation has an optional <code>cleanup</code> attribute that can be set to either
+<code>NEVER</code>, <code>ON_SUCCESS</code>, or <code>ALWAYS</code>. If the cleanup mode is set to <code>NEVER</code>, the temporary
+directory will not be deleted after the test completes. If it is set to <code>ON_SUCCESS</code>, the
+temporary directory will only be deleted after the test if the test completed successfully.</p>
+</div>
+<div class="paragraph">
+<p>The default cleanup mode is <code>ALWAYS</code>. You can use the
+<code>junit.jupiter.tempdir.cleanup.mode.default</code>
+<a href="../running-tests/configuration-parameters.html" class="xref page">configuration parameter</a> to override this default.</p>
+</div>
+<div id="tabs-4" class="openblock tabs is-sync is-loading">
+<div class="title">A test class with a temporary directory that doesn&#8217;t get cleaned up</div>
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-4-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-4-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-4-java--panel" class="tabpanel" aria-labelledby="tabs-4-java">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">class CleanupModeDemo {
+
+	@Test
+	void fileTest(@TempDir(cleanup = ON_SUCCESS) Path tempDir) {
+		// perform test
+	}
+
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-4-kotlin--panel" class="tabpanel" aria-labelledby="tabs-4-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class CleanupModeDemo {
+    @Test
+    fun fileTest(
+        @TempDir(cleanup = ON_SUCCESS) tempDir: Path
+    ) {
+        // perform test
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="TempDirFactory"><a class="anchor" href="#TempDirFactory"></a>Factories</h3>
+<div class="paragraph">
+<p><code>@TempDir</code> supports the programmatic creation of temporary directories via the optional
+<code>factory</code> attribute. This is typically used to gain control over the temporary directory
+creation, like defining the parent directory or the file system that should be used.</p>
+</div>
+<div class="paragraph">
+<p>Factories can be created by implementing <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/io/TempDirFactory.html" class="xref attachment">TempDirFactory</a></code>. Implementations must provide a
+no-args constructor and should not make any assumptions regarding when and how many times
+they are instantiated, but they can assume that their <code>createTempDirectory(&#8230;&#8203;)</code> and
+<code>close()</code> methods will both be called once per instance, in this order, and from the same
+thread.</p>
+</div>
+<div class="paragraph">
+<p>The default implementation available in Jupiter delegates directory creation to
+<code>java.nio.file.Files::createTempDirectory</code> which uses the default file system and the
+system&#8217;s temporary directory as the parent directory. It passes <code>junit-</code> as the prefix
+string of the generated directory name to help identify it as a created by JUnit.</p>
+</div>
+<div class="paragraph">
+<p>The following example defines a factory that uses the test name as the directory name
+prefix instead of the <code>junit</code> constant value.</p>
+</div>
+<div id="tabs-5" class="openblock tabs is-sync is-loading">
+<div class="title">A test class with a temporary directory having the test name as the directory name prefix</div>
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-5-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-5-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-5-java--panel" class="tabpanel" aria-labelledby="tabs-5-java">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">class TempDirFactoryDemo {
+
+	@Test
+	void factoryTest(@TempDir(factory = Factory.class) Path tempDir) {
+		assertTrue(tempDir.getFileName().toString().startsWith("factoryTest"));
+	}
+
+	static class Factory implements TempDirFactory {
+
+		@Override
+		public Path createTempDirectory(AnnotatedElementContext elementContext, ExtensionContext extensionContext)
+				throws IOException {
+			return Files.createTempDirectory(extensionContext.getRequiredTestMethod().getName());
+		}
+
+	}
+
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-5-kotlin--panel" class="tabpanel" aria-labelledby="tabs-5-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class TempDirFactoryDemo {
+    @Test
+    fun factoryTest(
+        @TempDir(factory = Factory::class) tempDir: Path
+    ) {
+        assertTrue(tempDir.fileName.toString().startsWith("factoryTest"))
+    }
+
+    class Factory : TempDirFactory {
+        override fun createTempDirectory(
+            elementContext: AnnotatedElementContext,
+            extensionContext: ExtensionContext
+        ): Path = Files.createTempDirectory(extensionContext.requiredTestMethod.name)
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>It is also possible to use an in-memory file system like <code><a href="https://google.github.io/jimfs/">Jimfs</a></code> for the creation of the
+temporary directory. The following example demonstrates how to achieve that.</p>
+</div>
+<div id="tabs-6" class="openblock tabs is-sync is-loading">
+<div class="title">A test class with a temporary directory created with the Jimfs in-memory file system</div>
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-6-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-6-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-6-java--panel" class="tabpanel" aria-labelledby="tabs-6-java">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">class InMemoryTempDirDemo {
+
+	@Test
+	void test(@TempDir(factory = JimfsTempDirFactory.class) Path tempDir) {
+		// perform test
+	}
+
+	static class JimfsTempDirFactory implements TempDirFactory {
+
+		private final FileSystem fileSystem = Jimfs.newFileSystem(Configuration.unix());
+
+		@Override
+		public Path createTempDirectory(AnnotatedElementContext elementContext, ExtensionContext extensionContext)
+				throws IOException {
+			return Files.createTempDirectory(fileSystem.getPath("/"), "junit-");
+		}
+
+		@Override
+		public void close() throws IOException {
+			fileSystem.close();
+		}
+
+	}
+
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-6-kotlin--panel" class="tabpanel" aria-labelledby="tabs-6-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class InMemoryTempDirDemo {
+    @Test
+    fun test(
+        @TempDir(factory = JimfsTempDirFactory::class) tempDir: Path
+    ) {
+        // perform test
+    }
+
+    class JimfsTempDirFactory : TempDirFactory {
+        private val fileSystem: FileSystem = Jimfs.newFileSystem(Configuration.unix())
+
+        override fun createTempDirectory(
+            elementContext: AnnotatedElementContext,
+            extensionContext: ExtensionContext
+        ): Path = Files.createTempDirectory(fileSystem.getPath("/"), "junit-")
+
+        override fun close() {
+            fileSystem.close()
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p><code>@TempDir</code> can also be used as a <a href="annotations.html#annotations" class="xref page">meta-annotation</a> to
+reduce repetition. The following code listing shows how to create a custom <code>@JimfsTempDir</code>
+annotation that can be used as a drop-in replacement for
+<code>@TempDir(factory = JimfsTempDirFactory.class)</code>.</p>
+</div>
+<div id="tabs-7" class="openblock tabs is-sync is-loading">
+<div class="title">A custom annotation meta-annotated with <code>@TempDir</code></div>
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-7-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-7-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-7-java--panel" class="tabpanel" aria-labelledby="tabs-7-java">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Target({ ElementType.ANNOTATION_TYPE, ElementType.FIELD, ElementType.PARAMETER })
+@Retention(RetentionPolicy.RUNTIME)
+@TempDir(factory = JimfsTempDirFactory.class)
+@interface JimfsTempDir {
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-7-kotlin--panel" class="tabpanel" aria-labelledby="tabs-7-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Target(AnnotationTarget.ANNOTATION_CLASS, AnnotationTarget.FIELD, AnnotationTarget.VALUE_PARAMETER)
+@Retention(AnnotationRetention.RUNTIME)
+@TempDir(factory = JimfsTempDirFactory::class)
+annotation class JimfsTempDir</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>The following example demonstrates how to use the custom <code>@JimfsTempDir</code> annotation.</p>
+</div>
+<div id="tabs-8" class="openblock tabs is-sync is-loading">
+<div class="title">A test class using the custom annotation</div>
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-8-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-8-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-8-java--panel" class="tabpanel" aria-labelledby="tabs-8-java">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">class JimfsTempDirAnnotationDemo {
+
+	@Test
+	void test(@JimfsTempDir Path tempDir) {
+		// perform test
+	}
+
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-8-kotlin--panel" class="tabpanel" aria-labelledby="tabs-8-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class JimfsTempDirAnnotationDemo {
+    @Test
+    fun test(
+        @JimfsTempDir tempDir: Path
+    ) {
+        // perform test
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Meta-annotations or additional annotations on the field or parameter the <code>TempDir</code>
+annotation is declared on might expose additional attributes to configure the factory.
+Such annotations and related attributes can be accessed via the <code>AnnotatedElementContext</code>
+parameter of the <code>createTempDirectory(&#8230;&#8203;)</code> method.</p>
+</div>
+<div class="paragraph">
+<p>You can use the <code>junit.jupiter.tempdir.factory.default</code>
+<a href="../running-tests/configuration-parameters.html" class="xref page">configuration parameter</a> to specify the
+fully qualified class name of the <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/io/TempDirFactory.html" class="xref attachment">TempDirFactory</a></code> you would like to use by default. Just
+like for factories configured via the <code>factory</code> attribute of the <code>@TempDir</code> annotation,
+the supplied class has to implement the <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/io/TempDirFactory.html" class="xref attachment">TempDirFactory</a></code> interface. The default factory
+will be used for all <code>@TempDir</code> annotations unless the <code>factory</code> attribute of the
+annotation specifies a different factory.</p>
+</div>
+<div class="paragraph">
+<p>In summary, the factory for a temporary directory is determined according to the following
+precedence rules:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <code>factory</code> attribute of the <code>@TempDir</code> annotation, if present</p>
+</li>
+<li>
+<p>The default <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/io/TempDirFactory.html" class="xref attachment">TempDirFactory</a></code> configured via the configuration
+parameter, if present</p>
+</li>
+<li>
+<p>Otherwise, <code>org.junit.jupiter.api.io.TempDirFactory$Standard</code> will be used.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="TempDirDeletionStrategy"><a class="anchor" href="#TempDirDeletionStrategy"></a>Deletion</h3>
+<div class="paragraph">
+<p><code>@TempDir</code> supports the programmatic deletion of temporary directories via the optional
+<code>deletionStrategy</code> attribute. This is typically used to gain control over what happens
+when deletion of a file or directory fails.</p>
+</div>
+<div class="paragraph">
+<p>Deletion strategies can be created by implementing <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/io/TempDirDeletionStrategy.html" class="xref attachment">TempDirDeletionStrategy</a></code>.
+Implementations must provide a no-args constructor.</p>
+</div>
+<div class="paragraph">
+<p>Jupiter ships with two built-in deletion strategies:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/io/TempDirDeletionStrategy.Standard.html" class="xref attachment">Standard</a></code> (the default): attempts to delete all files and
+directories recursively, retrying with permission resets on failure. Paths that still
+cannot be deleted are scheduled for deletion on JVM exit, if possible. Additionally,
+the test is failed.</p>
+</li>
+<li>
+<p><code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/io/TempDirDeletionStrategy.IgnoreFailures.html" class="xref attachment">IgnoreFailures</a></code>: delegates to <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/io/TempDirDeletionStrategy.Standard.html" class="xref attachment">Standard</a></code>
+but suppresses deletion failures by logging a warning instead of failing the test.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following example uses <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/io/TempDirDeletionStrategy.IgnoreFailures.html" class="xref attachment">IgnoreFailures</a></code> so that any deletion
+failures are only logged.</p>
+</div>
+<div id="tabs-9" class="openblock tabs is-sync is-loading">
+<div class="title">A test class with a temporary directory that ignores deletion failures</div>
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-9-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-9-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-9-java--panel" class="tabpanel" aria-labelledby="tabs-9-java">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">class DeletionStrategyDemo {
+
+	@Test
+	void test(@TempDir(deletionStrategy = TempDirDeletionStrategy.IgnoreFailures.class) Path tempDir) {
+		// perform test
+	}
+
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-9-kotlin--panel" class="tabpanel" aria-labelledby="tabs-9-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class DeletionStrategyDemo {
+    @Test
+    fun test(
+        @TempDir(deletionStrategy = TempDirDeletionStrategy.IgnoreFailures::class)
+        tempDir: Path
+    ) {
+        // perform test
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>You can use the <code>junit.jupiter.tempdir.deletion.strategy.default</code>
+<a href="../running-tests/configuration-parameters.html" class="xref page">configuration parameter</a> to specify the
+fully qualified class name of the <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/io/TempDirDeletionStrategy.html" class="xref attachment">TempDirDeletionStrategy</a></code> you would like to use by
+default. Just like for strategies configured via the <code>deletionStrategy</code> attribute of the
+<code>@TempDir</code> annotation, the supplied class has to implement the <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/io/TempDirDeletionStrategy.html" class="xref attachment">TempDirDeletionStrategy</a></code>
+interface. The default strategy will be used for all <code>@TempDir</code> annotations unless the
+<code>deletionStrategy</code> attribute of the annotation specifies a different strategy.</p>
+</div>
+<div class="paragraph">
+<p>In summary, the deletion strategy for a temporary directory is determined according to the
+following precedence rules:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <code>deletionStrategy</code> attribute of the <code>@TempDir</code> annotation, if present</p>
+</li>
+<li>
+<p>The default <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/io/TempDirDeletionStrategy.html" class="xref attachment">TempDirDeletionStrategy</a></code> configured via the configuration parameter,
+if present</p>
+</li>
+<li>
+<p>Otherwise, <code>org.junit.jupiter.api.io.TempDirDeletionStrategy$Standard</code> will be used.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="AutoClose"><a class="anchor" href="#AutoClose"></a>The @AutoClose Extension</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code><a href="https://github.com/junit-team/junit-framework/tree/r6.1.2/junit-jupiter-engine/src/main/java/org/junit/jupiter/engine/extension/AutoCloseExtension.java">AutoCloseExtension</a></code> automatically closes resources associated with fields.
+It is registered by default. To use it, annotate a field in a test class with
+<code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/AutoClose.html" class="xref attachment">@AutoClose</a></code>.</p>
+</div>
+<div class="paragraph">
+<p><code>@AutoClose</code> fields may be either <code>static</code> or non-static. If the value of an <code>@AutoClose</code>
+field is <code>null</code> when it is evaluated the field will be ignored, but a warning message will
+be logged to inform you.</p>
+</div>
+<div class="paragraph">
+<p>By default, <code>@AutoClose</code> expects the value of the annotated field to implement a <code>close()</code>
+method that will be invoked to close the resource. However, developers can customize the
+name of the close method via the <code>value</code> attribute. For example, <code>@AutoClose("shutdown")</code>
+instructs JUnit to look for a <code>shutdown()</code> method to close the resource.</p>
+</div>
+<div class="paragraph">
+<p><code>@AutoClose</code> fields are inherited from superclasses. Furthermore, <code>@AutoClose</code> fields from
+subclasses will be closed before <code>@AutoClose</code> fields in superclasses.</p>
+</div>
+<div class="paragraph">
+<p>When multiple <code>@AutoClose</code> fields exist within a given test class, the order in which the
+resources are closed depends on an algorithm that is deterministic but intentionally
+nonobvious. This ensures that subsequent runs of a test suite close resources in the same
+order, thereby allowing for repeatable builds.</p>
+</div>
+<div class="paragraph">
+<p>The <code>AutoCloseExtension</code> implements the <code>AfterAllCallback</code> and
+<code>TestInstancePreDestroyCallback</code> extension APIs. Consequently, a <code>static</code> <code>@AutoClose</code>
+field will be closed after all tests in the current test class have completed, effectively
+after <code>@AfterAll</code> methods have executed for the test class. A non-static <code>@AutoClose</code>
+field will be closed before the current test class instance is destroyed. Specifically, if
+the test class is configured with <code>@TestInstance(Lifecycle.PER_METHOD)</code> semantics, a
+non-static <code>@AutoClose</code> field will be closed after the execution of each test method, test
+factory method, or test template method. However, if the test class is configured with
+<code>@TestInstance(Lifecycle.PER_CLASS)</code> semantics, a non-static <code>@AutoClose</code> field will not
+be closed until the current test class instance is no longer needed, which means after
+<code>@AfterAll</code> methods and after all <code>static</code> <code>@AutoClose</code> fields have been closed.</p>
+</div>
+<div class="paragraph">
+<p>The following example demonstrates how to annotate an instance field with <code>@AutoClose</code> so
+that the resource is automatically closed after test execution. In this example, we assume
+that the default <code>@TestInstance(Lifecycle.PER_METHOD)</code> semantics apply.</p>
+</div>
+<div id="tabs-10" class="openblock tabs is-sync is-loading">
+<div class="title">A test class using <code>@AutoClose</code> to close a resource</div>
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-10-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-10-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-10-java--panel" class="tabpanel" aria-labelledby="tabs-10-java">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">class AutoCloseDemo {
+
+	@AutoClose <i class="conum" data-value="1"></i><b>(1)</b>
+	WebClient webClient = new WebClient(); <i class="conum" data-value="2"></i><b>(2)</b>
+
+	String serverUrl = // specify server URL ...
+
+	@Test
+	void getProductList() {
+		// Use WebClient to connect to web server and verify response
+		assertEquals(200, webClient.get(serverUrl + "/products").getResponseStatus());
+	}
+
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-10-kotlin--panel" class="tabpanel" aria-labelledby="tabs-10-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class AutoCloseDemo {
+    @AutoClose <i class="conum" data-value="1"></i><b>(1)</b>
+    val webClient = WebClient() <i class="conum" data-value="2"></i><b>(2)</b>
+
+    val serverUrl = // specify server URL ...
+
+    @Test
+    fun getProductList() {
+        // Use WebClient to connect to web server and verify response
+        assertEquals(200, webClient.get("$serverUrl/products").responseStatus)
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Annotate an instance field with <code>@AutoClose</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td><code>WebClient</code> implements <code>java.lang.AutoCloseable</code> which defines a <code>close()</code> method that
+will be invoked after each <code>@Test</code> method.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="DefaultLocaleAndTimeZone"><a class="anchor" href="#DefaultLocaleAndTimeZone"></a>The @DefaultLocale and @DefaultTimeZone Extensions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/util/DefaultLocale.html" class="xref attachment">@DefaultLocale</a></code> and <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/util/DefaultTimeZone.html" class="xref attachment">@DefaultTimeZone</a></code> annotations can be used to change the values
+returned from <code>Locale.getDefault()</code> and <code>TimeZone.getDefault()</code>, respectively, which are
+often used implicitly when no specific locale or time zone is chosen. Both annotations
+work on the test class level and on the test method level, and are inherited from
+higher-level containers. After the annotated element has been executed, the initial
+default value is restored.</p>
+</div>
+<div class="sect2">
+<h3 id="DefaultLocale"><a class="anchor" href="#DefaultLocale"></a>@DefaultLocale</h3>
+<div class="paragraph">
+<p>The default <code>Locale</code> can be specified using an
+<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Locale.html#forLanguageTag-java.lang.String-">IETF BCP 47 language tag string</a>.</p>
+</div>
+<div id="tabs-11" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-11-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-11-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-11-java--panel" class="tabpanel" aria-labelledby="tabs-11-java">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Test
+@DefaultLocale("zh-Hant-TW")
+void test_with_language() {
+	assertThat(Locale.getDefault()).isEqualTo(Locale.forLanguageTag("zh-Hant-TW"));
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-11-kotlin--panel" class="tabpanel" aria-labelledby="tabs-11-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Test
+@DefaultLocale("zh-Hant-TW")
+fun test_with_language() {
+    assertThat(Locale.getDefault()).isEqualTo(Locale.forLanguageTag("zh-Hant-TW"))
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Alternatively, the default <code>Locale</code> can be created using the following attributes from
+which a <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Locale.Builder.html"><code>Locale.Builder</code></a>
+can create an instance:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>language</code></p>
+</li>
+<li>
+<p><code>language</code> and <code>country</code></p>
+</li>
+<li>
+<p><code>language</code>, <code>country</code>, and <code>variant</code></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The variant needs to be a string which follows the
+<a href="https://www.rfc-editor.org/rfc/rfc5646.html">IETF BCP 47 / RFC 5646</a> syntax.
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs-12" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-12-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-12-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-12-java--panel" class="tabpanel" aria-labelledby="tabs-12-java">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Test
+@DefaultLocale(language = "en")
+void test_with_language_only() {
+	assertThat(Locale.getDefault()).isEqualTo(new Locale.Builder().setLanguage("en").build());
+}
+
+@Test
+@DefaultLocale(language = "en", country = "EN")
+void test_with_language_and_country() {
+	assertThat(Locale.getDefault()).isEqualTo(new Locale.Builder().setLanguage("en").setRegion("EN").build());
+}
+
+@Test
+@DefaultLocale(language = "ja", country = "JP", variant = "japanese")
+void test_with_language_and_country_and_vairant() {
+	assertThat(Locale.getDefault()).isEqualTo(
+		new Locale.Builder().setLanguage("ja").setRegion("JP").setVariant("japanese").build());
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-12-kotlin--panel" class="tabpanel" aria-labelledby="tabs-12-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Test
+@DefaultLocale(language = "en")
+fun test_with_language_only() {
+    assertThat(Locale.getDefault()).isEqualTo(Locale.Builder().setLanguage("en").build())
+}
+
+@Test
+@DefaultLocale(language = "en", country = "EN")
+fun test_with_language_and_country() {
+    assertThat(Locale.getDefault()).isEqualTo(
+        Locale
+            .Builder()
+            .setLanguage("en")
+            .setRegion("EN")
+            .build()
+    )
+}
+
+@Test
+@DefaultLocale(language = "ja", country = "JP", variant = "japanese")
+fun test_with_language_and_country_and_vairant() {
+    assertThat(Locale.getDefault()).isEqualTo(
+        Locale
+            .Builder()
+            .setLanguage("ja")
+            .setRegion("JP")
+            .setVariant("japanese")
+            .build()
+    )
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Mixing language tag configuration (via the annotation&#8217;s <code>value</code> attribute) and
+attribute-based configuration will cause an exception to be thrown. Furthermore, a
+<code>variant</code> can only be specified if <code>country</code> is also specified. Otherwise, an exception
+will be thrown.</p>
+</div>
+<div class="paragraph">
+<p>Method-level <code>@DefaultLocale</code> configuration overrides class-level configuration.</p>
+</div>
+<div id="tabs-13" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-13-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-13-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-13-java--panel" class="tabpanel" aria-labelledby="tabs-13-java">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@DefaultLocale(language = "fr")
+class MyLocaleTests {
+
+	@Test
+	void test_with_class_level_configuration() {
+		assertThat(Locale.getDefault()).isEqualTo(new Locale.Builder().setLanguage("fr").build());
+	}
+
+	@Test
+	@DefaultLocale(language = "en")
+	void test_with_method_level_configuration() {
+		assertThat(Locale.getDefault()).isEqualTo(new Locale.Builder().setLanguage("en").build());
+	}
+
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-13-kotlin--panel" class="tabpanel" aria-labelledby="tabs-13-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@DefaultLocale(language = "fr")
+class MyLocaleTests {
+    @Test
+    fun test_with_class_level_configuration() {
+        assertThat(Locale.getDefault()).isEqualTo(Locale.Builder().setLanguage("fr").build())
+    }
+
+    @Test
+    @DefaultLocale(language = "en")
+    fun test_with_method_level_configuration() {
+        assertThat(Locale.getDefault()).isEqualTo(Locale.Builder().setLanguage("en").build())
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+With class-level configuration, the specified locale is set before and reset after
+each individual test in the annotated class.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>If your use case is not covered, you can implement the <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/util/LocaleProvider.html" class="xref attachment">LocaleProvider</a></code> interface.</p>
+</div>
+<div id="tabs-14" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-14-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-14-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-14-java--panel" class="tabpanel" aria-labelledby="tabs-14-java">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Test
+@DefaultLocale(localeProvider = EnglishProvider.class)
+void test_with_locale_provider() {
+	assertThat(Locale.getDefault()).isEqualTo(new Locale.Builder().setLanguage("en").build());
+}
+
+static class EnglishProvider implements LocaleProvider {
+	@Override
+	public Locale get() {
+		return Locale.ENGLISH;
+	}
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-14-kotlin--panel" class="tabpanel" aria-labelledby="tabs-14-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Test
+@DefaultLocale(localeProvider = EnglishProvider::class)
+fun test_with_locale_provider() {
+    assertThat(Locale.getDefault()).isEqualTo(Locale.Builder().setLanguage("en").build())
+}
+
+class EnglishProvider : LocaleProvider {
+    override fun get(): Locale = Locale.ENGLISH
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The provider implementation must have a no-args (or default) constructor.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="DefaultTimeZone"><a class="anchor" href="#DefaultTimeZone"></a>@DefaultTimeZone</h3>
+<div class="paragraph">
+<p>The default <code>TimeZone</code> is specified according to the
+<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/TimeZone.html#getTimeZone(java.lang.String)">TimeZone.getTimeZone(String)</a>
+method.</p>
+</div>
+<div id="tabs-15" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-15-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-15-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-15-java--panel" class="tabpanel" aria-labelledby="tabs-15-java">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Test
+@DefaultTimeZone("CET")
+void test_with_short_zone_id() {
+	assertThat(TimeZone.getDefault()).isEqualTo(TimeZone.getTimeZone("CET"));
+}
+
+@Test
+@DefaultTimeZone("Africa/Juba")
+void test_with_long_zone_id() {
+	assertThat(TimeZone.getDefault()).isEqualTo(TimeZone.getTimeZone("Africa/Juba"));
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-15-kotlin--panel" class="tabpanel" aria-labelledby="tabs-15-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Test
+@DefaultTimeZone("CET")
+fun test_with_short_zone_id() {
+    assertThat(TimeZone.getDefault()).isEqualTo(TimeZone.getTimeZone("CET"))
+}
+
+@Test
+@DefaultTimeZone("Africa/Juba")
+fun test_with_long_zone_id() {
+    assertThat(TimeZone.getDefault()).isEqualTo(TimeZone.getTimeZone("Africa/Juba"))
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Method-level <code>@DefaultTimeZone</code> configuration overrides class-level configuration.</p>
+</div>
+<div id="tabs-16" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-16-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-16-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-16-java--panel" class="tabpanel" aria-labelledby="tabs-16-java">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@DefaultTimeZone("CET")
+class MyTimeZoneTests {
+
+	@Test
+	void test_with_class_level_configuration() {
+		assertThat(TimeZone.getDefault()).isEqualTo(TimeZone.getTimeZone("CET"));
+	}
+
+	@Test
+	@DefaultTimeZone("Africa/Juba")
+	void test_with_method_level_configuration() {
+		assertThat(TimeZone.getDefault()).isEqualTo(TimeZone.getTimeZone("Africa/Juba"));
+	}
+
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-16-kotlin--panel" class="tabpanel" aria-labelledby="tabs-16-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@DefaultTimeZone("CET")
+class MyTimeZoneTests {
+
+    @Test
+    fun test_with_class_level_configuration() {
+        assertThat(TimeZone.getDefault()).isEqualTo(TimeZone.getTimeZone("CET"))
+    }
+
+    @Test
+    @DefaultTimeZone("Africa/Juba")
+    fun test_with_method_level_configuration() {
+        assertThat(TimeZone.getDefault()).isEqualTo(TimeZone.getTimeZone("Africa/Juba"))
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+With class-level configuration, the specified time zone is set before and reset
+after each individual test in the annotated class.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>If your use case is not covered, you can implement the <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/util/TimeZoneProvider.html" class="xref attachment">TimeZoneProvider</a></code> interface.</p>
+</div>
+<div id="tabs-17" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-17-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-17-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-17-java--panel" class="tabpanel" aria-labelledby="tabs-17-java">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Test
+@DefaultTimeZone(timeZoneProvider = UtcTimeZoneProvider.class)
+void test_with_time_zone_provider() {
+	assertThat(TimeZone.getDefault()).isEqualTo(TimeZone.getTimeZone("UTC"));
+}
+
+static class UtcTimeZoneProvider implements TimeZoneProvider {
+	@Override
+	public TimeZone get() {
+		return TimeZone.getTimeZone(ZoneOffset.UTC);
+	}
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-17-kotlin--panel" class="tabpanel" aria-labelledby="tabs-17-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Test
+@DefaultTimeZone(timeZoneProvider = UtcTimeZoneProvider::class)
+fun test_with_time_zone_provider() {
+    assertThat(TimeZone.getDefault()).isEqualTo(TimeZone.getTimeZone("UTC"))
+}
+
+class UtcTimeZoneProvider : TimeZoneProvider {
+    override fun get(): TimeZone = TimeZone.getTimeZone(ZoneOffset.UTC)
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The provider implementation must have a no-args (or default) constructor.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="thread-safety"><a class="anchor" href="#thread-safety"></a>Thread Safety</h3>
+<div class="paragraph">
+<p>Since the default locale and time zone are global state, reading and writing them during
+<a href="parallel-execution.html" class="xref page">parallel test execution</a> can lead to unpredictable
+results and flaky tests. The <code>@DefaultLocale</code> and <code>@DefaultTimeZone</code> extensions are
+prepared for that and tests annotated with them will never execute in parallel (thanks to
+<code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLock.html" class="xref attachment">@ResourceLock</a></code>) to guarantee correct test results.</p>
+</div>
+<div class="paragraph">
+<p>However, this does not cover all possible cases. Tested code that reads or writes the
+default locale or time zone <em>independently</em> of the extensions can still run in parallel
+and may thus behave erratically when, for example, such code unexpectedly reads a locale
+set by the extension in another thread. Consequently, tests that cover code that reads or
+writes the default locale or time zone need to be annotated with one of the following
+respective annotations.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/util/ReadsDefaultLocale.html" class="xref attachment">@ReadsDefaultLocale</a></code></p>
+</li>
+<li>
+<p><code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/util/ReadsDefaultTimeZone.html" class="xref attachment">@ReadsDefaultTimeZone</a></code></p>
+</li>
+<li>
+<p><code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/util/WritesDefaultLocale.html" class="xref attachment">@WritesDefaultLocale</a></code></p>
+</li>
+<li>
+<p><code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/util/WritesDefaultTimeZone.html" class="xref attachment">@WritesDefaultTimeZone</a></code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Tests annotated with one of the above annotations will never execute in parallel with
+tests annotated with <code>@DefaultLocale</code> or <code>@DefaultTimeZone</code>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="system-properties"><a class="anchor" href="#system-properties"></a>The System Properties Extension</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The system properties extension supports a set of annotations that work together to clear,
+set, and restore JVM system properties.</p>
+</div>
+<div class="sect2">
+<h3 id="system-properties-clear-and-set"><a class="anchor" href="#system-properties-clear-and-set"></a>@ClearSystemProperty and @SetSystemProperty</h3>
+<div class="paragraph">
+<p>The <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/util/ClearSystemProperty.html" class="xref attachment">@ClearSystemProperty</a></code> and <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/util/SetSystemProperty.html" class="xref attachment">@SetSystemProperty</a></code> annotations can be used to clear and
+set, respectively, the values of JVM system properties for test execution. Both
+annotations work on the test method and class level and are repeatable, combinable, and
+inherited from higher-level containers. After the annotated method has been executed, the
+properties configured in the annotation will be restored to their original value or the
+value of the higher-level container, or will be cleared if they did not previously have a
+value. Other system properties that are changed during the test are <em>not</em> restored (unless
+restoration is <a href="#system-properties-restore">explicitly enabled</a> via
+<code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/util/RestoreSystemProperties.html" class="xref attachment">@RestoreSystemProperties</a></code>).</p>
+</div>
+<div class="paragraph">
+<p>For example, clearing a system property for test execution can be done as follows.</p>
+</div>
+<div id="tabs-18" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-18-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-18-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-18-java--panel" class="tabpanel" aria-labelledby="tabs-18-java">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Test
+@ClearSystemProperty(key = "some property")
+void testClearingProperty() {
+	assertThat(System.getProperty("some property")).isNull();
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-18-kotlin--panel" class="tabpanel" aria-labelledby="tabs-18-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Test
+@ClearSystemProperty(key = "some property")
+fun testClearingProperty() {
+    assertThat(System.getProperty("some property")).isNull()
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>The following demonstrates how to set a system property for test execution.</p>
+</div>
+<div id="tabs-19" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-19-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-19-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-19-java--panel" class="tabpanel" aria-labelledby="tabs-19-java">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Test
+@SetSystemProperty(key = "some property", value = "new value")
+void testSettingProperty() {
+	assertThat(System.getProperty("some property")).isEqualTo("new value");
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-19-kotlin--panel" class="tabpanel" aria-labelledby="tabs-19-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Test
+@SetSystemProperty(key = "some property", value = "new value")
+fun testSettingProperty() {
+    assertThat(System.getProperty("some property")).isEqualTo("new value")
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>As mentioned before, both annotations are repeatable, and they can also be combined.</p>
+</div>
+<div id="tabs-20" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-20-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-20-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-20-java--panel" class="tabpanel" aria-labelledby="tabs-20-java">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Test
+@ClearSystemProperty(key = "1st property")
+@ClearSystemProperty(key = "2nd property")
+@SetSystemProperty(key = "3rd property", value = "new value")
+void testClearingAndSettingProperty() {
+	assertThat(System.getProperty("1st property")).isNull();
+	assertThat(System.getProperty("2nd property")).isNull();
+	assertThat(System.getProperty("3rd property")).isEqualTo("new value");
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-20-kotlin--panel" class="tabpanel" aria-labelledby="tabs-20-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Test
+@ClearSystemProperty(key = "1st property")
+@ClearSystemProperty(key = "2nd property")
+@SetSystemProperty(key = "3rd property", value = "new value")
+fun testClearingAndSettingProperty() {
+    assertThat(System.getProperty("1st property")).isNull()
+    assertThat(System.getProperty("2nd property")).isNull()
+    assertThat(System.getProperty("3rd property")).isEqualTo("new value")
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that class-level configuration is overridden by method-level configuration.</p>
+</div>
+<div id="tabs-21" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-21-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-21-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-21-java--panel" class="tabpanel" aria-labelledby="tabs-21-java">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@ClearSystemProperty(key = "some property")
+class MySystemPropertyTest {
+
+	@Test
+	@SetSystemProperty(key = "some property", value = "new value")
+	void clearedAtClasslevel() {
+		assertThat(System.getProperty("some property")).isEqualTo("new value");
+	}
+
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-21-kotlin--panel" class="tabpanel" aria-labelledby="tabs-21-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@ClearSystemProperty(key = "some property")
+class MySystemPropertyTest {
+
+    @Test
+    @SetSystemProperty(key = "some property", value = "new value")
+    fun clearedAtClasslevel() {
+        assertThat(System.getProperty("some property")).isEqualTo("new value")
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Method-level configuration is visible in both <code>@BeforeEach</code> methods and <code>@AfterEach</code>
+methods (see
+<a href="../extensions/relative-execution-order-of-user-code-and-extensions.html#overview" class="xref page">user
+code and extension code execution order</a>).</p>
+</div>
+<div class="paragraph">
+<p>With class-level configuration, the specified system properties are cleared or set before
+and reset after each individual test in the annotated class.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="system-properties-restore"><a class="anchor" href="#system-properties-restore"></a>@RestoreSystemProperties</h3>
+<div class="paragraph">
+<p>The <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/util/RestoreSystemProperties.html" class="xref attachment">@RestoreSystemProperties</a></code> annotation can be used to restore changes to system
+properties made directly in the test or in the code being tested. Although
+<code>@ClearSystemProperty</code> and <code>@SetSystemProperty</code> clear or set properties and values that
+are statically declared, they do not allow property values to be calculated dynamically.
+Thus, there are times you may want to directly set properties in your test code.
+<code>@RestoreSystemProperties</code> can be placed on test methods or test classes and will
+completely restore all system properties to their original state after the test or test
+class has finished.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>During the execution of the annotated scope, the JVM system properties are set to a clone
+of the original <code>Properties</code> object. However, the clone does not include
+<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Properties.html#defaults">the defaults</a> from the
+original.</p>
+</div>
+<div class="paragraph">
+<p>Consequently, the extension will perform a best effort attempt to detect default properties
+and fail if any were detected. For classes that extend <code>Properties</code> it is assumed that
+<code>clone()</code> is implemented with sufficient fidelity.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>In the following example, <code>@RestoreSystemProperties</code> is used on a test method, ensuring
+any changes made in that method are restored.</p>
+</div>
+<div id="tabs-22" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-22-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-22-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-22-java--panel" class="tabpanel" aria-labelledby="tabs-22-java">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@ParameterizedTest
+@ValueSource(strings = { "foo", "bar" })
+@RestoreSystemProperties
+void parameterizedTest(String value) {
+	System.setProperty("some parameterized property", value);
+	System.setProperty("some other dynamic property", "my code calculates somehow");
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-22-kotlin--panel" class="tabpanel" aria-labelledby="tabs-22-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@ParameterizedTest
+@ValueSource(strings = ["foo", "bar"])
+@RestoreSystemProperties
+fun parameterizedTest(value: String) {
+    System.setProperty("some parameterized property", value)
+    System.setProperty("some other dynamic property", "my code calculates somehow")
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>When <code>@RestoreSystemProperties</code> is used on a test class, any changes to system properties
+during the entire lifecycle of the test class, including test methods, <code>@BeforeAll</code>,
+<code>@BeforeEach</code>, and 'after' methods, are restored after the lifecycle of the test class is
+complete. In addition, the annotation is inherited by each test method just as if each one
+were annotated with <code>@RestoreSystemProperties</code>.</p>
+</div>
+<div class="paragraph">
+<p>In the following example, both test methods see the system property changes made in
+<code>@BeforeAll</code> and <code>@BeforeEach</code>; however, the test methods are isolated from each other
+(<code>isolatedTest2</code> does not <em>see</em> changes made in <code>isolatedTest1</code>). As shown in the second
+example below, the class-level <code>@RestoreSystemProperties</code> annotation ensures that system
+property changes made within the annotated class are completely restored after the class&#8217;s
+lifecycle, ensuring that changes are not visible to <code>SomeOtherTestClass</code>. Note that
+<code>SomeOtherTestClass</code> uses the <code>@ReadsSystemProperty</code> annotation, which ensures that JUnit
+does not schedule the class to run during any test known to modify system properties (see
+<a href="#system-properties-thread-safety">Thread Safety</a>).</p>
+</div>
+<div id="tabs-23" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-23-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-23-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-23-java--panel" class="tabpanel" aria-labelledby="tabs-23-java">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@RestoreSystemProperties
+class MySystemPropertyRestoreTest {
+
+	@BeforeAll
+	void beforeAll() {
+		System.setProperty("A", "A value");
+	}
+
+	@BeforeEach
+	void beforeEach() {
+		System.setProperty("B", "B value");
+	}
+
+	@Test
+	void isolatedTest1() {
+		System.setProperty("C", "C value");
+	}
+
+	@Test
+	void isolatedTest2() {
+		assertThat(System.getProperty("A")).isEqualTo("A value");
+		assertThat(System.getProperty("B")).isEqualTo("B value");
+
+		// Class-level @RestoreSystemProperties restores "C" to original state
+		assertThat(System.getProperty("C")).isNull();
+	}
+
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-23-kotlin--panel" class="tabpanel" aria-labelledby="tabs-23-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@RestoreSystemProperties
+class MySystemPropertyRestoreTest {
+    @BeforeAll
+    fun beforeAll() {
+        System.setProperty("A", "A value")
+    }
+
+    @BeforeEach
+    fun beforeEach() {
+        System.setProperty("B", "B value")
+    }
+
+    @Test
+    fun isolatedTest1() {
+        System.setProperty("C", "C value")
+    }
+
+    @Test
+    fun isolatedTest2() {
+        assertThat(System.getProperty("A")).isEqualTo("A value")
+        assertThat(System.getProperty("B")).isEqualTo("B value")
+
+        // Class-level @RestoreSystemProperties restores "C" to original state
+        assertThat(System.getProperty("C")).isNull()
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Some other test class, running later:</p>
+</div>
+<div id="tabs-24" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-24-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-24-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-24-java--panel" class="tabpanel" aria-labelledby="tabs-24-java">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@ReadsSystemProperty
+class SomeOtherTestClass {
+
+	@Test
+	void isolatedTest() {
+		assertThat(System.getProperty("A")).isNull();
+		assertThat(System.getProperty("B")).isNull();
+		assertThat(System.getProperty("C")).isNull();
+	}
+
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-24-kotlin--panel" class="tabpanel" aria-labelledby="tabs-24-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@ReadsSystemProperty
+class SomeOtherTestClass {
+    @Test
+    fun isolatedTest() {
+        assertThat(System.getProperty("A")).isNull()
+        assertThat(System.getProperty("B")).isNull()
+        assertThat(System.getProperty("C")).isNull()
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="system-properties-combined-usage"><a class="anchor" href="#system-properties-combined-usage"></a>Combining @ClearSystemProperty, @SetSystemProperty, and @RestoreSystemProperties</h3>
+<div class="paragraph">
+<p>The three system property annotations can be combined, which can be useful when some
+system properties are set dynamically in code and others are not. For instance, imagine
+you need to test an image generation utility that takes configuration from system
+properties. Basic configuration can be specified declaratively using the <code>Clear</code> and <code>Set</code>
+annotations, and the image size could be set programmatically.</p>
+</div>
+<div id="tabs-25" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-25-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-25-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-25-java--panel" class="tabpanel" aria-labelledby="tabs-25-java">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@ParameterizedTest
+@ValueSource(ints = { 100, 500, 1000 })
+@RestoreSystemProperties
+@SetSystemProperty(key = "DISABLE_CACHE", value = "TRUE")
+@ClearSystemProperty(key = "COPYWRITE_OVERLAY_TEXT")
+void imageGenerationTest(int imageSize) {
+	System.setProperty("IMAGE_SIZE", String.valueOf(imageSize)); // Requires restore
+
+	// Test your image generation utility with the current system properties
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-25-kotlin--panel" class="tabpanel" aria-labelledby="tabs-25-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@ParameterizedTest
+@ValueSource(ints = [100, 500, 1000])
+@RestoreSystemProperties
+@SetSystemProperty(key = "DISABLE_CACHE", value = "TRUE")
+@ClearSystemProperty(key = "COPYWRITE_OVERLAY_TEXT")
+fun imageGenerationTest(imageSize: Int) {
+    System.setProperty("IMAGE_SIZE", "$imageSize") // Requires restore
+
+    // Test your image generation utility with the current system properties
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Using <code>@RestoreSystemProperties</code> is not necessary to restore system properties modified
+via <code>@ClearSystemProperty</code> or <code>@SetSystemProperty</code> since they both automatically restore
+the referenced properties. <code>@RestoreSystemProperties</code> is only needed if system properties
+are modified during a test in some way <em>other than</em> via the <code>Clear</code> and <code>Set</code> annotations.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="system-properties-thread-safety"><a class="anchor" href="#system-properties-thread-safety"></a>Thread Safety</h3>
+<div class="paragraph">
+<p>Since system properties are global state, reading and writing them during
+<a href="parallel-execution.html" class="xref page">parallel execution</a> can lead to unpredictable
+results and flaky tests. The system property extension is prepared for that and tests
+annotated with <code>@ClearSystemProperty</code>, <code>@SetSystemProperty</code>, or <code>@RestoreSystemProperties</code>
+will never execute in parallel (thanks to
+<a href="parallel-execution.html#synchronization" class="xref page">resource locks</a>) to guarantee
+correct test results.</p>
+</div>
+<div class="paragraph">
+<p>However, this does not cover all possible cases. Tested code that reads or writes system
+properties <em>independently</em> of the extension can still run in parallel to it and may thus
+behave erratically when, for example, it unexpectedly reads a property set by the
+extension in another thread. Tests that cover code that reads or writes system properties
+need to be annotated with the respective annotation:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/util/ReadsSystemProperty.html" class="xref attachment">@ReadsSystemProperty</a></code></p>
+</li>
+<li>
+<p><code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/util/WritesSystemProperty.html" class="xref attachment">@WritesSystemProperty</a></code> (though consider using <code>@RestoreSystemProperties</code> instead)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Tests annotated in this way will never execute in parallel with tests annotated with
+<code>@ClearSystemProperty</code>, <code>@SetSystemProperty</code>, or <code>@RestoreSystemProperties</code>.</p>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="parallel-execution.html">Parallel Execution</a></span>
+  <span class="next"><a href="../migrating-from-junit4.html">Migrating from JUnit 4</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+    <p>
+        &copy; Copyright 2015-2026 the original author or authors.
+        All rights reserved.
+        The content of this page is made available under the terms of the <a href="https://www.eclipse.org/legal/epl-v20.html">Eclipse Public License v2.0</a>.
+    </p>
+    <p>
+        This page was built using an adapted version of the Antora default UI.
+        The source code for this UI is licensed under the terms of the <a href="https://www.mozilla.org/en-US/MPL/2.0/">Mozilla Public License v2.0</a>.
+    </p>
+    <p>
+        Built and hosted on <a href="https://statichost.eu">statichost.eu</a>.
+    </p>
+</footer>
+<script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script async src="../../_/js/vendor/tabs.js" data-sync-storage-key="preferred-code-language"></script>
+<script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="100" data-stylesheet="../../_/css/search.css"></script>
+<script async src="../../search-index.js"></script>
+  </body>
+</html>
