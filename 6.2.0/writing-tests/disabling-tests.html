@@ -425,6 +425,19 @@ such as <code>@BeforeAll</code> methods, <code>@AfterAll</code> methods, and cor
 <div class="paragraph">
 <p>Here&#8217;s a <code>@Disabled</code> test class.</p>
 </div>
+<div id="tabs-1" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-1-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-1-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-1-java--panel" class="tabpanel" aria-labelledby="tabs-1-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import org.junit.jupiter.api.Disabled;
@@ -440,9 +453,40 @@ class DisabledClassDemo {
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-1-kotlin--panel" class="tabpanel" aria-labelledby="tabs-1-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import org.junit.jupiter.api.Disabled
+import org.junit.jupiter.api.Test
+
+@Disabled("Disabled until bug #99 has been fixed")
+class DisabledClassDemo {
+    @Test
+    fun testWillBeSkipped() {
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>And here&#8217;s a test class that contains a <code>@Disabled</code> test method.</p>
 </div>
+<div id="tabs-2" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-2-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-2-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-2-java--panel" class="tabpanel" aria-labelledby="tabs-2-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import org.junit.jupiter.api.Disabled;
@@ -460,6 +504,28 @@ class DisabledTestsDemo {
 	}
 
 }</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-2-kotlin--panel" class="tabpanel" aria-labelledby="tabs-2-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import org.junit.jupiter.api.Disabled
+import org.junit.jupiter.api.Test
+
+class DisabledTestsDemo {
+    @Disabled("Disabled until bug #42 has been resolved")
+    @Test
+    fun testWillBeSkipped() {
+    }
+
+    @Test
+    fun testWillBeExecuted() {
+    }
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="admonitionblock tip">

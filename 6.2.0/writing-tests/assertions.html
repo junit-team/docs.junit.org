@@ -748,6 +748,19 @@ you can statically import methods such as <code>assertThat()</code>, <code>asser
 from <code>org.assertj.core.api.Assertions</code> and then use them in tests like in the
 <code>assertWithAssertJ()</code> method below.</p>
 </div>
+<div id="tabs-1" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-1-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-1-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-1-java--panel" class="tabpanel" aria-labelledby="tabs-1-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static org.assertj.core.api.Assertions.assertThat;
@@ -766,6 +779,27 @@ class AssertJAssertionsDemo {
 	}
 
 }</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-1-kotlin--panel" class="tabpanel" aria-labelledby="tabs-1-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import example.util.Calculator
+import org.assertj.core.api.Assertions.assertThat
+import org.junit.jupiter.api.Test
+
+class AssertJAssertionsDemo {
+    private val calculator = Calculator()
+
+    @Test
+    fun assertWithAssertJ() {
+        assertThat(calculator.subtract(4, 1)).isEqualTo(3)
+    }
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="admonitionblock tip">

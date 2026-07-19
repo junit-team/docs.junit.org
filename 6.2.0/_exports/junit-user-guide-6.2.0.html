@@ -2427,6 +2427,14 @@ you can statically import methods such as <code>assertThat()</code>, <code>asser
 from <code>org.assertj.core.api.Assertions</code> and then use them in tests like in the
 <code>assertWithAssertJ()</code> method below.</p>
 </div>
+<div id="writing-tests-assertions:::tabs-1" class="exampleblock">
+<div class="content">
+<div id="writing-tests-assertions:::tabs-1-java" class="dlist">
+<dl>
+<dt class="hdlist1">Java</dt>
+<dd>
+<div class="openblock">
+<div class="content">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static org.assertj.core.api.Assertions.assertThat;
@@ -2445,6 +2453,40 @@ class AssertJAssertionsDemo {
 	}
 
 }</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+<div id="writing-tests-assertions:::tabs-1-kotlin" class="dlist">
+<dl>
+<dt class="hdlist1">Kotlin</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import example.util.Calculator
+import org.assertj.core.api.Assertions.assertThat
+import org.junit.jupiter.api.Test
+
+class AssertJAssertionsDemo {
+    private val calculator = Calculator()
+
+    @Test
+    fun assertWithAssertJ() {
+        assertThat(calculator.subtract(4, 1)).isEqualTo(3)
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
 </div>
 </div>
 <div class="admonitionblock tip">
@@ -3104,6 +3146,14 @@ such as <code>@BeforeAll</code> methods, <code>@AfterAll</code> methods, and cor
 <div class="paragraph">
 <p>Here&#8217;s a <code>@Disabled</code> test class.</p>
 </div>
+<div id="writing-tests-disabling-tests:::tabs-1" class="exampleblock">
+<div class="content">
+<div id="writing-tests-disabling-tests:::tabs-1-java" class="dlist">
+<dl>
+<dt class="hdlist1">Java</dt>
+<dd>
+<div class="openblock">
+<div class="content">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import org.junit.jupiter.api.Disabled;
@@ -3119,9 +3169,48 @@ class DisabledClassDemo {
 }</code></pre>
 </div>
 </div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+<div id="writing-tests-disabling-tests:::tabs-1-kotlin" class="dlist">
+<dl>
+<dt class="hdlist1">Kotlin</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import org.junit.jupiter.api.Disabled
+import org.junit.jupiter.api.Test
+
+@Disabled("Disabled until bug #99 has been fixed")
+class DisabledClassDemo {
+    @Test
+    fun testWillBeSkipped() {
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>And here&#8217;s a test class that contains a <code>@Disabled</code> test method.</p>
 </div>
+<div id="writing-tests-disabling-tests:::tabs-2" class="exampleblock">
+<div class="content">
+<div id="writing-tests-disabling-tests:::tabs-2-java" class="dlist">
+<dl>
+<dt class="hdlist1">Java</dt>
+<dd>
+<div class="openblock">
+<div class="content">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import org.junit.jupiter.api.Disabled;
@@ -3139,6 +3228,41 @@ class DisabledTestsDemo {
 	}
 
 }</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+<div id="writing-tests-disabling-tests:::tabs-2-kotlin" class="dlist">
+<dl>
+<dt class="hdlist1">Kotlin</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import org.junit.jupiter.api.Disabled
+import org.junit.jupiter.api.Test
+
+class DisabledTestsDemo {
+    @Disabled("Disabled until bug #42 has been resolved")
+    @Test
+    fun testWillBeSkipped() {
+    }
+
+    @Test
+    fun testWillBeExecuted() {
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
 </div>
 </div>
 <div class="admonitionblock tip">
@@ -9920,6 +10044,14 @@ method.</p>
 <p>You can use the <code>@Execution</code> annotation to explicitly configure the execution mode for a
 test class or method:</p>
 </div>
+<div id="writing-tests-parallel-execution:::tabs-1" class="exampleblock">
+<div class="content">
+<div id="writing-tests-parallel-execution:::tabs-1-java" class="dlist">
+<dl>
+<dt class="hdlist1">Java</dt>
+<dd>
+<div class="openblock">
+<div class="content">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Execution(ExecutionMode.CONCURRENT)
@@ -9937,6 +10069,41 @@ class ExplicitExecutionModeDemo {
 	}
 
 }</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+<div id="writing-tests-parallel-execution:::tabs-1-kotlin" class="dlist">
+<dl>
+<dt class="hdlist1">Kotlin</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Execution(ExecutionMode.CONCURRENT)
+class ExplicitExecutionModeDemo {
+    @Test
+    fun testA() {
+        // concurrent
+    }
+
+    @Test
+    @Execution(ExecutionMode.SAME_THREAD)
+    fun testB() {
+        // overrides to same_thread
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
 </div>
 </div>
 <div class="paragraph">
@@ -9965,7 +10132,7 @@ combining both configuration parameters, you can configure classes to run in par
 their methods in the same thread:</p>
 </div>
 <div class="listingblock">
-<div class="title">Configuration parameters to execute top-level classes in parallel but methods in same thread</div>
+<div class="title">Configuration parameters to execute top-level classes in parallel but methods in the same thread</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">junit.jupiter.execution.parallel.enabled = true
 junit.jupiter.execution.parallel.mode.default = same_thread
@@ -10089,9 +10256,9 @@ number of available processors/cores.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<div class="title">Parallelism alone does not imply maximum number of concurrent threads</div>
+<div class="title">Parallelism alone does not imply the maximum number of concurrent threads</div>
 By default, JUnit Jupiter does not guarantee that the number of threads used to
-execute test will not exceed the configured parallelism. For example, when using one
+execute tests will not exceed the configured parallelism. For example, when using one
 of the synchronization mechanisms described in the next section, the executor service
 implementation may spawn additional threads to ensure execution continues with sufficient
 parallelism. If you require such guarantees, it is possible to limit the maximum number of
@@ -10246,8 +10413,16 @@ an access mode. Two tests that require <code>READ</code> access to a shared reso
 parallel with each other but not while any other test that requires <code>READ_WRITE</code> access
 to the same shared resource is running.</p>
 </div>
-<div class="listingblock">
+<div id="writing-tests-parallel-execution:::tabs-2" class="exampleblock">
 <div class="title">Declaring shared resources "statically" with <code><a href="../../../6.2.0/api/org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLock.html">@ResourceLock</a></code> annotation</div>
+<div class="content">
+<div id="writing-tests-parallel-execution:::tabs-2-java" class="dlist">
+<dl>
+<dt class="hdlist1">Java</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Execution(CONCURRENT)
 class StaticSharedResourcesDemo {
@@ -10288,8 +10463,73 @@ class StaticSharedResourcesDemo {
 }</code></pre>
 </div>
 </div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+<div id="writing-tests-parallel-execution:::tabs-2-kotlin" class="dlist">
+<dl>
+<dt class="hdlist1">Kotlin</dt>
+<dd>
+<div class="openblock">
+<div class="content">
 <div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Execution(CONCURRENT)
+class StaticSharedResourcesDemo {
+    private lateinit var backup: Properties
+
+    @BeforeEach
+    fun backup() {
+        backup = Properties()
+        backup.putAll(System.getProperties())
+    }
+
+    @AfterEach
+    fun restore() {
+        System.setProperties(backup)
+    }
+
+    @Test
+    @ResourceLock(value = SYSTEM_PROPERTIES, mode = READ)
+    fun customPropertyIsNotSetByDefault() {
+        assertNull(System.getProperty("my.prop"))
+    }
+
+    @Test
+    @ResourceLock(value = SYSTEM_PROPERTIES, mode = READ_WRITE)
+    fun canSetCustomPropertyToApple() {
+        System.setProperty("my.prop", "apple")
+        assertEquals("apple", System.getProperty("my.prop"))
+    }
+
+    @Test
+    @ResourceLock(value = SYSTEM_PROPERTIES, mode = READ_WRITE)
+    fun canSetCustomPropertyToBanana() {
+        System.setProperty("my.prop", "banana")
+        assertEquals("banana", System.getProperty("my.prop"))
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div id="writing-tests-parallel-execution:::tabs-3" class="exampleblock">
 <div class="title">Adding shared resources "dynamically" with <code><a href="../../../6.2.0/api/org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLocksProvider.html">ResourceLocksProvider</a></code> implementation</div>
+<div class="content">
+<div id="writing-tests-parallel-execution:::tabs-3-java" class="dlist">
+<dl>
+<dt class="hdlist1">Java</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Execution(CONCURRENT)
 @ResourceLock(providers = DynamicSharedResourcesDemo.Provider.class)
@@ -10338,6 +10578,73 @@ class DynamicSharedResourcesDemo {
 }</code></pre>
 </div>
 </div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+<div id="writing-tests-parallel-execution:::tabs-3-kotlin" class="dlist">
+<dl>
+<dt class="hdlist1">Kotlin</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Execution(CONCURRENT)
+@ResourceLock(providers = [DynamicSharedResourcesDemo.Provider::class])
+class DynamicSharedResourcesDemo {
+    private lateinit var backup: Properties
+
+    @BeforeEach
+    fun backup() {
+        backup = Properties()
+        backup.putAll(System.getProperties())
+    }
+
+    @AfterEach
+    fun restore() {
+        System.setProperties(backup)
+    }
+
+    @Test
+    fun customPropertyIsNotSetByDefault() {
+        assertNull(System.getProperty("my.prop"))
+    }
+
+    @Test
+    fun canSetCustomPropertyToApple() {
+        System.setProperty("my.prop", "apple")
+        assertEquals("apple", System.getProperty("my.prop"))
+    }
+
+    @Test
+    fun canSetCustomPropertyToBanana() {
+        System.setProperty("my.prop", "banana")
+        assertEquals("banana", System.getProperty("my.prop"))
+    }
+
+    class Provider : ResourceLocksProvider {
+        override fun provideForMethod(
+            enclosingInstanceTypes: List&lt;Class&lt;*&gt;&gt;,
+            testClass: Class&lt;*&gt;,
+            testMethod: Method
+        ): Set&lt;Lock&gt; {
+            val mode: ResourceAccessMode =
+                if (testMethod.name.startsWith("canSet")) READ_WRITE else READ
+            return setOf(Lock(SYSTEM_PROPERTIES, mode))
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>Also, "static" shared resources can be declared for <em>direct</em> child nodes via the <code>target</code>
 attribute in the <code><a href="../../../6.2.0/api/org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLock.html">@ResourceLock</a></code> annotation, the attribute accepts a value from
@@ -10358,8 +10665,16 @@ didn&#8217;t have <code>target = CHILDREN</code>. This is because the test class
 shared resource, but one test method holds a <code>READ_WRITE</code> lock,
 which would force the <code>SAME_THREAD</code> execution mode for all the test methods.</p>
 </div>
+<div id="writing-tests-parallel-execution:::tabs-4" class="exampleblock">
+<div class="title">Declaring shared resources for child nodes with the <code>target</code> attribute</div>
+<div class="content">
+<div id="writing-tests-parallel-execution:::tabs-4-java" class="dlist">
+<dl>
+<dt class="hdlist1">Java</dt>
+<dd>
+<div class="openblock">
+<div class="content">
 <div class="listingblock">
-<div class="title">Declaring shared resources for child nodes with <code>target</code> attribute</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Execution(CONCURRENT)
 @ResourceLock(value = "a", mode = READ, target = CHILDREN)
@@ -10392,6 +10707,57 @@ public class ChildrenSharedResourcesDemo {
 	}
 
 }</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+<div id="writing-tests-parallel-execution:::tabs-4-kotlin" class="dlist">
+<dl>
+<dt class="hdlist1">Kotlin</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Execution(CONCURRENT)
+@ResourceLock(value = "a", mode = READ, target = CHILDREN)
+class ChildrenSharedResourcesDemo {
+    @ResourceLock(value = "a", mode = READ_WRITE)
+    @Test
+    fun test1() {
+        Thread.sleep(2000L)
+    }
+
+    @Test
+    fun test2() {
+        Thread.sleep(2000L)
+    }
+
+    @Test
+    fun test3() {
+        Thread.sleep(2000L)
+    }
+
+    @Test
+    fun test4() {
+        Thread.sleep(2000L)
+    }
+
+    @Test
+    fun test5() {
+        Thread.sleep(2000L)
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
 </div>
 </div>
 </div>
