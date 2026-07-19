@@ -219,7 +219,7 @@ CSV columns should be ignored.</div>
 <div class="col-first even-row-color"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color"><code><a href="#textBlock()" class="member-name-link">textBlock</a></code></div>
 <div class="col-last even-row-color">
-<div class="block">The CSV records to use as the source of arguments, supplied as a single
+<div class="block">The CSV document to use as the source of arguments, supplied as a single
 <em>text block</em>; must not be empty.</div>
 </div>
 <div class="col-first odd-row-color"><code>boolean</code></div>
@@ -261,10 +261,6 @@ the first value may optionally be used to supply CSV headers (see
 <a href="#useHeadersInDisplayName()"><code>useHeadersInDisplayName()</code></a>). Moreover, each specified value must
 not be blank.
 
-<p>If <em>text block</em> syntax is supported by your programming language,
-you may find it more convenient to declare your CSV content via the
-<a href="#textBlock()"><code>textBlock()</code></a> attribute.
-
 <h4 id="example-heading">Example</h4>
 <pre class="code">
 @ParameterizedTest
@@ -274,6 +270,40 @@ you may find it more convenient to declare your CSV content via the
     "'lemon, lime', 0xF1",
     "strawberry,    700_000"
 })
+void test(String fruit, int rank) {
+    // ...
+}</pre>
+
+<h4 id="text-blocks-heading">Text Blocks</h4>
+
+<p>If <em>text block</em> syntax is supported by your programming language,
+you may also declare your CSV content as a textblock. Note that unlike
+<a href="#textBlock()"><code>textBlock()</code></a> <code>value</code> does not support comments.
+
+<p>When using text blocks each value corresponds to a CSV document and
+will be split using the specified <a href="#delimiter()"><code>delimiter()</code></a> or
+<a href="#delimiterString()"><code>delimiterString()</code></a>. The first record of the first document may
+optionally be used to supply CSV headers (see <a href="#useHeadersInDisplayName()"><code>useHeadersInDisplayName()</code></a>).
+Moreover, each specified value must not be blank.
+
+<p>Java's <a href="https://docs.oracle.com/en/java/javase/17/text-blocks/index.html">text block</a>
+feature automatically removes <em>incidental whitespace</em> when the code
+is compiled. However, other JVM languages such as Groovy and Kotlin do not.
+Thus, if you are using a programming language other than Java and your text
+block contains comments or new lines within quoted strings, you will need
+to ensure that there is no leading whitespace within your text block.
+
+<h5 id="example-heading1">Example</h5>
+<pre class="code">
+@ParameterizedTest
+@CsvSource(
+    """
+    apple,         1
+    banana,        2
+    'lemon, lime', 0xF1
+    strawberry,    700_000
+    """
+)
 void test(String fruit, int rank) {
     // ...
 }</pre></div>
@@ -299,7 +329,7 @@ void test(String fruit, int rank) {
 <div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#STABLE" title="class or interface in org.apiguardian.api" class="external-link">STABLE</a>,
      <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="5.10")
 </span><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">textBlock</span></div>
-<div class="block">The CSV records to use as the source of arguments, supplied as a single
+<div class="block">The CSV document to use as the source of arguments, supplied as a single
 <em>text block</em>; must not be empty.
 
 <p>Defaults to an empty string. You therefore must supply CSV content
@@ -307,7 +337,7 @@ via this attribute or the <a href="#value()"><code>value()</code></a> attribute.
 
 <p>Text block syntax is supported by various languages on the JVM
 including Java SE. If text blocks are not supported, you
-should declare your CSV content via the <a href="#value()"><code>value()</code></a> attribute.
+should declare your CSV records via the <a href="#value()"><code>value()</code></a> attribute.
 
 <p>Each record in the text block corresponds to a record in a CSV file and will
 be split using the specified <a href="#delimiter()"><code>delimiter()</code></a> or <a href="#delimiterString()"><code>delimiterString()</code></a>.
@@ -333,7 +363,7 @@ Thus, if you are using a programming language other than Java and your text
 block contains comments or new lines within quoted strings, you will need
 to ensure that there is no leading whitespace within your text block.
 
-<h4 id="example-heading1">Example</h4>
+<h4 id="example-heading2">Example</h4>
 <pre class="code">
 @ParameterizedTest
 @CsvSource(quoteCharacter = '"', textBlock = """
@@ -385,7 +415,7 @@ as demonstrated in the example below.
 
 <p>Defaults to <code>false</code>.
 
-<h4 id="example-heading2">Example</h4>
+<h4 id="example-heading3">Example</h4>
 <pre class="code">
 @ParameterizedTest(name = "[{index}] {arguments}")
 @CsvSource(useHeadersInDisplayName = true, textBlock = """
