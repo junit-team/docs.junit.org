@@ -501,7 +501,13 @@ prevents unfinished quotes in one document from affecting another.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>❓</p>
+<p>When using <code>@CsvSource.value[]</code> CSV records starting with a comment character cause the
+test to fail. Either change <code>commentCharacter</code> to something else or enclose the field in
+quotes.</p>
+</li>
+<li>
+<p>When using <code>@CsvSource.value[]</code> the <code>commentCharacter</code> must be distinct from both
+<code>delimiter</code> and <code>quoteCharacter</code>.</p>
 </li>
 </ul>
 </div>

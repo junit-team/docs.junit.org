@@ -132,19 +132,13 @@ column is trimmed by default. This behavior can be changed by setting the
 
 <p>In general, CSV records should not contain explicit newlines (<code>\n</code>)
 unless they are placed within quoted strings. Note that CSV records supplied
-via <a href="#textBlock()"><code>textBlock()</code></a> will implicitly contain newlines at the end of each
+via a <em>text block</em> will implicitly contain newlines at the end of each
 physical line within the text block. Thus, if a CSV column wraps across a
 new line in a text block, the column must be a quoted string.
 
 <p>Note that <a href="#delimiter()"><code>delimiter()</code></a> (or <a href="#delimiterString()"><code>delimiterString()</code></a>),
-<a href="#quoteCharacter()"><code>quoteCharacter()</code></a>, and <a href="#commentCharacter()"><code>commentCharacter()</code></a> (when
-<a href="#textBlock()"><code>textBlock()</code></a> is used) are treated as <em>control characters</em>.
-
-<ul>
-  <li><a href="#delimiter()"><code>delimiter()</code></a> and <a href="#quoteCharacter()"><code>quoteCharacter()</code></a> must always be distinct.</li>
-  <li><a href="#commentCharacter()"><code>commentCharacter()</code></a> must be distinct from the others only when
-  <a href="#textBlock()"><code>textBlock()</code></a> is used.</li>
-</ul>
+<a href="#quoteCharacter()"><code>quoteCharacter()</code></a>, and <a href="#commentCharacter()"><code>commentCharacter()</code></a> are treated as
+<em>control characters</em> and must always be distinct.
 
 <h2 id="inheritance-heading">Inheritance</h2>
 
@@ -178,7 +172,7 @@ new line in a text block, the column must be a quoted string.
 <div class="col-first even-row-color"><code>char</code></div>
 <div class="col-second even-row-color"><code><a href="#commentCharacter()" class="member-name-link">commentCharacter</a></code></div>
 <div class="col-last even-row-color">
-<div class="block">The character used to denote comments in a <a href="#textBlock()">text block</a>.</div>
+<div class="block">The character used to denote comments.</div>
 </div>
 <div class="col-first odd-row-color"><code>char</code></div>
 <div class="col-second odd-row-color"><code><a href="#delimiter()" class="member-name-link">delimiter</a></code></div>
@@ -418,7 +412,7 @@ as demonstrated in the example below.
 <h4 id="example-heading3">Example</h4>
 <pre class="code">
 @ParameterizedTest(name = "[{index}] {arguments}")
-@CsvSource(useHeadersInDisplayName = true, textBlock = """
+@CsvSource(useHeadersInDisplayName = true, value = """
     FRUIT,         RANK
     apple,         1
     banana,        2
@@ -616,7 +610,7 @@ or equal to <code>U+0020</code>, as defined by <a href="https://docs.oracle.com/
 <div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#EXPERIMENTAL" title="class or interface in org.apiguardian.api" class="external-link">EXPERIMENTAL</a>,
      <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.0.1")
 </span><span class="return-type">char</span>&nbsp;<span class="element-name">commentCharacter</span></div>
-<div class="block">The character used to denote comments in a <a href="#textBlock()">text block</a>.
+<div class="block">The character used to denote comments.
 
 <p>Any line that begins with this character will be treated as a comment
 and ignored during parsing. Note that there is one exception to this rule:
