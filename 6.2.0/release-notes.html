@@ -474,6 +474,11 @@ added variants that use an exception class as a value rather than a type paramet
 This is to primarily to address the current issue/s when trying to use
 <code>@ParameterizedTest</code> that produces exceptions as values.</p>
 </li>
+<li>
+<p><code>ConsoleLauncher</code> with <code>--details=verbose</code> now reports on each test atomically and
+indents its output correctly when tests are executed in parallel. Previously, the
+reported output from different tests could interleave.</p>
+</li>
 </ul>
 </div>
 </div>
