@@ -416,6 +416,19 @@ used to filter <a href="../running-tests/intro.html" class="xref page">test disc
 <a href="../running-tests/tags.html" class="xref page">Tags</a> section for more information about tag support in the JUnit
 Platform.</p>
 </div>
+<div id="tabs-1" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-1-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-1-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-1-java--panel" class="tabpanel" aria-labelledby="tabs-1-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import org.junit.jupiter.api.Tag;
@@ -431,6 +444,26 @@ class TaggingDemo {
 	}
 
 }</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-1-kotlin--panel" class="tabpanel" aria-labelledby="tabs-1-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import org.junit.jupiter.api.Tag
+import org.junit.jupiter.api.Test
+
+@Tag("fast")
+@Tag("model")
+class TaggingDemo {
+    @Test
+    @Tag("taxes")
+    fun testingTaxCalculation() {
+    }
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="admonitionblock tip">

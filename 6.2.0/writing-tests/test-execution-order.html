@@ -491,6 +491,19 @@ See also: <a href="../extensions/relative-execution-order-of-user-code-and-exten
 <p>The following example demonstrates how to guarantee that test methods are executed in the
 order specified via the <code>@Order</code> annotation.</p>
 </div>
+<div id="tabs-1" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-1-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-1-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-1-java--panel" class="tabpanel" aria-labelledby="tabs-1-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
@@ -520,6 +533,40 @@ class OrderedTestsDemo {
 	}
 
 }</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-1-kotlin--panel" class="tabpanel" aria-labelledby="tabs-1-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import org.junit.jupiter.api.MethodOrderer.OrderAnnotation
+import org.junit.jupiter.api.Order
+import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.TestMethodOrder
+
+@TestMethodOrder(OrderAnnotation::class)
+class OrderedTestsDemo {
+    @Test
+    @Order(1)
+    fun nullValues() {
+        // perform assertions against null values
+    }
+
+    @Test
+    @Order(2)
+    fun emptyValues() {
+        // perform assertions against empty values
+    }
+
+    @Test
+    @Order(3)
+    fun validValues() {
+        // perform assertions against valid values
+    }
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -650,6 +697,19 @@ Note that a local <code>@TestClassOrder</code> declaration always overrides an i
 <p>The following example demonstrates how to guarantee that <code>@Nested</code> test classes are
 executed in the order specified via the <code>@Order</code> annotation.</p>
 </div>
+<div id="tabs-2" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-2-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-2-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-2-java--panel" class="tabpanel" aria-labelledby="tabs-2-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import org.junit.jupiter.api.ClassOrderer;
@@ -679,6 +739,39 @@ class OrderedNestedTestClassesDemo {
 		}
 	}
 }</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-2-kotlin--panel" class="tabpanel" aria-labelledby="tabs-2-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import org.junit.jupiter.api.ClassOrderer
+import org.junit.jupiter.api.Nested
+import org.junit.jupiter.api.Order
+import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.TestClassOrder
+
+@TestClassOrder(ClassOrderer.OrderAnnotation::class)
+class OrderedNestedTestClassesDemo {
+    @Nested
+    @Order(1)
+    inner class PrimaryTests {
+        @Test
+        fun test1() {
+        }
+    }
+
+    @Nested
+    @Order(2)
+    inner class SecondaryTests {
+        @Test
+        fun test2() {
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
