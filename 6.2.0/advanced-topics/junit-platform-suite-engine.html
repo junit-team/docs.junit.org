@@ -489,6 +489,19 @@ on <code>junit-platform-suite-api</code> and <code>junit-platform-suite-engine</
 seen in the following example, selector and filter annotations can be used to control the
 contents of the suite.</p>
 </div>
+<div id="tabs-1" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-1-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-1-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-1-java--panel" class="tabpanel" aria-labelledby="tabs-1-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import org.junit.platform.suite.api.IncludeClassNamePatterns;
@@ -502,6 +515,25 @@ import org.junit.platform.suite.api.SuiteDisplayName;
 @IncludeClassNamePatterns(".*Tests")
 class SuiteDemo {
 }</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-1-kotlin--panel" class="tabpanel" aria-labelledby="tabs-1-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import org.junit.platform.suite.api.IncludeClassNamePatterns
+import org.junit.platform.suite.api.SelectPackages
+import org.junit.platform.suite.api.Suite
+import org.junit.platform.suite.api.SuiteDisplayName
+
+@Suite
+@SuiteDisplayName("JUnit Platform Suite Demo")
+@SelectPackages("example")
+@IncludeClassNamePatterns(".*Tests")
+class SuiteDemo</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -529,6 +561,19 @@ list of supported annotations and further details.
 <code>@Suite</code>-annotated class. They will be executed before and after all tests of the test
 suite, respectively.</p>
 </div>
+<div id="tabs-2" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-2-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-2-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-2-java--panel" class="tabpanel" aria-labelledby="tabs-2-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Suite
@@ -546,6 +591,32 @@ class BeforeAndAfterSuiteDemo {
 	}
 
 }</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-2-kotlin--panel" class="tabpanel" aria-labelledby="tabs-2-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Suite
+@SelectPackages("example")
+class BeforeAndAfterSuiteDemo {
+    companion object {
+        @JvmStatic
+        @BeforeSuite
+        fun beforeSuite() {
+            // executes before the test suite
+        }
+
+        @JvmStatic
+        @AfterSuite
+        fun afterSuite() {
+            // executes after the test suite
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>

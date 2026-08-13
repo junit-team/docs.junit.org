@@ -449,6 +449,19 @@ methods in previous versions of JUnit.</p>
 <div class="paragraph">
 <p>Usage Example:</p>
 </div>
+<div id="tabs-1" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-1-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-1-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-1-java--panel" class="tabpanel" aria-labelledby="tabs-1-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static org.junit.platform.engine.discovery.ClassNameFilter.includeClassNamePatterns;
@@ -462,6 +475,33 @@ import org.junit.platform.launcher.TestPlan;
 import org.junit.platform.launcher.core.LauncherFactory;</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-1-kotlin--panel" class="tabpanel" aria-labelledby="tabs-1-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import org.junit.platform.engine.discovery.ClassNameFilter.includeClassNamePatterns
+import org.junit.platform.engine.discovery.DiscoverySelectors.selectClass
+import org.junit.platform.engine.discovery.DiscoverySelectors.selectPackage
+import org.junit.platform.launcher.core.LauncherDiscoveryRequestBuilder.discoveryRequest
+import org.junit.platform.launcher.core.LauncherFactory</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabs-2" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-2-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-2-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-2-java--panel" class="tabpanel" aria-labelledby="tabs-2-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">LauncherDiscoveryRequest discoveryRequest = discoveryRequest()
@@ -479,6 +519,29 @@ try (LauncherSession session = LauncherFactory.openSession()) {
 
 	// ... discover additional test plans or execute tests
 }</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-2-kotlin--panel" class="tabpanel" aria-labelledby="tabs-2-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val discoveryRequest =
+    discoveryRequest()
+        .selectors(
+            selectPackage("com.example.mytests"),
+            selectClass(MyTestClass::class.java)
+        ).filters(
+            includeClassNamePatterns(".*Tests")
+        ).build()
+
+LauncherFactory.openSession().use { session -&gt;
+    val testPlan = session.launcher.discover(discoveryRequest)
+
+    // ... discover additional test plans or execute tests
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="paragraph">
@@ -513,6 +576,19 @@ phase or create a new request. Test progress and reporting can be achieved by re
 one or more <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/TestExecutionListener.html" class="xref attachment">TestExecutionListener</a></code> implementations with the <code>Launcher</code> as in the
 following example.</p>
 </div>
+<div id="tabs-3" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-3-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-3-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-3-java--panel" class="tabpanel" aria-labelledby="tabs-3-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">LauncherDiscoveryRequest discoveryRequest = LauncherDiscoveryRequestBuilder.request()
@@ -529,7 +605,7 @@ SummaryGeneratingListener listener = new SummaryGeneratingListener();
 
 try (LauncherSession session = LauncherFactory.openSession()) {
 	Launcher launcher = session.getLauncher();
-	// Register one ore more listeners of your choice.
+	// Register one or more listeners of your choice.
 	launcher.registerTestExecutionListeners(listener);
 	// Discover tests and build a test plan.
 	TestPlan testPlan = launcher.discover(discoveryRequest);
@@ -541,6 +617,42 @@ try (LauncherSession session = LauncherFactory.openSession()) {
 
 TestExecutionSummary summary = listener.getSummary();
 // Do something with the summary...</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-3-kotlin--panel" class="tabpanel" aria-labelledby="tabs-3-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val discoveryRequest =
+    LauncherDiscoveryRequestBuilder
+        .request()
+        .selectors(
+            selectPackage("com.example.mytests"),
+            selectClass(MyTestClass::class.java)
+        ).filters(
+            includeClassNamePatterns(".*Tests")
+        )
+        .build()
+
+val listener = SummaryGeneratingListener()
+
+LauncherFactory.openSession().use { session -&gt;
+    val launcher = session.launcher
+    // Register one or more listeners of your choice.
+    launcher.registerTestExecutionListeners(listener)
+    // Discover tests and build a test plan.
+    val testPlan = launcher.discover(discoveryRequest)
+    // Execute the test plan.
+    launcher.execute(testPlan)
+    // Alternatively, execute the discovery request directly.
+    launcher.execute(discoveryRequest)
+}
+
+val summary = listener.summary
+// Do something with the summary...</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="paragraph">
@@ -632,8 +744,21 @@ behavior since it&#8217;s called before the first and after the last test in a l
 respectively. The scope of a launcher session depends on the used IDE or build tool but
 usually corresponds to the lifecycle of the test JVM. A custom listener that starts an
 HTTP server before executing the first test and stops it after the last test has been
-executed, could look like this:</p>
+executed could look like this:</p>
 </div>
+<div id="tabs-4" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-4-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-4-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-4-java--panel" class="tabpanel" aria-labelledby="tabs-4-java">
 <div class="listingblock">
 <div class="title">src/test/java/example/session/GlobalSetupTeardownListener.java</div>
 <div class="content">
@@ -691,6 +816,60 @@ public class GlobalSetupTeardownListener implements LauncherSessionListener {
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-4-kotlin--panel" class="tabpanel" aria-labelledby="tabs-4-kotlin">
+<div class="listingblock">
+<div class="title">src/test/kotlin/example/kotlin/session/GlobalSetupTeardownListener.kt</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">package example.kotlin.session
+
+import com.sun.net.httpserver.HttpServer
+import org.junit.platform.engine.support.store.Namespace
+import org.junit.platform.launcher.LauncherSession
+import org.junit.platform.launcher.LauncherSessionListener
+import org.junit.platform.launcher.TestExecutionListener
+import org.junit.platform.launcher.TestPlan
+import java.io.IOException
+import java.io.UncheckedIOException
+import java.net.InetAddress.getLoopbackAddress
+import java.net.InetSocketAddress
+import java.util.concurrent.Executors
+
+class GlobalSetupTeardownListener : LauncherSessionListener {
+    override fun launcherSessionOpened(session: LauncherSession) {
+        // Avoid setup for test discovery by delaying it until tests are about to be executed
+        session.launcher.registerTestExecutionListeners(
+            object : TestExecutionListener {
+                override fun testPlanExecutionStarted(testPlan: TestPlan) {
+                    val store = session.store <i class="conum" data-value="1"></i><b>(1)</b>
+                    store.computeIfAbsent(Namespace.GLOBAL, "httpServer") { <i class="conum" data-value="2"></i><b>(2)</b>
+                        val address = InetSocketAddress(getLoopbackAddress(), 0)
+                        val server: HttpServer =
+                            try {
+                                HttpServer.create(address, 0)
+                            } catch (e: IOException) {
+                                throw UncheckedIOException("Failed to start HTTP server", e)
+                            }
+                        server.createContext("/test") { exchange -&gt;
+                            exchange.sendResponseHeaders(204, -1)
+                            exchange.close()
+                        }
+                        val executorService = Executors.newCachedThreadPool()
+                        server.executor = executorService
+                        server.start() <i class="conum" data-value="3"></i><b>(3)</b>
+
+                        CloseableHttpServer(server, executorService)
+                    }
+                }
+            }
+        )
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="colist arabic">
 <table>
 <tr>
@@ -711,6 +890,19 @@ public class GlobalSetupTeardownListener implements LauncherSessionListener {
 <p>It uses a wrapper class to ensure the server is stopped when the launcher session is
 closed:</p>
 </div>
+<div id="tabs-5" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-5-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-5-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-5-java--panel" class="tabpanel" aria-labelledby="tabs-5-java">
 <div class="listingblock">
 <div class="title">src/test/java/example/session/CloseableHttpServer.java</div>
 <div class="content">
@@ -742,6 +934,30 @@ public class CloseableHttpServer implements AutoCloseable {
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-5-kotlin--panel" class="tabpanel" aria-labelledby="tabs-5-kotlin">
+<div class="listingblock">
+<div class="title">src/test/kotlin/example/kotlin/session/CloseableHttpServer.kt</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">package example.kotlin.session
+
+import com.sun.net.httpserver.HttpServer
+import java.util.concurrent.ExecutorService
+
+class CloseableHttpServer(
+    val server: HttpServer,
+    private val executorService: ExecutorService
+) : AutoCloseable {
+    override fun close() { <i class="conum" data-value="1"></i><b>(1)</b>
+        server.stop(0) <i class="conum" data-value="2"></i><b>(2)</b>
+        executorService.shutdownNow()
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="colist arabic">
 <table>
 <tr>
@@ -770,6 +986,19 @@ by adding the file to <code>src/test/resources</code>):</p>
 <div class="paragraph">
 <p>You can now use the resource from your test:</p>
 </div>
+<div id="tabs-6" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-6-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-6-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-6-java--panel" class="tabpanel" aria-labelledby="tabs-6-java">
 <div class="listingblock">
 <div class="title">src/test/java/example/session/HttpTests.java</div>
 <div class="content">
@@ -821,6 +1050,59 @@ class HttpServerParameterResolver implements ParameterResolver {
 				.getServer();
 	}
 }</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-6-kotlin--panel" class="tabpanel" aria-labelledby="tabs-6-kotlin">
+<div class="listingblock">
+<div class="title">src/test/kotlin/example/kotlin/session/HttpTests.kt</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">package example.kotlin.session
+
+import com.sun.net.httpserver.HttpServer
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.extension.ExtendWith
+import org.junit.jupiter.api.extension.ExtensionContext
+import org.junit.jupiter.api.extension.ParameterContext
+import org.junit.jupiter.api.extension.ParameterResolver
+import java.net.HttpURLConnection
+import java.net.URI
+
+@ExtendWith(HttpServerParameterResolver::class)
+class HttpTests {
+    @Test
+    fun respondsWith204(server: HttpServer) {
+        val host = server.address.hostString <i class="conum" data-value="2"></i><b>(2)</b>
+        val port = server.address.port <i class="conum" data-value="3"></i><b>(3)</b>
+        val url = URI.create("http://$host:$port/test").toURL()
+
+        val connection = url.openConnection() as HttpURLConnection
+        connection.requestMethod = "GET"
+        val responseCode = connection.responseCode <i class="conum" data-value="4"></i><b>(4)</b>
+
+        assertEquals(204, responseCode) <i class="conum" data-value="5"></i><b>(5)</b>
+    }
+}
+
+class HttpServerParameterResolver : ParameterResolver {
+    override fun supportsParameter(
+        parameterContext: ParameterContext,
+        extensionContext: ExtensionContext
+    ): Boolean = HttpServer::class.java == parameterContext.parameter.type
+
+    override fun resolveParameter(
+        parameterContext: ParameterContext,
+        extensionContext: ExtensionContext
+    ): Any =
+        extensionContext
+            .getStore(ExtensionContext.Namespace.GLOBAL)
+            .get("httpServer", CloseableHttpServer::class.java)!! <i class="conum" data-value="1"></i><b>(1)</b>
+            .server
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="colist arabic">
@@ -882,6 +1164,19 @@ supplied in the <code>LauncherDiscoveryRequest</code> that is passed to the <cod
 <p>A typical use case is to create a custom interceptor to replace the <code>ClassLoader</code> used by
 the JUnit Platform to load test classes and engine implementations.</p>
 </div>
+<div id="tabs-7" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-7-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-7-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-7-java--panel" class="tabpanel" aria-labelledby="tabs-7-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import java.io.IOException;
@@ -924,6 +1219,47 @@ public class CustomLauncherInterceptor implements LauncherInterceptor {
 		}
 	}
 }</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-7-kotlin--panel" class="tabpanel" aria-labelledby="tabs-7-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import org.junit.platform.launcher.LauncherInterceptor
+import java.io.IOException
+import java.io.UncheckedIOException
+import java.net.URI
+import java.net.URLClassLoader
+
+class CustomLauncherInterceptor : LauncherInterceptor {
+    private val customClassLoader: URLClassLoader =
+        URLClassLoader(
+            arrayOf(URI.create("some.jar").toURL()),
+            Thread.currentThread().contextClassLoader
+        )
+
+    override fun &lt;T&gt; intercept(invocation: LauncherInterceptor.Invocation&lt;T&gt;): T {
+        val currentThread = Thread.currentThread()
+        val originalClassLoader = currentThread.contextClassLoader
+        currentThread.contextClassLoader = customClassLoader
+        try {
+            return invocation.proceed()
+        } finally {
+            currentThread.contextClassLoader = originalClassLoader
+        }
+    }
+
+    override fun close() {
+        try {
+            customClassLoader.close()
+        } catch (e: IOException) {
+            throw UncheckedIOException("Failed to close custom class loader", e)
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1033,6 +1369,19 @@ engines and listeners, you may create an instance of <code><a href="../api/org.j
 the <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherFactory.html" class="xref attachment">LauncherFactory</a></code>. Typically, an instance of <code>LauncherConfig</code> is created via the
 built-in fluent <em>builder</em> API, as demonstrated in the following example.</p>
 </div>
+<div id="tabs-8" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-8-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-8-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-8-java--panel" class="tabpanel" aria-labelledby="tabs-8-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">LauncherConfig launcherConfig = LauncherConfig.builder()
@@ -1056,6 +1405,40 @@ LauncherDiscoveryRequest discoveryRequest = LauncherDiscoveryRequestBuilder.requ
 try (LauncherSession session = LauncherFactory.openSession(launcherConfig)) {
 	session.getLauncher().execute(discoveryRequest);
 }</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-8-kotlin--panel" class="tabpanel" aria-labelledby="tabs-8-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val launcherConfig =
+    LauncherConfig
+        .builder()
+        .enableTestEngineAutoRegistration(false)
+        .enableLauncherSessionListenerAutoRegistration(false)
+        .enableLauncherDiscoveryListenerAutoRegistration(false)
+        .enablePostDiscoveryFilterAutoRegistration(false)
+        .enableTestExecutionListenerAutoRegistration(false)
+        .addTestEngines(CustomTestEngine())
+        .addLauncherSessionListeners(CustomLauncherSessionListener())
+        .addLauncherDiscoveryListeners(CustomLauncherDiscoveryListener())
+        .addPostDiscoveryFilters(CustomPostDiscoveryFilter())
+        .addTestExecutionListeners(LegacyXmlReportGeneratingListener(reportsDir, out))
+        .addTestExecutionListeners(CustomTestExecutionListener())
+        .build()
+
+val discoveryRequest =
+    LauncherDiscoveryRequestBuilder
+        .request()
+        .selectors(selectPackage("com.example.mytests"))
+        .build()
+
+LauncherFactory.openSession(launcherConfig).use { session -&gt;
+    session.launcher.execute(discoveryRequest)
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1103,6 +1486,19 @@ The Jupiter engine allows read and write access to such resources via its
 resource. <code>FirstCustomEngine</code> attempts to retrieve an existing <code>ServerSocket</code> from the
 global store or creates a new one if it doesn&#8217;t exist:</p>
 </div>
+<div id="tabs-9" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-9-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-9-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-9-java--panel" class="tabpanel" aria-labelledby="tabs-9-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static java.net.InetAddress.getLoopbackAddress;
@@ -1165,10 +1561,76 @@ public class FirstCustomEngine implements TestEngine {
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-9-kotlin--panel" class="tabpanel" aria-labelledby="tabs-9-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import org.junit.platform.engine.EngineDiscoveryRequest
+import org.junit.platform.engine.ExecutionRequest
+import org.junit.platform.engine.TestDescriptor
+import org.junit.platform.engine.TestEngine
+import org.junit.platform.engine.TestExecutionResult.successful
+import org.junit.platform.engine.UniqueId
+import org.junit.platform.engine.support.descriptor.EngineDescriptor
+import org.junit.platform.engine.support.store.Namespace
+import java.io.IOException
+import java.io.UncheckedIOException
+import java.net.InetAddress.getLoopbackAddress
+import java.net.ServerSocket
+
+/**
+ * First custom test engine implementation.
+ */
+class FirstCustomEngine : TestEngine {
+    var socket: ServerSocket? = null
+
+    override fun getId(): String = "first-custom-test-engine"
+
+    override fun discover(
+        discoveryRequest: EngineDiscoveryRequest,
+        uniqueId: UniqueId
+    ): TestDescriptor = EngineDescriptor(uniqueId, "First Custom Test Engine")
+
+    override fun execute(request: ExecutionRequest) {
+        request.engineExecutionListener
+            .executionStarted(request.rootTestDescriptor)
+
+        val store = request.store
+        socket =
+            store.computeIfAbsent(Namespace.GLOBAL, "serverSocket", {
+                try {
+                    ServerSocket(0, 50, getLoopbackAddress())
+                } catch (e: IOException) {
+                    throw UncheckedIOException("Failed to start ServerSocket", e)
+                }
+            }, ServerSocket::class.java)
+
+        request.engineExecutionListener
+            .executionFinished(request.rootTestDescriptor, successful())
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="paragraph">
-<p><code>SecondCustomEngine</code> follows the same pattern, ensuring that regardless whether it runs
+<p><code>SecondCustomEngine</code> follows the same pattern, ensuring that, regardless whether it runs
 before or after <code>FirstCustomEngine</code>, it will use the same socket instance:</p>
 </div>
+<div id="tabs-10" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-10-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-10-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-10-java--panel" class="tabpanel" aria-labelledby="tabs-10-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">/**
@@ -1214,6 +1676,46 @@ public class SecondCustomEngine implements TestEngine {
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-10-kotlin--panel" class="tabpanel" aria-labelledby="tabs-10-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">/**
+ * Second custom test engine implementation.
+ */
+class SecondCustomEngine : TestEngine {
+    var socket: ServerSocket? = null
+
+    override fun getId(): String = "second-custom-test-engine"
+
+    override fun discover(
+        discoveryRequest: EngineDiscoveryRequest,
+        uniqueId: UniqueId
+    ): TestDescriptor = EngineDescriptor(uniqueId, "Second Custom Test Engine")
+
+    override fun execute(request: ExecutionRequest) {
+        request.engineExecutionListener
+            .executionStarted(request.rootTestDescriptor)
+
+        val store = request.store
+        socket =
+            store.computeIfAbsent(Namespace.GLOBAL, "serverSocket", {
+                try {
+                    ServerSocket(0, 50, getLoopbackAddress())
+                } catch (e: IOException) {
+                    throw UncheckedIOException("Failed to start ServerSocket", e)
+                }
+            }, ServerSocket::class.java)
+
+        request.engineExecutionListener
+            .executionFinished(request.rootTestDescriptor, successful())
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="admonitionblock tip">
 <table>
 <tr>
@@ -1234,6 +1736,19 @@ resource is closed properly when the test run is finished.
 <p>For illustration, the following test verifies that both engines are sharing the same
 <code>ServerSocket</code> instance and that it&#8217;s closed after <code>Launcher.execute()</code> returns:</p>
 </div>
+<div id="tabs-11" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-11-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-11-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-11-java--panel" class="tabpanel" aria-labelledby="tabs-11-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Test
@@ -1256,6 +1771,38 @@ void runBothCustomEnginesTest() {
 	assertSame(firstCustomEngine.getSocket(), secondCustomEngine.getSocket());
 	assertTrue(firstCustomEngine.getSocket().isClosed(), "socket should be closed");
 }</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-11-kotlin--panel" class="tabpanel" aria-labelledby="tabs-11-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Test
+fun runBothCustomEnginesTest() {
+    val firstCustomEngine = FirstCustomEngine()
+    val secondCustomEngine = SecondCustomEngine()
+
+    val launcherConfig =
+        LauncherConfig
+            .builder()
+            .addTestEngines(firstCustomEngine, secondCustomEngine)
+            .enableTestEngineAutoRegistration(false)
+            .build()
+
+    val discoveryRequest =
+        discoveryRequest()
+            .selectors(selectPackage("com.example.mytests"))
+            .build()
+
+    val launcher = LauncherFactory.create(launcherConfig)
+    launcher.execute(discoveryRequest)
+
+    assertSame(firstCustomEngine.socket, secondCustomEngine.socket)
+    assertTrue(firstCustomEngine.socket!!.isClosed, "socket should be closed")
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="paragraph">
@@ -1282,6 +1829,19 @@ part of the <code><a href="../api/org.junit.platform.launcher/org/junit/platform
 <p>For example, implementing a listener that cancels test execution after the first test
 failed can be achieved as follows.</p>
 </div>
+<div id="tabs-12" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-12-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-12-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-12-java--panel" class="tabpanel" aria-labelledby="tabs-12-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">CancellationToken cancellationToken = CancellationToken.create(); <i class="conum" data-value="1"></i><b>(1)</b>
@@ -1305,6 +1865,41 @@ LauncherExecutionRequest executionRequest = LauncherDiscoveryRequestBuilder.requ
 try (LauncherSession session = LauncherFactory.openSession()) {
 	session.getLauncher().execute(executionRequest); <i class="conum" data-value="5"></i><b>(5)</b>
 }</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-12-kotlin--panel" class="tabpanel" aria-labelledby="tabs-12-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val cancellationToken = CancellationToken.create() <i class="conum" data-value="1"></i><b>(1)</b>
+
+val failFastListener =
+    object : TestExecutionListener { <i class="conum" data-value="2"></i><b>(2)</b>
+        override fun executionFinished(
+            identifier: TestIdentifier,
+            result: TestExecutionResult
+        ) {
+            if (result.status == FAILED) {
+                cancellationToken.cancel()
+            }
+        }
+    }
+
+val executionRequest =
+    LauncherDiscoveryRequestBuilder
+        .request()
+        .selectors(selectClass(MyTestClass::class.java))
+        .forExecution()
+        .cancellationToken(cancellationToken) <i class="conum" data-value="3"></i><b>(3)</b>
+        .listeners(failFastListener) <i class="conum" data-value="4"></i><b>(4)</b>
+        .build()
+
+LauncherFactory.openSession().use { session -&gt;
+    session.launcher.execute(executionRequest) <i class="conum" data-value="5"></i><b>(5)</b>
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="colist arabic">
@@ -1379,6 +1974,19 @@ are present at runtime.</p>
 <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherDiscoveryRequestBuilder.html" class="xref attachment">LauncherDiscoveryRequestBuilder</a></code> and calling <code>forExecution()</code>, you can create a
 <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherExecutionRequestBuilder.html" class="xref attachment">LauncherExecutionRequestBuilder</a></code> from a previously built <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/LauncherDiscoveryRequest.html" class="xref attachment">LauncherDiscoveryRequest</a></code>.</p>
 </div>
+<div id="tabs-13" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-13-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-13-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-13-java--panel" class="tabpanel" aria-labelledby="tabs-13-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">LauncherDiscoveryRequest discoveryRequest = LauncherDiscoveryRequestBuilder.request()
@@ -1393,6 +2001,31 @@ LauncherExecutionRequest executionRequest = LauncherExecutionRequestBuilder.requ
 try (LauncherSession session = LauncherFactory.openSession()) {
 	session.getLauncher().execute(executionRequest); <i class="conum" data-value="5"></i><b>(5)</b>
 }</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-13-kotlin--panel" class="tabpanel" aria-labelledby="tabs-13-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val discoveryRequest =
+    LauncherDiscoveryRequestBuilder
+        .request()
+        .selectors(selectClass(MyTestClass::class.java))
+        .build() <i class="conum" data-value="1"></i><b>(1)</b>
+
+val executionRequest =
+    LauncherExecutionRequestBuilder
+        .request(discoveryRequest) <i class="conum" data-value="2"></i><b>(2)</b>
+        .cancellationToken(cancellationToken) <i class="conum" data-value="3"></i><b>(3)</b>
+        .listeners(failFastListener) <i class="conum" data-value="4"></i><b>(4)</b>
+        .build()
+
+LauncherFactory.openSession().use { session -&gt;
+    session.launcher.execute(executionRequest) <i class="conum" data-value="5"></i><b>(5)</b>
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="colist arabic">
@@ -1426,6 +2059,19 @@ try (LauncherSession session = LauncherFactory.openSession()) {
 <p>Alternatively, a <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherExecutionRequestBuilder.html" class="xref attachment">LauncherExecutionRequestBuilder</a></code> can be created from a previously
 discovered <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/TestPlan.html" class="xref attachment">TestPlan</a></code>.</p>
 </div>
+<div id="tabs-14" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-14-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-14-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-14-java--panel" class="tabpanel" aria-labelledby="tabs-14-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">LauncherDiscoveryRequest discoveryRequest = LauncherDiscoveryRequestBuilder.request()
@@ -1441,6 +2087,32 @@ try (LauncherSession session = LauncherFactory.openSession()) {
 			.build();
 	launcher.execute(executionRequest); <i class="conum" data-value="6"></i><b>(6)</b>
 }</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-14-kotlin--panel" class="tabpanel" aria-labelledby="tabs-14-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val discoveryRequest =
+    LauncherDiscoveryRequestBuilder
+        .request()
+        .selectors(selectClass(MyTestClass::class.java))
+        .build() <i class="conum" data-value="1"></i><b>(1)</b>
+
+LauncherFactory.openSession().use { session -&gt;
+    val launcher = session.launcher
+    val testPlan = launcher.discover(discoveryRequest) <i class="conum" data-value="2"></i><b>(2)</b>
+    val executionRequest =
+        LauncherExecutionRequestBuilder
+            .request(testPlan) <i class="conum" data-value="3"></i><b>(3)</b>
+            .cancellationToken(cancellationToken) <i class="conum" data-value="4"></i><b>(4)</b>
+            .listeners(failFastListener) <i class="conum" data-value="5"></i><b>(5)</b>
+            .build()
+    launcher.execute(executionRequest) <i class="conum" data-value="6"></i><b>(6)</b>
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="colist arabic">

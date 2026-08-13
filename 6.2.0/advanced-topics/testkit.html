@@ -448,7 +448,20 @@ to build your <code>LauncherDiscoveryRequest</code>, you must use one of the <co
 <div class="paragraph">
 <p>The following test class written using JUnit Jupiter will be used in subsequent examples.</p>
 </div>
-<div id="engine-ExampleTestCase" class="listingblock">
+<div id="engine-ExampleTestCase" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="engine-ExampleTestCase-java" class="tab">
+<p>Java</p>
+</li>
+<li id="engine-ExampleTestCase-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="engine-ExampleTestCase-java--panel" class="tabpanel" aria-labelledby="engine-ExampleTestCase-java">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
@@ -496,6 +509,55 @@ public class ExampleTestCase {
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="engine-ExampleTestCase-kotlin--panel" class="tabpanel" aria-labelledby="engine-ExampleTestCase-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import example.util.Calculator
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assumptions.assumeTrue
+import org.junit.jupiter.api.Disabled
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation
+import org.junit.jupiter.api.Order
+import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.TestMethodOrder
+
+@TestMethodOrder(OrderAnnotation::class)
+class ExampleTestCase {
+    private val calculator = Calculator()
+
+    @Test
+    @Disabled("for demonstration purposes")
+    @Order(1)
+    fun skippedTest() {
+        // skipped ...
+    }
+
+    @Test
+    @Order(2)
+    fun succeedingTest() {
+        assertEquals(42, calculator.multiply(6, 7))
+    }
+
+    @Test
+    @Order(3)
+    fun abortedTest() {
+        assumeTrue("abc".contains("Z"), "abc does not contain Z")
+        // aborted ...
+    }
+
+    @Test
+    @Order(4)
+    fun failingTest() {
+        // The following throws an ArithmeticException: "/ by zero"
+        calculator.divide(1, 0)
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>For the sake of brevity, the following sections demonstrate how to test JUnit&#8217;s own
 <code>JupiterTestEngine</code> whose unique engine ID is <code>"junit-jupiter"</code>. If you want to test your
@@ -512,6 +574,19 @@ may test your own <code>TestEngine</code> by supplying an instance of it to the
 <p>The following test demonstrates how to verify that a <code>TestPlan</code> was discovered as expected
 by the JUnit Jupiter <code>TestEngine</code>.</p>
 </div>
+<div id="tabs-2" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-2-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-2-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-2-java--panel" class="tabpanel" aria-labelledby="tabs-2-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static java.util.Collections.emptyList;
@@ -539,6 +614,35 @@ class EngineTestKitDiscoveryDemo {
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-2-kotlin--panel" class="tabpanel" aria-labelledby="tabs-2-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import example.kotlin.ExampleTestCase
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Test
+import org.junit.platform.engine.DiscoveryIssue
+import org.junit.platform.engine.discovery.DiscoverySelectors.selectClass
+import org.junit.platform.testkit.engine.EngineTestKit
+
+class EngineTestKitDiscoveryDemo {
+    @Test
+    fun verifyJupiterDiscovery() {
+        val results =
+            EngineTestKit
+                .engine("junit-jupiter") <i class="conum" data-value="1"></i><b>(1)</b>
+                .selectors(selectClass(ExampleTestCase::class.java)) <i class="conum" data-value="2"></i><b>(2)</b>
+                .discover() <i class="conum" data-value="3"></i><b>(3)</b>
+
+        assertEquals("JUnit Jupiter", results.engineDescriptor.displayName) <i class="conum" data-value="4"></i><b>(4)</b>
+        assertEquals(emptyList&lt;DiscoveryIssue&gt;(), results.discoveryIssues) <i class="conum" data-value="5"></i><b>(5)</b>
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="colist arabic">
 <table>
 <tr>
@@ -555,7 +659,7 @@ class EngineTestKitDiscoveryDemo {
 </tr>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>Assert engine root descriptor has expected display name.</td>
+<td>Assert engine root descriptor has the expected display name.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="5"></i><b>5</b></td>
@@ -574,6 +678,19 @@ against events fired during the execution of a <code>TestPlan</code>. The follow
 how to assert statistics for <em>containers</em> and <em>tests</em> in the JUnit Jupiter <code>TestEngine</code>.
 For details on what statistics are available, consult the Javadoc for <code><a href="../api/org.junit.platform.testkit/org/junit/platform/testkit/engine/EventStatistics.html" class="xref attachment">EventStatistics</a></code>.</p>
 </div>
+<div id="tabs-3" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-3-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-3-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-3-java--panel" class="tabpanel" aria-labelledby="tabs-3-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static org.junit.platform.engine.discovery.DiscoverySelectors.selectClass;
@@ -607,6 +724,48 @@ class EngineTestKitStatisticsDemo {
 	}
 
 }</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-3-kotlin--panel" class="tabpanel" aria-labelledby="tabs-3-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import example.kotlin.ExampleTestCase
+import org.junit.jupiter.api.Test
+import org.junit.platform.engine.discovery.DiscoverySelectors.selectClass
+import org.junit.platform.testkit.engine.EngineTestKit
+
+class EngineTestKitStatisticsDemo {
+    @Test
+    fun verifyJupiterContainerStats() {
+        EngineTestKit
+            .engine("junit-jupiter") <i class="conum" data-value="1"></i><b>(1)</b>
+            .selectors(selectClass(ExampleTestCase::class.java)) <i class="conum" data-value="2"></i><b>(2)</b>
+            .execute() <i class="conum" data-value="3"></i><b>(3)</b>
+            .containerEvents() <i class="conum" data-value="4"></i><b>(4)</b>
+            .assertStatistics { stats -&gt; stats.started(2).succeeded(2) } <i class="conum" data-value="5"></i><b>(5)</b>
+    }
+
+    @Test
+    fun verifyJupiterTestStats() {
+        EngineTestKit
+            .engine("junit-jupiter") <i class="conum" data-value="1"></i><b>(1)</b>
+            .selectors(selectClass(ExampleTestCase::class.java)) <i class="conum" data-value="2"></i><b>(2)</b>
+            .execute() <i class="conum" data-value="3"></i><b>(3)</b>
+            .testEvents() <i class="conum" data-value="6"></i><b>(6)</b>
+            .assertStatistics { stats -&gt;
+                stats <i class="conum" data-value="7"></i><b>(7)</b>
+                    .skipped(1)
+                    .started(3)
+                    .succeeded(1)
+                    .aborted(1)
+                    .failed(1)
+            }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="colist arabic">
@@ -690,6 +849,19 @@ events, consult the Javadoc for <code><a href="../api/org.junit.platform.testkit
 </tr>
 </table>
 </div>
+<div id="tabs-4" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-4-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-4-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-4-java--panel" class="tabpanel" aria-labelledby="tabs-4-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static org.junit.platform.engine.discovery.DiscoverySelectors.selectMethod;
@@ -723,6 +895,42 @@ class EngineTestKitSkippedMethodDemo {
 	}
 
 }</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-4-kotlin--panel" class="tabpanel" aria-labelledby="tabs-4-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import example.kotlin.ExampleTestCase
+import org.junit.jupiter.api.Test
+import org.junit.platform.engine.discovery.DiscoverySelectors.selectMethod
+import org.junit.platform.testkit.engine.EngineTestKit
+import org.junit.platform.testkit.engine.EventConditions.event
+import org.junit.platform.testkit.engine.EventConditions.skippedWithReason
+import org.junit.platform.testkit.engine.EventConditions.test
+
+class EngineTestKitSkippedMethodDemo {
+    @Test
+    fun verifyJupiterMethodWasSkipped() {
+        val methodName = "skippedTest"
+
+        val testEvents = <i class="conum" data-value="5"></i><b>(5)</b>
+            EngineTestKit
+                .engine("junit-jupiter") <i class="conum" data-value="1"></i><b>(1)</b>
+                .selectors(selectMethod(ExampleTestCase::class.java, methodName)) <i class="conum" data-value="2"></i><b>(2)</b>
+                .execute() <i class="conum" data-value="3"></i><b>(3)</b>
+                .testEvents() <i class="conum" data-value="4"></i><b>(4)</b>
+
+        testEvents.assertStatistics { stats -&gt; stats.skipped(1) } <i class="conum" data-value="6"></i><b>(6)</b>
+
+        testEvents
+            .assertThatEvents() <i class="conum" data-value="7"></i><b>(7)</b>
+            .haveExactly(1, event(test(methodName), skippedWithReason("for demonstration purposes")))
+    }
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="colist arabic">
@@ -778,6 +986,19 @@ events and execution results, consult the Javadoc for <code><a href="../api/org.
 </tr>
 </table>
 </div>
+<div id="tabs-5" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-5-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-5-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-5-java--panel" class="tabpanel" aria-labelledby="tabs-5-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static org.junit.platform.engine.discovery.DiscoverySelectors.selectClass;
@@ -807,6 +1028,46 @@ class EngineTestKitFailedMethodDemo {
 	}
 
 }</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-5-kotlin--panel" class="tabpanel" aria-labelledby="tabs-5-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import example.kotlin.ExampleTestCase
+import org.junit.jupiter.api.Test
+import org.junit.platform.engine.discovery.DiscoverySelectors.selectClass
+import org.junit.platform.testkit.engine.EngineTestKit
+import org.junit.platform.testkit.engine.EventConditions.event
+import org.junit.platform.testkit.engine.EventConditions.finishedWithFailure
+import org.junit.platform.testkit.engine.EventConditions.test
+import org.junit.platform.testkit.engine.TestExecutionResultConditions.instanceOf
+import org.junit.platform.testkit.engine.TestExecutionResultConditions.message
+
+class EngineTestKitFailedMethodDemo {
+    @Test
+    fun verifyJupiterMethodFailed() {
+        EngineTestKit
+            .engine("junit-jupiter") <i class="conum" data-value="1"></i><b>(1)</b>
+            .selectors(selectClass(ExampleTestCase::class.java)) <i class="conum" data-value="2"></i><b>(2)</b>
+            .execute() <i class="conum" data-value="3"></i><b>(3)</b>
+            .testEvents() <i class="conum" data-value="4"></i><b>(4)</b>
+            .assertThatEvents()
+            .haveExactly(
+                1, <i class="conum" data-value="5"></i><b>(5)</b>
+                event(
+                    test("failingTest"),
+                    finishedWithFailure(
+                        instanceOf(ArithmeticException::class.java),
+                        message { it.endsWith("by zero") }
+                    )
+                )
+            )
+    }
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="colist arabic">
@@ -864,6 +1125,19 @@ reliable.</p>
 the methods <code>assertEventsMatchLooselyInOrder()</code> and <code>assertEventsMatchLoosely()</code>,
 respectively.</p>
 </div>
+<div id="tabs-6" class="openblock tabs is-sync is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-6-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-6-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-6-java--panel" class="tabpanel" aria-labelledby="tabs-6-java">
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static org.junit.platform.engine.discovery.DiscoverySelectors.selectClass;
@@ -917,6 +1191,72 @@ class EngineTestKitAllEventsDemo {
 	}
 
 }</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-6-kotlin--panel" class="tabpanel" aria-labelledby="tabs-6-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import example.kotlin.ExampleTestCase
+import org.junit.jupiter.api.Test
+import org.junit.platform.engine.discovery.DiscoverySelectors.selectClass
+import org.junit.platform.testkit.engine.EngineTestKit
+import org.junit.platform.testkit.engine.EventConditions.abortedWithReason
+import org.junit.platform.testkit.engine.EventConditions.container
+import org.junit.platform.testkit.engine.EventConditions.engine
+import org.junit.platform.testkit.engine.EventConditions.event
+import org.junit.platform.testkit.engine.EventConditions.finishedSuccessfully
+import org.junit.platform.testkit.engine.EventConditions.finishedWithFailure
+import org.junit.platform.testkit.engine.EventConditions.skippedWithReason
+import org.junit.platform.testkit.engine.EventConditions.started
+import org.junit.platform.testkit.engine.EventConditions.test
+import org.junit.platform.testkit.engine.TestExecutionResultConditions.instanceOf
+import org.junit.platform.testkit.engine.TestExecutionResultConditions.message
+import org.opentest4j.TestAbortedException
+import java.io.StringWriter
+import java.io.Writer
+
+class EngineTestKitAllEventsDemo {
+    @Test
+    fun verifyAllJupiterEvents() {
+        val writer: Writer = // create a java.io.Writer for debug output
+
+        EngineTestKit
+            .engine("junit-jupiter") <i class="conum" data-value="1"></i><b>(1)</b>
+            .selectors(selectClass(ExampleTestCase::class.java)) <i class="conum" data-value="2"></i><b>(2)</b>
+            .execute() <i class="conum" data-value="3"></i><b>(3)</b>
+            .allEvents() <i class="conum" data-value="4"></i><b>(4)</b>
+            .debug(writer) <i class="conum" data-value="5"></i><b>(5)</b>
+            .assertEventsMatchExactly( <i class="conum" data-value="6"></i><b>(6)</b>
+                event(engine(), started()),
+                event(container(ExampleTestCase::class.java), started()),
+                event(test("skippedTest"), skippedWithReason("for demonstration purposes")),
+                event(test("succeedingTest"), started()),
+                event(test("succeedingTest"), finishedSuccessfully()),
+                event(test("abortedTest"), started()),
+                event(
+                    test("abortedTest"),
+                    abortedWithReason(
+                        instanceOf(TestAbortedException::class.java),
+                        message { it.contains("abc does not contain Z") }
+                    )
+                ),
+                event(test("failingTest"), started()),
+                event(
+                    test("failingTest"),
+                    finishedWithFailure(
+                        instanceOf(ArithmeticException::class.java),
+                        message { it.endsWith("by zero") }
+                    )
+                ),
+                event(container(ExampleTestCase::class.java), finishedSuccessfully()),
+                event(engine(), finishedSuccessfully())
+            )
+    }
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="colist arabic">
