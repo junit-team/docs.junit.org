@@ -23557,6 +23557,7 @@ import java.net.URI;
 import java.net.URL;
 import java.net.URLClassLoader;
 
+import org.jspecify.annotations.Nullable;
 import org.junit.platform.launcher.LauncherInterceptor;
 
 public class CustomLauncherInterceptor implements LauncherInterceptor {
@@ -23569,7 +23570,7 @@ public class CustomLauncherInterceptor implements LauncherInterceptor {
 	}
 
 	@Override
-	public &lt;T&gt; T intercept(Invocation&lt;T&gt; invocation) {
+	public &lt;T extends @Nullable Object&gt; T intercept(Invocation&lt;T&gt; invocation) {
 		Thread currentThread = Thread.currentThread();
 		ClassLoader originalClassLoader = currentThread.getContextClassLoader();
 		currentThread.setContextClassLoader(customClassLoader);
