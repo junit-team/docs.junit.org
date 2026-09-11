@@ -18882,6 +18882,15 @@ duplicate extension implementation will be ignored.
 </tr>
 </table>
 </div>
+<h4 id="extensions-registering-extensions:::registration-instances" class="discrete">Extension Instances and State</h4>
+<div class="paragraph">
+<p>You should not make any assumptions about when or how often the JUnit Platform instantiates
+a registered extension. In particular, a single extension instance is typically reused
+across multiple tests, so an extension should be <em>stateless</em>. Any state that needs to be
+kept between invocations should be stored in the <code><a href="../../../6.2.0/api/org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Store.html">Store</a></code> rather than in
+instance fields, so that it is scoped correctly and does not leak between tests. See
+<a href="#extensions-keeping-state-in-extensions">Keeping State in Extensions</a> for details.</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="extensions-conditional-test-execution"><a class="anchor" href="#extensions-conditional-test-execution"></a>Conditional Test Execution</h3>
