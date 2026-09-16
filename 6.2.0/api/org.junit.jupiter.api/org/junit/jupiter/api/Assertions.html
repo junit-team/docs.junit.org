@@ -7207,7 +7207,10 @@ completes before the given <code>timeout</code> is exceeded.
 
 <p>Note: the <code>executable</code> will be executed in the same thread as that
 of the calling code. Consequently, execution of the <code>executable</code> will
-not be preemptively aborted if the timeout is exceeded.</div>
+not be preemptively aborted if the timeout is exceeded.
+
+<p>The <code>timeout</code> must positive and be less than approximately 292
+years (2^63 nanoseconds).</div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -7237,6 +7240,9 @@ completes before the given <code>timeout</code> is exceeded.
 <p>Note: the <code>executable</code> will be executed in the same thread as that
 of the calling code. Consequently, execution of the <code>executable</code> will
 not be preemptively aborted if the timeout is exceeded.
+
+<p>The <code>timeout</code> must positive and be less than approximately 292
+years (2^63 nanoseconds).
 
 <p>Fails with the supplied failure <code>message</code>.</div>
 <dl class="notes">
@@ -7269,6 +7275,9 @@ completes before the given <code>timeout</code> is exceeded.
 of the calling code. Consequently, execution of the <code>executable</code> will
 not be preemptively aborted if the timeout is exceeded.
 
+<p>The <code>timeout</code> must positive and be less than approximately 292
+years (2^63 nanoseconds).
+
 <p>If necessary, the failure message will be retrieved lazily from the
 supplied <code>messageSupplier</code>.</div>
 <dl class="notes">
@@ -7300,7 +7309,10 @@ completes before the given <code>timeout</code> is exceeded.
 
 <p>Note: the <code>supplier</code> will be executed in the same thread as that
 of the calling code. Consequently, execution of the <code>supplier</code> will
-not be preemptively aborted if the timeout is exceeded.</div>
+not be preemptively aborted if the timeout is exceeded.
+
+<p>The <code>timeout</code> must positive and be less than approximately 292
+years (2^63 nanoseconds).</div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -7332,6 +7344,9 @@ completes before the given <code>timeout</code> is exceeded.
 <p>Note: the <code>supplier</code> will be executed in the same thread as that
 of the calling code. Consequently, execution of the <code>supplier</code> will
 not be preemptively aborted if the timeout is exceeded.
+
+<p>The <code>timeout</code> must positive and be less than approximately 292
+years (2^63 nanoseconds).
 
 <p>Fails with the supplied failure <code>message</code>.</div>
 <dl class="notes">
@@ -7365,6 +7380,9 @@ completes before the given <code>timeout</code> is exceeded.
 <p>Note: the <code>supplier</code> will be executed in the same thread as that
 of the calling code. Consequently, execution of the <code>supplier</code> will
 not be preemptively aborted if the timeout is exceeded.
+
+<p>The <code>timeout</code> must positive and be less than approximately 292
+years (2^63 nanoseconds).
 
 <p>If necessary, the failure message will be retrieved lazily from the
 supplied <code>messageSupplier</code>.</div>

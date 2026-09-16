@@ -518,6 +518,11 @@ quotes.</p>
 <p>When using <code>@CsvSource.value[]</code> the <code>commentCharacter</code> must be distinct from both
 <code>delimiter</code> and <code>quoteCharacter</code>.</p>
 </li>
+<li>
+<p>When the timeout provided to <code>assertTimeout</code>, <code>assertTimeoutPreemptively</code> and test
+methods annotated with <code>@Timeout</code> is not a positive value less than 2<sup>63</sup> nanoseconds
+(approximately 292 years) a <code>PreconditionViolationException</code> is thrown.</p>
+</li>
 </ul>
 </div>
 </div>
@@ -532,6 +537,10 @@ and <code>@DisabledOnOs</code>.</p>
 <li>
 <p>Failures caused by <code>@Timeout</code> expirations now include a hint about enabling
 <a href="writing-tests/timeouts.html#debugging-thread-dump" class="xref page">thread dumps</a>.</p>
+</li>
+<li>
+<p>The <code>assertTimeout</code>, <code>assertTimeoutPreemptively</code> and methods annotated with <code>@Timeout</code>
+now measure the execution time with sub-millisecond precision.</p>
 </li>
 </ul>
 </div>
