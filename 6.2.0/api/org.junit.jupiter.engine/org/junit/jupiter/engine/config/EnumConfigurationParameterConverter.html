@@ -71,6 +71,7 @@ loadScripts(document, 'script');</script>
 <ol class="toc-list">
 <li><a href="#get(org.junit.platform.engine.ConfigurationParameters,java.lang.String)" tabindex="0">get(ConfigurationParameters, String)</a></li>
 <li><a href="#get(org.junit.jupiter.api.extension.ExtensionContext,java.lang.String)" tabindex="0">get(ExtensionContext, String)</a></li>
+<li><a href="#getOrDefault(org.junit.platform.engine.ConfigurationParameters,java.lang.String,java.lang.String)" tabindex="0">getOrDefault(ConfigurationParameters, String, String)</a></li>
 <li><a href="#getOrDefault(org.junit.platform.engine.ConfigurationParameters,java.lang.String,T)" tabindex="0">getOrDefault(ConfigurationParameters, String, E)</a></li>
 </ol>
 </li>
@@ -132,11 +133,16 @@ loadScripts(document, 'script');</script>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#get(org.junit.platform.engine.ConfigurationParameters,java.lang.String)" class="member-name-link">get</a><wbr>(<a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/ConfigurationParameters.html" title="interface in org.junit.platform.engine">ConfigurationParameters</a>&nbsp;configParams,
  <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;key)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="#type-param-E" title="type parameter in EnumConfigurationParameterConverter">E</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#getOrDefault(org.junit.platform.engine.ConfigurationParameters,java.lang.String,T)" class="member-name-link">getOrDefault</a><wbr>(<a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/ConfigurationParameters.html" title="interface in org.junit.platform.engine">ConfigurationParameters</a>&nbsp;configParams,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#type-param-E" title="type parameter in EnumConfigurationParameterConverter">E</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getOrDefault(org.junit.platform.engine.ConfigurationParameters,java.lang.String,java.lang.String)" class="member-name-link">getOrDefault</a><wbr>(<a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/ConfigurationParameters.html" title="interface in org.junit.platform.engine">ConfigurationParameters</a>&nbsp;configParams,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;key,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;defaultValue)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="#type-param-E" title="type parameter in EnumConfigurationParameterConverter">E</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#getOrDefault(org.junit.platform.engine.ConfigurationParameters,java.lang.String,T)" class="member-name-link">getOrDefault</a><wbr>(<a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/ConfigurationParameters.html" title="interface in org.junit.platform.engine">ConfigurationParameters</a>&nbsp;configParams,
  <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;key,
  <a href="#type-param-E" title="type parameter in EnumConfigurationParameterConverter">E</a>&nbsp;defaultValue)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
 </div>
 </div>
 </div>
@@ -186,6 +192,16 @@ loadScripts(document, 'script');</script>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="#type-param-E" title="type parameter in EnumConfigurationParameterConverter">E</a>&gt;</span>&nbsp;<span class="element-name">get</span><wbr><span class="parameters">(<a href="../../../../../../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.html" title="interface in org.junit.jupiter.api.extension">ExtensionContext</a>&nbsp;extensionContext,
  <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;key)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getOrDefault(org.junit.platform.engine.ConfigurationParameters,java.lang.String,java.lang.String)">
+<h3>getOrDefault</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="#type-param-E" title="type parameter in EnumConfigurationParameterConverter">E</a></span>&nbsp;<span class="element-name">getOrDefault</span><wbr><span class="parameters">(<a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/ConfigurationParameters.html" title="interface in org.junit.platform.engine">ConfigurationParameters</a>&nbsp;configParams,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;key,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;defaultValue)</span></div>
 </div>
 </section>
 </li>

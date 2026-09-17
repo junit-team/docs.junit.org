@@ -65,6 +65,7 @@ loadScripts(document, 'script');</script>
 <li><a href="#method-summary" tabindex="0">Method Summary</a></li>
 <li><a href="#field-detail" tabindex="0">Field Details</a>
 <ol class="toc-list">
+<li><a href="#EXECUTOR_SERVICE_DEFAULT" tabindex="0">EXECUTOR_SERVICE_DEFAULT</a></li>
 <li><a href="#EXECUTOR_SERVICE_PROPERTY_NAME" tabindex="0">EXECUTOR_SERVICE_PROPERTY_NAME</a></li>
 </ol>
 </li>
@@ -137,8 +138,13 @@ execution.</div>
 <div class="table-header col-second">Field</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color"><code><a href="#EXECUTOR_SERVICE_PROPERTY_NAME" class="member-name-link">EXECUTOR_SERVICE_PROPERTY_NAME</a></code></div>
+<div class="col-second even-row-color"><code><a href="#EXECUTOR_SERVICE_DEFAULT" class="member-name-link">EXECUTOR_SERVICE_DEFAULT</a></code></div>
 <div class="col-last even-row-color">
+<div class="block">Default value for <a href="#EXECUTOR_SERVICE_PROPERTY_NAME">"executor-service"</a> is "FORK_JOIN_POOL".</div>
+</div>
+<div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#EXECUTOR_SERVICE_PROPERTY_NAME" class="member-name-link">EXECUTOR_SERVICE_PROPERTY_NAME</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">Property name used to determine the desired
 <a href="ParallelHierarchicalTestExecutorServiceFactory.ParallelExecutorServiceType.html" title="enum class in org.junit.platform.engine.support.hierarchical"><code>ParallelExecutorServiceType</code></a>.</div>
 </div>
@@ -187,6 +193,25 @@ supplied <a href="../../ConfigurationParameters.html" title="interface in org.ju
 <h2>Field Details</h2>
 <ul class="member-list">
 <li>
+<section class="detail" id="EXECUTOR_SERVICE_DEFAULT">
+<h3>EXECUTOR_SERVICE_DEFAULT</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#MAINTAINED" title="class or interface in org.apiguardian.api" class="external-link">MAINTAINED</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.2")
+</span><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">EXECUTOR_SERVICE_DEFAULT</span></div>
+<div class="block">Default value for <a href="#EXECUTOR_SERVICE_PROPERTY_NAME">"executor-service"</a> is "FORK_JOIN_POOL".</div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../../../../constant-values.html#org.junit.platform.engine.support.hierarchical.ParallelHierarchicalTestExecutorServiceFactory.EXECUTOR_SERVICE_DEFAULT">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
 <section class="detail" id="EXECUTOR_SERVICE_PROPERTY_NAME">
 <h3>EXECUTOR_SERVICE_PROPERTY_NAME</h3>
 <div class="horizontal-scroll">
@@ -194,10 +219,9 @@ supplied <a href="../../ConfigurationParameters.html" title="interface in org.ju
 <div class="block">Property name used to determine the desired
 <a href="ParallelHierarchicalTestExecutorServiceFactory.ParallelExecutorServiceType.html" title="enum class in org.junit.platform.engine.support.hierarchical"><code>ParallelExecutorServiceType</code></a>.
 
-<p>Value must be
-<a href="ParallelHierarchicalTestExecutorServiceFactory.ParallelExecutorServiceType.html#FORK_JOIN_POOL"><code>FORK_JOIN_POOL</code></a> or
-<a href="ParallelHierarchicalTestExecutorServiceFactory.ParallelExecutorServiceType.html#WORKER_THREAD_POOL"><code>WORKER_THREAD_POOL</code></a>,
-ignoring case.</div>
+<p>Value must be one names of enum constants defined in
+<a href="ParallelHierarchicalTestExecutorServiceFactory.ParallelExecutorServiceType.html" title="enum class in org.junit.platform.engine.support.hierarchical"><code>ParallelHierarchicalTestExecutorServiceFactory.ParallelExecutorServiceType</code></a>, ignoring case. If not
+specified, the default is <a href="#EXECUTOR_SERVICE_DEFAULT">"FORK_JOIN_POOL"</a></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>

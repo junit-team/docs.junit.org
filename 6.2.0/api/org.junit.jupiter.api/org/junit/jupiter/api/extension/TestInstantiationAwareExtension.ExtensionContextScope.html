@@ -73,6 +73,7 @@ loadScripts(document, 'script');</script>
 </li>
 <li><a href="#field-detail" tabindex="0">Field Details</a>
 <ol class="toc-list">
+<li><a href="#DEFAULT_SCOPE_DEFAULT" tabindex="0">DEFAULT_SCOPE_DEFAULT</a></li>
 <li><a href="#DEFAULT_SCOPE_PROPERTY_NAME" tabindex="0">DEFAULT_SCOPE_PROPERTY_NAME</a></li>
 </ol>
 </li>
@@ -168,8 +169,13 @@ the test method.</div>
 <div class="table-header col-second">Field</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color"><code><a href="#DEFAULT_SCOPE_PROPERTY_NAME" class="member-name-link">DEFAULT_SCOPE_PROPERTY_NAME</a></code></div>
+<div class="col-second even-row-color"><code><a href="#DEFAULT_SCOPE_DEFAULT" class="member-name-link">DEFAULT_SCOPE_DEFAULT</a></code></div>
 <div class="col-last even-row-color">
+<div class="block">Default value for <a href="#DEFAULT_SCOPE_PROPERTY_NAME">"junit.jupiter.extensions.testinstantiation.extensioncontextscope.default"</a> is "DEFAULT".</div>
+</div>
+<div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#DEFAULT_SCOPE_PROPERTY_NAME" class="member-name-link">DEFAULT_SCOPE_PROPERTY_NAME</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">Property name used to set the default extension context scope: "junit.jupiter.extensions.testinstantiation.extensioncontextscope.default"</div>
 </div>
 </div>
@@ -230,7 +236,7 @@ the order they are declared.</div>
 JUnit, and <a href="#TEST_METHOD"><code>TEST_METHOD</code></a> will become the default.</div>
 </div>
 <div class="block">The extension should receive an <a href="ExtensionContext.html" title="interface in org.junit.jupiter.api.extension"><code>ExtensionContext</code></a> for the
-the <em>default</em> scope.
+<em>default</em> scope.
 
 <p>The default scope is determined by the configuration parameter
 <a href="#DEFAULT_SCOPE_PROPERTY_NAME"><code>DEFAULT_SCOPE_PROPERTY_NAME</code></a>. If not specified, extensions
@@ -270,6 +276,25 @@ test instance lifecycle is used.</div>
 <h2>Field Details</h2>
 <ul class="member-list">
 <li>
+<section class="detail" id="DEFAULT_SCOPE_DEFAULT">
+<h3>DEFAULT_SCOPE_DEFAULT</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#MAINTAINED" title="class or interface in org.apiguardian.api" class="external-link">MAINTAINED</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.2")
+</span><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">DEFAULT_SCOPE_DEFAULT</span></div>
+<div class="block">Default value for <a href="#DEFAULT_SCOPE_PROPERTY_NAME">"junit.jupiter.extensions.testinstantiation.extensioncontextscope.default"</a> is "DEFAULT".</div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../../../constant-values.html#org.junit.jupiter.api.extension.TestInstantiationAwareExtension.ExtensionContextScope.DEFAULT_SCOPE_DEFAULT">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
 <section class="detail" id="DEFAULT_SCOPE_PROPERTY_NAME">
 <h3>DEFAULT_SCOPE_PROPERTY_NAME</h3>
 <div class="horizontal-scroll">
@@ -279,12 +304,11 @@ test instance lifecycle is used.</div>
 <h4 id="supported-values-heading">Supported Values</h4>
 
 <p>Supported values include names of enum constants defined in this
-class, ignoring case.</div>
+class, ignoring case. Defaults to <a href="#DEFAULT_SCOPE_DEFAULT">"DEFAULT"</a>.</div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
 <ul class="tag-list">
-<li><a href="#DEFAULT"><code>DEFAULT</code></a></li>
 <li><a href="../../../../../../constant-values.html#org.junit.jupiter.api.extension.TestInstantiationAwareExtension.ExtensionContextScope.DEFAULT_SCOPE_PROPERTY_NAME">Constant Field Values</a></li>
 </ul>
 </dd>

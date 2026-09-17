@@ -64,6 +64,7 @@ loadScripts(document, 'script');</script>
 <li><a href="#method-summary" tabindex="0">Method Summary</a></li>
 <li><a href="#field-detail" tabindex="0">Field Details</a>
 <ol class="toc-list">
+<li><a href="#INCLUDE_ALL_EXTENSIONS_PATTERN" tabindex="0">INCLUDE_ALL_EXTENSIONS_PATTERN</a></li>
 <li><a href="#EXTENSIONS_AUTODETECTION_INCLUDE_PROPERTY_NAME" tabindex="0">EXTENSIONS_AUTODETECTION_INCLUDE_PROPERTY_NAME</a></li>
 <li><a href="#EXTENSIONS_AUTODETECTION_EXCLUDE_PROPERTY_NAME" tabindex="0">EXTENSIONS_AUTODETECTION_EXCLUDE_PROPERTY_NAME</a></li>
 <li><a href="#EXTENSIONS_AUTODETECTION_ENABLED_PROPERTY_NAME" tabindex="0">EXTENSIONS_AUTODETECTION_ENABLED_PROPERTY_NAME</a></li>
@@ -304,63 +305,68 @@ Java's <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/jav
 <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Thread.html" title="class or interface in java.lang" class="external-link">threads</a> to <code>System.out</code> when a timeout has occurred: "junit.jupiter.execution.timeout.threaddump.enabled"</div>
 </div>
 <div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color"><code><a href="#PARALLEL_CONFIG_CUSTOM_CLASS_PROPERTY_NAME" class="member-name-link">PARALLEL_CONFIG_CUSTOM_CLASS_PROPERTY_NAME</a></code></div>
+<div class="col-second even-row-color"><code><a href="#INCLUDE_ALL_EXTENSIONS_PATTERN" class="member-name-link">INCLUDE_ALL_EXTENSIONS_PATTERN</a></code></div>
 <div class="col-last even-row-color">
+<div class="block">Default value for <a href="#EXTENSIONS_AUTODETECTION_INCLUDE_PROPERTY_NAME">"junit.jupiter.extensions.autodetection.include"</a> is "*".</div>
+</div>
+<div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#PARALLEL_CONFIG_CUSTOM_CLASS_PROPERTY_NAME" class="member-name-link">PARALLEL_CONFIG_CUSTOM_CLASS_PROPERTY_NAME</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">Property name used to specify the fully qualified class name of the
 <code>custom</code> parallel execution configuration strategy to be used:
 "junit.jupiter.execution.parallel.config.custom.class"</div>
 </div>
-<div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color"><code><a href="#PARALLEL_CONFIG_DYNAMIC_FACTOR_PROPERTY_NAME" class="member-name-link">PARALLEL_CONFIG_DYNAMIC_FACTOR_PROPERTY_NAME</a></code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="#PARALLEL_CONFIG_DYNAMIC_FACTOR_PROPERTY_NAME" class="member-name-link">PARALLEL_CONFIG_DYNAMIC_FACTOR_PROPERTY_NAME</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">Property name used to set the factor to be multiplied with the number of
 available processors/cores to determine the desired parallelism for the
 <code>dynamic</code> configuration strategy: "junit.jupiter.execution.parallel.config.dynamic.factor"</div>
 </div>
-<div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color"><code><a href="#PARALLEL_CONFIG_EXECUTOR_SERVICE_PROPERTY_NAME" class="member-name-link">PARALLEL_CONFIG_EXECUTOR_SERVICE_PROPERTY_NAME</a></code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#PARALLEL_CONFIG_EXECUTOR_SERVICE_PROPERTY_NAME" class="member-name-link">PARALLEL_CONFIG_EXECUTOR_SERVICE_PROPERTY_NAME</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">Property name used to determine the desired parallel executor service
 type: "junit.jupiter.execution.parallel.config.executor-service"</div>
 </div>
-<div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color"><code><a href="#PARALLEL_CONFIG_FIXED_MAX_POOL_SIZE_PROPERTY_NAME" class="member-name-link">PARALLEL_CONFIG_FIXED_MAX_POOL_SIZE_PROPERTY_NAME</a></code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="#PARALLEL_CONFIG_FIXED_MAX_POOL_SIZE_PROPERTY_NAME" class="member-name-link">PARALLEL_CONFIG_FIXED_MAX_POOL_SIZE_PROPERTY_NAME</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">Property name used to configure the maximum pool size of the underlying
 fork-join pool for the <code>fixed</code> configuration strategy: "junit.jupiter.execution.parallel.config.fixed.max-pool-size"</div>
 </div>
-<div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color"><code><a href="#PARALLEL_CONFIG_FIXED_PARALLELISM_PROPERTY_NAME" class="member-name-link">PARALLEL_CONFIG_FIXED_PARALLELISM_PROPERTY_NAME</a></code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#PARALLEL_CONFIG_FIXED_PARALLELISM_PROPERTY_NAME" class="member-name-link">PARALLEL_CONFIG_FIXED_PARALLELISM_PROPERTY_NAME</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">Property name used to set the desired parallelism for the <code>fixed</code>
 configuration strategy: "junit.jupiter.execution.parallel.config.fixed.parallelism"</div>
 </div>
-<div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color"><code><a href="#PARALLEL_CONFIG_FIXED_SATURATE_PROPERTY_NAME" class="member-name-link">PARALLEL_CONFIG_FIXED_SATURATE_PROPERTY_NAME</a></code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="#PARALLEL_CONFIG_FIXED_SATURATE_PROPERTY_NAME" class="member-name-link">PARALLEL_CONFIG_FIXED_SATURATE_PROPERTY_NAME</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">Property name used to disable saturation of the underlying fork-join pool
 for the <code>fixed</code> configuration strategy: "junit.jupiter.execution.parallel.config.fixed.saturate"</div>
 </div>
-<div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color"><code><a href="#PARALLEL_CONFIG_PREFIX" class="member-name-link">PARALLEL_CONFIG_PREFIX</a></code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#PARALLEL_CONFIG_PREFIX" class="member-name-link">PARALLEL_CONFIG_PREFIX</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">Internal prefix for all configuration parameters concerning parallel test
 execution.</div>
 </div>
-<div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color"><code><a href="#PARALLEL_CONFIG_STRATEGY_PROPERTY_NAME" class="member-name-link">PARALLEL_CONFIG_STRATEGY_PROPERTY_NAME</a></code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="#PARALLEL_CONFIG_STRATEGY_PROPERTY_NAME" class="member-name-link">PARALLEL_CONFIG_STRATEGY_PROPERTY_NAME</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">Property name used to select the parallel execution configuration
 strategy: "junit.jupiter.execution.parallel.config.strategy"</div>
 </div>
-<div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color"><code><a href="#PARALLEL_EXECUTION_ENABLED_PROPERTY_NAME" class="member-name-link">PARALLEL_EXECUTION_ENABLED_PROPERTY_NAME</a></code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#PARALLEL_EXECUTION_ENABLED_PROPERTY_NAME" class="member-name-link">PARALLEL_EXECUTION_ENABLED_PROPERTY_NAME</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">Property name used to enable parallel test execution: "junit.jupiter.execution.parallel.enabled"</div>
 </div>
-<div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color"><code><a href="#TIMEOUT_MODE_PROPERTY_NAME" class="member-name-link">TIMEOUT_MODE_PROPERTY_NAME</a></code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="#TIMEOUT_MODE_PROPERTY_NAME" class="member-name-link">TIMEOUT_MODE_PROPERTY_NAME</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">Property name used to configure whether timeouts are applied to tests: "junit.jupiter.execution.timeout.mode"</div>
 </div>
 </div>
@@ -384,6 +390,25 @@ strategy: "junit.jupiter.execution.parallel.config.strategy"</div>
 <section class="field-details" id="field-detail">
 <h2>Field Details</h2>
 <ul class="member-list">
+<li>
+<section class="detail" id="INCLUDE_ALL_EXTENSIONS_PATTERN">
+<h3>INCLUDE_ALL_EXTENSIONS_PATTERN</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#MAINTAINED" title="class or interface in org.apiguardian.api" class="external-link">MAINTAINED</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.2")
+</span><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">INCLUDE_ALL_EXTENSIONS_PATTERN</span></div>
+<div class="block">Default value for <a href="#EXTENSIONS_AUTODETECTION_INCLUDE_PROPERTY_NAME">"junit.jupiter.extensions.autodetection.include"</a> is "*".</div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../../constant-values.html#org.junit.jupiter.api.Constants.INCLUDE_ALL_EXTENSIONS_PATTERN">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
 <li>
 <section class="detail" id="EXTENSIONS_AUTODETECTION_INCLUDE_PROPERTY_NAME">
 <h3>EXTENSIONS_AUTODETECTION_INCLUDE_PROPERTY_NAME</h3>

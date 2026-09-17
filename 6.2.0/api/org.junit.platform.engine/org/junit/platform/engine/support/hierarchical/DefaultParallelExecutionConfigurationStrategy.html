@@ -73,10 +73,13 @@ loadScripts(document, 'script');</script>
 </li>
 <li><a href="#field-detail" tabindex="0">Field Details</a>
 <ol class="toc-list">
+<li><a href="#CONFIG_STRATEGY_DEFAULT" tabindex="0">CONFIG_STRATEGY_DEFAULT</a></li>
 <li><a href="#CONFIG_STRATEGY_PROPERTY_NAME" tabindex="0">CONFIG_STRATEGY_PROPERTY_NAME</a></li>
 <li><a href="#CONFIG_FIXED_PARALLELISM_PROPERTY_NAME" tabindex="0">CONFIG_FIXED_PARALLELISM_PROPERTY_NAME</a></li>
 <li><a href="#CONFIG_FIXED_MAX_POOL_SIZE_PROPERTY_NAME" tabindex="0">CONFIG_FIXED_MAX_POOL_SIZE_PROPERTY_NAME</a></li>
+<li><a href="#CONFIG_FIXED_SATURATE_DEFAULT" tabindex="0">CONFIG_FIXED_SATURATE_DEFAULT</a></li>
 <li><a href="#CONFIG_FIXED_SATURATE_PROPERTY_NAME" tabindex="0">CONFIG_FIXED_SATURATE_PROPERTY_NAME</a></li>
+<li><a href="#CONFIG_DYNAMIC_FACTOR_DEFAULT" tabindex="0">CONFIG_DYNAMIC_FACTOR_DEFAULT</a></li>
 <li><a href="#CONFIG_DYNAMIC_FACTOR_PROPERTY_NAME" tabindex="0">CONFIG_DYNAMIC_FACTOR_PROPERTY_NAME</a></li>
 <li><a href="#CONFIG_DYNAMIC_MAX_POOL_SIZE_FACTOR_PROPERTY_NAME" tabindex="0">CONFIG_DYNAMIC_MAX_POOL_SIZE_FACTOR_PROPERTY_NAME</a></li>
 <li><a href="#CONFIG_DYNAMIC_SATURATE_PROPERTY_NAME" tabindex="0">CONFIG_DYNAMIC_SATURATE_PROPERTY_NAME</a></li>
@@ -176,36 +179,46 @@ parameter as the desired parallelism.</div>
 <a href="ParallelExecutionConfigurationStrategy.html" title="interface in org.junit.platform.engine.support.hierarchical"><code>ParallelExecutionConfigurationStrategy</code></a> to be used by the
 <a href="#CUSTOM"><code>CUSTOM</code></a> configuration strategy.</div>
 </div>
-<div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color"><code><a href="#CONFIG_DYNAMIC_FACTOR_PROPERTY_NAME" class="member-name-link">CONFIG_DYNAMIC_FACTOR_PROPERTY_NAME</a></code></div>
+<div class="col-first odd-row-color"><code>static final double</code></div>
+<div class="col-second odd-row-color"><code><a href="#CONFIG_DYNAMIC_FACTOR_DEFAULT" class="member-name-link">CONFIG_DYNAMIC_FACTOR_DEFAULT</a></code></div>
 <div class="col-last odd-row-color">
+<div class="block">Default value for <a href="#CONFIG_DYNAMIC_FACTOR_PROPERTY_NAME">"dynamic.factor"</a> is 1.0.</div>
+</div>
+<div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="#CONFIG_DYNAMIC_FACTOR_PROPERTY_NAME" class="member-name-link">CONFIG_DYNAMIC_FACTOR_PROPERTY_NAME</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">Property name of the factor used to determine the desired parallelism for the
 <a href="#DYNAMIC"><code>DYNAMIC</code></a> configuration strategy.</div>
 </div>
-<div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color"><code><a href="#CONFIG_DYNAMIC_MAX_POOL_SIZE_FACTOR_PROPERTY_NAME" class="member-name-link">CONFIG_DYNAMIC_MAX_POOL_SIZE_FACTOR_PROPERTY_NAME</a></code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#CONFIG_DYNAMIC_MAX_POOL_SIZE_FACTOR_PROPERTY_NAME" class="member-name-link">CONFIG_DYNAMIC_MAX_POOL_SIZE_FACTOR_PROPERTY_NAME</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">Property name of the factor used to determine the maximum pool size of
 the underlying fork-join pool for the <a href="#DYNAMIC"><code>DYNAMIC</code></a> configuration
 strategy.</div>
 </div>
-<div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color"><code><a href="#CONFIG_DYNAMIC_SATURATE_PROPERTY_NAME" class="member-name-link">CONFIG_DYNAMIC_SATURATE_PROPERTY_NAME</a></code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="#CONFIG_DYNAMIC_SATURATE_PROPERTY_NAME" class="member-name-link">CONFIG_DYNAMIC_SATURATE_PROPERTY_NAME</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">Property name used to disable saturation of the underlying fork-join pool
 for the <a href="#DYNAMIC"><code>DYNAMIC</code></a> configuration strategy.</div>
 </div>
-<div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color"><code><a href="#CONFIG_FIXED_MAX_POOL_SIZE_PROPERTY_NAME" class="member-name-link">CONFIG_FIXED_MAX_POOL_SIZE_PROPERTY_NAME</a></code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#CONFIG_FIXED_MAX_POOL_SIZE_PROPERTY_NAME" class="member-name-link">CONFIG_FIXED_MAX_POOL_SIZE_PROPERTY_NAME</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">Property name used to configure the maximum pool size of the underlying
 fork-join pool for the <a href="#FIXED"><code>FIXED</code></a> configuration strategy.</div>
 </div>
-<div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color"><code><a href="#CONFIG_FIXED_PARALLELISM_PROPERTY_NAME" class="member-name-link">CONFIG_FIXED_PARALLELISM_PROPERTY_NAME</a></code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="#CONFIG_FIXED_PARALLELISM_PROPERTY_NAME" class="member-name-link">CONFIG_FIXED_PARALLELISM_PROPERTY_NAME</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">Property name used to determine the desired parallelism for the
 <a href="#FIXED"><code>FIXED</code></a> configuration strategy.</div>
+</div>
+<div class="col-first odd-row-color"><code>static final boolean</code></div>
+<div class="col-second odd-row-color"><code><a href="#CONFIG_FIXED_SATURATE_DEFAULT" class="member-name-link">CONFIG_FIXED_SATURATE_DEFAULT</a></code></div>
+<div class="col-last odd-row-color">
+<div class="block">Default value for <a href="#CONFIG_FIXED_SATURATE_PROPERTY_NAME">"fixed.saturate"</a> is true.</div>
 </div>
 <div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color"><code><a href="#CONFIG_FIXED_SATURATE_PROPERTY_NAME" class="member-name-link">CONFIG_FIXED_SATURATE_PROPERTY_NAME</a></code></div>
@@ -214,8 +227,13 @@ fork-join pool for the <a href="#FIXED"><code>FIXED</code></a> configuration str
 for the <a href="#FIXED"><code>FIXED</code></a> configuration strategy.</div>
 </div>
 <div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color"><code><a href="#CONFIG_STRATEGY_PROPERTY_NAME" class="member-name-link">CONFIG_STRATEGY_PROPERTY_NAME</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#CONFIG_STRATEGY_DEFAULT" class="member-name-link">CONFIG_STRATEGY_DEFAULT</a></code></div>
 <div class="col-last odd-row-color">
+<div class="block">Default value for <a href="#CONFIG_STRATEGY_PROPERTY_NAME">"strategy"</a> is "DYNAMIC".</div>
+</div>
+<div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="#CONFIG_STRATEGY_PROPERTY_NAME" class="member-name-link">CONFIG_STRATEGY_PROPERTY_NAME</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">Property name used to determine the desired configuration strategy.</div>
 </div>
 </div>
@@ -307,14 +325,35 @@ configuration parameter to determine the desired configuration.</div>
 <h2>Field Details</h2>
 <ul class="member-list">
 <li>
+<section class="detail" id="CONFIG_STRATEGY_DEFAULT">
+<h3>CONFIG_STRATEGY_DEFAULT</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#MAINTAINED" title="class or interface in org.apiguardian.api" class="external-link">MAINTAINED</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.2")
+</span><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">CONFIG_STRATEGY_DEFAULT</span></div>
+<div class="block">Default value for <a href="#CONFIG_STRATEGY_PROPERTY_NAME">"strategy"</a> is "DYNAMIC".</div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../../../../constant-values.html#org.junit.platform.engine.support.hierarchical.DefaultParallelExecutionConfigurationStrategy.CONFIG_STRATEGY_DEFAULT">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
 <section class="detail" id="CONFIG_STRATEGY_PROPERTY_NAME">
 <h3>CONFIG_STRATEGY_PROPERTY_NAME</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">CONFIG_STRATEGY_PROPERTY_NAME</span></div>
 <div class="block">Property name used to determine the desired configuration strategy.
 
-<p>Value must be one of <code>dynamic</code>, <code>fixed</code>, or
-<code>custom</code>.</div>
+<p>Value must be one names of enum constants defined in
+<a href="DefaultParallelExecutionConfigurationStrategy.html" title="enum class in org.junit.platform.engine.support.hierarchical">this class</a>,
+ignoring case. If not specified, the default is
+<a href="#CONFIG_STRATEGY_DEFAULT">"DYNAMIC"</a>.</div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -375,6 +414,25 @@ fork-join pool for the <a href="#FIXED"><code>FIXED</code></a> configuration str
 </section>
 </li>
 <li>
+<section class="detail" id="CONFIG_FIXED_SATURATE_DEFAULT">
+<h3>CONFIG_FIXED_SATURATE_DEFAULT</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#MAINTAINED" title="class or interface in org.apiguardian.api" class="external-link">MAINTAINED</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.2")
+</span><span class="modifiers">public static final</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">CONFIG_FIXED_SATURATE_DEFAULT</span></div>
+<div class="block">Default value for <a href="#CONFIG_FIXED_SATURATE_PROPERTY_NAME">"fixed.saturate"</a> is true.</div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../../../../constant-values.html#org.junit.platform.engine.support.hierarchical.DefaultParallelExecutionConfigurationStrategy.CONFIG_FIXED_SATURATE_DEFAULT">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
 <section class="detail" id="CONFIG_FIXED_SATURATE_PROPERTY_NAME">
 <h3>CONFIG_FIXED_SATURATE_PROPERTY_NAME</h3>
 <div class="horizontal-scroll">
@@ -397,6 +455,25 @@ pool-size would be exceeded.
 <li><a href="#FIXED"><code>FIXED</code></a></li>
 <li><a href="#CONFIG_FIXED_MAX_POOL_SIZE_PROPERTY_NAME"><code>CONFIG_FIXED_MAX_POOL_SIZE_PROPERTY_NAME</code></a></li>
 <li><a href="../../../../../../../constant-values.html#org.junit.platform.engine.support.hierarchical.DefaultParallelExecutionConfigurationStrategy.CONFIG_FIXED_SATURATE_PROPERTY_NAME">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="CONFIG_DYNAMIC_FACTOR_DEFAULT">
+<h3>CONFIG_DYNAMIC_FACTOR_DEFAULT</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#MAINTAINED" title="class or interface in org.apiguardian.api" class="external-link">MAINTAINED</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.2")
+</span><span class="modifiers">public static final</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">CONFIG_DYNAMIC_FACTOR_DEFAULT</span></div>
+<div class="block">Default value for <a href="#CONFIG_DYNAMIC_FACTOR_PROPERTY_NAME">"dynamic.factor"</a> is 1.0.</div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../../../../constant-values.html#org.junit.platform.engine.support.hierarchical.DefaultParallelExecutionConfigurationStrategy.CONFIG_DYNAMIC_FACTOR_DEFAULT">Constant Field Values</a></li>
 </ul>
 </dd>
 </dl>

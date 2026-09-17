@@ -278,6 +278,9 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../advanced-topics/engines.html">Test Engines</a>
   </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../advanced-topics/configuration-parameter-documentation.html">Documenting Configuration Parameters</a>
+  </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
@@ -563,6 +566,290 @@ any of its subpackages.</p>
 FQCN is exactly <code>org.example.MyCustomImpl</code> or <code>org.example.TheirCustomImpl</code>.</p>
 </li>
 </ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="reference"><a class="anchor" href="#reference"></a>Reference</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following lists enumerate the configuration parameters supported by the JUnit Platform,
+Jupiter, and Vintage.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Third-party JUnit Platform test engines and JUnit Jupiter extensions may provide additional configuration parameters.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="configuration-parameters-junit-platform"><a class="anchor" href="#configuration-parameters-junit-platform"></a>JUnit Platform</h3>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>junit.platform.discovery.issue.failure.phase</code></dt>
+<dd>
+<p>Property name used to configure the phase that critical discovery issues should cause a failure</p>
+</dd>
+<dt class="hdlist1"><code>junit.platform.discovery.issue.severity.critical</code></dt>
+<dd>
+<p>Property name used to configure the critical severity of issues encountered during test discovery.
+Defaults to <code>ERROR</code>.</p>
+</dd>
+<dt class="hdlist1"><code>junit.platform.execution.dryRun.enabled</code></dt>
+<dd>
+<p>Property name used to enable dry-run mode for test execution.
+Defaults to <code>false</code>.</p>
+</dd>
+<dt class="hdlist1"><code>junit.platform.execution.listeners.deactivate</code></dt>
+<dd>
+<p>Property name used to provide patterns for deactivating listeners registered via the ServiceLoader mechanism.</p>
+</dd>
+<dt class="hdlist1"><code>junit.platform.execution.memory.cleanup.enabled</code></dt>
+<dd>
+<p>Property name used to enable the &lt;em&gt;experimental&lt;/em&gt; memory cleanup mode.
+Defaults to <code>false</code>.</p>
+</dd>
+<dt class="hdlist1"><code>junit.platform.execution.memory.cleanup.engines.excluded</code></dt>
+<dd>
+<p>Property name used to configure which test engines should be excluded from memory cleanup in case it&#8217;s enabled.</p>
+</dd>
+<dt class="hdlist1"><code>junit.platform.launcher.interceptors.enabled</code></dt>
+<dd>
+<p>Property name used to enable support for LauncherInterceptor instances to be registered via the ServiceLoader mechanism.
+Defaults to <code>false</code>.</p>
+</dd>
+<dt class="hdlist1"><code>junit.platform.output.capture.maxBuffer</code></dt>
+<dd>
+<p>Property name used to configure the maximum number of bytes for buffering to use per thread and output type if output capturing is enabled.
+Defaults to <code>4194304</code>.</p>
+</dd>
+<dt class="hdlist1"><code>junit.platform.output.capture.stderr</code></dt>
+<dd>
+<p>Property name used to enable capturing output to System#err.
+Defaults to <code>false</code>.</p>
+</dd>
+<dt class="hdlist1"><code>junit.platform.output.capture.stdout</code></dt>
+<dd>
+<p>Property name used to enable capturing output to System#out.
+Defaults to <code>false</code>.</p>
+</dd>
+<dt class="hdlist1"><code>junit.platform.reporting.output.dir</code></dt>
+<dd>
+<p>Property name used to configure the output directory for reporting.</p>
+</dd>
+<dt class="hdlist1"><code>junit.platform.stacktrace.pruning.enabled</code></dt>
+<dd>
+<p>Property name used to enable or disable stack trace pruning.
+Defaults to <code>true</code>.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="configuration-parameters-junit-jupiter"><a class="anchor" href="#configuration-parameters-junit-jupiter"></a>JUnit Jupiter</h3>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>junit.jupiter.conditions.deactivate</code></dt>
+<dd>
+<p>Property name used to provide patterns for deactivating conditions.</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.displayname.generator.default</code></dt>
+<dd>
+<p>Property name used to set the default display name generator class name.
+Defaults to <code>org.junit.jupiter.api.DisplayNameGenerator.Standard</code>.</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.execution.parallel.config.custom.class</code></dt>
+<dd>
+<p>Property name used to specify the fully qualified class name of the custom parallel execution configuration strategy to be used.</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.execution.parallel.config.dynamic.factor</code></dt>
+<dd>
+<p>Property name used to set the factor to be multiplied with the number of available processors/cores to determine the desired parallelism for the dynamic configuration strategy.
+Defaults to <code>1.0</code>.</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.execution.parallel.config.executor-service</code></dt>
+<dd>
+<p>Property name used to determine the desired parallel executor service type.
+Defaults to <code>FORK_JOIN_POOL</code>.</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.execution.parallel.config.fixed.max-pool-size</code></dt>
+<dd>
+<p>Property name used to configure the maximum pool size of the underlying fork-join pool for the fixed configuration strategy.</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.execution.parallel.config.fixed.parallelism</code></dt>
+<dd>
+<p>Property name used to set the desired parallelism for the fixed configuration strategy.</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.execution.parallel.config.fixed.saturate</code></dt>
+<dd>
+<p>Property name used to disable saturation of the underlying fork-join pool for the fixed configuration strategy.
+Defaults to <code>true</code>.</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.execution.parallel.config.strategy</code></dt>
+<dd>
+<p>Property name used to select the parallel execution configuration strategy.
+Defaults to <code>DYNAMIC</code>.</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.execution.parallel.enabled</code></dt>
+<dd>
+<p>Property name used to enable parallel test execution.
+Defaults to <code>false</code>.</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.execution.parallel.mode.classes.default</code></dt>
+<dd>
+<p>Property name used to set the default test execution mode for top-level classes.</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.execution.parallel.mode.default</code></dt>
+<dd>
+<p>Property name used to set the default test execution mode.
+Defaults to <code>SAME_THREAD</code>.</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.execution.timeout.afterall.method.default</code></dt>
+<dd>
+<p>Property name used to set the default timeout for all @AfterAll methods.</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.execution.timeout.aftereach.method.default</code></dt>
+<dd>
+<p>Property name used to set the default timeout for all @AfterEach methods.</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.execution.timeout.beforeall.method.default</code></dt>
+<dd>
+<p>Property name used to set the default timeout for all @BeforeAll methods.</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.execution.timeout.beforeeach.method.default</code></dt>
+<dd>
+<p>Property name used to set the default timeout for all @BeforeEach methods.</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.execution.timeout.default</code></dt>
+<dd>
+<p>Property name used to set the default timeout for all testable and lifecycle methods.</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.execution.timeout.lifecycle.method.default</code></dt>
+<dd>
+<p>Property name used to set the default timeout for all lifecycle methods.</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.execution.timeout.mode</code></dt>
+<dd>
+<p>Property name used to configure whether timeouts are applied to tests.
+Defaults to <code>ENABLED</code>.</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.execution.timeout.test.method.default</code></dt>
+<dd>
+<p>Property name used to set the default timeout for all @Test methods.</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.execution.timeout.testable.method.default</code></dt>
+<dd>
+<p>Property name used to set the default timeout for all testable methods.</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.execution.timeout.testfactory.method.default</code></dt>
+<dd>
+<p>Property name used to set the default timeout for all @TestFactory methods.</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.execution.timeout.testtemplate.method.default</code></dt>
+<dd>
+<p>Property name used to set the default timeout for all @TestTemplate methods.</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.execution.timeout.thread.mode.default</code></dt>
+<dd>
+<p>Property name used to set the default timeout thread mode.
+Defaults to <code>SAME_THREAD</code>.</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.execution.timeout.threaddump.enabled</code></dt>
+<dd>
+<p>Property name used to enable dumping the stack of all threads to System.out when a timeout has occurred.
+Defaults to <code>false</code>.</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.extensions.autodetection.enabled</code></dt>
+<dd>
+<p>Property name used to enable auto-detection and registration of extensions via Java&#8217;s java.util.ServiceLoader mechanism.
+Defaults to <code>false</code>.</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.extensions.autodetection.exclude</code></dt>
+<dd>
+<p>Property name used to exclude patterns for auto-detecting extensions.</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.extensions.autodetection.include</code></dt>
+<dd>
+<p>Property name used to include patterns for auto-detecting extensions.
+Defaults to <code>*</code>.</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.extensions.store.close.autocloseable.enabled</code></dt>
+<dd>
+<p>Property name used to enable auto-closing of AutoCloseable instances.
+Defaults to <code>true</code>.</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.extensions.testinstantiation.extensioncontextscope.default</code></dt>
+<dd>
+<p>Property name used to set the default extension context scope for extensions that participate in test instantiation.
+Defaults to <code>DEFAULT</code>.</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.tempdir.cleanup.mode.default</code></dt>
+<dd>
+<p>Property name used to configure the default CleanupMode for temporary directories created via the @TempDir annotation.
+Defaults to <code>ALWAYS</code>.</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.tempdir.deletion.strategy.default</code></dt>
+<dd>
+<p>Property name used to set the default deletion strategy class name for temporary directories created via the @TempDir annotation.
+Defaults to <code>org.junit.jupiter.api.io.TempDirDeletionStrategy.Standard</code>.</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.tempdir.factory.default</code></dt>
+<dd>
+<p>Property name used to set the default factory for temporary directories created via the @TempDir annotation.
+Defaults to <code>org.junit.jupiter.api.io.TempDirFactory.Standard</code>.</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.testclass.order.default</code></dt>
+<dd>
+<p>Property name used to set the default class orderer class name.</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.testinstance.lifecycle.default</code></dt>
+<dd>
+<p>Property name used to set the default test instance lifecycle mode.
+Defaults to <code>PER_METHOD</code>.</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.testmethod.order.default</code></dt>
+<dd>
+<p>Property name used to set the default method orderer class name.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="configuration-parameters-junit-vintage"><a class="anchor" href="#configuration-parameters-junit-vintage"></a>JUnit Vintage</h3>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>junit.vintage.discovery.issue.reporting.enabled</code></dt>
+<dd>
+<p>Property name used to configure whether the JUnit Vintage engine should report discovery issues such as deprecation notices.
+Defaults to <code>true</code>.</p>
+</dd>
+<dt class="hdlist1"><code>junit.vintage.execution.parallel.classes</code></dt>
+<dd>
+<p>Property name used to indicate whether parallel execution is enabled for test classes in the JUnit Vintage engine.
+Defaults to <code>false</code>.</p>
+</dd>
+<dt class="hdlist1"><code>junit.vintage.execution.parallel.enabled</code></dt>
+<dd>
+<p>Property name used to indicate whether parallel execution is enabled for the JUnit Vintage engine.
+Defaults to <code>false</code>.</p>
+</dd>
+<dt class="hdlist1"><code>junit.vintage.execution.parallel.methods</code></dt>
+<dd>
+<p>Property name used to indicate whether parallel execution is enabled for test methods in the JUnit Vintage engine.
+Defaults to <code>false</code>.</p>
+</dd>
+<dt class="hdlist1"><code>junit.vintage.execution.parallel.pool-size</code></dt>
+<dd>
+<p>Property name used to specify the size of the thread pool to be used for parallel execution.</p>
+</dd>
+</dl>
+</div>
 </div>
 </div>
 </div>

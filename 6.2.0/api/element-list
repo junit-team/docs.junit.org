@@ -40,6 +40,10 @@ org.junit.platform.commons.support
 org.junit.platform.commons.support.conversion
 org.junit.platform.commons.support.scanning
 org.junit.platform.commons.util
+module:org.junit.platform.configuration.api
+org.junit.platform.configuration.api
+module:org.junit.platform.configuration.processor
+org.junit.platform.configuration.processor
 module:org.junit.platform.console
 org.junit.platform.console
 org.junit.platform.console.command

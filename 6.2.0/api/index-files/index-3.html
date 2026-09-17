@@ -93,7 +93,7 @@ to be cancelled.</div>
 <dt><a href="../org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html#CAPTURE_MAX_BUFFER_DEFAULT" class="member-name-link">CAPTURE_MAX_BUFFER_DEFAULT</a> - Static variable in class org.junit.platform.launcher.<a href="../org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html" title="class in org.junit.platform.launcher">LauncherConstants</a></dt>
 <dd>
 <div class="block">Default maximum number of bytes for buffering to use per thread and
-output type if output capturing is enabled.</div>
+output type if output capturing is enabled is 4194304.</div>
 </dd>
 <dt><a href="../org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html#CAPTURE_MAX_BUFFER_PROPERTY_NAME" class="member-name-link">CAPTURE_MAX_BUFFER_PROPERTY_NAME</a> - Static variable in class org.junit.platform.launcher.<a href="../org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html" title="class in org.junit.platform.launcher">LauncherConstants</a></dt>
 <dd>
@@ -101,10 +101,18 @@ output type if output capturing is enabled.</div>
 to use per thread and output type if output capturing is enabled:
 "junit.platform.output.capture.maxBuffer"</div>
 </dd>
+<dt><a href="../org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html#CAPTURE_STDERR_DEFAULT" class="member-name-link">CAPTURE_STDERR_DEFAULT</a> - Static variable in class org.junit.platform.launcher.<a href="../org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html" title="class in org.junit.platform.launcher">LauncherConstants</a></dt>
+<dd>
+<div class="block">Default value for <a href="../org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html#CAPTURE_STDERR_PROPERTY_NAME">"junit.platform.output.capture.stderr"</a> is false.</div>
+</dd>
 <dt><a href="../org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html#CAPTURE_STDERR_PROPERTY_NAME" class="member-name-link">CAPTURE_STDERR_PROPERTY_NAME</a> - Static variable in class org.junit.platform.launcher.<a href="../org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html" title="class in org.junit.platform.launcher">LauncherConstants</a></dt>
 <dd>
 <div class="block">Property name used to enable capturing output to <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/System.html#err" title="class or interface in java.lang" class="external-link"><code>System.err</code></a>:
 "junit.platform.output.capture.stderr"</div>
+</dd>
+<dt><a href="../org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html#CAPTURE_STDOUT_DEFAULT" class="member-name-link">CAPTURE_STDOUT_DEFAULT</a> - Static variable in class org.junit.platform.launcher.<a href="../org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html" title="class in org.junit.platform.launcher">LauncherConstants</a></dt>
+<dd>
+<div class="block">Default value for <a href="../org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html#CAPTURE_STDOUT_PROPERTY_NAME">"junit.platform.output.capture.stdout"</a> is false.</div>
 </dd>
 <dt><a href="../org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html#CAPTURE_STDOUT_PROPERTY_NAME" class="member-name-link">CAPTURE_STDOUT_PROPERTY_NAME</a> - Static variable in class org.junit.platform.launcher.<a href="../org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html" title="class in org.junit.platform.launcher">LauncherConstants</a></dt>
 <dd>
@@ -150,6 +158,10 @@ supplied conditions.</div>
 <dt><a href="../org.junit.platform.console/org/junit/platform/console/options/ConsoleUtils.html#charset()" class="member-name-link">charset()</a> - Static method in class org.junit.platform.console.options.<a href="../org.junit.platform.console/org/junit/platform/console/options/ConsoleUtils.html" title="class in org.junit.platform.console.options">ConsoleUtils</a></dt>
 <dd>
 <div class="block">Returns the charset of the console.</div>
+</dd>
+<dt><a href="../org.junit.platform.configuration.api/org/junit/platform/configuration/api/ConfigurationParameter.Value.html#charValue()" class="member-name-link">charValue()</a> - Element in annotation interface org.junit.platform.configuration.api.<a href="../org.junit.platform.configuration.api/org/junit/platform/configuration/api/ConfigurationParameter.Value.html" title="annotation interface in org.junit.platform.configuration.api">ConfigurationParameter.Value</a></dt>
+<dd>
+<div class="block">The <code>char</code> value to use as the default.</div>
 </dd>
 <dt><a href="../org.junit.platform.engine/org/junit/platform/engine/support/discovery/DiscoveryIssueReporter.Condition.html#check(T)" class="member-name-link">check(T)</a> - Method in interface org.junit.platform.engine.support.discovery.<a href="../org.junit.platform.engine/org/junit/platform/engine/support/discovery/DiscoveryIssueReporter.Condition.html" title="interface in org.junit.platform.engine.support.discovery">DiscoveryIssueReporter.Condition</a></dt>
 <dd>
@@ -361,6 +373,10 @@ of <a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ClassTempla
 <dd>
 <div class="block">Collection of utilities for working with <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link"><code>classes</code></a>.</div>
 </dd>
+<dt><a href="../org.junit.platform.configuration.api/org/junit/platform/configuration/api/ConfigurationParameter.Value.html#classValue()" class="member-name-link">classValue()</a> - Element in annotation interface org.junit.platform.configuration.api.<a href="../org.junit.platform.configuration.api/org/junit/platform/configuration/api/ConfigurationParameter.Value.html" title="annotation interface in org.junit.platform.configuration.api">ConfigurationParameter.Value</a></dt>
+<dd>
+<div class="block">The <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link"><code>Class</code></a> value to use as the default.</div>
+</dd>
 <dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/io/TempDir.html#cleanup()" class="member-name-link">cleanup()</a> - Element in annotation interface org.junit.jupiter.api.io.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/io/TempDir.html" title="annotation interface in org.junit.jupiter.api.io">TempDir</a></dt>
 <dd>
 <div class="block">In which cases the temporary directory gets cleaned up after the test completes.</div>
@@ -456,6 +472,10 @@ execution.</div>
 <div class="block">Static factory method for creating a <a href="../org.junit.platform.engine/org/junit/platform/engine/support/store/NamespacedHierarchicalStore.CloseAction.html" title="interface in org.junit.platform.engine.support.store"><code>NamespacedHierarchicalStore.CloseAction</code></a> which
 <a href="../org.junit.platform.engine/org/junit/platform/engine/support/store/NamespacedHierarchicalStore.CloseAction.html#close(N,java.lang.Object,java.lang.Object)">closes</a> any value that
 implements <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/AutoCloseable.html" title="class or interface in java.lang" class="external-link"><code>AutoCloseable</code></a>.</div>
+</dd>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/Defaults.html#CLOSING_STORED_AUTO_CLOSEABLE_ENABLED_DEFAULT" class="member-name-link">CLOSING_STORED_AUTO_CLOSEABLE_ENABLED_DEFAULT</a> - Static variable in class org.junit.jupiter.api.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/Defaults.html" title="class in org.junit.jupiter.api">Defaults</a></dt>
+<dd>
+<div class="block">Default value for <a href="../org.junit.jupiter.api/org/junit/jupiter/api/Constants.html#CLOSING_STORED_AUTO_CLOSEABLE_ENABLED_PROPERTY_NAME">"junit.jupiter.extensions.store.close.autocloseable.enabled"</a> is true.</div>
 </dd>
 <dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/Constants.html#CLOSING_STORED_AUTO_CLOSEABLE_ENABLED_PROPERTY_NAME" class="member-name-link">CLOSING_STORED_AUTO_CLOSEABLE_ENABLED_PROPERTY_NAME</a> - Static variable in class org.junit.jupiter.api.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/Constants.html" title="class in org.junit.jupiter.api">Constants</a></dt>
 <dd>
@@ -628,6 +648,10 @@ required type.</div>
 <a href="../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/ParallelExecutionConfigurationStrategy.html" title="interface in org.junit.platform.engine.support.hierarchical"><code>ParallelExecutionConfigurationStrategy</code></a> to be used by the
 <a href="../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/DefaultParallelExecutionConfigurationStrategy.html#CUSTOM"><code>DefaultParallelExecutionConfigurationStrategy.CUSTOM</code></a> configuration strategy.</div>
 </dd>
+<dt><a href="../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/DefaultParallelExecutionConfigurationStrategy.html#CONFIG_DYNAMIC_FACTOR_DEFAULT" class="member-name-link">CONFIG_DYNAMIC_FACTOR_DEFAULT</a> - Static variable in enum class org.junit.platform.engine.support.hierarchical.<a href="../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/DefaultParallelExecutionConfigurationStrategy.html" title="enum class in org.junit.platform.engine.support.hierarchical">DefaultParallelExecutionConfigurationStrategy</a></dt>
+<dd>
+<div class="block">Default value for <a href="../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/DefaultParallelExecutionConfigurationStrategy.html#CONFIG_DYNAMIC_FACTOR_PROPERTY_NAME">"dynamic.factor"</a> is 1.0.</div>
+</dd>
 <dt><a href="../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/DefaultParallelExecutionConfigurationStrategy.html#CONFIG_DYNAMIC_FACTOR_PROPERTY_NAME" class="member-name-link">CONFIG_DYNAMIC_FACTOR_PROPERTY_NAME</a> - Static variable in enum class org.junit.platform.engine.support.hierarchical.<a href="../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/DefaultParallelExecutionConfigurationStrategy.html" title="enum class in org.junit.platform.engine.support.hierarchical">DefaultParallelExecutionConfigurationStrategy</a></dt>
 <dd>
 <div class="block">Property name of the factor used to determine the desired parallelism for the
@@ -658,10 +682,18 @@ fork-join pool for the <a href="../org.junit.platform.engine/org/junit/platform/
 <div class="block">Property name used to determine the desired parallelism for the
 <a href="../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/DefaultParallelExecutionConfigurationStrategy.html#FIXED"><code>DefaultParallelExecutionConfigurationStrategy.FIXED</code></a> configuration strategy.</div>
 </dd>
+<dt><a href="../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/DefaultParallelExecutionConfigurationStrategy.html#CONFIG_FIXED_SATURATE_DEFAULT" class="member-name-link">CONFIG_FIXED_SATURATE_DEFAULT</a> - Static variable in enum class org.junit.platform.engine.support.hierarchical.<a href="../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/DefaultParallelExecutionConfigurationStrategy.html" title="enum class in org.junit.platform.engine.support.hierarchical">DefaultParallelExecutionConfigurationStrategy</a></dt>
+<dd>
+<div class="block">Default value for <a href="../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/DefaultParallelExecutionConfigurationStrategy.html#CONFIG_FIXED_SATURATE_PROPERTY_NAME">"fixed.saturate"</a> is true.</div>
+</dd>
 <dt><a href="../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/DefaultParallelExecutionConfigurationStrategy.html#CONFIG_FIXED_SATURATE_PROPERTY_NAME" class="member-name-link">CONFIG_FIXED_SATURATE_PROPERTY_NAME</a> - Static variable in enum class org.junit.platform.engine.support.hierarchical.<a href="../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/DefaultParallelExecutionConfigurationStrategy.html" title="enum class in org.junit.platform.engine.support.hierarchical">DefaultParallelExecutionConfigurationStrategy</a></dt>
 <dd>
 <div class="block">Property name used to disable saturation of the underlying fork-join pool
 for the <a href="../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/DefaultParallelExecutionConfigurationStrategy.html#FIXED"><code>DefaultParallelExecutionConfigurationStrategy.FIXED</code></a> configuration strategy.</div>
+</dd>
+<dt><a href="../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/DefaultParallelExecutionConfigurationStrategy.html#CONFIG_STRATEGY_DEFAULT" class="member-name-link">CONFIG_STRATEGY_DEFAULT</a> - Static variable in enum class org.junit.platform.engine.support.hierarchical.<a href="../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/DefaultParallelExecutionConfigurationStrategy.html" title="enum class in org.junit.platform.engine.support.hierarchical">DefaultParallelExecutionConfigurationStrategy</a></dt>
+<dd>
+<div class="block">Default value for <a href="../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/DefaultParallelExecutionConfigurationStrategy.html#CONFIG_STRATEGY_PROPERTY_NAME">"strategy"</a> is "DYNAMIC".</div>
 </dd>
 <dt><a href="../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/DefaultParallelExecutionConfigurationStrategy.html#CONFIG_STRATEGY_PROPERTY_NAME" class="member-name-link">CONFIG_STRATEGY_PROPERTY_NAME</a> - Static variable in enum class org.junit.platform.engine.support.hierarchical.<a href="../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/DefaultParallelExecutionConfigurationStrategy.html" title="enum class in org.junit.platform.engine.support.hierarchical">DefaultParallelExecutionConfigurationStrategy</a></dt>
 <dd>
@@ -671,6 +703,16 @@ for the <a href="../org.junit.platform.engine/org/junit/platform/engine/support/
 <dd>&nbsp;</dd>
 <dt><a href="../org.junit.platform.launcher/org/junit/platform/launcher/listeners/UniqueIdTrackingListener.html#configuration-and-defaults-heading" class="search-tag-link">Configuration and Defaults</a> - Section in class org.junit.platform.launcher.listeners.UniqueIdTrackingListener</dt>
 <dd>&nbsp;</dd>
+<dt><a href="../org.junit.platform.configuration.processor/org/junit/platform/configuration/processor/ConfigurationMetadataAnnotationProcessor.html" class="type-name-link" title="class in org.junit.platform.configuration.processor">ConfigurationMetadataAnnotationProcessor</a> - Class in <a href="../org.junit.platform.configuration.processor/org/junit/platform/configuration/processor/package-summary.html">org.junit.platform.configuration.processor</a></dt>
+<dd>
+<div class="block">Writes all configuration parameters marked with
+<a href="../org.junit.platform.configuration.api/org/junit/platform/configuration/api/ConfigurationParameter.html" title="annotation interface in org.junit.platform.configuration.api"><code>ConfigurationParameter</code></a> to
+"META-INF/junit-platform-configuration-metadata.json" in <a href="https://docs.spring.io/spring-boot/specification/configuration-metadata/format.html">Spring Boot's Configuration
+Metadata</a>
+format.</div>
+</dd>
+<dt><a href="../org.junit.platform.configuration.processor/org/junit/platform/configuration/processor/ConfigurationMetadataAnnotationProcessor.html#%3Cinit%3E()" class="member-name-link">ConfigurationMetadataAnnotationProcessor()</a> - Constructor for class org.junit.platform.configuration.processor.<a href="../org.junit.platform.configuration.processor/org/junit/platform/configuration/processor/ConfigurationMetadataAnnotationProcessor.html" title="class in org.junit.platform.configuration.processor">ConfigurationMetadataAnnotationProcessor</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="../org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherDiscoveryRequestBuilder.html#configurationParameter(java.lang.String,java.lang.String)" class="member-name-link">configurationParameter(String, String)</a> - Method in class org.junit.platform.launcher.core.<a href="../org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherDiscoveryRequestBuilder.html" title="class in org.junit.platform.launcher.core">LauncherDiscoveryRequestBuilder</a></dt>
 <dd>
 <div class="block">Add the supplied <em>configuration parameter</em> to the request.</div>
@@ -679,12 +721,22 @@ for the <a href="../org.junit.platform.engine/org/junit/platform/engine/support/
 <dd>
 <div class="block">Add the supplied <em>configuration parameter</em>.</div>
 </dd>
+<dt><a href="../org.junit.platform.configuration.api/org/junit/platform/configuration/api/ConfigurationParameter.html" class="type-name-link" title="annotation interface in org.junit.platform.configuration.api">ConfigurationParameter</a> - Annotation Interface in <a href="../org.junit.platform.configuration.api/org/junit/platform/configuration/api/package-summary.html">org.junit.platform.configuration.api</a></dt>
+<dd>
+<div class="block">Marks a field as a configuration parameter for a test engine.</div>
+</dd>
 <dt><a href="../org.junit.platform.suite.api/org/junit/platform/suite/api/ConfigurationParameter.html" class="type-name-link" title="annotation interface in org.junit.platform.suite.api">ConfigurationParameter</a> - Annotation Interface in <a href="../org.junit.platform.suite.api/org/junit/platform/suite/api/package-summary.html">org.junit.platform.suite.api</a></dt>
 <dd>
 <div class="block"><code>@ConfigurationParameter</code> is a <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/annotation/Repeatable.html" title="class or interface in java.lang.annotation" class="external-link">repeatable</a>
 annotation that specifies a configuration <a href="../org.junit.platform.suite.api/org/junit/platform/suite/api/ConfigurationParameter.html#key()"><code>key</code></a> and
 <a href="../org.junit.platform.suite.api/org/junit/platform/suite/api/ConfigurationParameter.html#value()"><code>value</code></a> pair to be added to the discovery request when running
 a test suite on the JUnit Platform.</div>
+</dd>
+<dt><a href="../org.junit.platform.configuration.api/org/junit/platform/configuration/api/ConfigurationParameter.Deprecation.html" class="type-name-link" title="annotation interface in org.junit.platform.configuration.api">ConfigurationParameter.Deprecation</a> - Annotation Interface in <a href="../org.junit.platform.configuration.api/org/junit/platform/configuration/api/package-summary.html">org.junit.platform.configuration.api</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="../org.junit.platform.configuration.api/org/junit/platform/configuration/api/ConfigurationParameter.Value.html" class="type-name-link" title="annotation interface in org.junit.platform.configuration.api">ConfigurationParameter.Value</a> - Annotation Interface in <a href="../org.junit.platform.configuration.api/org/junit/platform/configuration/api/package-summary.html">org.junit.platform.configuration.api</a></dt>
+<dd>
+<div class="block">The value to use as the default.</div>
 </dd>
 <dt><a href="../org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherDiscoveryRequestBuilder.html#configurationParameters(java.util.Map)" class="member-name-link">configurationParameters(Map)</a> - Method in class org.junit.platform.launcher.core.<a href="../org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherDiscoveryRequestBuilder.html" title="class in org.junit.platform.launcher.core">LauncherDiscoveryRequestBuilder</a></dt>
 <dd>
@@ -1170,6 +1222,10 @@ during execution of this engine's tests.</div>
 </dd>
 <dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/io/TempDir.html#creation-heading" class="search-tag-link">Creation</a> - Section in annotation interface org.junit.jupiter.api.io.TempDir</dt>
 <dd>&nbsp;</dd>
+<dt><a href="../org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html#CRITICAL_DISCOVERY_ISSUE_SEVERITY_DEFAULT" class="member-name-link">CRITICAL_DISCOVERY_ISSUE_SEVERITY_DEFAULT</a> - Static variable in class org.junit.platform.launcher.<a href="../org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html" title="class in org.junit.platform.launcher">LauncherConstants</a></dt>
+<dd>
+<div class="block">Default value for <a href="../org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html#CRITICAL_DISCOVERY_ISSUE_SEVERITY_PROPERTY_NAME">"junit.platform.discovery.issue.severity.critical"</a> is "ERROR".</div>
+</dd>
 <dt><a href="../org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html#CRITICAL_DISCOVERY_ISSUE_SEVERITY_PROPERTY_NAME" class="member-name-link">CRITICAL_DISCOVERY_ISSUE_SEVERITY_PROPERTY_NAME</a> - Static variable in class org.junit.platform.launcher.<a href="../org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html" title="class in org.junit.platform.launcher">LauncherConstants</a></dt>
 <dd>
 <div class="block">Property name used to configure the critical severity of issues

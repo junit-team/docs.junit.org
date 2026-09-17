@@ -278,6 +278,9 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="advanced-topics/engines.html">Test Engines</a>
   </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="advanced-topics/configuration-parameter-documentation.html">Documenting Configuration Parameters</a>
+  </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
@@ -483,6 +486,15 @@ This is to primarily to address the current issue/s when trying to use
 indents its output correctly when tests are executed in parallel. Previously, the
 reported output from different tests could interleave.</p>
 </li>
+<li>
+<p>Test Engine and Jupiter Extension authors may generate a machine-readable overview
+of configuration parameters. See
+<a href="advanced-topics/configuration-parameter-documentation.html" class="xref page">Documenting Configuration
+Parameters</a> for more information.</p>
+</li>
+<li>
+<p>Platform configuration parameters are documented in <code>META-INF/junit-platform-configuration-metadata.json</code></p>
+</li>
 </ul>
 </div>
 </div>
@@ -542,6 +554,9 @@ and <code>@DisabledOnOs</code>.</p>
 <p>The <code>assertTimeout</code>, <code>assertTimeoutPreemptively</code> and methods annotated with <code>@Timeout</code>
 now measure the execution time with sub-millisecond precision.</p>
 </li>
+<li>
+<p>Jupiter configuration parameters are documented in <code>META-INF/junit-platform-configuration-metadata.json</code></p>
+</li>
 </ul>
 </div>
 </div>
@@ -573,7 +588,7 @@ now measure the execution time with sub-millisecond precision.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>❓</p>
+<p>Vintage configuration parameters are documented in <code>META-INF/junit-platform-configuration-metadata.json</code></p>
 </li>
 </ul>
 </div>

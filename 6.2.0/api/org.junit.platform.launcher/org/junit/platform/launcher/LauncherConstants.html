@@ -64,21 +64,28 @@ loadScripts(document, 'script');</script>
 <li><a href="#method-summary" tabindex="0">Method Summary</a></li>
 <li><a href="#field-detail" tabindex="0">Field Details</a>
 <ol class="toc-list">
+<li><a href="#CAPTURE_STDOUT_DEFAULT" tabindex="0">CAPTURE_STDOUT_DEFAULT</a></li>
 <li><a href="#CAPTURE_STDOUT_PROPERTY_NAME" tabindex="0">CAPTURE_STDOUT_PROPERTY_NAME</a></li>
+<li><a href="#CAPTURE_STDERR_DEFAULT" tabindex="0">CAPTURE_STDERR_DEFAULT</a></li>
 <li><a href="#CAPTURE_STDERR_PROPERTY_NAME" tabindex="0">CAPTURE_STDERR_PROPERTY_NAME</a></li>
-<li><a href="#CAPTURE_MAX_BUFFER_PROPERTY_NAME" tabindex="0">CAPTURE_MAX_BUFFER_PROPERTY_NAME</a></li>
 <li><a href="#CAPTURE_MAX_BUFFER_DEFAULT" tabindex="0">CAPTURE_MAX_BUFFER_DEFAULT</a></li>
+<li><a href="#CAPTURE_MAX_BUFFER_PROPERTY_NAME" tabindex="0">CAPTURE_MAX_BUFFER_PROPERTY_NAME</a></li>
 <li><a href="#STDOUT_REPORT_ENTRY_KEY" tabindex="0">STDOUT_REPORT_ENTRY_KEY</a></li>
 <li><a href="#STDERR_REPORT_ENTRY_KEY" tabindex="0">STDERR_REPORT_ENTRY_KEY</a></li>
 <li><a href="#DEACTIVATE_LISTENERS_PATTERN_PROPERTY_NAME" tabindex="0">DEACTIVATE_LISTENERS_PATTERN_PROPERTY_NAME</a></li>
 <li><a href="#DEACTIVATE_ALL_LISTENERS_PATTERN" tabindex="0">DEACTIVATE_ALL_LISTENERS_PATTERN</a></li>
+<li><a href="#ENABLE_LAUNCHER_INTERCEPTORS_DEFAULT" tabindex="0">ENABLE_LAUNCHER_INTERCEPTORS_DEFAULT</a></li>
 <li><a href="#ENABLE_LAUNCHER_INTERCEPTORS" tabindex="0">ENABLE_LAUNCHER_INTERCEPTORS</a></li>
+<li><a href="#DRY_RUN_DEFAULT" tabindex="0">DRY_RUN_DEFAULT</a></li>
 <li><a href="#DRY_RUN_PROPERTY_NAME" tabindex="0">DRY_RUN_PROPERTY_NAME</a></li>
+<li><a href="#STACKTRACE_PRUNING_ENABLED_DEFAULT" tabindex="0">STACKTRACE_PRUNING_ENABLED_DEFAULT</a></li>
 <li><a href="#STACKTRACE_PRUNING_ENABLED_PROPERTY_NAME" tabindex="0">STACKTRACE_PRUNING_ENABLED_PROPERTY_NAME</a></li>
 <li><a href="#OUTPUT_DIR_PROPERTY_NAME" tabindex="0">OUTPUT_DIR_PROPERTY_NAME</a></li>
 <li><a href="#OUTPUT_DIR_UNIQUE_NUMBER_PLACEHOLDER" tabindex="0">OUTPUT_DIR_UNIQUE_NUMBER_PLACEHOLDER</a></li>
+<li><a href="#CRITICAL_DISCOVERY_ISSUE_SEVERITY_DEFAULT" tabindex="0">CRITICAL_DISCOVERY_ISSUE_SEVERITY_DEFAULT</a></li>
 <li><a href="#CRITICAL_DISCOVERY_ISSUE_SEVERITY_PROPERTY_NAME" tabindex="0">CRITICAL_DISCOVERY_ISSUE_SEVERITY_PROPERTY_NAME</a></li>
 <li><a href="#DISCOVERY_ISSUE_FAILURE_PHASE_PROPERTY_NAME" tabindex="0">DISCOVERY_ISSUE_FAILURE_PHASE_PROPERTY_NAME</a></li>
+<li><a href="#MEMORY_CLEANUP_ENABLED_DEFAULT" tabindex="0">MEMORY_CLEANUP_ENABLED_DEFAULT</a></li>
 <li><a href="#MEMORY_CLEANUP_ENABLED_PROPERTY_NAME" tabindex="0">MEMORY_CLEANUP_ENABLED_PROPERTY_NAME</a></li>
 <li><a href="#MEMORY_CLEANUP_EXCLUDED_ENGINES_PROPERTY_NAME" tabindex="0">MEMORY_CLEANUP_EXCLUDED_ENGINES_PROPERTY_NAME</a></li>
 </ol>
@@ -128,7 +135,7 @@ loadScripts(document, 'script');</script>
 <div class="col-second even-row-color"><code><a href="#CAPTURE_MAX_BUFFER_DEFAULT" class="member-name-link">CAPTURE_MAX_BUFFER_DEFAULT</a></code></div>
 <div class="col-last even-row-color">
 <div class="block">Default maximum number of bytes for buffering to use per thread and
-output type if output capturing is enabled.</div>
+output type if output capturing is enabled is 4194304.</div>
 </div>
 <div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color"><code><a href="#CAPTURE_MAX_BUFFER_PROPERTY_NAME" class="member-name-link">CAPTURE_MAX_BUFFER_PROPERTY_NAME</a></code></div>
@@ -137,11 +144,21 @@ output type if output capturing is enabled.</div>
 to use per thread and output type if output capturing is enabled:
 "junit.platform.output.capture.maxBuffer"</div>
 </div>
-<div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color"><code><a href="#CAPTURE_STDERR_PROPERTY_NAME" class="member-name-link">CAPTURE_STDERR_PROPERTY_NAME</a></code></div>
+<div class="col-first even-row-color"><code>static final boolean</code></div>
+<div class="col-second even-row-color"><code><a href="#CAPTURE_STDERR_DEFAULT" class="member-name-link">CAPTURE_STDERR_DEFAULT</a></code></div>
 <div class="col-last even-row-color">
+<div class="block">Default value for <a href="#CAPTURE_STDERR_PROPERTY_NAME">"junit.platform.output.capture.stderr"</a> is false.</div>
+</div>
+<div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#CAPTURE_STDERR_PROPERTY_NAME" class="member-name-link">CAPTURE_STDERR_PROPERTY_NAME</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">Property name used to enable capturing output to <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/System.html#err" title="class or interface in java.lang" class="external-link"><code>System.err</code></a>:
 "junit.platform.output.capture.stderr"</div>
+</div>
+<div class="col-first even-row-color"><code>static final boolean</code></div>
+<div class="col-second even-row-color"><code><a href="#CAPTURE_STDOUT_DEFAULT" class="member-name-link">CAPTURE_STDOUT_DEFAULT</a></code></div>
+<div class="col-last even-row-color">
+<div class="block">Default value for <a href="#CAPTURE_STDOUT_PROPERTY_NAME">"junit.platform.output.capture.stdout"</a> is false.</div>
 </div>
 <div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color"><code><a href="#CAPTURE_STDOUT_PROPERTY_NAME" class="member-name-link">CAPTURE_STDOUT_PROPERTY_NAME</a></code></div>
@@ -150,30 +167,40 @@ to use per thread and output type if output capturing is enabled:
 "junit.platform.output.capture.stdout"</div>
 </div>
 <div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color"><code><a href="#CRITICAL_DISCOVERY_ISSUE_SEVERITY_PROPERTY_NAME" class="member-name-link">CRITICAL_DISCOVERY_ISSUE_SEVERITY_PROPERTY_NAME</a></code></div>
+<div class="col-second even-row-color"><code><a href="#CRITICAL_DISCOVERY_ISSUE_SEVERITY_DEFAULT" class="member-name-link">CRITICAL_DISCOVERY_ISSUE_SEVERITY_DEFAULT</a></code></div>
 <div class="col-last even-row-color">
+<div class="block">Default value for <a href="#CRITICAL_DISCOVERY_ISSUE_SEVERITY_PROPERTY_NAME">"junit.platform.discovery.issue.severity.critical"</a> is "ERROR".</div>
+</div>
+<div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#CRITICAL_DISCOVERY_ISSUE_SEVERITY_PROPERTY_NAME" class="member-name-link">CRITICAL_DISCOVERY_ISSUE_SEVERITY_PROPERTY_NAME</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">Property name used to configure the critical severity of issues
 encountered during test discovery.</div>
 </div>
-<div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color"><code><a href="#DEACTIVATE_ALL_LISTENERS_PATTERN" class="member-name-link">DEACTIVATE_ALL_LISTENERS_PATTERN</a></code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="#DEACTIVATE_ALL_LISTENERS_PATTERN" class="member-name-link">DEACTIVATE_ALL_LISTENERS_PATTERN</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">Wildcard pattern which signals that all listeners registered via the
 <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/ServiceLoader.html" title="class or interface in java.util" class="external-link"><code>ServiceLoader</code></a> mechanism should be deactivated:
 "*"</div>
 </div>
-<div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color"><code><a href="#DEACTIVATE_LISTENERS_PATTERN_PROPERTY_NAME" class="member-name-link">DEACTIVATE_LISTENERS_PATTERN_PROPERTY_NAME</a></code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#DEACTIVATE_LISTENERS_PATTERN_PROPERTY_NAME" class="member-name-link">DEACTIVATE_LISTENERS_PATTERN_PROPERTY_NAME</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">Property name used to provide patterns for deactivating
 <a href="TestExecutionListener.html" title="interface in org.junit.platform.launcher">listeners</a> registered via the
 <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/ServiceLoader.html" title="class or interface in java.util" class="external-link"><code>ServiceLoader</code></a> mechanism: "junit.platform.execution.listeners.deactivate"</div>
 </div>
-<div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color"><code><a href="#DISCOVERY_ISSUE_FAILURE_PHASE_PROPERTY_NAME" class="member-name-link">DISCOVERY_ISSUE_FAILURE_PHASE_PROPERTY_NAME</a></code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="#DISCOVERY_ISSUE_FAILURE_PHASE_PROPERTY_NAME" class="member-name-link">DISCOVERY_ISSUE_FAILURE_PHASE_PROPERTY_NAME</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">Property name used to configure the phase that critical discovery issues
 should cause a failure</div>
+</div>
+<div class="col-first odd-row-color"><code>static final boolean</code></div>
+<div class="col-second odd-row-color"><code><a href="#DRY_RUN_DEFAULT" class="member-name-link">DRY_RUN_DEFAULT</a></code></div>
+<div class="col-last odd-row-color">
+<div class="block">Default value for <a href="#DRY_RUN_PROPERTY_NAME">"junit.platform.execution.dryRun.enabled"</a> is false.</div>
 </div>
 <div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color"><code><a href="#DRY_RUN_PROPERTY_NAME" class="member-name-link">DRY_RUN_PROPERTY_NAME</a></code></div>
@@ -186,6 +213,16 @@ should cause a failure</div>
 <div class="block">Property name used to enable support for
 <a href="LauncherInterceptor.html" title="interface in org.junit.platform.launcher"><code>LauncherInterceptor</code></a> instances to be registered via the
 <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/ServiceLoader.html" title="class or interface in java.util" class="external-link"><code>ServiceLoader</code></a> mechanism: "junit.platform.launcher.interceptors.enabled"</div>
+</div>
+<div class="col-first even-row-color"><code>static final boolean</code></div>
+<div class="col-second even-row-color"><code><a href="#ENABLE_LAUNCHER_INTERCEPTORS_DEFAULT" class="member-name-link">ENABLE_LAUNCHER_INTERCEPTORS_DEFAULT</a></code></div>
+<div class="col-last even-row-color">
+<div class="block">Default value for <a href="#ENABLE_LAUNCHER_INTERCEPTORS">"junit.platform.launcher.interceptors.enabled"</a> is false.</div>
+</div>
+<div class="col-first odd-row-color"><code>static final boolean</code></div>
+<div class="col-second odd-row-color"><code><a href="#MEMORY_CLEANUP_ENABLED_DEFAULT" class="member-name-link">MEMORY_CLEANUP_ENABLED_DEFAULT</a></code></div>
+<div class="col-last odd-row-color">
+<div class="block">Default value for <a href="#MEMORY_CLEANUP_ENABLED_PROPERTY_NAME">"junit.platform.execution.memory.cleanup.enabled"</a> is false.</div>
 </div>
 <div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color"><code><a href="#MEMORY_CLEANUP_ENABLED_PROPERTY_NAME" class="member-name-link">MEMORY_CLEANUP_ENABLED_PROPERTY_NAME</a></code></div>
@@ -209,20 +246,25 @@ memory cleanup in case it's enabled.</div>
 <div class="col-last odd-row-color">
 <div class="block">Placeholder for use in <a href="#OUTPUT_DIR_PROPERTY_NAME"><code>OUTPUT_DIR_PROPERTY_NAME</code></a>.</div>
 </div>
-<div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color"><code><a href="#STACKTRACE_PRUNING_ENABLED_PROPERTY_NAME" class="member-name-link">STACKTRACE_PRUNING_ENABLED_PROPERTY_NAME</a></code></div>
+<div class="col-first even-row-color"><code>static final boolean</code></div>
+<div class="col-second even-row-color"><code><a href="#STACKTRACE_PRUNING_ENABLED_DEFAULT" class="member-name-link">STACKTRACE_PRUNING_ENABLED_DEFAULT</a></code></div>
 <div class="col-last even-row-color">
-<div class="block">Property name used to enable or disable stack trace pruning.</div>
+<div class="block">Default value for <a href="#STACKTRACE_PRUNING_ENABLED_PROPERTY_NAME">"junit.platform.stacktrace.pruning.enabled"</a> is true.</div>
 </div>
 <div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color"><code><a href="#STDERR_REPORT_ENTRY_KEY" class="member-name-link">STDERR_REPORT_ENTRY_KEY</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#STACKTRACE_PRUNING_ENABLED_PROPERTY_NAME" class="member-name-link">STACKTRACE_PRUNING_ENABLED_PROPERTY_NAME</a></code></div>
 <div class="col-last odd-row-color">
+<div class="block">Property name used to enable or disable stack trace pruning.</div>
+</div>
+<div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="#STDERR_REPORT_ENTRY_KEY" class="member-name-link">STDERR_REPORT_ENTRY_KEY</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">Key used to publish captured output to <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/System.html#err" title="class or interface in java.lang" class="external-link"><code>System.err</code></a> as part of a
 <a href="../../../../../org.junit.platform.engine/org/junit/platform/engine/reporting/ReportEntry.html" title="class in org.junit.platform.engine.reporting"><code>ReportEntry</code></a>: "stderr"</div>
 </div>
-<div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color"><code><a href="#STDOUT_REPORT_ENTRY_KEY" class="member-name-link">STDOUT_REPORT_ENTRY_KEY</a></code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#STDOUT_REPORT_ENTRY_KEY" class="member-name-link">STDOUT_REPORT_ENTRY_KEY</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">Key used to publish captured output to <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/System.html#out" title="class or interface in java.lang" class="external-link"><code>System.out</code></a> as part of a
 <a href="../../../../../org.junit.platform.engine/org/junit/platform/engine/reporting/ReportEntry.html" title="class in org.junit.platform.engine.reporting"><code>ReportEntry</code></a>: "stdout"</div>
 </div>
@@ -248,6 +290,25 @@ memory cleanup in case it's enabled.</div>
 <h2>Field Details</h2>
 <ul class="member-list">
 <li>
+<section class="detail" id="CAPTURE_STDOUT_DEFAULT">
+<h3>CAPTURE_STDOUT_DEFAULT</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#MAINTAINED" title="class or interface in org.apiguardian.api" class="external-link">MAINTAINED</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.2")
+</span><span class="modifiers">public static final</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">CAPTURE_STDOUT_DEFAULT</span></div>
+<div class="block">Default value for <a href="#CAPTURE_STDOUT_PROPERTY_NAME">"junit.platform.output.capture.stdout"</a> is false.</div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../../constant-values.html#org.junit.platform.launcher.LauncherConstants.CAPTURE_STDOUT_DEFAULT">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
 <section class="detail" id="CAPTURE_STDOUT_PROPERTY_NAME">
 <h3>CAPTURE_STDOUT_PROPERTY_NAME</h3>
 <div class="horizontal-scroll">
@@ -269,6 +330,25 @@ test identifier as finished.</div>
 <li><a href="../../../../../org.junit.platform.engine/org/junit/platform/engine/reporting/ReportEntry.html" title="class in org.junit.platform.engine.reporting"><code>ReportEntry</code></a></li>
 <li><a href="TestExecutionListener.html#reportingEntryPublished(org.junit.platform.launcher.TestIdentifier,org.junit.platform.engine.reporting.ReportEntry)"><code>TestExecutionListener.reportingEntryPublished(TestIdentifier, ReportEntry)</code></a></li>
 <li><a href="../../../../../constant-values.html#org.junit.platform.launcher.LauncherConstants.CAPTURE_STDOUT_PROPERTY_NAME">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="CAPTURE_STDERR_DEFAULT">
+<h3>CAPTURE_STDERR_DEFAULT</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#MAINTAINED" title="class or interface in org.apiguardian.api" class="external-link">MAINTAINED</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.2")
+</span><span class="modifiers">public static final</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">CAPTURE_STDERR_DEFAULT</span></div>
+<div class="block">Default value for <a href="#CAPTURE_STDERR_PROPERTY_NAME">"junit.platform.output.capture.stderr"</a> is false.</div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../../constant-values.html#org.junit.platform.launcher.LauncherConstants.CAPTURE_STDERR_DEFAULT">Constant Field Values</a></li>
 </ul>
 </dd>
 </dl>
@@ -304,6 +384,25 @@ test identifier as finished.</div>
 </section>
 </li>
 <li>
+<section class="detail" id="CAPTURE_MAX_BUFFER_DEFAULT">
+<h3>CAPTURE_MAX_BUFFER_DEFAULT</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">CAPTURE_MAX_BUFFER_DEFAULT</span></div>
+<div class="block">Default maximum number of bytes for buffering to use per thread and
+output type if output capturing is enabled is 4194304.</div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list-long">
+<li><a href="#CAPTURE_MAX_BUFFER_PROPERTY_NAME"><code>CAPTURE_MAX_BUFFER_PROPERTY_NAME</code></a></li>
+<li><a href="../../../../../constant-values.html#org.junit.platform.launcher.LauncherConstants.CAPTURE_MAX_BUFFER_DEFAULT">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
 <section class="detail" id="CAPTURE_MAX_BUFFER_PROPERTY_NAME">
 <h3>CAPTURE_MAX_BUFFER_PROPERTY_NAME</h3>
 <div class="horizontal-scroll">
@@ -319,25 +418,6 @@ to use per thread and output type if output capturing is enabled:
 <ul class="tag-list">
 <li><a href="#CAPTURE_MAX_BUFFER_DEFAULT"><code>CAPTURE_MAX_BUFFER_DEFAULT</code></a></li>
 <li><a href="../../../../../constant-values.html#org.junit.platform.launcher.LauncherConstants.CAPTURE_MAX_BUFFER_PROPERTY_NAME">Constant Field Values</a></li>
-</ul>
-</dd>
-</dl>
-</div>
-</section>
-</li>
-<li>
-<section class="detail" id="CAPTURE_MAX_BUFFER_DEFAULT">
-<h3>CAPTURE_MAX_BUFFER_DEFAULT</h3>
-<div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">CAPTURE_MAX_BUFFER_DEFAULT</span></div>
-<div class="block">Default maximum number of bytes for buffering to use per thread and
-output type if output capturing is enabled.</div>
-<dl class="notes">
-<dt>See Also:</dt>
-<dd>
-<ul class="tag-list-long">
-<li><a href="#CAPTURE_MAX_BUFFER_PROPERTY_NAME"><code>CAPTURE_MAX_BUFFER_PROPERTY_NAME</code></a></li>
-<li><a href="../../../../../constant-values.html#org.junit.platform.launcher.LauncherConstants.CAPTURE_MAX_BUFFER_DEFAULT">Constant Field Values</a></li>
 </ul>
 </dd>
 </dl>
@@ -460,6 +540,25 @@ the <a href="Launcher.html" title="interface in org.junit.platform.launcher"><co
 </section>
 </li>
 <li>
+<section class="detail" id="ENABLE_LAUNCHER_INTERCEPTORS_DEFAULT">
+<h3>ENABLE_LAUNCHER_INTERCEPTORS_DEFAULT</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#MAINTAINED" title="class or interface in org.apiguardian.api" class="external-link">MAINTAINED</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.2")
+</span><span class="modifiers">public static final</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">ENABLE_LAUNCHER_INTERCEPTORS_DEFAULT</span></div>
+<div class="block">Default value for <a href="#ENABLE_LAUNCHER_INTERCEPTORS">"junit.platform.launcher.interceptors.enabled"</a> is false.</div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../../constant-values.html#org.junit.platform.launcher.LauncherConstants.ENABLE_LAUNCHER_INTERCEPTORS_DEFAULT">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
 <section class="detail" id="ENABLE_LAUNCHER_INTERCEPTORS">
 <h3>ENABLE_LAUNCHER_INTERCEPTORS</h3>
 <div class="horizontal-scroll">
@@ -489,6 +588,25 @@ via the JUnit Platform configuration file but cannot be supplied in the
 </section>
 </li>
 <li>
+<section class="detail" id="DRY_RUN_DEFAULT">
+<h3>DRY_RUN_DEFAULT</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#MAINTAINED" title="class or interface in org.apiguardian.api" class="external-link">MAINTAINED</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.2")
+</span><span class="modifiers">public static final</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">DRY_RUN_DEFAULT</span></div>
+<div class="block">Default value for <a href="#DRY_RUN_PROPERTY_NAME">"junit.platform.execution.dryRun.enabled"</a> is false.</div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../../constant-values.html#org.junit.platform.launcher.LauncherConstants.DRY_RUN_DEFAULT">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
 <section class="detail" id="DRY_RUN_PROPERTY_NAME">
 <h3>DRY_RUN_PROPERTY_NAME</h3>
 <div class="horizontal-scroll">
@@ -511,6 +629,25 @@ to wait for all tests to be executed.
 <dd>
 <ul class="tag-list">
 <li><a href="../../../../../constant-values.html#org.junit.platform.launcher.LauncherConstants.DRY_RUN_PROPERTY_NAME">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="STACKTRACE_PRUNING_ENABLED_DEFAULT">
+<h3>STACKTRACE_PRUNING_ENABLED_DEFAULT</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#MAINTAINED" title="class or interface in org.apiguardian.api" class="external-link">MAINTAINED</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.2")
+</span><span class="modifiers">public static final</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">STACKTRACE_PRUNING_ENABLED_DEFAULT</span></div>
+<div class="block">Default value for <a href="#STACKTRACE_PRUNING_ENABLED_PROPERTY_NAME">"junit.platform.stacktrace.pruning.enabled"</a> is true.</div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../../constant-values.html#org.junit.platform.launcher.LauncherConstants.STACKTRACE_PRUNING_ENABLED_DEFAULT">Constant Field Values</a></li>
 </ul>
 </dd>
 </dl>
@@ -596,6 +733,25 @@ to write its output to a separate directory.</div>
 </section>
 </li>
 <li>
+<section class="detail" id="CRITICAL_DISCOVERY_ISSUE_SEVERITY_DEFAULT">
+<h3>CRITICAL_DISCOVERY_ISSUE_SEVERITY_DEFAULT</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#MAINTAINED" title="class or interface in org.apiguardian.api" class="external-link">MAINTAINED</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.2")
+</span><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">CRITICAL_DISCOVERY_ISSUE_SEVERITY_DEFAULT</span></div>
+<div class="block">Default value for <a href="#CRITICAL_DISCOVERY_ISSUE_SEVERITY_PROPERTY_NAME">"junit.platform.discovery.issue.severity.critical"</a> is "ERROR".</div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../../constant-values.html#org.junit.platform.launcher.LauncherConstants.CRITICAL_DISCOVERY_ISSUE_SEVERITY_DEFAULT">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
 <section class="detail" id="CRITICAL_DISCOVERY_ISSUE_SEVERITY_PROPERTY_NAME">
 <h3>CRITICAL_DISCOVERY_ISSUE_SEVERITY_PROPERTY_NAME</h3>
 <div class="horizontal-scroll">
@@ -618,7 +774,7 @@ engine-level failure during execution.
 <a href="../../../../../org.junit.platform.engine/org/junit/platform/engine/DiscoveryIssue.Severity.html" title="enum class in org.junit.platform.engine"><code>Severity</code></a>,
 ignoring case.
 
-<p>If not specified, the default is "error" which corresponds to
+<p>If not specified, the default is <a href="#CRITICAL_DISCOVERY_ISSUE_SEVERITY_DEFAULT">"ERROR"</a> which corresponds to
 <code>Severity.ERROR)</code>.</div>
 <dl class="notes">
 <dt>Since:</dt>
@@ -661,6 +817,25 @@ is called.</div>
 <ul class="tag-list-long">
 <li><a href="#CRITICAL_DISCOVERY_ISSUE_SEVERITY_PROPERTY_NAME"><code>CRITICAL_DISCOVERY_ISSUE_SEVERITY_PROPERTY_NAME</code></a></li>
 <li><a href="../../../../../constant-values.html#org.junit.platform.launcher.LauncherConstants.DISCOVERY_ISSUE_FAILURE_PHASE_PROPERTY_NAME">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="MEMORY_CLEANUP_ENABLED_DEFAULT">
+<h3>MEMORY_CLEANUP_ENABLED_DEFAULT</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#MAINTAINED" title="class or interface in org.apiguardian.api" class="external-link">MAINTAINED</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.2")
+</span><span class="modifiers">public static final</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">MEMORY_CLEANUP_ENABLED_DEFAULT</span></div>
+<div class="block">Default value for <a href="#MEMORY_CLEANUP_ENABLED_PROPERTY_NAME">"junit.platform.execution.memory.cleanup.enabled"</a> is false.</div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../../constant-values.html#org.junit.platform.launcher.LauncherConstants.MEMORY_CLEANUP_ENABLED_DEFAULT">Constant Field Values</a></li>
 </ul>
 </dd>
 </dl>
