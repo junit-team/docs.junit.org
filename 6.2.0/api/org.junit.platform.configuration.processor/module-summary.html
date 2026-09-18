@@ -66,6 +66,50 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="horizontal-scroll">
 <div class="module-signature">module <span class="element-name">org.junit.platform.configuration.processor</span></div>
+<section class="module-description" id="module-description">
+<!-- ============ MODULE DESCRIPTION =========== -->
+<div class="block"><p>Annotation processor to generate machine-readable configuration parameter
+documentation.</p>
+<p>The annotation processor all configuration parameters marked with
+<a href="../org.junit.platform.configuration.api/org/junit/platform/configuration/api/ConfigurationParameter.html" title="annotation interface in org.junit.platform.configuration.api"><code>ConfigurationParameter</code></a> to
+<a href="org/junit/platform/configuration/processor/ConfigurationMetadataAnnotationProcessor.html#METADATA_PATH">"META-INF/junit-platform-configuration-metadata.json"</a>
+in <a href="https://docs.spring.io/spring-boot/specification/configuration-metadata/format.html">Spring Boot's Configuration Metadata</a>
+format. This enables IDEs and other tools to process and validate Test
+Engine configuration.</p>
+<h4>Usage</h4>
+<p>Given this minimal example:</p>
+<pre><code>
+/**
+  * A brief multi-line description of
+  * this property: {@value}.
+  *
+  * &lt;p&gt;Followed by an additional paragraph.
+  */
+ @ConfigurationParameter
+ public static final String EXAMPLE_PROPERTY_NAME = "org.example.property";
+
+</code></pre>
+<p>Processing the annotations with <code>org.junit.platform:junit-platform-configuration-processor</code>
+will produce:</p>
+<pre><code>
+{
+  "properties": [
+	    {
+	  "name": "org.example.property",
+      "description": "A brief multi-line description of this property.",
+	  "sourceType": "com.example.app.Constants"
+   }
+  ]
+}
+</code>
+</pre>
+<p>Of note is that the first paragraph from the doc string will be used
+to describe the property. If the first paragraph ends with
+<code>: {@value}.</code> or <code>: {@value}</code> it will be replaced with
+<code>.</code>. Likewise <code>{@code}</code> and <code>{@link}</code> tags are replaced
+with plain text versions.</p>
+</div>
+</section>
 </div>
 </main>
 </div>

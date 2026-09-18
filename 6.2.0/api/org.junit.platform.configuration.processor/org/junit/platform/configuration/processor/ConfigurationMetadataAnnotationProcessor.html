@@ -63,6 +63,11 @@ loadScripts(document, 'script');</script>
 <li><a href="#field-summary" tabindex="0">Field Summary</a></li>
 <li><a href="#constructor-summary" tabindex="0">Constructor Summary</a></li>
 <li><a href="#method-summary" tabindex="0">Method Summary</a></li>
+<li><a href="#field-detail" tabindex="0">Field Details</a>
+<ol class="toc-list">
+<li><a href="#METADATA_PATH" tabindex="0">METADATA_PATH</a></li>
+</ol>
+</li>
 <li><a href="#constructor-detail" tabindex="0">Constructor Details</a>
 <ol class="toc-list">
 <li><a href="#%3Cinit%3E()" tabindex="0">ConfigurationMetadataAnnotationProcessor()</a></li>
@@ -98,30 +103,6 @@ loadScripts(document, 'script');</script>
 <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.compiler/javax/annotation/processing/SupportedAnnotationTypes.html" title="class or interface in javax.annotation.processing" class="external-link">@SupportedAnnotationTypes</a>("org.junit.platform.configuration.api.ConfigurationParameter")
 </span><span class="modifiers">public final class </span><span class="element-name type-name-label">ConfigurationMetadataAnnotationProcessor</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.compiler/javax/annotation/processing/AbstractProcessor.html" title="class or interface in javax.annotation.processing" class="external-link">AbstractProcessor</a></span></div>
-<div class="block"><p>Writes all configuration parameters marked with
-<a href="../../../../../../org.junit.platform.configuration.api/org/junit/platform/configuration/api/ConfigurationParameter.html" title="annotation interface in org.junit.platform.configuration.api"><code>ConfigurationParameter</code></a> to
-"META-INF/junit-platform-configuration-metadata.json" in <a href="https://docs.spring.io/spring-boot/specification/configuration-metadata/format.html">Spring Boot's Configuration
-Metadata</a>
-format. This enables IDEs and other tools to process and validate Test Engine
-configuration.</p>
-<h4>Usage</h4>
-<pre><code>
-/**
-  * A brief multi-line description of
-  * this property: {@value}.
-  *
-  * &lt;p&gt;Followed by an additional paragraph.
-  */
- @ConfigurationParameter
- public static final String EXAMPLE_PROPERTY_NAME = "org.example.property";
-
-</code></pre>
-<p>The first paragraph from the doc string will be used to describe the
-property. If the first paragraph ends with <code>: {@value}.</code> or
-<code>: {@value}</code> it will be replaced with <code>.</code>. Likewise
-<code>{@code}</code> and <code>{@link}</code> tags are replaced with plain
-text versions.</p>
-</div>
 </div>
 </section>
 <section class="summary">
@@ -130,6 +111,15 @@ text versions.</p>
 <li>
 <section class="field-summary" id="field-summary">
 <h2>Field Summary</h2>
+<div class="caption"><span>Fields</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Field</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="#METADATA_PATH" class="member-name-link">METADATA_PATH</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
 <div class="inherited-list">
 <h3 id="fields-inherited-from-class-javax.annotation.processing.AbstractProcessor">Fields inherited from class&nbsp;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.compiler/javax/annotation/processing/AbstractProcessor.html#field-summary" title="class or interface in javax.annotation.processing" class="external-link">AbstractProcessor</a></h3>
 <code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.compiler/javax/annotation/processing/AbstractProcessor.html#processingEnv" title="class or interface in javax.annotation.processing" class="external-link">processingEnv</a></code></div>
@@ -184,6 +174,30 @@ text versions.</p>
 </section>
 <section class="details">
 <ul class="details-list">
+<!-- ============ FIELD DETAIL =========== -->
+<li>
+<section class="field-details" id="field-detail">
+<h2>Field Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="METADATA_PATH">
+<h3>METADATA_PATH</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">METADATA_PATH</span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../../../constant-values.html#org.junit.platform.configuration.processor.ConfigurationMetadataAnnotationProcessor.METADATA_PATH">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
 <li>
 <section class="constructor-details" id="constructor-detail">

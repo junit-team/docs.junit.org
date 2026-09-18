@@ -25061,8 +25061,8 @@ reported discovery issues.</p>
 <div class="paragraph">
 <p>Authors of test engines and JUnit Jupiter extensions may generate a machine-readable
 overview of configuration parameters by annotating their configuration parameters
-with <code><a href="../../../6.2.0/api/org.junit.platform.configuration.api/org/junit/platform/configuration/api/ConfigurationParameter.html">ConfigurationParameter</a></code> from the <code>junit-platform-configuration-api</code>
-artifact.</p>
+with <code><a href="../../../6.2.0/api/org.junit.platform.configuration.api/org/junit/platform/configuration/api/ConfigurationParameter.html">ConfigurationParameter</a></code> from the
+<code>org.junit.platform:junit-platform-configuration-api</code> artifact.</p>
 </div>
 <div class="listingblock">
 <div class="title">A small example</div>
@@ -25081,9 +25081,9 @@ artifact.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Processing the annotations with <code>junit-platform-configuration-processor</code> will produce a
-<code>META-INF/junit-platform-configuration-metadata.json</code> file in the format of
-<a href="https://docs.spring.io/spring-boot/specification/configuration-metadata/format.html">Spring Boots Configuration Metadata</a>. This file can then be used to generate documentation
+<p>Processing the annotations with <code>org.junit.platform:junit-platform-configuration-processor</code>
+will produce a <code>META-INF/junit-platform-configuration-metadata.json</code> file in the format
+of <a href="https://docs.spring.io/spring-boot/specification/configuration-metadata/format.html">Spring Boots Configuration Metadata</a>. This file can then be used to generate documentation
 or provide code completion by IDEs. An example is shown below.</p>
 </div>
 <div class="listingblock">
