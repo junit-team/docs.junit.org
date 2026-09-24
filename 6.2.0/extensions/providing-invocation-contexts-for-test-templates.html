@@ -424,8 +424,21 @@ for the next invocation of the <code><a href="../api/org.junit.jupiter.api/org/j
 <p>The following example shows how to write a test template as well as how to register and
 implement a <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/TestTemplateInvocationContextProvider.html" class="xref attachment">TestTemplateInvocationContextProvider</a></code>.</p>
 </div>
+<div id="tabs-1" class="openblock tabs is-sync is-loading">
+<div class="title">A test template with an accompanying extension</div>
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-1-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-1-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-1-java--panel" class="tabpanel" aria-labelledby="tabs-1-java">
 <div class="listingblock">
-<div class="title">A test template with accompanying extension</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">final List&lt;String&gt; fruits = Arrays.asList("apple", "banana", "lemon");
 
@@ -478,6 +491,49 @@ public class MyTestTemplateInvocationContextProvider
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-1-kotlin--panel" class="tabpanel" aria-labelledby="tabs-1-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val fruits = listOf("apple", "banana", "lemon")
+
+@TestTemplate
+@ExtendWith(MyTestTemplateInvocationContextProvider::class)
+fun testTemplate(fruit: String) {
+    assertTrue(fruit in fruits)
+}
+
+class MyTestTemplateInvocationContextProvider : TestTemplateInvocationContextProvider {
+    override fun supportsTestTemplate(context: ExtensionContext) = true
+
+    override fun provideTestTemplateInvocationContexts(context: ExtensionContext) =
+        Stream.of(invocationContext("apple"), invocationContext("banana"))
+
+    private fun invocationContext(parameter: String) =
+        object : TestTemplateInvocationContext {
+            override fun getDisplayName(invocationIndex: Int) = parameter
+
+            override fun getAdditionalExtensions(): List&lt;Extension&gt; =
+                listOf(
+                    object : ParameterResolver {
+                        override fun supportsParameter(
+                            parameterContext: ParameterContext,
+                            extensionContext: ExtensionContext
+                        ) = parameterContext.parameter.type == String::class.java
+
+                        override fun resolveParameter(
+                            parameterContext: ParameterContext,
+                            extensionContext: ExtensionContext
+                        ): Any = parameter
+                    }
+                )
+        }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>In this example, the test template will be invoked twice. The display names of the
 invocations will be <code>apple</code> and <code>banana</code> as specified by the invocation context. Each
@@ -494,7 +550,7 @@ parameter. The output when using the <code>ConsoleLauncher</code> is as follows.
 <div class="paragraph">
 <p>The <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/TestTemplateInvocationContextProvider.html" class="xref attachment">TestTemplateInvocationContextProvider</a></code> extension API is primarily intended for
 implementing different kinds of tests that rely on repetitive invocation of a test-like
-method albeit in different contexts — for example, with different parameters, by preparing
+method, albeit in different contexts — for example, with different parameters, by preparing
 the test class instance differently, or multiple times without modifying the context.
 Please refer to the implementations of <a href="../writing-tests/repeated-tests.html" class="xref page">Repeated Tests</a> or
 <a href="../writing-tests/parameterized-classes-and-tests.html" class="xref page">Parameterized Tests</a> which use this extension point

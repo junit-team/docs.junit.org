@@ -424,8 +424,21 @@ will only be used for the next invocation of the <code><a href="../api/org.junit
 <p>The following example shows how to write a class template as well as how to register
 and implement a <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/ClassTemplateInvocationContextProvider.html" class="xref attachment">ClassTemplateInvocationContextProvider</a></code>.</p>
 </div>
+<div id="tabs-1" class="openblock tabs is-sync is-loading">
+<div class="title">A class template with an accompanying extension</div>
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-1-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-1-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-1-java--panel" class="tabpanel" aria-labelledby="tabs-1-java">
 <div class="listingblock">
-<div class="title">A class template with accompanying extension</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@ClassTemplate
 @ExtendWith(ClassTemplateDemo.MyClassTemplateInvocationContextProvider.class)
@@ -484,6 +497,53 @@ class ClassTemplateDemo {
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-1-kotlin--panel" class="tabpanel" aria-labelledby="tabs-1-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@ClassTemplate
+@ExtendWith(ClassTemplateDemo.MyClassTemplateInvocationContextProvider::class)
+class ClassTemplateDemo {
+    private var fruit: String? = null
+
+    @Test
+    fun notNull() {
+        assertNotNull(fruit)
+    }
+
+    @Test
+    fun wellKnown() {
+        assertTrue(fruit in WELL_KNOWN_FRUITS)
+    }
+
+    class MyClassTemplateInvocationContextProvider : ClassTemplateInvocationContextProvider {
+        override fun supportsClassTemplate(context: ExtensionContext) = true
+
+        override fun provideClassTemplateInvocationContexts(context: ExtensionContext) =
+            Stream.of(invocationContext("apple"), invocationContext("banana"))
+
+        private fun invocationContext(parameter: String) =
+            object : ClassTemplateInvocationContext {
+                override fun getDisplayName(invocationIndex: Int) = parameter
+
+                override fun getAdditionalExtensions(): List&lt;Extension&gt; =
+                    listOf(
+                        TestInstancePostProcessor { testInstance, _ -&gt;
+                            (testInstance as ClassTemplateDemo).fruit = parameter
+                        }
+                    )
+            }
+    }
+
+    companion object {
+        val WELL_KNOWN_FRUITS = listOf("apple", "banana", "lemon")
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>In this example, the class template will be invoked twice, meaning all test methods in
 the class template will be executed twice. The display names of the invocations will be
@@ -505,10 +565,10 @@ output when using the <code>ConsoleLauncher</code> is as follows.</p>
 <div class="paragraph">
 <p>The <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/ClassTemplateInvocationContextProvider.html" class="xref attachment">ClassTemplateInvocationContextProvider</a></code> extension API is primarily intended for
 implementing different kinds of tests that rely on repetitive invocation of <em>all</em> test
-methods in a test class albeit in different contexts — for example, with different
+methods in a test class, albeit in different contexts — for example, with different
 parameters, by preparing the test class instance differently, or multiple times without
 modifying the context.
-Please refer to the implementations of
+Please refer to the implementation of
 <a href="../writing-tests/parameterized-classes-and-tests.html" class="xref page">Parameterized Classes</a> which uses this extension
 point to provide its functionality.</p>
 </div>

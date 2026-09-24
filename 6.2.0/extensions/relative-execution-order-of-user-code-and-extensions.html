@@ -439,7 +439,7 @@ See also: <a href="../writing-tests/test-execution-order.html" class="xref page"
 <div class="paragraph">
 <p>The following diagram illustrates the relative order of user-supplied code and extension
 code. User-supplied test and lifecycle methods are shown in orange, with callback code
-implemented by extensions shown in blue. The grey box denotes the execution of a single
+implemented by extensions shown in blue. The gray box denotes the execution of a single
 test method and will be repeated for every test method in the test class.</p>
 </div>
 <div id="diagram" class="imageblock">
@@ -537,7 +537,7 @@ extension code executed after all tests of the container are executed</p>
 <div class="paragraph">
 <p>In the simplest case only the actual test method will be executed (step 9); all other
 steps are optional depending on the presence of user code or extension support for the
-corresponding lifecycle callback. For further details on the various lifecycle callbacks
+corresponding lifecycle callback. For further details on the various lifecycle callbacks,
 please consult the respective Javadoc for each annotation and extension.</p>
 </div>
 <div class="paragraph">
@@ -633,11 +633,26 @@ long as they are not <em>overridden</em>, and <code>@AfterEach</code> default me
 <p>The following examples demonstrate this behavior. Please note that the examples do not
 actually do anything realistic. Instead, they mimic common scenarios for testing
 interactions with the database. All methods imported statically from the <code>Logger</code> class
-log contextual information in order to help us better understand the execution order of
-user-supplied callback methods and callback methods in extensions.</p>
+log contextual information to help better understand the execution order of
+user-supplied callback methods and callback methods in extensions.
+In Kotlin examples, the corresponding methods are top-level functions in the same package
+and therefore don&#8217;t require imports.</p>
 </div>
-<div class="listingblock">
+<div id="tabs-1" class="openblock tabs is-sync is-loading">
 <div class="title">Extension1</div>
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-1-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-1-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-1-java--panel" class="tabpanel" aria-labelledby="tabs-1-java">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static example.callbacks.Logger.afterEachCallback;
 import static example.callbacks.Logger.beforeEachCallback;
@@ -661,8 +676,45 @@ public class Extension1 implements BeforeEachCallback, AfterEachCallback {
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-1-kotlin--panel" class="tabpanel" aria-labelledby="tabs-1-kotlin">
 <div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import org.junit.jupiter.api.extension.AfterEachCallback
+import org.junit.jupiter.api.extension.BeforeEachCallback
+import org.junit.jupiter.api.extension.ExtensionContext
+
+class Extension1 :
+    BeforeEachCallback,
+    AfterEachCallback {
+    override fun beforeEach(context: ExtensionContext) {
+        beforeEachCallback(this)
+    }
+
+    override fun afterEach(context: ExtensionContext) {
+        afterEachCallback(this)
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabs-2" class="openblock tabs is-sync is-loading">
 <div class="title">Extension2</div>
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-2-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-2-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-2-java--panel" class="tabpanel" aria-labelledby="tabs-2-java">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static example.callbacks.Logger.afterEachCallback;
 import static example.callbacks.Logger.beforeEachCallback;
@@ -686,8 +738,45 @@ public class Extension2 implements BeforeEachCallback, AfterEachCallback {
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-2-kotlin--panel" class="tabpanel" aria-labelledby="tabs-2-kotlin">
 <div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import org.junit.jupiter.api.extension.AfterEachCallback
+import org.junit.jupiter.api.extension.BeforeEachCallback
+import org.junit.jupiter.api.extension.ExtensionContext
+
+class Extension2 :
+    BeforeEachCallback,
+    AfterEachCallback {
+    override fun beforeEach(context: ExtensionContext) {
+        beforeEachCallback(this)
+    }
+
+    override fun afterEach(context: ExtensionContext) {
+        afterEachCallback(this)
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabs-3" class="openblock tabs is-sync is-loading">
 <div class="title">AbstractDatabaseTests</div>
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-3-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-3-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-3-java--panel" class="tabpanel" aria-labelledby="tabs-3-java">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static example.callbacks.Logger.afterAllMethod;
 import static example.callbacks.Logger.afterEachMethod;
@@ -727,10 +816,66 @@ abstract class AbstractDatabaseTests {
 }</code></pre>
 </div>
 </div>
+</div>
+<div id="tabs-3-kotlin--panel" class="tabpanel" aria-labelledby="tabs-3-kotlin">
 <div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import org.junit.jupiter.api.AfterAll
+import org.junit.jupiter.api.AfterEach
+import org.junit.jupiter.api.BeforeAll
+import org.junit.jupiter.api.BeforeEach
+
+/**
+ * Abstract base class for tests that use the database.
+ */
+abstract class AbstractDatabaseTests {
+    @BeforeEach
+    fun connectToDatabase() {
+        beforeEachMethod("${AbstractDatabaseTests::class.simpleName}.connectToDatabase()")
+    }
+
+    @AfterEach
+    fun disconnectFromDatabase() {
+        afterEachMethod("${AbstractDatabaseTests::class.simpleName}.disconnectFromDatabase()")
+    }
+
+    companion object {
+        @JvmStatic
+        @BeforeAll
+        fun createDatabase() {
+            beforeAllMethod("${AbstractDatabaseTests::class.simpleName}.createDatabase()")
+        }
+
+        @JvmStatic
+        @AfterAll
+        fun destroyDatabase() {
+            afterAllMethod("${AbstractDatabaseTests::class.simpleName}.destroyDatabase()")
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabs-4" class="openblock tabs is-sync is-loading">
 <div class="title">DatabaseTestsDemo</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static example.callbacks.Logger.afterEachMethod;
+<div class="ulist tablist">
+<ul>
+<li id="tabs-4-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-4-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-4-java--panel" class="tabpanel" aria-labelledby="tabs-4-java">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static example.callbacks.Logger.afterAllMethod;
+import static example.callbacks.Logger.afterEachMethod;
 import static example.callbacks.Logger.beforeAllMethod;
 import static example.callbacks.Logger.beforeEachMethod;
 import static example.callbacks.Logger.testMethod;
@@ -772,10 +917,62 @@ class DatabaseTestsDemo extends AbstractDatabaseTests {
 
 	@AfterAll
 	static void afterAll() {
-		beforeAllMethod(DatabaseTestsDemo.class.getSimpleName() + ".afterAll()");
+		afterAllMethod(DatabaseTestsDemo.class.getSimpleName() + ".afterAll()");
 	}
 
 }</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-4-kotlin--panel" class="tabpanel" aria-labelledby="tabs-4-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import org.junit.jupiter.api.AfterAll
+import org.junit.jupiter.api.AfterEach
+import org.junit.jupiter.api.BeforeAll
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.extension.ExtendWith
+
+/**
+ * Extension of [AbstractDatabaseTests] that inserts test data
+ * into the database (after the database connection has been opened)
+ * and deletes test data (before the database connection is closed).
+ */
+@ExtendWith(Extension1::class, Extension2::class)
+class DatabaseTestsDemo : AbstractDatabaseTests() {
+    @BeforeEach
+    fun insertTestDataIntoDatabase() {
+        beforeEachMethod("${javaClass.simpleName}.insertTestDataIntoDatabase()")
+    }
+
+    @Test
+    fun testDatabaseFunctionality() {
+        testMethod("${javaClass.simpleName}.testDatabaseFunctionality()")
+    }
+
+    @AfterEach
+    fun deleteTestDataFromDatabase() {
+        afterEachMethod("${javaClass.simpleName}.deleteTestDataFromDatabase()")
+    }
+
+    companion object {
+        @JvmStatic
+        @BeforeAll
+        fun beforeAll() {
+            beforeAllMethod("${DatabaseTestsDemo::class.simpleName}.beforeAll()")
+        }
+
+        @JvmStatic
+        @AfterAll
+        fun afterAll() {
+            afterAllMethod("${DatabaseTestsDemo::class.simpleName}.afterAll()")
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="paragraph">
@@ -794,7 +991,7 @@ class DatabaseTestsDemo extends AbstractDatabaseTests {
     @AfterEach AbstractDatabaseTests.disconnectFromDatabase()
   Extension2.afterEach()
   Extension1.afterEach()
-@BeforeAll DatabaseTestsDemo.afterAll()
+@AfterAll DatabaseTestsDemo.afterAll()
 @AfterAll AbstractDatabaseTests.destroyDatabase()</pre>
 </div>
 </div>
@@ -853,8 +1050,21 @@ failure to connect to the database.</p>
 </li>
 </ul>
 </div>
-<div class="listingblock">
+<div id="tabs-5" class="openblock tabs is-sync is-loading">
 <div class="title">BrokenLifecycleMethodConfigDemo</div>
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-5-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-5-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-5-java--panel" class="tabpanel" aria-labelledby="tabs-5-java">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static example.callbacks.Logger.afterEachMethod;
 import static example.callbacks.Logger.beforeEachMethod;
@@ -901,6 +1111,54 @@ class BrokenLifecycleMethodConfigDemo {
 	}
 
 }</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-5-kotlin--panel" class="tabpanel" aria-labelledby="tabs-5-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import org.junit.jupiter.api.AfterEach
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.extension.ExtendWith
+
+/**
+ * Example of "broken" lifecycle method configuration.
+ *
+ * Test data is inserted before the database connection has been opened.
+ *
+ * Database connection is closed before deleting test data.
+ */
+@ExtendWith(Extension1::class, Extension2::class)
+class BrokenLifecycleMethodConfigDemo {
+    @BeforeEach
+    fun connectToDatabase() {
+        beforeEachMethod("${javaClass.simpleName}.connectToDatabase()")
+    }
+
+    @BeforeEach
+    fun insertTestDataIntoDatabase() {
+        beforeEachMethod("${javaClass.simpleName}.insertTestDataIntoDatabase()")
+    }
+
+    @Test
+    fun testDatabaseFunctionality() {
+        testMethod("${javaClass.simpleName}.testDatabaseFunctionality()")
+    }
+
+    @AfterEach
+    fun deleteTestDataFromDatabase() {
+        afterEachMethod("${javaClass.simpleName}.deleteTestDataFromDatabase()")
+    }
+
+    @AfterEach
+    fun disconnectFromDatabase() {
+        afterEachMethod("${javaClass.simpleName}.disconnectFromDatabase()")
+    }
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="paragraph">

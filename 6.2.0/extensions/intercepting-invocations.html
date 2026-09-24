@@ -421,8 +421,21 @@ test code.</p>
 <p>The following example shows an extension that executes all test methods in Swing&#8217;s Event
 Dispatch Thread.</p>
 </div>
-<div class="listingblock">
+<div id="tabs-1" class="openblock tabs is-sync is-loading">
 <div class="title">An extension that executes tests in a user-defined thread</div>
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-1-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-1-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-1-java--panel" class="tabpanel" aria-labelledby="tabs-1-java">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class SwingEdtInterceptor implements InvocationInterceptor {
 
@@ -447,6 +460,32 @@ Dispatch Thread.</p>
 		}
 	}
 }</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-1-kotlin--panel" class="tabpanel" aria-labelledby="tabs-1-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class SwingEdtInterceptor : InvocationInterceptor {
+    override fun interceptTestMethod(
+        invocation: Invocation&lt;Void?&gt;,
+        invocationContext: ReflectiveInvocationContext&lt;Method&gt;,
+        extensionContext: ExtensionContext
+    ) {
+        var throwable: Throwable? = null
+        SwingUtilities.invokeAndWait {
+            try {
+                invocation.proceed()
+            } catch (t: Throwable) {
+                throwable = t
+            }
+        }
+        throwable?.let { throw it }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="admonitionblock note">

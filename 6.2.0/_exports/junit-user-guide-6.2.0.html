@@ -19052,11 +19052,9 @@ instance of the extension via the <code>docs</code> field if necessary.</p>
         // use this.docs ...
     }
 
-    companion object {
-        fun lookUpDocsDir(): Path? {
-            // return path to docs dir
-            return null
-        }
+    private fun lookUpDocsDir(): Path? {
+        // return path to docs dir
+        return null
     }
 }</code></pre>
 </div>
@@ -20293,8 +20291,16 @@ and for those thrown during one of test lifecycle methods (<code>@BeforeAll</cod
 <p>The following example shows an extension which will swallow all instances of <code>IOException</code>
 but rethrow any other type of exception.</p>
 </div>
-<div class="listingblock">
+<div id="extensions-exception-handling:::tabs-1" class="exampleblock">
 <div class="title">An exception handling extension that filters IOExceptions in test execution</div>
+<div class="content">
+<div id="extensions-exception-handling:::tabs-1-java" class="dlist">
+<dl>
+<dt class="hdlist1">Java</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class IgnoreIOExceptionExtension implements TestExecutionExceptionHandler {
 
@@ -20310,15 +20316,56 @@ but rethrow any other type of exception.</p>
 }</code></pre>
 </div>
 </div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+<div id="extensions-exception-handling:::tabs-1-kotlin" class="dlist">
+<dl>
+<dt class="hdlist1">Kotlin</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class IgnoreIOExceptionExtension : TestExecutionExceptionHandler {
+    override fun handleTestExecutionException(
+        context: ExtensionContext,
+        throwable: Throwable
+    ) {
+        when (throwable) {
+            is IOException -&gt; return
+            else -&gt; throw throwable
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>Another example shows how to record the state of an application under test exactly at
-the point of unexpected exception being thrown during setup and cleanup. Note that unlike
+the point where an unexpected exception is thrown during setup and cleanup. Note that unlike
 relying on lifecycle callbacks, which may or may not be executed depending on the test
 status, this solution guarantees execution immediately after failing <code>@BeforeAll</code>,
 <code>@BeforeEach</code>, <code>@AfterEach</code> or <code>@AfterAll</code>.</p>
 </div>
-<div class="listingblock">
+<div id="extensions-exception-handling:::tabs-2" class="exampleblock">
 <div class="title">An exception handling extension that records application state on error</div>
+<div class="content">
+<div id="extensions-exception-handling:::tabs-2-java" class="dlist">
+<dl>
+<dt class="hdlist1">Java</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">class RecordStateOnErrorExtension implements LifecycleMethodExecutionExceptionHandler {
 
@@ -20352,10 +20399,65 @@ status, this solution guarantees execution immediately after failing <code>@Befo
 }</code></pre>
 </div>
 </div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+<div id="extensions-exception-handling:::tabs-2-kotlin" class="dlist">
+<dl>
+<dt class="hdlist1">Kotlin</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class RecordStateOnErrorExtension : LifecycleMethodExecutionExceptionHandler {
+    override fun handleBeforeAllMethodExecutionException(
+        context: ExtensionContext,
+        ex: Throwable
+    ) {
+        memoryDumpForFurtherInvestigation("Failure recorded during class setup")
+        throw ex
+    }
+
+    override fun handleBeforeEachMethodExecutionException(
+        context: ExtensionContext,
+        ex: Throwable
+    ) {
+        memoryDumpForFurtherInvestigation("Failure recorded during test setup")
+        throw ex
+    }
+
+    override fun handleAfterEachMethodExecutionException(
+        context: ExtensionContext,
+        ex: Throwable
+    ) {
+        memoryDumpForFurtherInvestigation("Failure recorded during test cleanup")
+        throw ex
+    }
+
+    override fun handleAfterAllMethodExecutionException(
+        context: ExtensionContext,
+        ex: Throwable
+    ) {
+        memoryDumpForFurtherInvestigation("Failure recorded during class cleanup")
+        throw ex
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>Multiple execution exception handlers may be invoked for the same lifecycle method in
 order of declaration. If one of the handlers swallows the handled exception, subsequent
-ones will not be executed, and no failure will be propagated to JUnit engine, as if the
+ones will not be executed, and no failure will be propagated to the JUnit engine, as if the
 exception was never thrown. Handlers may also choose to rethrow the exception or throw
 a different one, potentially wrapping the original.</p>
 </div>
@@ -20365,8 +20467,16 @@ exceptions thrown during <code>@BeforeAll</code> or <code>@AfterAll</code> need 
 while handlers for <code>BeforeEach</code> and <code>AfterEach</code> may be also registered for individual
 test methods.</p>
 </div>
-<div class="listingblock">
+<div id="extensions-exception-handling:::tabs-3" class="exampleblock">
 <div class="title">Registering multiple exception handling extensions</div>
+<div class="content">
+<div id="extensions-exception-handling:::tabs-3-java" class="dlist">
+<dl>
+<dt class="hdlist1">Java</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">// Register handlers for @Test, @BeforeEach, @AfterEach as well as @BeforeAll and @AfterAll
 @ExtendWith(ThirdExecutedHandler.class)
@@ -20380,6 +20490,39 @@ class MultipleHandlersTestCase {
 	}
 
 }</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+<div id="extensions-exception-handling:::tabs-3-kotlin" class="dlist">
+<dl>
+<dt class="hdlist1">Kotlin</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">// Register handlers for @Test, @BeforeEach, @AfterEach as well as @BeforeAll and @AfterAll
+@ExtendWith(ThirdExecutedHandler::class)
+class MultipleHandlersTestCase {
+    // Register handlers for @Test, @BeforeEach, @AfterEach only
+    @ExtendWith(SecondExecutedHandler::class)
+    @ExtendWith(FirstExecutedHandler::class)
+    @Test
+    fun testMethod() {
+    }
+
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
 </div>
 </div>
 </div>
@@ -20403,8 +20546,16 @@ test code.</p>
 <p>The following example shows an extension that executes all test methods in Swing&#8217;s Event
 Dispatch Thread.</p>
 </div>
-<div class="listingblock">
+<div id="extensions-intercepting-invocations:::tabs-1" class="exampleblock">
 <div class="title">An extension that executes tests in a user-defined thread</div>
+<div class="content">
+<div id="extensions-intercepting-invocations:::tabs-1-java" class="dlist">
+<dl>
+<dt class="hdlist1">Java</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class SwingEdtInterceptor implements InvocationInterceptor {
 
@@ -20429,6 +20580,45 @@ Dispatch Thread.</p>
 		}
 	}
 }</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+<div id="extensions-intercepting-invocations:::tabs-1-kotlin" class="dlist">
+<dl>
+<dt class="hdlist1">Kotlin</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class SwingEdtInterceptor : InvocationInterceptor {
+    override fun interceptTestMethod(
+        invocation: Invocation&lt;Void?&gt;,
+        invocationContext: ReflectiveInvocationContext&lt;Method&gt;,
+        extensionContext: ExtensionContext
+    ) {
+        var throwable: Throwable? = null
+        SwingUtilities.invokeAndWait {
+            try {
+                invocation.proceed()
+            } catch (t: Throwable) {
+                throwable = t
+            }
+        }
+        throwable?.let { throw it }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -20463,8 +20653,16 @@ will only be used for the next invocation of the <code><a href="../../../6.2.0/a
 <p>The following example shows how to write a class template as well as how to register
 and implement a <code><a href="../../../6.2.0/api/org.junit.jupiter.api/org/junit/jupiter/api/extension/ClassTemplateInvocationContextProvider.html">ClassTemplateInvocationContextProvider</a></code>.</p>
 </div>
+<div id="extensions-providing-invocation-contexts-for-class-templates:::tabs-1" class="exampleblock">
+<div class="title">A class template with an accompanying extension</div>
+<div class="content">
+<div id="extensions-providing-invocation-contexts-for-class-templates:::tabs-1-java" class="dlist">
+<dl>
+<dt class="hdlist1">Java</dt>
+<dd>
+<div class="openblock">
+<div class="content">
 <div class="listingblock">
-<div class="title">A class template with accompanying extension</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@ClassTemplate
 @ExtendWith(ClassTemplateDemo.MyClassTemplateInvocationContextProvider.class)
@@ -20523,6 +20721,66 @@ class ClassTemplateDemo {
 }</code></pre>
 </div>
 </div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+<div id="extensions-providing-invocation-contexts-for-class-templates:::tabs-1-kotlin" class="dlist">
+<dl>
+<dt class="hdlist1">Kotlin</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@ClassTemplate
+@ExtendWith(ClassTemplateDemo.MyClassTemplateInvocationContextProvider::class)
+class ClassTemplateDemo {
+    private var fruit: String? = null
+
+    @Test
+    fun notNull() {
+        assertNotNull(fruit)
+    }
+
+    @Test
+    fun wellKnown() {
+        assertTrue(fruit in WELL_KNOWN_FRUITS)
+    }
+
+    class MyClassTemplateInvocationContextProvider : ClassTemplateInvocationContextProvider {
+        override fun supportsClassTemplate(context: ExtensionContext) = true
+
+        override fun provideClassTemplateInvocationContexts(context: ExtensionContext) =
+            Stream.of(invocationContext("apple"), invocationContext("banana"))
+
+        private fun invocationContext(parameter: String) =
+            object : ClassTemplateInvocationContext {
+                override fun getDisplayName(invocationIndex: Int) = parameter
+
+                override fun getAdditionalExtensions(): List&lt;Extension&gt; =
+                    listOf(
+                        TestInstancePostProcessor { testInstance, _ -&gt;
+                            (testInstance as ClassTemplateDemo).fruit = parameter
+                        }
+                    )
+            }
+    }
+
+    companion object {
+        val WELL_KNOWN_FRUITS = listOf("apple", "banana", "lemon")
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>In this example, the class template will be invoked twice, meaning all test methods in
 the class template will be executed twice. The display names of the invocations will be
@@ -20544,10 +20802,10 @@ output when using the <code>ConsoleLauncher</code> is as follows.</p>
 <div class="paragraph">
 <p>The <code><a href="../../../6.2.0/api/org.junit.jupiter.api/org/junit/jupiter/api/extension/ClassTemplateInvocationContextProvider.html">ClassTemplateInvocationContextProvider</a></code> extension API is primarily intended for
 implementing different kinds of tests that rely on repetitive invocation of <em>all</em> test
-methods in a test class albeit in different contexts — for example, with different
+methods in a test class, albeit in different contexts — for example, with different
 parameters, by preparing the test class instance differently, or multiple times without
 modifying the context.
-Please refer to the implementations of
+Please refer to the implementation of
 <a href="#writing-tests-parameterized-classes-and-tests">Parameterized Classes</a> which uses this extension
 point to provide its functionality.</p>
 </div>
@@ -20565,8 +20823,16 @@ for the next invocation of the <code><a href="../../../6.2.0/api/org.junit.jupit
 <p>The following example shows how to write a test template as well as how to register and
 implement a <code><a href="../../../6.2.0/api/org.junit.jupiter.api/org/junit/jupiter/api/extension/TestTemplateInvocationContextProvider.html">TestTemplateInvocationContextProvider</a></code>.</p>
 </div>
+<div id="extensions-providing-invocation-contexts-for-test-templates:::tabs-1" class="exampleblock">
+<div class="title">A test template with an accompanying extension</div>
+<div class="content">
+<div id="extensions-providing-invocation-contexts-for-test-templates:::tabs-1-java" class="dlist">
+<dl>
+<dt class="hdlist1">Java</dt>
+<dd>
+<div class="openblock">
+<div class="content">
 <div class="listingblock">
-<div class="title">A test template with accompanying extension</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">final List&lt;String&gt; fruits = Arrays.asList("apple", "banana", "lemon");
 
@@ -20619,6 +20885,62 @@ public class MyTestTemplateInvocationContextProvider
 }</code></pre>
 </div>
 </div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+<div id="extensions-providing-invocation-contexts-for-test-templates:::tabs-1-kotlin" class="dlist">
+<dl>
+<dt class="hdlist1">Kotlin</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val fruits = listOf("apple", "banana", "lemon")
+
+@TestTemplate
+@ExtendWith(MyTestTemplateInvocationContextProvider::class)
+fun testTemplate(fruit: String) {
+    assertTrue(fruit in fruits)
+}
+
+class MyTestTemplateInvocationContextProvider : TestTemplateInvocationContextProvider {
+    override fun supportsTestTemplate(context: ExtensionContext) = true
+
+    override fun provideTestTemplateInvocationContexts(context: ExtensionContext) =
+        Stream.of(invocationContext("apple"), invocationContext("banana"))
+
+    private fun invocationContext(parameter: String) =
+        object : TestTemplateInvocationContext {
+            override fun getDisplayName(invocationIndex: Int) = parameter
+
+            override fun getAdditionalExtensions(): List&lt;Extension&gt; =
+                listOf(
+                    object : ParameterResolver {
+                        override fun supportsParameter(
+                            parameterContext: ParameterContext,
+                            extensionContext: ExtensionContext
+                        ) = parameterContext.parameter.type == String::class.java
+
+                        override fun resolveParameter(
+                            parameterContext: ParameterContext,
+                            extensionContext: ExtensionContext
+                        ): Any = parameter
+                    }
+                )
+        }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>In this example, the test template will be invoked twice. The display names of the
 invocations will be <code>apple</code> and <code>banana</code> as specified by the invocation context. Each
@@ -20635,7 +20957,7 @@ parameter. The output when using the <code>ConsoleLauncher</code> is as follows.
 <div class="paragraph">
 <p>The <code><a href="../../../6.2.0/api/org.junit.jupiter.api/org/junit/jupiter/api/extension/TestTemplateInvocationContextProvider.html">TestTemplateInvocationContextProvider</a></code> extension API is primarily intended for
 implementing different kinds of tests that rely on repetitive invocation of a test-like
-method albeit in different contexts — for example, with different parameters, by preparing
+method, albeit in different contexts — for example, with different parameters, by preparing
 the test class instance differently, or multiple times without modifying the context.
 Please refer to the implementations of <a href="#writing-tests-repeated-tests">Repeated Tests</a> or
 <a href="#writing-tests-parameterized-classes-and-tests">Parameterized Tests</a> which use this extension point
@@ -21171,7 +21493,7 @@ See also: <a href="#writing-tests-test-execution-order">Test Execution Order</a>
 <div class="paragraph">
 <p>The following diagram illustrates the relative order of user-supplied code and extension
 code. User-supplied test and lifecycle methods are shown in orange, with callback code
-implemented by extensions shown in blue. The grey box denotes the execution of a single
+implemented by extensions shown in blue. The gray box denotes the execution of a single
 test method and will be repeated for every test method in the test class.</p>
 </div>
 <div id="extensions-relative-execution-order-of-user-code-and-extensions:::diagram" class="imageblock">
@@ -21269,7 +21591,7 @@ extension code executed after all tests of the container are executed</p>
 <div class="paragraph">
 <p>In the simplest case only the actual test method will be executed (step 9); all other
 steps are optional depending on the presence of user code or extension support for the
-corresponding lifecycle callback. For further details on the various lifecycle callbacks
+corresponding lifecycle callback. For further details on the various lifecycle callbacks,
 please consult the respective Javadoc for each annotation and extension.</p>
 </div>
 <div class="paragraph">
@@ -21361,11 +21683,21 @@ long as they are not <em>overridden</em>, and <code>@AfterEach</code> default me
 <p>The following examples demonstrate this behavior. Please note that the examples do not
 actually do anything realistic. Instead, they mimic common scenarios for testing
 interactions with the database. All methods imported statically from the <code>Logger</code> class
-log contextual information in order to help us better understand the execution order of
-user-supplied callback methods and callback methods in extensions.</p>
+log contextual information to help better understand the execution order of
+user-supplied callback methods and callback methods in extensions.
+In Kotlin examples, the corresponding methods are top-level functions in the same package
+and therefore don&#8217;t require imports.</p>
 </div>
-<div class="listingblock">
+<div id="extensions-relative-execution-order-of-user-code-and-extensions:::tabs-1" class="exampleblock">
 <div class="title">Extension1</div>
+<div class="content">
+<div id="extensions-relative-execution-order-of-user-code-and-extensions:::tabs-1-java" class="dlist">
+<dl>
+<dt class="hdlist1">Java</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static example.callbacks.Logger.afterEachCallback;
 import static example.callbacks.Logger.beforeEachCallback;
@@ -21389,8 +21721,53 @@ public class Extension1 implements BeforeEachCallback, AfterEachCallback {
 }</code></pre>
 </div>
 </div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+<div id="extensions-relative-execution-order-of-user-code-and-extensions:::tabs-1-kotlin" class="dlist">
+<dl>
+<dt class="hdlist1">Kotlin</dt>
+<dd>
+<div class="openblock">
+<div class="content">
 <div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import org.junit.jupiter.api.extension.AfterEachCallback
+import org.junit.jupiter.api.extension.BeforeEachCallback
+import org.junit.jupiter.api.extension.ExtensionContext
+
+class Extension1 :
+    BeforeEachCallback,
+    AfterEachCallback {
+    override fun beforeEach(context: ExtensionContext) {
+        beforeEachCallback(this)
+    }
+
+    override fun afterEach(context: ExtensionContext) {
+        afterEachCallback(this)
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div id="extensions-relative-execution-order-of-user-code-and-extensions:::tabs-2" class="exampleblock">
 <div class="title">Extension2</div>
+<div class="content">
+<div id="extensions-relative-execution-order-of-user-code-and-extensions:::tabs-2-java" class="dlist">
+<dl>
+<dt class="hdlist1">Java</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static example.callbacks.Logger.afterEachCallback;
 import static example.callbacks.Logger.beforeEachCallback;
@@ -21414,8 +21791,53 @@ public class Extension2 implements BeforeEachCallback, AfterEachCallback {
 }</code></pre>
 </div>
 </div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+<div id="extensions-relative-execution-order-of-user-code-and-extensions:::tabs-2-kotlin" class="dlist">
+<dl>
+<dt class="hdlist1">Kotlin</dt>
+<dd>
+<div class="openblock">
+<div class="content">
 <div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import org.junit.jupiter.api.extension.AfterEachCallback
+import org.junit.jupiter.api.extension.BeforeEachCallback
+import org.junit.jupiter.api.extension.ExtensionContext
+
+class Extension2 :
+    BeforeEachCallback,
+    AfterEachCallback {
+    override fun beforeEach(context: ExtensionContext) {
+        beforeEachCallback(this)
+    }
+
+    override fun afterEach(context: ExtensionContext) {
+        afterEachCallback(this)
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div id="extensions-relative-execution-order-of-user-code-and-extensions:::tabs-3" class="exampleblock">
 <div class="title">AbstractDatabaseTests</div>
+<div class="content">
+<div id="extensions-relative-execution-order-of-user-code-and-extensions:::tabs-3-java" class="dlist">
+<dl>
+<dt class="hdlist1">Java</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static example.callbacks.Logger.afterAllMethod;
 import static example.callbacks.Logger.afterEachMethod;
@@ -21455,10 +21877,74 @@ abstract class AbstractDatabaseTests {
 }</code></pre>
 </div>
 </div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+<div id="extensions-relative-execution-order-of-user-code-and-extensions:::tabs-3-kotlin" class="dlist">
+<dl>
+<dt class="hdlist1">Kotlin</dt>
+<dd>
+<div class="openblock">
+<div class="content">
 <div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import org.junit.jupiter.api.AfterAll
+import org.junit.jupiter.api.AfterEach
+import org.junit.jupiter.api.BeforeAll
+import org.junit.jupiter.api.BeforeEach
+
+/**
+ * Abstract base class for tests that use the database.
+ */
+abstract class AbstractDatabaseTests {
+    @BeforeEach
+    fun connectToDatabase() {
+        beforeEachMethod("${AbstractDatabaseTests::class.simpleName}.connectToDatabase()")
+    }
+
+    @AfterEach
+    fun disconnectFromDatabase() {
+        afterEachMethod("${AbstractDatabaseTests::class.simpleName}.disconnectFromDatabase()")
+    }
+
+    companion object {
+        @JvmStatic
+        @BeforeAll
+        fun createDatabase() {
+            beforeAllMethod("${AbstractDatabaseTests::class.simpleName}.createDatabase()")
+        }
+
+        @JvmStatic
+        @AfterAll
+        fun destroyDatabase() {
+            afterAllMethod("${AbstractDatabaseTests::class.simpleName}.destroyDatabase()")
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div id="extensions-relative-execution-order-of-user-code-and-extensions:::tabs-4" class="exampleblock">
 <div class="title">DatabaseTestsDemo</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static example.callbacks.Logger.afterEachMethod;
+<div id="extensions-relative-execution-order-of-user-code-and-extensions:::tabs-4-java" class="dlist">
+<dl>
+<dt class="hdlist1">Java</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static example.callbacks.Logger.afterAllMethod;
+import static example.callbacks.Logger.afterEachMethod;
 import static example.callbacks.Logger.beforeAllMethod;
 import static example.callbacks.Logger.beforeEachMethod;
 import static example.callbacks.Logger.testMethod;
@@ -21500,10 +21986,75 @@ class DatabaseTestsDemo extends AbstractDatabaseTests {
 
 	@AfterAll
 	static void afterAll() {
-		beforeAllMethod(DatabaseTestsDemo.class.getSimpleName() + ".afterAll()");
+		afterAllMethod(DatabaseTestsDemo.class.getSimpleName() + ".afterAll()");
 	}
 
 }</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+<div id="extensions-relative-execution-order-of-user-code-and-extensions:::tabs-4-kotlin" class="dlist">
+<dl>
+<dt class="hdlist1">Kotlin</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import org.junit.jupiter.api.AfterAll
+import org.junit.jupiter.api.AfterEach
+import org.junit.jupiter.api.BeforeAll
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.extension.ExtendWith
+
+/**
+ * Extension of [AbstractDatabaseTests] that inserts test data
+ * into the database (after the database connection has been opened)
+ * and deletes test data (before the database connection is closed).
+ */
+@ExtendWith(Extension1::class, Extension2::class)
+class DatabaseTestsDemo : AbstractDatabaseTests() {
+    @BeforeEach
+    fun insertTestDataIntoDatabase() {
+        beforeEachMethod("${javaClass.simpleName}.insertTestDataIntoDatabase()")
+    }
+
+    @Test
+    fun testDatabaseFunctionality() {
+        testMethod("${javaClass.simpleName}.testDatabaseFunctionality()")
+    }
+
+    @AfterEach
+    fun deleteTestDataFromDatabase() {
+        afterEachMethod("${javaClass.simpleName}.deleteTestDataFromDatabase()")
+    }
+
+    companion object {
+        @JvmStatic
+        @BeforeAll
+        fun beforeAll() {
+            beforeAllMethod("${DatabaseTestsDemo::class.simpleName}.beforeAll()")
+        }
+
+        @JvmStatic
+        @AfterAll
+        fun afterAll() {
+            afterAllMethod("${DatabaseTestsDemo::class.simpleName}.afterAll()")
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
 </div>
 </div>
 <div class="paragraph">
@@ -21522,7 +22073,7 @@ class DatabaseTestsDemo extends AbstractDatabaseTests {
     @AfterEach AbstractDatabaseTests.disconnectFromDatabase()
   Extension2.afterEach()
   Extension1.afterEach()
-@BeforeAll DatabaseTestsDemo.afterAll()
+@AfterAll DatabaseTestsDemo.afterAll()
 @AfterAll AbstractDatabaseTests.destroyDatabase()</pre>
 </div>
 </div>
@@ -21581,8 +22132,16 @@ failure to connect to the database.</p>
 </li>
 </ul>
 </div>
-<div class="listingblock">
+<div id="extensions-relative-execution-order-of-user-code-and-extensions:::tabs-5" class="exampleblock">
 <div class="title">BrokenLifecycleMethodConfigDemo</div>
+<div class="content">
+<div id="extensions-relative-execution-order-of-user-code-and-extensions:::tabs-5-java" class="dlist">
+<dl>
+<dt class="hdlist1">Java</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import static example.callbacks.Logger.afterEachMethod;
 import static example.callbacks.Logger.beforeEachMethod;
@@ -21629,6 +22188,67 @@ class BrokenLifecycleMethodConfigDemo {
 	}
 
 }</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+<div id="extensions-relative-execution-order-of-user-code-and-extensions:::tabs-5-kotlin" class="dlist">
+<dl>
+<dt class="hdlist1">Kotlin</dt>
+<dd>
+<div class="openblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import org.junit.jupiter.api.AfterEach
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.extension.ExtendWith
+
+/**
+ * Example of "broken" lifecycle method configuration.
+ *
+ * Test data is inserted before the database connection has been opened.
+ *
+ * Database connection is closed before deleting test data.
+ */
+@ExtendWith(Extension1::class, Extension2::class)
+class BrokenLifecycleMethodConfigDemo {
+    @BeforeEach
+    fun connectToDatabase() {
+        beforeEachMethod("${javaClass.simpleName}.connectToDatabase()")
+    }
+
+    @BeforeEach
+    fun insertTestDataIntoDatabase() {
+        beforeEachMethod("${javaClass.simpleName}.insertTestDataIntoDatabase()")
+    }
+
+    @Test
+    fun testDatabaseFunctionality() {
+        testMethod("${javaClass.simpleName}.testDatabaseFunctionality()")
+    }
+
+    @AfterEach
+    fun deleteTestDataFromDatabase() {
+        afterEachMethod("${javaClass.simpleName}.deleteTestDataFromDatabase()")
+    }
+
+    @AfterEach
+    fun disconnectFromDatabase() {
+        afterEachMethod("${javaClass.simpleName}.disconnectFromDatabase()")
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
 </div>
 </div>
 <div class="paragraph">
