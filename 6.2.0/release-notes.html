@@ -495,6 +495,10 @@ Parameters</a> for more information.</p>
 <li>
 <p>Platform configuration parameters are documented in <code>META-INF/junit-platform-configuration-metadata.json</code></p>
 </li>
+<li>
+<p>Test engines using the <code>ParallelHierarchicalTestExecutorServiceFactory</code> now use the
+<code>WORKER_THREAD_POOL</code> executor service by default.</p>
+</li>
 </ul>
 </div>
 </div>
@@ -556,6 +560,10 @@ now measure the execution time with sub-millisecond precision.</p>
 </li>
 <li>
 <p>Jupiter configuration parameters are documented in <code>META-INF/junit-platform-configuration-metadata.json</code></p>
+</li>
+<li>
+<p>The <code>junit.jupiter.execution.parallel.config.executor-service</code> configuration parameter
+now defaults to <code>WORKER_THREAD_POOL</code> when parallel execution is enabled.</p>
 </li>
 </ul>
 </div>

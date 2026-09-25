@@ -600,7 +600,13 @@ configuration parameter to one of the following options:</p>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1"><code>fork_join_pool</code> (default)</dt>
+<dt class="hdlist1"><code>worker_thread_pool</code> (default)</dt>
+<dd>
+<p>Use an executor service that is backed by a <code>ThreadPoolExecutor</code>. The
+executor service tries to maintain the desired parallelism but does
+not compensate for test or production code using blocking APIs in the JDK.</p>
+</dd>
+<dt class="hdlist1"><code>fork_join_pool</code></dt>
 <dd>
 <p>Use an executor service that is backed by a <code>ForkJoinPool</code> from the JDK. This will cause
 tests to be executed in a <code>ForkJoinWorkerThread</code>. In some cases, usages of
@@ -608,27 +614,7 @@ tests to be executed in a <code>ForkJoinWorkerThread</code>. In some cases, usag
 number of concurrently executing tests to increase. To avoid this situation, please use
 <code>worker_thread_pool</code>.</p>
 </dd>
-<dt class="hdlist1"><code>worker_thread_pool</code> (experimental)</dt>
-<dd>
-<p>Use an executor service that is backed by a regular thread pool and does not create
-additional threads if test or production code uses <code>ForkJoinPool</code> or calls a blocking
-API in the JDK.</p>
-</dd>
 </dl>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-Using <code>worker_thread_pool</code> is currently an <em>experimental</em> feature. You&#8217;re invited
-to give it a try and provide feedback to the JUnit team so they can improve and eventually
-<a href="../api-evolution.html" class="xref page">promote</a> this feature.
-</td>
-</tr>
-</table>
 </div>
 </div>
 <div class="sect2">
@@ -718,7 +704,7 @@ strategies.
 <dt class="hdlist1"><code>junit.jupiter.execution.parallel.config.executor-service=fork_join_pool|worker_thread_pool</code></dt>
 <dd>
 <p>Type of <code>HierarchicalTestExecutorService</code> to use for parallel execution (defaults to
-<code>fork_join_pool</code>).</p>
+<code>worker_thread_pool</code>).</p>
 </dd>
 <dt class="hdlist1"><code>junit.jupiter.execution.parallel.config.strategy=dynamic|fixed|custom</code></dt>
 <dd>

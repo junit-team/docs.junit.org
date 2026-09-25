@@ -12622,7 +12622,13 @@ configuration parameter to one of the following options:</p>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1"><code>fork_join_pool</code> (default)</dt>
+<dt class="hdlist1"><code>worker_thread_pool</code> (default)</dt>
+<dd>
+<p>Use an executor service that is backed by a <code>ThreadPoolExecutor</code>. The
+executor service tries to maintain the desired parallelism but does
+not compensate for test or production code using blocking APIs in the JDK.</p>
+</dd>
+<dt class="hdlist1"><code>fork_join_pool</code></dt>
 <dd>
 <p>Use an executor service that is backed by a <code>ForkJoinPool</code> from the JDK. This will cause
 tests to be executed in a <code>ForkJoinWorkerThread</code>. In some cases, usages of
@@ -12630,27 +12636,7 @@ tests to be executed in a <code>ForkJoinWorkerThread</code>. In some cases, usag
 number of concurrently executing tests to increase. To avoid this situation, please use
 <code>worker_thread_pool</code>.</p>
 </dd>
-<dt class="hdlist1"><code>worker_thread_pool</code> (experimental)</dt>
-<dd>
-<p>Use an executor service that is backed by a regular thread pool and does not create
-additional threads if test or production code uses <code>ForkJoinPool</code> or calls a blocking
-API in the JDK.</p>
-</dd>
 </dl>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-Using <code>worker_thread_pool</code> is currently an <em>experimental</em> feature. You&#8217;re invited
-to give it a try and provide feedback to the JUnit team so they can improve and eventually
-<a href="#api-evolution">promote</a> this feature.
-</td>
-</tr>
-</table>
 </div>
 <h5 id="writing-tests-parallel-execution:::config-strategies" class="discrete">Strategies</h5>
 <div class="paragraph">
@@ -12735,7 +12721,7 @@ strategies.
 <dt class="hdlist1"><code>junit.jupiter.execution.parallel.config.executor-service=fork_join_pool|worker_thread_pool</code></dt>
 <dd>
 <p>Type of <code>HierarchicalTestExecutorService</code> to use for parallel execution (defaults to
-<code>fork_join_pool</code>).</p>
+<code>worker_thread_pool</code>).</p>
 </dd>
 <dt class="hdlist1"><code>junit.jupiter.execution.parallel.config.strategy=dynamic|fixed|custom</code></dt>
 <dd>
@@ -17582,7 +17568,7 @@ Defaults to <code>1.0</code>.</p>
 <dt class="hdlist1"><code>junit.jupiter.execution.parallel.config.executor-service</code></dt>
 <dd>
 <p>Property name used to determine the desired parallel executor service type.
-Defaults to <code>FORK_JOIN_POOL</code>.</p>
+Defaults to <code>WORKER_THREAD_POOL</code>.</p>
 </dd>
 <dt class="hdlist1"><code>junit.jupiter.execution.parallel.config.fixed.max-pool-size</code></dt>
 <dd>
@@ -26417,10 +26403,6 @@ value of lower stability.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>ResourceLock.&ZeroWidthSpace;tryAcquire()</code> <em>(method)</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.1</code></p></td>
 </tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>WorkerThreadPoolHierarchicalTestExecutorService</code> <em>(class)</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.1</code></p></td>
-</tr>
 </tbody>
 </table>
 <h5 id="api-evolution:::package-org-junit-platform-engine-support-store" class="discrete">Package org.junit.platform.engine.support.store</h5>
@@ -27478,6 +27460,10 @@ Parameters</a> for more information.</p>
 <li>
 <p>Platform configuration parameters are documented in <code>META-INF/junit-platform-configuration-metadata.json</code></p>
 </li>
+<li>
+<p>Test engines using the <code>ParallelHierarchicalTestExecutorServiceFactory</code> now use the
+<code>WORKER_THREAD_POOL</code> executor service by default.</p>
+</li>
 </ul>
 </div>
 <h4 id="release-notes:::v6.2.0-M1-junit-jupiter" class="discrete 2 0-M1-junit-jupiter">JUnit Jupiter</h4>
@@ -27531,6 +27517,10 @@ now measure the execution time with sub-millisecond precision.</p>
 </li>
 <li>
 <p>Jupiter configuration parameters are documented in <code>META-INF/junit-platform-configuration-metadata.json</code></p>
+</li>
+<li>
+<p>The <code>junit.jupiter.execution.parallel.config.executor-service</code> configuration parameter
+now defaults to <code>WORKER_THREAD_POOL</code> when parallel execution is enabled.</p>
 </li>
 </ul>
 </div>
