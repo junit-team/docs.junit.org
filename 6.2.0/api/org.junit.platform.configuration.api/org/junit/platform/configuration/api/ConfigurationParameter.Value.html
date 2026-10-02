@@ -92,6 +92,10 @@ loadScripts(document, 'script');</script>
 <div class="horizontal-scroll">
 <div class="type-signature"><span class="modifiers">public static @interface </span><span class="element-name type-name-label">ConfigurationParameter.Value</span></div>
 <div class="block">The value to use as the default. At most one value may be set.</div>
+<dl class="notes">
+<dt>Since:</dt>
+<dd>6.2</dd>
+</dl>
 </div>
 </section>
 <section class="summary">
@@ -289,7 +293,10 @@ loadScripts(document, 'script');</script>
 <h3>classValue</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;?&gt;[]</span>&nbsp;<span class="element-name">classValue</span></div>
-<div class="block">The <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link"><code>Class</code></a> value to use as the default.</div>
+<div class="block">The <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link"><code>Class</code></a> value to use as the default.
+
+<p>When the default is a class value, the <a href="ConfigurationParameter.html#type()"><code>ConfigurationParameter.type()</code></a>
+should also be set.</div>
 <dl class="notes">
 <dt>Default:</dt>
 <dd><code>{}</code></dd>

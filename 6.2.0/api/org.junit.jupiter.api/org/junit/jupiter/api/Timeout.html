@@ -216,6 +216,11 @@ parameter to explicitly enable or disable timeouts.
 <div class="block"><code>ThreadMode</code> is used to define whether test code should be executed
 in the thread of the calling code or in a separate thread.</div>
 </div>
+<div class="col-first odd-row-color"><code>static enum&nbsp;</code></div>
+<div class="col-second odd-row-color"><code><a href="Timeout.TimeoutMode.html" class="type-name-link" title="enum class in org.junit.jupiter.api">Timeout.TimeoutMode</a></code></div>
+<div class="col-last odd-row-color">
+<div class="block"><code>TimeoutMode</code> is used to define whether timeouts should be applied to tests.</div>
+</div>
 </div>
 </section>
 </li>
@@ -291,7 +296,7 @@ lifecycle methods: "junit.jupiter.execution.timeout.default".</div>
 <div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color"><code><a href="#DEFAULT_TIMEOUT_THREAD_MODE_DEFAULT" class="member-name-link">DEFAULT_TIMEOUT_THREAD_MODE_DEFAULT</a></code></div>
 <div class="col-last even-row-color">
-<div class="block">Default value for <a href="#DEFAULT_TIMEOUT_THREAD_MODE_PROPERTY_NAME">"junit.jupiter.execution.timeout.thread.mode.default"</a> is "SAME_THREAD".</div>
+<div class="block">Default value for <a href="#DEFAULT_TIMEOUT_THREAD_MODE_PROPERTY_NAME">"junit.jupiter.execution.timeout.thread.mode.default"</a> is "same_thread".</div>
 </div>
 <div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color"><code><a href="#DEFAULT_TIMEOUT_THREAD_MODE_PROPERTY_NAME" class="member-name-link">DEFAULT_TIMEOUT_THREAD_MODE_PROPERTY_NAME</a></code></div>
@@ -302,7 +307,7 @@ lifecycle methods: "junit.jupiter.execution.timeout.thread.mode.default".</div>
 <div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color"><code><a href="#TIMEOUT_MODE_DEFAULT" class="member-name-link">TIMEOUT_MODE_DEFAULT</a></code></div>
 <div class="col-last even-row-color">
-<div class="block">Default value for <a href="#TIMEOUT_MODE_PROPERTY_NAME">"junit.jupiter.execution.timeout.mode"</a> is "ENABLED".</div>
+<div class="block">Default value for <a href="#TIMEOUT_MODE_PROPERTY_NAME">"junit.jupiter.execution.timeout.mode"</a> is "enabled".</div>
 </div>
 <div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color"><code><a href="#TIMEOUT_MODE_PROPERTY_NAME" class="member-name-link">TIMEOUT_MODE_PROPERTY_NAME</a></code></div>
@@ -686,8 +691,10 @@ description</a> for the definition of supported values.</div>
 <div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#MAINTAINED" title="class or interface in org.apiguardian.api" class="external-link">MAINTAINED</a>,
      <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.2")
 </span><span class="modifiers">static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">TIMEOUT_MODE_DEFAULT</span></div>
-<div class="block">Default value for <a href="#TIMEOUT_MODE_PROPERTY_NAME">"junit.jupiter.execution.timeout.mode"</a> is "ENABLED".</div>
+<div class="block">Default value for <a href="#TIMEOUT_MODE_PROPERTY_NAME">"junit.jupiter.execution.timeout.mode"</a> is "enabled".</div>
 <dl class="notes">
+<dt>Since:</dt>
+<dd>6.2</dd>
 <dt>See Also:</dt>
 <dd>
 <ul class="tag-list">
@@ -712,8 +719,8 @@ description</a> for the definition of supported values.</div>
 <a href="Timeout.html" title="annotation interface in org.junit.jupiter.api"><code>@Timeout</code></a> is applied to tests.</p>
 
 <p>Value must be one names of enum constants defined in
- <a href="Timeout.ThreadMode.html" title="enum class in org.junit.jupiter.api"><code>Timeout.ThreadMode</code></a>, ignoring case. If not specified, the default is
- <a href="#TIMEOUT_MODE_DEFAULT">"ENABLED"</a>.</div>
+ <a href="Timeout.TimeoutMode.html" title="enum class in org.junit.jupiter.api"><code>Timeout.TimeoutMode</code></a>, ignoring case. If not specified, the default is
+ <a href="#TIMEOUT_MODE_DEFAULT">"enabled"</a>.</div>
 <dl class="notes">
 <dt>Since:</dt>
 <dd>5.6</dd>
@@ -734,8 +741,10 @@ description</a> for the definition of supported values.</div>
 <div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#MAINTAINED" title="class or interface in org.apiguardian.api" class="external-link">MAINTAINED</a>,
      <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.2")
 </span><span class="modifiers">static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">DEFAULT_TIMEOUT_THREAD_MODE_DEFAULT</span></div>
-<div class="block">Default value for <a href="#DEFAULT_TIMEOUT_THREAD_MODE_PROPERTY_NAME">"junit.jupiter.execution.timeout.thread.mode.default"</a> is "SAME_THREAD".</div>
+<div class="block">Default value for <a href="#DEFAULT_TIMEOUT_THREAD_MODE_PROPERTY_NAME">"junit.jupiter.execution.timeout.thread.mode.default"</a> is "same_thread".</div>
 <dl class="notes">
+<dt>Since:</dt>
+<dd>6.2</dd>
 <dt>See Also:</dt>
 <dd>
 <ul class="tag-list">
@@ -762,7 +771,7 @@ enclosing test class (for testable methods).
 
 <p>Value must be one names of enum constants defined in
 <a href="Timeout.ThreadMode.html" title="enum class in org.junit.jupiter.api"><code>Timeout.ThreadMode</code></a>, ignoring case. If not specified, the default is
-<a href="#DEFAULT_TIMEOUT_THREAD_MODE_DEFAULT">"SAME_THREAD"</a>.</div>
+<a href="#DEFAULT_TIMEOUT_THREAD_MODE_DEFAULT">"same_thread"</a>.</div>
 <dl class="notes">
 <dt>Since:</dt>
 <dd>5.9</dd>

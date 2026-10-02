@@ -169,7 +169,7 @@ to use per thread and output type if output capturing is enabled:
 <div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color"><code><a href="#CRITICAL_DISCOVERY_ISSUE_SEVERITY_DEFAULT" class="member-name-link">CRITICAL_DISCOVERY_ISSUE_SEVERITY_DEFAULT</a></code></div>
 <div class="col-last even-row-color">
-<div class="block">Default value for <a href="#CRITICAL_DISCOVERY_ISSUE_SEVERITY_PROPERTY_NAME">"junit.platform.discovery.issue.severity.critical"</a> is "ERROR".</div>
+<div class="block">Default value for <a href="#CRITICAL_DISCOVERY_ISSUE_SEVERITY_PROPERTY_NAME">"junit.platform.discovery.issue.severity.critical"</a> is "error".</div>
 </div>
 <div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color"><code><a href="#CRITICAL_DISCOVERY_ISSUE_SEVERITY_PROPERTY_NAME" class="member-name-link">CRITICAL_DISCOVERY_ISSUE_SEVERITY_PROPERTY_NAME</a></code></div>
@@ -298,6 +298,8 @@ memory cleanup in case it's enabled.</div>
 </span><span class="modifiers">public static final</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">CAPTURE_STDOUT_DEFAULT</span></div>
 <div class="block">Default value for <a href="#CAPTURE_STDOUT_PROPERTY_NAME">"junit.platform.output.capture.stdout"</a> is false.</div>
 <dl class="notes">
+<dt>Since:</dt>
+<dd>6.2</dd>
 <dt>See Also:</dt>
 <dd>
 <ul class="tag-list">
@@ -345,6 +347,8 @@ test identifier as finished.</div>
 </span><span class="modifiers">public static final</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">CAPTURE_STDERR_DEFAULT</span></div>
 <div class="block">Default value for <a href="#CAPTURE_STDERR_PROPERTY_NAME">"junit.platform.output.capture.stderr"</a> is false.</div>
 <dl class="notes">
+<dt>Since:</dt>
+<dd>6.2</dd>
 <dt>See Also:</dt>
 <dd>
 <ul class="tag-list">
@@ -548,6 +552,8 @@ the <a href="Launcher.html" title="interface in org.junit.platform.launcher"><co
 </span><span class="modifiers">public static final</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">ENABLE_LAUNCHER_INTERCEPTORS_DEFAULT</span></div>
 <div class="block">Default value for <a href="#ENABLE_LAUNCHER_INTERCEPTORS">"junit.platform.launcher.interceptors.enabled"</a> is false.</div>
 <dl class="notes">
+<dt>Since:</dt>
+<dd>6.2</dd>
 <dt>See Also:</dt>
 <dd>
 <ul class="tag-list">
@@ -596,6 +602,8 @@ via the JUnit Platform configuration file but cannot be supplied in the
 </span><span class="modifiers">public static final</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">DRY_RUN_DEFAULT</span></div>
 <div class="block">Default value for <a href="#DRY_RUN_PROPERTY_NAME">"junit.platform.execution.dryRun.enabled"</a> is false.</div>
 <dl class="notes">
+<dt>Since:</dt>
+<dd>6.2</dd>
 <dt>See Also:</dt>
 <dd>
 <ul class="tag-list">
@@ -644,6 +652,8 @@ to wait for all tests to be executed.
 </span><span class="modifiers">public static final</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">STACKTRACE_PRUNING_ENABLED_DEFAULT</span></div>
 <div class="block">Default value for <a href="#STACKTRACE_PRUNING_ENABLED_PROPERTY_NAME">"junit.platform.stacktrace.pruning.enabled"</a> is true.</div>
 <dl class="notes">
+<dt>Since:</dt>
+<dd>6.2</dd>
 <dt>See Also:</dt>
 <dd>
 <ul class="tag-list">
@@ -739,8 +749,10 @@ to write its output to a separate directory.</div>
 <div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#MAINTAINED" title="class or interface in org.apiguardian.api" class="external-link">MAINTAINED</a>,
      <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.2")
 </span><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">CRITICAL_DISCOVERY_ISSUE_SEVERITY_DEFAULT</span></div>
-<div class="block">Default value for <a href="#CRITICAL_DISCOVERY_ISSUE_SEVERITY_PROPERTY_NAME">"junit.platform.discovery.issue.severity.critical"</a> is "ERROR".</div>
+<div class="block">Default value for <a href="#CRITICAL_DISCOVERY_ISSUE_SEVERITY_PROPERTY_NAME">"junit.platform.discovery.issue.severity.critical"</a> is "error".</div>
 <dl class="notes">
+<dt>Since:</dt>
+<dd>6.2</dd>
 <dt>See Also:</dt>
 <dd>
 <ul class="tag-list">
@@ -774,7 +786,7 @@ engine-level failure during execution.
 <a href="../../../../../org.junit.platform.engine/org/junit/platform/engine/DiscoveryIssue.Severity.html" title="enum class in org.junit.platform.engine"><code>Severity</code></a>,
 ignoring case.
 
-<p>If not specified, the default is <a href="#CRITICAL_DISCOVERY_ISSUE_SEVERITY_DEFAULT">"ERROR"</a> which corresponds to
+<p>If not specified, the default is <a href="#CRITICAL_DISCOVERY_ISSUE_SEVERITY_DEFAULT">"error"</a> which corresponds to
 <code>Severity.ERROR)</code>.</div>
 <dl class="notes">
 <dt>Since:</dt>
@@ -832,6 +844,8 @@ is called.</div>
 </span><span class="modifiers">public static final</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">MEMORY_CLEANUP_ENABLED_DEFAULT</span></div>
 <div class="block">Default value for <a href="#MEMORY_CLEANUP_ENABLED_PROPERTY_NAME">"junit.platform.execution.memory.cleanup.enabled"</a> is false.</div>
 <dl class="notes">
+<dt>Since:</dt>
+<dd>6.2</dd>
 <dt>See Also:</dt>
 <dd>
 <ul class="tag-list">

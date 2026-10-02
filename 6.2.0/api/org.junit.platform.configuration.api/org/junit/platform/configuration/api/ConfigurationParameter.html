@@ -67,6 +67,7 @@ loadScripts(document, 'script');</script>
 <li><a href="#type()" tabindex="0">type</a></li>
 <li><a href="#defaultValue()" tabindex="0">defaultValue</a></li>
 <li><a href="#deprecation()" tabindex="0">deprecation</a></li>
+<li><a href="#hints()" tabindex="0">hints</a></li>
 </ol>
 </li>
 </ol>
@@ -88,6 +89,10 @@ loadScripts(document, 'script');</script>
 <p>
 This annotation should be used to facilitate the automated
 generation of documentation.</div>
+<dl class="notes">
+<dt>Since:</dt>
+<dd>6.2</dd>
+</dl>
 </div>
 </section>
 <section class="summary">
@@ -103,6 +108,12 @@ generation of documentation.</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>static @interface&nbsp;</code></div>
 <div class="col-second even-row-color"><code><a href="ConfigurationParameter.Deprecation.html" class="type-name-link" title="annotation interface in org.junit.platform.configuration.api">ConfigurationParameter.Deprecation</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static @interface&nbsp;</code></div>
+<div class="col-second odd-row-color"><code><a href="ConfigurationParameter.Hint.html" class="type-name-link" title="annotation interface in org.junit.platform.configuration.api">ConfigurationParameter.Hint</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static @interface&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="ConfigurationParameter.Hints.html" class="type-name-link" title="annotation interface in org.junit.platform.configuration.api">ConfigurationParameter.Hints</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>static @interface&nbsp;</code></div>
 <div class="col-second odd-row-color"><code><a href="ConfigurationParameter.Value.html" class="type-name-link" title="annotation interface in org.junit.platform.configuration.api">ConfigurationParameter.Value</a></code></div>
@@ -131,9 +142,14 @@ generation of documentation.</div>
 <div class="col-last odd-row-color">
 <div class="block">Specifies that the parameter is deprecated.</div>
 </div>
-<div class="col-first even-row-color"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a><wbr>&lt;?&gt;</code></div>
-<div class="col-second even-row-color"><code><a href="#type()" class="member-name-link">type</a></code></div>
+<div class="col-first even-row-color"><code><a href="ConfigurationParameter.Hints.html" title="annotation interface in org.junit.platform.configuration.api">ConfigurationParameter.Hints</a></code></div>
+<div class="col-second even-row-color"><code><a href="#hints()" class="member-name-link">hints</a></code></div>
 <div class="col-last even-row-color">
+<div class="block">Hints for valid values for the parameter.</div>
+</div>
+<div class="col-first odd-row-color"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a><wbr>&lt;?&gt;</code></div>
+<div class="col-second odd-row-color"><code><a href="#type()" class="member-name-link">type</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">The type of the data type of the parameter.</div>
 </div>
 </div>
@@ -198,6 +214,23 @@ At most one value may be set.</div>
 <dl class="notes">
 <dt>Default:</dt>
 <dd><code>@org.junit.platform.configuration.api.ConfigurationParameter.Deprecation</code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="hints()">
+<h3>hints</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type"><a href="ConfigurationParameter.Hints.html" title="annotation interface in org.junit.platform.configuration.api">ConfigurationParameter.Hints</a></span>&nbsp;<span class="element-name">hints</span></div>
+<div class="block">Hints for valid values for the parameter.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>hints for valid values about the parameter.</dd>
+</dl>
+<dl class="notes">
+<dt>Default:</dt>
+<dd><code>@org.junit.platform.configuration.api.ConfigurationParameter.Hints</code></dd>
 </dl>
 </div>
 </section>

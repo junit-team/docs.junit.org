@@ -17493,7 +17493,7 @@ Third-party JUnit Platform test engines and JUnit Jupiter extensions may provide
 <dt class="hdlist1"><code>junit.platform.discovery.issue.severity.critical</code></dt>
 <dd>
 <p>Property name used to configure the critical severity of issues encountered during test discovery.
-Defaults to <code>ERROR</code>.</p>
+Defaults to <code>error</code>.</p>
 </dd>
 <dt class="hdlist1"><code>junit.platform.execution.dryRun.enabled</code></dt>
 <dd>
@@ -17568,7 +17568,7 @@ Defaults to <code>1.0</code>.</p>
 <dt class="hdlist1"><code>junit.jupiter.execution.parallel.config.executor-service</code></dt>
 <dd>
 <p>Property name used to determine the desired parallel executor service type.
-Defaults to <code>WORKER_THREAD_POOL</code>.</p>
+Defaults to <code>worker_thread_pool</code>.</p>
 </dd>
 <dt class="hdlist1"><code>junit.jupiter.execution.parallel.config.fixed.max-pool-size</code></dt>
 <dd>
@@ -17586,7 +17586,7 @@ Defaults to <code>true</code>.</p>
 <dt class="hdlist1"><code>junit.jupiter.execution.parallel.config.strategy</code></dt>
 <dd>
 <p>Property name used to select the parallel execution configuration strategy.
-Defaults to <code>DYNAMIC</code>.</p>
+Defaults to <code>dynamic</code>.</p>
 </dd>
 <dt class="hdlist1"><code>junit.jupiter.execution.parallel.enabled</code></dt>
 <dd>
@@ -17600,7 +17600,7 @@ Defaults to <code>false</code>.</p>
 <dt class="hdlist1"><code>junit.jupiter.execution.parallel.mode.default</code></dt>
 <dd>
 <p>Property name used to set the default test execution mode.
-Defaults to <code>SAME_THREAD</code>.</p>
+Defaults to <code>same_thread</code>.</p>
 </dd>
 <dt class="hdlist1"><code>junit.jupiter.execution.timeout.afterall.method.default</code></dt>
 <dd>
@@ -17629,7 +17629,7 @@ Defaults to <code>SAME_THREAD</code>.</p>
 <dt class="hdlist1"><code>junit.jupiter.execution.timeout.mode</code></dt>
 <dd>
 <p>Property name used to configure whether timeouts are applied to tests.
-Defaults to <code>ENABLED</code>.</p>
+Defaults to <code>enabled</code>.</p>
 </dd>
 <dt class="hdlist1"><code>junit.jupiter.execution.timeout.test.method.default</code></dt>
 <dd>
@@ -17650,7 +17650,7 @@ Defaults to <code>ENABLED</code>.</p>
 <dt class="hdlist1"><code>junit.jupiter.execution.timeout.thread.mode.default</code></dt>
 <dd>
 <p>Property name used to set the default timeout thread mode.
-Defaults to <code>SAME_THREAD</code>.</p>
+Defaults to <code>same_thread</code>.</p>
 </dd>
 <dt class="hdlist1"><code>junit.jupiter.execution.timeout.threaddump.enabled</code></dt>
 <dd>
@@ -17679,12 +17679,12 @@ Defaults to <code>true</code>.</p>
 <dt class="hdlist1"><code>junit.jupiter.extensions.testinstantiation.extensioncontextscope.default</code></dt>
 <dd>
 <p>Property name used to set the default extension context scope for extensions that participate in test instantiation.
-Defaults to <code>DEFAULT</code>.</p>
+Defaults to <code>default</code>.</p>
 </dd>
 <dt class="hdlist1"><code>junit.jupiter.tempdir.cleanup.mode.default</code></dt>
 <dd>
 <p>Property name used to configure the default CleanupMode for temporary directories created via the @TempDir annotation.
-Defaults to <code>ALWAYS</code>.</p>
+Defaults to <code>always</code>.</p>
 </dd>
 <dt class="hdlist1"><code>junit.jupiter.tempdir.deletion.strategy.default</code></dt>
 <dd>
@@ -17703,7 +17703,7 @@ Defaults to <code>org.junit.jupiter.api.io.TempDirFactory.Standard</code>.</p>
 <dt class="hdlist1"><code>junit.jupiter.testinstance.lifecycle.default</code></dt>
 <dd>
 <p>Property name used to set the default test instance lifecycle mode.
-Defaults to <code>PER_METHOD</code>.</p>
+Defaults to <code>per_method</code>.</p>
 </dd>
 <dt class="hdlist1"><code>junit.jupiter.testmethod.order.default</code></dt>
 <dd>
@@ -25675,14 +25675,27 @@ with <code><a href="../../../6.2.0/api/org.junit.platform.configuration.api/org/
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class ConfigurationParametersDemo {
 
+	enum ExecutionMode {
+
+		/**
+		 * Executes with a fixed number of threads.
+		 */
+		FIXED,
+
+		/**
+		 * Executes with a dynamic number of threads.
+		 */
+		DYNAMIC
+	}
+
 	/**
 	 * Property name used to set the default test execution mode: {@value}.
 	 * &lt;p&gt;
-	 * Test can be executed with either a fixed number of threads, a number based on
-	 * the available cores or a custom strategy.
+	 * Test can be executed with either a fixed number of threads, a number
+	 * based on the available cores or a custom strategy.
 	 */
 	@ConfigurationParameter(type = ExecutionMode.class, defaultValue = @Value(stringValue = "fixed"))
-	public static final String DEFAULT_EXECUTION_MODE_PROPERTY_NAME = "org.example.execution-mode";
+	public static final String EXECUTION_MODE_PROPERTY_NAME = "org.example.execution-mode";
 }</code></pre>
 </div>
 </div>
@@ -25693,24 +25706,45 @@ of <a href="https://docs.spring.io/spring-boot/specification/configuration-metad
 or provide code completion by IDEs. An example is shown below.</p>
 </div>
 <div class="listingblock">
-<div class="title">A minimal <code>META-INF/junit-platform-configuration-metadata.json</code></div>
+<div class="title">A small <code>META-INF/junit-platform-configuration-metadata.json</code></div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
     "properties": [
         {
             "name": "org.example.execution-mode",
-            "type": "example.ExecutionMode",
+            "type": "example.ConfigurationParametersDemo.ExecutionMode",
             "description": "Property name used to set the default test execution mode.",
             "sourceType": "example.ConfigurationParametersDemo",
             "defaultValue": "fixed"
+        }
+    ],
+    "hints": [
+        {
+            "name": "org.example.execution-mode",
+            "values": [
+                {
+                    "value": "fixed",
+                    "description": "Executes with a fixed number of threads."
+                },
+                {
+                    "value": "dynamic",
+                    "description": "Executes with a dynamic number of threads."
+                }
+            ]
         }
     ]
 }</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The first paragraph from the java documentation will be used to describe the property. If
-the first paragraph contains Javadoc tags these will be sensibly replaced.</p>
+<p>The first paragraph from the Javadoc will be used to describe the property. If the first
+paragraph contains tags these will be sensibly replaced.</p>
+</div>
+<div class="paragraph">
+<p>When the <code>type</code> is an enum or interface, hints will be automatically generated. The first
+paragraph of the enum constant is used to describe the enum value. If the allowed values
+are not enumerable, <a href="../../../6.2.0/api/org.junit.platform.configuration.api/org/junit/platform/configuration/api/ConfigurationParameter.html#hints()">ConfigurationParameter.hints()</a> can be used to provide
+examples instead.</p>
 </div>
 </div>
 </div>

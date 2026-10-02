@@ -423,14 +423,27 @@ with <code><a href="../api/org.junit.platform.configuration.api/org/junit/platfo
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class ConfigurationParametersDemo {
 
+	enum ExecutionMode {
+
+		/**
+		 * Executes with a fixed number of threads.
+		 */
+		FIXED,
+
+		/**
+		 * Executes with a dynamic number of threads.
+		 */
+		DYNAMIC
+	}
+
 	/**
 	 * Property name used to set the default test execution mode: {@value}.
 	 * &lt;p&gt;
-	 * Test can be executed with either a fixed number of threads, a number based on
-	 * the available cores or a custom strategy.
+	 * Test can be executed with either a fixed number of threads, a number
+	 * based on the available cores or a custom strategy.
 	 */
 	@ConfigurationParameter(type = ExecutionMode.class, defaultValue = @Value(stringValue = "fixed"))
-	public static final String DEFAULT_EXECUTION_MODE_PROPERTY_NAME = "org.example.execution-mode";
+	public static final String EXECUTION_MODE_PROPERTY_NAME = "org.example.execution-mode";
 }</code></pre>
 </div>
 </div>
@@ -441,24 +454,45 @@ of <a href="https://docs.spring.io/spring-boot/specification/configuration-metad
 or provide code completion by IDEs. An example is shown below.</p>
 </div>
 <div class="listingblock">
-<div class="title">A minimal <code>META-INF/junit-platform-configuration-metadata.json</code></div>
+<div class="title">A small <code>META-INF/junit-platform-configuration-metadata.json</code></div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
     "properties": [
         {
             "name": "org.example.execution-mode",
-            "type": "example.ExecutionMode",
+            "type": "example.ConfigurationParametersDemo.ExecutionMode",
             "description": "Property name used to set the default test execution mode.",
             "sourceType": "example.ConfigurationParametersDemo",
             "defaultValue": "fixed"
+        }
+    ],
+    "hints": [
+        {
+            "name": "org.example.execution-mode",
+            "values": [
+                {
+                    "value": "fixed",
+                    "description": "Executes with a fixed number of threads."
+                },
+                {
+                    "value": "dynamic",
+                    "description": "Executes with a dynamic number of threads."
+                }
+            ]
         }
     ]
 }</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The first paragraph from the java documentation will be used to describe the property. If
-the first paragraph contains Javadoc tags these will be sensibly replaced.</p>
+<p>The first paragraph from the Javadoc will be used to describe the property. If the first
+paragraph contains tags these will be sensibly replaced.</p>
+</div>
+<div class="paragraph">
+<p>When the <code>type</code> is an enum or interface, hints will be automatically generated. The first
+paragraph of the enum constant is used to describe the enum value. If the allowed values
+are not enumerable, <a href="../api/org.junit.platform.configuration.api/org/junit/platform/configuration/api/ConfigurationParameter.html#hints()" class="xref attachment">ConfigurationParameter.hints()</a> can be used to provide
+examples instead.</p>
 </div>
 <nav class="pagination">
   <span class="prev"><a href="engines.html">Test Engines</a></span>
