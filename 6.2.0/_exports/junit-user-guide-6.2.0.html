@@ -25757,6 +25757,71 @@ paragraph of the enum constant is used to describe the enum value. If the allowe
 are not enumerable, <a href="../../../6.2.0/api/org.junit.platform.configuration.api/org/junit/platform/configuration/api/ConfigurationParameter.html#hints()">ConfigurationParameter.hints()</a> can be used to provide
 examples instead.</p>
 </div>
+<h4 id="advanced-topics-configuration-parameter-documentation:::gradle" class="discrete">Gradle</h4>
+<div class="paragraph">
+<p>To use the annotation processor with Gradle, add the <code>junit-platform-configuration-api</code>
+as a <code>compileOnly</code> dependency and enable the <code>junit-platform-configuration-processor</code> as
+an <code>annotationProcessor</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">dependencies {
+	annotationProcessor("org.junit.platform:junit-platform-configuration-processor:6.2.0-SNAPSHOT")
+	compileOnly("org.junit.platform:junit-platform-configuration-api:6.2.0-SNAPSHOT")
+}</code></pre>
+</div>
+</div>
+<h4 id="advanced-topics-configuration-parameter-documentation:::maven" class="discrete">Maven</h4>
+<div class="paragraph">
+<p>To use the annotation processor with Maven, add the <code>junit-platform-configuration-api</code>
+as an <code>optional</code> runtime dependency and add the <code>junit-platform-configuration-processor</code>
+to the <code>annotationProcessorPaths</code> of the <code>maven-compiler-plugin</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;project&gt;
+	&lt;!-- ... --&gt;
+	&lt;dependencyManagement&gt;
+		&lt;dependencies&gt;
+			&lt;dependency&gt;
+				&lt;groupId&gt;org.junit&lt;/groupId&gt;
+				&lt;artifactId&gt;junit-bom&lt;/artifactId&gt;
+				&lt;version&gt;6.2.0-SNAPSHOT&lt;/version&gt;
+				&lt;type&gt;pom&lt;/type&gt;
+				&lt;scope&gt;import&lt;/scope&gt;
+			&lt;/dependency&gt;
+		&lt;/dependencies&gt;
+	&lt;/dependencyManagement&gt;
+
+	&lt;dependencies&gt;
+		&lt;dependency&gt;
+			&lt;groupId&gt;org.junit.platform&lt;/groupId&gt;
+			&lt;artifactId&gt;junit-platform-configuration-api&lt;/artifactId&gt;
+			&lt;optional&gt;true&lt;/optional&gt;
+		&lt;/dependency&gt;
+	&lt;/dependencies&gt;
+	&lt;build&gt;
+		&lt;plugins&gt;
+			&lt;plugin&gt;
+				&lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+				&lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
+				&lt;version&gt;3.16.0&lt;/version&gt;
+				&lt;configuration&gt;
+					&lt;annotationProcessorPathsUseDepMgmt&gt;true&lt;/annotationProcessorPathsUseDepMgmt&gt;
+					&lt;annotationProcessorPaths&gt;
+						&lt;path&gt;
+							&lt;groupId&gt;org.junit.platform&lt;/groupId&gt;
+							&lt;artifactId&gt;junit-platform-configuration-processor&lt;/artifactId&gt;
+						&lt;/path&gt;
+					&lt;/annotationProcessorPaths&gt;
+				&lt;/configuration&gt;
+			&lt;/plugin&gt;
+		&lt;/plugins&gt;
+	&lt;/build&gt;
+	&lt;!-- ... --&gt;
+&lt;/project&gt;</code></pre>
+</div>
+</div>
 </div>
 </div>
 </div>
