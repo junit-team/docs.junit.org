@@ -406,7 +406,10 @@ so cleanUp() does not accidentally close the parent context.</div>
 <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/HierarchicalTestEngine.html" title="class in org.junit.platform.engine.support.hierarchical"><code>HierarchicalTestEngine</code></a> handles execution of their children.
 
 <p>The supplied <code>dynamicTestExecutor</code> may be used to submit
-additional dynamic tests for immediate execution.
+additional dynamic tests for immediate execution. All dynamic tests
+submitted to it are finished before the <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/Node.html#after(C)">after</a>
+behavior of this node is executed, even if this method throws an
+exception.
 
 <p>The default implementation returns the supplied <code>context</code> unmodified.</div>
 <dl class="notes">

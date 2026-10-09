@@ -443,6 +443,13 @@ repository on GitHub.</p>
 <p>When scanning the classpath, the resolved path is used to cache an open jar file system
 rather than a (potential) symlink.</p>
 </li>
+<li>
+<p><code>HierarchicalTestEngine</code> implementations now wait for the dynamic tests a node has
+already submitted even if the node&#8217;s <code>execute()</code> method throws an exception. Previously,
+with parallel execution, such dynamic tests could finish after their parent, e.g. when
+the arguments source of a <code>@ParameterizedTest</code> or <code>@ParameterizedClass</code> or the children
+stream of a <code>DynamicContainer</code> threw an exception.</p>
+</li>
 </ul>
 </div>
 </div>
@@ -523,6 +530,12 @@ prevents unfinished quotes in one document from affecting another.</p>
 <p><code>@Nested</code> test classes declared in super classes of a test class are now discovered and
 executed even if they have the same simple name as a <code>@Nested</code> class declared in the
 test class.</p>
+</li>
+<li>
+<p>If the stream returned by a <code>@TestFactory</code> method throws an exception, the dynamic tests
+it has already provided now finish before the <code>@AfterEach</code> methods and after-each
+callbacks of the factory method are executed. Previously, with parallel execution, these
+could run while the dynamic tests were still executing.</p>
 </li>
 </ul>
 </div>
