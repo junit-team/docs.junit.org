@@ -87,14 +87,14 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code>abstract &lt;U&gt;&nbsp;<a href="../Try.html" title="class in org.junit.platform.commons.function">Try</a><wbr>&lt;U&gt;</code></div>
+<div class="col-first even-row-color"><code>abstract &lt;U extends <a href="https://jspecify.dev/docs/api/org/jspecify/annotations/Nullable.html" title="class or interface in org.jspecify.annotations" class="external-link">@Nullable</a> <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&gt;<br><a href="../Try.html" title="class in org.junit.platform.commons.function">Try</a><wbr>&lt;U&gt;</code></div>
 <div class="col-second even-row-color"><span class="type-name-label">Try.</span><code><a href="../Try.html#andThen(java.util.function.Function)" class="member-name-link">andThen</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;<a href="../Try.html#type-param-V" title="type parameter in Try">V</a>,<wbr><a href="../Try.html" title="class in org.junit.platform.commons.function">Try</a>&lt;U&gt;&gt;&nbsp;function)</code></div>
 <div class="col-last even-row-color">
 <div class="block">If this <code>Try</code> is a success, apply the supplied function to its
 value and return the resulting <code>Try</code>; if this <code>Try</code> is a
 failure, do nothing.</div>
 </div>
-<div class="col-first odd-row-color"><code>abstract &lt;U&gt;&nbsp;<a href="../Try.html" title="class in org.junit.platform.commons.function">Try</a><wbr>&lt;U&gt;</code></div>
+<div class="col-first odd-row-color"><code>abstract &lt;U extends <a href="https://jspecify.dev/docs/api/org/jspecify/annotations/Nullable.html" title="class or interface in org.jspecify.annotations" class="external-link">@Nullable</a> <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&gt;<br><a href="../Try.html" title="class in org.junit.platform.commons.function">Try</a><wbr>&lt;U&gt;</code></div>
 <div class="col-second odd-row-color"><span class="type-name-label">Try.</span><code><a href="../Try.html#andThenTry(org.junit.platform.commons.function.Try.Transformer)" class="member-name-link">andThenTry</a><wbr>(<a href="../Try.Transformer.html" title="interface in org.junit.platform.commons.function">Try.Transformer</a>&lt;<a href="../Try.html#type-param-V" title="type parameter in Try">V</a>,<wbr>U&gt;&nbsp;transformer)</code></div>
 <div class="col-last odd-row-color">
 <div class="block">If this <code>Try</code> is a success, apply the supplied transformer to its
@@ -108,7 +108,7 @@ transformer's outcome; if this <code>Try</code> is a failure, do nothing.</div>
 that contains the returned value or, in case an exception was thrown, a
 failed <code>Try</code> that contains the exception.</div>
 </div>
-<div class="col-first odd-row-color"><code>static &lt;V&gt;&nbsp;<a href="../Try.html" title="class in org.junit.platform.commons.function">Try</a><wbr>&lt;V&gt;</code></div>
+<div class="col-first odd-row-color"><code>static &lt;V extends <a href="https://jspecify.dev/docs/api/org/jspecify/annotations/Nullable.html" title="class or interface in org.jspecify.annotations" class="external-link">@Nullable</a> <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&gt;<br><a href="../Try.html" title="class in org.junit.platform.commons.function">Try</a><wbr>&lt;V&gt;</code></div>
 <div class="col-second odd-row-color"><span class="type-name-label">Try.</span><code><a href="../Try.html#failure(java.lang.Exception)" class="member-name-link">failure</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a>&nbsp;cause)</code></div>
 <div class="col-last odd-row-color">
 <div class="block">Convert the supplied exception into a failed <code>Try</code>.</div>
@@ -149,7 +149,7 @@ if this <code>Try</code> is a success, do nothing.</div>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code>abstract &lt;U&gt;&nbsp;<a href="../Try.html" title="class in org.junit.platform.commons.function">Try</a><wbr>&lt;U&gt;</code></div>
+<div class="col-first even-row-color"><code>abstract &lt;U extends <a href="https://jspecify.dev/docs/api/org/jspecify/annotations/Nullable.html" title="class or interface in org.jspecify.annotations" class="external-link">@Nullable</a> <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&gt;<br><a href="../Try.html" title="class in org.junit.platform.commons.function">Try</a><wbr>&lt;U&gt;</code></div>
 <div class="col-second even-row-color"><span class="type-name-label">Try.</span><code><a href="../Try.html#andThen(java.util.function.Function)" class="member-name-link">andThen</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;<a href="../Try.html#type-param-V" title="type parameter in Try">V</a>,<wbr><a href="../Try.html" title="class in org.junit.platform.commons.function">Try</a>&lt;U&gt;&gt;&nbsp;function)</code></div>
 <div class="col-last even-row-color">
 <div class="block">If this <code>Try</code> is a success, apply the supplied function to its
@@ -256,7 +256,7 @@ name and parameter types.</div>
 <div class="block">Try to load a class by its <em>primitive name</em> or <em>fully qualified
 name</em>, using the supplied <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/ClassLoader.html" title="class or interface in java.lang" class="external-link"><code>ClassLoader</code></a>.</div>
 </div>
-<div class="col-first odd-row-color"><code>static &lt;T&gt;&nbsp;<a href="../Try.html" title="class in org.junit.platform.commons.function">Try</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&gt;</code></div>
+<div class="col-first odd-row-color"><code>static &lt;T&gt;&nbsp;<a href="../Try.html" title="class in org.junit.platform.commons.function">Try</a><wbr>&lt;<a href="https://jspecify.dev/docs/api/org/jspecify/annotations/Nullable.html" title="class or interface in org.jspecify.annotations" class="external-link">@Nullable</a> <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&gt;</code></div>
 <div class="col-second odd-row-color"><span class="type-name-label">ReflectionUtils.</span><code><a href="../../util/ReflectionUtils.html#tryToReadFieldValue(java.lang.Class,java.lang.String,T)" class="member-name-link">tryToReadFieldValue</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;T&gt;&nbsp;clazz,
  <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;fieldName,
  <a href="https://jspecify.dev/docs/api/org/jspecify/annotations/Nullable.html" title="class or interface in org.jspecify.annotations" class="external-link">@Nullable</a> T&nbsp;instance)</code></div>
