@@ -64,7 +64,7 @@ loadScripts(document, 'script');</script>
 <li><a href="#method-summary" tabindex="0">Method Summary</a></li>
 <li><a href="#constructor-detail" tabindex="0">Constructor Details</a>
 <ol class="toc-list">
-<li><a href="#%3Cinit%3E(java.lang.Iterable,java.util.Collection)" tabindex="0">EngineDiscoveryOrchestrator(Iterable, Collection)</a></li>
+<li><a href="#%3Cinit%3E(java.lang.Iterable,java.util.Collection,org.junit.platform.engine.support.store.NamespacedHierarchicalStore)" tabindex="0">EngineDiscoveryOrchestrator(Iterable, Collection, NamespacedHierarchicalStore)</a></li>
 </ol>
 </li>
 <li><a href="#method-detail" tabindex="0">Method Details</a>
@@ -108,8 +108,9 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.lang.Iterable,java.util.Collection)" class="member-name-link">EngineDiscoveryOrchestrator</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Iterable.html" title="class or interface in java.lang" class="external-link">Iterable</a>&lt;<a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/TestEngine.html" title="interface in org.junit.platform.engine">TestEngine</a>&gt;&nbsp;testEngines,
- <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="../PostDiscoveryFilter.html" title="interface in org.junit.platform.launcher">PostDiscoveryFilter</a>&gt;&nbsp;postDiscoveryFilters)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.lang.Iterable,java.util.Collection,org.junit.platform.engine.support.store.NamespacedHierarchicalStore)" class="member-name-link">EngineDiscoveryOrchestrator</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Iterable.html" title="class or interface in java.lang" class="external-link">Iterable</a>&lt;<a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/TestEngine.html" title="interface in org.junit.platform.engine">TestEngine</a>&gt;&nbsp;testEngines,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="../PostDiscoveryFilter.html" title="interface in org.junit.platform.launcher">PostDiscoveryFilter</a>&gt;&nbsp;postDiscoveryFilters,
+ <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/support/store/NamespacedHierarchicalStore.html" title="class in org.junit.platform.engine.support.store">NamespacedHierarchicalStore</a>&lt;<a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/support/store/Namespace.html" title="class in org.junit.platform.engine.support.store">Namespace</a>&gt;&nbsp;sessionScopedStore)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -156,11 +157,12 @@ configured test engines to be used by the suite engine.</div>
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(java.lang.Iterable,java.util.Collection)">
+<section class="detail" id="&lt;init&gt;(java.lang.Iterable,java.util.Collection,org.junit.platform.engine.support.store.NamespacedHierarchicalStore)">
 <h3>EngineDiscoveryOrchestrator</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">EngineDiscoveryOrchestrator</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Iterable.html" title="class or interface in java.lang" class="external-link">Iterable</a>&lt;<a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/TestEngine.html" title="interface in org.junit.platform.engine">TestEngine</a>&gt;&nbsp;testEngines,
- <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="../PostDiscoveryFilter.html" title="interface in org.junit.platform.launcher">PostDiscoveryFilter</a>&gt;&nbsp;postDiscoveryFilters)</span></div>
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="../PostDiscoveryFilter.html" title="interface in org.junit.platform.launcher">PostDiscoveryFilter</a>&gt;&nbsp;postDiscoveryFilters,
+ <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/support/store/NamespacedHierarchicalStore.html" title="class in org.junit.platform.engine.support.store">NamespacedHierarchicalStore</a>&lt;<a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/support/store/Namespace.html" title="class in org.junit.platform.engine.support.store">Namespace</a>&gt;&nbsp;sessionScopedStore)</span></div>
 </div>
 </section>
 </li>

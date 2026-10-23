@@ -519,6 +519,11 @@ Parameters</a> for more information.</p>
 <p>Test engines using the <code>ParallelHierarchicalTestExecutorServiceFactory</code> now use the
 <code>WORKER_THREAD_POOL</code> executor service by default.</p>
 </li>
+<li>
+<p>Test engines may now access the store scoped to the enclosing launcher session via the
+new <code>EngineDiscoveryRequest.getSessionScopedStore()</code> API. This can be used to store or
+cache information that is reused during test execution or later discovery phases.</p>
+</li>
 </ul>
 </div>
 </div>
