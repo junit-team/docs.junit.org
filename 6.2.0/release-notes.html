@@ -453,6 +453,15 @@ stream of a <code>DynamicContainer</code> threw an exception.</p>
 <li>
 <p>The generic type parameters of <code>Try</code> methods now consistently allow nullable types.</p>
 </li>
+<li>
+<p>When scanning the classpath, a separate file system is now created for each jar file
+rather than a shared one. Thus, classpath scanning no longer fails or interferes with
+other code if a file system for the same jar file has already been opened elsewhere.</p>
+</li>
+<li>
+<p>Classpath scanning now finds packages within jar files whose names contain non-ASCII
+characters.</p>
+</li>
 </ul>
 </div>
 </div>
