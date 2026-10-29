@@ -17484,262 +17484,1321 @@ Third-party JUnit Platform test engines and JUnit Jupiter extensions may provide
 </table>
 </div>
 <h5 id="running-tests-configuration-parameters:::configuration-parameters-junit-platform" class="discrete">JUnit Platform</h5>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"><code>junit.platform.discovery.issue.failure.phase</code></dt>
-<dd>
-<p>Property name used to configure the phase that critical discovery issues should cause a failure.
-Defaults to <code>automatic</code>.</p>
-</dd>
-<dt class="hdlist1"><code>junit.platform.discovery.issue.severity.critical</code></dt>
-<dd>
-<p>Property name used to configure the critical severity of issues encountered during test discovery.
-Defaults to <code>error</code>.</p>
-</dd>
-<dt class="hdlist1"><code>junit.platform.execution.dryRun.enabled</code></dt>
-<dd>
-<p>Property name used to enable dry-run mode for test execution.
-Defaults to <code>false</code>.</p>
-</dd>
-<dt class="hdlist1"><code>junit.platform.execution.listeners.deactivate</code></dt>
-<dd>
+<h6 id="running-tests-configuration-parameters:::junit-platform-discovery-issue-failure-phase" class="discrete"><code>junit.platform.discovery.issue.failure.phase</code></h6>
+<div class="paragraph">
+<p>Property name used to configure the phase that critical discovery issues should cause a failure.</p>
+</div>
+<table class="tableblock frame-none grid-rows stripes-odd stretch">
+<colgroup>
+<col style="width: 1%;">
+<col style="width: 1%;">
+<col style="width: 98%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Default</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>discovery</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Discovery issues are reported during the discovery phase.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>execution</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Discovery issues are reported during the execution phase.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">✓</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>automatic</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Discovery issues are reported during the discovery phase if Launcher.discover is called, and during the execution phase if Launcher.execute is called.</p></td>
+</tr>
+</tbody>
+</table>
+<h6 id="running-tests-configuration-parameters:::junit-platform-discovery-issue-severity-critical" class="discrete"><code>junit.platform.discovery.issue.severity.critical</code></h6>
+<div class="paragraph">
+<p>Property name used to configure the critical severity of issues encountered during test discovery.</p>
+</div>
+<table class="tableblock frame-none grid-rows stripes-odd stretch">
+<colgroup>
+<col style="width: 1%;">
+<col style="width: 1%;">
+<col style="width: 98%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Default</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>info</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Indicates that the engine encountered something that could be potentially problematic, but could also happen due to a valid setup or configuration.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>warning</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Indicates that the engine encountered something that is problematic and might lead to unexpected behavior or will be removed or changed in a future release.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">✓</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>error</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Indicates that the engine encountered something that is definitely problematic and will lead to unexpected behavior.</p></td>
+</tr>
+</tbody>
+</table>
+<h6 id="running-tests-configuration-parameters:::junit-platform-execution-dryrun-enabled" class="discrete"><code>junit.platform.execution.dryRun.enabled</code></h6>
+<div class="paragraph">
+<p>Property name used to enable dry-run mode for test execution.</p>
+</div>
+<table class="tableblock frame-none grid-rows stripes-odd stretch">
+<colgroup>
+<col style="width: 1%;">
+<col style="width: 1%;">
+<col style="width: 98%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Default</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">✓</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<h6 id="running-tests-configuration-parameters:::junit-platform-execution-listeners-deactivate" class="discrete"><code>junit.platform.execution.listeners.deactivate</code></h6>
+<div class="paragraph">
 <p>Property name used to provide patterns for deactivating listeners registered via the ServiceLoader mechanism.</p>
-</dd>
-<dt class="hdlist1"><code>junit.platform.execution.memory.cleanup.enabled</code></dt>
-<dd>
-<p>Property name used to enable the &lt;em&gt;experimental&lt;/em&gt; memory cleanup mode.
-Defaults to <code>false</code>.</p>
-</dd>
-<dt class="hdlist1"><code>junit.platform.execution.memory.cleanup.engines.excluded</code></dt>
-<dd>
-<p>Property name used to configure which test engines should be excluded from memory cleanup in case it&#8217;s enabled.</p>
-</dd>
-<dt class="hdlist1"><code>junit.platform.launcher.interceptors.enabled</code></dt>
-<dd>
-<p>Property name used to enable support for LauncherInterceptor instances to be registered via the ServiceLoader mechanism.
-Defaults to <code>false</code>.</p>
-</dd>
-<dt class="hdlist1"><code>junit.platform.output.capture.maxBuffer</code></dt>
-<dd>
+</div>
+<h6 id="running-tests-configuration-parameters:::junit-platform-execution-memory-cleanup-enabled" class="discrete"><code>junit.platform.execution.memory.cleanup.enabled</code></h6>
+<div class="paragraph">
+<p>Property name used to enable the experimental memory cleanup mode.</p>
+</div>
+<table class="tableblock frame-none grid-rows stripes-odd stretch">
+<colgroup>
+<col style="width: 1%;">
+<col style="width: 1%;">
+<col style="width: 98%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Default</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">✓</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<h6 id="running-tests-configuration-parameters:::junit-platform-execution-memory-cleanup-engines-excluded" class="discrete"><code>junit.platform.execution.memory.cleanup.engines.excluded</code></h6>
+<div class="paragraph">
+<p>Property name used to configure which test engines should be excluded from memory cleanup in case it&#39;s enabled.</p>
+</div>
+<h6 id="running-tests-configuration-parameters:::junit-platform-launcher-interceptors-enabled" class="discrete"><code>junit.platform.launcher.interceptors.enabled</code></h6>
+<div class="paragraph">
+<p>Property name used to enable support for LauncherInterceptor instances to be registered via the ServiceLoader mechanism.</p>
+</div>
+<table class="tableblock frame-none grid-rows stripes-odd stretch">
+<colgroup>
+<col style="width: 1%;">
+<col style="width: 1%;">
+<col style="width: 98%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Default</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">✓</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<h6 id="running-tests-configuration-parameters:::junit-platform-output-capture-maxbuffer" class="discrete"><code>junit.platform.output.capture.maxBuffer</code></h6>
+<div class="paragraph">
 <p>Property name used to configure the maximum number of bytes for buffering to use per thread and output type if output capturing is enabled.
 Defaults to <code>4194304</code>.</p>
-</dd>
-<dt class="hdlist1"><code>junit.platform.output.capture.stderr</code></dt>
-<dd>
-<p>Property name used to enable capturing output to System.err.
-Defaults to <code>false</code>.</p>
-</dd>
-<dt class="hdlist1"><code>junit.platform.output.capture.stdout</code></dt>
-<dd>
-<p>Property name used to enable capturing output to System.out.
-Defaults to <code>false</code>.</p>
-</dd>
-<dt class="hdlist1"><code>junit.platform.reporting.output.dir</code></dt>
-<dd>
-<p>Property name used to configure the output directory for reporting.</p>
-</dd>
-<dt class="hdlist1"><code>junit.platform.stacktrace.pruning.enabled</code></dt>
-<dd>
-<p>Property name used to enable or disable stack trace pruning.
-Defaults to <code>true</code>.</p>
-</dd>
-</dl>
 </div>
+<h6 id="running-tests-configuration-parameters:::junit-platform-output-capture-stderr" class="discrete"><code>junit.platform.output.capture.stderr</code></h6>
+<div class="paragraph">
+<p>Property name used to enable capturing output to System.err.</p>
+</div>
+<table class="tableblock frame-none grid-rows stripes-odd stretch">
+<colgroup>
+<col style="width: 1%;">
+<col style="width: 1%;">
+<col style="width: 98%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Default</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">✓</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<h6 id="running-tests-configuration-parameters:::junit-platform-output-capture-stdout" class="discrete"><code>junit.platform.output.capture.stdout</code></h6>
+<div class="paragraph">
+<p>Property name used to enable capturing output to System.out.</p>
+</div>
+<table class="tableblock frame-none grid-rows stripes-odd stretch">
+<colgroup>
+<col style="width: 1%;">
+<col style="width: 1%;">
+<col style="width: 98%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Default</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">✓</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<h6 id="running-tests-configuration-parameters:::junit-platform-reporting-output-dir" class="discrete"><code>junit.platform.reporting.output.dir</code></h6>
+<div class="paragraph">
+<p>Property name used to configure the output directory for reporting.</p>
+</div>
+<h6 id="running-tests-configuration-parameters:::junit-platform-stacktrace-pruning-enabled" class="discrete"><code>junit.platform.stacktrace.pruning.enabled</code></h6>
+<div class="paragraph">
+<p>Property name used to enable or disable stack trace pruning.</p>
+</div>
+<table class="tableblock frame-none grid-rows stripes-odd stretch">
+<colgroup>
+<col style="width: 1%;">
+<col style="width: 1%;">
+<col style="width: 98%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Default</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">✓</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
 <h5 id="running-tests-configuration-parameters:::configuration-parameters-junit-jupiter" class="discrete">JUnit Jupiter</h5>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"><code>junit.jupiter.conditions.deactivate</code></dt>
-<dd>
+<h6 id="running-tests-configuration-parameters:::junit-jupiter-conditions-deactivate" class="discrete"><code>junit.jupiter.conditions.deactivate</code></h6>
+<div class="paragraph">
 <p>Property name used to provide patterns for deactivating conditions.</p>
-</dd>
-<dt class="hdlist1"><code>junit.jupiter.displayname.generator.default</code></dt>
-<dd>
+</div>
+<h6 id="running-tests-configuration-parameters:::junit-jupiter-displayname-generator-default" class="discrete"><code>junit.jupiter.displayname.generator.default</code></h6>
+<div class="paragraph">
 <p>Property name used to set the default display name generator class name.
-Defaults to <code>org.junit.jupiter.api.DisplayNameGenerator.Standard</code>.</p>
-</dd>
-<dt class="hdlist1"><code>junit.jupiter.execution.parallel.config.custom.class</code></dt>
-<dd>
-<p>Property name used to specify the fully qualified class name of the custom parallel execution configuration strategy to be used.</p>
-</dd>
-<dt class="hdlist1"><code>junit.jupiter.execution.parallel.config.dynamic.factor</code></dt>
-<dd>
+Value must be the fully qualified name of a class that implements <a href="attachment$api/org.junit.jupiter.api/org/junit/jupiter/api/DisplayNameGenerator.html">DisplayNameGenerator</a>.
+Defaults to <code><a href="attachment$api/org.junit.jupiter.api/org/junit/jupiter/api/DisplayNameGenerator.Standard.html">org.junit.jupiter.api.DisplayNameGenerator.Standard</a></code>.</p>
+</div>
+<h6 id="running-tests-configuration-parameters:::junit-jupiter-execution-parallel-config-custom-class" class="discrete"><code>junit.jupiter.execution.parallel.config.custom.class</code></h6>
+<div class="paragraph">
+<p>Property name used to specify the fully qualified class name of the custom parallel execution configuration strategy to be used.
+Value must be the fully qualified name of a class that implements <a href="attachment$api/org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/ParallelExecutionConfigurationStrategy.html">ParallelExecutionConfigurationStrategy</a>.</p>
+</div>
+<h6 id="running-tests-configuration-parameters:::junit-jupiter-execution-parallel-config-dynamic-factor" class="discrete"><code>junit.jupiter.execution.parallel.config.dynamic.factor</code></h6>
+<div class="paragraph">
 <p>Property name used to set the factor to be multiplied with the number of available processors/cores to determine the desired parallelism for the dynamic configuration strategy.
 Defaults to <code>1.0</code>.</p>
-</dd>
-<dt class="hdlist1"><code>junit.jupiter.execution.parallel.config.executor-service</code></dt>
-<dd>
-<p>Property name used to determine the desired parallel executor service type.
-Defaults to <code>worker_thread_pool</code>.</p>
-</dd>
-<dt class="hdlist1"><code>junit.jupiter.execution.parallel.config.fixed.max-pool-size</code></dt>
-<dd>
+</div>
+<h6 id="running-tests-configuration-parameters:::junit-jupiter-execution-parallel-config-executor-service" class="discrete"><code>junit.jupiter.execution.parallel.config.executor-service</code></h6>
+<div class="paragraph">
+<p>Property name used to determine the desired parallel executor service type.</p>
+</div>
+<table class="tableblock frame-none grid-rows stripes-odd stretch">
+<colgroup>
+<col style="width: 1%;">
+<col style="width: 1%;">
+<col style="width: 98%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Default</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>fork_join_pool</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Indicates that ForkJoinPoolHierarchicalTestExecutorService should be used.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">✓</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>worker_thread_pool</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Indicates that WorkerThreadPoolHierarchicalTestExecutorService should be used.</p></td>
+</tr>
+</tbody>
+</table>
+<h6 id="running-tests-configuration-parameters:::junit-jupiter-execution-parallel-config-fixed-max-pool-size" class="discrete"><code>junit.jupiter.execution.parallel.config.fixed.max-pool-size</code></h6>
+<div class="paragraph">
 <p>Property name used to configure the maximum pool size of the underlying fork-join pool for the fixed configuration strategy.</p>
-</dd>
-<dt class="hdlist1"><code>junit.jupiter.execution.parallel.config.fixed.parallelism</code></dt>
-<dd>
+</div>
+<h6 id="running-tests-configuration-parameters:::junit-jupiter-execution-parallel-config-fixed-parallelism" class="discrete"><code>junit.jupiter.execution.parallel.config.fixed.parallelism</code></h6>
+<div class="paragraph">
 <p>Property name used to set the desired parallelism for the fixed configuration strategy.</p>
-</dd>
-<dt class="hdlist1"><code>junit.jupiter.execution.parallel.config.fixed.saturate</code></dt>
-<dd>
-<p>Property name used to disable saturation of the underlying fork-join pool for the fixed configuration strategy.
-Defaults to <code>true</code>.</p>
-</dd>
-<dt class="hdlist1"><code>junit.jupiter.execution.parallel.config.strategy</code></dt>
-<dd>
-<p>Property name used to select the parallel execution configuration strategy.
-Defaults to <code>dynamic</code>.</p>
-</dd>
-<dt class="hdlist1"><code>junit.jupiter.execution.parallel.enabled</code></dt>
-<dd>
-<p>Property name used to enable parallel test execution.
-Defaults to <code>false</code>.</p>
-</dd>
-<dt class="hdlist1"><code>junit.jupiter.execution.parallel.mode.classes.default</code></dt>
-<dd>
+</div>
+<h6 id="running-tests-configuration-parameters:::junit-jupiter-execution-parallel-config-fixed-saturate" class="discrete"><code>junit.jupiter.execution.parallel.config.fixed.saturate</code></h6>
+<div class="paragraph">
+<p>Property name used to disable saturation of the underlying fork-join pool for the fixed configuration strategy.</p>
+</div>
+<table class="tableblock frame-none grid-rows stripes-odd stretch">
+<colgroup>
+<col style="width: 1%;">
+<col style="width: 1%;">
+<col style="width: 98%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Default</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">✓</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<h6 id="running-tests-configuration-parameters:::junit-jupiter-execution-parallel-config-strategy" class="discrete"><code>junit.jupiter.execution.parallel.config.strategy</code></h6>
+<div class="paragraph">
+<p>Property name used to select the parallel execution configuration strategy.</p>
+</div>
+<table class="tableblock frame-none grid-rows stripes-odd stretch">
+<colgroup>
+<col style="width: 1%;">
+<col style="width: 1%;">
+<col style="width: 98%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Default</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>fixed</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">✓</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>dynamic</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>custom</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<h6 id="running-tests-configuration-parameters:::junit-jupiter-execution-parallel-enabled" class="discrete"><code>junit.jupiter.execution.parallel.enabled</code></h6>
+<div class="paragraph">
+<p>Property name used to enable parallel test execution.</p>
+</div>
+<table class="tableblock frame-none grid-rows stripes-odd stretch">
+<colgroup>
+<col style="width: 1%;">
+<col style="width: 1%;">
+<col style="width: 98%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Default</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">✓</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<h6 id="running-tests-configuration-parameters:::junit-jupiter-execution-parallel-mode-classes-default" class="discrete"><code>junit.jupiter.execution.parallel.mode.classes.default</code></h6>
+<div class="paragraph">
 <p>Property name used to set the default test execution mode for top-level classes.</p>
-</dd>
-<dt class="hdlist1"><code>junit.jupiter.execution.parallel.mode.default</code></dt>
-<dd>
-<p>Property name used to set the default test execution mode.
-Defaults to <code>same_thread</code>.</p>
-</dd>
-<dt class="hdlist1"><code>junit.jupiter.execution.timeout.afterall.method.default</code></dt>
-<dd>
-<p>Property name used to set the default timeout for all @AfterAll methods.</p>
-</dd>
-<dt class="hdlist1"><code>junit.jupiter.execution.timeout.aftereach.method.default</code></dt>
-<dd>
-<p>Property name used to set the default timeout for all @AfterEach methods.</p>
-</dd>
-<dt class="hdlist1"><code>junit.jupiter.execution.timeout.beforeall.method.default</code></dt>
-<dd>
-<p>Property name used to set the default timeout for all @BeforeAll methods.</p>
-</dd>
-<dt class="hdlist1"><code>junit.jupiter.execution.timeout.beforeeach.method.default</code></dt>
-<dd>
-<p>Property name used to set the default timeout for all @BeforeEach methods.</p>
-</dd>
-<dt class="hdlist1"><code>junit.jupiter.execution.timeout.default</code></dt>
-<dd>
+</div>
+<table class="tableblock frame-none grid-rows stripes-odd stretch">
+<colgroup>
+<col style="width: 1%;">
+<col style="width: 99%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>same_thread</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Force execution in same thread as the parent node.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>concurrent</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allow concurrent execution with any other node.</p></td>
+</tr>
+</tbody>
+</table>
+<h6 id="running-tests-configuration-parameters:::junit-jupiter-execution-parallel-mode-default" class="discrete"><code>junit.jupiter.execution.parallel.mode.default</code></h6>
+<div class="paragraph">
+<p>Property name used to set the default test execution mode.</p>
+</div>
+<table class="tableblock frame-none grid-rows stripes-odd stretch">
+<colgroup>
+<col style="width: 1%;">
+<col style="width: 1%;">
+<col style="width: 98%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Default</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">✓</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>same_thread</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Force execution in same thread as the parent node.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>concurrent</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allow concurrent execution with any other node.</p></td>
+</tr>
+</tbody>
+</table>
+<h6 id="running-tests-configuration-parameters:::junit-jupiter-execution-timeout-afterall-method-default" class="discrete"><code>junit.jupiter.execution.timeout.afterall.method.default</code></h6>
+<div class="paragraph">
+<p>Property name used to set the default timeout for all &#64;AfterAll methods.</p>
+</div>
+<table class="tableblock frame-none grid-rows stripes-odd stretch">
+<colgroup>
+<col style="width: 1%;">
+<col style="width: 99%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Example</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in seconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 ns</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in nanoseconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 μs</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in microseconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 ms</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in milliseconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 s</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in seconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 m</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in minutes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 h</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in hours</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 d</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in days</p></td>
+</tr>
+</tbody>
+</table>
+<h6 id="running-tests-configuration-parameters:::junit-jupiter-execution-timeout-aftereach-method-default" class="discrete"><code>junit.jupiter.execution.timeout.aftereach.method.default</code></h6>
+<div class="paragraph">
+<p>Property name used to set the default timeout for all &#64;AfterEach methods.</p>
+</div>
+<table class="tableblock frame-none grid-rows stripes-odd stretch">
+<colgroup>
+<col style="width: 1%;">
+<col style="width: 99%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Example</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in seconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 ns</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in nanoseconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 μs</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in microseconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 ms</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in milliseconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 s</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in seconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 m</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in minutes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 h</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in hours</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 d</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in days</p></td>
+</tr>
+</tbody>
+</table>
+<h6 id="running-tests-configuration-parameters:::junit-jupiter-execution-timeout-beforeall-method-default" class="discrete"><code>junit.jupiter.execution.timeout.beforeall.method.default</code></h6>
+<div class="paragraph">
+<p>Property name used to set the default timeout for all &#64;BeforeAll methods.</p>
+</div>
+<table class="tableblock frame-none grid-rows stripes-odd stretch">
+<colgroup>
+<col style="width: 1%;">
+<col style="width: 99%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Example</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in seconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 ns</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in nanoseconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 μs</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in microseconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 ms</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in milliseconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 s</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in seconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 m</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in minutes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 h</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in hours</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 d</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in days</p></td>
+</tr>
+</tbody>
+</table>
+<h6 id="running-tests-configuration-parameters:::junit-jupiter-execution-timeout-beforeeach-method-default" class="discrete"><code>junit.jupiter.execution.timeout.beforeeach.method.default</code></h6>
+<div class="paragraph">
+<p>Property name used to set the default timeout for all &#64;BeforeEach methods.</p>
+</div>
+<table class="tableblock frame-none grid-rows stripes-odd stretch">
+<colgroup>
+<col style="width: 1%;">
+<col style="width: 99%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Example</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in seconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 ns</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in nanoseconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 μs</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in microseconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 ms</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in milliseconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 s</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in seconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 m</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in minutes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 h</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in hours</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 d</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in days</p></td>
+</tr>
+</tbody>
+</table>
+<h6 id="running-tests-configuration-parameters:::junit-jupiter-execution-timeout-default" class="discrete"><code>junit.jupiter.execution.timeout.default</code></h6>
+<div class="paragraph">
 <p>Property name used to set the default timeout for all testable and lifecycle methods.</p>
-</dd>
-<dt class="hdlist1"><code>junit.jupiter.execution.timeout.lifecycle.method.default</code></dt>
-<dd>
+</div>
+<table class="tableblock frame-none grid-rows stripes-odd stretch">
+<colgroup>
+<col style="width: 1%;">
+<col style="width: 99%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Example</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in seconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 ns</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in nanoseconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 μs</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in microseconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 ms</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in milliseconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 s</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in seconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 m</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in minutes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 h</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in hours</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 d</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in days</p></td>
+</tr>
+</tbody>
+</table>
+<h6 id="running-tests-configuration-parameters:::junit-jupiter-execution-timeout-lifecycle-method-default" class="discrete"><code>junit.jupiter.execution.timeout.lifecycle.method.default</code></h6>
+<div class="paragraph">
 <p>Property name used to set the default timeout for all lifecycle methods.</p>
-</dd>
-<dt class="hdlist1"><code>junit.jupiter.execution.timeout.mode</code></dt>
-<dd>
-<p>Property name used to configure whether timeouts are applied to tests.
-Defaults to <code>enabled</code>.</p>
-</dd>
-<dt class="hdlist1"><code>junit.jupiter.execution.timeout.test.method.default</code></dt>
-<dd>
-<p>Property name used to set the default timeout for all @Test methods.</p>
-</dd>
-<dt class="hdlist1"><code>junit.jupiter.execution.timeout.testable.method.default</code></dt>
-<dd>
+</div>
+<table class="tableblock frame-none grid-rows stripes-odd stretch">
+<colgroup>
+<col style="width: 1%;">
+<col style="width: 99%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Example</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in seconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 ns</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in nanoseconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 μs</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in microseconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 ms</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in milliseconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 s</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in seconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 m</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in minutes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 h</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in hours</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 d</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in days</p></td>
+</tr>
+</tbody>
+</table>
+<h6 id="running-tests-configuration-parameters:::junit-jupiter-execution-timeout-mode" class="discrete"><code>junit.jupiter.execution.timeout.mode</code></h6>
+<div class="paragraph">
+<p>Property name used to configure whether timeouts are applied to tests.</p>
+</div>
+<table class="tableblock frame-none grid-rows stripes-odd stretch">
+<colgroup>
+<col style="width: 1%;">
+<col style="width: 1%;">
+<col style="width: 98%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Default</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">✓</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>enabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Timeouts are applied to tests.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>disabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Timeouts are not applied to tests.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>disabled_on_debug</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Timeouts are not applied to tests when the JVM is started in debug mode.</p></td>
+</tr>
+</tbody>
+</table>
+<h6 id="running-tests-configuration-parameters:::junit-jupiter-execution-timeout-test-method-default" class="discrete"><code>junit.jupiter.execution.timeout.test.method.default</code></h6>
+<div class="paragraph">
+<p>Property name used to set the default timeout for all &#64;Test methods.</p>
+</div>
+<table class="tableblock frame-none grid-rows stripes-odd stretch">
+<colgroup>
+<col style="width: 1%;">
+<col style="width: 99%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Example</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in seconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 ns</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in nanoseconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 μs</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in microseconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 ms</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in milliseconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 s</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in seconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 m</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in minutes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 h</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in hours</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 d</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in days</p></td>
+</tr>
+</tbody>
+</table>
+<h6 id="running-tests-configuration-parameters:::junit-jupiter-execution-timeout-testable-method-default" class="discrete"><code>junit.jupiter.execution.timeout.testable.method.default</code></h6>
+<div class="paragraph">
 <p>Property name used to set the default timeout for all testable methods.</p>
-</dd>
-<dt class="hdlist1"><code>junit.jupiter.execution.timeout.testfactory.method.default</code></dt>
-<dd>
-<p>Property name used to set the default timeout for all @TestFactory methods.</p>
-</dd>
-<dt class="hdlist1"><code>junit.jupiter.execution.timeout.testtemplate.method.default</code></dt>
-<dd>
-<p>Property name used to set the default timeout for all @TestTemplate methods.</p>
-</dd>
-<dt class="hdlist1"><code>junit.jupiter.execution.timeout.thread.mode.default</code></dt>
-<dd>
-<p>Property name used to set the default timeout thread mode.
-Defaults to <code>same_thread</code>.</p>
-</dd>
-<dt class="hdlist1"><code>junit.jupiter.execution.timeout.threaddump.enabled</code></dt>
-<dd>
-<p>Property name used to enable dumping the stack of all threads to System.out when a timeout has occurred.
-Defaults to <code>false</code>.</p>
-</dd>
-<dt class="hdlist1"><code>junit.jupiter.extensions.autodetection.enabled</code></dt>
-<dd>
-<p>Property name used to enable auto-detection and registration of extensions via Java&#8217;s java.util.ServiceLoader mechanism.
-Defaults to <code>false</code>.</p>
-</dd>
-<dt class="hdlist1"><code>junit.jupiter.extensions.autodetection.exclude</code></dt>
-<dd>
+</div>
+<table class="tableblock frame-none grid-rows stripes-odd stretch">
+<colgroup>
+<col style="width: 1%;">
+<col style="width: 99%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Example</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in seconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 ns</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in nanoseconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 μs</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in microseconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 ms</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in milliseconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 s</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in seconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 m</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in minutes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 h</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in hours</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 d</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in days</p></td>
+</tr>
+</tbody>
+</table>
+<h6 id="running-tests-configuration-parameters:::junit-jupiter-execution-timeout-testfactory-method-default" class="discrete"><code>junit.jupiter.execution.timeout.testfactory.method.default</code></h6>
+<div class="paragraph">
+<p>Property name used to set the default timeout for all &#64;TestFactory methods.</p>
+</div>
+<table class="tableblock frame-none grid-rows stripes-odd stretch">
+<colgroup>
+<col style="width: 1%;">
+<col style="width: 99%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Example</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in seconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 ns</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in nanoseconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 μs</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in microseconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 ms</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in milliseconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 s</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in seconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 m</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in minutes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 h</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in hours</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 d</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in days</p></td>
+</tr>
+</tbody>
+</table>
+<h6 id="running-tests-configuration-parameters:::junit-jupiter-execution-timeout-testtemplate-method-default" class="discrete"><code>junit.jupiter.execution.timeout.testtemplate.method.default</code></h6>
+<div class="paragraph">
+<p>Property name used to set the default timeout for all &#64;TestTemplate methods.</p>
+</div>
+<table class="tableblock frame-none grid-rows stripes-odd stretch">
+<colgroup>
+<col style="width: 1%;">
+<col style="width: 99%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Example</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in seconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 ns</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in nanoseconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 μs</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in microseconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 ms</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in milliseconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 s</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in seconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 m</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in minutes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 h</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in hours</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>42 d</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A duration in days</p></td>
+</tr>
+</tbody>
+</table>
+<h6 id="running-tests-configuration-parameters:::junit-jupiter-execution-timeout-thread-mode-default" class="discrete"><code>junit.jupiter.execution.timeout.thread.mode.default</code></h6>
+<div class="paragraph">
+<p>Property name used to set the default timeout thread mode.</p>
+</div>
+<table class="tableblock frame-none grid-rows stripes-odd stretch">
+<colgroup>
+<col style="width: 1%;">
+<col style="width: 1%;">
+<col style="width: 98%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Default</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">✓</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>same_thread</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The test code is executed in the thread of the calling code.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>separate_thread</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The test code is executed in a different thread than that of the calling code. Furthermore, execution of the test code will be preemptively aborted if the timeout is exceeded.</p></td>
+</tr>
+</tbody>
+</table>
+<h6 id="running-tests-configuration-parameters:::junit-jupiter-execution-timeout-threaddump-enabled" class="discrete"><code>junit.jupiter.execution.timeout.threaddump.enabled</code></h6>
+<div class="paragraph">
+<p>Property name used to enable dumping the stack of all threads to System.out when a timeout has occurred.</p>
+</div>
+<table class="tableblock frame-none grid-rows stripes-odd stretch">
+<colgroup>
+<col style="width: 1%;">
+<col style="width: 1%;">
+<col style="width: 98%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Default</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">✓</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<h6 id="running-tests-configuration-parameters:::junit-jupiter-extensions-autodetection-enabled" class="discrete"><code>junit.jupiter.extensions.autodetection.enabled</code></h6>
+<div class="paragraph">
+<p>Property name used to enable auto-detection and registration of extensions via Java&#39;s java.util.ServiceLoader mechanism.</p>
+</div>
+<table class="tableblock frame-none grid-rows stripes-odd stretch">
+<colgroup>
+<col style="width: 1%;">
+<col style="width: 1%;">
+<col style="width: 98%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Default</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">✓</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<h6 id="running-tests-configuration-parameters:::junit-jupiter-extensions-autodetection-exclude" class="discrete"><code>junit.jupiter.extensions.autodetection.exclude</code></h6>
+<div class="paragraph">
 <p>Property name used to exclude patterns for auto-detecting extensions.</p>
-</dd>
-<dt class="hdlist1"><code>junit.jupiter.extensions.autodetection.include</code></dt>
-<dd>
+</div>
+<h6 id="running-tests-configuration-parameters:::junit-jupiter-extensions-autodetection-include" class="discrete"><code>junit.jupiter.extensions.autodetection.include</code></h6>
+<div class="paragraph">
 <p>Property name used to include patterns for auto-detecting extensions.
 Defaults to <code>*</code>.</p>
-</dd>
-<dt class="hdlist1"><code>junit.jupiter.extensions.store.close.autocloseable.enabled</code></dt>
-<dd>
-<p>Property name used to enable auto-closing of AutoCloseable instances.
-Defaults to <code>true</code>.</p>
-</dd>
-<dt class="hdlist1"><code>junit.jupiter.extensions.testinstantiation.extensioncontextscope.default</code></dt>
-<dd>
-<p>Property name used to set the default extension context scope for extensions that participate in test instantiation.
-Defaults to <code>default</code>.</p>
-</dd>
-<dt class="hdlist1"><code>junit.jupiter.tempdir.cleanup.mode.default</code></dt>
-<dd>
-<p>Property name used to configure the default CleanupMode for temporary directories created via the @TempDir annotation.
-Defaults to <code>always</code>.</p>
-</dd>
-<dt class="hdlist1"><code>junit.jupiter.tempdir.deletion.strategy.default</code></dt>
-<dd>
-<p>Property name used to set the default deletion strategy class name for temporary directories created via the @TempDir annotation.
-Defaults to <code>org.junit.jupiter.api.io.TempDirDeletionStrategy.Standard</code>.</p>
-</dd>
-<dt class="hdlist1"><code>junit.jupiter.tempdir.factory.default</code></dt>
-<dd>
-<p>Property name used to set the default factory for temporary directories created via the @TempDir annotation.
-Defaults to <code>org.junit.jupiter.api.io.TempDirFactory.Standard</code>.</p>
-</dd>
-<dt class="hdlist1"><code>junit.jupiter.testclass.order.default</code></dt>
-<dd>
-<p>Property name used to set the default class orderer class name.</p>
-</dd>
-<dt class="hdlist1"><code>junit.jupiter.testinstance.lifecycle.default</code></dt>
-<dd>
-<p>Property name used to set the default test instance lifecycle mode.
-Defaults to <code>per_method</code>.</p>
-</dd>
-<dt class="hdlist1"><code>junit.jupiter.testmethod.order.default</code></dt>
-<dd>
-<p>Property name used to set the default method orderer class name.</p>
-</dd>
-</dl>
+</div>
+<h6 id="running-tests-configuration-parameters:::junit-jupiter-extensions-store-close-autocloseable-enabled" class="discrete"><code>junit.jupiter.extensions.store.close.autocloseable.enabled</code></h6>
+<div class="paragraph">
+<p>Property name used to enable auto-closing of AutoCloseable instances.</p>
+</div>
+<table class="tableblock frame-none grid-rows stripes-odd stretch">
+<colgroup>
+<col style="width: 1%;">
+<col style="width: 1%;">
+<col style="width: 98%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Default</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">✓</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<h6 id="running-tests-configuration-parameters:::junit-jupiter-extensions-testinstantiation-extensioncontextscope-default" class="discrete"><code>junit.jupiter.extensions.testinstantiation.extensioncontextscope.default</code></h6>
+<div class="paragraph">
+<p>Property name used to set the default extension context scope for extensions that participate in test instantiation.</p>
+</div>
+<table class="tableblock frame-none grid-rows stripes-odd stretch">
+<colgroup>
+<col style="width: 1%;">
+<col style="width: 1%;">
+<col style="width: 98%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Default</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">✓</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>default</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The extension should receive an ExtensionContext for the default scope.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>test_method</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The extension should receive an ExtensionContext scoped to the test method.</p></td>
+</tr>
+</tbody>
+</table>
+<h6 id="running-tests-configuration-parameters:::junit-jupiter-tempdir-cleanup-mode-default" class="discrete"><code>junit.jupiter.tempdir.cleanup.mode.default</code></h6>
+<div class="paragraph">
+<p>Property name used to configure the default CleanupMode for temporary directories created via the &#64;TempDir annotation.</p>
+</div>
+<table class="tableblock frame-none grid-rows stripes-odd stretch">
+<colgroup>
+<col style="width: 1%;">
+<col style="width: 1%;">
+<col style="width: 98%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Default</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>default</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Use the default cleanup mode.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">✓</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>always</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Always clean up a temporary directory after the test has completed.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>on_success</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only clean up a temporary directory if the test completed successfully.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>never</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Never clean up a temporary directory after the test has completed.</p></td>
+</tr>
+</tbody>
+</table>
+<h6 id="running-tests-configuration-parameters:::junit-jupiter-tempdir-deletion-strategy-default" class="discrete"><code>junit.jupiter.tempdir.deletion.strategy.default</code></h6>
+<div class="paragraph">
+<p>Property name used to set the default deletion strategy class name for temporary directories created via the &#64;TempDir annotation.
+Value must be the fully qualified name of a class that implements <a href="attachment$api/org.junit.jupiter.api/org/junit/jupiter/api/io/TempDirDeletionStrategy.html">TempDirDeletionStrategy</a>.
+Defaults to <code><a href="attachment$api/org.junit.jupiter.api/org/junit/jupiter/api/io/TempDirDeletionStrategy.Standard.html">org.junit.jupiter.api.io.TempDirDeletionStrategy.Standard</a></code>.</p>
+</div>
+<h6 id="running-tests-configuration-parameters:::junit-jupiter-tempdir-factory-default" class="discrete"><code>junit.jupiter.tempdir.factory.default</code></h6>
+<div class="paragraph">
+<p>Property name used to set the default factory for temporary directories created via the &#64;TempDir annotation.
+Value must be the fully qualified name of a class that implements <a href="attachment$api/org.junit.jupiter.api/org/junit/jupiter/api/io/TempDirFactory.html">TempDirFactory</a>.
+Defaults to <code><a href="attachment$api/org.junit.jupiter.api/org/junit/jupiter/api/io/TempDirFactory.Standard.html">org.junit.jupiter.api.io.TempDirFactory.Standard</a></code>.</p>
+</div>
+<h6 id="running-tests-configuration-parameters:::junit-jupiter-testclass-order-default" class="discrete"><code>junit.jupiter.testclass.order.default</code></h6>
+<div class="paragraph">
+<p>Property name used to set the default class orderer class name.
+Value must be the fully qualified name of a class that implements <a href="attachment$api/org.junit.jupiter.api/org/junit/jupiter/api/ClassOrderer.html">ClassOrderer</a>.</p>
+</div>
+<h6 id="running-tests-configuration-parameters:::junit-jupiter-testinstance-lifecycle-default" class="discrete"><code>junit.jupiter.testinstance.lifecycle.default</code></h6>
+<div class="paragraph">
+<p>Property name used to set the default test instance lifecycle mode.</p>
+</div>
+<table class="tableblock frame-none grid-rows stripes-odd stretch">
+<colgroup>
+<col style="width: 1%;">
+<col style="width: 1%;">
+<col style="width: 98%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Default</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>per_class</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">When using this mode, a new test instance will be created once per test class or class template.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">✓</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>per_method</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">When using this mode, a new test instance will be created for each test method, test factory method, or test template method.</p></td>
+</tr>
+</tbody>
+</table>
+<h6 id="running-tests-configuration-parameters:::junit-jupiter-testmethod-order-default" class="discrete"><code>junit.jupiter.testmethod.order.default</code></h6>
+<div class="paragraph">
+<p>Property name used to set the default method orderer class name.
+Value must be the fully qualified name of a class that implements <a href="attachment$api/org.junit.jupiter.api/org/junit/jupiter/api/MethodOrderer.html">MethodOrderer</a>.</p>
 </div>
 <h5 id="running-tests-configuration-parameters:::configuration-parameters-junit-vintage" class="discrete">JUnit Vintage</h5>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"><code>junit.vintage.discovery.issue.reporting.enabled</code></dt>
-<dd>
-<p>Property name used to configure whether the JUnit Vintage engine should report discovery issues such as deprecation notices.
-Defaults to <code>true</code>.</p>
-</dd>
-<dt class="hdlist1"><code>junit.vintage.execution.parallel.classes</code></dt>
-<dd>
-<p>Property name used to indicate whether parallel execution is enabled for test classes in the JUnit Vintage engine.
-Defaults to <code>false</code>.</p>
-</dd>
-<dt class="hdlist1"><code>junit.vintage.execution.parallel.enabled</code></dt>
-<dd>
-<p>Property name used to indicate whether parallel execution is enabled for the JUnit Vintage engine.
-Defaults to <code>false</code>.</p>
-</dd>
-<dt class="hdlist1"><code>junit.vintage.execution.parallel.methods</code></dt>
-<dd>
-<p>Property name used to indicate whether parallel execution is enabled for test methods in the JUnit Vintage engine.
-Defaults to <code>false</code>.</p>
-</dd>
-<dt class="hdlist1"><code>junit.vintage.execution.parallel.pool-size</code></dt>
-<dd>
+<h6 id="running-tests-configuration-parameters:::junit-vintage-discovery-issue-reporting-enabled" class="discrete"><code>junit.vintage.discovery.issue.reporting.enabled</code></h6>
+<div class="paragraph">
+<p>Property name used to configure whether the JUnit Vintage engine should report discovery issues such as deprecation notices.</p>
+</div>
+<table class="tableblock frame-none grid-rows stripes-odd stretch">
+<colgroup>
+<col style="width: 1%;">
+<col style="width: 1%;">
+<col style="width: 98%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Default</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">✓</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<h6 id="running-tests-configuration-parameters:::junit-vintage-execution-parallel-classes" class="discrete"><code>junit.vintage.execution.parallel.classes</code></h6>
+<div class="paragraph">
+<p>Property name used to indicate whether parallel execution is enabled for test classes in the JUnit Vintage engine.</p>
+</div>
+<table class="tableblock frame-none grid-rows stripes-odd stretch">
+<colgroup>
+<col style="width: 1%;">
+<col style="width: 1%;">
+<col style="width: 98%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Default</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">✓</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<h6 id="running-tests-configuration-parameters:::junit-vintage-execution-parallel-enabled" class="discrete"><code>junit.vintage.execution.parallel.enabled</code></h6>
+<div class="paragraph">
+<p>Property name used to indicate whether parallel execution is enabled for the JUnit Vintage engine.</p>
+</div>
+<table class="tableblock frame-none grid-rows stripes-odd stretch">
+<colgroup>
+<col style="width: 1%;">
+<col style="width: 1%;">
+<col style="width: 98%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Default</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">✓</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<h6 id="running-tests-configuration-parameters:::junit-vintage-execution-parallel-methods" class="discrete"><code>junit.vintage.execution.parallel.methods</code></h6>
+<div class="paragraph">
+<p>Property name used to indicate whether parallel execution is enabled for test methods in the JUnit Vintage engine.</p>
+</div>
+<table class="tableblock frame-none grid-rows stripes-odd stretch">
+<colgroup>
+<col style="width: 1%;">
+<col style="width: 1%;">
+<col style="width: 98%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Default</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">✓</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<h6 id="running-tests-configuration-parameters:::junit-vintage-execution-parallel-pool-size" class="discrete"><code>junit.vintage.execution.parallel.pool-size</code></h6>
+<div class="paragraph">
 <p>Property name used to specify the size of the thread pool to be used for parallel execution.</p>
-</dd>
-</dl>
 </div>
 </div>
 <div class="sect2">
