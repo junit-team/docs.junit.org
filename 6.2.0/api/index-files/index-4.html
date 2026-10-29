@@ -958,8 +958,14 @@ collecting their results.</div>
 <div class="block">Discovers tests for the supplied request in the supplied phase using the
 configured test engines to be used by the suite engine.</div>
 </dd>
-<dt><a href="../org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherPhase.html#DISCOVERY" class="member-name-link">DISCOVERY</a> - Enum constant in enum class org.junit.platform.launcher.core.<a href="../org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherPhase.html" title="enum class in org.junit.platform.launcher.core">LauncherPhase</a></dt>
-<dd>&nbsp;</dd>
+<dt><a href="../org.junit.platform.launcher/org/junit/platform/launcher/core/DiscoveryIssueFailurePhase.html#DISCOVERY" class="member-name-link">DISCOVERY</a> - Enum constant in enum class org.junit.platform.launcher.core.<a href="../org.junit.platform.launcher/org/junit/platform/launcher/core/DiscoveryIssueFailurePhase.html" title="enum class in org.junit.platform.launcher.core">DiscoveryIssueFailurePhase</a></dt>
+<dd>
+<div class="block">Discovery issues are reported during the discovery phase.</div>
+</dd>
+<dt><a href="../org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html#DISCOVERY_ISSUE_FAILURE_PHASE_DEFAULT" class="member-name-link">DISCOVERY_ISSUE_FAILURE_PHASE_DEFAULT</a> - Static variable in class org.junit.platform.launcher.<a href="../org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html" title="class in org.junit.platform.launcher">LauncherConstants</a></dt>
+<dd>
+<div class="block">Default value for <a href="../org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html#DISCOVERY_ISSUE_FAILURE_PHASE_PROPERTY_NAME">"junit.platform.discovery.issue.failure.phase"</a> is "automatic".</div>
+</dd>
 <dt><a href="../org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html#DISCOVERY_ISSUE_FAILURE_PHASE_PROPERTY_NAME" class="member-name-link">DISCOVERY_ISSUE_FAILURE_PHASE_PROPERTY_NAME</a> - Static variable in class org.junit.platform.launcher.<a href="../org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html" title="class in org.junit.platform.launcher">LauncherConstants</a></dt>
 <dd>
 <div class="block">Property name used to configure the phase that critical discovery issues
@@ -998,6 +1004,11 @@ discovery by a <a href="../org.junit.platform.engine/org/junit/platform/engine/T
 <dd>
 <div class="block"><code>DiscoveryIssueException</code> is an exception that is thrown if an engine
 reports critical issues during test discovery.</div>
+</dd>
+<dt><a href="../org.junit.platform.launcher/org/junit/platform/launcher/core/DiscoveryIssueFailurePhase.html" class="type-name-link" title="enum class in org.junit.platform.launcher.core">DiscoveryIssueFailurePhase</a> - Enum Class in <a href="../org.junit.platform.launcher/org/junit/platform/launcher/core/package-summary.html">org.junit.platform.launcher.core</a></dt>
+<dd>
+<div class="block">The <code>phase</code> during which the <a href="../org.junit.platform.launcher/org/junit/platform/launcher/Launcher.html" title="interface in org.junit.platform.launcher"><code>Launcher</code></a>
+should report discovery issues.</div>
 </dd>
 <dt><a href="../org.junit.platform.engine/org/junit/platform/engine/support/discovery/DiscoveryIssueReporter.html" class="type-name-link" title="interface in org.junit.platform.engine.support.discovery">DiscoveryIssueReporter</a> - Interface in <a href="../org.junit.platform.engine/org/junit/platform/engine/support/discovery/package-summary.html">org.junit.platform.engine.support.discovery</a></dt>
 <dd>

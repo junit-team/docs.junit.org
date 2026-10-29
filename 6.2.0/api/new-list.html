@@ -1397,10 +1397,11 @@ execution.</div>
 <div class="block">Type of <a href="org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/HierarchicalTestExecutorService.html" title="interface in org.junit.platform.engine.support.hierarchical"><code>HierarchicalTestExecutorService</code></a> that supports parallel
 execution.</div>
 </div>
-<div class="col-summary-item-name odd-row-color enum-class enum-class-tab16"><a href="org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherPhase.html" title="enum class in org.junit.platform.launcher.core">org.junit.platform.launcher.core.LauncherPhase</a></div>
-<div class="col-second odd-row-color enum-class enum-class-tab16">1.13</div>
-<div class="col-last odd-row-color enum-class enum-class-tab16">
-<div class="block">The phase the <a href="org.junit.platform.launcher/org/junit/platform/launcher/Launcher.html" title="interface in org.junit.platform.launcher"><code>Launcher</code></a> is in.</div>
+<div class="col-summary-item-name odd-row-color enum-class enum-class-tab48"><a href="org.junit.platform.launcher/org/junit/platform/launcher/core/DiscoveryIssueFailurePhase.html" title="enum class in org.junit.platform.launcher.core">org.junit.platform.launcher.core.DiscoveryIssueFailurePhase</a></div>
+<div class="col-second odd-row-color enum-class enum-class-tab48">6.2</div>
+<div class="col-last odd-row-color enum-class enum-class-tab48">
+<div class="block">The <code>phase</code> during which the <a href="org.junit.platform.launcher/org/junit/platform/launcher/Launcher.html" title="interface in org.junit.platform.launcher"><code>Launcher</code></a>
+should report discovery issues.</div>
 </div>
 <div class="col-summary-item-name even-row-color enum-class enum-class-tab6"><a href="org.junit.platform.testkit/org/junit/platform/testkit/engine/EventType.html" title="enum class in org.junit.platform.testkit.engine">org.junit.platform.testkit.engine.EventType</a></div>
 <div class="col-second even-row-color enum-class enum-class-tab6">1.4</div>
@@ -2477,100 +2478,105 @@ descriptor acquire in <a href="org.junit.platform.engine/org/junit/platform/engi
 <div class="block">Property name used to configure the critical severity of issues
 encountered during test discovery.</div>
 </div>
-<div class="col-summary-item-name even-row-color field field-tab16"><a href="org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html#DISCOVERY_ISSUE_FAILURE_PHASE_PROPERTY_NAME">org.junit.platform.launcher.LauncherConstants.DISCOVERY_ISSUE_FAILURE_PHASE_PROPERTY_NAME</a></div>
-<div class="col-second even-row-color field field-tab16">1.13</div>
-<div class="col-last even-row-color field field-tab16">
+<div class="col-summary-item-name even-row-color field field-tab48"><a href="org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html#DISCOVERY_ISSUE_FAILURE_PHASE_DEFAULT">org.junit.platform.launcher.LauncherConstants.DISCOVERY_ISSUE_FAILURE_PHASE_DEFAULT</a></div>
+<div class="col-second even-row-color field field-tab48">6.2</div>
+<div class="col-last even-row-color field field-tab48">
+<div class="block">Default value for <a href="org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html#DISCOVERY_ISSUE_FAILURE_PHASE_PROPERTY_NAME">"junit.platform.discovery.issue.failure.phase"</a> is "automatic".</div>
+</div>
+<div class="col-summary-item-name odd-row-color field field-tab16"><a href="org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html#DISCOVERY_ISSUE_FAILURE_PHASE_PROPERTY_NAME">org.junit.platform.launcher.LauncherConstants.DISCOVERY_ISSUE_FAILURE_PHASE_PROPERTY_NAME</a></div>
+<div class="col-second odd-row-color field field-tab16">1.13</div>
+<div class="col-last odd-row-color field field-tab16">
 <div class="block">Property name used to configure the phase that critical discovery issues
 should cause a failure: "junit.platform.discovery.issue.failure.phase"</div>
 </div>
-<div class="col-summary-item-name odd-row-color field field-tab48"><a href="org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html#DRY_RUN_DEFAULT">org.junit.platform.launcher.LauncherConstants.DRY_RUN_DEFAULT</a></div>
-<div class="col-second odd-row-color field field-tab48">6.2</div>
-<div class="col-last odd-row-color field field-tab48">
-<div class="block">Default value for <a href="org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html#DRY_RUN_PROPERTY_NAME">"junit.platform.execution.dryRun.enabled"</a> is false.</div>
-</div>
-<div class="col-summary-item-name even-row-color field field-tab48"><a href="org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html#ENABLE_LAUNCHER_INTERCEPTORS_DEFAULT">org.junit.platform.launcher.LauncherConstants.ENABLE_LAUNCHER_INTERCEPTORS_DEFAULT</a></div>
+<div class="col-summary-item-name even-row-color field field-tab48"><a href="org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html#DRY_RUN_DEFAULT">org.junit.platform.launcher.LauncherConstants.DRY_RUN_DEFAULT</a></div>
 <div class="col-second even-row-color field field-tab48">6.2</div>
 <div class="col-last even-row-color field field-tab48">
-<div class="block">Default value for <a href="org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html#ENABLE_LAUNCHER_INTERCEPTORS">"junit.platform.launcher.interceptors.enabled"</a> is false.</div>
+<div class="block">Default value for <a href="org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html#DRY_RUN_PROPERTY_NAME">"junit.platform.execution.dryRun.enabled"</a> is false.</div>
 </div>
-<div class="col-summary-item-name odd-row-color field field-tab48"><a href="org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html#MEMORY_CLEANUP_ENABLED_DEFAULT">org.junit.platform.launcher.LauncherConstants.MEMORY_CLEANUP_ENABLED_DEFAULT</a></div>
+<div class="col-summary-item-name odd-row-color field field-tab48"><a href="org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html#ENABLE_LAUNCHER_INTERCEPTORS_DEFAULT">org.junit.platform.launcher.LauncherConstants.ENABLE_LAUNCHER_INTERCEPTORS_DEFAULT</a></div>
 <div class="col-second odd-row-color field field-tab48">6.2</div>
 <div class="col-last odd-row-color field field-tab48">
+<div class="block">Default value for <a href="org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html#ENABLE_LAUNCHER_INTERCEPTORS">"junit.platform.launcher.interceptors.enabled"</a> is false.</div>
+</div>
+<div class="col-summary-item-name even-row-color field field-tab48"><a href="org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html#MEMORY_CLEANUP_ENABLED_DEFAULT">org.junit.platform.launcher.LauncherConstants.MEMORY_CLEANUP_ENABLED_DEFAULT</a></div>
+<div class="col-second even-row-color field field-tab48">6.2</div>
+<div class="col-last even-row-color field field-tab48">
 <div class="block">Default value for <a href="org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html#MEMORY_CLEANUP_ENABLED_PROPERTY_NAME">"junit.platform.execution.memory.cleanup.enabled"</a> is false.</div>
 </div>
-<div class="col-summary-item-name even-row-color field field-tab46"><a href="org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html#MEMORY_CLEANUP_ENABLED_PROPERTY_NAME">org.junit.platform.launcher.LauncherConstants.MEMORY_CLEANUP_ENABLED_PROPERTY_NAME</a></div>
-<div class="col-second even-row-color field field-tab46">6.1</div>
-<div class="col-last even-row-color field field-tab46">
+<div class="col-summary-item-name odd-row-color field field-tab46"><a href="org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html#MEMORY_CLEANUP_ENABLED_PROPERTY_NAME">org.junit.platform.launcher.LauncherConstants.MEMORY_CLEANUP_ENABLED_PROPERTY_NAME</a></div>
+<div class="col-second odd-row-color field field-tab46">6.1</div>
+<div class="col-last odd-row-color field field-tab46">
 <div class="block">Property name used to enable the <em>experimental</em> memory cleanup
 mode.</div>
 </div>
-<div class="col-summary-item-name odd-row-color field field-tab47"><a href="org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html#MEMORY_CLEANUP_EXCLUDED_ENGINES_PROPERTY_NAME">org.junit.platform.launcher.LauncherConstants.MEMORY_CLEANUP_EXCLUDED_ENGINES_PROPERTY_NAME</a></div>
-<div class="col-second odd-row-color field field-tab47">6.1.1</div>
-<div class="col-last odd-row-color field field-tab47">
+<div class="col-summary-item-name even-row-color field field-tab47"><a href="org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html#MEMORY_CLEANUP_EXCLUDED_ENGINES_PROPERTY_NAME">org.junit.platform.launcher.LauncherConstants.MEMORY_CLEANUP_EXCLUDED_ENGINES_PROPERTY_NAME</a></div>
+<div class="col-second even-row-color field field-tab47">6.1.1</div>
+<div class="col-last even-row-color field field-tab47">
 <div class="block">Property name used to configure which test engines should be excluded from
 memory cleanup in case it's enabled.</div>
 </div>
-<div class="col-summary-item-name even-row-color field field-tab15"><a href="org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html#OUTPUT_DIR_PROPERTY_NAME">org.junit.platform.launcher.LauncherConstants.OUTPUT_DIR_PROPERTY_NAME</a></div>
-<div class="col-second even-row-color field field-tab15">1.12</div>
-<div class="col-last even-row-color field field-tab15">
-<div class="block">Property name used to configure the output directory for reporting.</div>
-</div>
-<div class="col-summary-item-name odd-row-color field field-tab15"><a href="org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html#OUTPUT_DIR_UNIQUE_NUMBER_PLACEHOLDER">org.junit.platform.launcher.LauncherConstants.OUTPUT_DIR_UNIQUE_NUMBER_PLACEHOLDER</a></div>
+<div class="col-summary-item-name odd-row-color field field-tab15"><a href="org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html#OUTPUT_DIR_PROPERTY_NAME">org.junit.platform.launcher.LauncherConstants.OUTPUT_DIR_PROPERTY_NAME</a></div>
 <div class="col-second odd-row-color field field-tab15">1.12</div>
 <div class="col-last odd-row-color field field-tab15">
+<div class="block">Property name used to configure the output directory for reporting.</div>
+</div>
+<div class="col-summary-item-name even-row-color field field-tab15"><a href="org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html#OUTPUT_DIR_UNIQUE_NUMBER_PLACEHOLDER">org.junit.platform.launcher.LauncherConstants.OUTPUT_DIR_UNIQUE_NUMBER_PLACEHOLDER</a></div>
+<div class="col-second even-row-color field field-tab15">1.12</div>
+<div class="col-last even-row-color field field-tab15">
 <div class="block">Placeholder for use in <a href="org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html#OUTPUT_DIR_PROPERTY_NAME"><code>LauncherConstants.OUTPUT_DIR_PROPERTY_NAME</code></a>.</div>
 </div>
-<div class="col-summary-item-name even-row-color field field-tab48"><a href="org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html#STACKTRACE_PRUNING_ENABLED_DEFAULT">org.junit.platform.launcher.LauncherConstants.STACKTRACE_PRUNING_ENABLED_DEFAULT</a></div>
-<div class="col-second even-row-color field field-tab48">6.2</div>
-<div class="col-last even-row-color field field-tab48">
-<div class="block">Default value for <a href="org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html#STACKTRACE_PRUNING_ENABLED_PROPERTY_NAME">"junit.platform.stacktrace.pruning.enabled"</a> is true.</div>
-</div>
-<div class="col-summary-item-name odd-row-color field field-tab48"><a href="org.junit.vintage.engine/org/junit/vintage/engine/Constants.html#DISCOVERY_ISSUE_REPORTING_ENABLED_DEFAULT">org.junit.vintage.engine.Constants.DISCOVERY_ISSUE_REPORTING_ENABLED_DEFAULT</a></div>
+<div class="col-summary-item-name odd-row-color field field-tab48"><a href="org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html#STACKTRACE_PRUNING_ENABLED_DEFAULT">org.junit.platform.launcher.LauncherConstants.STACKTRACE_PRUNING_ENABLED_DEFAULT</a></div>
 <div class="col-second odd-row-color field field-tab48">6.2</div>
 <div class="col-last odd-row-color field field-tab48">
+<div class="block">Default value for <a href="org.junit.platform.launcher/org/junit/platform/launcher/LauncherConstants.html#STACKTRACE_PRUNING_ENABLED_PROPERTY_NAME">"junit.platform.stacktrace.pruning.enabled"</a> is true.</div>
+</div>
+<div class="col-summary-item-name even-row-color field field-tab48"><a href="org.junit.vintage.engine/org/junit/vintage/engine/Constants.html#DISCOVERY_ISSUE_REPORTING_ENABLED_DEFAULT">org.junit.vintage.engine.Constants.DISCOVERY_ISSUE_REPORTING_ENABLED_DEFAULT</a></div>
+<div class="col-second even-row-color field field-tab48">6.2</div>
+<div class="col-last even-row-color field field-tab48">
 <div class="block">Default value for <a href="org.junit.vintage.engine/org/junit/vintage/engine/Constants.html#DISCOVERY_ISSUE_REPORTING_ENABLED_PROPERTY_NAME">"junit.vintage.discovery.issue.reporting.enabled"</a> is true.</div>
 </div>
-<div class="col-summary-item-name even-row-color field field-tab45"><a href="org.junit.vintage.engine/org/junit/vintage/engine/Constants.html#DISCOVERY_ISSUE_REPORTING_ENABLED_PROPERTY_NAME">org.junit.vintage.engine.Constants.DISCOVERY_ISSUE_REPORTING_ENABLED_PROPERTY_NAME</a></div>
-<div class="col-second even-row-color field field-tab45">6.0.1</div>
-<div class="col-last even-row-color field field-tab45">
+<div class="col-summary-item-name odd-row-color field field-tab45"><a href="org.junit.vintage.engine/org/junit/vintage/engine/Constants.html#DISCOVERY_ISSUE_REPORTING_ENABLED_PROPERTY_NAME">org.junit.vintage.engine.Constants.DISCOVERY_ISSUE_REPORTING_ENABLED_PROPERTY_NAME</a></div>
+<div class="col-second odd-row-color field field-tab45">6.0.1</div>
+<div class="col-last odd-row-color field field-tab45">
 <div class="block">Property name used to configure whether the JUnit Vintage engine should
 report discovery issues such as deprecation notices: "junit.vintage.discovery.issue.reporting.enabled"</div>
 </div>
-<div class="col-summary-item-name odd-row-color field field-tab38"><a href="org.junit.vintage.engine/org/junit/vintage/engine/Constants.html#PARALLEL_CLASS_EXECUTION">org.junit.vintage.engine.Constants.PARALLEL_CLASS_EXECUTION</a></div>
-<div class="col-second odd-row-color field field-tab38">5.12</div>
-<div class="col-last odd-row-color field field-tab38">
+<div class="col-summary-item-name even-row-color field field-tab38"><a href="org.junit.vintage.engine/org/junit/vintage/engine/Constants.html#PARALLEL_CLASS_EXECUTION">org.junit.vintage.engine.Constants.PARALLEL_CLASS_EXECUTION</a></div>
+<div class="col-second even-row-color field field-tab38">5.12</div>
+<div class="col-last even-row-color field field-tab38">
 <div class="block">Property name used to indicate whether parallel execution is enabled for test classes in the
 JUnit Vintage engine: "junit.vintage.execution.parallel.classes"</div>
 </div>
-<div class="col-summary-item-name even-row-color field field-tab48"><a href="org.junit.vintage.engine/org/junit/vintage/engine/Constants.html#PARALLEL_CLASS_EXECUTION_DEFAULT">org.junit.vintage.engine.Constants.PARALLEL_CLASS_EXECUTION_DEFAULT</a></div>
-<div class="col-second even-row-color field field-tab48">6.2</div>
-<div class="col-last even-row-color field field-tab48">
+<div class="col-summary-item-name odd-row-color field field-tab48"><a href="org.junit.vintage.engine/org/junit/vintage/engine/Constants.html#PARALLEL_CLASS_EXECUTION_DEFAULT">org.junit.vintage.engine.Constants.PARALLEL_CLASS_EXECUTION_DEFAULT</a></div>
+<div class="col-second odd-row-color field field-tab48">6.2</div>
+<div class="col-last odd-row-color field field-tab48">
 <div class="block">Default value for <a href="org.junit.vintage.engine/org/junit/vintage/engine/Constants.html#PARALLEL_CLASS_EXECUTION">"junit.vintage.execution.parallel.classes"</a> is false.</div>
 </div>
-<div class="col-summary-item-name odd-row-color field field-tab38"><a href="org.junit.vintage.engine/org/junit/vintage/engine/Constants.html#PARALLEL_EXECUTION_ENABLED">org.junit.vintage.engine.Constants.PARALLEL_EXECUTION_ENABLED</a></div>
-<div class="col-second odd-row-color field field-tab38">5.12</div>
-<div class="col-last odd-row-color field field-tab38">
+<div class="col-summary-item-name even-row-color field field-tab38"><a href="org.junit.vintage.engine/org/junit/vintage/engine/Constants.html#PARALLEL_EXECUTION_ENABLED">org.junit.vintage.engine.Constants.PARALLEL_EXECUTION_ENABLED</a></div>
+<div class="col-second even-row-color field field-tab38">5.12</div>
+<div class="col-last even-row-color field field-tab38">
 <div class="block">Property name used to indicate whether parallel execution is enabled for the JUnit Vintage engine: "junit.vintage.execution.parallel.enabled"</div>
 </div>
-<div class="col-summary-item-name even-row-color field field-tab48"><a href="org.junit.vintage.engine/org/junit/vintage/engine/Constants.html#PARALLEL_EXECUTION_ENABLED_DEFAULT">org.junit.vintage.engine.Constants.PARALLEL_EXECUTION_ENABLED_DEFAULT</a></div>
-<div class="col-second even-row-color field field-tab48">6.2</div>
-<div class="col-last even-row-color field field-tab48">
+<div class="col-summary-item-name odd-row-color field field-tab48"><a href="org.junit.vintage.engine/org/junit/vintage/engine/Constants.html#PARALLEL_EXECUTION_ENABLED_DEFAULT">org.junit.vintage.engine.Constants.PARALLEL_EXECUTION_ENABLED_DEFAULT</a></div>
+<div class="col-second odd-row-color field field-tab48">6.2</div>
+<div class="col-last odd-row-color field field-tab48">
 <div class="block">Default value for <a href="org.junit.vintage.engine/org/junit/vintage/engine/Constants.html#PARALLEL_EXECUTION_ENABLED">"junit.vintage.execution.parallel.enabled"</a> is false.</div>
 </div>
-<div class="col-summary-item-name odd-row-color field field-tab38"><a href="org.junit.vintage.engine/org/junit/vintage/engine/Constants.html#PARALLEL_METHOD_EXECUTION">org.junit.vintage.engine.Constants.PARALLEL_METHOD_EXECUTION</a></div>
-<div class="col-second odd-row-color field field-tab38">5.12</div>
-<div class="col-last odd-row-color field field-tab38">
+<div class="col-summary-item-name even-row-color field field-tab38"><a href="org.junit.vintage.engine/org/junit/vintage/engine/Constants.html#PARALLEL_METHOD_EXECUTION">org.junit.vintage.engine.Constants.PARALLEL_METHOD_EXECUTION</a></div>
+<div class="col-second even-row-color field field-tab38">5.12</div>
+<div class="col-last even-row-color field field-tab38">
 <div class="block">Property name used to indicate whether parallel execution is enabled for test methods in the
 JUnit Vintage engine: "junit.vintage.execution.parallel.methods"</div>
 </div>
-<div class="col-summary-item-name even-row-color field field-tab48"><a href="org.junit.vintage.engine/org/junit/vintage/engine/Constants.html#PARALLEL_METHOD_EXECUTION_DEFAULT">org.junit.vintage.engine.Constants.PARALLEL_METHOD_EXECUTION_DEFAULT</a></div>
-<div class="col-second even-row-color field field-tab48">6.2</div>
-<div class="col-last even-row-color field field-tab48">
+<div class="col-summary-item-name odd-row-color field field-tab48"><a href="org.junit.vintage.engine/org/junit/vintage/engine/Constants.html#PARALLEL_METHOD_EXECUTION_DEFAULT">org.junit.vintage.engine.Constants.PARALLEL_METHOD_EXECUTION_DEFAULT</a></div>
+<div class="col-second odd-row-color field field-tab48">6.2</div>
+<div class="col-last odd-row-color field field-tab48">
 <div class="block">Default value for <a href="org.junit.vintage.engine/org/junit/vintage/engine/Constants.html#PARALLEL_METHOD_EXECUTION">"junit.vintage.execution.parallel.methods"</a> is false.</div>
 </div>
-<div class="col-summary-item-name odd-row-color field field-tab38"><a href="org.junit.vintage.engine/org/junit/vintage/engine/Constants.html#PARALLEL_POOL_SIZE">org.junit.vintage.engine.Constants.PARALLEL_POOL_SIZE</a></div>
-<div class="col-second odd-row-color field field-tab38">5.12</div>
-<div class="col-last odd-row-color field field-tab38">
+<div class="col-summary-item-name even-row-color field field-tab38"><a href="org.junit.vintage.engine/org/junit/vintage/engine/Constants.html#PARALLEL_POOL_SIZE">org.junit.vintage.engine.Constants.PARALLEL_POOL_SIZE</a></div>
+<div class="col-second even-row-color field field-tab38">5.12</div>
+<div class="col-last even-row-color field field-tab38">
 <div class="block">Property name used to specify the size of the thread pool to be used for parallel execution: "junit.vintage.execution.parallel.pool-size"</div>
 </div>
 </div>
