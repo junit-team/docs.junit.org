@@ -601,7 +601,7 @@ classes and methods.</p>
 	public Object resolveParameter(ParameterContext parameterContext, ExtensionContext extensionContext) {
 
 		ExtensionContext rootContext = extensionContext.getRoot();
-		ExtensionContext.Store store = rootContext.getStore(Namespace.GLOBAL);
+		Store store = rootContext.getStore(Namespace.GLOBAL);
 		Class&lt;HttpServerResource&gt; key = HttpServerResource.class;
 		HttpServerResource resource = store.computeIfAbsent(key, __ -&gt; {
 			try {

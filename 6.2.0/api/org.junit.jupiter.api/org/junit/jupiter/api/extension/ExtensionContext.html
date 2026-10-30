@@ -90,7 +90,9 @@ loadScripts(document, 'script');</script>
 <li><a href="#publishFile(java.lang.String,org.junit.jupiter.api.MediaType,org.junit.jupiter.api.function.ThrowingConsumer)" tabindex="0">publishFile(String, MediaType, ThrowingConsumer)</a></li>
 <li><a href="#publishDirectory(java.lang.String,org.junit.jupiter.api.function.ThrowingConsumer)" tabindex="0">publishDirectory(String, ThrowingConsumer)</a></li>
 <li><a href="#getStore(org.junit.jupiter.api.extension.ExtensionContext.Namespace)" tabindex="0">getStore(ExtensionContext.Namespace)</a></li>
+<li><a href="#getStore(org.junit.jupiter.api.store.Namespace)" tabindex="0">getStore(Namespace)</a></li>
 <li><a href="#getStore(org.junit.jupiter.api.extension.ExtensionContext.StoreScope,org.junit.jupiter.api.extension.ExtensionContext.Namespace)" tabindex="0">getStore(ExtensionContext.StoreScope, ExtensionContext.Namespace)</a></li>
+<li><a href="#getStore(org.junit.jupiter.api.extension.ExtensionContext.StoreScope,org.junit.jupiter.api.store.Namespace)" tabindex="0">getStore(ExtensionContext.StoreScope, Namespace)</a></li>
 <li><a href="#getExecutionMode()" tabindex="0">getExecutionMode()</a></li>
 <li><a href="#getExecutableInvoker()" tabindex="0">getExecutableInvoker()</a></li>
 </ol>
@@ -253,16 +255,35 @@ or container.</div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Get the <em>root</em> <code>ExtensionContext</code>.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="ExtensionContext.Store.html" title="interface in org.junit.jupiter.api.extension">ExtensionContext.Store</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getStore(org.junit.jupiter.api.extension.ExtensionContext.Namespace)" class="member-name-link">getStore</a><wbr>(<a href="ExtensionContext.Namespace.html" title="class in org.junit.jupiter.api.extension">ExtensionContext.Namespace</a>&nbsp;namespace)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
-<div class="block">Get the <a href="ExtensionContext.Store.html" title="interface in org.junit.jupiter.api.extension"><code>ExtensionContext.Store</code></a> for the supplied <a href="ExtensionContext.Namespace.html" title="class in org.junit.jupiter.api.extension"><code>ExtensionContext.Namespace</code></a>.</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6"><code><a href="ExtensionContext.Store.html" title="interface in org.junit.jupiter.api.extension">ExtensionContext.Store</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6"><code><a href="#getStore(org.junit.jupiter.api.extension.ExtensionContext.Namespace)" class="member-name-link">getStore</a><wbr>(<a href="ExtensionContext.Namespace.html" title="class in org.junit.jupiter.api.extension">ExtensionContext.Namespace</a>&nbsp;namespace)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6">
+<div class="block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">Please use
+<a href="#getStore(org.junit.jupiter.api.store.Namespace)"><code>getStore(org.junit.jupiter.api.store.Namespace)</code></a> instead.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="ExtensionContext.Store.html" title="interface in org.junit.jupiter.api.extension">ExtensionContext.Store</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getStore(org.junit.jupiter.api.extension.ExtensionContext.StoreScope,org.junit.jupiter.api.extension.ExtensionContext.Namespace)" class="member-name-link">getStore</a><wbr>(<a href="ExtensionContext.StoreScope.html" title="enum class in org.junit.jupiter.api.extension">ExtensionContext.StoreScope</a>&nbsp;scope,
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6"><code><a href="ExtensionContext.Store.html" title="interface in org.junit.jupiter.api.extension">ExtensionContext.Store</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6"><code><a href="#getStore(org.junit.jupiter.api.extension.ExtensionContext.StoreScope,org.junit.jupiter.api.extension.ExtensionContext.Namespace)" class="member-name-link">getStore</a><wbr>(<a href="ExtensionContext.StoreScope.html" title="enum class in org.junit.jupiter.api.extension">ExtensionContext.StoreScope</a>&nbsp;scope,
  <a href="ExtensionContext.Namespace.html" title="class in org.junit.jupiter.api.extension">ExtensionContext.Namespace</a>&nbsp;namespace)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6">
+<div class="block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">Please use
+<a href="#getStore(org.junit.jupiter.api.extension.ExtensionContext.StoreScope,org.junit.jupiter.api.store.Namespace)"><code>getStore(StoreScope, org.junit.jupiter.api.store.Namespace)</code></a>
+instead.</div>
+</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="../store/Store.html" title="interface in org.junit.jupiter.api.store">Store</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#getStore(org.junit.jupiter.api.extension.ExtensionContext.StoreScope,org.junit.jupiter.api.store.Namespace)" class="member-name-link">getStore</a><wbr>(<a href="ExtensionContext.StoreScope.html" title="enum class in org.junit.jupiter.api.extension">ExtensionContext.StoreScope</a>&nbsp;scope,
+ <a href="../store/Namespace.html" title="interface in org.junit.jupiter.api.store">Namespace</a>&nbsp;namespace)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
 <div class="block">Returns the store for supplied scope and namespace.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="../store/Store.html" title="interface in org.junit.jupiter.api.store">Store</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#getStore(org.junit.jupiter.api.store.Namespace)" class="member-name-link">getStore</a><wbr>(<a href="../store/Namespace.html" title="interface in org.junit.jupiter.api.store">Namespace</a>&nbsp;namespace)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
+<div class="block">Get the <a href="../store/Store.html" title="interface in org.junit.jupiter.api.store"><code>Store</code></a> for the supplied
+<a href="../store/Namespace.html" title="interface in org.junit.jupiter.api.store"><code>Namespace</code></a>.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getTags()" class="member-name-link">getTags</a>()</code></div>
@@ -1026,26 +1047,56 @@ or blank and must not contain any path separators</dd>
 <section class="detail" id="getStore(org.junit.jupiter.api.extension.ExtensionContext.Namespace)">
 <h3>getStore</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="return-type"><a href="ExtensionContext.Store.html" title="interface in org.junit.jupiter.api.extension">ExtensionContext.Store</a></span>&nbsp;<span class="element-name">getStore</span><wbr><span class="parameters">(<a href="ExtensionContext.Namespace.html" title="class in org.junit.jupiter.api.extension">ExtensionContext.Namespace</a>&nbsp;namespace)</span></div>
-<div class="block">Get the <a href="ExtensionContext.Store.html" title="interface in org.junit.jupiter.api.extension"><code>ExtensionContext.Store</code></a> for the supplied <a href="ExtensionContext.Namespace.html" title="class in org.junit.jupiter.api.extension"><code>ExtensionContext.Namespace</code></a>.
-
-<p>Use <code>getStore(Namespace.GLOBAL)</code> to get the default, global <a href="ExtensionContext.Namespace.html" title="class in org.junit.jupiter.api.extension"><code>ExtensionContext.Namespace</code></a>.
-
-<p>A store is bound to its extension context lifecycle. When an extension
-context lifecycle ends it closes its associated store. All stored values
-that are instances of <a href="ExtensionContext.Store.CloseableResource.html" title="interface in org.junit.jupiter.api.extension"><code>ExtensionContext.Store.CloseableResource</code></a> are
-notified by invoking their <code>close()</code> methods.</div>
+<div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Deprecated.html#since()" title="class or interface in java.lang" class="external-link">since</a>="6.2")
+<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#DEPRECATED" title="class or interface in org.apiguardian.api" class="external-link">DEPRECATED</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.2")
+</span><span class="return-type"><a href="ExtensionContext.Store.html" title="interface in org.junit.jupiter.api.extension">ExtensionContext.Store</a></span>&nbsp;<span class="element-name">getStore</span><wbr><span class="parameters">(<a href="ExtensionContext.Namespace.html" title="class in org.junit.jupiter.api.extension">ExtensionContext.Namespace</a>&nbsp;namespace)</span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">Please use
+<a href="#getStore(org.junit.jupiter.api.store.Namespace)"><code>getStore(org.junit.jupiter.api.store.Namespace)</code></a> instead.</div>
+</div>
+<div class="block">Get the <a href="ExtensionContext.Store.html" title="interface in org.junit.jupiter.api.extension"><code>ExtensionContext.Store</code></a> for the supplied <a href="ExtensionContext.Namespace.html" title="class in org.junit.jupiter.api.extension"><code>ExtensionContext.Namespace</code></a>.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>namespace</code> - the <code>Namespace</code> to get the store for; never <code>null</code></dd>
 <dt>Returns:</dt>
 <dd>the store in which to put and get objects for other invocations
 working in the same namespace; never <code>null</code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getStore(org.junit.jupiter.api.store.Namespace)">
+<h3>getStore</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#MAINTAINED" title="class or interface in org.apiguardian.api" class="external-link">MAINTAINED</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.2")
+</span><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="../store/Store.html" title="interface in org.junit.jupiter.api.store">Store</a></span>&nbsp;<span class="element-name">getStore</span><wbr><span class="parameters">(<a href="../store/Namespace.html" title="interface in org.junit.jupiter.api.store">Namespace</a>&nbsp;namespace)</span></div>
+<div class="block">Get the <a href="../store/Store.html" title="interface in org.junit.jupiter.api.store"><code>Store</code></a> for the supplied
+<a href="../store/Namespace.html" title="interface in org.junit.jupiter.api.store"><code>Namespace</code></a>.
+
+<p>Use <code>getStore(Namespace.GLOBAL)</code> to get the default, global
+<a href="../store/Namespace.html" title="interface in org.junit.jupiter.api.store"><code>Namespace</code></a>.
+
+<p>A store is bound to its extension context lifecycle. When an extension
+context lifecycle ends it closes its associated store. All stored values
+that are instances of <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/AutoCloseable.html" title="class or interface in java.lang" class="external-link"><code>AutoCloseable</code></a> or
+<a href="ExtensionContext.Store.CloseableResource.html" title="interface in org.junit.jupiter.api.extension"><code>ExtensionContext.Store.CloseableResource</code></a> are notified by invoking
+their <code>close()</code> methods.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>namespace</code> - the <code>Namespace</code> to get the store for; never <code>null</code></dd>
+<dt>Returns:</dt>
+<dd>the store in which to put and get objects for other invocations
+working in the same namespace; never <code>null</code></dd>
+<dt>Since:</dt>
+<dd>6.2</dd>
 <dt>See Also:</dt>
 <dd>
 <ul class="tag-list-long">
-<li><a href="ExtensionContext.Namespace.html#GLOBAL"><code>ExtensionContext.Namespace.GLOBAL</code></a></li>
-<li><a href="#getStore(org.junit.jupiter.api.extension.ExtensionContext.StoreScope,org.junit.jupiter.api.extension.ExtensionContext.Namespace)"><code>getStore(StoreScope, Namespace)</code></a></li>
+<li><a href="../store/Namespace.html#GLOBAL"><code>Namespace.GLOBAL</code></a></li>
+<li><a href="#getStore(org.junit.jupiter.api.extension.ExtensionContext.StoreScope,org.junit.jupiter.api.store.Namespace)"><code>getStore(StoreScope, org.junit.jupiter.api.store.Namespace)</code></a></li>
 </ul>
 </dd>
 </dl>
@@ -1056,27 +1107,50 @@ working in the same namespace; never <code>null</code></dd>
 <section class="detail" id="getStore(org.junit.jupiter.api.extension.ExtensionContext.StoreScope,org.junit.jupiter.api.extension.ExtensionContext.Namespace)">
 <h3>getStore</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#EXPERIMENTAL" title="class or interface in org.apiguardian.api" class="external-link">EXPERIMENTAL</a>,
-     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.0")
+<div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Deprecated.html#since()" title="class or interface in java.lang" class="external-link">since</a>="6.2")
+<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#DEPRECATED" title="class or interface in org.apiguardian.api" class="external-link">DEPRECATED</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.2")
 </span><span class="return-type"><a href="ExtensionContext.Store.html" title="interface in org.junit.jupiter.api.extension">ExtensionContext.Store</a></span>&nbsp;<span class="element-name">getStore</span><wbr><span class="parameters">(<a href="ExtensionContext.StoreScope.html" title="enum class in org.junit.jupiter.api.extension">ExtensionContext.StoreScope</a>&nbsp;scope,
  <a href="ExtensionContext.Namespace.html" title="class in org.junit.jupiter.api.extension">ExtensionContext.Namespace</a>&nbsp;namespace)</span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">Please use
+<a href="#getStore(org.junit.jupiter.api.extension.ExtensionContext.StoreScope,org.junit.jupiter.api.store.Namespace)"><code>getStore(StoreScope, org.junit.jupiter.api.store.Namespace)</code></a>
+instead.</div>
+</div>
+<div class="block">Returns the store for supplied scope and namespace.</div>
+<dl class="notes">
+<dt>Since:</dt>
+<dd>5.13</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getStore(org.junit.jupiter.api.extension.ExtensionContext.StoreScope,org.junit.jupiter.api.store.Namespace)">
+<h3>getStore</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#EXPERIMENTAL" title="class or interface in org.apiguardian.api" class="external-link">EXPERIMENTAL</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.2")
+</span><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="../store/Store.html" title="interface in org.junit.jupiter.api.store">Store</a></span>&nbsp;<span class="element-name">getStore</span><wbr><span class="parameters">(<a href="ExtensionContext.StoreScope.html" title="enum class in org.junit.jupiter.api.extension">ExtensionContext.StoreScope</a>&nbsp;scope,
+ <a href="../store/Namespace.html" title="interface in org.junit.jupiter.api.store">Namespace</a>&nbsp;namespace)</span></div>
 <div class="block">Returns the store for supplied scope and namespace.
 
 <p>If <code>scope</code> is
 <a href="ExtensionContext.StoreScope.html#EXTENSION_CONTEXT"><code>EXTENSION_CONTEXT</code></a>, the store behaves
-exactly like the one returned by <a href="#getStore(org.junit.jupiter.api.extension.ExtensionContext.Namespace)"><code>getStore(Namespace)</code></a>. If the
+exactly like the one returned by
+<a href="#getStore(org.junit.jupiter.api.store.Namespace)"><code>getStore(org.junit.jupiter.api.store.Namespace)</code></a>. If the
 <code>scope</code> is <a href="ExtensionContext.StoreScope.html#LAUNCHER_SESSION"><code>LAUNCHER_SESSION</code></a> or
 <a href="ExtensionContext.StoreScope.html#EXECUTION_REQUEST"><code>EXECUTION_REQUEST</code></a>, all stored values
 that are instances of <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/AutoCloseable.html" title="class or interface in java.lang" class="external-link"><code>AutoCloseable</code></a> are notified by invoking
 their <code>close()</code> methods when the scope is closed.</div>
 <dl class="notes">
 <dt>Since:</dt>
-<dd>5.13</dd>
+<dd>6.2</dd>
 <dt>See Also:</dt>
 <dd>
-<ul class="tag-list">
+<ul class="tag-list-long">
 <li><a href="ExtensionContext.StoreScope.html" title="enum class in org.junit.jupiter.api.extension"><code>ExtensionContext.StoreScope</code></a></li>
-<li><a href="#getStore(org.junit.jupiter.api.extension.ExtensionContext.Namespace)"><code>getStore(Namespace)</code></a></li>
+<li><a href="#getStore(org.junit.jupiter.api.store.Namespace)"><code>getStore(org.junit.jupiter.api.store.Namespace)</code></a></li>
 </ul>
 </dd>
 </dl>

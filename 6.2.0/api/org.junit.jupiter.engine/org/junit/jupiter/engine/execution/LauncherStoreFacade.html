@@ -69,10 +69,9 @@ loadScripts(document, 'script');</script>
 </li>
 <li><a href="#method-detail" tabindex="0">Method Details</a>
 <ol class="toc-list">
-<li><a href="#getRequestLevelStore()" tabindex="0">getRequestLevelStore()</a></li>
-<li><a href="#getRequestLevelStore(org.junit.jupiter.api.extension.ExtensionContext.Namespace)" tabindex="0">getRequestLevelStore(ExtensionContext.Namespace)</a></li>
-<li><a href="#getSessionLevelStore(org.junit.jupiter.api.extension.ExtensionContext.Namespace)" tabindex="0">getSessionLevelStore(ExtensionContext.Namespace)</a></li>
-<li><a href="#getStoreAdapter(org.junit.platform.engine.support.store.NamespacedHierarchicalStore,org.junit.jupiter.api.extension.ExtensionContext.Namespace)" tabindex="0">getStoreAdapter(NamespacedHierarchicalStore, ExtensionContext.Namespace)</a></li>
+<li><a href="#getRequestScopedStore()" tabindex="0">getRequestScopedStore()</a></li>
+<li><a href="#getRequestScopedStore(org.junit.jupiter.api.store.Namespace)" tabindex="0">getRequestScopedStore(Namespace)</a></li>
+<li><a href="#getSessionScopedStore(org.junit.jupiter.api.store.Namespace)" tabindex="0">getSessionScopedStore(Namespace)</a></li>
 </ol>
 </li>
 </ol>
@@ -104,7 +103,7 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(org.junit.platform.engine.support.store.NamespacedHierarchicalStore)" class="member-name-link">LauncherStoreFacade</a><wbr>(<a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/support/store/NamespacedHierarchicalStore.html" title="class in org.junit.platform.engine.support.store">NamespacedHierarchicalStore</a>&lt;<a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/support/store/Namespace.html" title="class in org.junit.platform.engine.support.store">Namespace</a>&gt;&nbsp;requestLevelStore)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(org.junit.platform.engine.support.store.NamespacedHierarchicalStore)" class="member-name-link">LauncherStoreFacade</a><wbr>(<a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/support/store/NamespacedHierarchicalStore.html" title="class in org.junit.platform.engine.support.store">NamespacedHierarchicalStore</a>&lt;<a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/support/store/Namespace.html" title="class in org.junit.platform.engine.support.store">Namespace</a>&gt;&nbsp;requestScopedStore)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -121,18 +120,14 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/support/store/NamespacedHierarchicalStore.html" title="class in org.junit.platform.engine.support.store">NamespacedHierarchicalStore</a><wbr>&lt;<a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/support/store/Namespace.html" title="class in org.junit.platform.engine.support.store">Namespace</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRequestLevelStore()" class="member-name-link">getRequestLevelStore</a>()</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRequestScopedStore()" class="member-name-link">getRequestScopedStore</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../../../../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Store.html" title="interface in org.junit.jupiter.api.extension">ExtensionContext.Store</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRequestLevelStore(org.junit.jupiter.api.extension.ExtensionContext.Namespace)" class="member-name-link">getRequestLevelStore</a><wbr>(<a href="../../../../../../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Namespace.html" title="class in org.junit.jupiter.api.extension">ExtensionContext.Namespace</a>&nbsp;namespace)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRequestScopedStore(org.junit.jupiter.api.store.Namespace)" class="member-name-link">getRequestScopedStore</a><wbr>(<a href="../../../../../../org.junit.jupiter.api/org/junit/jupiter/api/store/Namespace.html" title="interface in org.junit.jupiter.api.store">Namespace</a>&nbsp;namespace)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../../../../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Store.html" title="interface in org.junit.jupiter.api.extension">ExtensionContext.Store</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSessionLevelStore(org.junit.jupiter.api.extension.ExtensionContext.Namespace)" class="member-name-link">getSessionLevelStore</a><wbr>(<a href="../../../../../../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Namespace.html" title="class in org.junit.jupiter.api.extension">ExtensionContext.Namespace</a>&nbsp;namespace)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSessionScopedStore(org.junit.jupiter.api.store.Namespace)" class="member-name-link">getSessionScopedStore</a><wbr>(<a href="../../../../../../org.junit.jupiter.api/org/junit/jupiter/api/store/Namespace.html" title="interface in org.junit.jupiter.api.store">Namespace</a>&nbsp;namespace)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="NamespaceAwareStore.html" title="class in org.junit.jupiter.engine.execution">NamespaceAwareStore</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getStoreAdapter(org.junit.platform.engine.support.store.NamespacedHierarchicalStore,org.junit.jupiter.api.extension.ExtensionContext.Namespace)" class="member-name-link">getStoreAdapter</a><wbr>(<a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/support/store/NamespacedHierarchicalStore.html" title="class in org.junit.platform.engine.support.store">NamespacedHierarchicalStore</a>&lt;<a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/support/store/Namespace.html" title="class in org.junit.platform.engine.support.store">Namespace</a>&gt;&nbsp;valuesStore,
- <a href="../../../../../../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Namespace.html" title="class in org.junit.jupiter.api.extension">ExtensionContext.Namespace</a>&nbsp;namespace)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
 </div>
@@ -154,7 +149,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="&lt;init&gt;(org.junit.platform.engine.support.store.NamespacedHierarchicalStore)">
 <h3>LauncherStoreFacade</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">LauncherStoreFacade</span><wbr><span class="parameters">(<a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/support/store/NamespacedHierarchicalStore.html" title="class in org.junit.platform.engine.support.store">NamespacedHierarchicalStore</a>&lt;<a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/support/store/Namespace.html" title="class in org.junit.platform.engine.support.store">Namespace</a>&gt;&nbsp;requestLevelStore)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">LauncherStoreFacade</span><wbr><span class="parameters">(<a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/support/store/NamespacedHierarchicalStore.html" title="class in org.junit.platform.engine.support.store">NamespacedHierarchicalStore</a>&lt;<a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/support/store/Namespace.html" title="class in org.junit.platform.engine.support.store">Namespace</a>&gt;&nbsp;requestScopedStore)</span></div>
 </div>
 </section>
 </li>
@@ -167,35 +162,26 @@ loadScripts(document, 'script');</script>
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="getRequestLevelStore()">
-<h3>getRequestLevelStore</h3>
+<section class="detail" id="getRequestScopedStore()">
+<h3>getRequestScopedStore</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/support/store/NamespacedHierarchicalStore.html" title="class in org.junit.platform.engine.support.store">NamespacedHierarchicalStore</a>&lt;<a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/support/store/Namespace.html" title="class in org.junit.platform.engine.support.store">Namespace</a>&gt;</span>&nbsp;<span class="element-name">getRequestLevelStore</span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/support/store/NamespacedHierarchicalStore.html" title="class in org.junit.platform.engine.support.store">NamespacedHierarchicalStore</a>&lt;<a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/support/store/Namespace.html" title="class in org.junit.platform.engine.support.store">Namespace</a>&gt;</span>&nbsp;<span class="element-name">getRequestScopedStore</span>()</div>
 </div>
 </section>
 </li>
 <li>
-<section class="detail" id="getRequestLevelStore(org.junit.jupiter.api.extension.ExtensionContext.Namespace)">
-<h3>getRequestLevelStore</h3>
+<section class="detail" id="getRequestScopedStore(org.junit.jupiter.api.store.Namespace)">
+<h3>getRequestScopedStore</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../../../../../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Store.html" title="interface in org.junit.jupiter.api.extension">ExtensionContext.Store</a></span>&nbsp;<span class="element-name">getRequestLevelStore</span><wbr><span class="parameters">(<a href="../../../../../../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Namespace.html" title="class in org.junit.jupiter.api.extension">ExtensionContext.Namespace</a>&nbsp;namespace)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../../../../../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Store.html" title="interface in org.junit.jupiter.api.extension">ExtensionContext.Store</a></span>&nbsp;<span class="element-name">getRequestScopedStore</span><wbr><span class="parameters">(<a href="../../../../../../org.junit.jupiter.api/org/junit/jupiter/api/store/Namespace.html" title="interface in org.junit.jupiter.api.store">Namespace</a>&nbsp;namespace)</span></div>
 </div>
 </section>
 </li>
 <li>
-<section class="detail" id="getSessionLevelStore(org.junit.jupiter.api.extension.ExtensionContext.Namespace)">
-<h3>getSessionLevelStore</h3>
+<section class="detail" id="getSessionScopedStore(org.junit.jupiter.api.store.Namespace)">
+<h3>getSessionScopedStore</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../../../../../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Store.html" title="interface in org.junit.jupiter.api.extension">ExtensionContext.Store</a></span>&nbsp;<span class="element-name">getSessionLevelStore</span><wbr><span class="parameters">(<a href="../../../../../../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Namespace.html" title="class in org.junit.jupiter.api.extension">ExtensionContext.Namespace</a>&nbsp;namespace)</span></div>
-</div>
-</section>
-</li>
-<li>
-<section class="detail" id="getStoreAdapter(org.junit.platform.engine.support.store.NamespacedHierarchicalStore,org.junit.jupiter.api.extension.ExtensionContext.Namespace)">
-<h3>getStoreAdapter</h3>
-<div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="NamespaceAwareStore.html" title="class in org.junit.jupiter.engine.execution">NamespaceAwareStore</a></span>&nbsp;<span class="element-name">getStoreAdapter</span><wbr><span class="parameters">(<a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/support/store/NamespacedHierarchicalStore.html" title="class in org.junit.platform.engine.support.store">NamespacedHierarchicalStore</a>&lt;<a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/support/store/Namespace.html" title="class in org.junit.platform.engine.support.store">Namespace</a>&gt;&nbsp;valuesStore,
- <a href="../../../../../../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Namespace.html" title="class in org.junit.jupiter.api.extension">ExtensionContext.Namespace</a>&nbsp;namespace)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../../../../../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Store.html" title="interface in org.junit.jupiter.api.extension">ExtensionContext.Store</a></span>&nbsp;<span class="element-name">getSessionScopedStore</span><wbr><span class="parameters">(<a href="../../../../../../org.junit.jupiter.api/org/junit/jupiter/api/store/Namespace.html" title="interface in org.junit.jupiter.api.store">Namespace</a>&nbsp;namespace)</span></div>
 </div>
 </section>
 </li>

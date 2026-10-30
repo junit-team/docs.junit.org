@@ -234,7 +234,7 @@ of the above extension APIs will observe the following differences.
   </li>
   <li>
     If the extension adds a <a href="ExtensionContext.Store.CloseableResource.html" title="interface in org.junit.jupiter.api.extension"><code>CloseableResource</code></a> or <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/AutoCloseable.html" title="class or interface in java.lang" class="external-link"><code>AutoCloseable</code></a> to the
-    <a href="ExtensionContext.Store.html" title="interface in org.junit.jupiter.api.extension"><code>Store</code></a> (unless the
+    <a href="../store/Store.html" title="interface in org.junit.jupiter.api.store"><code>Store</code></a> (unless the
     <code>junit.jupiter.extensions.store.close.autocloseable.enabled</code>
     configuration parameter is set to <code>false</code>), then the resource will
     be closed just after the instance is destroyed.
@@ -262,7 +262,7 @@ configuration parameters; never <code>null</code></dd>
 <dd>There are no guarantees about how often this method will be called.
 Therefore, implementations should be idempotent and avoid side effects.
 If computation of the return value is costly, implementations may wish to
-cache the result in the <a href="ExtensionContext.Store.html" title="interface in org.junit.jupiter.api.extension"><code>Store</code></a> of the supplied
+cache the result in the <a href="../store/Store.html" title="interface in org.junit.jupiter.api.store"><code>Store</code></a> of the supplied
 <code>ExtensionContext</code>.</dd>
 </dl>
 </div>

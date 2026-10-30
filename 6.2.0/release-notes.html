@@ -554,6 +554,10 @@ it has already provided now finish before the <code>@AfterEach</code> methods an
 callbacks of the factory method are executed. Previously, with parallel execution, these
 could run while the dynamic tests were still executing.</p>
 </li>
+<li>
+<p><code>ClassOrderer.Random</code> and <code>MethodOrderer.Random</code> now log the used seed only once per
+launcher session.</p>
+</li>
 </ul>
 </div>
 </div>
@@ -575,13 +579,15 @@ quotes.</p>
 methods annotated with <code>@Timeout</code> is not a positive value less than 2<sup>63</sup> nanoseconds
 (approximately 292 years) a <code>PreconditionViolationException</code> is thrown.</p>
 </li>
-</ul>
+<li>
+<p><code>ExtensionContext.Namespace</code> and <code>ExtensionContext.Store</code> have been deprecated
+in favor of <code>org.junit.jupiter.api.store.Namespace</code> and
+<code>org.junit.jupiter.api.store.Store</code>. In most cases, changing the <code>Namespace</code>
+and <code>Store</code> imports suffices to migrate.</p>
+<div id="v6.2.0-M1-junit-jupiter-new-features-and-improvements" class="paragraph">
+<p>==== New Features and Improvements</p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="v6.2.0-M1-junit-jupiter-new-features-and-improvements"><a class="anchor" href="#v6.2.0-M1-junit-jupiter-new-features-and-improvements"></a>New Features and Improvements</h4>
-<div class="ulist">
-<ul>
+</li>
 <li>
 <p>Added <code>OS.NETBSD</code> and <code>OS.DRAGONFLYBSD</code> enum constants for use with <code>@EnabledOnOs</code>
 and <code>@DisabledOnOs</code>.</p>
@@ -600,6 +606,17 @@ now measure the execution time with sub-millisecond precision.</p>
 <li>
 <p>The <code>junit.jupiter.execution.parallel.config.executor-service</code> configuration parameter
 now defaults to <code>WORKER_THREAD_POOL</code> when parallel execution is enabled.</p>
+</li>
+<li>
+<p>Implementations of <code>ClassOrderer</code> or <code>MethodOrderer</code> may now access the store scoped to
+the enclosing launcher session via the new <code>DiscoveryContext.getStore(&#8230;&#8203;)</code> API.
+This can be used to store or cache information that is reused during test execution or
+later discovery phases.</p>
+</li>
+<li>
+<p>New <code>org.junit.jupiter.api.store</code> package containing <code>Store</code> and <code>Namespace</code> interfaces
+which are now extended by <code>ExtensionContext.Store</code> and <code>ExtensionContext.Namespace</code>,
+respectively.</p>
 </li>
 </ul>
 </div>

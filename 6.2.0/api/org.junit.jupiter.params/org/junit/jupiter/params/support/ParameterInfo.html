@@ -102,7 +102,7 @@ invocation of a parameterized class or test.
 <p>Registered <a href="../../../../../../org.junit.jupiter.api/org/junit/jupiter/api/extension/Extension.html" title="interface in org.junit.jupiter.api.extension"><code>Extension</code></a> implementations may retrieve the current
 <code>ParameterInfo</code> instance by calling
 <a href="../../../../../../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.html#getStore(org.junit.jupiter.api.extension.ExtensionContext.Namespace)"><code>ExtensionContext.getStore(Namespace)</code></a> with <a href="#NAMESPACE"><code>NAMESPACE</code></a> and
-<a href="../../../../../../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Store.html#get(java.lang.Object,java.lang.Class)"><code>Store.get(...)</code></a> with
+<a href="../../../../../../org.junit.jupiter.api/org/junit/jupiter/api/store/Store.html#get(java.lang.Object,java.lang.Class)"><code>Store.get(...)</code></a> with
 <a href="#KEY"><code>KEY</code></a>. Alternatively, the <a href="#get(org.junit.jupiter.api.extension.ExtensionContext)"><code>get(ExtensionContext)</code></a> method may
 be used to retrieve the <code>ParameterInfo</code> instance for the supplied
 <code>ExtensionContext</code>. Extensions must not modify any entries in the
@@ -154,10 +154,13 @@ retrieving the <code>ParameterInfo</code> instance from the
 <div class="col-last odd-row-color">
 <div class="block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
 <div class="deprecation-comment">Please use
-<a href="../ParameterInfo.html#NAMESPACE"><code>ParameterInfo.NAMESPACE</code></a> instead</div>
+<a href="../ParameterInfo.html#STORE_NAMESPACE"><code>ParameterInfo.STORE_NAMESPACE</code></a> instead</div>
 </div>
 </div>
 </div>
+<div class="inherited-list">
+<h3 id="fields-inherited-from-class-org.junit.jupiter.params.ParameterInfo">Fields inherited from interface&nbsp;<a href="../ParameterInfo.html#field-summary" title="interface in org.junit.jupiter.params">ParameterInfo</a></h3>
+<code><a href="../ParameterInfo.html#STORE_NAMESPACE">STORE_NAMESPACE</a></code></div>
 </section>
 </li>
 <!-- ========== METHOD SUMMARY =========== -->
@@ -208,7 +211,7 @@ instead</div>
 </span><span class="modifiers">static final</span>&nbsp;<span class="return-type"><a href="../../../../../../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Namespace.html" title="class in org.junit.jupiter.api.extension">ExtensionContext.Namespace</a></span>&nbsp;<span class="element-name">NAMESPACE</span></div>
 <div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
 <div class="deprecation-comment">Please use
-<a href="../ParameterInfo.html#NAMESPACE"><code>ParameterInfo.NAMESPACE</code></a> instead</div>
+<a href="../ParameterInfo.html#STORE_NAMESPACE"><code>ParameterInfo.STORE_NAMESPACE</code></a> instead</div>
 </div>
 <div class="block">The <a href="../../../../../../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Namespace.html" title="class in org.junit.jupiter.api.extension"><code>ExtensionContext.Namespace</code></a> for accessing the
 <a href="../../../../../../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Store.html" title="interface in org.junit.jupiter.api.extension"><code>Store</code></a> for <code>ParameterInfo</code>.</div>

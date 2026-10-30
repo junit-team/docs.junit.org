@@ -142,7 +142,7 @@ required type.</div>
 </dd>
 <dt><a href="../org.junit.jupiter.params/org/junit/jupiter/params/aggregator/DefaultArgumentsAccessor.html#get(int,java.lang.Class)" class="member-name-link">get(int, Class)</a> - Method in class org.junit.jupiter.params.aggregator.<a href="../org.junit.jupiter.params/org/junit/jupiter/params/aggregator/DefaultArgumentsAccessor.html" title="class in org.junit.jupiter.params.aggregator">DefaultArgumentsAccessor</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Store.html#get(java.lang.Object)" class="member-name-link">get(Object)</a> - Method in interface org.junit.jupiter.api.extension.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Store.html" title="interface in org.junit.jupiter.api.extension">ExtensionContext.Store</a></dt>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/store/Store.html#get(java.lang.Object)" class="member-name-link">get(Object)</a> - Method in interface org.junit.jupiter.api.store.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/store/Store.html" title="interface in org.junit.jupiter.api.store">Store</a></dt>
 <dd>
 <div class="block">Get the value that is stored under the supplied <code>key</code>.</div>
 </dd>
@@ -150,7 +150,7 @@ required type.</div>
 <dd>&nbsp;</dd>
 <dt><a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/execution/NamespaceAwareStore.html#get(java.lang.Object,java.lang.Class)" class="member-name-link">get(Object, Class)</a> - Method in class org.junit.jupiter.engine.execution.<a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/execution/NamespaceAwareStore.html" title="class in org.junit.jupiter.engine.execution">NamespaceAwareStore</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Store.html#get(java.lang.Object,java.lang.Class)" class="member-name-link">get(Object, Class)</a> - Method in interface org.junit.jupiter.api.extension.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Store.html" title="interface in org.junit.jupiter.api.extension">ExtensionContext.Store</a></dt>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/store/Store.html#get(java.lang.Object,java.lang.Class)" class="member-name-link">get(Object, Class)</a> - Method in interface org.junit.jupiter.api.store.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/store/Store.html" title="interface in org.junit.jupiter.api.store">Store</a></dt>
 <dd>
 <div class="block">Get the value of the specified required type that is stored under
 the supplied <code>key</code>.</div>
@@ -462,15 +462,11 @@ in the <a href="../org.junit.platform.engine/org/junit/platform/engine/EngineDis
 <dd>&nbsp;</dd>
 <dt><a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/execution/JupiterEngineExecutionContext.html#getConfiguration()" class="member-name-link">getConfiguration()</a> - Method in class org.junit.jupiter.engine.execution.<a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/execution/JupiterEngineExecutionContext.html" title="class in org.junit.jupiter.engine.execution">JupiterEngineExecutionContext</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/ClassOrdererContext.html#getConfigurationParameter(java.lang.String)" class="member-name-link">getConfigurationParameter(String)</a> - Method in interface org.junit.jupiter.api.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/ClassOrdererContext.html" title="interface in org.junit.jupiter.api">ClassOrdererContext</a></dt>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/DiscoveryContext.html#getConfigurationParameter(java.lang.String)" class="member-name-link">getConfigurationParameter(String)</a> - Method in interface org.junit.jupiter.api.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/DiscoveryContext.html" title="interface in org.junit.jupiter.api">DiscoveryContext</a></dt>
 <dd>
 <div class="block">Get the configuration parameter stored under the specified <code>key</code>.</div>
 </dd>
 <dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.html#getConfigurationParameter(java.lang.String)" class="member-name-link">getConfigurationParameter(String)</a> - Method in interface org.junit.jupiter.api.extension.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.html" title="interface in org.junit.jupiter.api.extension">ExtensionContext</a></dt>
-<dd>
-<div class="block">Get the configuration parameter stored under the specified <code>key</code>.</div>
-</dd>
-<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/MethodOrdererContext.html#getConfigurationParameter(java.lang.String)" class="member-name-link">getConfigurationParameter(String)</a> - Method in interface org.junit.jupiter.api.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/MethodOrdererContext.html" title="interface in org.junit.jupiter.api">MethodOrdererContext</a></dt>
 <dd>
 <div class="block">Get the configuration parameter stored under the specified <code>key</code>.</div>
 </dd>
@@ -1313,13 +1309,13 @@ contained exception and throw the resulting <a href="https://docs.oracle.com/en/
 <dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Store.html#getOrComputeIfAbsent(java.lang.Class)" class="member-name-link">getOrComputeIfAbsent(Class)</a> - Method in interface org.junit.jupiter.api.extension.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Store.html" title="interface in org.junit.jupiter.api.extension">ExtensionContext.Store</a></dt>
 <dd>
 <div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
-<div class="deprecation-comment">Please use <a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Store.html#computeIfAbsent(java.lang.Class)"><code>ExtensionContext.Store.computeIfAbsent(Class)</code></a> instead.</div>
+<div class="deprecation-comment">Please use <a href="../org.junit.jupiter.api/org/junit/jupiter/api/store/Store.html#computeIfAbsent(java.lang.Class)"><code>Store.computeIfAbsent(Class)</code></a> instead.</div>
 </div>
 </dd>
 <dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Store.html#getOrComputeIfAbsent(K,java.util.function.Function)" class="member-name-link">getOrComputeIfAbsent(K, Function)</a> - Method in interface org.junit.jupiter.api.extension.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Store.html" title="interface in org.junit.jupiter.api.extension">ExtensionContext.Store</a></dt>
 <dd>
 <div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
-<div class="deprecation-comment">Please use <a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Store.html#computeIfAbsent(K,java.util.function.Function)"><code>ExtensionContext.Store.computeIfAbsent(Object, Function)</code></a> instead.</div>
+<div class="deprecation-comment">Please use <a href="../org.junit.jupiter.api/org/junit/jupiter/api/store/Store.html#computeIfAbsent(K,java.util.function.Function)"><code>Store.computeIfAbsent(Object, Function)</code></a> instead.</div>
 </div>
 </dd>
 <dt><a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/execution/NamespaceAwareStore.html#getOrComputeIfAbsent(K,java.util.function.Function)" class="member-name-link">getOrComputeIfAbsent(K, Function)</a> - Method in class org.junit.jupiter.engine.execution.<a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/execution/NamespaceAwareStore.html" title="class in org.junit.jupiter.engine.execution">NamespaceAwareStore</a></dt>
@@ -1327,7 +1323,7 @@ contained exception and throw the resulting <a href="https://docs.oracle.com/en/
 <dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Store.html#getOrComputeIfAbsent(K,java.util.function.Function,java.lang.Class)" class="member-name-link">getOrComputeIfAbsent(K, Function, Class)</a> - Method in interface org.junit.jupiter.api.extension.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Store.html" title="interface in org.junit.jupiter.api.extension">ExtensionContext.Store</a></dt>
 <dd>
 <div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
-<div class="deprecation-comment">Please use <a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Store.html#computeIfAbsent(K,java.util.function.Function,java.lang.Class)"><code>ExtensionContext.Store.computeIfAbsent(Object, Function, Class)</code></a> instead.</div>
+<div class="deprecation-comment">Please use <a href="../org.junit.jupiter.api/org/junit/jupiter/api/store/Store.html#computeIfAbsent(K,java.util.function.Function,java.lang.Class)"><code>Store.computeIfAbsent(Object, Function, Class)</code></a> instead.</div>
 </div>
 </dd>
 <dt><a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/execution/NamespaceAwareStore.html#getOrComputeIfAbsent(K,java.util.function.Function,java.lang.Class)" class="member-name-link">getOrComputeIfAbsent(K, Function, Class)</a> - Method in class org.junit.jupiter.engine.execution.<a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/execution/NamespaceAwareStore.html" title="class in org.junit.jupiter.engine.execution">NamespaceAwareStore</a></dt>
@@ -1344,12 +1340,12 @@ contained exception and throw the resulting <a href="https://docs.oracle.com/en/
 <div class="deprecation-comment">Please use <a href="../org.junit.platform.engine/org/junit/platform/engine/support/store/NamespacedHierarchicalStore.html#computeIfAbsent(N,K,java.util.function.Function,java.lang.Class)"><code>NamespacedHierarchicalStore.computeIfAbsent(Object, Object, Function, Class)</code></a> instead.</div>
 </div>
 </dd>
-<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Store.html#getOrDefault(java.lang.Object,java.lang.Class,V)" class="member-name-link">getOrDefault(Object, Class, V)</a> - Method in interface org.junit.jupiter.api.extension.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Store.html" title="interface in org.junit.jupiter.api.extension">ExtensionContext.Store</a></dt>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/store/Store.html#getOrDefault(java.lang.Object,java.lang.Class,V)" class="member-name-link">getOrDefault(Object, Class, V)</a> - Method in interface org.junit.jupiter.api.store.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/store/Store.html" title="interface in org.junit.jupiter.api.store">Store</a></dt>
 <dd>
 <div class="block">Get the value of the specified required type that is stored under
 the supplied <code>key</code>, or the supplied <code>defaultValue</code> if no
-value is found for the supplied <code>key</code> in this store or in an
-ancestor.</div>
+value is found for the supplied <code>key</code> in this store or in a
+parent store.</div>
 </dd>
 <dt><a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/config/EnumConfigurationParameterConverter.html#getOrDefault(org.junit.platform.engine.ConfigurationParameters,java.lang.String,java.lang.String)" class="member-name-link">getOrDefault(ConfigurationParameters, String, String)</a> - Method in class org.junit.jupiter.engine.config.<a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/config/EnumConfigurationParameterConverter.html" title="class in org.junit.jupiter.engine.config">EnumConfigurationParameterConverter</a></dt>
 <dd>&nbsp;</dd>
@@ -1492,6 +1488,10 @@ available.</div>
 </dd>
 <dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Namespace.html#getParts()" class="member-name-link">getParts()</a> - Method in class org.junit.jupiter.api.extension.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Namespace.html" title="class in org.junit.jupiter.api.extension">ExtensionContext.Namespace</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/store/Namespace.html#getParts()" class="member-name-link">getParts()</a> - Method in interface org.junit.jupiter.api.store.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/store/Namespace.html" title="interface in org.junit.jupiter.api.store">Namespace</a></dt>
+<dd>
+<div class="block">Returns the parts of this namespace.</div>
+</dd>
 <dt><a href="../org.junit.platform.engine/org/junit/platform/engine/discovery/DirectorySelector.html#getPath()" class="member-name-link">getPath()</a> - Method in class org.junit.platform.engine.discovery.<a href="../org.junit.platform.engine/org/junit/platform/engine/discovery/DirectorySelector.html" title="class in org.junit.platform.engine.discovery">DirectorySelector</a></dt>
 <dd>
 <div class="block">Get the selected directory as a <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link"><code>Path</code></a> using the
@@ -1618,9 +1618,9 @@ if available.</div>
 <div class="block">Get the reason that execution of the context should be skipped,
 if available.</div>
 </dd>
-<dt><a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/execution/LauncherStoreFacade.html#getRequestLevelStore()" class="member-name-link">getRequestLevelStore()</a> - Method in class org.junit.jupiter.engine.execution.<a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/execution/LauncherStoreFacade.html" title="class in org.junit.jupiter.engine.execution">LauncherStoreFacade</a></dt>
+<dt><a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/execution/LauncherStoreFacade.html#getRequestScopedStore()" class="member-name-link">getRequestScopedStore()</a> - Method in class org.junit.jupiter.engine.execution.<a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/execution/LauncherStoreFacade.html" title="class in org.junit.jupiter.engine.execution">LauncherStoreFacade</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/execution/LauncherStoreFacade.html#getRequestLevelStore(org.junit.jupiter.api.extension.ExtensionContext.Namespace)" class="member-name-link">getRequestLevelStore(ExtensionContext.Namespace)</a> - Method in class org.junit.jupiter.engine.execution.<a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/execution/LauncherStoreFacade.html" title="class in org.junit.jupiter.engine.execution">LauncherStoreFacade</a></dt>
+<dt><a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/execution/LauncherStoreFacade.html#getRequestScopedStore(org.junit.jupiter.api.store.Namespace)" class="member-name-link">getRequestScopedStore(Namespace)</a> - Method in class org.junit.jupiter.engine.execution.<a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/execution/LauncherStoreFacade.html" title="class in org.junit.jupiter.engine.execution">LauncherStoreFacade</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="../org.junit.platform.commons/org/junit/platform/commons/util/ReflectionUtils.html#getRequiredMethod(java.lang.Class,java.lang.String,java.lang.Class...)" class="member-name-link">getRequiredMethod(Class, String, Class...)</a> - Static method in class org.junit.platform.commons.util.<a href="../org.junit.platform.commons/org/junit/platform/commons/util/ReflectionUtils.html" title="class in org.junit.platform.commons.util">ReflectionUtils</a></dt>
 <dd>
@@ -1740,13 +1740,19 @@ request.</div>
 <div class="block">Get the <a href="../org.junit.platform.engine/org/junit/platform/engine/DiscoverySelector.html" title="interface in org.junit.platform.engine"><code>DiscoverySelectors</code></a> for this request,
 filtered by a particular type.</div>
 </dd>
-<dt><a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/execution/LauncherStoreFacade.html#getSessionLevelStore(org.junit.jupiter.api.extension.ExtensionContext.Namespace)" class="member-name-link">getSessionLevelStore(ExtensionContext.Namespace)</a> - Method in class org.junit.jupiter.engine.execution.<a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/execution/LauncherStoreFacade.html" title="class in org.junit.jupiter.engine.execution">LauncherStoreFacade</a></dt>
+<dt><a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/config/CachingJupiterConfiguration.html#getSessionScopedStore()" class="member-name-link">getSessionScopedStore()</a> - Method in class org.junit.jupiter.engine.config.<a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/config/CachingJupiterConfiguration.html" title="class in org.junit.jupiter.engine.config">CachingJupiterConfiguration</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/config/DefaultJupiterConfiguration.html#getSessionScopedStore()" class="member-name-link">getSessionScopedStore()</a> - Method in class org.junit.jupiter.engine.config.<a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/config/DefaultJupiterConfiguration.html" title="class in org.junit.jupiter.engine.config">DefaultJupiterConfiguration</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/config/JupiterConfiguration.html#getSessionScopedStore()" class="member-name-link">getSessionScopedStore()</a> - Method in interface org.junit.jupiter.engine.config.<a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/config/JupiterConfiguration.html" title="interface in org.junit.jupiter.engine.config">JupiterConfiguration</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="../org.junit.platform.engine/org/junit/platform/engine/EngineDiscoveryRequest.html#getSessionScopedStore()" class="member-name-link">getSessionScopedStore()</a> - Method in interface org.junit.platform.engine.<a href="../org.junit.platform.engine/org/junit/platform/engine/EngineDiscoveryRequest.html" title="interface in org.junit.platform.engine">EngineDiscoveryRequest</a></dt>
 <dd>
 <div class="block">Get the <a href="../org.junit.platform.engine/org/junit/platform/engine/support/store/NamespacedHierarchicalStore.html" title="class in org.junit.platform.engine.support.store"><code>NamespacedHierarchicalStore</code></a> scoped to the current
 launcher session.</div>
 </dd>
+<dt><a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/execution/LauncherStoreFacade.html#getSessionScopedStore(org.junit.jupiter.api.store.Namespace)" class="member-name-link">getSessionScopedStore(Namespace)</a> - Method in class org.junit.jupiter.engine.execution.<a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/execution/LauncherStoreFacade.html" title="class in org.junit.jupiter.engine.execution">LauncherStoreFacade</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="../org.junit.jupiter.params/org/junit/jupiter/params/aggregator/ArgumentsAccessor.html#getShort(int)" class="member-name-link">getShort(int)</a> - Method in interface org.junit.jupiter.params.aggregator.<a href="../org.junit.jupiter.params/org/junit/jupiter/params/aggregator/ArgumentsAccessor.html" title="interface in org.junit.jupiter.params.aggregator">ArgumentsAccessor</a></dt>
 <dd>
 <div class="block">Get the value of the argument at the given index as a <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Short.html" title="class or interface in java.lang" class="external-link"><code>Short</code></a>,
@@ -1814,14 +1820,32 @@ storing request-scoped data.</div>
 </dd>
 <dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.html#getStore(org.junit.jupiter.api.extension.ExtensionContext.Namespace)" class="member-name-link">getStore(ExtensionContext.Namespace)</a> - Method in interface org.junit.jupiter.api.extension.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.html" title="interface in org.junit.jupiter.api.extension">ExtensionContext</a></dt>
 <dd>
-<div class="block">Get the <a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Store.html" title="interface in org.junit.jupiter.api.extension"><code>ExtensionContext.Store</code></a> for the supplied <a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Namespace.html" title="class in org.junit.jupiter.api.extension"><code>ExtensionContext.Namespace</code></a>.</div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">Please use
+<a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.html#getStore(org.junit.jupiter.api.store.Namespace)"><code>ExtensionContext.getStore(org.junit.jupiter.api.store.Namespace)</code></a> instead.</div>
+</div>
 </dd>
 <dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.html#getStore(org.junit.jupiter.api.extension.ExtensionContext.StoreScope,org.junit.jupiter.api.extension.ExtensionContext.Namespace)" class="member-name-link">getStore(ExtensionContext.StoreScope, ExtensionContext.Namespace)</a> - Method in interface org.junit.jupiter.api.extension.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.html" title="interface in org.junit.jupiter.api.extension">ExtensionContext</a></dt>
 <dd>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">Please use
+<a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.html#getStore(org.junit.jupiter.api.extension.ExtensionContext.StoreScope,org.junit.jupiter.api.store.Namespace)"><code>ExtensionContext.getStore(StoreScope, org.junit.jupiter.api.store.Namespace)</code></a>
+instead.</div>
+</div>
+</dd>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.html#getStore(org.junit.jupiter.api.extension.ExtensionContext.StoreScope,org.junit.jupiter.api.store.Namespace)" class="member-name-link">getStore(ExtensionContext.StoreScope, Namespace)</a> - Method in interface org.junit.jupiter.api.extension.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.html" title="interface in org.junit.jupiter.api.extension">ExtensionContext</a></dt>
+<dd>
 <div class="block">Returns the store for supplied scope and namespace.</div>
 </dd>
-<dt><a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/execution/LauncherStoreFacade.html#getStoreAdapter(org.junit.platform.engine.support.store.NamespacedHierarchicalStore,org.junit.jupiter.api.extension.ExtensionContext.Namespace)" class="member-name-link">getStoreAdapter(NamespacedHierarchicalStore, ExtensionContext.Namespace)</a> - Method in class org.junit.jupiter.engine.execution.<a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/execution/LauncherStoreFacade.html" title="class in org.junit.jupiter.engine.execution">LauncherStoreFacade</a></dt>
-<dd>&nbsp;</dd>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/DiscoveryContext.html#getStore(org.junit.jupiter.api.store.Namespace)" class="member-name-link">getStore(Namespace)</a> - Method in interface org.junit.jupiter.api.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/DiscoveryContext.html" title="interface in org.junit.jupiter.api">DiscoveryContext</a></dt>
+<dd>
+<div class="block">Get an accessor to session-scoped store for the supplied namespace.</div>
+</dd>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.html#getStore(org.junit.jupiter.api.store.Namespace)" class="member-name-link">getStore(Namespace)</a> - Method in interface org.junit.jupiter.api.extension.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.html" title="interface in org.junit.jupiter.api.extension">ExtensionContext</a></dt>
+<dd>
+<div class="block">Get the <a href="../org.junit.jupiter.api/org/junit/jupiter/api/store/Store.html" title="interface in org.junit.jupiter.api.store"><code>Store</code></a> for the supplied
+<a href="../org.junit.jupiter.api/org/junit/jupiter/api/store/Namespace.html" title="interface in org.junit.jupiter.api.store"><code>Namespace</code></a>.</div>
+</dd>
 <dt><a href="../org.junit.jupiter.params/org/junit/jupiter/params/aggregator/ArgumentsAccessor.html#getString(int)" class="member-name-link">getString(int)</a> - Method in interface org.junit.jupiter.params.aggregator.<a href="../org.junit.jupiter.params/org/junit/jupiter/params/aggregator/ArgumentsAccessor.html" title="interface in org.junit.jupiter.params.aggregator">ArgumentsAccessor</a></dt>
 <dd>
 <div class="block">Get the value of the argument at the given index as a <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link"><code>String</code></a>,
@@ -2175,6 +2199,11 @@ all extensions.</div>
 <dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/parallel/Resources.html#GLOBAL" class="member-name-link">GLOBAL</a> - Static variable in class org.junit.jupiter.api.parallel.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/parallel/Resources.html" title="class in org.junit.jupiter.api.parallel">Resources</a></dt>
 <dd>
 <div class="block">Represents the global resource lock: "org.junit.platform.engine.support.hierarchical.ExclusiveResource.GLOBAL_KEY"</div>
+</dd>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/store/Namespace.html#GLOBAL" class="member-name-link">GLOBAL</a> - Static variable in interface org.junit.jupiter.api.store.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/store/Namespace.html" title="interface in org.junit.jupiter.api.store">Namespace</a></dt>
+<dd>
+<div class="block">The default, global namespace which allows access to stored data from
+all users of a store.</div>
 </dd>
 <dt><a href="../org.junit.platform.engine/org/junit/platform/engine/support/store/Namespace.html#GLOBAL" class="member-name-link">GLOBAL</a> - Static variable in class org.junit.platform.engine.support.store.<a href="../org.junit.platform.engine/org/junit/platform/engine/support/store/Namespace.html" title="class in org.junit.platform.engine.support.store">Namespace</a></dt>
 <dd>

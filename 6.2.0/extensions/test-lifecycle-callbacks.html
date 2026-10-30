@@ -517,8 +517,8 @@ import java.util.logging.Logger;
 import org.junit.jupiter.api.extension.AfterTestExecutionCallback;
 import org.junit.jupiter.api.extension.BeforeTestExecutionCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
-import org.junit.jupiter.api.extension.ExtensionContext.Namespace;
-import org.junit.jupiter.api.extension.ExtensionContext.Store;
+import org.junit.jupiter.api.store.Namespace;
+import org.junit.jupiter.api.store.Store;
 
 public class TimingExtension implements BeforeTestExecutionCallback, AfterTestExecutionCallback {
 
@@ -555,8 +555,8 @@ public class TimingExtension implements BeforeTestExecutionCallback, AfterTestEx
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import org.junit.jupiter.api.extension.AfterTestExecutionCallback
 import org.junit.jupiter.api.extension.BeforeTestExecutionCallback
 import org.junit.jupiter.api.extension.ExtensionContext
-import org.junit.jupiter.api.extension.ExtensionContext.Namespace
-import org.junit.jupiter.api.extension.ExtensionContext.Store
+import org.junit.jupiter.api.store.Namespace
+import org.junit.jupiter.api.store.Store
 import java.util.logging.Logger
 
 class TimingExtension :

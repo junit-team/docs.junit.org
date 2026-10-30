@@ -63,6 +63,7 @@ loadScripts(document, 'script');</script>
 <li><a href="org.junit.jupiter.api/org/junit/jupiter/api/function/package-tree.html">org.junit.jupiter.api.function</a>, </li>
 <li><a href="org.junit.jupiter.api/org/junit/jupiter/api/io/package-tree.html">org.junit.jupiter.api.io</a>, </li>
 <li><a href="org.junit.jupiter.api/org/junit/jupiter/api/parallel/package-tree.html">org.junit.jupiter.api.parallel</a>, </li>
+<li><a href="org.junit.jupiter.api/org/junit/jupiter/api/store/package-tree.html">org.junit.jupiter.api.store</a>, </li>
 <li><a href="org.junit.jupiter.api/org/junit/jupiter/api/timeout/package-tree.html">org.junit.jupiter.api.timeout</a>, </li>
 <li><a href="org.junit.jupiter.api/org/junit/jupiter/api/util/package-tree.html">org.junit.jupiter.api.util</a>, </li>
 <li><a href="org.junit.jupiter.engine/org/junit/jupiter/engine/package-tree.html">org.junit.jupiter.engine</a>, </li>
@@ -292,7 +293,7 @@ loadScripts(document, 'script');</script>
 <li class="circle">org.junit.platform.engine.<a href="org.junit.platform.engine/org/junit/platform/engine/ExecutionRequest.html" class="type-name-link" title="class in org.junit.platform.engine">ExecutionRequest</a></li>
 <li class="circle">org.junit.platform.testkit.engine.<a href="org.junit.platform.testkit/org/junit/platform/testkit/engine/Executions.html" class="type-name-link" title="class in org.junit.platform.testkit.engine">Executions</a></li>
 <li class="circle">org.junit.jupiter.migrationsupport.rules.<a href="org.junit.jupiter.migrationsupport/org/junit/jupiter/migrationsupport/rules/ExpectedExceptionSupport.html" class="type-name-link" title="class in org.junit.jupiter.migrationsupport.rules">ExpectedExceptionSupport</a> (implements org.junit.jupiter.api.extension.<a href="org.junit.jupiter.api/org/junit/jupiter/api/extension/AfterEachCallback.html" title="interface in org.junit.jupiter.api.extension">AfterEachCallback</a>, org.junit.jupiter.api.extension.<a href="org.junit.jupiter.api/org/junit/jupiter/api/extension/TestExecutionExceptionHandler.html" title="interface in org.junit.jupiter.api.extension">TestExecutionExceptionHandler</a>)</li>
-<li class="circle">org.junit.jupiter.api.extension.<a href="org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Namespace.html" class="type-name-link" title="class in org.junit.jupiter.api.extension">ExtensionContext.Namespace</a></li>
+<li class="circle">org.junit.jupiter.api.extension.<a href="org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Namespace.html" class="type-name-link" title="class in org.junit.jupiter.api.extension">ExtensionContext.Namespace</a> (implements org.junit.jupiter.api.store.<a href="org.junit.jupiter.api/org/junit/jupiter/api/store/Namespace.html" title="interface in org.junit.jupiter.api.store">Namespace</a>)</li>
 <li class="circle">org.junit.jupiter.engine.execution.<a href="org.junit.jupiter.engine/org/junit/jupiter/engine/execution/ExtensionContextSupplier.ScopeBasedExtensionContextSupplier.html" class="type-name-link" title="class in org.junit.jupiter.engine.execution">ExtensionContextSupplier.ScopeBasedExtensionContextSupplier</a> (implements org.junit.jupiter.engine.execution.<a href="org.junit.jupiter.engine/org/junit/jupiter/engine/execution/ExtensionContextSupplier.html" title="interface in org.junit.jupiter.engine.execution">ExtensionContextSupplier</a>)</li>
 <li class="circle">org.junit.jupiter.migrationsupport.rules.<a href="org.junit.jupiter.migrationsupport/org/junit/jupiter/migrationsupport/rules/ExternalResourceSupport.html" class="type-name-link" title="class in org.junit.jupiter.migrationsupport.rules">ExternalResourceSupport</a> (implements org.junit.jupiter.api.extension.<a href="org.junit.jupiter.api/org/junit/jupiter/api/extension/AfterEachCallback.html" title="interface in org.junit.jupiter.api.extension">AfterEachCallback</a>, org.junit.jupiter.api.extension.<a href="org.junit.jupiter.api/org/junit/jupiter/api/extension/BeforeEachCallback.html" title="interface in org.junit.jupiter.api.extension">BeforeEachCallback</a>)</li>
 <li class="circle">org.junit.platform.engine.reporting.<a href="org.junit.platform.engine/org/junit/platform/engine/reporting/FileEntry.html" class="type-name-link" title="class in org.junit.platform.engine.reporting">FileEntry</a></li>
@@ -514,7 +515,6 @@ loadScripts(document, 'script');</script>
 <li class="circle">org.junit.platform.engine.<a href="org.junit.platform.engine/org/junit/platform/engine/CancellationToken.html" class="type-name-link" title="interface in org.junit.platform.engine">CancellationToken</a></li>
 <li class="circle">org.junit.jupiter.api.<a href="org.junit.jupiter.api/org/junit/jupiter/api/ClassDescriptor.html" class="type-name-link" title="interface in org.junit.jupiter.api">ClassDescriptor</a></li>
 <li class="circle">org.junit.jupiter.api.<a href="org.junit.jupiter.api/org/junit/jupiter/api/ClassOrderer.html" class="type-name-link" title="interface in org.junit.jupiter.api">ClassOrderer</a></li>
-<li class="circle">org.junit.jupiter.api.<a href="org.junit.jupiter.api/org/junit/jupiter/api/ClassOrdererContext.html" class="type-name-link" title="interface in org.junit.jupiter.api">ClassOrdererContext</a></li>
 <li class="circle">org.junit.platform.commons.support.scanning.<a href="org.junit.platform.commons/org/junit/platform/commons/support/scanning/ClasspathScanner.html" class="type-name-link" title="interface in org.junit.platform.commons.support.scanning">ClasspathScanner</a></li>
 <li class="circle">org.junit.jupiter.api.extension.<a href="org.junit.jupiter.api/org/junit/jupiter/api/extension/ClassTemplateInvocationContext.html" class="type-name-link" title="interface in org.junit.jupiter.api.extension">ClassTemplateInvocationContext</a></li>
 <li class="circle">org.junit.platform.engine.<a href="org.junit.platform.engine/org/junit/platform/engine/ConfigurationParameters.html" class="type-name-link" title="interface in org.junit.platform.engine">ConfigurationParameters</a></li>
@@ -522,6 +522,12 @@ loadScripts(document, 'script');</script>
 <li class="circle">java.util.function.<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Consumer.html" class="type-name-link external-link" title="class or interface in java.util.function">Consumer</a>&lt;T&gt;
 <ul>
 <li class="circle">org.junit.jupiter.params.support.<a href="org.junit.jupiter.params/org/junit/jupiter/params/support/AnnotationConsumer.html" class="type-name-link" title="interface in org.junit.jupiter.params.support">AnnotationConsumer</a>&lt;A&gt;</li>
+</ul>
+</li>
+<li class="circle">org.junit.jupiter.api.<a href="org.junit.jupiter.api/org/junit/jupiter/api/DiscoveryContext.html" class="type-name-link" title="interface in org.junit.jupiter.api">DiscoveryContext</a>
+<ul>
+<li class="circle">org.junit.jupiter.api.<a href="org.junit.jupiter.api/org/junit/jupiter/api/ClassOrdererContext.html" class="type-name-link" title="interface in org.junit.jupiter.api">ClassOrdererContext</a></li>
+<li class="circle">org.junit.jupiter.api.<a href="org.junit.jupiter.api/org/junit/jupiter/api/MethodOrdererContext.html" class="type-name-link" title="interface in org.junit.jupiter.api">MethodOrdererContext</a></li>
 </ul>
 </li>
 <li class="circle">org.junit.platform.engine.<a href="org.junit.platform.engine/org/junit/platform/engine/DiscoveryIssue.html" class="type-name-link" title="interface in org.junit.platform.engine">DiscoveryIssue</a></li>
@@ -594,7 +600,6 @@ loadScripts(document, 'script');</script>
 <li class="circle">org.junit.jupiter.engine.extension.<a href="org.junit.jupiter.engine/org/junit/jupiter/engine/extension/ExtensionContextInternal.html" class="type-name-link" title="interface in org.junit.jupiter.engine.extension">ExtensionContextInternal</a></li>
 </ul>
 </li>
-<li class="circle">org.junit.jupiter.api.extension.<a href="org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Store.html" class="type-name-link" title="interface in org.junit.jupiter.api.extension">ExtensionContext.Store</a></li>
 <li class="circle">org.junit.jupiter.api.extension.<a href="org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Store.CloseableResource.html" class="type-name-link" title="interface in org.junit.jupiter.api.extension">ExtensionContext.Store.CloseableResource</a></li>
 <li class="circle">org.junit.jupiter.engine.execution.<a href="org.junit.jupiter.engine/org/junit/jupiter/engine/execution/ExtensionContextSupplier.html" class="type-name-link" title="interface in org.junit.jupiter.engine.execution">ExtensionContextSupplier</a></li>
 <li class="circle">org.junit.jupiter.engine.extension.<a href="org.junit.jupiter.engine/org/junit/jupiter/engine/extension/ExtensionRegistrar.html" class="type-name-link" title="interface in org.junit.jupiter.engine.extension">ExtensionRegistrar</a></li>
@@ -632,12 +637,12 @@ loadScripts(document, 'script');</script>
 <li class="circle">org.junit.platform.commons.logging.<a href="org.junit.platform.commons/org/junit/platform/commons/logging/Logger.html" class="type-name-link" title="interface in org.junit.platform.commons.logging">Logger</a></li>
 <li class="circle">org.junit.jupiter.api.<a href="org.junit.jupiter.api/org/junit/jupiter/api/MethodDescriptor.html" class="type-name-link" title="interface in org.junit.jupiter.api">MethodDescriptor</a></li>
 <li class="circle">org.junit.jupiter.api.<a href="org.junit.jupiter.api/org/junit/jupiter/api/MethodOrderer.html" class="type-name-link" title="interface in org.junit.jupiter.api">MethodOrderer</a></li>
-<li class="circle">org.junit.jupiter.api.<a href="org.junit.jupiter.api/org/junit/jupiter/api/MethodOrdererContext.html" class="type-name-link" title="interface in org.junit.jupiter.api">MethodOrdererContext</a></li>
 <li class="circle">org.junit.jupiter.api.<a href="org.junit.jupiter.api/org/junit/jupiter/api/Named.html" class="type-name-link" title="interface in org.junit.jupiter.api">Named</a>&lt;T&gt;
 <ul>
 <li class="circle">org.junit.jupiter.api.<a href="org.junit.jupiter.api/org/junit/jupiter/api/NamedExecutable.html" class="type-name-link" title="interface in org.junit.jupiter.api">NamedExecutable</a> (also extends org.junit.jupiter.api.function.<a href="org.junit.jupiter.api/org/junit/jupiter/api/function/Executable.html" title="interface in org.junit.jupiter.api.function">Executable</a>)</li>
 </ul>
 </li>
+<li class="circle">org.junit.jupiter.api.store.<a href="org.junit.jupiter.api/org/junit/jupiter/api/store/Namespace.html" class="type-name-link" title="interface in org.junit.jupiter.api.store">Namespace</a></li>
 <li class="circle">org.junit.platform.engine.support.store.<a href="org.junit.platform.engine/org/junit/platform/engine/support/store/NamespacedHierarchicalStore.CloseAction.html" class="type-name-link" title="interface in org.junit.platform.engine.support.store">NamespacedHierarchicalStore.CloseAction</a>&lt;N&gt;</li>
 <li class="circle">org.junit.platform.engine.support.hierarchical.<a href="org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/Node.html" class="type-name-link" title="interface in org.junit.platform.engine.support.hierarchical">Node</a>&lt;C&gt;</li>
 <li class="circle">org.junit.platform.engine.support.hierarchical.<a href="org.junit.platform.engine/org/junit/platform/engine/support/hierarchical/Node.DynamicTestExecutor.html" class="type-name-link" title="interface in org.junit.platform.engine.support.hierarchical">Node.DynamicTestExecutor</a></li>
@@ -682,6 +687,11 @@ loadScripts(document, 'script');</script>
 </li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="circle">org.junit.jupiter.api.store.<a href="org.junit.jupiter.api/org/junit/jupiter/api/store/Store.html" class="type-name-link" title="interface in org.junit.jupiter.api.store">Store</a>
+<ul>
+<li class="circle">org.junit.jupiter.api.extension.<a href="org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.Store.html" class="type-name-link" title="interface in org.junit.jupiter.api.extension">ExtensionContext.Store</a></li>
 </ul>
 </li>
 <li class="circle">org.junit.platform.commons.util.<a href="org.junit.platform.commons/org/junit/platform/commons/util/StringUtils.TwoPartSplitResult.html" class="type-name-link" title="interface in org.junit.platform.commons.util">StringUtils.TwoPartSplitResult</a></li>

@@ -21166,8 +21166,8 @@ import java.util.logging.Logger;
 import org.junit.jupiter.api.extension.AfterTestExecutionCallback;
 import org.junit.jupiter.api.extension.BeforeTestExecutionCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
-import org.junit.jupiter.api.extension.ExtensionContext.Namespace;
-import org.junit.jupiter.api.extension.ExtensionContext.Store;
+import org.junit.jupiter.api.store.Namespace;
+import org.junit.jupiter.api.store.Store;
 
 public class TimingExtension implements BeforeTestExecutionCallback, AfterTestExecutionCallback {
 
@@ -21213,8 +21213,8 @@ public class TimingExtension implements BeforeTestExecutionCallback, AfterTestEx
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import org.junit.jupiter.api.extension.AfterTestExecutionCallback
 import org.junit.jupiter.api.extension.BeforeTestExecutionCallback
 import org.junit.jupiter.api.extension.ExtensionContext
-import org.junit.jupiter.api.extension.ExtensionContext.Namespace
-import org.junit.jupiter.api.extension.ExtensionContext.Store
+import org.junit.jupiter.api.store.Namespace
+import org.junit.jupiter.api.store.Store
 import java.util.logging.Logger
 
 class TimingExtension :
@@ -22203,7 +22203,7 @@ classes and methods.</p>
 	public Object resolveParameter(ParameterContext parameterContext, ExtensionContext extensionContext) {
 
 		ExtensionContext rootContext = extensionContext.getRoot();
-		ExtensionContext.Store store = rootContext.getStore(Namespace.GLOBAL);
+		Store store = rootContext.getStore(Namespace.GLOBAL);
 		Class&lt;HttpServerResource&gt; key = HttpServerResource.class;
 		HttpServerResource resource = store.computeIfAbsent(key, __ -&gt; {
 			try {
@@ -25337,6 +25337,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.ParameterContext;
 import org.junit.jupiter.api.extension.ParameterResolver;
+import org.junit.jupiter.api.store.Namespace;
 
 @ExtendWith(HttpServerParameterResolver.class)
 class HttpTests {
@@ -25364,7 +25365,7 @@ class HttpServerParameterResolver implements ParameterResolver {
 	@Override
 	public Object resolveParameter(ParameterContext parameterContext, ExtensionContext extensionContext) {
 		return extensionContext
-				.getStore(ExtensionContext.Namespace.GLOBAL)
+				.getStore(Namespace.GLOBAL)
 				.get("httpServer", CloseableHttpServer.class) <i class="conum" data-value="1"></i><b>(1)</b>
 				.getServer();
 	}
@@ -25394,6 +25395,7 @@ import org.junit.jupiter.api.extension.ExtendWith
 import org.junit.jupiter.api.extension.ExtensionContext
 import org.junit.jupiter.api.extension.ParameterContext
 import org.junit.jupiter.api.extension.ParameterResolver
+import org.junit.jupiter.api.store.Namespace
 import java.net.HttpURLConnection
 import java.net.URI
 
@@ -25424,7 +25426,7 @@ class HttpServerParameterResolver : ParameterResolver {
         extensionContext: ExtensionContext
     ): Any =
         extensionContext
-            .getStore(ExtensionContext.Namespace.GLOBAL)
+            .getStore(Namespace.GLOBAL)
             .get("httpServer", CloseableHttpServer::class.java)!! <i class="conum" data-value="1"></i><b>(1)</b>
             .server
 }</code></pre>
@@ -27010,6 +27012,10 @@ value of lower stability.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.0</code></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DiscoveryContext.&ZeroWidthSpace;getStore(Namespace)</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.2</code></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>@DisplayNameGenerator.&ZeroWidthSpace;IndicativeSentences.&ZeroWidthSpace;SentenceFragment</code> <em>(annotation)</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.0</code></p></td>
 </tr>
@@ -27082,7 +27088,7 @@ value of lower stability.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>ExtensionContext.&ZeroWidthSpace;getStore(StoreScope, Namespace)</code> <em>(method)</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.0</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.2</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>TemplateInvocationValidationException</code> <em>(class)</em></p></td>
@@ -27813,6 +27819,14 @@ since such APIs will likely be removed in an upcoming release.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.0</code></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ExtensionContext.&ZeroWidthSpace;getStore(Namespace)</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.2</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ExtensionContext.&ZeroWidthSpace;getStore(StoreScope, Namespace)</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>6.2</code></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>ExtensionContext.&ZeroWidthSpace;publishFile(String, MediaType, ThrowingConsumer&lt;Path&gt;)</code> <em>(method)</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>5.14</code></p></td>
 </tr>
@@ -28406,6 +28420,10 @@ it has already provided now finish before the <code>@AfterEach</code> methods an
 callbacks of the factory method are executed. Previously, with parallel execution, these
 could run while the dynamic tests were still executing.</p>
 </li>
+<li>
+<p><code>ClassOrderer.Random</code> and <code>MethodOrderer.Random</code> now log the used seed only once per
+launcher session.</p>
+</li>
 </ul>
 </div>
 <h5 id="release-notes:::v6.2.0-M1-junit-jupiter-deprecations-and-breaking-changes" class="discrete 2 0-M1-junit-jupiter-deprecations-and-breaking-changes">Deprecations and Breaking Changes</h5>
@@ -28425,11 +28443,15 @@ quotes.</p>
 methods annotated with <code>@Timeout</code> is not a positive value less than 2<sup>63</sup> nanoseconds
 (approximately 292 years) a <code>PreconditionViolationException</code> is thrown.</p>
 </li>
-</ul>
+<li>
+<p><code>ExtensionContext.Namespace</code> and <code>ExtensionContext.Store</code> have been deprecated
+in favor of <code>org.junit.jupiter.api.store.Namespace</code> and
+<code>org.junit.jupiter.api.store.Store</code>. In most cases, changing the <code>Namespace</code>
+and <code>Store</code> imports suffices to migrate.</p>
+<div id="release-notes:::v6.2.0-M1-junit-jupiter-new-features-and-improvements" class="paragraph 2 0-M1-junit-jupiter-new-features-and-improvements">
+<p>==== New Features and Improvements</p>
 </div>
-<h5 id="release-notes:::v6.2.0-M1-junit-jupiter-new-features-and-improvements" class="discrete 2 0-M1-junit-jupiter-new-features-and-improvements">New Features and Improvements</h5>
-<div class="ulist">
-<ul>
+</li>
 <li>
 <p>Added <code>OS.NETBSD</code> and <code>OS.DRAGONFLYBSD</code> enum constants for use with <code>@EnabledOnOs</code>
 and <code>@DisabledOnOs</code>.</p>
@@ -28448,6 +28470,17 @@ now measure the execution time with sub-millisecond precision.</p>
 <li>
 <p>The <code>junit.jupiter.execution.parallel.config.executor-service</code> configuration parameter
 now defaults to <code>WORKER_THREAD_POOL</code> when parallel execution is enabled.</p>
+</li>
+<li>
+<p>Implementations of <code>ClassOrderer</code> or <code>MethodOrderer</code> may now access the store scoped to
+the enclosing launcher session via the new <code>DiscoveryContext.getStore(&#8230;&#8203;)</code> API.
+This can be used to store or cache information that is reused during test execution or
+later discovery phases.</p>
+</li>
+<li>
+<p>New <code>org.junit.jupiter.api.store</code> package containing <code>Store</code> and <code>Namespace</code> interfaces
+which are now extended by <code>ExtensionContext.Store</code> and <code>ExtensionContext.Namespace</code>,
+respectively.</p>
 </li>
 </ul>
 </div>

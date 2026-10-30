@@ -591,7 +591,7 @@ instead.</div>
 <dd>
 <div class="block">Default implementation of the <a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/config/JupiterConfiguration.html" title="interface in org.junit.jupiter.engine.config"><code>JupiterConfiguration</code></a> API.</div>
 </dd>
-<dt><a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/config/DefaultJupiterConfiguration.html#%3Cinit%3E(org.junit.platform.engine.ConfigurationParameters,org.junit.platform.engine.OutputDirectoryCreator,org.junit.platform.engine.support.discovery.DiscoveryIssueReporter)" class="member-name-link">DefaultJupiterConfiguration(ConfigurationParameters, OutputDirectoryCreator, DiscoveryIssueReporter)</a> - Constructor for class org.junit.jupiter.engine.config.<a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/config/DefaultJupiterConfiguration.html" title="class in org.junit.jupiter.engine.config">DefaultJupiterConfiguration</a></dt>
+<dt><a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/config/DefaultJupiterConfiguration.html#%3Cinit%3E(org.junit.platform.engine.ConfigurationParameters,org.junit.platform.engine.OutputDirectoryCreator,org.junit.platform.engine.support.discovery.DiscoveryIssueReporter,org.junit.platform.engine.support.store.NamespacedHierarchicalStore)" class="member-name-link">DefaultJupiterConfiguration(ConfigurationParameters, OutputDirectoryCreator, DiscoveryIssueReporter, NamespacedHierarchicalStore)</a> - Constructor for class org.junit.jupiter.engine.config.<a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/config/DefaultJupiterConfiguration.html" title="class in org.junit.jupiter.engine.config">DefaultJupiterConfiguration</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/util/DefaultLocale.html" class="type-name-link" title="annotation interface in org.junit.jupiter.api.util">DefaultLocale</a> - Annotation Interface in <a href="../org.junit.jupiter.api/org/junit/jupiter/api/util/package-summary.html">org.junit.jupiter.api.util</a></dt>
 <dd>
@@ -981,6 +981,11 @@ should cause a failure: "junit.platform.discovery.issue.failure.phase"</div>
 <div class="deprecation-block"><span class="deprecated-label">Deprecated.</span></div>
 <div class="block">Property name used to configure whether the JUnit Vintage engine should
 report discovery issues such as deprecation notices: "junit.vintage.discovery.issue.reporting.enabled"</div>
+</dd>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/DiscoveryContext.html" class="type-name-link" title="interface in org.junit.jupiter.api">DiscoveryContext</a> - Interface in <a href="../org.junit.jupiter.api/org/junit/jupiter/api/package-summary.html">org.junit.jupiter.api</a></dt>
+<dd>
+<div class="block"><code>DiscoveryContext</code> encapsulates the <em>context</em> available to SPIs
+during test discovery.</div>
 </dd>
 <dt><a href="../org.junit.platform.engine/org/junit/platform/engine/DiscoveryFilter.html" class="type-name-link" title="interface in org.junit.platform.engine">DiscoveryFilter&lt;T&gt;</a> - Interface in <a href="../org.junit.platform.engine/org/junit/platform/engine/package-summary.html">org.junit.platform.engine</a></dt>
 <dd>
