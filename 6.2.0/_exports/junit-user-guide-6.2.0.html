@@ -28336,6 +28336,13 @@ other code if a file system for the same jar file has already been opened elsewh
 <p>Classpath scanning now finds packages within jar files whose names contain non-ASCII
 characters.</p>
 </li>
+<li>
+<p>Validate configuration parameters for <code>fixed.parallelism</code> and <code>fixed.max-pool-size</code>.</p>
+</li>
+<li>
+<p>For the <code>fixed</code> and <code>dynamic</code> strategy limit the calculated max pool size to
+<code>Integer.MAX_VALUE</code>.</p>
+</li>
 </ul>
 </div>
 <h5 id="release-notes:::v6.2.0-M1-junit-platform-deprecations-and-breaking-changes" class="discrete 2 0-M1-junit-platform-deprecations-and-breaking-changes">Deprecations and Breaking Changes</h5>
