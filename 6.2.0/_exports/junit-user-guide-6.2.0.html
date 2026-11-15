@@ -28299,10 +28299,35 @@ declarations.</p>
 </div>
 <h3 id="release-notes:::v6.2.0-M1" class="discrete 2 0-M1">6.2.0-M1</h3>
 <div class="paragraph">
-<p><strong>Date of Release:</strong> ❓</p>
+<p><strong>Date of Release:</strong> November 15, 2026</p>
 </div>
 <div class="paragraph">
-<p><strong>Scope:</strong> ❓</p>
+<p><strong>Scope:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Machine-readable documentation of configuration parameters for IDEs</p>
+</li>
+<li>
+<p>New parallel test executor implementation is now used by default</p>
+</li>
+<li>
+<p>Session-scoped store available to test engines and orderers during discovery</p>
+</li>
+<li>
+<p>Stricter parsing of <code>@CsvSource.value[]</code> records</p>
+</li>
+<li>
+<p>Sub-millisecond precision and thread dump hint for timeouts</p>
+</li>
+<li>
+<p>New <code>@Disabled</code> annotation for <code>@Suite</code> classes</p>
+</li>
+<li>
+<p>Kotlin <code>assertThrows</code> variants that take the exception class as a value</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>For a complete list of all <em>closed</em> issues and pull requests for this release, consult the
@@ -28348,14 +28373,6 @@ characters.</p>
 </li>
 </ul>
 </div>
-<h5 id="release-notes:::v6.2.0-M1-junit-platform-deprecations-and-breaking-changes" class="discrete 2 0-M1-junit-platform-deprecations-and-breaking-changes">Deprecations and Breaking Changes</h5>
-<div class="ulist">
-<ul>
-<li>
-<p>❓</p>
-</li>
-</ul>
-</div>
 <h5 id="release-notes:::v6.2.0-M1-junit-platform-new-features-and-improvements" class="discrete 2 0-M1-junit-platform-new-features-and-improvements">New Features and Improvements</h5>
 <div class="ulist">
 <ul>
@@ -28389,11 +28406,12 @@ reported output from different tests could interleave.</p>
 <li>
 <p>Test Engine and Jupiter Extension authors may generate a machine-readable overview
 of configuration parameters. See
-<a href="advanced-topics/configuration-parameter-documentation.html">Documenting Configuration
-Parameters</a> for more information.</p>
+<a href="advanced-topics/configuration-parameter-documentation.html">Documenting
+Configuration Parameters</a> for more information.</p>
 </li>
 <li>
-<p>Platform configuration parameters are documented in <code>META-INF/junit-platform-configuration-metadata.json</code></p>
+<p>Platform configuration parameters are documented in
+<code>META-INF/junit-platform-configuration-metadata.json</code></p>
 </li>
 <li>
 <p>Test engines using the <code>ParallelHierarchicalTestExecutorServiceFactory</code> now use the
@@ -28458,10 +28476,12 @@ methods annotated with <code>@Timeout</code> is not a positive value less than 2
 in favor of <code>org.junit.jupiter.api.store.Namespace</code> and
 <code>org.junit.jupiter.api.store.Store</code>. In most cases, changing the <code>Namespace</code>
 and <code>Store</code> imports suffices to migrate.</p>
-<div id="release-notes:::v6.2.0-M1-junit-jupiter-new-features-and-improvements" class="paragraph 2 0-M1-junit-jupiter-new-features-and-improvements">
-<p>==== New Features and Improvements</p>
-</div>
 </li>
+</ul>
+</div>
+<h5 id="release-notes:::v6.2.0-M1-junit-jupiter-new-features-and-improvements" class="discrete 2 0-M1-junit-jupiter-new-features-and-improvements">New Features and Improvements</h5>
+<div class="ulist">
+<ul>
 <li>
 <p>Added <code>OS.NETBSD</code> and <code>OS.DRAGONFLYBSD</code> enum constants for use with <code>@EnabledOnOs</code>
 and <code>@DisabledOnOs</code>.</p>
@@ -28475,7 +28495,8 @@ and <code>@DisabledOnOs</code>.</p>
 now measure the execution time with sub-millisecond precision.</p>
 </li>
 <li>
-<p>Jupiter configuration parameters are documented in <code>META-INF/junit-platform-configuration-metadata.json</code></p>
+<p>Jupiter configuration parameters are documented in
+<code>META-INF/junit-platform-configuration-metadata.json</code></p>
 </li>
 <li>
 <p>The <code>junit.jupiter.execution.parallel.config.executor-service</code> configuration parameter
@@ -28495,27 +28516,12 @@ respectively.</p>
 </ul>
 </div>
 <h4 id="release-notes:::v6.2.0-M1-junit-vintage" class="discrete 2 0-M1-junit-vintage">JUnit Vintage</h4>
-<h5 id="release-notes:::v6.2.0-M1-junit-vintage-bug-fixes" class="discrete 2 0-M1-junit-vintage-bug-fixes">Bug Fixes</h5>
-<div class="ulist">
-<ul>
-<li>
-<p>❓</p>
-</li>
-</ul>
-</div>
-<h5 id="release-notes:::v6.2.0-M1-junit-vintage-deprecations-and-breaking-changes" class="discrete 2 0-M1-junit-vintage-deprecations-and-breaking-changes">Deprecations and Breaking Changes</h5>
-<div class="ulist">
-<ul>
-<li>
-<p>❓</p>
-</li>
-</ul>
-</div>
 <h5 id="release-notes:::v6.2.0-M1-junit-vintage-new-features-and-improvements" class="discrete 2 0-M1-junit-vintage-new-features-and-improvements">New Features and Improvements</h5>
 <div class="ulist">
 <ul>
 <li>
-<p>Vintage configuration parameters are documented in <code>META-INF/junit-platform-configuration-metadata.json</code></p>
+<p>Vintage configuration parameters are documented in
+<code>META-INF/junit-platform-configuration-metadata.json</code></p>
 </li>
 </ul>
 </div>
