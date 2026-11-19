@@ -421,7 +421,7 @@ For the latest stable release, please see <a href="../../6.1.3/index.html">JUnit
 <div class="paragraph">
 <p>Authors of test engines and JUnit Jupiter extensions may generate a machine-readable
 overview of configuration parameters by annotating their configuration parameters
-with <code><a href="../api/org.junit.platform.configuration.api/org/junit/platform/configuration/api/ConfigurationParameter.html" class="xref attachment">ConfigurationParameter</a></code> and <code><a href="../api/org.junit.platform.configuration.api/org/junit/platform/configuration/api/ConfigurationParameterGroup.html" class="xref attachment">ConfigurationParameterGroup</a></code> from
+with <code><a href="../api/org.junit.platform.configuration.api/org/junit/platform/configuration/api/ConfigurationParameter.html" class="xref attachment">@ConfigurationParameter</a></code> and <code><a href="../api/org.junit.platform.configuration.api/org/junit/platform/configuration/api/ConfigurationParameterGroup.html" class="xref attachment">@ConfigurationParameterGroup</a></code> from
 the <code>org.junit.platform:junit-platform-configuration-api</code> artifact.</p>
 </div>
 <div class="listingblock">
@@ -459,8 +459,8 @@ public class ConfigurationParametersDemo {
 </div>
 <div class="paragraph">
 <p>Processing the annotations with <code>org.junit.platform:junit-platform-configuration-processor</code>
-will produce a <code>META-INF/junit-platform-configuration-metadata.json</code> file in the format
-of <a href="https://docs.spring.io/spring-boot/specification/configuration-metadata/format.html">Spring Boots Configuration Metadata</a>. This file can then be used to generate documentation
+will produce a <code>META-INF/junit-platform-configuration-metadata.json</code> file in the format of
+the <a href="https://docs.spring.io/spring-boot/specification/configuration-metadata/format.html">Spring Boot Configuration Metadata</a>. This file can then be used to generate documentation
 or provide code completion by IDEs. An example is shown below.</p>
 </div>
 <div class="listingblock">
@@ -508,7 +508,7 @@ the first paragraph contains tags these will be sensibly replaced.</p>
 <div class="paragraph">
 <p>When the <code>type</code> is an enum or interface, hints will be automatically generated. The first
 paragraph of the enum constant is used to describe the enum value. If the allowed values
-are not enumerable, <a href="../api/org.junit.platform.configuration.api/org/junit/platform/configuration/api/ConfigurationParameter.html#hints()" class="xref attachment">ConfigurationParameter.hints()</a> can be used to provide
+are not enumerable, <a href="../api/org.junit.platform.configuration.api/org/junit/platform/configuration/api/ConfigurationParameter.html#hints()" class="xref attachment">@ConfigurationParameter.hints()</a> can be used to provide
 examples instead.</p>
 </div>
 </div>
