@@ -66,14 +66,16 @@ loadScripts(document, 'script');</script>
 <li><a href="#isKotlinSuspendingFunction(java.lang.reflect.Method)" tabindex="0">isKotlinSuspendingFunction(Method)</a></li>
 <li><a href="#isKotlinInterfaceDefaultImplsClass(java.lang.Class)" tabindex="0">isKotlinInterfaceDefaultImplsClass(Class)</a></li>
 <li><a href="#isKotlinType(java.lang.Class)" tabindex="0">isKotlinType(Class)</a></li>
-<li><a href="#isKotlinReflectPresent()" tabindex="0">isKotlinReflectPresent()</a></li>
 <li><a href="#getKotlinSuspendingFunctionReturnType(java.lang.reflect.Method)" tabindex="0">getKotlinSuspendingFunctionReturnType(Method)</a></li>
 <li><a href="#getKotlinSuspendingFunctionGenericReturnType(java.lang.reflect.Method)" tabindex="0">getKotlinSuspendingFunctionGenericReturnType(Method)</a></li>
 <li><a href="#getKotlinSuspendingFunctionParameters(java.lang.reflect.Method)" tabindex="0">getKotlinSuspendingFunctionParameters(Method)</a></li>
 <li><a href="#getKotlinSuspendingFunctionParameterTypes(java.lang.reflect.Method)" tabindex="0">getKotlinSuspendingFunctionParameterTypes(Method)</a></li>
+<li><a href="#getKotlinConstructor(java.lang.Class)" tabindex="0">getKotlinConstructor(Class)</a></li>
 <li><a href="#invokeKotlinSuspendingFunction(java.lang.reflect.Method,java.lang.Object,java.lang.Object%5B%5D)" tabindex="0">invokeKotlinSuspendingFunction(Method, Object, Object[])</a></li>
 <li><a href="#isInstanceOfInlineType(java.lang.Object)" tabindex="0">isInstanceOfInlineType(Object)</a></li>
+<li><a href="#isInlineTypeAssignableTo(java.lang.Object,java.lang.Class)" tabindex="0">isInlineTypeAssignableTo(Object, Class)</a></li>
 <li><a href="#invokeKotlinFunction(java.lang.reflect.Method,java.lang.Object,java.lang.Object...)" tabindex="0">invokeKotlinFunction(Method, Object, Object...)</a></li>
+<li><a href="#newInstance(java.lang.reflect.Constructor,java.lang.Object...)" tabindex="0">newInstance(Constructor, Object...)</a></li>
 </ol>
 </li>
 </ol>
@@ -113,27 +115,34 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/reflect/Type.html" title="class or interface in java.lang.reflect" class="external-link">Type</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getKotlinSuspendingFunctionGenericReturnType(java.lang.reflect.Method)" class="member-name-link">getKotlinSuspendingFunctionGenericReturnType</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/reflect/Method.html" title="class or interface in java.lang.reflect" class="external-link">Method</a>&nbsp;method)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;T&gt;&nbsp;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/reflect/Constructor.html" title="class or interface in java.lang.reflect" class="external-link">Constructor</a><wbr>&lt;T&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getKotlinConstructor(java.lang.Class)" class="member-name-link">getKotlinConstructor</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;T&gt;&nbsp;clazz)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/reflect/Parameter.html" title="class or interface in java.lang.reflect" class="external-link">Parameter</a>[]</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getKotlinSuspendingFunctionParameters(java.lang.reflect.Method)" class="member-name-link">getKotlinSuspendingFunctionParameters</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/reflect/Method.html" title="class or interface in java.lang.reflect" class="external-link">Method</a>&nbsp;method)</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/reflect/Type.html" title="class or interface in java.lang.reflect" class="external-link">Type</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getKotlinSuspendingFunctionGenericReturnType(java.lang.reflect.Method)" class="member-name-link">getKotlinSuspendingFunctionGenericReturnType</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/reflect/Method.html" title="class or interface in java.lang.reflect" class="external-link">Method</a>&nbsp;method)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;?&gt;[]</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getKotlinSuspendingFunctionParameterTypes(java.lang.reflect.Method)" class="member-name-link">getKotlinSuspendingFunctionParameterTypes</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/reflect/Method.html" title="class or interface in java.lang.reflect" class="external-link">Method</a>&nbsp;method)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/reflect/Parameter.html" title="class or interface in java.lang.reflect" class="external-link">Parameter</a>[]</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getKotlinSuspendingFunctionParameters(java.lang.reflect.Method)" class="member-name-link">getKotlinSuspendingFunctionParameters</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/reflect/Method.html" title="class or interface in java.lang.reflect" class="external-link">Method</a>&nbsp;method)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a><wbr>&lt;?&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getKotlinSuspendingFunctionReturnType(java.lang.reflect.Method)" class="member-name-link">getKotlinSuspendingFunctionReturnType</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/reflect/Method.html" title="class or interface in java.lang.reflect" class="external-link">Method</a>&nbsp;method)</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;?&gt;[]</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getKotlinSuspendingFunctionParameterTypes(java.lang.reflect.Method)" class="member-name-link">getKotlinSuspendingFunctionParameterTypes</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/reflect/Method.html" title="class or interface in java.lang.reflect" class="external-link">Method</a>&nbsp;method)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://jspecify.dev/docs/api/org/jspecify/annotations/Nullable.html" title="class or interface in org.jspecify.annotations" class="external-link">@Nullable</a> <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#invokeKotlinFunction(java.lang.reflect.Method,java.lang.Object,java.lang.Object...)" class="member-name-link">invokeKotlinFunction</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/reflect/Method.html" title="class or interface in java.lang.reflect" class="external-link">Method</a>&nbsp;method,
- <a href="https://jspecify.dev/docs/api/org/jspecify/annotations/Nullable.html" title="class or interface in org.jspecify.annotations" class="external-link">@Nullable</a> <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;target,
- <a href="https://jspecify.dev/docs/api/org/jspecify/annotations/Nullable.html" title="class or interface in org.jspecify.annotations" class="external-link">@Nullable</a> <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>...&nbsp;args)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a><wbr>&lt;?&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getKotlinSuspendingFunctionReturnType(java.lang.reflect.Method)" class="member-name-link">getKotlinSuspendingFunctionReturnType</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/reflect/Method.html" title="class or interface in java.lang.reflect" class="external-link">Method</a>&nbsp;method)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://jspecify.dev/docs/api/org/jspecify/annotations/Nullable.html" title="class or interface in org.jspecify.annotations" class="external-link">@Nullable</a> <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#invokeKotlinSuspendingFunction(java.lang.reflect.Method,java.lang.Object,java.lang.Object%5B%5D)" class="member-name-link">invokeKotlinSuspendingFunction</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/reflect/Method.html" title="class or interface in java.lang.reflect" class="external-link">Method</a>&nbsp;method,
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#invokeKotlinFunction(java.lang.reflect.Method,java.lang.Object,java.lang.Object...)" class="member-name-link">invokeKotlinFunction</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/reflect/Method.html" title="class or interface in java.lang.reflect" class="external-link">Method</a>&nbsp;method,
+ <a href="https://jspecify.dev/docs/api/org/jspecify/annotations/Nullable.html" title="class or interface in org.jspecify.annotations" class="external-link">@Nullable</a> <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;target,
+ <a href="https://jspecify.dev/docs/api/org/jspecify/annotations/Nullable.html" title="class or interface in org.jspecify.annotations" class="external-link">@Nullable</a> <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>...&nbsp;args)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://jspecify.dev/docs/api/org/jspecify/annotations/Nullable.html" title="class or interface in org.jspecify.annotations" class="external-link">@Nullable</a> <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#invokeKotlinSuspendingFunction(java.lang.reflect.Method,java.lang.Object,java.lang.Object%5B%5D)" class="member-name-link">invokeKotlinSuspendingFunction</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/reflect/Method.html" title="class or interface in java.lang.reflect" class="external-link">Method</a>&nbsp;method,
  <a href="https://jspecify.dev/docs/api/org/jspecify/annotations/Nullable.html" title="class or interface in org.jspecify.annotations" class="external-link">@Nullable</a> <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;target,
  <a href="https://jspecify.dev/docs/api/org/jspecify/annotations/Nullable.html" title="class or interface in org.jspecify.annotations" class="external-link">@Nullable</a> <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>[]&nbsp;args)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isInlineTypeAssignableTo(java.lang.Object,java.lang.Class)" class="member-name-link">isInlineTypeAssignableTo</a><wbr>(<a href="https://jspecify.dev/docs/api/org/jspecify/annotations/Nullable.html" title="class or interface in org.jspecify.annotations" class="external-link">@Nullable</a> <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;value,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;?&gt;&nbsp;targetType)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isInstanceOfInlineType(java.lang.Object)" class="member-name-link">isInstanceOfInlineType</a><wbr>(<a href="https://jspecify.dev/docs/api/org/jspecify/annotations/Nullable.html" title="class or interface in org.jspecify.annotations" class="external-link">@Nullable</a> <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;value)</code></div>
@@ -145,13 +154,14 @@ loadScripts(document, 'script');</script>
 generated by the Kotlin compiler.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isKotlinReflectPresent()" class="member-name-link">isKotlinReflectPresent</a>()</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isKotlinSuspendingFunction(java.lang.reflect.Method)" class="member-name-link">isKotlinSuspendingFunction</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/reflect/Method.html" title="class or interface in java.lang.reflect" class="external-link">Method</a>&nbsp;method)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isKotlinSuspendingFunction(java.lang.reflect.Method)" class="member-name-link">isKotlinSuspendingFunction</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/reflect/Method.html" title="class or interface in java.lang.reflect" class="external-link">Method</a>&nbsp;method)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isKotlinType(java.lang.Class)" class="member-name-link">isKotlinType</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;?&gt;&nbsp;clazz)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isKotlinType(java.lang.Class)" class="member-name-link">isKotlinType</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;?&gt;&nbsp;clazz)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;T&gt;&nbsp;T</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#newInstance(java.lang.reflect.Constructor,java.lang.Object...)" class="member-name-link">newInstance</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/reflect/Constructor.html" title="class or interface in java.lang.reflect" class="external-link">Constructor</a>&lt;T&gt;&nbsp;constructor,
+ <a href="https://jspecify.dev/docs/api/org/jspecify/annotations/Nullable.html" title="class or interface in org.jspecify.annotations" class="external-link">@Nullable</a> <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>...&nbsp;args)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
@@ -209,16 +219,6 @@ for details.</div>
 </section>
 </li>
 <li>
-<section class="detail" id="isKotlinReflectPresent()">
-<h3>isKotlinReflectPresent</h3>
-<div class="horizontal-scroll">
-<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#INTERNAL" title="class or interface in org.apiguardian.api" class="external-link">INTERNAL</a>,
-     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.1")
-</span><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isKotlinReflectPresent</span>()</div>
-</div>
-</section>
-</li>
-<li>
 <section class="detail" id="getKotlinSuspendingFunctionReturnType(java.lang.reflect.Method)">
 <h3>getKotlinSuspendingFunctionReturnType</h3>
 <div class="horizontal-scroll">
@@ -251,6 +251,16 @@ for details.</div>
 </section>
 </li>
 <li>
+<section class="detail" id="getKotlinConstructor(java.lang.Class)">
+<h3>getKotlinConstructor</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#INTERNAL" title="class or interface in org.apiguardian.api" class="external-link">INTERNAL</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.2")
+</span><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/reflect/Constructor.html" title="class or interface in java.lang.reflect" class="external-link">Constructor</a>&lt;T&gt;</span>&nbsp;<span class="element-name">getKotlinConstructor</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;T&gt;&nbsp;clazz)</span></div>
+</div>
+</section>
+</li>
+<li>
 <section class="detail" id="invokeKotlinSuspendingFunction(java.lang.reflect.Method,java.lang.Object,java.lang.Object[])">
 <h3>invokeKotlinSuspendingFunction</h3>
 <div class="horizontal-scroll">
@@ -271,6 +281,17 @@ for details.</div>
 </section>
 </li>
 <li>
+<section class="detail" id="isInlineTypeAssignableTo(java.lang.Object,java.lang.Class)">
+<h3>isInlineTypeAssignableTo</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#INTERNAL" title="class or interface in org.apiguardian.api" class="external-link">INTERNAL</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.2")
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isInlineTypeAssignableTo</span><wbr><span class="parameters">(<a href="https://jspecify.dev/docs/api/org/jspecify/annotations/Nullable.html" title="class or interface in org.jspecify.annotations" class="external-link">@Nullable</a> <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;value,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;?&gt;&nbsp;targetType)</span></div>
+</div>
+</section>
+</li>
+<li>
 <section class="detail" id="invokeKotlinFunction(java.lang.reflect.Method,java.lang.Object,java.lang.Object...)">
 <h3>invokeKotlinFunction</h3>
 <div class="horizontal-scroll">
@@ -278,6 +299,17 @@ for details.</div>
      <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.1")
 </span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://jspecify.dev/docs/api/org/jspecify/annotations/Nullable.html" title="class or interface in org.jspecify.annotations" class="external-link">@Nullable</a> <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span>&nbsp;<span class="element-name">invokeKotlinFunction</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/reflect/Method.html" title="class or interface in java.lang.reflect" class="external-link">Method</a>&nbsp;method,
  <a href="https://jspecify.dev/docs/api/org/jspecify/annotations/Nullable.html" title="class or interface in org.jspecify.annotations" class="external-link">@Nullable</a> <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;target,
+ <a href="https://jspecify.dev/docs/api/org/jspecify/annotations/Nullable.html" title="class or interface in org.jspecify.annotations" class="external-link">@Nullable</a> <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>...&nbsp;args)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="newInstance(java.lang.reflect.Constructor,java.lang.Object...)">
+<h3>newInstance</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#INTERNAL" title="class or interface in org.apiguardian.api" class="external-link">INTERNAL</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.2")
+</span><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name">newInstance</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/reflect/Constructor.html" title="class or interface in java.lang.reflect" class="external-link">Constructor</a>&lt;T&gt;&nbsp;constructor,
  <a href="https://jspecify.dev/docs/api/org/jspecify/annotations/Nullable.html" title="class or interface in org.jspecify.annotations" class="external-link">@Nullable</a> <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>...&nbsp;args)</span></div>
 </div>
 </section>
