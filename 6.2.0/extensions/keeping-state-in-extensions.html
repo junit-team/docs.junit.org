@@ -417,6 +417,8 @@
 </strong><br/>
 For the latest stable release, please see <a href="../../6.1.3/extensions/keeping-state-in-extensions.html">JUnit 6.1.3</a>!
 </div>
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
 <p>Usually, an extension is instantiated only once. So the question becomes relevant: How do
 you keep the state from one invocation of an extension to the next? The
@@ -791,6 +793,216 @@ version is being used.</p>
 </td>
 </tr>
 </table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="constructor-parameters"><a class="anchor" href="#constructor-parameters"></a>Sharing State with Test Class Constructors</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When an extension resolves parameters for test class constructors, keep in mind that the
+point in time at which a test instance is created depends on the
+<a href="../writing-tests/test-instance-lifecycle.html" class="xref page">test instance lifecycle</a>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>With the default <code>PER_METHOD</code> lifecycle, a new test instance is created for each test
+method&#8201;&#8212;&#8201;<em>after</em> <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/BeforeAllCallback.html" class="xref attachment">BeforeAllCallback</a></code> extensions and <code>@BeforeAll</code> methods have been
+invoked but <em>before</em> <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/BeforeEachCallback.html" class="xref attachment">BeforeEachCallback</a></code> extensions and <code>@BeforeEach</code> methods.</p>
+</li>
+<li>
+<p>With the <code>PER_CLASS</code> lifecycle, the test instance is created only once per test class&#8201;&#8212;&#8201;<em>before</em> the <code>BeforeAllCallback</code> extensions and <code>@BeforeAll</code> methods of that class
+are invoked, so that non-static <code>@BeforeAll</code> methods can be invoked on it.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Consequently, a <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/ParameterResolver.html" class="xref attachment">ParameterResolver</a></code> should not rely on a value that a
+<code>BeforeAllCallback</code> puts into the <code>Store</code>: with the <code>PER_CLASS</code> lifecycle, that value
+does not exist yet when constructor parameters are resolved. Instead, both <code>beforeAll()</code>
+and <code>resolveParameter()</code> should obtain the value via a shared helper method that creates
+and initializes it lazily using <code>Store.computeIfAbsent(&#8230;&#8203;)</code>. Whichever of them is
+invoked first then creates the value, and the other one reuses it.</p>
+</div>
+<div id="tabs-5" class="openblock tabs is-sync is-loading">
+<div class="title">Lazily creating a resource shared by <code><em>beforeAll()</em></code> and <code><em>resolveParameter()</em></code></div>
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-5-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-5-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-5-java--panel" class="tabpanel" aria-labelledby="tabs-5-java">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class DatabaseExtension implements BeforeAllCallback, ParameterResolver {
+
+	private static final Namespace NAMESPACE = Namespace.create(DatabaseExtension.class);
+
+	@Override
+	public void beforeAll(ExtensionContext context) {
+		Database database = getOrCreateDatabase(context); <i class="conum" data-value="1"></i><b>(1)</b>
+		database.insert("testClass", context.getRequiredTestClass().getSimpleName());
+	}
+
+	@Override
+	public boolean supportsParameter(ParameterContext parameterContext, ExtensionContext extensionContext) {
+		return Database.class.equals(parameterContext.getParameter().getType());
+	}
+
+	@Override
+	public Object resolveParameter(ParameterContext parameterContext, ExtensionContext extensionContext) {
+		return getOrCreateDatabase(extensionContext); <i class="conum" data-value="2"></i><b>(2)</b>
+	}
+
+	private static Database getOrCreateDatabase(ExtensionContext context) {
+		return context.getStore(NAMESPACE).computeIfAbsent(Database.class, __ -&gt; {
+			Database database = new Database(); <i class="conum" data-value="3"></i><b>(3)</b>
+			database.insert("greeting", "Hello");
+			return database;
+		}, Database.class);
+	}
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-5-kotlin--panel" class="tabpanel" aria-labelledby="tabs-5-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">class DatabaseExtension :
+    BeforeAllCallback,
+    ParameterResolver {
+    override fun beforeAll(context: ExtensionContext) {
+        val database = getOrCreateDatabase(context) <i class="conum" data-value="1"></i><b>(1)</b>
+        database.insert("testClass", context.requiredTestClass.simpleName)
+    }
+
+    override fun supportsParameter(
+        parameterContext: ParameterContext,
+        extensionContext: ExtensionContext
+    ): Boolean = Database::class.java == parameterContext.parameter.type
+
+    override fun resolveParameter(
+        parameterContext: ParameterContext,
+        extensionContext: ExtensionContext
+    ): Any = getOrCreateDatabase(extensionContext) <i class="conum" data-value="2"></i><b>(2)</b>
+
+    private fun getOrCreateDatabase(context: ExtensionContext): Database =
+        context.getStore(NAMESPACE).computeIfAbsent(Database::class.java, {
+            Database().apply { insert("greeting", "Hello") } <i class="conum" data-value="3"></i><b>(3)</b>
+        }, Database::class.java)
+
+    companion object {
+        private val NAMESPACE = Namespace.create(DatabaseExtension::class.java)
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td><code>beforeAll()</code> uses the same database. Data inserted here is visible to test methods
+but&#8201;&#8212;&#8201;with the <code>PER_CLASS</code> lifecycle&#8201;&#8212;&#8201;not yet to the test class constructor.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Resolving a constructor parameter creates the database if <code>beforeAll()</code> has not been
+invoked yet, which is the case for the <code>PER_CLASS</code> lifecycle.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Everything that constructor parameters depend on is initialized when the database
+is created, regardless of which method creates it.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following test class uses the <code>PER_CLASS</code> lifecycle, so its constructor is invoked
+before <code>beforeAll()</code>. It works with the default <code>PER_METHOD</code> lifecycle as well.</p>
+</div>
+<div id="tabs-6" class="openblock tabs is-sync is-loading">
+<div class="title">A test class using the <code><em>DatabaseExtension</em></code></div>
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="tabs-6-java" class="tab">
+<p>Java</p>
+</li>
+<li id="tabs-6-kotlin" class="tab">
+<p>Kotlin</p>
+</li>
+</ul>
+</div>
+<div id="tabs-6-java--panel" class="tabpanel" aria-labelledby="tabs-6-java">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@ExtendWith(DatabaseExtension.class)
+@TestInstance(Lifecycle.PER_CLASS) // also works with the default PER_METHOD lifecycle
+class DatabaseDemo {
+
+	private final Database database;
+
+	private final String greeting;
+
+	DatabaseDemo(Database database) {
+		this.database = database;
+		this.greeting = database.find("greeting").orElseThrow(); <i class="conum" data-value="1"></i><b>(1)</b>
+	}
+
+	@Test
+	void dataIsAvailable() {
+		assertEquals("Hello", greeting);
+		assertEquals(Optional.of("DatabaseDemo"), database.find("testClass")); <i class="conum" data-value="2"></i><b>(2)</b>
+	}
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="tabs-6-kotlin--panel" class="tabpanel" aria-labelledby="tabs-6-kotlin">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@ExtendWith(DatabaseExtension::class)
+@TestInstance(Lifecycle.PER_CLASS) // also works with the default PER_METHOD lifecycle
+class DatabaseDemo(
+    private val database: Database
+) {
+    private val greeting = checkNotNull(database.find("greeting")) <i class="conum" data-value="1"></i><b>(1)</b>
+
+    @Test
+    fun dataIsAvailable() {
+        assertEquals("Hello", greeting)
+        assertEquals("DatabaseDemo", database.find("testClass")) <i class="conum" data-value="2"></i><b>(2)</b>
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The data inserted when the database was created is already available in the
+constructor.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>The data inserted by <code>beforeAll()</code> is available in test methods.</td>
+</tr>
+</table>
+</div>
+</div>
 </div>
 <nav class="pagination">
   <span class="prev"><a href="providing-invocation-contexts-for-test-templates.html">Providing Invocation Contexts for Test Templates</a></span>

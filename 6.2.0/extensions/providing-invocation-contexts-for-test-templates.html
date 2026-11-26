@@ -421,8 +421,9 @@ For the latest stable release, please see <a href="../../6.1.3/extensions/provid
 <p>A <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/TestTemplate.html" class="xref attachment">@TestTemplate</a></code> method can only be executed when at least one
 <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/TestTemplateInvocationContextProvider.html" class="xref attachment">TestTemplateInvocationContextProvider</a></code> is registered. Each such provider is responsible
 for providing a <code>Stream</code> of <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/TestTemplateInvocationContext.html" class="xref attachment">TestTemplateInvocationContext</a></code> instances. Each context may
-specify a custom display name and a list of additional extensions that will only be used
-for the next invocation of the <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/TestTemplate.html" class="xref attachment">@TestTemplate</a></code> method.</p>
+specify a custom display name, an optional custom test source <code>URI</code>, and a list of
+additional extensions that will only be used for the next invocation of the
+<code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/TestTemplate.html" class="xref attachment">@TestTemplate</a></code> method.</p>
 </div>
 <div class="paragraph">
 <p>The following example shows how to write a test template as well as how to register and

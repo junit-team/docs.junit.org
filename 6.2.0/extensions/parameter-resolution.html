@@ -502,6 +502,23 @@ resolving constructor parameters, unless the
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
+<div class="title">Sharing state with test class constructors</div>
+<div class="paragraph">
+<p>If a constructor parameter depends on state that is set up by another callback of your
+extension, such as <code>beforeAll()</code>, see
+<a href="keeping-state-in-extensions.html#constructor-parameters" class="xref page">Sharing State with Test Class Constructors</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
 <div class="title">Parameter resolution for methods called from extensions</div>
 <div class="paragraph">
 <p>Other extensions can also leverage registered <code>ParameterResolvers</code> for method and

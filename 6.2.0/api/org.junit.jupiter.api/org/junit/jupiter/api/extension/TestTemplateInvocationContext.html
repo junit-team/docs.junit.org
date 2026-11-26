@@ -66,6 +66,7 @@ loadScripts(document, 'script');</script>
 <li><a href="#getDisplayName(int)" tabindex="0">getDisplayName(int)</a></li>
 <li><a href="#getAdditionalExtensions()" tabindex="0">getAdditionalExtensions()</a></li>
 <li><a href="#prepareInvocation(org.junit.jupiter.api.extension.ExtensionContext)" tabindex="0">prepareInvocation(ExtensionContext)</a></li>
+<li><a href="#testSourceUri()" tabindex="0">testSourceUri()</a></li>
 </ol>
 </li>
 </ol>
@@ -126,6 +127,11 @@ template</a>.
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#prepareInvocation(org.junit.jupiter.api.extension.ExtensionContext)" class="member-name-link">prepareInvocation</a><wbr>(<a href="ExtensionContext.html" title="interface in org.junit.jupiter.api.extension">ExtensionContext</a>&nbsp;context)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
 <div class="block">Prepare the imminent invocation of the test template.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="https://jspecify.dev/docs/api/org/jspecify/annotations/Nullable.html" title="class or interface in org.jspecify.annotations" class="external-link">@Nullable</a> <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/net/URI.html" title="class or interface in java.net" class="external-link">URI</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#testSourceUri()" class="member-name-link">testSourceUri</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
+<div class="block">Get the custom test source <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/net/URI.html" title="class or interface in java.net" class="external-link"><code>URI</code></a> for this invocation.</div>
 </div>
 </div>
 </div>
@@ -202,6 +208,28 @@ or for retrieval by other extensions.</div>
 <dd><code>context</code> - the invocation-level extension context</dd>
 <dt>Since:</dt>
 <dd>5.13</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="testSourceUri()">
+<h3>testSourceUri</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#EXPERIMENTAL" title="class or interface in org.apiguardian.api" class="external-link">EXPERIMENTAL</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="6.2")
+</span><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="https://jspecify.dev/docs/api/org/jspecify/annotations/Nullable.html" title="class or interface in org.jspecify.annotations" class="external-link">@Nullable</a> <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/net/URI.html" title="class or interface in java.net" class="external-link">URI</a></span>&nbsp;<span class="element-name">testSourceUri</span>()</div>
+<div class="block">Get the custom test source <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/net/URI.html" title="class or interface in java.net" class="external-link"><code>URI</code></a> for this invocation.
+
+<p>The default implementation returns <code>null</code>, in which case the
+framework generates the test source based on the <code>@TestTemplate</code>
+method.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the custom test source <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/net/URI.html" title="class or interface in java.net" class="external-link"><code>URI</code></a> for this invocation; may be
+<code>null</code></dd>
+<dt>Since:</dt>
+<dd>6.2</dd>
 </dl>
 </div>
 </section>
