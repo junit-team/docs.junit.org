@@ -1041,6 +1041,14 @@ required arguments in a method signature.</p>
 <style>
 /* Touch devices have no keyboard for the shortcut. Pagefind hides its other keyboard hints under the same condition. */
 @media (hover: none) { #search-field .pf-trigger-shortcut { display: none !important } }
+/* Pagefind cuts excerpts off after a single line. Its CSS resets all properties of its elements, hence !important. */
+pagefind-modal .pf-result-excerpt, pagefind-modal .pf-heading-excerpt {
+  white-space: normal !important;
+  display: -webkit-box !important;
+  -webkit-box-orient: vertical !important;
+  -webkit-line-clamp: 3 !important;
+  line-clamp: 3 !important;
+}
 </style>
 <script id="pagefind-ui-script" src="../pagefind/pagefind-component-ui.js" data-component="JUnit" data-version="6.0.2"></script>
 <script>
@@ -1051,7 +1059,7 @@ required arguments in a method signature.</p>
   var script = document.getElementById('pagefind-ui-script')
   var bundlePath = new URL('.', script.src).pathname
   field.innerHTML =
-    '<pagefind-config bundle-path="' + bundlePath + '"></pagefind-config>' +
+    '<pagefind-config bundle-path="' + bundlePath + '" excerpt-length="40"></pagefind-config>' +
     '<pagefind-modal-trigger placeholder="Search" style="display: block"></pagefind-modal-trigger>' +
     '<pagefind-modal>' +
     '<pagefind-modal-header><pagefind-input></pagefind-input></pagefind-modal-header>' +
