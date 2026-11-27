@@ -599,6 +599,10 @@ FQCN is exactly <code>org.example.MyCustomImpl</code> or <code>org.example.Their
 <script async src="../../_/js/vendor/highlight.js"></script>
 <script async src="../../_/js/vendor/tabs.js" data-sync-storage-key="preferred-code-language"></script>
 <link rel="stylesheet" href="../../pagefind/pagefind-component-ui.css">
+<style>
+/* Touch devices have no keyboard for the shortcut. Pagefind hides its other keyboard hints under the same condition. */
+@media (hover: none) { #search-field .pf-trigger-shortcut { display: none !important } }
+</style>
 <script id="pagefind-ui-script" src="../../pagefind/pagefind-component-ui.js" data-component="JUnit" data-version="6.1.0"></script>
 <script>
 ;(function () {
